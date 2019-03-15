@@ -1,0 +1,57 @@
+ManifestFileVersion: 0
+CRC: 1549843875
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d51505f6b77cb931df82bc8d15de624a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/fodder/eye/eye_R_19@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_2@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_16@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_13@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_12@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_0@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_3@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_14@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_6@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_3@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_15@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_16@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_10@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_11@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_4@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_14@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_9@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_4@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_12@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_17@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_5@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_8@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_9@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_1@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_7@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_2@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_15@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_18@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_8@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_7@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_0@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_19@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_13@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_11@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_1@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_18@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_6@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_17@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_R_10@2x.png
+- Assets/Res/Atlas/fodder/eye/eye_L_5@2x.png
+Dependencies: []

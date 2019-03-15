@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 698771456
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2658c1d4f88aa6fe6f09e5aea9f73386
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/fodder/headwear/headwear_12@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_7@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_9@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_3@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_2@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_0@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_13@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_1@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_11@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_4@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_10@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_8@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_6@2x.png
+- Assets/Res/Atlas/fodder/headwear/headwear_5@2x.png
+Dependencies: []

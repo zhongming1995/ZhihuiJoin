@@ -1,0 +1,97 @@
+ManifestFileVersion: 0
+CRC: 294122534
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 55f586af25f8a8a3f4a3508f5509cb53
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/ui/splice_board_hat_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_red2_color@3x.png
+- Assets/Res/Atlas/ui/draw_board_zoom_icon@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_bluecontrol1_slider@3x.png
+- Assets/Res/Atlas/ui/splice_board_yellow_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_grass2_color@3x.png
+- Assets/Res/Atlas/ui/draw_board_crayon2_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_hat2_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_green2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_mouse2_tool@3x.png
+- Assets/Res/Atlas/ui/splice_finsh_back_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_blue_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_dblue2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_black_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_body2_tool@2x.png
+- Assets/Res/Atlas/ui/splice_board_purple2_color@3x.png
+- Assets/Res/Atlas/ui/splice_home_item_bg@3x.png
+- Assets/Res/Atlas/ui/splice_board_green_color@3x.png
+- Assets/Res/Atlas/ui/draw_board_pencil2_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_eraser_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_official_bg@3x.png
+- Assets/Res/Atlas/ui/splice_board_shoes2_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_rainbow2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_decorate2_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_yellowcontrol1_slider@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_bg@3x.png
+- Assets/Res/Atlas/ui/draw_board_pencil_botton@3x.png
+- Assets/Res/Atlas/ui/splice_last_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_yellow2_color@3x.png
+- Assets/Res/Atlas/ui/splice_finsh_download_bg@3x.png
+- Assets/Res/Atlas/ui/splice_board_head_tool@2x.png
+- Assets/Res/Atlas/ui/draw_board_certain_icon@3x.png
+- Assets/Res/Atlas/ui/splice_board_hair_tool@3x.png
+- Assets/Res/Atlas/ui/splice_finsh_download_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_bluecontrol2_slider@3x.png
+- Assets/Res/Atlas/ui/splice_board_brown_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_colorpick_icon@3x.png
+- Assets/Res/Atlas/ui/splice_board_grey2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_orange2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_eye2_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_orange_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_head2_tool@2x.png
+- Assets/Res/Atlas/ui/splice_board_grass_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_red_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_yellowcontrol2_slider@3x.png
+- Assets/Res/Atlas/ui/splice_finsh_botton@3x.png
+- Assets/Res/Atlas/ui/draw_board_crayon_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_blue2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_shoes_tool@3x.png
+- Assets/Res/Atlas/ui/draw_board_ai2_botton@3x.png
+- Assets/Res/Atlas/ui/zhihuidraw_bg@3x.png
+- Assets/Res/Atlas/ui/splice_draw_board_bg2@3x.png
+- Assets/Res/Atlas/ui/splice_board_decorate_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_white2_color@3x.png
+- Assets/Res/Atlas/ui/splice_finsh_display_item_bg@3x.png
+- Assets/Res/Atlas/ui/splice_board_pink2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_rainbow_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar2_bg@3x.png
+- Assets/Res/Atlas/ui/splice_board_pink_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_body_tool@2x.png
+- Assets/Res/Atlas/ui/splice_board_brown2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_eraser2_color@3x.png
+- Assets/Res/Atlas/ui/draw_board_ai_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_black2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_hand2_tool@3x.png
+- Assets/Res/Atlas/ui/splice_home_botton@3x.png
+- Assets/Res/Atlas/ui/splice_board_eye_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_purple_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_dblue_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_bluecontrol3_slider@3x.png
+- Assets/Res/Atlas/ui/splice_board_mouse_tool@3x.png
+- Assets/Res/Atlas/ui/splice_board_hair2_tool@3x.png
+- Assets/Res/Atlas/ui/draw_board_delete_icon@3x.png
+- Assets/Res/Atlas/ui/splice_board_white_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_skin_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_grey_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_toolbar_yellowcontrol3_slider@3x.png
+- Assets/Res/Atlas/ui/splice_board_skin2_color@3x.png
+- Assets/Res/Atlas/ui/splice_board_hand_tool@3x.png
+- Assets/Res/Atlas/ui/splice_next_botton@3x.png
+Dependencies: []

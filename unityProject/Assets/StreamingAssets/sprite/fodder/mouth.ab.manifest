@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 35822491
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 75e9111fdae7f3f7a13ca8f2ba07acc2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/fodder/mouth/mouse_14@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_7@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_17@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_12@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_16@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_8@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_18@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_9@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_15@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_11@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_4@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_10@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_5@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_6@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_2@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_1@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_13@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_3@2x.png
+- Assets/Res/Atlas/fodder/mouth/mouse_0@2x.png
+Dependencies: []

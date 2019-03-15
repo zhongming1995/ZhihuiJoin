@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 2990252985
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: eca87dc75f6ddd840e1369211a92d26e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/fodder/hair/hair_5@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_1@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_3@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_4@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_6@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_8@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_9@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_7@2x.png
+- Assets/Res/Atlas/fodder/hair/hair_2@2x.png
+Dependencies: []

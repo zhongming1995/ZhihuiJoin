@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 328692102
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: sprite/fodder/mouth.ab
+      Dependencies: {}
+    Info_1:
+      Name: sprite/fodder/hand.ab
+      Dependencies: {}
+    Info_2:
+      Name: sprite/fodder/headwear.ab
+      Dependencies: {}
+    Info_3:
+      Name: sprite/fodder/hair.ab
+      Dependencies: {}
+    Info_4:
+      Name: sprite/fodder/hat.ab
+      Dependencies: {}
+    Info_5:
+      Name: sprite/fodder/eye.ab
+      Dependencies: {}
+    Info_6:
+      Name: sprite/ui.ab
+      Dependencies: {}
+    Info_7:
+      Name: prefabs/home.ab
+      Dependencies:
+        Dependency_0: sprite/ui.ab
+        Dependency_1: sprite/homeitems.ab
+    Info_8:
+      Name: sprite/homeitems.ab
+      Dependencies: {}
+    Info_9:
+      Name: sprite/bg.ab
+      Dependencies: {}

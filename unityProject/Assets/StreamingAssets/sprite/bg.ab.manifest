@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3044299655
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3b7f2ef52224ee078cb9491b9ec4583c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/bg/splice_finsh_dispplay_bg@3x.png
+- Assets/Res/Atlas/bg/splice_draw_bg@3x.png
+- Assets/Res/Atlas/bg/splice_home_bg@3x.png
+- Assets/Res/Atlas/bg/draw_board_bg@3x.png
+Dependencies: []
