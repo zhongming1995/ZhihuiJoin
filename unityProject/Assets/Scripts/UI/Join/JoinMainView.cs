@@ -15,18 +15,24 @@ public class JoinMainView : MonoBehaviour
     public Image ImgBody;
     public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
-
-    private List<Transform> typeTransList=new List<Transform>();//类型列表
+    public Transform PosLeftTop;
+    public Transform PosRightBottom;
     public Transform conResType;//类型列表的父节点
+    public Slider imageScaleSlider;//控制图片大小的slider
+
+    private List<Transform> typeTransList = new List<Transform>();//类型列表
+
 
     //定义数据变量
+    [HideInInspector]
+    public GameObject curSelectResObj ;
     private int typeCount = 8;//资源类型数量
     private int step = 1;//步骤1-4
-    private int cur_type = 0;//当前选中的资源类型
 
     void Start()
     {
         Init();
+        GameManager.instance.curSelectResType = 0;//默认选择颜色
         TypeButtonClick(0);//初始选中第一个类型
         ShowTypeByStep(step);
         LoadAllResList();
@@ -80,11 +86,16 @@ public class JoinMainView : MonoBehaviour
             step = Mathf.Min(4, step + 1);
             ShowTypeByStep(step);
         });
+
+        imageScaleSlider.onValueChanged.AddListener(delegate
+        {
+            Debug.Log(imageScaleSlider.value);
+        });
     }
 
     private void TypeButtonClick(int n)
     {
-        cur_type = n;
+        GameManager.instance.curSelectResType = n;
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
             if (i==n)
@@ -106,7 +117,7 @@ public class JoinMainView : MonoBehaviour
     {
         if (step==1)
         {
-            cur_type = 0;
+            GameManager.instance.curSelectResType = 0;
             BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -117,7 +128,7 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step==2)
         {
-            cur_type = 1;
+            GameManager.instance.curSelectResType = 1;
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -131,7 +142,7 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step == 3)
         {
-            cur_type = 4;
+            GameManager.instance.curSelectResType = 4;
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -151,7 +162,7 @@ public class JoinMainView : MonoBehaviour
         }
         else if (step == 4)
         {
-            cur_type = 6;
+            GameManager.instance.curSelectResType = 6;
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(false);
             BtnOk.gameObject.SetActive(true);
@@ -165,7 +176,7 @@ public class JoinMainView : MonoBehaviour
                 typeTransList[i].gameObject.SetActive(true);
             }
         }
-        TypeButtonClick(cur_type);
+        TypeButtonClick(GameManager.instance.curSelectResType);
     }
 
     private void LoadAllResList()

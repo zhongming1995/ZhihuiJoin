@@ -41,6 +41,7 @@ namespace GameMgr
 
         public int homeSelectIndex = 0;//选择了那个字母或数字，存放的是下标
         public int resTypeCount = 8;//素材资源种类，目前8种
+        public int curSelectResType = 0;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手7脚
         public Transform Root;
 
         void Awake()
@@ -275,7 +276,7 @@ namespace GameMgr
             }
             for (int i = 0; i < aniHatPathList.Count; i++)
             {
-                hatPathList.Add(AniHandPathList[i]);
+                hatPathList.Add(aniHatPathList[i]);
             }
             resPathList.Add(hatPathList);
             //饰品
