@@ -13,7 +13,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     bool moveSelf = true;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("begin");
         moveSelf = true;
         if (Mathf.Abs(eventData.delta.x) < Mathf.Abs(eventData.delta.y) )
         {
@@ -21,18 +20,26 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
             scrollRect.OnBeginDrag(eventData);
             return;
         }
+        int type = GameManager.instance.curSelectResType;
+        if (type == 6 || type == 7)//手脚
+        {
+            genParent = GameObject.Find("img_draw_bg/draw_panel/group_handleg").transform;
+        }
+        else if (type == 1 || type == 2 || type == 3)
+        {
+            genParent = GameObject.Find("img_draw_bg/draw_panel/group_eyemouthhair").transform;
+        }
+        else if (type == 4 || type == 5)
+        {
+            genParent = GameObject.Find("img_draw_bg/draw_panel/group_hatheadwear").transform;
+        }
         GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
         obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex());
-        //int i = GameManager.instance.curSelectResType;
-        //int j = transform.GetSiblingIndex();
-       // string path = GameManager.instance.resPathList[i][j];
-        //UIHelper.instance.SetImage(path, obj.GetComponent<Image>(), true);
         eventData.pointerDrag = obj;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("drag");
         if (moveSelf == false)
         {
             scrollRect.OnDrag(eventData);
@@ -41,7 +48,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("end");
         if (moveSelf == false)
         {
             scrollRect.OnEndDrag(eventData);
@@ -52,7 +58,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     void Start()
     {
         scrollRect = transform.GetComponentInParent<ScrollRect>();
-        genParent = GameObject.Find("img_draw_bg/draw_panel").transform;
     }
 
     // Update is called once per frame

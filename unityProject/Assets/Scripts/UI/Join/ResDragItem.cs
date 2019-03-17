@@ -27,7 +27,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -37,7 +36,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         transform.position = globalMousePos;
         bool r = InCorrectArea();
-        Debug.Log(r.ToString());
         if (r)
         {
             SetState(true);
@@ -50,7 +48,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("drag item end");
+        joinMainView.SetSelectResObj(transform);
         if (InCorrectArea())
         {
             return;
@@ -63,7 +61,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        joinMainView.curSelectResObj = gameObject;
+        joinMainView.SetSelectResObj(transform);
     }
 
     public void SetState(bool enable)
@@ -89,6 +87,4 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         return false;
     }
-
-    
 }

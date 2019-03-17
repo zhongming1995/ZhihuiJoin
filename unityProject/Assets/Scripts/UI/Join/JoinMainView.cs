@@ -25,7 +25,7 @@ public class JoinMainView : MonoBehaviour
 
     //定义数据变量
     [HideInInspector]
-    public GameObject curSelectResObj ;
+    private Transform curSelectResObj ;
     private int typeCount = 8;//资源类型数量
     private int step = 1;//步骤1-4
 
@@ -90,7 +90,21 @@ public class JoinMainView : MonoBehaviour
         imageScaleSlider.onValueChanged.AddListener(delegate
         {
             Debug.Log(imageScaleSlider.value);
+            curSelectResObj.transform.localScale = new Vector3(0.5f + imageScaleSlider.value, 0.5f + imageScaleSlider.value, 0);
         });
+
+    }
+
+    public void SetSelectResObj(Transform t)
+    {
+        if (t == null)
+        {
+            return;
+        }
+        curSelectResObj = t;
+        float scale = t.localScale.x;
+        imageScaleSlider.value = scale - 0.5f; ;
+        t.SetAsLastSibling();
     }
 
     private void TypeButtonClick(int n)
