@@ -1,0 +1,81 @@
+ManifestFileVersion: 0
+CRC: 241342759
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8ae3f77ce5c3276f61b294e0e83a5d2c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/small_fodder/leg/leg_R_2_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_23_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_8_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_19_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_21_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_15_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_4_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_3_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_8_icon.png
+- Assets/Res/Atlas/small_fodder/leg/number_leg_L_1_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_1_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_6_icon.png
+- Assets/Res/Atlas/small_fodder/leg/animal_leg_R_1_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_10_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_4_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_11_icon.png
+- Assets/Res/Atlas/small_fodder/leg/number_leg_L_0_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_25_icon.png
+- Assets/Res/Atlas/small_fodder/leg/animal_leg_R_0_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_17_icon.png
+- Assets/Res/Atlas/small_fodder/leg/animal_leg_L_2_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_1_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_21_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_14_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_23_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_9_icon.png
+- Assets/Res/Atlas/small_fodder/leg/number_leg_R_1_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_3_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_16_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_18_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_12_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_17_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_19_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_6_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_11_icon.png
+- Assets/Res/Atlas/small_fodder/leg/number_leg_R_2_icon.png
+- Assets/Res/Atlas/small_fodder/leg/animal_leg_R_2_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_24_icon.png
+- Assets/Res/Atlas/small_fodder/leg/animal_leg_L_1_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_18_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_7_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_22_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_22_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_5_icon.png
+- Assets/Res/Atlas/small_fodder/leg/animal_leg_L_0_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_13_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_25_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_0_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_0_icon.png
+- Assets/Res/Atlas/small_fodder/leg/number_leg_L_2_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_10_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_7_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_12_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_2_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_24_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_13_icon.png
+- Assets/Res/Atlas/small_fodder/leg/number_leg_R_0_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_20_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_20_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_15_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_9_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_14_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_L_16_icon.png
+- Assets/Res/Atlas/small_fodder/leg/leg_R_5_icon.png
+Dependencies: []

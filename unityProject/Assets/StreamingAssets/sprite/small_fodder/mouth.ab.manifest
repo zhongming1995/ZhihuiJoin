@@ -1,0 +1,45 @@
+ManifestFileVersion: 0
+CRC: 3909524325
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: cf427e159c3a30072ded79ed815357c8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/small_fodder/mouth/mouse_12_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_14_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_9_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_16_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_19_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_11_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_5_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/number_mouse_1_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_0_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/animal_mouse_1_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_21_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_22_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/number_mouse_0_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_3_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_13_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_7_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_2_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_4_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_8_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_10_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/animal_mouse_0_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_15_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_6_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_1_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_20_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_18_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/animal_mouse_2_icon.png
+- Assets/Res/Atlas/small_fodder/mouth/mouse_17_icon.png
+Dependencies: []

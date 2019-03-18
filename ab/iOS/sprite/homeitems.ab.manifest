@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 3800249012
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 93125870941dc1ee839242845e091d3d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/homeitems/splice_home_9_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_23_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_number_0_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_14_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_11_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_number_2_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_10_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_22_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_24_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_8_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_19_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_7_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_5_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_1_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_20_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_4_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_13_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_3_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_21_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_2_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_15_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_25_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_18_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_12_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_number_1_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_0_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_16_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_17_pic.png
+- Assets/Res/Atlas/homeitems/splice_home_6_pic.png
+Dependencies: []

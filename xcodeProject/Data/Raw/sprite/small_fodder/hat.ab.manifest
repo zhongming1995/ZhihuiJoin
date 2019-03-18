@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 270261197
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1185d522a213fa003bb41e5ebf316848
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/small_fodder/hat/hat_0_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_12_icon.png
+- Assets/Res/Atlas/small_fodder/hat/number_hat_0_icon.png
+- Assets/Res/Atlas/small_fodder/hat/animal_hat_1_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_13_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_10_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_4_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_6_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_3_icon.png
+- Assets/Res/Atlas/small_fodder/hat/animal_hat_2_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_2_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_1_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_11_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_7_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_8_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_9_icon.png
+- Assets/Res/Atlas/small_fodder/hat/animal_hat_0_icon.png
+- Assets/Res/Atlas/small_fodder/hat/hat_5_icon.png
+Dependencies: []

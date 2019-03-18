@@ -1,0 +1,81 @@
+ManifestFileVersion: 0
+CRC: 1659015117
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6a2dc6113baeeff486db7bc2d9765271
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/fodder/hand/hand_L_17.png
+- Assets/Res/Atlas/fodder/hand/hand_R_12.png
+- Assets/Res/Atlas/fodder/hand/hand_L_9.png
+- Assets/Res/Atlas/fodder/hand/animal_hand_L_2.png
+- Assets/Res/Atlas/fodder/hand/hand_R_11.png
+- Assets/Res/Atlas/fodder/hand/hand_L_8.png
+- Assets/Res/Atlas/fodder/hand/number_hand_R_0.png
+- Assets/Res/Atlas/fodder/hand/hand_R_8.png
+- Assets/Res/Atlas/fodder/hand/hand_R_16.png
+- Assets/Res/Atlas/fodder/hand/hand_R_19.png
+- Assets/Res/Atlas/fodder/hand/number_hand_L_0.png
+- Assets/Res/Atlas/fodder/hand/hand_L_3.png
+- Assets/Res/Atlas/fodder/hand/hand_L_21.png
+- Assets/Res/Atlas/fodder/hand/hand_R_3.png
+- Assets/Res/Atlas/fodder/hand/hand_R_15.png
+- Assets/Res/Atlas/fodder/hand/hand_R_20.png
+- Assets/Res/Atlas/fodder/hand/hand_R_13.png
+- Assets/Res/Atlas/fodder/hand/hand_R_10.png
+- Assets/Res/Atlas/fodder/hand/hand_R_5.png
+- Assets/Res/Atlas/fodder/hand/hand_R_0.png
+- Assets/Res/Atlas/fodder/hand/hand_R_1.png
+- Assets/Res/Atlas/fodder/hand/hand_R_18.png
+- Assets/Res/Atlas/fodder/hand/hand_L_11.png
+- Assets/Res/Atlas/fodder/hand/hand_L_20.png
+- Assets/Res/Atlas/fodder/hand/hand_L_23.png
+- Assets/Res/Atlas/fodder/hand/number_hand_L_1.png
+- Assets/Res/Atlas/fodder/hand/animal_hand_R_1.png
+- Assets/Res/Atlas/fodder/hand/hand_L_10.png
+- Assets/Res/Atlas/fodder/hand/hand_L_7.png
+- Assets/Res/Atlas/fodder/hand/hand_L_2.png
+- Assets/Res/Atlas/fodder/hand/hand_R_23.png
+- Assets/Res/Atlas/fodder/hand/hand_L_25.png
+- Assets/Res/Atlas/fodder/hand/hand_R_17.png
+- Assets/Res/Atlas/fodder/hand/hand_L_18.png
+- Assets/Res/Atlas/fodder/hand/hand_R_7.png
+- Assets/Res/Atlas/fodder/hand/hand_L_15.png
+- Assets/Res/Atlas/fodder/hand/number_hand_R_2.png
+- Assets/Res/Atlas/fodder/hand/hand_R_14.png
+- Assets/Res/Atlas/fodder/hand/hand_R_21.png
+- Assets/Res/Atlas/fodder/hand/hand_R_4.png
+- Assets/Res/Atlas/fodder/hand/hand_L_13.png
+- Assets/Res/Atlas/fodder/hand/hand_R_6.png
+- Assets/Res/Atlas/fodder/hand/hand_R_24.png
+- Assets/Res/Atlas/fodder/hand/hand_L_6.png
+- Assets/Res/Atlas/fodder/hand/hand_L_5.png
+- Assets/Res/Atlas/fodder/hand/hand_L_0.png
+- Assets/Res/Atlas/fodder/hand/hand_R_9.png
+- Assets/Res/Atlas/fodder/hand/animal_hand_L_1.png
+- Assets/Res/Atlas/fodder/hand/hand_R_22.png
+- Assets/Res/Atlas/fodder/hand/hand_R_25.png
+- Assets/Res/Atlas/fodder/hand/number_hand_L_2.png
+- Assets/Res/Atlas/fodder/hand/animal_hand_R_0.png
+- Assets/Res/Atlas/fodder/hand/animal_hand_R_2.png
+- Assets/Res/Atlas/fodder/hand/hand_L_1.png
+- Assets/Res/Atlas/fodder/hand/hand_L_12.png
+- Assets/Res/Atlas/fodder/hand/hand_R_2.png
+- Assets/Res/Atlas/fodder/hand/hand_L_16.png
+- Assets/Res/Atlas/fodder/hand/number_hand_R_1.png
+- Assets/Res/Atlas/fodder/hand/hand_L_14.png
+- Assets/Res/Atlas/fodder/hand/hand_L_24.png
+- Assets/Res/Atlas/fodder/hand/hand_L_22.png
+- Assets/Res/Atlas/fodder/hand/hand_L_4.png
+- Assets/Res/Atlas/fodder/hand/animal_hand_L_0.png
+- Assets/Res/Atlas/fodder/hand/hand_L_19.png
+Dependencies: []
