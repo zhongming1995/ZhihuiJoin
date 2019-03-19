@@ -31,6 +31,11 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         UIHelper.instance.SetImage(path, image, true);
     }
 
+    void JoinMainView_ChangeBackBtnSateDelegate(bool show)
+    {
+    }
+
+
     public void OnBeginDrag(PointerEventData eventData)
     {
     }
@@ -53,15 +58,10 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        joinMainView.SetSelectResObj(transform);
+        joinMainView.ShowBackBtn(false);
         if (InCorrectArea())
         {
-
-            Debug.Log("===tranform:"+rt.anchoredPosition.x+","+rt.anchoredPosition.y);
-            Debug.Log("---leftTop:" + anchorLeftTop.x+","+anchorLeftTop.y);
-            Debug.Log("---rightBottom:" + rightBottom.x + "," + rightBottom.y);
-            Debug.Log("transform.width:" + rt.sizeDelta.x); 
-            Debug.Log("transform.height:" + rt.sizeDelta.y);
+            joinMainView.SetSelectResObj(transform);
             float posx = rt.anchoredPosition.x;
             float posy = rt.anchoredPosition.y;
             if (rt.anchoredPosition.x>anchorLeftTop.x&&rt.anchoredPosition.x<(anchorLeftTop.x+rt.sizeDelta.x/2))
@@ -84,12 +84,12 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 Debug.Log("上压线");
                 posy = anchorLeftTop.y - rt.sizeDelta.y / 2;
             }
-            //rt.anchoredPosition = new Vector2(posx, posy);
             rt.DOAnchorPos(new Vector2(posx, posy), 0.5f);
             return;
         }
         else
         {
+            joinMainView.SetSelectResObj(null);
             Destroy(gameObject);
         }
     }
@@ -97,6 +97,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void OnPointerClick(PointerEventData eventData)
     {
         joinMainView.SetSelectResObj(transform);
+        joinMainView.ShowBackBtn(false);
     }
 
     public void SetState(bool enable)

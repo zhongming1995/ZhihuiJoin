@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Helper;
 using GameMgr;
+using DG.Tweening;
 
 public class JoinMainView : MonoBehaviour
 {
     public Button BtnBack;
+    public Button BtnBackCheck;
     public Button BtnPre;
     public Button BtnNext;
     public Button BtnOk;
@@ -17,8 +19,10 @@ public class JoinMainView : MonoBehaviour
     public List<Transform> ResContentList;//各类素材容器-父节点
     public Transform PosLeftTop;
     public Transform PosRightBottom;
-    public Transform conResType;//类型列表的父节点
-    public Slider imageScaleSlider;//控制图片大小的slider
+    public Transform ConResType;//类型列表的父节点
+    public Slider ImageScaleSlider;//控制图片大小的slider
+    public Slider PenScaleSlider;//控制画笔大小的slider
+    public Transform ResListTrans;//抽屉动画的节点
 
     private List<Transform> typeTransList = new List<Transform>();//类型列表
 
@@ -50,13 +54,22 @@ public class JoinMainView : MonoBehaviour
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
 
-        //加载所有类型
+        //未选择素材时，滑块不出现
+        if (curSelectResObj==null)
+        {
+            ImageScaleSlider.gameObject.SetActive(false);
+        }
+
+        //返回按钮显示半透明
+        ShowBackBtn(false);
+
+        //加载所有类型素材
         string typeUnSelectPath = "sprite/ui|splice_type_{0}";
         string typeSelectPath = "sprite/ui|splice_type_{0}_select";
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
             int clickType = i;
-            Transform t = UIHelper.instance.LoadPrefab("prefabs/join|res_type_item", conResType,Vector3.zero,Vector3.one,false).transform;
+            Transform t = UIHelper.instance.LoadPrefab("prefabs/join|res_type_item", ConResType,Vector3.zero,Vector3.one,false).transform;
             UIHelper.instance.SetImage(string.Format(typeSelectPath, i.ToString()), t.GetChild(0).GetComponent<Image>(), true);
             UIHelper.instance.SetImage(string.Format(typeUnSelectPath, i.ToString()), t.GetChild(1).GetComponent<Image>(), true);
             t.GetComponent<Button>().onClick.AddListener(delegate
@@ -67,8 +80,19 @@ public class JoinMainView : MonoBehaviour
         }
     }
 
+    public void ShowBackBtn(bool show)
+    {
+        BtnBack.gameObject.SetActive(show);
+        BtnBackCheck.gameObject.SetActive(!show);
+    }
+
     private void AddClickEvent()
     {
+        BtnBackCheck.onClick.AddListener(delegate
+        {
+            ShowBackBtn(true);
+        });
+
         BtnBack.onClick.AddListener(delegate
         {
             UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);
@@ -79,51 +103,77 @@ public class JoinMainView : MonoBehaviour
         {
             step = Mathf.Max(1, step - 1);
             ShowTypeByStep(step);
+            ShowBackBtn(false);
         });
 
         BtnNext.onClick.AddListener(delegate
         {
             step = Mathf.Min(4, step + 1);
             ShowTypeByStep(step);
+            ShowBackBtn(false);
         });
 
-        imageScaleSlider.onValueChanged.AddListener(delegate
+        ImageScaleSlider.onValueChanged.AddListener(delegate
         {
-            Debug.Log(imageScaleSlider.value);
-            curSelectResObj.transform.localScale = new Vector3(0.5f + imageScaleSlider.value, 0.5f + imageScaleSlider.value, 0);
+            ShowBackBtn(false);
+           
+            curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
         });
 
     }
 
     public void SetSelectResObj(Transform t)
     {
+        curSelectResObj = t;
         if (t == null)
         {
+            ImageScaleSlider.gameObject.SetActive(false);
             return;
         }
-        curSelectResObj = t;
+        if (ImageScaleSlider.gameObject.activeSelf == false)
+        {
+            ImageScaleSlider.gameObject.SetActive(true);
+        }
         float scale = t.localScale.x;
-        imageScaleSlider.value = scale - 0.5f; ;
+        ImageScaleSlider.value = scale - 0.5f; ;
         t.SetAsLastSibling();
     }
 
     private void TypeButtonClick(int n)
     {
-        GameManager.instance.curSelectResType = n;
-        for (int i = 0; i < GameManager.instance.resTypeCount; i++)
+        ShowBackBtn(false);
+
+        Sequence seq = DOTween.Sequence();
+        seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
+        seq.InsertCallback(0.2f, () =>
         {
-            if (i==n)
+            GameManager.instance.curSelectResType = n;
+            for (int i = 0; i < GameManager.instance.resTypeCount; i++)
             {
-                typeTransList[i].GetChild(0).gameObject.SetActive(true);
-                typeTransList[i].GetChild(1).gameObject.SetActive(false);
-                ResScrollViewList[i].gameObject.SetActive(true);
+                if (i == n)
+                {
+                    typeTransList[i].GetChild(0).gameObject.SetActive(true);
+                    typeTransList[i].GetChild(1).gameObject.SetActive(false);
+                    ResScrollViewList[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    typeTransList[i].GetChild(0).gameObject.SetActive(false);
+                    typeTransList[i].GetChild(1).gameObject.SetActive(true);
+                    ResScrollViewList[i].gameObject.SetActive(false);
+                }
             }
-            else
-            {
-                typeTransList[i].GetChild(0).gameObject.SetActive(false);
-                typeTransList[i].GetChild(1).gameObject.SetActive(true);
-                ResScrollViewList[i].gameObject.SetActive(false);
-            }
+        });
+        seq.Append(ResListTrans.DOLocalMoveX(69, 0.2f));
+        if (n==0)//选择画笔
+        {
+            PenScaleSlider.gameObject.SetActive(true);
+            ImageScaleSlider.gameObject.SetActive(false);
+        }
+        else
+        {
+            PenScaleSlider.gameObject.SetActive(false);
+            SetSelectResObj(curSelectResObj);
         }
     }
 
@@ -190,6 +240,7 @@ public class JoinMainView : MonoBehaviour
                 typeTransList[i].gameObject.SetActive(true);
             }
         }
+
         TypeButtonClick(GameManager.instance.curSelectResType);
     }
 
@@ -214,6 +265,11 @@ public class JoinMainView : MonoBehaviour
                         imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
                     }
                     UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
+                    if (i==0)
+                    {
+                        string selectPath = imgPath + "_select";
+                        UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
+                    }
                 }
                 else
                 {
