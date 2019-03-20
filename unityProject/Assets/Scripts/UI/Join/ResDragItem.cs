@@ -6,6 +6,7 @@ using GameMgr;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UI.Data;
 
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
 {
@@ -16,6 +17,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private Vector2 anchorLeftTop;
     private Vector2 anchorRightBottom;
     private RectTransform rt;
+    public PartType partType;
 
     public void InitItem(int index)
     {
@@ -27,6 +29,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         rt = transform.GetComponent<RectTransform>();
         image = transform.GetComponent<Image>();
         int type = GameManager.instance.curSelectResType;
+        partType = (PartType)type;
         string path = GameManager.instance.resPathList[type][index];
         UIHelper.instance.SetImage(path, image, true);
     }

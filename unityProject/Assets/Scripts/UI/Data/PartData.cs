@@ -1,0 +1,30 @@
+﻿using System;
+namespace UI.Data
+{
+    public enum PartType {
+        Body = 0,
+        Eye = 1,
+        Mouth = 2,
+        Hair = 3,
+        Hat = 4,
+        HeadWear = 5,
+        Hand = 6,
+        Leg = 7
+    }
+
+    [Serializable]
+    public class PartData
+    {
+        private PartType type;//部位类型
+        private byte[] imgBytes;//图片转byte数组
+        private float[] pos;//在画布上的局部坐标
+        private float[] scale;//缩放
+        public PartData(PartType _type,byte[] _imgBytes,float[] _pos,float[] _scale)
+        {
+            this.type = _type;
+            this.imgBytes = _imgBytes;
+            this.pos = _pos;
+            this.scale = _scale;
+        }
+    }
+}

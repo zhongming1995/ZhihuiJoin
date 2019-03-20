@@ -3,3 +3,6 @@ unityProject/.SD_Store
 unityProject/Assets/.DS_Store
 unityProject/Library
 unityProject/Logs
+unityProject/obj
+unityProject/Temp
+

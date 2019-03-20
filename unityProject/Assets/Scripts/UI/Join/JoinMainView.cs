@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Helper;
 using GameMgr;
 using DG.Tweening;
+using DataMgr;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class JoinMainView : MonoBehaviour
     public Button BtnOk;
     public Image ImgReference;
     public Image ImgBody;
+    public Transform DrawPanel;//画布
     public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
     public Transform PosLeftTop;
@@ -111,6 +113,19 @@ public class JoinMainView : MonoBehaviour
             step = Mathf.Min(4, step + 1);
             ShowTypeByStep(step);
             ShowBackBtn(false);
+        });
+
+        BtnOk.onClick.AddListener(delegate
+        {
+            if (DataManager.instance==null)
+            {
+                Debug.Log("nukk1");
+            }
+            if (DrawPanel==null)
+            {
+                Debug.Log("ull2");
+            }
+            DataManager.instance.TransformToPartsList(DrawPanel);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate
