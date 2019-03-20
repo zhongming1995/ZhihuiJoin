@@ -18,8 +18,9 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private Vector2 anchorRightBottom;
     private RectTransform rt;
     public PartType partType;
+    bool isInit = false;//是否获取了需要的控件
 
-    public void InitItem(int index)
+    void Init()
     {
         joinMainView = GetComponentInParent<JoinMainView>();
         leftTop = joinMainView.PosLeftTop.position;
@@ -28,19 +29,25 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         anchorRightBottom = joinMainView.PosRightBottom.GetComponent<RectTransform>().anchoredPosition;
         rt = transform.GetComponent<RectTransform>();
         image = transform.GetComponent<Image>();
+        isInit = true;
+
+    }
+
+    public void InitItem(int index)
+    {
+        Init();
         int type = GameManager.instance.curSelectResType;
         partType = (PartType)type;
         string path = GameManager.instance.resPathList[type][index];
         UIHelper.instance.SetImage(path, image, true);
     }
 
-    void JoinMainView_ChangeBackBtnSateDelegate(bool show)
-    {
-    }
-
-
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (isInit==false)
+        {
+            Init();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)

@@ -27,7 +27,7 @@ namespace Common.PreImprot.Editor
                     textureImporter.spriteImportMode = SpriteImportMode.Single;
                     textureImporter.filterMode = FilterMode.Bilinear;
                     textureImporter.maxTextureSize = 2048;
-                    textureImporter.isReadable = false;
+                    //textureImporter.isReadable = false;
 
                     textureImporter.ClearPlatformTextureSettings("android");
                     textureImporter.ClearPlatformTextureSettings("iPhone");

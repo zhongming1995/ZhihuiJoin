@@ -28,12 +28,19 @@ namespace DataMgr
                 Transform t = trans.GetChild(i);
                 for (int j = 0; j < t.childCount; j++)
                 {
+                    Debug.Log("i:" + i + ",j" + j);
                     Transform img = t.GetChild(j);
                     PartType type = img.GetComponent<ResDragItem>().partType;
                     byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
+                    for (int ii = 0; ii < b.Length; ii++)
+                    {
+                        Debug.Log(b);
+                    }
                     float[] pos = new float[] { img.localPosition.x, img.localPosition.y, img.localPosition.z };
+                    Debug.Log("pos:"+pos[0] + "|" + pos[1] + "|" + pos[2]);
                     float[] scale = new float[] { img.localScale.x, img.localScale.y, img.localScale.z };
                     PartData p = new PartData(type,b, pos, scale);
+                    Debug.Log("scale:" + scale[0] + "|" + scale[1] + "|" + scale[2]);
                     parts.Add(p);
                 }
             }
