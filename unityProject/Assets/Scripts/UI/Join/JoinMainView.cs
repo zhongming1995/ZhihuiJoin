@@ -117,15 +117,10 @@ public class JoinMainView : MonoBehaviour
 
         BtnOk.onClick.AddListener(delegate
         {
-            if (DataManager.instance==null)
-            {
-                Debug.Log("nukk1");
-            }
-            if (DrawPanel==null)
-            {
-                Debug.Log("ull2");
-            }
-            DataManager.instance.TransformToPartsList(DrawPanel);
+            gameObject.SetActive(false);
+            UIHelper.instance.LoadPrefab("prefabs/display|display_view", GameManager.instance.Root, Vector3.zero, Vector3.one, true);
+
+            //DataManager.instance.TransformToPartsList(DrawPanel);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate

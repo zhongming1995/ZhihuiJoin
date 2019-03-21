@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UI.Data;
 using UnityEngine.UI;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace DataMgr
 {
     public class DataManager : SingletonMono<DataManager>
     {
-        string personFilePath = "filepath temp";
+        string personFilePath = "";
         List<PartData> parts = new List<PartData>();
 
         void Awake()
         {
             instance = this;
+            DeserializePersonData();
         }
 
         /// <summary>
@@ -32,10 +36,7 @@ namespace DataMgr
                     Transform img = t.GetChild(j);
                     PartType type = img.GetComponent<ResDragItem>().partType;
                     byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
-                    for (int ii = 0; ii < b.Length; ii++)
-                    {
-                        Debug.Log(b);
-                    }
+                    Debug.Log("length:"+b.Length);
                     float[] pos = new float[] { img.localPosition.x, img.localPosition.y, img.localPosition.z };
                     Debug.Log("pos:"+pos[0] + "|" + pos[1] + "|" + pos[2]);
                     float[] scale = new float[] { img.localScale.x, img.localScale.y, img.localScale.z };
@@ -45,6 +46,34 @@ namespace DataMgr
                 }
             }
             Debug.Log("个数：" + parts.Count);
+            SerializePersonData();
+        }
+
+        public void SerializePersonData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, parts);
+            stream.Close();
+        }
+
+        public void DeserializePersonData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<PartData> part = (List<PartData>)formatter.Deserialize(stream);
+            stream.Close();
+
+            //Texture2D t = new Texture2D(2048,1536);
+            //t.LoadImage(part.ImgBytes);
+            //Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0, 0));
+            //imgae.sprite = s;
+            Debug.Log(part[0].Pos[0] + "," + part[0].Pos[1] + "," + part[0].Pos[2]);
+            Debug.Log(part[0].Scale[0] + "," + part[0].Scale[1] + "," + part[0].Scale[2]);
+            Debug.Log(part[1].Pos[0] + "," + part[1].Pos[1] + "," + part[1].Pos[2]);
+            Debug.Log(part[1].Scale[0] + "," + part[1].Scale[1] + "," + part[1].Scale[2]);
+            Debug.Log(part[2].Pos[0] + "," + part[2].Pos[1] + "," + part[2].Pos[2]);
+            Debug.Log(part[2].Scale[0] + "," + part[2].Scale[1] + "," + part[2].Scale[2]);
         }
     }
 }

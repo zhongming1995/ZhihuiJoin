@@ -48,10 +48,20 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             Init();
         }
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curSelectResType==0)
+        {
+            return;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curSelectResType == 0)
+        {
+            return;
+        }
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         transform.position = globalMousePos;
@@ -68,6 +78,11 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curSelectResType == 0)
+        {
+            return;
+        }
         joinMainView.ShowBackBtn(false);
         if (InCorrectArea())
         {
@@ -99,6 +114,13 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         else
         {
+            if (partType==PartType.Body)
+            {
+                SetState(true);
+                transform.localPosition = Vector3.zero;
+                //涂色的纹理在这里清空！！！
+                return;
+            }
             joinMainView.SetSelectResObj(null);
             Destroy(gameObject);
         }
@@ -106,6 +128,15 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (isInit==false)
+        {
+            Init();
+        }
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curSelectResType == 0)
+        {
+            return;
+        }
         joinMainView.SetSelectResObj(transform);
         joinMainView.ShowBackBtn(false);
     }

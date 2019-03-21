@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace UI.Data
 {
     public enum PartType {
@@ -19,6 +20,55 @@ namespace UI.Data
         private byte[] imgBytes;//图片转byte数组
         private float[] pos;//在画布上的局部坐标
         private float[] scale;//缩放
+
+        public PartType Type
+        {
+            get
+            {
+                return type;
+            }
+            set
+            {
+                type = value;
+            }
+        }
+
+        public byte[] ImgBytes
+        {
+            get
+            {
+                return imgBytes;
+            }
+            set
+            {
+                imgBytes = value;
+            }
+        }
+
+        public float[] Pos
+        {
+            get
+            {
+                return pos;
+            }
+            set
+            {
+                pos = value;
+            }
+        }
+
+        public float[] Scale
+        {
+            get
+            {
+                return scale;
+            }
+            set
+            {
+                scale = value;
+            }
+        }
+
         public PartData(PartType _type,byte[] _imgBytes,float[] _pos,float[] _scale)
         {
             this.type = _type;
@@ -26,5 +76,6 @@ namespace UI.Data
             this.pos = _pos;
             this.scale = _scale;
         }
+
     }
 }

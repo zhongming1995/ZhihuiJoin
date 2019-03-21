@@ -22,7 +22,13 @@ namespace ResMgr
         {
             return string.Format(@"{0}/{1}", Application.streamingAssetsPath, subPath); 
         }
-        
+
+        public static string GetPersistentDataPath(string subPath)
+        {
+            string path = Application.persistentDataPath;
+            return path;
+        }
+
     }
 }
 

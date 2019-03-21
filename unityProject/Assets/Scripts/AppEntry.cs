@@ -7,11 +7,6 @@ using GameMgr;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
-    void Awake()
-    {
-       
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +16,5 @@ public class AppEntry : SingletonMono<AppEntry>
             //加载第一个页面
             UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root , Vector3.zero, Vector3.one,true);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
