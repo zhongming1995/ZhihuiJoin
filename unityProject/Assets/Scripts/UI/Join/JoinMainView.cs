@@ -25,6 +25,7 @@ public class JoinMainView : MonoBehaviour
     public Slider ImageScaleSlider;//控制图片大小的slider
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
+	public Transform DrawingPanelCanvas;
 
     private List<Transform> typeTransList = new List<Transform>();//类型列表
 
