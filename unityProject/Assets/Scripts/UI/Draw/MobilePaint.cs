@@ -2087,11 +2087,11 @@ namespace Draw_MobilePaint
                     pixel = (texWidth * (ptsy - 1) + ptsx) * 4; // down
 
                     if (lockMaskPixels[pixel] == 0 // this pixel is not used yet
-                        && (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
-                        && (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
-                        && (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
-                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a)))
-						//&&(!CompareThreshold(pixels[pixel+3],0))
+                        //&& (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
+                        //&& (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
+                        //&& (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
+                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a))
+						&&(!CompareThreshold(pixels[pixel+3],0)))
                     {
                         fillPointX.Enqueue(ptsx);
                         fillPointY.Enqueue(ptsy - 1);
@@ -2103,11 +2103,11 @@ namespace Draw_MobilePaint
                 {
                     pixel = (texWidth * ptsy + ptsx + 1) * 4; // right
                     if (lockMaskPixels[pixel] == 0
-                        && (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
-                        && (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
-                         && (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
-                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a)))
-						//&&(!CompareThreshold(pixels[pixel+3],0))
+                       // && (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
+                        //&& (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
+                        //&& (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
+                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a))
+						&&(!CompareThreshold(pixels[pixel+3],0)))
                     {
                         fillPointX.Enqueue(ptsx + 1);
                         fillPointY.Enqueue(ptsy);
@@ -2119,11 +2119,11 @@ namespace Draw_MobilePaint
                 {
                     pixel = (texWidth * ptsy + ptsx - 1) * 4; // left
                     if (lockMaskPixels[pixel] == 0
-                       && (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
-                       && (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
-                       && (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
-                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a)))
-						//&&(!CompareThreshold(pixels[pixel+3],0)))
+                      // && (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
+                       //&& (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
+                      // && (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
+                       	&& (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a))
+						&&(!CompareThreshold(pixels[pixel+3],0)))
                     {
                         fillPointX.Enqueue(ptsx - 1);
                         fillPointY.Enqueue(ptsy);
@@ -2135,11 +2135,11 @@ namespace Draw_MobilePaint
                 {
                     pixel = (texWidth * (ptsy + 1) + ptsx) * 4; // up
                     if (lockMaskPixels[pixel] == 0
-                        && (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
-                        && (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
-                        && (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
-                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a)))
-						//&&(!CompareThreshold(pixels[pixel+3],0)))
+                        //&& (CompareThreshold(pixels[pixel + 0], hitColorR) || CompareThreshold(pixels[pixel + 0], paintColor.r)) // if pixel is same as hit color OR same as paint color
+                        //&& (CompareThreshold(pixels[pixel + 1], hitColorG) || CompareThreshold(pixels[pixel + 1], paintColor.g))
+                        //&& (CompareThreshold(pixels[pixel + 2], hitColorB) || CompareThreshold(pixels[pixel + 2], paintColor.b))
+                        && (CompareThreshold(pixels[pixel + 3], hitColorA) || CompareThreshold(pixels[pixel + 3], paintColor.a))
+						&&(!CompareThreshold(pixels[pixel+3],0)))
                     {
                         fillPointX.Enqueue(ptsx);
                         fillPointY.Enqueue(ptsy + 1);
