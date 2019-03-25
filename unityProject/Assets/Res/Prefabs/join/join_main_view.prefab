@@ -217,7 +217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: 0.0000008909335}
+  m_AnchoredPosition: {x: 0.000004703916, y: 0.000030065863}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-5856767105702008140
@@ -749,7 +749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000032498922, y: -0.00007893293}
+  m_AnchoredPosition: {x: -0.0000032498922, y: -0.00003976381}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-5517006659857124610
@@ -897,7 +897,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000008718058, y: 0.0000042996326}
+  m_AnchoredPosition: {x: 0.000008718058, y: -0.00002804956}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6483216585620948818
@@ -2041,7 +2041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000008718058, y: 0.0000042996326}
+  m_AnchoredPosition: {x: 0.000008718058, y: -0.00002804956}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4381965354839122362
@@ -2929,7 +2929,7 @@ Transform:
   m_GameObject: {fileID: 1738111151363309430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 270.2, y: 0, z: -1300}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3347529314598475292}
   m_RootOrder: 1
@@ -3000,7 +3000,7 @@ MonoBehaviour:
   connectBrushStokes: 1
   paintColor:
     serializedVersion: 2
-    rgba: 4289748367
+    rgba: 4278190335
   brushSize: 24
   brushSizeMin: 1
   brushSizeMax: 64
@@ -3009,7 +3009,7 @@ MonoBehaviour:
   textureUpdateSpeed: 0.1
   useAdditiveColors: 0
   brushAlphaStrength: 0.1
-  drawMode: 0
+  drawMode: 1
   useLockArea: 1
   useMaskLayerOnly: 0
   smoothenMaskEdges: 0
@@ -3026,11 +3026,11 @@ MonoBehaviour:
     rgba: 4294967295
   useMaskImage: 0
   maskTex: {fileID: 0}
-  useCustomBrushes: 0
+  useCustomBrushes: 1
   customBrushes:
-  - {fileID: 2800000, guid: be3e2f68053d4634d9a21fcc33a3d997, type: 3}
+  - {fileID: 2800000, guid: fffe2ec80255849cebe8fd7745ea4f91, type: 3}
   overrideCustomBrushColor: 1
-  useCustomBrushAlpha: 0
+  useCustomBrushAlpha: 1
   selectedBrush: 0
   useCustomPatterns: 0
   customPatterns: []
@@ -3047,7 +3047,7 @@ MonoBehaviour:
   userInterface: {fileID: 0}
   hideUIWhilePainting: 0
   debugMode: 0
-  tt: {fileID: 2800000, guid: 2b342de805833499f9b43a695fc33f2b, type: 3}
+  tt: {fileID: 0}
 --- !u!1 &2128787066617001309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,7 +3082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: 0.0000008909335}
+  m_AnchoredPosition: {x: 0.000004703916, y: 0.000030065863}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-4950842652066526911
@@ -4128,7 +4128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000052311847, y: -0.00005852417}
+  m_AnchoredPosition: {x: -0.000052311847, y: -0.0000788388}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6763071815509310574
@@ -4504,7 +4504,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: 0.0000008909335}
+  m_AnchoredPosition: {x: 0.000004703916, y: 0.000030065863}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-6165268564846937176

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Helper;
 using GameMgr;
 using DG.Tweening;
-using unitycoder_MobilePaint;
+using Draw_MobilePaint;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -46,6 +46,12 @@ public class JoinMainView : MonoBehaviour
         LoadAllResList();
     }
 
+    public void Btn()
+    {
+        mobilePaint.selectedBrush = 0;
+        mobilePaint.ReadCurrentCustomBrush();
+    }
+
 
     private void Init()
     {
@@ -55,7 +61,7 @@ public class JoinMainView : MonoBehaviour
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
         mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
-        mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
+        //mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -138,6 +144,7 @@ public class JoinMainView : MonoBehaviour
 
     public void SelectColor(Color32 color)
     {
+        Debug.Log(color);
         mobilePaint.SetPaintColor(color);
     }
 

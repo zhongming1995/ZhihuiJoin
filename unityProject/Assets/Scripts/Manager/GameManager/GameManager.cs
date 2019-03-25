@@ -40,26 +40,8 @@ namespace GameMgr
         public List<string> resPrefabPathList = new List<string>();//素材资源prefab路径
 
         //画笔颜色
-        public Color32[] ColorList = 
-        {
-            new Color32(0,0,0,255),
-            new Color32(0,0,0,255),
-            new Color32(228,82,75,255),
-            new Color32(143,93,76,255),
-            new Color32(237,141,57,255),
-            new Color32(80,160,75,255),
-            new Color32(250,228,84,255),
-            new Color32(151,92,215,255),
-            new Color32(157,221,80,255),
-            new Color32(139,85,230,255),
-            new Color32(95,184,249,255),
-            new Color32(47,41,44,255),
-            new Color32(236,135,188,255),
-            new Color32(131,133,135,255),
-            new Color32(145,209,208,255),
-            new Color32(255,255,255,255),
-        };
-
+        public Color[] ColorList;
+        
 
         public int homeSelectIndex = 0;//选择了那个字母或数字，存放的是下标
         public int resTypeCount = 8;//素材资源种类，目前8种
@@ -77,6 +59,29 @@ namespace GameMgr
             InitItemList();//首页选字母，数字
             InitResPrefabList();//素材中的预制体路径
             InitResList();//素材资源
+        }
+
+        //初始化颜色列表
+        void InitColor()
+        {
+            ColorList = new Color[16]{
+            new Color32(0, 0, 0, 255),
+            new Color32(0, 0, 0, 255),
+            new Color32(228, 82, 75, 255),
+            new Color32(143, 93, 76, 255),
+            new Color32(237, 141, 57, 255),
+            new Color32(80, 160, 75, 255),
+            new Color32(250, 228, 84, 255),
+            new Color32(151, 92, 215, 255),
+            new Color32(157, 221, 80, 255),
+            new Color32(139, 85, 230, 255),
+            new Color32(95, 184, 249, 255),
+            new Color32(47, 41, 44, 255),
+            new Color32(236, 135, 188, 255),
+            new Color32(131, 133, 135, 255),
+            new Color32(145, 209, 208, 255),
+            new Color32(255, 255, 255, 255),
+            };
         }
 
         //初始化item列表,首页选字母的
@@ -106,6 +111,7 @@ namespace GameMgr
         void InitResList()
         {
             //颜色
+            Debug.Log(ColorList[4]);
             string colorPath = "sprite/small_fodder/color|color_{0}_icon";
             for (int i = 0; i < 16; i++)
             {

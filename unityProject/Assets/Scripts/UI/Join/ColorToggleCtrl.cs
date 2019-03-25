@@ -42,6 +42,7 @@ public class ColorToggleCtrl : MonoBehaviour
         {
             Debug.Log(index);
             joinMainView.SelectColor(GameManager.instance.ColorList[index]);
+            Debug.Log("==="+GameManager.instance.ColorList[index]);
             joinMainView.ShowBackBtn(false);
         }
     }
