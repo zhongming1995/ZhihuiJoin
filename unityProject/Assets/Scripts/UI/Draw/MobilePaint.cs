@@ -206,16 +206,13 @@ namespace unitycoder_MobilePaint
 
         // zoom pan
         private bool isZoomingOrPanning = false;
-		public Texture testTxt;
+        public Texture tt;
 
         void Awake()
         {
             // cache components
             cam = Camera.main;
             myRenderer = GetComponent<Renderer>();
-
-			 myRenderer.sharedMaterial.mainTexture = testTxt;
-
             GameObject go = GameObject.Find("EventSystem");
             if (go == null)
             {
@@ -224,12 +221,22 @@ namespace unitycoder_MobilePaint
             else {
                 eventSystem = go.GetComponent<EventSystem>();
             }
-
             StartupValidation();
             InitializeEverything();
 
         }
 
+        //外部调用
+        public void SetDrawTexture(Texture t)
+        {
+            if (myRenderer==null)
+            {
+                Debug.Log("==null");
+                return;
+            }
+            myRenderer.sharedMaterial.mainTexture = t;
+            InitializeEverything();
+        }
 
 
         // all startup validations will be moved here
@@ -413,9 +420,6 @@ namespace unitycoder_MobilePaint
                     texHeight = (int)(Screen.height * resolutionScaler + canvasSizeAdjust.y);
                 }
             }
-
-
-
             // we have no texture set for canvas, FIXME: this returns true if called initialize again, since texture gets created after this
             if (myRenderer.material.GetTexture(targetTexture) == null && !usingClearingImage) // temporary fix by adding && !usingClearingImage
             {
@@ -446,8 +450,6 @@ namespace unitycoder_MobilePaint
                 ReadClearingImage();
                 myRenderer.material.SetTexture(targetTexture, drawingTexture);
             }
-
-
             // set texture modes
             drawingTexture.filterMode = filterMode;
             drawingTexture.wrapMode = TextureWrapMode.Clamp;
@@ -508,7 +510,10 @@ namespace unitycoder_MobilePaint
             if (undoEnabled && Input.GetKeyDown("u")) DoUndo();
 
             // mouse is over UI element? then dont paint
-            if (eventSystem.IsPointerOverGameObject()) return;
+            if (eventSystem.IsPointerOverGameObject())
+            {
+                return;
+            }
             if (eventSystem.currentSelectedGameObject != null) return;
 
             // catch first mousedown
@@ -532,7 +537,6 @@ namespace unitycoder_MobilePaint
             {
                 // Only if we hit something, then we continue
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) { wentOutside = true; return; }
-
                 pixelUVOld = pixelUV; // take previous value, so can compare them
                 pixelUV = hit.textureCoord;
                 pixelUV.x *= texWidth;
@@ -587,7 +591,6 @@ namespace unitycoder_MobilePaint
                         Debug.LogError("Unknown drawMode");
                         break;
                 }
-
                 textureNeedsUpdate = true;
             }
 

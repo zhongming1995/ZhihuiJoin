@@ -39,6 +39,28 @@ namespace GameMgr
 
         public List<string> resPrefabPathList = new List<string>();//素材资源prefab路径
 
+        //画笔颜色
+        public Color32[] ColorList = 
+        {
+            new Color32(0,0,0,255),
+            new Color32(0,0,0,255),
+            new Color32(228,82,75,255),
+            new Color32(143,93,76,255),
+            new Color32(237,141,57,255),
+            new Color32(80,160,75,255),
+            new Color32(250,228,84,255),
+            new Color32(151,92,215,255),
+            new Color32(157,221,80,255),
+            new Color32(139,85,230,255),
+            new Color32(95,184,249,255),
+            new Color32(47,41,44,255),
+            new Color32(236,135,188,255),
+            new Color32(131,133,135,255),
+            new Color32(145,209,208,255),
+            new Color32(255,255,255,255),
+        };
+
+
         public int homeSelectIndex = 0;//选择了那个字母或数字，存放的是下标
         public int resTypeCount = 8;//素材资源种类，目前8种
         public int curSelectResType = 0;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手7脚

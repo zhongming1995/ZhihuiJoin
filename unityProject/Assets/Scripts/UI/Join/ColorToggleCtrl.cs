@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using GameMgr;
 
 public class ColorToggleCtrl : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class ColorToggleCtrl : MonoBehaviour
         if (isOn)
         {
             Debug.Log(index);
+            joinMainView.SelectColor(GameManager.instance.ColorList[index]);
             joinMainView.ShowBackBtn(false);
         }
     }

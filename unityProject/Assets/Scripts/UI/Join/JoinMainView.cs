@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Helper;
 using GameMgr;
 using DG.Tweening;
-using DataMgr;
+using unitycoder_MobilePaint;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -28,6 +28,7 @@ public class JoinMainView : MonoBehaviour
 	public Transform DrawingPanelCanvas;
 
     private List<Transform> typeTransList = new List<Transform>();//类型列表
+    private MobilePaint mobilePaint;
 
 
     //定义数据变量
@@ -53,6 +54,8 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
+        mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
+        mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -131,6 +134,11 @@ public class JoinMainView : MonoBehaviour
             curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
         });
 
+    }
+
+    public void SelectColor(Color32 color)
+    {
+        mobilePaint.SetPaintColor(color);
     }
 
     public void SetSelectResObj(Transform t)
