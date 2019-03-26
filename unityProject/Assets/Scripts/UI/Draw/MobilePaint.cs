@@ -234,6 +234,8 @@ namespace Draw_MobilePaint
             }
             myRenderer.sharedMaterial.mainTexture = t;
 
+            Debug.Log(t.width + "|" + t.height);
+
             InitializeEverything();
 
         }
@@ -488,6 +490,10 @@ namespace Draw_MobilePaint
         // *** MAINLOOP ***
         void Update()
         {
+            if (GameMgr.GameManager.instance.curSelectResType!=0)
+            {
+                return;
+            }
             if (enableTouch)
             {
                 TouchPaint();

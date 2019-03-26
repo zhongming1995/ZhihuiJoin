@@ -217,7 +217,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: -0.00002719473}
+  m_AnchoredPosition: {x: 0.000004703916, y: -0.000017576644}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-5856767105702008140
@@ -498,10 +498,10 @@ RectTransform:
   m_Father: {fileID: 3347529314598475292}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 666, y: 673}
+  m_SizeDelta: {x: 566, y: 573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &-1800405537599890758
 CanvasRenderer:
@@ -804,7 +804,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000032498922, y: -0.000035570356}
+  m_AnchoredPosition: {x: -0.0000032498922, y: -0.00008712121}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-5517006659857124610
@@ -952,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000008718058, y: -0.000024812669}
+  m_AnchoredPosition: {x: 0.000008718058, y: -0.0000151945815}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6483216585620948818
@@ -2096,7 +2096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000008718058, y: -0.000024812669}
+  m_AnchoredPosition: {x: 0.000008718058, y: -0.0000151945815}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4381965354839122362
@@ -3054,7 +3054,7 @@ Transform:
   m_GameObject: {fileID: 1738111151363309430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 260, y: 0, z: -1300}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3347529314598475292}
   m_RootOrder: 1
@@ -3080,7 +3080,7 @@ MeshRenderer:
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 1
+  m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3121,7 +3121,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   createCanvasMesh: 1
-  referenceArea: {fileID: 0}
+  referenceArea: {fileID: 472069241936915785}
   connectBrushStokes: 1
   paintColor:
     serializedVersion: 2
@@ -3207,7 +3207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: -0.00002719473}
+  m_AnchoredPosition: {x: 0.000004703916, y: -0.000017576644}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-4950842652066526911
@@ -3537,6 +3537,10 @@ MonoBehaviour:
   PenScaleSlider: {fileID: -8838496835342255247}
   ResListTrans: {fileID: -6243611505642343097}
   DrawingPanelCanvas: {fileID: 921018666094623395}
+  GraRay_HandLeg: {fileID: 3795764754271317528}
+  GraRay_Body: {fileID: 3629456468135016195}
+  GraRay_EyeMouthHair: {fileID: 4520849357549459795}
+  GraRay_HatHeadwear: {fileID: 4891552816501621646}
 --- !u!1 &4301892169222705862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4253,7 +4257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000052311847, y: -0.00007458736}
+  m_AnchoredPosition: {x: -0.000052311847, y: -0.000065386834}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6763071815509310574
@@ -4739,7 +4743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: -0.00002719473}
+  m_AnchoredPosition: {x: 0.000004703916, y: -0.000017576644}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &-6165268564846937176

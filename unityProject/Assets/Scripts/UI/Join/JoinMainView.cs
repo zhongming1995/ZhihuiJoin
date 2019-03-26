@@ -27,6 +27,11 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
 	public Transform DrawingPanelCanvas;
 
+    public GraphicRaycaster GraRay_HandLeg;
+    public GraphicRaycaster GraRay_Body;
+    public GraphicRaycaster GraRay_EyeMouthHair;
+    public GraphicRaycaster GraRay_HatHeadwear;
+
     private List<Transform> typeTransList = new List<Transform>();//类型列表
     private MobilePaint mobilePaint;
 
@@ -40,8 +45,7 @@ public class JoinMainView : MonoBehaviour
     void Start()
     {
         Init();
-        //GameManager.instance.curSelectResType = 0;//默认选择颜色
-        GameManager.instance.SetJoinCurSelectType(0);
+        //SetCurSelectType(0);
         TypeButtonClick(0);//初始选中第一个类型
         ShowTypeByStep(step);
         LoadAllResList();
@@ -56,6 +60,7 @@ public class JoinMainView : MonoBehaviour
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
         mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
         mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
+        mobilePaint.SetBrushSize(20);
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -138,8 +143,28 @@ public class JoinMainView : MonoBehaviour
 
     public void SelectColor(Color32 color)
     {
-        Debug.Log(color);
         mobilePaint.SetPaintColor(color);
+    }
+
+    public void SetCurSelectType(int type)
+    {
+        GameManager.instance.SetJoinCurSelectType(type);
+        if (type == 0)
+        {
+            //画笔，要禁用其他部位的事件
+            GraRay_HandLeg.enabled = false;
+            GraRay_Body.enabled = false;
+            GraRay_EyeMouthHair.enabled = false;
+            GraRay_HatHeadwear.enabled = false;
+        }
+        else
+        {
+            //不是画笔，要禁用画笔
+            GraRay_HandLeg.enabled = true;
+            GraRay_Body.enabled = true;
+            GraRay_EyeMouthHair.enabled = true;
+            GraRay_HatHeadwear.enabled = true;
+        }
     }
 
     public void SetSelectResObj(Transform t)
@@ -167,8 +192,7 @@ public class JoinMainView : MonoBehaviour
         seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
         seq.InsertCallback(0.2f, () =>
         {
-            //GameManager.instance.curSelectResType = n;
-            GameManager.instance.SetJoinCurSelectType(n);
+            SetCurSelectType(n);
             for (int i = 0; i < GameManager.instance.resTypeCount; i++)
             {
                 if (i == n)
@@ -202,8 +226,7 @@ public class JoinMainView : MonoBehaviour
     {
         if (step==1)
         {
-            //GameManager.instance.curSelectResType = 0;
-            GameManager.instance.SetJoinCurSelectType(0);
+            SetCurSelectType(0);
             BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -214,8 +237,7 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step==2)
         {
-            //GameManager.instance.curSelectResType = 1;
-            GameManager.instance.SetJoinCurSelectType(1);
+            SetCurSelectType(1);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -229,8 +251,7 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step == 3)
         {
-            //GameManager.instance.curSelectResType = 4;
-            GameManager.instance.SetJoinCurSelectType(4);
+            SetCurSelectType(4);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -250,8 +271,7 @@ public class JoinMainView : MonoBehaviour
         }
         else if (step == 4)
         {
-            //GameManager.instance.curSelectResType = 6;
-            GameManager.instance.SetJoinCurSelectType(6);
+            SetCurSelectType(6);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(false);
             BtnOk.gameObject.SetActive(true);
@@ -304,4 +324,6 @@ public class JoinMainView : MonoBehaviour
             }
         }
     }
+
+   
 }
