@@ -111,7 +111,6 @@ namespace GameMgr
         void InitResList()
         {
             //颜色
-            Debug.Log(ColorList[4]);
             string colorPath = "sprite/small_fodder/color|color_{0}_icon";
             for (int i = 0; i < 16; i++)
             {
@@ -363,6 +362,11 @@ namespace GameMgr
         {
             string tmpPath = path.Replace("fodder", "small_fodder");
             return tmpPath + "_icon";
+        }
+
+        public void SetJoinCurSelectType(int type)
+        {
+            curSelectResType = type;
         }
     }
 

@@ -17,7 +17,7 @@ namespace DataMgr
         void Awake()
         {
             instance = this;
-            DeserializePersonData();
+            //DeserializePersonData();
         }
 
         /// <summary>

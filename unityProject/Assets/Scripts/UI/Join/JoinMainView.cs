@@ -40,18 +40,12 @@ public class JoinMainView : MonoBehaviour
     void Start()
     {
         Init();
-        GameManager.instance.curSelectResType = 0;//默认选择颜色
+        //GameManager.instance.curSelectResType = 0;//默认选择颜色
+        GameManager.instance.SetJoinCurSelectType(0);
         TypeButtonClick(0);//初始选中第一个类型
         ShowTypeByStep(step);
         LoadAllResList();
     }
-
-    public void Btn()
-    {
-        mobilePaint.selectedBrush = 0;
-        mobilePaint.ReadCurrentCustomBrush();
-    }
-
 
     private void Init()
     {
@@ -61,7 +55,7 @@ public class JoinMainView : MonoBehaviour
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
         mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
-        //mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
+        mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -173,7 +167,8 @@ public class JoinMainView : MonoBehaviour
         seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
         seq.InsertCallback(0.2f, () =>
         {
-            GameManager.instance.curSelectResType = n;
+            //GameManager.instance.curSelectResType = n;
+            GameManager.instance.SetJoinCurSelectType(n);
             for (int i = 0; i < GameManager.instance.resTypeCount; i++)
             {
                 if (i == n)
@@ -207,7 +202,8 @@ public class JoinMainView : MonoBehaviour
     {
         if (step==1)
         {
-            GameManager.instance.curSelectResType = 0;
+            //GameManager.instance.curSelectResType = 0;
+            GameManager.instance.SetJoinCurSelectType(0);
             BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -218,7 +214,8 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step==2)
         {
-            GameManager.instance.curSelectResType = 1;
+            //GameManager.instance.curSelectResType = 1;
+            GameManager.instance.SetJoinCurSelectType(1);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -232,7 +229,8 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step == 3)
         {
-            GameManager.instance.curSelectResType = 4;
+            //GameManager.instance.curSelectResType = 4;
+            GameManager.instance.SetJoinCurSelectType(4);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -252,7 +250,8 @@ public class JoinMainView : MonoBehaviour
         }
         else if (step == 4)
         {
-            GameManager.instance.curSelectResType = 6;
+            //GameManager.instance.curSelectResType = 6;
+            GameManager.instance.SetJoinCurSelectType(6);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(false);
             BtnOk.gameObject.SetActive(true);

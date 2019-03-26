@@ -203,7 +203,9 @@ namespace Draw_MobilePaint
 
         // zoom pan
         private bool isZoomingOrPanning = false;
-        public Texture tt;
+
+        //外部控制可否绘画
+        public bool CanDraw = true;
 
         void Awake()
         {

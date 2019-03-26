@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Helper;
 using GameMgr;
 using UnityEngine.UI;
@@ -30,7 +28,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         rt = transform.GetComponent<RectTransform>();
         image = transform.GetComponent<Image>();
         isInit = true;
-
     }
 
     public void InitItem(int index)
@@ -44,6 +41,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log("RedDragItem BeginDrag");
         if (isInit==false)
         {
             Init();
@@ -57,6 +55,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
+        Debug.Log("Drag");
         //选中画笔的情况下，素材不可以拖动
         if (GameManager.instance.curSelectResType == 0)
         {
@@ -128,6 +127,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("Click");
         if (isInit==false)
         {
             Init();
