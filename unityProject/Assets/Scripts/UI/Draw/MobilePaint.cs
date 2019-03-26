@@ -234,8 +234,6 @@ namespace Draw_MobilePaint
             }
             myRenderer.sharedMaterial.mainTexture = t;
 
-            Debug.Log(t.width + "|" + t.height);
-
             InitializeEverything();
 
         }
@@ -2611,7 +2609,6 @@ namespace Draw_MobilePaint
 
                     if (smoothenMaskEdges)
                     {
-                        Debug.Log("==================qqqqqq");
                         c = new Color(0, 0, 0, 0);
                         c = maskTex.GetPixel(x, y); // center
 
@@ -2681,12 +2678,15 @@ namespace Draw_MobilePaint
                 if (referenceArea == null) Debug.LogError("RectTransform not assigned in " + transform.name, gameObject);
 
                 // NOTE: this fails, if canvas is not direct parent of the referenceArea object?
-                var temporaryCanvasArray = referenceArea.GetComponentsInParent<Canvas>();
+                //var temporaryCanvasArray = referenceArea.GetComponentsInParent<Canvas>();
 
-                if (temporaryCanvasArray == null || temporaryCanvasArray.Length == 0) Debug.LogError("Canvas not found from ReferenceArea parent", gameObject);
-                if (temporaryCanvasArray.Length > 1) Debug.LogError("More than 1 Canvas was found from ReferenceArea parent, can cause problems", gameObject);
+                //if (temporaryCanvasArray == null || temporaryCanvasArray.Length == 0) Debug.LogError("Canvas not found from ReferenceArea parent", gameObject);
+                //if (temporaryCanvasArray.Length > 1) Debug.LogError("More than 1 Canvas was found from ReferenceArea parent, can cause problems", gameObject);
 
-                var referenceCanvas = temporaryCanvasArray[0]; // take first canvas
+                //var referenceCanvas = temporaryCanvasArray[0]; // take first canvas
+                Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+                Debug.Log(canvas.name);
+                var referenceCanvas = canvas;
                 if (referenceCanvas == null) Debug.LogError("Canvas not found from ReferenceArea parent", gameObject);
 
                 // get current scale factor

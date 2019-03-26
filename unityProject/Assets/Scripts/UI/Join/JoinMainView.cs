@@ -16,6 +16,7 @@ public class JoinMainView : MonoBehaviour
     public Button BtnOk;
     public Image ImgReference;
     public Image ImgBody;
+    public Image ImgLetterRef;
     public Transform DrawPanel;//画布
     public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
@@ -58,7 +59,12 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
+        UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
         mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
+        if (mobilePaint==null)
+        {
+            Debug.Log("mobile is null");
+        }
         mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
         mobilePaint.SetBrushSize(20);
 
