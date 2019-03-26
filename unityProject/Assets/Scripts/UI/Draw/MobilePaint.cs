@@ -2685,7 +2685,6 @@ namespace Draw_MobilePaint
 
                 //var referenceCanvas = temporaryCanvasArray[0]; // take first canvas
                 Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
-                Debug.Log(canvas.name);
                 var referenceCanvas = canvas;
                 if (referenceCanvas == null) Debug.LogError("Canvas not found from ReferenceArea parent", gameObject);
 
@@ -2697,6 +2696,27 @@ namespace Draw_MobilePaint
                 referenceCorners[1] = new Vector3(referenceArea.offsetMin.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
                 referenceCorners[2] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
                 referenceCorners[3] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
+
+                Debug.Log(referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
+
+                Debug.Log(Screen.width+"|"+Screen.height);
+
+                Debug.Log(canvasScaleFactor);
+
+                Debug.Log(referenceArea.offsetMin);
+                Debug.Log(referenceArea.offsetMax);
+
+                Debug.Log(referenceArea.position);
+
+				Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, referenceArea.position);
+                float w = referenceArea.sizeDelta.x;
+                float h = referenceArea.sizeDelta.y;
+                referenceCorners[0] = new Vector3(screenPos.x-w/2,screenPos.y-h/2,0);
+                referenceCorners[1]=new Vector3(screenPos.x-w/2,screenPos.y+h/2,0);
+                referenceCorners[2]=new Vector3(screenPos.x+w/2,screenPos.y+h/2,0);
+				referenceCorners[3]=new Vector3(screenPos.x+w/2,screenPos.y-h/2,0);
+
+                Debug.Log(referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
 
                 // reset Z position and center/scale to camera view
                 for (int i = 0; i < referenceCorners.Length; i++)

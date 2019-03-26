@@ -59,7 +59,7 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
-        UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
+		UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
         mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
         if (mobilePaint==null)
         {

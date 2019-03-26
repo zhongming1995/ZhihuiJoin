@@ -40,9 +40,7 @@ public class ColorToggleCtrl : MonoBehaviour
     private void SelectOneColor(bool isOn,int index) {
         if (isOn)
         {
-            Debug.Log(index);
             joinMainView.SelectColor(GameManager.instance.ColorList[index]);
-            Debug.Log("==="+GameManager.instance.ColorList[index]);
             joinMainView.ShowBackBtn(false);
         }
     }
