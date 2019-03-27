@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using Helper;
-using GameMgr;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using Draw_MobilePaint;
+using GameMgr;
+using Helper;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -28,10 +27,10 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
 	public Transform DrawingPanelCanvas;
 
-    public GraphicRaycaster GraRay_HandLeg;
-    public GraphicRaycaster GraRay_Body;
-    public GraphicRaycaster GraRay_EyeMouthHair;
-    public GraphicRaycaster GraRay_HatHeadwear;
+    //public GraphicRaycaster GraRay_HandLeg;
+    //public GraphicRaycaster GraRay_Body;
+    //public GraphicRaycaster GraRay_EyeMouthHair;
+    //public GraphicRaycaster GraRay_HatHeadwear;
 
     private List<Transform> typeTransList = new List<Transform>();//类型列表
     private MobilePaint mobilePaint;
@@ -59,7 +58,7 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
-		UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
+		 //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
         mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
         if (mobilePaint==null)
         {
@@ -155,21 +154,26 @@ public class JoinMainView : MonoBehaviour
     public void SetCurSelectType(int type)
     {
         GameManager.instance.SetJoinCurSelectType(type);
+      
         if (type == 0)
         {
+            PenScaleSlider.gameObject.SetActive(true);
+            ImageScaleSlider.gameObject.SetActive(false);
             //画笔，要禁用其他部位的事件
-            GraRay_HandLeg.enabled = false;
-            GraRay_Body.enabled = false;
-            GraRay_EyeMouthHair.enabled = false;
-            GraRay_HatHeadwear.enabled = false;
+            //GraRay_HandLeg.enabled = false;
+            //GraRay_Body.enabled = false;
+            //GraRay_EyeMouthHair.enabled = false;
+            //GraRay_HatHeadwear.enabled = false;
         }
         else
         {
+            PenScaleSlider.gameObject.SetActive(false);
+            SetSelectResObj(curSelectResObj);
             //不是画笔，要禁用画笔
-            GraRay_HandLeg.enabled = true;
-            GraRay_Body.enabled = true;
-            GraRay_EyeMouthHair.enabled = true;
-            GraRay_HatHeadwear.enabled = true;
+            //GraRay_HandLeg.enabled = true;
+            //GraRay_Body.enabled = true;
+            //GraRay_EyeMouthHair.enabled = true;
+            //GraRay_HatHeadwear.enabled = true;
         }
     }
 
@@ -216,16 +220,7 @@ public class JoinMainView : MonoBehaviour
             }
         });
         seq.Append(ResListTrans.DOLocalMoveX(69, 0.2f));
-        if (n==0)//选择画笔
-        {
-            PenScaleSlider.gameObject.SetActive(true);
-            ImageScaleSlider.gameObject.SetActive(false);
-        }
-        else
-        {
-            PenScaleSlider.gameObject.SetActive(false);
-            SetSelectResObj(curSelectResObj);
-        }
+
     }
 
     private void ShowTypeByStep(int step)

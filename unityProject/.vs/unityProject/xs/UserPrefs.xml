@@ -1,14 +1,18 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Draw/MobilePaint.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MobilePaint/Scripts/MobilePaint.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="66" Column="22" />
       <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="210" Column="19" />
       <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="45" Column="59" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="151" Column="6" />
+      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="2719" Column="17" />
+      <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="31" Column="50" />
       <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="20" Column="15" />
       <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="113" Column="17" />
       <File FileName="Assets/Scripts/Helper/UIDepth.cs" Line="15" Column="14" />
       <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="66" Column="27" />
       <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="26" Column="50" />
+      <File FileName="Assets/MobilePaint/Scripts/MobilePaint.cs" Line="2661" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

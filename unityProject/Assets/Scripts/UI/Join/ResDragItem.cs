@@ -33,6 +33,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void InitItem(int index)
     {
         Init();
+        Debug.Log("Init");
         int type = GameManager.instance.curSelectResType;
         partType = (PartType)type;
         string path = GameManager.instance.resPathList[type][index];

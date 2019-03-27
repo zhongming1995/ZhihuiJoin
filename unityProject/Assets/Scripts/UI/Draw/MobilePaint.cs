@@ -488,10 +488,10 @@ namespace Draw_MobilePaint
         // *** MAINLOOP ***
         void Update()
         {
-            if (GameMgr.GameManager.instance.curSelectResType!=0)
-            {
-                return;
-            }
+            //if (GameMgr.GameManager.instance.curSelectResType!=0)
+            //{
+            //    return;
+            //}
             if (enableTouch)
             {
                 TouchPaint();
@@ -2697,26 +2697,40 @@ namespace Draw_MobilePaint
                 referenceCorners[2] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
                 referenceCorners[3] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
 
-                Debug.Log(referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
+                //Debug.Log(referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
 
-                Debug.Log(Screen.width+"|"+Screen.height);
+                //Debug.Log(Screen.width+"|"+Screen.height);
 
-                Debug.Log(canvasScaleFactor);
+                //Debug.Log(canvasScaleFactor);
 
-                Debug.Log(referenceArea.offsetMin);
-                Debug.Log(referenceArea.offsetMax);
+                //Debug.Log(referenceArea.offsetMin);
+                //Debug.Log(referenceArea.offsetMax);
 
-                Debug.Log(referenceArea.position);
+                //Debug.Log(referenceArea.position);
 
-				Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(Camera.main, referenceArea.position);
-                float w = referenceArea.sizeDelta.x;
-                float h = referenceArea.sizeDelta.y;
-                referenceCorners[0] = new Vector3(screenPos.x-w/2,screenPos.y-h/2,0);
-                referenceCorners[1]=new Vector3(screenPos.x-w/2,screenPos.y+h/2,0);
-                referenceCorners[2]=new Vector3(screenPos.x+w/2,screenPos.y+h/2,0);
-				referenceCorners[3]=new Vector3(screenPos.x+w/2,screenPos.y-h/2,0);
+                /*
+                Vector3 screenPos = Camera.main.WorldToScreenPoint(referenceArea.position);
+                Debug.Log(screenPos);
+                float w = referenceArea.sizeDelta.x*canvasScaleFactor;
+                float h = referenceArea.sizeDelta.y*canvasScaleFactor;
+                Debug.Log("w:h:" + w + ":" + h);
+                //Debug.Log(canvas.GetComponent<RectTransform>().rect.width);
+                referenceCorners[0] = new Vector3(screenPos.x - (float)w / 2, screenPos.y - (float)h / 2, 0);
+                referenceCorners[1] = new Vector3(screenPos.x - (float)w / 2, screenPos.y + (float)h / 2, 0);
+                referenceCorners[2] = new Vector3(screenPos.x + (float)w / 2, screenPos.y + (float)h / 2, 0);
+                referenceCorners[3] = new Vector3(screenPos.x + (float)w / 2, screenPos.y - (float)h / 2, 0);
+                Vector3 v3 = screenPos + new Vector3(w / 2, h / 2, 0);
+                Vector3 v4 = screenPos + new Vector3(w / 2, -h / 2, 0);
+                Vector3 v2 = screenPos + new Vector3(-w / 2, h / 2, 0);
+                Vector3 v1 = screenPos + new Vector3(-w / 2, -h / 2, 0);
+                Debug.Log(v1);
+                Debug.Log(v2);
+                Debug.Log(v3);
+                Debug.Log(v4);        
+                //Debug.Log(screenPos.x - w / 2);
 
-                Debug.Log(referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
+                Debug.Log("222:"+referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
+                */               
 
                 // reset Z position and center/scale to camera view
                 for (int i = 0; i < referenceCorners.Length; i++)

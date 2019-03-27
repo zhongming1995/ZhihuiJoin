@@ -2680,6 +2680,7 @@ namespace unitycoder_MobilePaint
                 referenceCorners[2] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
                 referenceCorners[3] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
 
+                Debug.Log("111:"+referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
                 // reset Z position and center/scale to camera view
                 for (int i = 0; i < referenceCorners.Length; i++)
                 {
