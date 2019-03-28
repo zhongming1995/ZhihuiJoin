@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2518578124
+CRC: 2703995736
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -77,3 +77,11 @@ AssetBundleManifest:
         Dependency_0: sprite/ui.ab
         Dependency_1: sprite/homeitems.ab
         Dependency_2: sprite/bg.ab
+    Info_21:
+      Name: prefabs/display.ab
+      Dependencies:
+        Dependency_0: sprite/ui.ab
+        Dependency_1: sprite/bg.ab
+    Info_22:
+      Name: prefabs/draw.ab
+      Dependencies: {}

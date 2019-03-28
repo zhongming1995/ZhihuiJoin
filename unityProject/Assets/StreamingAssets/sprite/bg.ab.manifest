@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2141226683
+CRC: 397192150
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a5096aef6a979c92416790fe3031f4ce
+    Hash: 523ccc2597c9fb4d18262b0219a26706
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -18,5 +18,6 @@ Assets:
 - Assets/Res/Atlas/bg/splice_draw_bg@3x.png
 - Assets/Res/Atlas/bg/splice_draw_board_bg2@3x.png
 - Assets/Res/Atlas/bg/splice_home_bg@3x.png
+- Assets/Res/Atlas/bg/splice_finsh_display_item_bg@3x.png
 - Assets/Res/Atlas/bg/splice_draw_board_bg3@3x.png
 Dependencies: []

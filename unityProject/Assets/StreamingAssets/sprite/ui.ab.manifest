@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 15609232
+CRC: 2721442613
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: cfe2df06a4f5ca099aa2263bd5e14838
+    Hash: c096845b13f3dd0d64156b7978bffec2
   TypeTreeHash:
     serializedVersion: 2
     Hash: ea5a42e0fd8ea905efa7aa926a3b8944
@@ -47,7 +47,6 @@ Assets:
 - Assets/Res/Atlas/ui/draw_board_ai2_botton@3x.png
 - Assets/Res/Atlas/ui/zhihuidraw_bg@3x.png
 - Assets/Res/Atlas/ui/splice_type_5.png
-- Assets/Res/Atlas/ui/splice_finsh_display_item_bg@3x.png
 - Assets/Res/Atlas/ui/splice_board_toolbar2_bg@3x.png
 - Assets/Res/Atlas/ui/splice_board_body_tool@2x.png
 - Assets/Res/Atlas/ui/draw_board_ai_botton@3x.png
