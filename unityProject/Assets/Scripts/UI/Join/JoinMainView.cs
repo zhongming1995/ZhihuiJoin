@@ -15,7 +15,6 @@ public class JoinMainView : MonoBehaviour
     public Button BtnOk;
     public Image ImgReference;
     public Image ImgBody;
-    public Image ImgLetterRef;
     public Transform DrawPanel;//画布
     public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
@@ -25,7 +24,7 @@ public class JoinMainView : MonoBehaviour
     public Slider ImageScaleSlider;//控制图片大小的slider
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
-	public Transform DrawingPanelCanvas;
+	//public Transform DrawingPanelCanvas;
 
     //public GraphicRaycaster GraRay_HandLeg;
     //public GraphicRaycaster GraRay_Body;
@@ -45,12 +44,10 @@ public class JoinMainView : MonoBehaviour
     void Start()
     {
         Init();
-        //SetCurSelectType(0);
         TypeButtonClick(0);//初始选中第一个类型
         ShowTypeByStep(step);
         LoadAllResList();
     }
-
     private void Init()
     {
         //按钮点击
@@ -58,14 +55,20 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
-		 //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
-        mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
-        if (mobilePaint==null)
-        {
-            Debug.Log("mobile is null");
-        }
-        mobilePaint.SetDrawTexture(ImgBody.sprite.texture);
+        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", null, Vector3.zero, Vector3.one);
+        mobilePaint = draw.GetComponent<MobilePaint>();
+        mobilePaint.InitializeEverything(ImgBody.sprite.texture);
         mobilePaint.SetBrushSize(20);
+
+       
+        //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
+        //mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
+        //if (mobilePaint==null)
+        //{
+        //    Debug.Log("mobile is null");
+        //}
+        //mobilePaint.InitializeEverything(ImgBody.sprite.texture);
+        //mobilePaint.SetBrushSize(20);
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);

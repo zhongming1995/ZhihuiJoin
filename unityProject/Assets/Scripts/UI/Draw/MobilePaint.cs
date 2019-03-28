@@ -31,8 +31,7 @@ namespace Draw_MobilePaint
 
         [Space(10)]
         public LayerMask paintLayerMask = 1 << 0; // to which layer our paint canvas is at (used in raycast)
-
-        public bool createCanvasMesh = true; // default canvas is full screen quad, if disabled existing mesh is used
+        public bool useTextureArea = false;//使用自定义贴图的大小作为绘画区域
 
         public RectTransform referenceArea; // we will match the size of this reference object
         private float canvasScaleFactor = 1; // canvas scaling factor (will be taken from Canvas)
@@ -163,8 +162,8 @@ namespace Draw_MobilePaint
         [Header("Overrides")]
         public float resolutionScaler = 1.0f; // 1 means screen resolution, 0.5f means half the screen resolution
         public bool overrideResolution = false;
-        public int overrideWidth = 1024;
-        public int overrideHeight = 768;
+        public int overrideWidth = 2048;
+        public int overrideHeight = 1536;
 
         private int texWidth;
         private int texHeight;
@@ -221,24 +220,9 @@ namespace Draw_MobilePaint
                 eventSystem = go.GetComponent<EventSystem>();
             }
             StartupValidation();
-            InitializeEverything();
+            InitializeEverything(null);
         }
-
-        //外部调用
-        public void SetDrawTexture(Texture t)
-        {
-            if (myRenderer==null)
-            {
-                Debug.Log("==null");
-                return;
-            }
-            myRenderer.sharedMaterial.mainTexture = t;
-
-            InitializeEverything();
-
-        }
-
-
+        
         // all startup validations will be moved here
         void StartupValidation()
         {
@@ -343,9 +327,22 @@ namespace Draw_MobilePaint
         //bool firstRun = false; // TODO: this could be used to check if InitializeEverything() was called after first run
 
         // rebuilds everything and reloads masks,textures..
-        public void InitializeEverything()
+        //外部调用，参数为材质的贴图（即绘画背景）
+        public void InitializeEverything(Texture texture)
         {
+            if (texture!=null)
+            {
+                myRenderer.sharedMaterial.mainTexture = texture;
+            }
 
+            if (Screen.width * 1.0f / Screen.height > overrideWidth * 1.0f / overrideHeight)
+            {
+                resolutionScaler = Screen.height * 1.0f / overrideHeight;
+            }
+            else
+            {
+                resolutionScaler = Screen.width * 1.0f / overrideWidth;
+            }
             // for drawing lines preview
             if (GetComponent<LineRenderer>() != null)
             {
@@ -386,16 +383,7 @@ namespace Draw_MobilePaint
             pixelUVs = new Vector2[20];
             pixelUVOlds = new Vector2[20];
 
-            if (createCanvasMesh)
-            {
-                CreateFullScreenQuad();
-            }
-            else { // using existing mesh
-                if (connectBrushStokes) Debug.LogWarning("Custom mesh used, but connectBrushStokes is enabled, it can cause problems on the mesh borders wrapping");
-
-                if (GetComponent<MeshCollider>() == null) Debug.LogError("MeshCollider is missing, won't be able to raycast to canvas object");
-                if (GetComponent<MeshFilter>() == null || GetComponent<MeshFilter>().sharedMesh == null) Debug.LogWarning("Mesh or MeshFilter is missing, won't be able to see the canvas object");
-            }
+            CreateMyQuad();//根据材质的贴图大小创建画布
 
             // create texture
             if (useMaskImage)
@@ -483,8 +471,6 @@ namespace Draw_MobilePaint
 
         } // InitializeEverything
 
-
-
         // *** MAINLOOP ***
         void Update()
         {
@@ -540,15 +526,16 @@ namespace Draw_MobilePaint
             if (Input.GetMouseButton(0))
             {
                 // Only if we hit something, then we continue
-                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) { wentOutside = true; return; }
+                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) {
+                    Debug.Log("===");
+                    wentOutside = true; return; }
                 pixelUVOld = pixelUV; // take previous value, so can compare them
                 pixelUV = hit.textureCoord;
                 pixelUV.x *= texWidth;
                 pixelUV.y *= texHeight;
-
+               
                 if (wentOutside) { pixelUVOld = pixelUV; wentOutside = false; }
-
-
+                
                 // lets paint where we hit
                 switch (drawMode)
                 {
@@ -1043,11 +1030,6 @@ namespace Draw_MobilePaint
         public void DrawPatternCircle(int x, int y)
         {
             // clamp brush inside texture
-            if (createCanvasMesh) // TEMPORARY FIX: with b custom sphere mesh, small gap in paint at the end, so must disable clamp on most custom meshes
-            {
-                //x = PaintTools.ClampBrushInt(x,brushSize,texWidth-brushSize);
-                //y = PaintTools.ClampBrushInt(y,brushSize,texHeight-brushSize);
-            }
 
             if (!canDrawOnBlack)
             {
@@ -2666,6 +2648,77 @@ namespace Draw_MobilePaint
             }
         }
 
+        void CreateMyQuad()
+        {
+            // create mesh plane, fits in camera view (with screensize adjust taken into consideration)
+            Mesh go_Mesh = GetComponent<MeshFilter>().mesh;
+            go_Mesh.Clear();
+            Vector3[] referenceCorners = new Vector3[4];
+
+            if (myRenderer.material.mainTexture!=null &useTextureArea)
+            {
+                Canvas canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+                var referenceCanvas = canvas;
+                if (referenceCanvas == null) Debug.LogError("Canvas not found from ReferenceArea parent", gameObject);
+
+                // get current scale factor
+                canvasScaleFactor = referenceCanvas.scaleFactor;
+
+                var referenceTexture = myRenderer.material.mainTexture;
+                var screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+                var localPoint = transform.position * 100f * resolutionScaler;
+                Debug.Log(transform.position);
+                Debug.Log(localPoint);
+                referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom left
+                referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top left
+                referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top right
+                referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom right
+
+                Debug.Log("画布四周:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
+
+                // reset Z position and center/scale to camera view
+                for (int i = 0; i < referenceCorners.Length; i++)
+                {
+                    referenceCorners[i] = referenceCorners[i];
+                    referenceCorners[i].z = -cam.transform.position.z;
+                }
+                go_Mesh.vertices = referenceCorners;
+
+            }
+            else
+            { // just use full screen quad for main camera
+                referenceCorners[0] = new Vector3(0, canvasSizeAdjust.y, cam.nearClipPlane); // bottom left
+                referenceCorners[1] = new Vector3(0, cam.pixelHeight + canvasSizeAdjust.y, cam.nearClipPlane); // top left
+                referenceCorners[2] = new Vector3(cam.pixelWidth + canvasSizeAdjust.x, cam.pixelHeight + canvasSizeAdjust.y, cam.nearClipPlane); // top right
+                referenceCorners[3] = new Vector3(cam.pixelWidth + canvasSizeAdjust.x, canvasSizeAdjust.y, cam.nearClipPlane); // bottom right
+            }
+
+            // move to screen
+            float nearClipOffset = 0.01f; // otherwise raycast wont hit, if exactly at nearclip z
+
+            for (int i = 0; i < referenceCorners.Length; i++)
+            {
+                referenceCorners[i].z = -cam.transform.position.z + nearClipOffset;
+                referenceCorners[i] = cam.ScreenToWorldPoint(referenceCorners[i]);
+            }
+
+
+            go_Mesh.vertices = referenceCorners;
+
+            go_Mesh.uv = new[] { new Vector2(0, 0), new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0) };
+            go_Mesh.triangles = new[] { 0, 1, 2, 0, 2, 3 };
+
+            go_Mesh.RecalculateNormals();
+            go_Mesh.RecalculateBounds();
+
+            go_Mesh.tangents = new[] { new Vector4(1.0f, 0.0f, 0.0f, -1.0f), new Vector4(1.0f, 0.0f, 0.0f, -1.0f), new Vector4(1.0f, 0.0f, 0.0f, -1.0f), new Vector4(1.0f, 0.0f, 0.0f, -1.0f) };
+
+
+            // add mesh collider
+            if (gameObject.GetComponent<MeshCollider>() == null) gameObject.AddComponent<MeshCollider>();
+        }
+
+
         void CreateFullScreenQuad()
         {
             // create mesh plane, fits in camera view (with screensize adjust taken into consideration)
@@ -2692,10 +2745,10 @@ namespace Draw_MobilePaint
                 canvasScaleFactor = referenceCanvas.scaleFactor;
 
                 // get vertex positions for borders
-                referenceCorners[0] = new Vector3(referenceArea.offsetMin.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
-                referenceCorners[1] = new Vector3(referenceArea.offsetMin.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
-                referenceCorners[2] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
-                referenceCorners[3] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
+                //referenceCorners[0] = new Vector3(referenceArea.offsetMin.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
+                //referenceCorners[1] = new Vector3(referenceArea.offsetMin.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
+                //referenceCorners[2] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, Screen.height + referenceArea.offsetMax.y * canvasScaleFactor, 0);
+                //referenceCorners[3] = new Vector3(Screen.width + referenceArea.offsetMax.x * canvasScaleFactor, referenceArea.offsetMin.y * canvasScaleFactor, 0);
 
                 //Debug.Log(referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
 
@@ -2730,7 +2783,27 @@ namespace Draw_MobilePaint
                 //Debug.Log(screenPos.x - w / 2);
 
                 Debug.Log("222:"+referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
-                */               
+                 */
+                /*
+               referenceArea.GetWorldCorners(referenceCorners);
+               referenceCorners[0] = Camera.main.WorldToScreenPoint(referenceCorners[0]);
+               referenceCorners[1] = Camera.main.WorldToScreenPoint(referenceCorners[1]);
+               referenceCorners[2] = Camera.main.WorldToScreenPoint(referenceCorners[2]);
+               referenceCorners[3] = Camera.main.WorldToScreenPoint(referenceCorners[3]);
+               */
+                var referenceTexture = myRenderer.material.mainTexture;
+                var screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+                var localPoint = transform.position * 100f * resolutionScaler;
+                Debug.Log(transform.position);
+                Debug.Log(localPoint);
+                Vector3 screenPos = Camera.main.WorldToScreenPoint(referenceArea.position);
+                referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom left
+                referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top left
+                referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top right
+                referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom right
+
+
+                Debug.Log("222:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
 
                 // reset Z position and center/scale to camera view
                 for (int i = 0; i < referenceCorners.Length; i++)
@@ -2776,6 +2849,7 @@ namespace Draw_MobilePaint
             if (gameObject.GetComponent<MeshCollider>() == null) gameObject.AddComponent<MeshCollider>();
         }
 
+      
 
         public void SetBrushSize(int newSize)
         {
@@ -2956,7 +3030,7 @@ namespace Draw_MobilePaint
         {
             // NOTE: if new texture is different size, problems will occur when drawing
             myRenderer.material.SetTexture(targetTexture, newTexture);
-            InitializeEverything();
+            InitializeEverything(newTexture);
         }
 
         public void SetPanZoomMode(bool state)
