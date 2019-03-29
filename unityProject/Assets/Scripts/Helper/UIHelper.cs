@@ -51,5 +51,25 @@ namespace Helper
             }
             return go;
         }
+
+        /// <summary>
+        /// Loads the prefab.
+        /// </summary>
+        /// <returns>The prefab.</returns>
+        /// <param name="path">prefab预制体路径.</param>
+        /// <param name="parent">父节点.</param>
+        /// <param name="pos">初始位置(世界坐标).</param>
+        /// <param name="scale">初始缩放.</param>
+        public GameObject LoadPrefab3D(string path, Transform parent, Vector3 pos, Vector3 scale)
+        {
+            UnityEngine.Object obj = ResManager.instance.LoadObject(path);
+            GameObject go = Instantiate(obj) as GameObject;
+            go.transform.SetParent(parent);
+            go.transform.localScale = scale;
+            int childCount = parent.childCount;
+            float posZ = -0.1f*childCount;
+            go.transform.position = new Vector3(pos.x, pos.y, posZ);
+            return go;
+        }
     }
 }

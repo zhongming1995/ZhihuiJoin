@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 8681827033212392340}
   - component: {fileID: 8681827033212392343}
   - component: {fileID: 8681827033212392342}
-  m_Layer: 0
+  - component: {fileID: 8236310664356457518}
+  - component: {fileID: 3831044781684672562}
+  m_Layer: 5
   m_Name: draw_item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +95,7 @@ MonoBehaviour:
   enableTouch: 0
   paintLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 32
   useTextureArea: 1
   referenceArea: {fileID: 0}
   connectBrushStokes: 1
@@ -147,3 +149,35 @@ MonoBehaviour:
   hideUIWhilePainting: 0
   debugMode: 0
   CanDraw: 1
+--- !u!114 &8236310664356457518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681827033212392337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99673559524db04c96453379dcaa4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partType: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 32
+  parentTrans: {fileID: 0}
+  mobilePaint: {fileID: 0}
+--- !u!114 &3831044781684672562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681827033212392337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4dac94e56ab4ea587f70a00a405385, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  order: 1
+  isUI: 0

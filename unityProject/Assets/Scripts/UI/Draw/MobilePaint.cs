@@ -203,6 +203,10 @@ namespace Draw_MobilePaint
         // zoom pan
         private bool isZoomingOrPanning = false;
 
+        //drag
+        //private Vector3 offset = new Vector3(0, 0, 0);//拖拽开始时，手指与拖拽物体中心点的偏移
+        //bool isDragging = false;//是否正在拖拽
+
         //外部控制可否绘画
         public bool CanDraw = true;
 
@@ -220,7 +224,7 @@ namespace Draw_MobilePaint
                 eventSystem = go.GetComponent<EventSystem>();
             }
             StartupValidation();
-            InitializeEverything(null);
+            //InitializeEverything(null);
         }
         
         // all startup validations will be moved here
@@ -332,7 +336,7 @@ namespace Draw_MobilePaint
         {
             if (texture!=null)
             {
-                myRenderer.sharedMaterial.mainTexture = texture;
+               myRenderer.material.mainTexture = texture;
             }
 
             if (Screen.width * 1.0f / Screen.height > overrideWidth * 1.0f / overrideHeight)
@@ -343,28 +347,7 @@ namespace Draw_MobilePaint
             {
                 resolutionScaler = Screen.width * 1.0f / overrideWidth;
             }
-            // for drawing lines preview
-            if (GetComponent<LineRenderer>() != null)
-            {
-                lineRenderer = GetComponent<LineRenderer>();
-
-                // reset pos
-                lineRenderer.SetPosition(0, Vector3.one * 99999);
-                lineRenderer.SetPosition(1, Vector3.one * 99999);
-
-                if (previewLineCircle)
-                {
-                    // spawn rounded circles for linedrawing, if not already in scene
-                    if (!previewLineCircleStart) previewLineCircleStart = Instantiate(previewLineCircle) as Transform;
-                    if (!previewLineCircleEnd) previewLineCircleEnd = Instantiate(previewLineCircle) as Transform;
-
-                    // hide them far away
-                    previewLineCircleStart.position = Vector3.one * 99999;
-                    previewLineCircleEnd.position = Vector3.one * 99999;
-                }
-                UpdateLineModePreviewObjects();
-            }
-
+         
             // cached calculations
             brushSizeX1 = brushSize << 1;
             brushSizeXbrushSize = brushSize * brushSize;
@@ -474,10 +457,12 @@ namespace Draw_MobilePaint
         // *** MAINLOOP ***
         void Update()
         {
-            //if (GameMgr.GameManager.instance.curSelectResType!=0)
-            //{
-            //    return;
-            //}
+            if (GameMgr.GameManager.instance.curSelectResType!=0)
+            {
+                //DragEvent();
+                //拖拽写在MobileDrag里
+                return;
+            }
             if (enableTouch)
             {
                 TouchPaint();
@@ -493,6 +478,50 @@ namespace Draw_MobilePaint
             }
         }
 
+        //不是选中画笔的时候，对绘画区域进行拖拽
+        /*
+        void DragEvent()
+        {
+            if (eventSystem.currentSelectedGameObject!=null)
+            {
+                return;
+            }
+            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
+                isDragging = true;
+                Debug.Log(hit.collider.name);
+                //鼠标位置和物体的距离
+                offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPos.z));
+
+                Debug.Log("screenPos："+screenPos);
+                Debug.Log("mousePos:" + Input.mousePosition);
+                Debug.Log("offset:"+offset);
+            }
+            if (Input.GetMouseButton(0))
+            {
+                //if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
+                if (isDragging)
+                {
+                    Vector3 curMouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPos.z));
+                    transform.position = curMouseWorldPos + offset;
+                    Debug.Log("offset:" + offset);
+                    Debug.Log("cur:" + curMouseWorldPos);
+                    Debug.Log("tra:" + transform.position);
+                }
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDragging = false;
+                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
+                Debug.Log("mouse up");   
+            }
+        }
+        */
+        
+
         // handle mouse events
         void MousePaint()
         {
@@ -502,10 +531,13 @@ namespace Draw_MobilePaint
             // mouse is over UI element? then dont paint
             if (eventSystem.IsPointerOverGameObject())
             {
+               // Debug.Log("~~~");
                 return;
             }
-            if (eventSystem.currentSelectedGameObject != null) return;
-
+            if (eventSystem.currentSelectedGameObject != null)
+            {
+                return;
+            }
             // catch first mousedown
             if (Input.GetMouseButtonDown(0))
             {
@@ -2665,7 +2697,7 @@ namespace Draw_MobilePaint
                 canvasScaleFactor = referenceCanvas.scaleFactor;
 
                 var referenceTexture = myRenderer.material.mainTexture;
-                var screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+                var screenPoint = cam.WorldToScreenPoint(transform.position);
                 var localPoint = transform.position * 100f * resolutionScaler;
                 Debug.Log(transform.position);
                 Debug.Log(localPoint);
@@ -2673,8 +2705,16 @@ namespace Draw_MobilePaint
                 referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top left
                 referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top right
                 referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom right
+                Debug.Log("画布四周1:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
 
-                Debug.Log("画布四周:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
+                //transform.GetComponent<RectTransform>().GetWorldCorners(referenceCorners);
+                //referenceCorners[0] = cam.WorldToScreenPoint(referenceCorners[0]);
+                //referenceCorners[1] = cam.WorldToScreenPoint(referenceCorners[1]);
+                //referenceCorners[2] = cam.WorldToScreenPoint(referenceCorners[2]);
+                //referenceCorners[3] = cam.WorldToScreenPoint(referenceCorners[3]);
+
+
+                //Debug.Log("画布四周2:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
 
                 // reset Z position and center/scale to camera view
                 for (int i = 0; i < referenceCorners.Length; i++)
@@ -2785,6 +2825,7 @@ namespace Draw_MobilePaint
                 Debug.Log("222:"+referenceCorners[0]+"|"+referenceCorners[1]+"|"+referenceCorners[2]+"|"+referenceCorners[3]);
                  */
                 /*
+                /*
                referenceArea.GetWorldCorners(referenceCorners);
                referenceCorners[0] = Camera.main.WorldToScreenPoint(referenceCorners[0]);
                referenceCorners[1] = Camera.main.WorldToScreenPoint(referenceCorners[1]);
@@ -2792,11 +2833,11 @@ namespace Draw_MobilePaint
                referenceCorners[3] = Camera.main.WorldToScreenPoint(referenceCorners[3]);
                */
                 var referenceTexture = myRenderer.material.mainTexture;
-                var screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+                var screenPoint = cam.WorldToScreenPoint(transform.position);
                 var localPoint = transform.position * 100f * resolutionScaler;
                 Debug.Log(transform.position);
                 Debug.Log(localPoint);
-                Vector3 screenPos = Camera.main.WorldToScreenPoint(referenceArea.position);
+                Vector3 screenPos = cam.WorldToScreenPoint(referenceArea.position);
                 referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom left
                 referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top left
                 referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top right

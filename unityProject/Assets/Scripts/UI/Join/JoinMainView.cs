@@ -24,8 +24,8 @@ public class JoinMainView : MonoBehaviour
     public Slider ImageScaleSlider;//控制图片大小的slider
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
-	//public Transform DrawingPanelCanvas;
 
+	//public Transform DrawingPanelCanvas
     //public GraphicRaycaster GraRay_HandLeg;
     //public GraphicRaycaster GraRay_Body;
     //public GraphicRaycaster GraRay_EyeMouthHair;
@@ -33,6 +33,7 @@ public class JoinMainView : MonoBehaviour
 
     private List<Transform> typeTransList = new List<Transform>();//类型列表
     private MobilePaint mobilePaint;
+    private Transform BodyGroup;
 
 
     //定义数据变量
@@ -53,12 +54,22 @@ public class JoinMainView : MonoBehaviour
         //按钮点击
         AddClickEvent();
 
+        //赋值给Game Manager，因为外部要调用
+        GameManager.instance.LeftTopPoint = PosLeftTop;
+        GameManager.instance.RightBottomPoint = PosRightBottom;
+
         //绘画素材
-        UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
-        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", null, Vector3.zero, Vector3.one);
-        mobilePaint = draw.GetComponent<MobilePaint>();
-        mobilePaint.InitializeEverything(ImgBody.sprite.texture);
-        mobilePaint.SetBrushSize(20);
+        BodyGroup = GameObject.Find("DrawItemGroup/BodyGroup").transform;
+        //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
+        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, Vector3.zero, Vector3.one);
+        draw.GetComponent<MobileDrag>().InitItem(0, BodyGroup,Vector3.zero);
+        //mobilePaint = draw.GetComponent<MobilePaint>();
+        //mobilePaint.InitializeEverything(ImgBody.sprite.texture);
+        //mobilePaint.SetBrushSize(20);
+        //Debug.Log("pos:" + mobilePaint.transform.position);
+        //Debug.Log("posdrawbg:" + GameObject.Find("img_draw_bg").transform.position);
+        //Debug.Log("posLeftTop:" + PosLeftTop.position);
+        //Debug.Log("posRightBottom:" + PosRightBottom.position);
 
        
         //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
