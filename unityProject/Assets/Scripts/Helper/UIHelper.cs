@@ -25,6 +25,11 @@ namespace Helper
                 cb();
             }
         }
+
+        public Sprite LoadSprite(string path)
+        {
+            return ResManager.instance.LoadSprite(path);
+        }
         
 
         /// <summary>

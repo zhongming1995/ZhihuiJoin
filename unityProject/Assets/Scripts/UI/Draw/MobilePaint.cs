@@ -78,7 +78,7 @@ namespace Draw_MobilePaint
 
         // ERASER
         [Space(10)]
-        public EraserMode eraserMode = EraserMode.BackgroundColor;
+        public EraserMode eraserMode = EraserMode.Default;
         //private int defaultEraserSize = 32; // default fixed size for eraser
 
 
@@ -208,7 +208,7 @@ namespace Draw_MobilePaint
         //bool isDragging = false;//是否正在拖拽
 
         //外部控制可否绘画
-        public bool CanDraw = true;
+        public bool MultiColorMode = false;
 
         void Awake()
         {
@@ -523,6 +523,7 @@ namespace Draw_MobilePaint
         
 
         // handle mouse events
+        
         void MousePaint()
         {
             // TEST: Undo key for desktop
@@ -531,11 +532,12 @@ namespace Draw_MobilePaint
             // mouse is over UI element? then dont paint
             if (eventSystem.IsPointerOverGameObject())
             {
-               // Debug.Log("~~~");
-                return;
+                //Debug.Log("~~~1");
+                //return;
             }
             if (eventSystem.currentSelectedGameObject != null)
             {
+                Debug.Log("~~~2");
                 return;
             }
             // catch first mousedown
@@ -559,8 +561,9 @@ namespace Draw_MobilePaint
             {
                 // Only if we hit something, then we continue
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) {
-                    Debug.Log("===");
-                    wentOutside = true; return; }
+                    wentOutside = true;
+                    return; 
+                }
                 pixelUVOld = pixelUV; // take previous value, so can compare them
                 pixelUV = hit.textureCoord;
                 pixelUV.x *= texWidth;
@@ -703,6 +706,7 @@ namespace Draw_MobilePaint
             }
 
         }
+        
 
 
         // ** Main loop for touch paint **
@@ -911,12 +915,30 @@ namespace Draw_MobilePaint
             userInterface.SetActive(isUIVisible);
         }
 
-
+        int count = 0;
         void UpdateTexture()
         {
+            if (MultiColorMode)
+            {
+                count++;
+                if (count > 10)
+                {
+                    count = 0;
+                    SetPaintColor(GameMgr.GameManager.instance.ColorList[count + 2]);
+                }
+                else
+                {
+                    SetPaintColor(GameMgr.GameManager.instance.ColorList[count + 2]);
+                }
+            }
             textureNeedsUpdate = false;
             drawingTexture.LoadRawTextureData(pixels);
             drawingTexture.Apply(false);
+        }
+
+        public void SetMultiColorMode(bool isTrue)
+        {
+            MultiColorMode = isTrue;
         }
 
 
@@ -2912,7 +2934,7 @@ namespace Draw_MobilePaint
 
         public void SetDrawModeBrush()
         {
-            drawMode = DrawMode.Default;
+            drawMode = DrawMode.CustomBrush;
         }
 
         public void SetDrawModeFill()

@@ -59,13 +59,16 @@ public class JoinMainView : MonoBehaviour
         GameManager.instance.RightBottomPoint = PosRightBottom;
 
         //绘画素材
-        BodyGroup = GameObject.Find("DrawItemGroup/BodyGroup").transform;
+        //BodyGroup = GameObject.Find("DrawItemGroup/BodyGroup").transform;
         //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
-        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, Vector3.zero, Vector3.one);
-        draw.GetComponent<MobileDrag>().InitItem(0, BodyGroup,Vector3.zero);
-        //mobilePaint = draw.GetComponent<MobilePaint>();
-        //mobilePaint.InitializeEverything(ImgBody.sprite.texture);
-        //mobilePaint.SetBrushSize(20);
+        BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
+        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(85.0f,-15.0f,-13824.0f), new Vector3(153,153,153));
+        //draw.GetComponent<MobileDrag>().InitItem(0, BodyGroup,Vector3.zero);
+        Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
+        mobilePaint = draw.GetComponent<MobilePaint>();
+        mobilePaint.InitializeEverything(s.texture);
+        mobilePaint.SetBrushSize(15);
+        SelectColor(0,Color.red);
         //Debug.Log("pos:" + mobilePaint.transform.position);
         //Debug.Log("posdrawbg:" + GameObject.Find("img_draw_bg").transform.position);
         //Debug.Log("posLeftTop:" + PosLeftTop.position);
@@ -73,7 +76,7 @@ public class JoinMainView : MonoBehaviour
 
        
         //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
-        //mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
+       //mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
         //if (mobilePaint==null)
         //{
         //    Debug.Log("mobile is null");
@@ -160,9 +163,27 @@ public class JoinMainView : MonoBehaviour
 
     }
 
-    public void SelectColor(Color32 color)
+    public void SelectColor(int index, Color32 color)
     {
-        mobilePaint.SetPaintColor(color);
+        if (index == 0)
+        {
+            Debug.Log("彩虹笔");
+            mobilePaint.SetMultiColorMode(true);
+        }
+        else if (index == 1)
+        {
+            Debug.Log("橡皮擦");
+            mobilePaint.SetMultiColorMode(false);
+            mobilePaint.SetDrawModeEraser();
+            mobilePaint.SetBrushSize(30);
+        }
+        else
+        {
+            mobilePaint.SetMultiColorMode(false);
+            mobilePaint.SetDrawModeBrush();
+            mobilePaint.SetBrushSize(15);
+            mobilePaint.SetPaintColor(color);
+        }
     }
 
     public void SetCurSelectType(int type)
@@ -173,21 +194,11 @@ public class JoinMainView : MonoBehaviour
         {
             PenScaleSlider.gameObject.SetActive(true);
             ImageScaleSlider.gameObject.SetActive(false);
-            //画笔，要禁用其他部位的事件
-            //GraRay_HandLeg.enabled = false;
-            //GraRay_Body.enabled = false;
-            //GraRay_EyeMouthHair.enabled = false;
-            //GraRay_HatHeadwear.enabled = false;
         }
         else
         {
             PenScaleSlider.gameObject.SetActive(false);
             SetSelectResObj(curSelectResObj);
-            //不是画笔，要禁用画笔
-            //GraRay_HandLeg.enabled = true;
-            //GraRay_Body.enabled = true;
-            //GraRay_EyeMouthHair.enabled = true;
-            //GraRay_HatHeadwear.enabled = true;
         }
     }
 
