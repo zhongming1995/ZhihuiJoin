@@ -1,17 +1,20 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AppEntry.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Draw/MobilePaint.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="64" Column="10" />
-      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="2697" Column="45" />
-      <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="31" Column="50" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="20" Column="15" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="46" Column="15" />
-      <File FileName="Assets/Scripts/Helper/UIDepth.cs" Line="15" Column="14" />
-      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="39" Column="69" />
-      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="41" Column="10" />
-      <File FileName="Assets/MobilePaint/Scripts/MobilePaint.cs" Line="2681" Column="163" />
-      <File FileName="Assets/Scripts/AppEntry.cs" Line="17" Column="50" />
+      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="2969" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/AppEntry.cs" Line="29" Column="11" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="62" Column="6" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="43" Column="32" NotebookId="1" />
+      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="73" Column="25" NotebookId="1" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="71" Column="22" NotebookId="1" />
     </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="57" Y="115" Width="693" Height="784">
+        <Files>
+          <File FileName="Assets/Scripts/UI/Draw/MyPaint.cs" Line="257" Column="27" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

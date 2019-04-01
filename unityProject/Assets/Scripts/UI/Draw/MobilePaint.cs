@@ -457,12 +457,12 @@ namespace Draw_MobilePaint
         // *** MAINLOOP ***
         void Update()
         {
-            if (GameMgr.GameManager.instance.curSelectResType!=0)
-            {
-                //DragEvent();
-                //拖拽写在MobileDrag里
-                return;
-            }
+            //if (GameMgr.GameManager.instance.curSelectResType!=0)
+            //{
+            //    //DragEvent();
+            //    //拖拽写在MobileDrag里
+            //    return;
+            //}
             if (enableTouch)
             {
                 TouchPaint();
@@ -543,11 +543,6 @@ namespace Draw_MobilePaint
             // catch first mousedown
             if (Input.GetMouseButtonDown(0))
             {
-                if (hideUIWhilePainting && isUIVisible) HideUI();
-
-                // when starting, grab undo buffer first
-                if (undoEnabled) GrabUndoBufferNow();
-
                 // if lock area is used, we need to take full area before painting starts
                 if (useLockArea)
                 {
@@ -561,9 +556,11 @@ namespace Draw_MobilePaint
             {
                 // Only if we hit something, then we continue
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) {
+                    Debug.Log("WentoutSide");
                     wentOutside = true;
                     return; 
                 }
+                Debug.Log("inside");
                 pixelUVOld = pixelUV; // take previous value, so can compare them
                 pixelUV = hit.textureCoord;
                 pixelUV.x *= texWidth;

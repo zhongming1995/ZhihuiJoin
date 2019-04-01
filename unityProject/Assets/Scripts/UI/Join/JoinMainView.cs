@@ -67,8 +67,8 @@ public class JoinMainView : MonoBehaviour
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
-        mobilePaint.SetBrushSize(15);
-        SelectColor(0,Color.red);
+        mobilePaint.SetBrushSize(5);
+        //SelectColor(2,Color.red);
         //Debug.Log("pos:" + mobilePaint.transform.position);
         //Debug.Log("posdrawbg:" + GameObject.Find("img_draw_bg").transform.position);
         //Debug.Log("posLeftTop:" + PosLeftTop.position);

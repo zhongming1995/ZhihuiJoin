@@ -1,17 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2933471625
+CRC: 640136819
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a71e107c73b0063ff2d86a2c6512db77
+    Hash: 54bbf196e0e124c6b0d46027b8637175
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1dc5ff04071e783e68cc05677f183299
+    Hash: ddeb215fd944964e8c7cd81879679783
 HashAppended: 0
 ClassTypes:
 - Class: 1
-  Script: {instanceID: 0}
-- Class: 4
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
@@ -24,13 +22,11 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 4dae82204319a4f1cb7ceb4afc03956c, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: da0ad670d7bc6d54b9f718126d3a2adb, type: 3}
-- Class: 114
   Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 1741964061, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: -2095666955, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
@@ -48,6 +44,12 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 1297475563, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 4dae82204319a4f1cb7ceb4afc03956c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 74eca45b6ecdf41e693ef5fff6898659, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: da0ad670d7bc6d54b9f718126d3a2adb, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 9d4dac94e56ab4ea587f70a00a405385, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 35810376f11f6c0409fa585488cd795c, type: 3}
@@ -55,13 +57,13 @@ ClassTypes:
   Script: {fileID: 11500000, guid: c56a5a48729212642a598b6f5f6918db, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d1cde41a1596a42c69776fc905d91da1, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 74eca45b6ecdf41e693ef5fff6898659, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 - Class: 222
+  Script: {instanceID: 0}
+- Class: 223
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
@@ -88,4 +90,5 @@ Dependencies:
 - /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/small_fodder/color.ab
 - /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/small_fodder/hand.ab
 - /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/small_fodder/leg.ab
+- /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/small_fodder/mouth.ab
 - /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/bg.ab

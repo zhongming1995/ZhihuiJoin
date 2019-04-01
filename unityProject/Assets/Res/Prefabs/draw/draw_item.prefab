@@ -101,7 +101,7 @@ MonoBehaviour:
   connectBrushStokes: 1
   paintColor:
     serializedVersion: 2
-    rgba: 4278190335
+    rgba: 4283126500
   brushSize: 24
   brushSizeMin: 1
   brushSizeMax: 64

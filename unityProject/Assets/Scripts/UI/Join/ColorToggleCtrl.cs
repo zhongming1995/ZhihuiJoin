@@ -34,22 +34,16 @@ public class ColorToggleCtrl : MonoBehaviour
             });
             toggleLst.Add(t);
         }
-        toggleLst[0].isOn = true;
+        toggleLst[2].isOn = true;
     }
 
     private void SelectOneColor(bool isOn,int index) {
         if (isOn)
         {
-            Debug.Log(index);
             //index：0为七彩笔 1为橡皮擦 2以后为颜色
             joinMainView.SelectColor(index,GameManager.instance.ColorList[index]);
             joinMainView.ShowBackBtn(false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

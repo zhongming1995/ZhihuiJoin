@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using UI.Data;
 
-public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
+public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
     private Image image;
     private JoinMainView joinMainView;
@@ -17,6 +17,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private RectTransform rt;
     public PartType partType;
     bool isInit = false;//是否获取了需要的控件
+    Vector3 offset;
 
     void Init()
     {
@@ -52,11 +53,13 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return;
         }
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
+        Debug.Log("offset:" + offset);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Drag");
         //选中画笔的情况下，素材不可以拖动
         if (GameManager.instance.curSelectResType == 0)
         {
@@ -64,7 +67,9 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
-        transform.position = globalMousePos;
+        //transform.position = globalMousePos;
+        transform.position = globalMousePos + offset;
+        Debug.Log(transform.position);
         bool r = InCorrectArea();
         if (r)
         {
@@ -124,23 +129,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             joinMainView.SetSelectResObj(null);
             Destroy(gameObject);
         }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("Click");
-        if (isInit==false)
-        {
-            Init();
-        }
-        //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curSelectResType == 0)
-        {
-            return;
-        }
-        joinMainView.SetSelectResObj(transform);
-        joinMainView.ShowBackBtn(false);
-    }
+         }
 
     public void SetState(bool enable)
     {
@@ -164,5 +153,20 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             return true;
         }
         return false;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (isInit == false)
+        {
+            Init();
+        }
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curSelectResType == 0)
+        {
+            return;
+        }
+        joinMainView.SetSelectResObj(transform);
+        joinMainView.ShowBackBtn(false);
     }
 }
