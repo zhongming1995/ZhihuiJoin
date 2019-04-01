@@ -112,8 +112,8 @@ MonoBehaviour:
   brushAlphaStrength: 0.1
   drawMode: 1
   useLockArea: 1
-  useMaskLayerOnly: 1
-  smoothenMaskEdges: 1
+  useMaskLayerOnly: 0
+  smoothenMaskEdges: 0
   useThreshold: 1
   paintThreshold: 128
   eraserMode: 0
