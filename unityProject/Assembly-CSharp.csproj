@@ -115,6 +115,7 @@
     <Compile Include="Assets\Scripts\Manager\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResConf.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\ResMgr\ResManager1.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResUtil.cs" />
     <Compile Include="Assets\Scripts\UI\Data\PartData.cs" />
     <Compile Include="Assets\Scripts\UI\Data\PersonData.cs" />
