@@ -121,7 +121,7 @@ MonoBehaviour:
   canDrawOnBlack: 1
   canvasSizeAdjust: {x: 0, y: 0}
   targetTexture: _MainTex
-  filterMode: 1
+  filterMode: 0
   clearColor:
     serializedVersion: 2
     rgba: 4294967295
@@ -129,13 +129,13 @@ MonoBehaviour:
   maskTex: {fileID: 0}
   useCustomBrushes: 1
   customBrushes:
-  - {fileID: 2800000, guid: fffe2ec80255849cebe8fd7745ea4f91, type: 3}
+  - {fileID: 2800000, guid: be3e2f68053d4634d9a21fcc33a3d997, type: 3}
   - {fileID: 2800000, guid: d06c067971ba30d4cae0c6258f67a87b, type: 3}
   - {fileID: 2800000, guid: 37631e57f35cb9d41842c08b85389d5c, type: 3}
   - {fileID: 2800000, guid: c800fed5309ada840a439967c6d6b3d0, type: 3}
   - {fileID: 2800000, guid: 1421a94af2c314b3f8dfb7207a6bfaf6, type: 3}
   overrideCustomBrushColor: 1
-  useCustomBrushAlpha: 1
+  useCustomBrushAlpha: 0
   selectedBrush: 0
   useCustomPatterns: 0
   customPatterns: []
@@ -153,6 +153,7 @@ MonoBehaviour:
   hideUIWhilePainting: 0
   debugMode: 0
   MultiColorMode: 0
+  referncePoint: {x: 0.2, y: 0.3}
 --- !u!114 &8236310664356457518
 MonoBehaviour:
   m_ObjectHideFlags: 0

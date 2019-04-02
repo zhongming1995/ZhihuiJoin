@@ -122,6 +122,7 @@
     <Compile Include="Assets\Scripts\UI\Draw\MobileDrag.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\MobilePaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\MyPaint.cs" />
+    <Compile Include="Assets\Scripts\UI\Draw\ZhihuiPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ColorToggleCtrl.cs" />
     <Compile Include="Assets\Scripts\UI\Join\JoinMainView.cs" />
@@ -130,6 +131,7 @@
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasDefault.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DecalModified.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DX11\EdgeTesselation.shader" />
+    <None Include="Assets\shader\ImageMask.shader" />
     <None Include="Assets\MobilePaint\Documentation\release_notes.txt" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasWithAlpha.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasMaskAndAlpha.shader" />

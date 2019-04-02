@@ -203,12 +203,14 @@ namespace Draw_MobilePaint
         // zoom pan
         private bool isZoomingOrPanning = false;
 
-        //drag
-        //private Vector3 offset = new Vector3(0, 0, 0);//拖拽开始时，手指与拖拽物体中心点的偏移
-        //bool isDragging = false;//是否正在拖拽
+        //绘制点的个数，用于修改彩虹笔的颜色
+        private int drawCount = 0;
 
-        //外部控制可否绘画
+        //是否是彩笔比颜色
         public bool MultiColorMode = false;
+
+        //初始给定一个有颜色的点，用来获取mask
+        public Vector2 referncePoint = new Vector2(0.3f, 0.3f);
 
         void Awake()
         {
@@ -391,6 +393,7 @@ namespace Draw_MobilePaint
                     texHeight = (int)(Screen.height * resolutionScaler + canvasSizeAdjust.y);
                 }
             }
+
             // we have no texture set for canvas, FIXME: this returns true if called initialize again, since texture gets created after this
             if (myRenderer.material.GetTexture(targetTexture) == null && !usingClearingImage) // temporary fix by adding && !usingClearingImage
             {
@@ -401,7 +404,6 @@ namespace Draw_MobilePaint
 
                 // init pixels array
                 pixels = new byte[texWidth * texHeight * 4];
-
             } else { // we have canvas texture, then use that as clearing texture
 
                 usingClearingImage = true;
@@ -421,6 +423,10 @@ namespace Draw_MobilePaint
                 ReadClearingImage();
                 myRenderer.material.SetTexture(targetTexture, drawingTexture);
             }
+
+            //读取绘画背景图，为了绘画时比较用
+            ReadBgImage();
+
             // set texture modes
             drawingTexture.filterMode = filterMode;
             drawingTexture.wrapMode = TextureWrapMode.Clamp;
@@ -451,18 +457,20 @@ namespace Draw_MobilePaint
 
             ClearImage(updateUndoBuffer: false);
 
+            //获取了texWidth和height以后，再获取可绘画区域
+            ReadDrawArea();
 
         } // InitializeEverything
 
         // *** MAINLOOP ***
         void Update()
         {
-            //if (GameMgr.GameManager.instance.curSelectResType!=0)
-            //{
-            //    //DragEvent();
-            //    //拖拽写在MobileDrag里
-            //    return;
-            //}
+            if (GameMgr.GameManager.instance.curSelectResType!=0)
+            {
+                //DragEvent();
+                //拖拽写在MobileDrag里
+                return;
+            }
             if (enableTouch)
             {
                 TouchPaint();
@@ -470,12 +478,68 @@ namespace Draw_MobilePaint
             else {
                 MousePaint();
             }
-
+            //Debug.Log("texutNeedUpdate===========" + textureNeedsUpdate.ToString());
             if (textureNeedsUpdate && (realTimeTexUpdate || Time.time > nextTextureUpdate))
             {
                 nextTextureUpdate = Time.time + textureUpdateSpeed;
                 UpdateTexture();
             }
+
+            //修改颜色
+            //if (MultiColorMode)
+            //{
+            //    Debug.Log("change--------" + drawCount);
+            //    if (drawCount%10==0)
+            //    {
+            //        colorIndex++;
+            //        if (colorIndex>=7)
+            //        {
+            //            colorIndex = 0;
+            //        }
+            //        Debug.Log("换颜色-----");
+            //        SetPaintColor(GameMgr.GameManager.instance.ColorList[colorIndex + 2]);
+            //    }
+            //}
+        }
+
+        //读取画画背景图
+        void ReadBgImage()
+        {
+            //read bg image
+            maskPixels = new byte[texWidth * texHeight * 4];
+            int pixel = 0;
+            Color32[] tempPixels = ((Texture2D)myRenderer.material.GetTexture(targetTexture)).GetPixels32();//获取mask纹理
+            int tempCount = tempPixels.Length;
+
+            for (int i = 0; i < tempCount; i++)
+            {
+                maskPixels[pixel] = tempPixels[i].r;
+                maskPixels[pixel + 1] = tempPixels[i].g;
+                maskPixels[pixel + 2] = tempPixels[i].b;
+                maskPixels[pixel + 3] = tempPixels[i].a;
+                pixel += 4;
+            }
+
+        }
+
+        //读取可画画区域
+        bool ReadDrawArea()
+        {
+            for (float i = 0; i < 1.0f; i = i + 0.1f)
+            {
+                for (float j = 0; j < 1.0f; j = j + 0.1f)
+                {
+                    Debug.Log("测试点：(" + i + "," + j + ")");
+                    bool createResult = CreateAreaLockMask((int)(i * texWidth), (int)(j * texHeight));
+                    if (createResult)
+                    {
+                        Debug.Log("取样点：(" + i + "," + j + ")");
+                        return true;
+                    }
+                }
+            }
+            Debug.Log("整张图都不可以画");
+            return false;
         }
 
         //不是选中画笔的时候，对绘画区域进行拖拽
@@ -520,10 +584,10 @@ namespace Draw_MobilePaint
             }
         }
         */
-        
+
 
         // handle mouse events
-        
+        bool canCreate = true;
         void MousePaint()
         {
             // TEST: Undo key for desktop
@@ -537,23 +601,31 @@ namespace Draw_MobilePaint
             }
             if (eventSystem.currentSelectedGameObject != null)
             {
-                Debug.Log("~~~2");
-                return;
+                //Debug.Log("~~~2");
+                //return;
             }
             // catch first mousedown
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("ButtonDown------------");
                 // if lock area is used, we need to take full area before painting starts
                 if (useLockArea)
                 {
                     if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
-                    CreateAreaLockMask((int)(hit.textureCoord.x * texWidth), (int)(hit.textureCoord.y * texHeight));
+                    Debug.Log(hit.textureCoord);
+                    //if (canCreate)
+                    //{
+                    //    //CreateAreaLockMask((int)(hit.textureCoord.x * texWidth), (int)(hit.textureCoord.y * texHeight));
+                    //    canCreate = false;
+                    //}
+
                 }
             }
 
             // left button is held down, draw
             if (Input.GetMouseButton(0))
             {
+                Debug.Log("Button Move----------");
                 // Only if we hit something, then we continue
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) {
                     Debug.Log("WentoutSide");
@@ -615,11 +687,13 @@ namespace Draw_MobilePaint
                         break;
                 }
                 textureNeedsUpdate = true;
+                Debug.Log("set true1111111111111");
             }
 
 
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("Button Down2----------");
                 // take this position as start position
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
 
@@ -659,12 +733,14 @@ namespace Draw_MobilePaint
                         break;
                 }
                 pixelUVOld = pixelUV;
+                Debug.Log("set true222222222222222");
                 textureNeedsUpdate = true;
             }
 
             // left mouse button released
             if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log("Button up-------------");
                 // calculate area size
                 if (getAreaSize && useLockArea && useMaskLayerOnly && drawMode != DrawMode.FloodFill)
                 {
@@ -696,6 +772,7 @@ namespace Draw_MobilePaint
                         Vector2 extendLine = (pixelUV - new Vector2((float)firstClickX, (float)firstClickY)).normalized * (brushSize * 0.25f);
                         DrawLine(firstClickX - (int)extendLine.x, firstClickY - (int)extendLine.y, (int)pixelUV.x + (int)extendLine.x, (int)pixelUV.y + (int)extendLine.y);
                     }
+                    Debug.Log("set tru3333333333333");
                     textureNeedsUpdate = true;
                 }
 
@@ -814,6 +891,7 @@ namespace Draw_MobilePaint
                                 break;
                         }
                         // set flag that texture needs to be applied
+                        Debug.Log("set true444444444");
                         textureNeedsUpdate = true;
                     }
                 }
@@ -854,6 +932,7 @@ namespace Draw_MobilePaint
                             // unknown mode
                             break;
                     }
+                    Debug.Log("set true 5555555555555");
                     textureNeedsUpdate = true;
 
                     pixelUVOlds[touch.fingerId] = pixelUVs[touch.fingerId];
@@ -892,6 +971,7 @@ namespace Draw_MobilePaint
                     else {
                         DrawLine(new Vector2(firstClickX, firstClickY), pixelUVs[touch.fingerId]);
                     }
+                    Debug.Log("set true666666666");
                     textureNeedsUpdate = true;
                 }
 
@@ -912,25 +992,29 @@ namespace Draw_MobilePaint
             userInterface.SetActive(isUIVisible);
         }
 
-        int count = 0;
+        int loopCount = 0;//彩虹笔使用
+        int colorIndex;//颜色
         void UpdateTexture()
         {
-            if (MultiColorMode)
-            {
-                count++;
-                if (count > 10)
-                {
-                    count = 0;
-                    SetPaintColor(GameMgr.GameManager.instance.ColorList[count + 2]);
-                }
-                else
-                {
-                    SetPaintColor(GameMgr.GameManager.instance.ColorList[count + 2]);
-                }
-            }
             textureNeedsUpdate = false;
             drawingTexture.LoadRawTextureData(pixels);
             drawingTexture.Apply(false);
+            //彩虹笔模式
+            //if (MultiColorMode)
+            //{
+            //    loopCount++;
+            //    if (loopCount>16)
+            //    {
+            //        loopCount = 1;
+            //    }
+            //    if (loopCount % 2 == 0)
+            //    {
+            //        colorIndex = loopCount / 2;
+            //    }
+            //    SetPaintColor(GameMgr.GameManager.instance.ColorList[colorIndex + 2]);
+            //}
+            Debug.Log("set false1111111111");
+
         }
 
         public void SetMultiColorMode(bool isTrue)
@@ -939,7 +1023,7 @@ namespace Draw_MobilePaint
         }
 
 
-        void CreateAreaLockMask(int x, int y)
+        bool CreateAreaLockMask(int x, int y)
         {
 
             initialX = x;
@@ -954,7 +1038,7 @@ namespace Draw_MobilePaint
                         LockAreaFillWithThresholdMaskOnlyGetArea(x, y, false);
                     }
                     else {
-                        LockAreaFillWithThresholdMaskOnly(x, y);
+                        return LockAreaFillWithThresholdMaskOnly(x, y);//目前使用
                     }
                 }
                 else {
@@ -970,6 +1054,8 @@ namespace Draw_MobilePaint
                     LockAreaFill(x, y);
                 }
             }
+            //默认true
+            return true;
             //lockMaskCreated = true; // not used yet
         }
 
@@ -1246,7 +1332,8 @@ namespace Draw_MobilePaint
                         }
                     }
                     pixel += 4;
-
+                    //drawCount++;
+                    //Debug.Log("count---------" + drawCount);
                 } // for x
 
                 pixel = (texWidth * (startY == 0 ? 1 : startY + y) + startX + 1) * 4;
@@ -1861,18 +1948,23 @@ namespace Draw_MobilePaint
         }
 
         // create locking mask floodfill, using threshold, checking pixels from mask only
-        void LockAreaFillWithThresholdMaskOnly(int x, int y)
+        bool LockAreaFillWithThresholdMaskOnly(int x, int y)
         {
-            //			Debug.Log("LockAreaFillWithThresholdMaskOnly");
+            Debug.Log("LockAreaFillWithThresholdMaskOnly-------:("+x+","+y+")");
             // get canvas color from this point
             byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
             byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
             byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];
             byte hitColorA = maskPixels[(texWidth * y + x) * 4 + 3];
 
+            if (hitColorA == 0)//透明部分不可绘画
+            {
+                return false;
+            }
+
             if (!canDrawOnBlack)
             {
-                if (hitColorR == 0 && hitColorG == 0 && hitColorB == 0 && hitColorA != 0) return;
+                if (hitColorR == 0 && hitColorG == 0 && hitColorB == 0 && hitColorA != 0) return false;
             }
 
             Queue<int> fillPointX = new Queue<int>();
@@ -1952,6 +2044,7 @@ namespace Draw_MobilePaint
                     }
                 }
             }
+            return true;
         } // LockAreaFillWithThresholdMaskOnly
 
 
@@ -2207,6 +2300,10 @@ namespace Draw_MobilePaint
                     customBrushBytes[pixel + 1] = brushPixel[x + y * customBrushWidth].g;
                     customBrushBytes[pixel + 2] = brushPixel[x + y * customBrushWidth].b;
                     customBrushBytes[pixel + 3] = brushPixel[x + y * customBrushWidth].a;
+                    if (customBrushBytes[pixel+3] < 250)
+                    {
+                        customBrushBytes[pixel + 3] = 0;
+                    }
                     pixel += 4;
                 }
             }
@@ -2320,6 +2417,7 @@ namespace Draw_MobilePaint
 
         void DrawLineWithBrush(Vector2 start, Vector2 end)
         {
+            Debug.Log("DrawLineWithBrush-----");
             int x0 = (int)start.x;
             int y0 = (int)start.y;
             int x1 = (int)end.x;
@@ -2626,6 +2724,7 @@ namespace Draw_MobilePaint
 
         public void ReadMaskImage()
         {
+            Debug.Log("ReadMaskImage========");
             maskPixels = new byte[texWidth * texHeight * 4];
 
             int smoothenResolution = 5; // currently fixed value
@@ -3080,6 +3179,7 @@ namespace Draw_MobilePaint
                 texHeight = newTexture.height;
                 myRenderer.material.SetTexture("_MaskTex", newTexture);
                 ReadMaskImage();
+                Debug.Log("set true77777777777");
                 textureNeedsUpdate = true;
             }
         } // SetMaskImage
