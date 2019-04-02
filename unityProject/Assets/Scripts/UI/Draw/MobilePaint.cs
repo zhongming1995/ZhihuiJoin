@@ -486,20 +486,18 @@ namespace Draw_MobilePaint
             }
 
             //修改颜色
-            //if (MultiColorMode)
-            //{
-            //    Debug.Log("change--------" + drawCount);
-            //    if (drawCount%10==0)
-            //    {
-            //        colorIndex++;
-            //        if (colorIndex>=7)
-            //        {
-            //            colorIndex = 0;
-            //        }
-            //        Debug.Log("换颜色-----");
-            //        SetPaintColor(GameMgr.GameManager.instance.ColorList[colorIndex + 2]);
-            //    }
-            //}
+            if (MultiColorMode)
+            {
+                Debug.Log("change--------" + colorIndex);
+                if (colorIndex >= 6)
+                {
+                    colorIndex = 0;
+                }
+                Debug.Log("换颜色-----");
+                SetPaintColor(GameMgr.GameManager.instance.MultiColorList[colorIndex]);
+                colorIndex++;
+
+            }
         }
 
         //读取画画背景图
