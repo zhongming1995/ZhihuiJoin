@@ -490,7 +490,7 @@ namespace unitycoder_MobilePaint
             else {
                 MousePaint();
             }
-
+            Debug.Log("textureNeedsUpdate=======:" + textureNeedsUpdate.ToString());
             if (textureNeedsUpdate && (realTimeTexUpdate || Time.time > nextTextureUpdate))
             {
                 nextTextureUpdate = Time.time + textureUpdateSpeed;
@@ -584,7 +584,7 @@ namespace unitycoder_MobilePaint
                         Debug.LogError("Unknown drawMode");
                         break;
                 }
-
+                Debug.Log("textureNeedsUpdate set true111111111----------");
                 textureNeedsUpdate = true;
             }
 
@@ -630,6 +630,7 @@ namespace unitycoder_MobilePaint
                         break;
                 }
                 pixelUVOld = pixelUV;
+                Debug.Log("textureNeedsUpdate set true222222----------");
                 textureNeedsUpdate = true;
             }
 
@@ -886,6 +887,7 @@ namespace unitycoder_MobilePaint
         void UpdateTexture()
         {
             textureNeedsUpdate = false;
+            Debug.Log("textureNeedsUpdate set false1111===========");
             drawingTexture.LoadRawTextureData(pixels);
             drawingTexture.Apply(false);
         }

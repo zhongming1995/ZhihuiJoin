@@ -4,8 +4,9 @@ namespace GameMgr
 {
     public class GameManager : SingletonMono<GameManager>
     {
-
+        [HideInInspector]
         public List<string> homePathList = new List<string>();//选择界面的资源路径
+        [HideInInspector]
         public List<string> drawBgPathList = new List<string>();//画图背景资源路径
 
         private List<string> colorPathList = new List<string>();//颜色资源路径
@@ -35,20 +36,29 @@ namespace GameMgr
         private List<string> numLegPathList = new List<string>();//数字饰品资源路径
         private List<string> aniLegPathList = new List<string>();//数字饰品资源路径
 
+        [HideInInspector]
         public List<List<string>> resPathList = new List<List<string>>();//全部资源路径
-
+        [HideInInspector]
         public List<string> resPrefabPathList = new List<string>();//素材资源prefab路径
 
         //画笔颜色
+        [HideInInspector]
         public Color[] ColorList;
+        [HideInInspector]
+        public Color[] MultiColorList;
 
         //创建出来的画布
-
+        [HideInInspector]
         public int homeSelectIndex = 0;//选择了那个字母或数字，存放的是下标
+        [HideInInspector]
         public int resTypeCount = 8;//素材资源种类，目前8种
+        [HideInInspector]
         public int curSelectResType = 0;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手7脚
+        [HideInInspector]
         public Transform LeftTopPoint;
+        [HideInInspector]
         public Transform RightBottomPoint;
+        [HideInInspector]
         public Transform Root;
 
         void Awake()
@@ -62,6 +72,7 @@ namespace GameMgr
             InitItemList();//首页选字母，数字
             InitResPrefabList();//素材中的预制体路径
             InitResList();//素材资源
+            InitColor();
         }
 
         //初始化颜色列表
@@ -84,6 +95,17 @@ namespace GameMgr
             new Color32(131, 133, 135, 255),
             new Color32(145, 209, 208, 255),
             new Color32(255, 255, 255, 255),
+            };
+
+            MultiColorList = new Color[7]
+            {
+                new Color32(228, 82, 75, 255),
+                new Color32(237, 141, 57, 255),
+                new Color32(250, 228, 84, 255),
+                new Color32(157, 221, 80, 255),
+                new Color32(95, 184, 249, 255),
+                new Color32(139, 85, 230, 255),
+                new Color32(131, 133, 135, 255),
             };
         }
 

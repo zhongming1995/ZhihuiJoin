@@ -5,6 +5,7 @@ using GameMgr;
 using Helper;
 using UnityEngine;
 using UnityEngine.UI;
+using UI.Data;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -24,14 +25,7 @@ public class JoinMainView : MonoBehaviour
     public Slider ImageScaleSlider;//控制图片大小的slider
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
-
-	//public Transform DrawingPanelCanvas
-    //public GraphicRaycaster GraRay_HandLeg;
-    //public GraphicRaycaster GraRay_Body;
-    //public GraphicRaycaster GraRay_EyeMouthHair;
-    //public GraphicRaycaster GraRay_HatHeadwear;
-
-    private List<Transform> typeTransList = new List<Transform>();//类型列表
+   
     private MobilePaint mobilePaint;
     private Transform BodyGroup;
 
@@ -41,20 +35,19 @@ public class JoinMainView : MonoBehaviour
     private Transform curSelectResObj ;
     private int typeCount = 8;//资源类型数量
     private int step = 1;//步骤1-4
+    private List<Transform> typeTransList = new List<Transform>();//类型列表
+    private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
 
     void Start()
     {
         Init();
-        TypeButtonClick(0);//初始选中第一个类型
-        ShowTypeByStep(step);
-        LoadAllResList();
     }
     private void Init()
     {
         //按钮点击
         AddClickEvent();
 
-        //赋值给Game Manager，因为外部要调用
+        //赋值给GameManager，因为外部要调用
         GameManager.instance.LeftTopPoint = PosLeftTop;
         GameManager.instance.RightBottomPoint = PosRightBottom;
 
@@ -67,7 +60,8 @@ public class JoinMainView : MonoBehaviour
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
-        mobilePaint.SetBrushSize(5);
+        mobilePaint.SetBrushSize(1);
+      
         //SelectColor(2,Color.red);
         //Debug.Log("pos:" + mobilePaint.transform.position);
         //Debug.Log("posdrawbg:" + GameObject.Find("img_draw_bg").transform.position);
@@ -84,6 +78,7 @@ public class JoinMainView : MonoBehaviour
         //mobilePaint.InitializeEverything(ImgBody.sprite.texture);
         //mobilePaint.SetBrushSize(20);
 
+
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
 
@@ -96,7 +91,11 @@ public class JoinMainView : MonoBehaviour
         //返回按钮显示半透明
         ShowBackBtn(false);
 
+        //加载颜色列表
+        //LoadResList((int)PartType.Body);
+
         //加载所有类型素材
+
         string typeUnSelectPath = "sprite/ui|splice_type_{0}";
         string typeSelectPath = "sprite/ui|splice_type_{0}_select";
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
@@ -111,14 +110,34 @@ public class JoinMainView : MonoBehaviour
             });
             typeTransList.Add(t);
         }
+        TypeButtonClick(0);//初始选中第一个类型
+        step = 1;//初始是第一步
+        ShowTypeByStep(step);
+        LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
     }
 
+    void LoadResList(int resType)
+    {
+        string typeUnSelectPath = "sprite/ui|splice_type_{0}";
+        string typeSelectPath = "sprite/ui|splice_type_{0}_select";
+        Transform t = UIHelper.instance.LoadPrefab("prefabs/join|res_type_item", ConResType, Vector3.zero, Vector3.one, false).transform;
+        UIHelper.instance.SetImage(string.Format(typeSelectPath, resType.ToString()), t.GetChild(0).GetComponent<Image>(), true);
+        UIHelper.instance.SetImage(string.Format(typeUnSelectPath, resType.ToString()), t.GetChild(1).GetComponent<Image>(), true);
+        t.GetComponent<Button>().onClick.AddListener(delegate
+        {
+            TypeButtonClick(resType);
+        });
+        typeTransList.Add(t);
+    }
+
+    //显示返回按钮，否则是半透明状态
     public void ShowBackBtn(bool show)
     {
         BtnBack.gameObject.SetActive(show);
         BtnBackCheck.gameObject.SetActive(!show);
     }
 
+    //按钮点击事件
     private void AddClickEvent()
     {
         BtnBackCheck.onClick.AddListener(delegate
@@ -163,12 +182,16 @@ public class JoinMainView : MonoBehaviour
 
     }
 
+    //右侧选择颜色
     public void SelectColor(int index, Color32 color)
     {
         if (index == 0)
         {
             Debug.Log("彩虹笔");
             mobilePaint.SetMultiColorMode(true);
+            mobilePaint.SetDrawModeBrush();
+            mobilePaint.SetBrushSize(1);
+            mobilePaint.SetPaintColor(color);
         }
         else if (index == 1)
         {
@@ -179,13 +202,15 @@ public class JoinMainView : MonoBehaviour
         }
         else
         {
+            Debug.Log("单色蜡笔");
             mobilePaint.SetMultiColorMode(false);
             mobilePaint.SetDrawModeBrush();
-            mobilePaint.SetBrushSize(15);
+            mobilePaint.SetBrushSize(1);
             mobilePaint.SetPaintColor(color);
         }
     }
 
+    //右侧素材类型切换
     public void SetCurSelectType(int type)
     {
         GameManager.instance.SetJoinCurSelectType(type);
@@ -202,6 +227,7 @@ public class JoinMainView : MonoBehaviour
         }
     }
 
+    //选中某个部件
     public void SetSelectResObj(Transform t)
     {
         curSelectResObj = t;
@@ -219,6 +245,7 @@ public class JoinMainView : MonoBehaviour
         t.SetAsLastSibling();
     }
 
+    //右侧类型图标点击事件
     private void TypeButtonClick(int n)
     {
         ShowBackBtn(false);
@@ -234,7 +261,12 @@ public class JoinMainView : MonoBehaviour
                 {
                     typeTransList[i].GetChild(0).gameObject.SetActive(true);
                     typeTransList[i].GetChild(1).gameObject.SetActive(false);
+                    if (loadResult[n] == false)
+                    {
+                        LoadResListByType(n);
+                    }
                     ResScrollViewList[i].gameObject.SetActive(true);
+                    
                 }
                 else
                 {
@@ -248,6 +280,7 @@ public class JoinMainView : MonoBehaviour
 
     }
 
+    //根据步骤决定显示哪个类型的素材
     private void ShowTypeByStep(int step)
     {
         if (step==1)
@@ -315,6 +348,7 @@ public class JoinMainView : MonoBehaviour
         TypeButtonClick(GameManager.instance.curSelectResType);
     }
 
+    //加载所有类型素材
     private void LoadAllResList()
     {
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
@@ -351,5 +385,40 @@ public class JoinMainView : MonoBehaviour
         }
     }
 
-   
+    //加载某种类型的素材
+    private void LoadResListByType(int type)
+    {
+        string resPrefabPath = GameManager.instance.resPrefabPathList[type];
+        List<string> resPath = GameManager.instance.resPathList[type];
+        if (resPath.Count <= 0)
+        {
+            return;
+        }
+        for (int j = 0; j < resPath.Count; j++)
+        {
+            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, Vector3.one, false);
+            if (type == 0 || type == 1 || type == 6 || type == 7)
+            {
+                string imgPath = resPath[j];
+                if (type != 0)
+                {
+                    imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
+                }
+                UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
+                if (type == 0)
+                {
+                    string selectPath = imgPath + "_select";
+                    UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
+                }
+            }
+            else
+            {
+                string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
+                UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
+            }
+        }
+
+        loadResult[type] = true;
+    }
+
 }
