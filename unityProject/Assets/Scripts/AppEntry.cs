@@ -11,21 +11,16 @@ public class AppEntry : SingletonMono<AppEntry>
     void Start()
     {
         //第一步资源加载
-        if (ResManager.instance.LoadMainAssetBundle())
-        {
+       // if (ResManager.instance.LoadMainAssetBundle())
+        //{
             //加载第一个页面
             UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root , Vector3.zero, Vector3.one,true);
-        }
+       // }
 
         //屏蔽多点触摸
         Input.multiTouchEnabled = false;
 
         //帧率
         Application.targetFrameRate = 60;
-    }
-
-    private void Update()
-    {
-        //Debug.Log("rate:" + Application.targetFrameRate);
     }
 }

@@ -129,7 +129,7 @@ MonoBehaviour:
   maskTex: {fileID: 0}
   useCustomBrushes: 1
   customBrushes:
-  - {fileID: 2800000, guid: e655c7187a4434c05a81f5a2c861a3a2, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
   - {fileID: 2800000, guid: e655c7187a4434c05a81f5a2c861a3a2, type: 3}
   - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
   - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}

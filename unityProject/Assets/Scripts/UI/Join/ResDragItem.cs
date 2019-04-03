@@ -69,7 +69,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         //transform.position = globalMousePos;
         transform.position = globalMousePos + offset;
-        Debug.Log(transform.position);
         bool r = InCorrectArea();
         if (r)
         {

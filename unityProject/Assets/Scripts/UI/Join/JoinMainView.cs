@@ -299,7 +299,34 @@ public class JoinMainView : MonoBehaviour
     private void TypeButtonClick(int n)
     {
         ShowBackBtn(false);
+        Sequence seq = DOTween.Sequence();
+        seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
+        seq.InsertCallback(0.2f, () =>
+        {
+            SetCurSelectType(n);
+            for (int i = 0; i < GameManager.instance.resTypeCount; i++)
+            {
+                if (i == n)
+                {
+                    typeTransList[i].GetChild(0).gameObject.SetActive(true);
+                    typeTransList[i].GetChild(1).gameObject.SetActive(false);
+                    if (loadResult[n] == false)
+                    {
+                        LoadResListByType(n);
+                    }
+                    ResScrollViewList[i].gameObject.SetActive(true);
 
+                }
+                else
+                {
+                    typeTransList[i].GetChild(0).gameObject.SetActive(false);
+                    typeTransList[i].GetChild(1).gameObject.SetActive(true);
+                    ResScrollViewList[i].gameObject.SetActive(false);
+                }
+            }
+        });
+        seq.Append(ResListTrans.DOLocalMoveX(69, 0.2f));
+        /*
         Sequence seq = DOTween.Sequence();
         seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
         seq.InsertCallback(0.2f, () =>
@@ -327,7 +354,7 @@ public class JoinMainView : MonoBehaviour
             }
         });
         seq.Append(ResListTrans.DOLocalMoveX(69, 0.2f));
-
+        */
     }
 
     //根据步骤决定显示哪个类型的素材

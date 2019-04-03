@@ -7,6 +7,7 @@ using UI.Data;
 using Draw_MobilePaint;
 using ResMgr;
 using UnityEngine.EventSystems;
+using Helper;
 
 public class MobileDrag : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class MobileDrag : MonoBehaviour
         } 
         //设置绘画背景，初始化绘画组件中的内容
         mobilePaint = transform.GetComponent<MobilePaint>();
-        Sprite sprite = ResManager.instance.LoadSprite(path);
+        Sprite sprite = UIHelper.instance.LoadSprite(path);
         mobilePaint.InitializeEverything(sprite.texture);
         transform.position = pos;
         //mobilePaint.SetBrushSize(20);
