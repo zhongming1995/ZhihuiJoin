@@ -206,12 +206,6 @@ namespace Draw_MobilePaint
         //绘制点的个数，用于修改彩虹笔的颜色
         private int drawCount = 0;
 
-        //是否是彩笔比颜色
-        public bool MultiColorMode = false;
-
-        //初始给定一个有颜色的点，用来获取mask
-        public Vector2 referncePoint = new Vector2(0.3f, 0.3f);
-
         void Awake()
         {
             // cache components
@@ -465,38 +459,10 @@ namespace Draw_MobilePaint
         // *** MAINLOOP ***
         void Update()
         {
-            if (GameMgr.GameManager.instance.curSelectResType!=0)
-            {
-                //DragEvent();
-                //拖拽写在MobileDrag里
-                return;
-            }
-            if (enableTouch)
-            {
-                TouchPaint();
-            }
-            else {
-                MousePaint();
-            }
-            //Debug.Log("texutNeedUpdate===========" + textureNeedsUpdate.ToString());
             if (textureNeedsUpdate && (realTimeTexUpdate || Time.time > nextTextureUpdate))
             {
                 nextTextureUpdate = Time.time + textureUpdateSpeed;
                 UpdateTexture();
-            }
-
-            //修改颜色
-            if (MultiColorMode)
-            {
-                Debug.Log("change--------" + colorIndex);
-                if (colorIndex >= 6)
-                {
-                    colorIndex = 0;
-                }
-                Debug.Log("换颜色-----");
-                SetPaintColor(GameMgr.GameManager.instance.MultiColorList[colorIndex]);
-                colorIndex++;
-
             }
         }
 
@@ -540,53 +506,8 @@ namespace Draw_MobilePaint
             return false;
         }
 
-        //不是选中画笔的时候，对绘画区域进行拖拽
-        /*
-        void DragEvent()
-        {
-            if (eventSystem.currentSelectedGameObject!=null)
-            {
-                return;
-            }
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-            
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
-                isDragging = true;
-                Debug.Log(hit.collider.name);
-                //鼠标位置和物体的距离
-                offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPos.z));
-
-                Debug.Log("screenPos："+screenPos);
-                Debug.Log("mousePos:" + Input.mousePosition);
-                Debug.Log("offset:"+offset);
-            }
-            if (Input.GetMouseButton(0))
-            {
-                //if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
-                if (isDragging)
-                {
-                    Vector3 curMouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPos.z));
-                    transform.position = curMouseWorldPos + offset;
-                    Debug.Log("offset:" + offset);
-                    Debug.Log("cur:" + curMouseWorldPos);
-                    Debug.Log("tra:" + transform.position);
-                }
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                isDragging = false;
-                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
-                Debug.Log("mouse up");   
-            }
-        }
-        */
-
-
         // handle mouse events
-        bool canCreate = true;
-        void MousePaint()
+        public void MousePaint()
         {
             // TEST: Undo key for desktop
             if (undoEnabled && Input.GetKeyDown("u")) DoUndo();
@@ -605,32 +526,23 @@ namespace Draw_MobilePaint
             // catch first mousedown
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("ButtonDown------------");
                 // if lock area is used, we need to take full area before painting starts
                 if (useLockArea)
                 {
                     if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
                     Debug.Log(hit.textureCoord);
-                    //if (canCreate)
-                    //{
-                    //    //CreateAreaLockMask((int)(hit.textureCoord.x * texWidth), (int)(hit.textureCoord.y * texHeight));
-                    //    canCreate = false;
-                    //}
-
+                    //原本这里有CreateLockArea方法，但是在真机上会造成第一笔延迟很久，所以改到了初始化方法中，识别第一个透明度不为0的点，获得lockArea
                 }
             }
 
             // left button is held down, draw
             if (Input.GetMouseButton(0))
             {
-                Debug.Log("Button Move----------");
                 // Only if we hit something, then we continue
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) {
-                    Debug.Log("WentoutSide");
                     wentOutside = true;
                     return; 
                 }
-                Debug.Log("inside");
                 pixelUVOld = pixelUV; // take previous value, so can compare them
                 pixelUV = hit.textureCoord;
                 pixelUV.x *= texWidth;
@@ -685,13 +597,13 @@ namespace Draw_MobilePaint
                         break;
                 }
                 textureNeedsUpdate = true;
-                Debug.Log("set true1111111111111");
+                //Debug.Log("set true1111111111111");
             }
 
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Button Down2----------");
+                //Debug.Log("Button Down2----------");
                 // take this position as start position
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
 
@@ -731,14 +643,12 @@ namespace Draw_MobilePaint
                         break;
                 }
                 pixelUVOld = pixelUV;
-                Debug.Log("set true222222222222222");
                 textureNeedsUpdate = true;
             }
 
             // left mouse button released
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log("Button up-------------");
                 // calculate area size
                 if (getAreaSize && useLockArea && useMaskLayerOnly && drawMode != DrawMode.FloodFill)
                 {
@@ -778,205 +688,6 @@ namespace Draw_MobilePaint
             }
 
         }
-        
-
-
-        // ** Main loop for touch paint **
-        int i = 0;
-        void TouchPaint()
-        {
-            // check if any touch is over UI objects, then early exit (dont paint)
-            while (i < Input.touchCount)
-            {
-                touch = Input.GetTouch(i);
-                if (eventSystem.IsPointerOverGameObject(touch.fingerId)) return;
-                i++;
-            }
-            if (eventSystem.currentSelectedGameObject != null) return;
-
-            i = 0;
-            // loop until all touches are processed
-            while (i < Input.touchCount)
-            {
-
-                touch = Input.GetTouch(i);
-                if (touch.phase == TouchPhase.Began)
-                {
-                    wasTouching = true;
-
-                    if (hideUIWhilePainting && isUIVisible) HideUI();
-
-                    // when starting to draw, grab undo buffer first, FIXME: do this after painting, so it wont slowdown
-                    if (undoEnabled)
-                    {
-                        GrabUndoBufferNow();
-                    }
-
-                    if (useLockArea)
-                    {
-                        if (!Physics.Raycast(cam.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, paintLayerMask)) { wentOutside = true; return; }
-
-                        /*
-						pixelUV = hit.textureCoord;
-						pixelUV.x *= texWidth;
-						pixelUV.y *= texHeight;
-						if (wentOutside) {pixelUVOld = pixelUV;wentOutside=false;}
-						CreateAreaLockMask((int)pixelUV.x, (int)pixelUV.y);
-						*/
-
-                        pixelUVs[touch.fingerId] = hit.textureCoord;
-                        pixelUVs[touch.fingerId].x *= texWidth;
-                        pixelUVs[touch.fingerId].y *= texHeight;
-                        if (wentOutside) { pixelUVOlds[touch.fingerId] = pixelUVs[touch.fingerId]; wentOutside = false; }
-                        CreateAreaLockMask((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                    }
-                }
-                // check state
-                if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Began)
-                {
-
-                    // do raycast on touch position
-                    if (Physics.Raycast(cam.ScreenPointToRay(touch.position), out hit, Mathf.Infinity, paintLayerMask))
-                    {
-                        // take previous value, so can compare them
-                        pixelUVOlds[touch.fingerId] = pixelUVs[touch.fingerId];
-                        // get hit texture coordinate
-                        pixelUVs[touch.fingerId] = hit.textureCoord;
-                        pixelUVs[touch.fingerId].x *= texWidth;
-                        pixelUVs[touch.fingerId].y *= texHeight;
-                        // paint where we hit
-                        switch (drawMode)
-                        {
-                            case DrawMode.Default:
-                                DrawCircle((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                break;
-
-                            case DrawMode.CustomBrush:
-                                DrawCustomBrush((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                break;
-
-                            case DrawMode.Pattern:
-                                DrawPatternCircle((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                break;
-
-                            case DrawMode.FloodFill:
-                                CallFloodFill((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                break;
-
-                            case DrawMode.ShapeLines:
-                                if (snapLinesToGrid)
-                                {
-                                    DrawShapeLinePreview(SnapToGrid((int)pixelUVs[touch.fingerId].x), SnapToGrid((int)pixelUVs[touch.fingerId].y));
-                                }
-                                else {
-                                    DrawShapeLinePreview((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                }
-                                break;
-
-                            case DrawMode.Eraser:
-                                if (eraserMode == EraserMode.Default)
-                                {
-                                    EraseWithImage((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                }
-                                else {
-                                    EraseWithBackgroundColor((int)pixelUVs[touch.fingerId].x, (int)pixelUVs[touch.fingerId].y);
-                                }
-                                break;
-
-
-                            default:
-                                // unknown mode
-                                break;
-                        }
-                        // set flag that texture needs to be applied
-                        Debug.Log("set true444444444");
-                        textureNeedsUpdate = true;
-                    }
-                }
-                // if we just touched screen, set this finger id texture paint start position to that place
-                if (touch.phase == TouchPhase.Began)
-                {
-                    pixelUVOlds[touch.fingerId] = pixelUVs[touch.fingerId];
-                }
-                // check distance from previous drawing point
-                //if (connectBrushStokes && Vector2.Distance (pixelUVs[touch.fingerId], pixelUVOlds[touch.fingerId]) > brushSize) 
-                if (connectBrushStokes && textureNeedsUpdate)
-                {
-                    switch (drawMode)
-                    {
-                        case DrawMode.Default:
-                            DrawLine(pixelUVOlds[touch.fingerId], pixelUVs[touch.fingerId]);
-                            break;
-
-                        case DrawMode.CustomBrush:
-                            DrawLineWithBrush(pixelUVOlds[touch.fingerId], pixelUVs[touch.fingerId]);
-                            break;
-
-                        case DrawMode.Pattern:
-                            DrawLineWithPattern(pixelUVOlds[touch.fingerId], pixelUVs[touch.fingerId]);
-                            break;
-
-                        case DrawMode.Eraser:
-                            if (eraserMode == EraserMode.Default)
-                            {
-                                EraseWithImageLine(pixelUVOlds[touch.fingerId], pixelUVs[touch.fingerId]);
-                            }
-                            else {
-                                EraseWithBackgroundColorLine(pixelUVOlds[touch.fingerId], pixelUVs[touch.fingerId]);
-                            }
-                            break;
-
-                        default:
-                            // unknown mode
-                            break;
-                    }
-                    Debug.Log("set true 5555555555555");
-                    textureNeedsUpdate = true;
-
-                    pixelUVOlds[touch.fingerId] = pixelUVs[touch.fingerId];
-
-                }
-                // loop all touches
-                i++;
-            }
-
-            // no touches
-            if (wasTouching && Input.touchCount == 0)
-            {
-                wasTouching = false;
-
-                if (useLockArea && useMaskLayerOnly && drawMode == DrawMode.Default)
-                {
-                    LockAreaFillWithThresholdMaskOnlyGetArea(initialX, initialY, true);
-                }
-
-                // end shape line here
-                if (drawMode == DrawMode.ShapeLines)
-                {
-                    // hide preview line
-                    lineRenderer.SetPosition(0, Vector3.one * 99999);
-                    lineRenderer.SetPosition(1, Vector3.one * 99999);
-                    haveStartedLine = false;
-
-                    previewLineCircleStart.position = Vector3.one * 99999;
-                    previewLineCircleEnd.position = Vector3.one * 99999;
-
-                    // draw actual line from start to current pos
-                    if (snapLinesToGrid)
-                    {
-                        DrawLine(new Vector2(firstClickX, firstClickY), new Vector2(SnapToGrid((int)pixelUVs[touch.fingerId].x), SnapToGrid((int)pixelUVs[touch.fingerId].y)));
-                    }
-                    else {
-                        DrawLine(new Vector2(firstClickX, firstClickY), pixelUVs[touch.fingerId]);
-                    }
-                    Debug.Log("set true666666666");
-                    textureNeedsUpdate = true;
-                }
-
-                if (hideUIWhilePainting && !isUIVisible) ShowUI();
-            }
-
-        }
 
         public virtual void HideUI()
         {
@@ -990,36 +701,12 @@ namespace Draw_MobilePaint
             userInterface.SetActive(isUIVisible);
         }
 
-        int loopCount = 0;//彩虹笔使用
-        int colorIndex;//颜色
         void UpdateTexture()
         {
             textureNeedsUpdate = false;
             drawingTexture.LoadRawTextureData(pixels);
             drawingTexture.Apply(false);
-            //彩虹笔模式
-            //if (MultiColorMode)
-            //{
-            //    loopCount++;
-            //    if (loopCount>16)
-            //    {
-            //        loopCount = 1;
-            //    }
-            //    if (loopCount % 2 == 0)
-            //    {
-            //        colorIndex = loopCount / 2;
-            //    }
-            //    SetPaintColor(GameMgr.GameManager.instance.ColorList[colorIndex + 2]);
-            //}
-            Debug.Log("set false1111111111");
-
         }
-
-        public void SetMultiColorMode(bool isTrue)
-        {
-            MultiColorMode = isTrue;
-        }
-
 
         bool CreateAreaLockMask(int x, int y)
         {
@@ -1135,7 +822,6 @@ namespace Draw_MobilePaint
             paintColor = origColor;
         }
 
-
         public void EraseWithImage(int x, int y)
         {
             int pixel = 0;
@@ -1159,8 +845,6 @@ namespace Draw_MobilePaint
                 pixels[pixel + 3] = clearPixels[pixel2 + 3];
             } 
         }
-
-
 
         public void DrawPatternCircle(int x, int y)
         {
@@ -1216,8 +900,6 @@ namespace Draw_MobilePaint
                 //} // if additive
             } // for area
         } // DrawPatternCircle()
-
-
 
         // actual custom brush painting function
         void DrawCustomBrush(int px, int py)
@@ -1437,7 +1119,6 @@ namespace Draw_MobilePaint
             }
         } // floodfill
 
-
         void CallFloodFill(int x, int y)
         {
             if (useThreshold)
@@ -1470,11 +1151,6 @@ namespace Draw_MobilePaint
             byte hitColorG = pixels[((texWidth * (y) + x) * 4) + 1];
             byte hitColorB = pixels[((texWidth * (y) + x) * 4) + 2];
             byte hitColorA = pixels[((texWidth * (y) + x) * 4) + 3];
-
-            //if (!canDrawOnBlack) // NOTE: currently broken
-            //{
-            //if (hitColorR==0 && hitColorG==0 && hitColorB==0 && hitColorA!=0) return;
-            //}
 
             // early exit if its same color already
             if (paintColor.r == hitColorR && paintColor.g == hitColorG && paintColor.b == hitColorB && paintColor.a == hitColorA) return;
@@ -1651,7 +1327,6 @@ namespace Draw_MobilePaint
             }
         } // floodfillWithTreshold
 
-
         void FloodFillWithTreshold(int x, int y)
         {
             // get canvas hit color
@@ -1751,7 +1426,6 @@ namespace Draw_MobilePaint
             }
         } // floodfillWithTreshold
 
-
         void LockAreaFill(int x, int y)
         {
 
@@ -1843,7 +1517,6 @@ namespace Draw_MobilePaint
                 }
             }
         } // LockAreaFill
-
 
         void LockAreaFillMaskOnly(int x, int y)
         {
@@ -2279,6 +1952,11 @@ namespace Draw_MobilePaint
             }
         } // LockMaskFillWithTreshold
 
+        public void ChangeBrush(int index)
+        {
+            selectedBrush = index;
+            ReadCurrentCustomBrush();
+        }
 
         // get custom brush texture into custombrushpixels array, this needs to be called if custom brush is changed
         public void ReadCurrentCustomBrush()
@@ -2415,7 +2093,6 @@ namespace Draw_MobilePaint
 
         void DrawLineWithBrush(Vector2 start, Vector2 end)
         {
-            Debug.Log("DrawLineWithBrush-----");
             int x0 = (int)start.x;
             int y0 = (int)start.y;
             int x1 = (int)end.x;

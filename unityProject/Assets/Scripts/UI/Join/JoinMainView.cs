@@ -38,10 +38,46 @@ public class JoinMainView : MonoBehaviour
     private List<Transform> typeTransList = new List<Transform>();//类型列表
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
 
+    private int penScale = 5;
+    private bool MultiColorMode = false;
+    private int colorIndex = 0;
+
     void Start()
     {
         Init();
     }
+
+    void Update()
+    {
+        if (GameManager.instance.curSelectResType == 0)
+        {
+            if (mobilePaint!=null)
+            {
+                mobilePaint.MousePaint();
+                //修改颜色
+                if (MultiColorMode)
+                {
+                    Debug.Log("change--------" + colorIndex);
+                    if (colorIndex >= 6)
+                    {
+                        colorIndex = 0;
+                    }
+                    Debug.Log("换颜色-----");
+                    mobilePaint.SetPaintColor(GameManager.instance.MultiColorList[colorIndex]);
+                    colorIndex++;
+
+                }
+            }
+        }
+
+
+    }
+
+    void OnEnable()
+    {
+
+    }
+
     private void Init()
     {
         //按钮点击
@@ -180,6 +216,20 @@ public class JoinMainView : MonoBehaviour
             curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
         });
 
+        PenScaleSlider.onValueChanged.AddListener(delegate
+        {
+            ShowBackBtn(false);
+            Debug.Log(PenScaleSlider.value);
+            int brushScale = (int)(PenScaleSlider.value*10);
+            Debug.Log("=========penScale:" + brushScale);
+            if (penScale!=brushScale)
+            {
+                penScale = brushScale;
+                mobilePaint.ChangeBrush(penScale);
+            }
+
+        });
+
     }
 
     //右侧选择颜色
@@ -188,7 +238,7 @@ public class JoinMainView : MonoBehaviour
         if (index == 0)
         {
             Debug.Log("彩虹笔");
-            mobilePaint.SetMultiColorMode(true);
+            MultiColorMode = true;
             mobilePaint.SetDrawModeBrush();
             mobilePaint.SetBrushSize(1);
             mobilePaint.SetPaintColor(color);
@@ -196,14 +246,14 @@ public class JoinMainView : MonoBehaviour
         else if (index == 1)
         {
             Debug.Log("橡皮擦");
-            mobilePaint.SetMultiColorMode(false);
+            MultiColorMode = false;
             mobilePaint.SetDrawModeEraser();
             mobilePaint.SetBrushSize(30);
         }
         else
         {
             Debug.Log("单色蜡笔");
-            mobilePaint.SetMultiColorMode(false);
+            MultiColorMode = false;
             mobilePaint.SetDrawModeBrush();
             mobilePaint.SetBrushSize(1);
             mobilePaint.SetPaintColor(color);

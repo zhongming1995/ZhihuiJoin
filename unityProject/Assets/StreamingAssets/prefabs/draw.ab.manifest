@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 506804012
+CRC: 3397540566
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f93e11341275d38fde9f534fe595653f
+    Hash: 03b028c8c8d57615f611ae71462cba1d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7e0339893541d53eac00a86b805f1ffe
+    Hash: 31bc7622af72b844cfeff05f3827400c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -35,3 +35,4 @@ Assets:
 - Assets/Res/Prefabs/draw/draw_item.prefab
 Dependencies:
 - /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/fodder/eye.ab
+- /Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/brushes.ab

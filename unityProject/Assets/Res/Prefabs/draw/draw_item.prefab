@@ -112,7 +112,7 @@ MonoBehaviour:
   brushAlphaStrength: 0.1
   drawMode: 1
   useLockArea: 1
-  useMaskLayerOnly: 0
+  useMaskLayerOnly: 1
   smoothenMaskEdges: 0
   useThreshold: 1
   paintThreshold: 128
@@ -129,11 +129,16 @@ MonoBehaviour:
   maskTex: {fileID: 0}
   useCustomBrushes: 1
   customBrushes:
-  - {fileID: 2800000, guid: 5a616daf321024c2aa085858d31f53fa, type: 3}
-  - {fileID: 2800000, guid: d06c067971ba30d4cae0c6258f67a87b, type: 3}
-  - {fileID: 2800000, guid: 37631e57f35cb9d41842c08b85389d5c, type: 3}
-  - {fileID: 2800000, guid: c800fed5309ada840a439967c6d6b3d0, type: 3}
-  - {fileID: 2800000, guid: 1421a94af2c314b3f8dfb7207a6bfaf6, type: 3}
+  - {fileID: 2800000, guid: e655c7187a4434c05a81f5a2c861a3a2, type: 3}
+  - {fileID: 2800000, guid: e655c7187a4434c05a81f5a2c861a3a2, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
+  - {fileID: 2800000, guid: 256661ae6e813459fb0e9bd91129a211, type: 3}
   overrideCustomBrushColor: 1
   useCustomBrushAlpha: 0
   selectedBrush: 0
@@ -152,8 +157,6 @@ MonoBehaviour:
   userInterface: {fileID: 0}
   hideUIWhilePainting: 0
   debugMode: 0
-  MultiColorMode: 0
-  referncePoint: {x: 0.2, y: 0.3}
 --- !u!114 &8236310664356457518
 MonoBehaviour:
   m_ObjectHideFlags: 0
