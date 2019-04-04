@@ -20,14 +20,14 @@ public class ColorToggleCtrl : MonoBehaviour
             int index = i;
             Toggle t = transform.GetChild(i).GetComponent<Toggle>();
             t.group = tg;
-            if (i == 2)
-            {
-                t.isOn = true;
-            }
-            else
-            {
-                t.isOn = false;
-            }
+            //if (i == 2)
+            //{
+            //    t.isOn = true;
+            //}
+            //else
+            //{
+            //    t.isOn = false;
+            //}
             t.onValueChanged.AddListener(delegate
             {
                 SelectOneColor(t.isOn,index);
@@ -35,6 +35,9 @@ public class ColorToggleCtrl : MonoBehaviour
             toggleLst.Add(t);
         }
         toggleLst[2].isOn = true;
+
+        //初始选中红色单色蜡笔
+        joinMainView.SelectColor(2, GameManager.instance.ColorList[2]);
     }
 
     private void SelectOneColor(bool isOn,int index) {

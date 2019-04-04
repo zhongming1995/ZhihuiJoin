@@ -86,14 +86,14 @@ namespace GameMgr
             new Color32(237, 141, 57, 255),
             new Color32(80, 160, 75, 255),
             new Color32(250, 228, 84, 255),
-            new Color32(151, 92, 215, 255),
+            new Color32(35, 90, 223, 255),
             new Color32(157, 221, 80, 255),
             new Color32(139, 85, 230, 255),
             new Color32(95, 184, 249, 255),
             new Color32(47, 41, 44, 255),
             new Color32(236, 135, 188, 255),
             new Color32(131, 133, 135, 255),
-            new Color32(145, 209, 208, 255),
+            new Color32(254, 207, 207, 255),
             new Color32(255, 255, 255, 255),
             };
 

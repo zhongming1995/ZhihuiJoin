@@ -38,9 +38,11 @@ public class JoinMainView : MonoBehaviour
     private List<Transform> typeTransList = new List<Transform>();//类型列表
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
 
-    private int penScale = 5;
+    private int penSize = -1;
+    private int eraseSize = 35;
     private bool MultiColorMode = false;
     private int colorIndex = 0;
+    private int penIndex = 2;//0七彩 1橡皮 2以后单色（修改初始颜色需要到mobilepaint里修改）
 
     void Start()
     {
@@ -150,8 +152,18 @@ public class JoinMainView : MonoBehaviour
         step = 1;//初始是第一步
         ShowTypeByStep(step);
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
+        //Invoke("LoadColorButtons", 0.5f);
+        PenScaleSlider.value = 0.5f;
+        ImageScaleSlider.value = 0.5f;
+        AdjustBurshSize(PenScaleSlider.value);
     }
 
+    void LoadColorButtons()
+    {
+        LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
+    }
+
+    //类型按钮
     void LoadResList(int resType)
     {
         string typeUnSelectPath = "sprite/ui|splice_type_{0}";
@@ -219,27 +231,57 @@ public class JoinMainView : MonoBehaviour
         PenScaleSlider.onValueChanged.AddListener(delegate
         {
             ShowBackBtn(false);
-            Debug.Log(PenScaleSlider.value);
-            int brushScale = (int)(PenScaleSlider.value*10);
-            Debug.Log("=========penScale:" + brushScale);
-            if (penScale!=brushScale)
-            {
-                penScale = brushScale;
-                mobilePaint.ChangeBrush(penScale);
-            }
-
+            AdjustBurshSize(PenScaleSlider.value);
+            //Debug.Log("sliderValue:"+PenScaleSlider.value);
+            //int brushSize = (int)(PenScaleSlider.value * 10);//临时变量
+            //eraseSize =(int)(PenScaleSlider.value * 50);
+            ////橡皮擦的笔触大小
+            //if (penIndex==1)
+            //{
+            //    mobilePaint.SetBrushSize((int)(PenScaleSlider.value * 50 + 10));
+            //}
+            //else
+            //{
+            //    if (penSize != brushSize)
+            //    {
+            //        mobilePaint.ChangeBrush(brushSize);
+            //    }
+            //}
+            //penSize = brushSize;
         });
+    }
 
+    private void AdjustBurshSize(float sliderValue)
+    {
+        int brushSize = (int)(sliderValue * 10);//临时变量
+        eraseSize = (int)(sliderValue * 25 + 25);//橡皮擦的尺寸控制在25 ～ 50
+        //橡皮擦的笔触大小
+        if (penIndex == 1)
+        {
+            Debug.Log(eraseSize);
+            mobilePaint.SetBrushSize(eraseSize);
+        }
+        else
+        {
+            //因为蜡笔笔刷调整是通过不同尺寸的笔刷图来实现的，所以统一尺寸的图不重新设置
+            if (penSize != brushSize)
+            {
+                mobilePaint.ChangeBrush(brushSize);
+            }
+        }
+        penSize = brushSize;
     }
 
     //右侧选择颜色
     public void SelectColor(int index, Color32 color)
     {
+        penIndex = index;
         if (index == 0)
         {
             Debug.Log("彩虹笔");
             MultiColorMode = true;
             mobilePaint.SetDrawModeBrush();
+            mobilePaint.ChangeBrush(penSize);
             mobilePaint.SetBrushSize(1);
             mobilePaint.SetPaintColor(color);
         }
@@ -248,13 +290,15 @@ public class JoinMainView : MonoBehaviour
             Debug.Log("橡皮擦");
             MultiColorMode = false;
             mobilePaint.SetDrawModeEraser();
-            mobilePaint.SetBrushSize(30);
+            Debug.Log(eraseSize);
+            mobilePaint.SetBrushSize(eraseSize);
         }
         else
         {
             Debug.Log("单色蜡笔");
             MultiColorMode = false;
             mobilePaint.SetDrawModeBrush();
+            mobilePaint.ChangeBrush(penSize);
             mobilePaint.SetBrushSize(1);
             mobilePaint.SetPaintColor(color);
         }
@@ -299,34 +343,7 @@ public class JoinMainView : MonoBehaviour
     private void TypeButtonClick(int n)
     {
         ShowBackBtn(false);
-        Sequence seq = DOTween.Sequence();
-        seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
-        seq.InsertCallback(0.2f, () =>
-        {
-            SetCurSelectType(n);
-            for (int i = 0; i < GameManager.instance.resTypeCount; i++)
-            {
-                if (i == n)
-                {
-                    typeTransList[i].GetChild(0).gameObject.SetActive(true);
-                    typeTransList[i].GetChild(1).gameObject.SetActive(false);
-                    if (loadResult[n] == false)
-                    {
-                        LoadResListByType(n);
-                    }
-                    ResScrollViewList[i].gameObject.SetActive(true);
 
-                }
-                else
-                {
-                    typeTransList[i].GetChild(0).gameObject.SetActive(false);
-                    typeTransList[i].GetChild(1).gameObject.SetActive(true);
-                    ResScrollViewList[i].gameObject.SetActive(false);
-                }
-            }
-        });
-        seq.Append(ResListTrans.DOLocalMoveX(69, 0.2f));
-        /*
         Sequence seq = DOTween.Sequence();
         seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
         seq.InsertCallback(0.2f, () =>
@@ -354,7 +371,7 @@ public class JoinMainView : MonoBehaviour
             }
         });
         seq.Append(ResListTrans.DOLocalMoveX(69, 0.2f));
-        */
+
     }
 
     //根据步骤决定显示哪个类型的素材

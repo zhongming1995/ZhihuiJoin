@@ -129,16 +129,17 @@ MonoBehaviour:
   maskTex: {fileID: 0}
   useCustomBrushes: 1
   customBrushes:
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: e655c7187a4434c05a81f5a2c861a3a2, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: df456e38d02f1400396a10a1ca81f2d9, type: 3}
-  - {fileID: 2800000, guid: 256661ae6e813459fb0e9bd91129a211, type: 3}
+  - {fileID: 2800000, guid: 91f59f39da11b44d585f982503648a47, type: 3}
+  - {fileID: 2800000, guid: baf2c907ddfb84dff8eeeab8067e3ccf, type: 3}
+  - {fileID: 2800000, guid: 4a0287787be6440e793a976761bd94c0, type: 3}
+  - {fileID: 2800000, guid: 1d4ff4d56a22842e8a6858b4db390b89, type: 3}
+  - {fileID: 2800000, guid: d53e83f56c4f440bca6962d2782b8b1a, type: 3}
+  - {fileID: 2800000, guid: 4041fac02590345b8ba8fd910fe0d588, type: 3}
+  - {fileID: 2800000, guid: 1efdb968d658e4fd5bfdecdc93bca8f6, type: 3}
+  - {fileID: 2800000, guid: d3fcc8b54b0da438383c6a69639b7c1e, type: 3}
+  - {fileID: 2800000, guid: d3fcc8b54b0da438383c6a69639b7c1e, type: 3}
+  - {fileID: 2800000, guid: a84077535e4ac4010adf62b6f726172d, type: 3}
+  - {fileID: 2800000, guid: dab80b9a966a0425b8099d95429cb801, type: 3}
   overrideCustomBrushColor: 1
   useCustomBrushAlpha: 0
   selectedBrush: 0

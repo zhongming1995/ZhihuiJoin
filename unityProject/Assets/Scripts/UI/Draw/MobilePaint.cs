@@ -530,7 +530,7 @@ namespace Draw_MobilePaint
                 if (useLockArea)
                 {
                     if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
-                    Debug.Log(hit.textureCoord);
+                    //Debug.Log(hit.textureCoord);
                     //原本这里有CreateLockArea方法，但是在真机上会造成第一笔延迟很久，所以改到了初始化方法中，识别第一个透明度不为0的点，获得lockArea
                 }
             }
