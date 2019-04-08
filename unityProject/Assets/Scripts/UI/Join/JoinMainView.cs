@@ -44,6 +44,11 @@ public class JoinMainView : MonoBehaviour
     private int colorIndex = 0;
     private int penIndex = 2;//0七彩 1橡皮 2以后单色（修改初始颜色需要到mobilepaint里修改）
 
+    public void TestBtn()
+    {
+        mobilePaint.SaveDrawTexture();
+    }
+
     void Start()
     {
         Init();

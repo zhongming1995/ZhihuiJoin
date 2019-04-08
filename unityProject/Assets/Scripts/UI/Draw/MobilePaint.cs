@@ -1,7 +1,7 @@
 // Optimized Mobile Painter - Unitycoder.com
 
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Draw_MobilePaint
@@ -64,7 +64,7 @@ namespace Draw_MobilePaint
         public float brushAlphaStrength = 0.1f; // multiplier to soften brush additive alpha, 0.1f is nice & smooth, 1 = faster
         private float brushAlphaStrengthVal = 0.01f; // cached calculation
         private float alphaLerpVal = 0.1f;
-        private float brushAlphaLerpVal = 0.1f;
+        private float brushAlphaLerpVal = 0.5f;
 
         //		public bool DontPaintOverBlack = true; // so that outlines are reserved when painting
 
@@ -156,8 +156,9 @@ namespace Draw_MobilePaint
         private byte[] pixels; // byte array for texture painting, this is the image that we paint into.
         private byte[] maskPixels; // byte array for mask texture
         private byte[] clearPixels; // byte array for clearing texture
-
         private Texture2D drawingTexture; // texture that we paint into (it gets updated from pixels[] array when painted)
+        private byte[] drawPixels;//自己画出来的像素数组
+        private Texture2D drawTexture;//自己画出来的
 
         [Header("Overrides")]
         public float resolutionScaler = 1.0f; // 1 means screen resolution, 0.5f means half the screen resolution
@@ -203,8 +204,8 @@ namespace Draw_MobilePaint
         // zoom pan
         private bool isZoomingOrPanning = false;
 
-        //绘制点的个数，用于修改彩虹笔的颜色
-        private int drawCount = 0;
+        //用来限制自定义笔刷的笔触
+        private int timeCount = -1;
 
         void Awake()
         {
@@ -454,7 +455,26 @@ namespace Draw_MobilePaint
             //获取了texWidth和height以后，再获取可绘画区域
             ReadDrawArea();
 
+            drawPixels = new byte[texWidth * texHeight * 4];
+            drawTexture = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, false);
+            drawTexture.filterMode = filterMode;
+            drawTexture.wrapMode = TextureWrapMode.Clamp;
+
         } // InitializeEverything
+
+        public Texture2D SaveDrawTexture()
+        {
+            drawTexture.LoadRawTextureData(drawPixels);//通过读取文件数据来加载纹理数据
+            drawTexture.Apply(false);
+
+            byte[] byt = drawTexture.EncodeToPNG();
+            string photoName = "MyDrawPhoto.png";
+            string savePath = Application.persistentDataPath + "/" + photoName;
+            System.IO.File.WriteAllBytes(savePath, byt);
+            Debug.Log("保存的沙河地址：------------" + savePath);
+
+            return drawTexture;
+        }
 
         // *** MAINLOOP ***
         void Update()
@@ -540,6 +560,7 @@ namespace Draw_MobilePaint
             {
                 // Only if we hit something, then we continue
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) {
+                    timeCount = -1;
                     wentOutside = true;
                     return; 
                 }
@@ -605,8 +626,11 @@ namespace Draw_MobilePaint
             {
                 //Debug.Log("Button Down2----------");
                 // take this position as start position
-                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
-
+                if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask))
+                {
+                    timeCount = -1;
+                    return;
+                }
                 pixelUVOld = pixelUV;
             }
 
@@ -843,6 +867,11 @@ namespace Draw_MobilePaint
                 pixels[pixel + 1] = clearPixels[pixel2 + 1];
                 pixels[pixel + 2] = clearPixels[pixel2 + 2];
                 pixels[pixel + 3] = clearPixels[pixel2 + 3];
+
+                drawPixels[pixel] = clearPixels[pixel2];
+                drawPixels[pixel + 1] = clearPixels[pixel2 + 1];
+                drawPixels[pixel + 2] = clearPixels[pixel2 + 2];
+                drawPixels[pixel + 3] = 0;
             } 
         }
 
@@ -904,6 +933,11 @@ namespace Draw_MobilePaint
         // actual custom brush painting function
         void DrawCustomBrush(int px, int py)
         {
+            timeCount++;
+            if (timeCount % 10!=0)
+            {
+                return;
+            }
             // get position where we paint
             int startX = (int)(px - customBrushWidthHalf);
             int startY = (int)(py - customBrushWidthHalf);
@@ -968,6 +1002,7 @@ namespace Draw_MobilePaint
                                     pixels[pixel] = ByteLerp(pixels[pixel], paintColor.r, brushAlphaLerpVal);
                                     pixels[pixel + 1] = ByteLerp(pixels[pixel + 1], paintColor.g, brushAlphaLerpVal);
                                     pixels[pixel + 2] = ByteLerp(pixels[pixel + 2], paintColor.b, brushAlphaLerpVal);
+
                                 }
                                 else { // use paint color instead of brush texture
                                     pixels[pixel] = customBrushBytes[brushPixel];
@@ -1001,6 +1036,10 @@ namespace Draw_MobilePaint
                                     pixels[pixel] = ByteLerp(pixels[pixel], paintColor.r, brushAlphaLerpVal);
                                     pixels[pixel + 1] = ByteLerp(pixels[pixel + 1], paintColor.g, brushAlphaLerpVal);
                                     pixels[pixel + 2] = ByteLerp(pixels[pixel + 2], paintColor.b, brushAlphaLerpVal);
+                                    //存下来自己画的那一层
+                                    drawPixels[pixel] = pixels[pixel];
+                                    drawPixels[pixel + 1] = pixels[pixel + 1];
+                                    drawPixels[pixel + 2] = pixels[pixel + 2];
                                 }
                                 else {
                                     pixels[pixel] = customBrushBytes[brushPixel];
@@ -1008,6 +1047,7 @@ namespace Draw_MobilePaint
                                     pixels[pixel + 2] = customBrushBytes[brushPixel + 2];
                                 }
                                 pixels[pixel + 3] = customBrushBytes[brushPixel + 3];
+                                drawPixels[pixel + 3] = pixels[pixel + 3];
                             }
                         }
                     }
@@ -2456,6 +2496,8 @@ namespace Draw_MobilePaint
 
             // get our current texture into tex, is this needed?, also targettexture might be different..?
             // FIXME: usually target texture is same as drawingTexture..?
+
+            //zhongming
             drawingTexture.SetPixels32(((Texture2D)myRenderer.material.GetTexture(targetTexture)).GetPixels32());
             drawingTexture.Apply(false);
 

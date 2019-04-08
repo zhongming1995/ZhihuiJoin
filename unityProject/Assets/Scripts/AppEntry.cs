@@ -21,9 +21,9 @@ public class AppEntry : SingletonMono<AppEntry>
         Input.multiTouchEnabled = false;
 
         //帧率
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 30;
 
         //打印
-        Debug.unityLogger.logEnabled = false;
+        //Debug.unityLogger.logEnabled = false;
     }
 }
