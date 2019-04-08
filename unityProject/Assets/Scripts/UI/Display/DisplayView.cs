@@ -63,12 +63,22 @@ public class DisplayView : MonoBehaviour
         Vector2 vDisplayItem = displayItem.GetComponent<RectTransform>().sizeDelta;
         float rate = rectImgDisplay.x / vDisplayItem.x;
         displayItem.localScale = new Vector3(rate, rate, rate);
+
+        //隐藏带底图的
+        displayItem.Find("group_body").GetChild(1).gameObject.SetActive(false);
+        //显示自己画的部分
+        RawImage draw = displayItem.Find("group_body/img_draw").GetComponent<RawImage>();
+        draw.gameObject.SetActive(true);
+        draw.texture = joinMainView.GetDrawTexture();
+        draw.SetNativeSize();
+        draw.transform.GetComponent<RectTransform>().localScale = new Vector3(rate, rate, rate);
     }
+
     IEnumerator CutScreen()
     {
         Rect rect = new Rect(screenPosFlag.x,Screen.height-screenPosFlag.y+2*ImgDisplay.localPosition.y ,rectImgDisplay.x, rectImgDisplay.y);
-        Debug.Log(ImgDisplay.localPosition.y);
-        Debug.Log(Screen.height - screenPosFlag.y + 2 * ImgDisplay.localPosition.y);
+        Debug.Log("screen.height:" + Screen.height);
+        Debug.Log(rect);
         //图片大小  
         Texture2D tex = new Texture2D((int)rectImgDisplay.x, (int)rectImgDisplay.y, TextureFormat.RGB24, true);
         yield return new WaitForEndOfFrame();

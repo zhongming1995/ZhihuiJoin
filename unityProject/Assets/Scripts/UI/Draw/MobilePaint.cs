@@ -207,6 +207,10 @@ namespace Draw_MobilePaint
         //用来限制自定义笔刷的笔触
         private int timeCount = -1;
 
+        //七彩色蜡笔
+        private bool MultiColor = false;
+        private int colorIndex = 0;
+
         void Awake()
         {
             // cache components
@@ -462,16 +466,21 @@ namespace Draw_MobilePaint
 
         } // InitializeEverything
 
-        public Texture2D SaveDrawTexture()
+        public void SetMultiColor(bool multi)
+        {
+            MultiColor = multi;
+        }
+
+        public Texture2D GetDrawTexture()
         {
             drawTexture.LoadRawTextureData(drawPixels);//通过读取文件数据来加载纹理数据
             drawTexture.Apply(false);
 
-            byte[] byt = drawTexture.EncodeToPNG();
-            string photoName = "MyDrawPhoto.png";
-            string savePath = Application.persistentDataPath + "/" + photoName;
-            System.IO.File.WriteAllBytes(savePath, byt);
-            Debug.Log("保存的沙河地址：------------" + savePath);
+            //byte[] byt = drawTexture.EncodeToPNG();
+            //string photoName = "MyDrawPhoto.png";
+            //string savePath = Application.persistentDataPath + "/" + photoName;
+            //System.IO.File.WriteAllBytes(savePath, byt);
+            //Debug.Log("保存的沙河地址：------------" + savePath);
 
             return drawTexture;
         }
@@ -624,11 +633,11 @@ namespace Draw_MobilePaint
 
             if (Input.GetMouseButtonDown(0))
             {
+                timeCount = -1;
                 //Debug.Log("Button Down2----------");
                 // take this position as start position
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask))
                 {
-                    timeCount = -1;
                     return;
                 }
                 pixelUVOld = pixelUV;
@@ -674,6 +683,8 @@ namespace Draw_MobilePaint
             if (Input.GetMouseButtonUp(0))
             {
                 // calculate area size
+                timeCount = -1;
+                colorIndex = 0;
                 if (getAreaSize && useLockArea && useMaskLayerOnly && drawMode != DrawMode.FloodFill)
                 {
                     LockAreaFillWithThresholdMaskOnlyGetArea(initialX, initialY, true);
@@ -934,9 +945,20 @@ namespace Draw_MobilePaint
         void DrawCustomBrush(int px, int py)
         {
             timeCount++;
+            //限制笔触的密度
             if (timeCount % 10!=0)
             {
                 return;
+            }
+            //修改彩色笔，这里用到了GameManager
+            if (MultiColor && timeCount%100==0)
+            {
+                if (colorIndex>6)
+                {
+                    colorIndex = 0;
+                }
+                SetPaintColor(GameMgr.GameManager.instance.MultiColorList[colorIndex]);
+                colorIndex++;
             }
             // get position where we paint
             int startX = (int)(px - customBrushWidthHalf);

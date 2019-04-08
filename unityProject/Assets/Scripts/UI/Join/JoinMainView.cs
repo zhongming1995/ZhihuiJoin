@@ -41,13 +41,7 @@ public class JoinMainView : MonoBehaviour
     private int penSize = -1;
     private int eraseSize = 35;
     private bool MultiColorMode = false;
-    private int colorIndex = 0;
     private int penIndex = 2;//0七彩 1橡皮 2以后单色（修改初始颜色需要到mobilepaint里修改）
-
-    public void TestBtn()
-    {
-        mobilePaint.SaveDrawTexture();
-    }
 
     void Start()
     {
@@ -61,19 +55,6 @@ public class JoinMainView : MonoBehaviour
             if (mobilePaint!=null)
             {
                 mobilePaint.MousePaint();
-                //修改颜色
-                if (MultiColorMode)
-                {
-                    Debug.Log("change--------" + colorIndex);
-                    if (colorIndex >= 6)
-                    {
-                        colorIndex = 0;
-                    }
-                    Debug.Log("换颜色-----");
-                    mobilePaint.SetPaintColor(GameManager.instance.MultiColorList[colorIndex]);
-                    colorIndex++;
-
-                }
             }
         }
 
@@ -95,32 +76,12 @@ public class JoinMainView : MonoBehaviour
         GameManager.instance.RightBottomPoint = PosRightBottom;
 
         //绘画素材
-        //BodyGroup = GameObject.Find("DrawItemGroup/BodyGroup").transform;
-        //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgBody, true);
         BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(85.0f,-15.0f,-13824.0f), new Vector3(153,153,153));
-        //draw.GetComponent<MobileDrag>().InitItem(0, BodyGroup,Vector3.zero);
+        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(63.0f,-50.0f,-13824.0f), new Vector3(150,150,150));
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
-      
-        //SelectColor(2,Color.red);
-        //Debug.Log("pos:" + mobilePaint.transform.position);
-        //Debug.Log("posdrawbg:" + GameObject.Find("img_draw_bg").transform.position);
-        //Debug.Log("posLeftTop:" + PosLeftTop.position);
-        //Debug.Log("posRightBottom:" + PosRightBottom.position);
-
-       
-        //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgLetterRef, true);
-       //mobilePaint = DrawingPanelCanvas.GetComponent<MobilePaint>();
-        //if (mobilePaint==null)
-        //{
-        //    Debug.Log("mobile is null");
-        //}
-        //mobilePaint.InitializeEverything(ImgBody.sprite.texture);
-        //mobilePaint.SetBrushSize(20);
-
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -237,22 +198,6 @@ public class JoinMainView : MonoBehaviour
         {
             ShowBackBtn(false);
             AdjustBurshSize(PenScaleSlider.value);
-            //Debug.Log("sliderValue:"+PenScaleSlider.value);
-            //int brushSize = (int)(PenScaleSlider.value * 10);//临时变量
-            //eraseSize =(int)(PenScaleSlider.value * 50);
-            ////橡皮擦的笔触大小
-            //if (penIndex==1)
-            //{
-            //    mobilePaint.SetBrushSize((int)(PenScaleSlider.value * 50 + 10));
-            //}
-            //else
-            //{
-            //    if (penSize != brushSize)
-            //    {
-            //        mobilePaint.ChangeBrush(brushSize);
-            //    }
-            //}
-            //penSize = brushSize;
         });
     }
 
@@ -288,7 +233,8 @@ public class JoinMainView : MonoBehaviour
             mobilePaint.SetDrawModeBrush();
             mobilePaint.ChangeBrush(penSize);
             mobilePaint.SetBrushSize(1);
-            mobilePaint.SetPaintColor(color);
+            //mobilePaint.SetPaintColor(color);
+            mobilePaint.SetMultiColor(true);
         }
         else if (index == 1)
         {
@@ -518,6 +464,15 @@ public class JoinMainView : MonoBehaviour
         }
 
         loadResult[type] = true;
+    }
+
+    public Texture2D GetDrawTexture()
+    {
+        if (mobilePaint)
+        {
+            return mobilePaint.GetDrawTexture();
+        }
+        return null;
     }
 
 }

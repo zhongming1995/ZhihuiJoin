@@ -105,7 +105,7 @@ namespace GameMgr
                 new Color32(157, 221, 80, 255),
                 new Color32(95, 184, 249, 255),
                 new Color32(139, 85, 230, 255),
-                new Color32(131, 133, 135, 255),
+                new Color32(236, 135, 188, 255),
             };
         }
 
