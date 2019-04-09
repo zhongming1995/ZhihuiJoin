@@ -28,7 +28,7 @@ public class DisplayView : MonoBehaviour
     private Vector2 screenPosFlag2;
     private string savePath = String.Empty;
 
-    private int radius = 70;//参考半径 和texWidth有点关系
+    private int radius = 80;//参考半径 和texWidth有点关系
     private int referenceWidth = 1206;//参考的图片宽
     private int texWidth = 0;
     private int texHeight = 0;
@@ -87,41 +87,19 @@ public class DisplayView : MonoBehaviour
 
     IEnumerator CutScreen()
     {
-        /*
-        Rect rect = new Rect(screenPosFlag.x,Screen.height-screenPosFlag.y+2*ImgDisplay.localPosition.y ,rectImgDisplay.x, rectImgDisplay.y);
-        Debug.Log("pos:" + screenPosFlag);
-        Debug.Log("screen.width:"+Screen.width+" |screen.height:" + Screen.height);
-        Debug.Log("rect:"+rect);
-        //图片大小  
-        Texture2D tex = new Texture2D((int)rectImgDisplay.x, (int)rectImgDisplay.y, TextureFormat.RGB24, true);
-        yield return new WaitForEndOfFrame();
-        tex.ReadPixels(rect, 0, 0, true);
-        tex.Apply();
-        yield return tex;
-        byte[] byt = tex.EncodeToPNG();
-        string date = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
-        string photoName = "MyPhoto_" + date + ".png";
-        savePath = Application.persistentDataPath + "/" + photoName;
-        //File.WriteAllBytes(path +"/"+ photoName, byt);
-        FileStream fileStream = File.Open(savePath, FileMode.Create);
-        fileStream.BeginWrite(byt, 0, byt.Length, new AsyncCallback(EndWrite), fileStream);
-        Debug.Log("保存的沙河地址：------------"+savePath);
-        */
         //图片大小
-        Texture2D tex = new Texture2D((int)(screenPosFlag2.x - screenPosFlag1.x), (int)(screenPosFlag1.y - screenPosFlag2.y),TextureFormat.RGBA32,true);
-        //左下角坐标为0
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
-        Debug.Log(texWidth);
-        Debug.Log(texHeight);
+        Texture2D tex = new Texture2D(texWidth, texHeight,TextureFormat.RGBA32,true);
+        //计算四个角要裁切的圆半径
         radius = (int)((decimal)radius / referenceWidth * texWidth);
-        Debug.Log(radius);
+        //左下角是0，0
         Rect rect = new Rect((int)screenPosFlag1.x, Screen.height - (int)(Screen.height - screenPosFlag2.y),texWidth,texHeight);
         yield return new WaitForEndOfFrame();
-
+        //截屏
         tex.ReadPixels(rect, 0, 0, true);
         Color32 color = new Color32(0,0,0,0);
-        //处理图片
+        //处理图片，裁切成圆角的
         //左下角（左下角的坐标是0，0）
         Vector2 leftBottom = new Vector2(radius, radius);
         for (int i = 0; i < radius; i++)
