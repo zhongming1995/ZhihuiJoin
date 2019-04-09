@@ -15,12 +15,23 @@ public class DisplayView : MonoBehaviour
     public Button BtnBack;
     public Button BtnSave;
     public Transform ImgDisplay;
-    public Transform PosFlag;
+    public Transform PosFlag1;//左上角截屏定位点
+    public Transform PosFlag2;//右下角截屏定位点
+    public Transform PosFlagLeftBottom;//左下角圆形裁切定位点
+    public Transform PosFlagLeftTop;//左下角圆形裁切定位点
+    public Transform PosFlagRightBottom;//左下角圆形裁切定位点
+    public Transform PosFlagRightTop;//左下角圆形裁切定位点
 
     private JoinMainView joinMainView;
     private Vector2 rectImgDisplay;
-    private Vector2 screenPosFlag;
+    private Vector2 screenPosFlag1;
+    private Vector2 screenPosFlag2;
     private string savePath = String.Empty;
+
+    private int radius = 70;//参考半径 和texWidth有点关系
+    private int referenceWidth = 1206;//参考的图片宽
+    private int texWidth = 0;
+    private int texHeight = 0;
 
     [DllImport("__Internal")]
     private static extern void UnityToIOS_SavePhotoToAlbum(string path);
@@ -31,8 +42,8 @@ public class DisplayView : MonoBehaviour
         joinMainView = GameManager.instance.Root.GetComponentInChildren<JoinMainView>(true);
         AddEvent();
         Display();
-        screenPosFlag = Camera.main.WorldToScreenPoint(PosFlag.position);
-        Debug.Log(Camera.main.WorldToScreenPoint(PosFlag.position));
+        screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
+        screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
     }
 
     private void AddEvent()
@@ -76,9 +87,11 @@ public class DisplayView : MonoBehaviour
 
     IEnumerator CutScreen()
     {
+        /*
         Rect rect = new Rect(screenPosFlag.x,Screen.height-screenPosFlag.y+2*ImgDisplay.localPosition.y ,rectImgDisplay.x, rectImgDisplay.y);
-        Debug.Log("screen.height:" + Screen.height);
-        Debug.Log(rect);
+        Debug.Log("pos:" + screenPosFlag);
+        Debug.Log("screen.width:"+Screen.width+" |screen.height:" + Screen.height);
+        Debug.Log("rect:"+rect);
         //图片大小  
         Texture2D tex = new Texture2D((int)rectImgDisplay.x, (int)rectImgDisplay.y, TextureFormat.RGB24, true);
         yield return new WaitForEndOfFrame();
@@ -93,14 +106,94 @@ public class DisplayView : MonoBehaviour
         FileStream fileStream = File.Open(savePath, FileMode.Create);
         fileStream.BeginWrite(byt, 0, byt.Length, new AsyncCallback(EndWrite), fileStream);
         Debug.Log("保存的沙河地址：------------"+savePath);
+        */
+        //图片大小
+        Texture2D tex = new Texture2D((int)(screenPosFlag2.x - screenPosFlag1.x), (int)(screenPosFlag1.y - screenPosFlag2.y),TextureFormat.RGBA32,true);
+        //左下角坐标为0
+        texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
+        texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
+        Debug.Log(texWidth);
+        Debug.Log(texHeight);
+        radius = (int)((decimal)radius / referenceWidth * texWidth);
+        Debug.Log(radius);
+        Rect rect = new Rect((int)screenPosFlag1.x, Screen.height - (int)(Screen.height - screenPosFlag2.y),texWidth,texHeight);
+        yield return new WaitForEndOfFrame();
 
+        tex.ReadPixels(rect, 0, 0, true);
+        Color32 color = new Color32(0,0,0,0);
+        //处理图片
+        //左下角（左下角的坐标是0，0）
+        Vector2 leftBottom = new Vector2(radius, radius);
+        for (int i = 0; i < radius; i++)
+        {
+            for (int j = 0; j < radius; j++)
+            {
+                Vector2 v = new Vector2(i, j);
+                if (Vector2.Distance(v,leftBottom)>radius)
+                {
+                    tex.SetPixel(i, j, color);
+                }
+            }
+        }
+        //右下角
+        Vector2 rightBottom = new Vector2(texWidth - radius, radius);
+        for (int i = texWidth; i > texWidth-radius; i--)
+        {
+            for (int j = 0; j < radius; j++)
+            {
+                Vector2 v = new Vector2(i, j);
+                if (Vector2.Distance(v,rightBottom)>radius)
+                {
+                    tex.SetPixel(i, j, color);
+                }
+            }
+        }
+        //左上角
+        Vector2 leftTop = new Vector2(radius, texHeight - radius);
+        for (int i = 0; i < radius; i++)
+        {
+            for (int j = texHeight; j > texHeight - radius; j--)
+            {
+                Vector2 v = new Vector2(i, j);
+                if (Vector2.Distance(v,leftTop)>radius)
+                {
+                    tex.SetPixel(i, j, color);
+                }
+            }
+        }
+        //右上角
+        Vector2 rightTop = new Vector2(texWidth - radius, texHeight - radius);
+        for (int i = texWidth; i > texWidth - radius; i--)
+        {
+            for (int j = texHeight; j > texHeight-radius; j--)
+            {
+                Vector2 v = new Vector2(i, j);
+                if (Vector2.Distance(v,rightTop)>radius)
+                {
+                    tex.SetPixel(i, j, color);
+                }
+            }
+        }
+
+
+        tex.Apply();
+        yield return tex;
+
+        byte[] b = tex.EncodeToPNG();
+        string date = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
+        string photoName = "MyPhoto_" + date + ".png";
+        savePath = Application.persistentDataPath + "/" + photoName;
+        //File.WriteAllBytes(path +"/"+ photoName, byt);//同步方法
+        FileStream fileStream = File.Open(savePath, FileMode.Create);
+        fileStream.BeginWrite(b, 0, b.Length, new AsyncCallback(EndWrite), fileStream);//异步方法
+        Debug.Log("保存的沙河地址：------------" + savePath);
     }
 
     public void EndWrite(IAsyncResult result)
     {
         FileStream fileStream = (FileStream)result.AsyncState;
         fileStream.EndWrite(result);
-        Debug.Log("异步完成------------");
+        Debug.Log("异步保存图片完成------------");
         UnityToIOS_SavePhotoToAlbum(savePath);
     }
 

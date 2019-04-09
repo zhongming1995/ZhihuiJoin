@@ -22,7 +22,6 @@ namespace Helper
         {
             string[] strLst = path.Split('|');
             string newPath = strLst[0] + "/" + strLst[1];
-            Debug.Log("newPath:" + newPath);
             return newPath;
         }
 

@@ -239,15 +239,14 @@ public class JoinMainView : MonoBehaviour
         else if (index == 1)
         {
             Debug.Log("橡皮擦");
-            MultiColorMode = false;
+            mobilePaint.SetMultiColor(false);
             mobilePaint.SetDrawModeEraser();
-            Debug.Log(eraseSize);
             mobilePaint.SetBrushSize(eraseSize);
         }
         else
         {
             Debug.Log("单色蜡笔");
-            MultiColorMode = false;
+            mobilePaint.SetMultiColor(false);
             mobilePaint.SetDrawModeBrush();
             mobilePaint.ChangeBrush(penSize);
             mobilePaint.SetBrushSize(1);

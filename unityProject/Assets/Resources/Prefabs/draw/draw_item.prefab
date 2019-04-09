@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8681827033212392340}
   - component: {fileID: 8681827033212392343}
   - component: {fileID: 8681827033212392342}
-  - component: {fileID: 8236310664356457518}
   - component: {fileID: 3831044781684672562}
   m_Layer: 5
   m_Name: draw_item
@@ -158,24 +157,6 @@ MonoBehaviour:
   userInterface: {fileID: 0}
   hideUIWhilePainting: 0
   debugMode: 0
---- !u!114 &8236310664356457518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8681827033212392337}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f99673559524db04c96453379dcaa4ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  partType: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 32
-  parentTrans: {fileID: 0}
-  mobilePaint: {fileID: 0}
 --- !u!114 &3831044781684672562
 MonoBehaviour:
   m_ObjectHideFlags: 0
