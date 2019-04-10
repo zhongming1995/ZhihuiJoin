@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="100" Column="11" />
-      <File FileName="Assets/Scripts/AppEntry.cs" Line="24" Column="41" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="228" Column="26" />
+      <File FileName="Assets/Scripts/AppEntry.cs" Line="27" Column="48" />
       <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="241" Column="25" />
       <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="474" Column="40" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="102" Column="32" />
+      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="101" Column="14" />
       <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="39" Column="21" />
       <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="10" Column="16" />
       <File FileName="Assets/Scripts/UI/Draw/MyPaint.cs" Line="568" Column="31" />
       <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="24" Column="58" />
+      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="20" Column="6" />
+      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="55" Column="139" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

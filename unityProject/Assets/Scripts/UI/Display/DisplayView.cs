@@ -32,6 +32,7 @@ public class DisplayView : MonoBehaviour
     private int referenceWidth = 1206;//参考的图片宽
     private int texWidth = 0;
     private int texHeight = 0;
+    //private Camera ShotCamera;//截屏摄像机
 
     [DllImport("__Internal")]
     private static extern void UnityToIOS_SavePhotoToAlbum(string path);
@@ -44,6 +45,8 @@ public class DisplayView : MonoBehaviour
         Display();
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
+
+       //ShotCamera = GameObject.Find("ShotScreen_Camera").GetComponent<Camera>();
     }
 
     private void AddEvent()
@@ -63,6 +66,12 @@ public class DisplayView : MonoBehaviour
         BtnSave.onClick.AddListener(delegate
         {
             StartCoroutine(CutScreen());
+            /*摄像机截图
+            int startX = (int)(Screen.width / 2 - rectImgDisplay.x/2);
+            int startY = (int)(Screen.height / 2 - rectImgDisplay.y/2 * 0.7f);
+            Debug.Log(startX + "," + startY);
+            CaptureCamera(ShotCamera, new Rect(startX, startY, rectImgDisplay.x, rectImgDisplay.y));
+            */           
             //DataManager.instance.TransformToPartsList(joinMainView.DrawPanel);
             //DataManager.instance.SerializePersonData();
         });
@@ -70,7 +79,7 @@ public class DisplayView : MonoBehaviour
 
     public void Display()
     {
-        Transform displayItem = (Transform)Instantiate(joinMainView.DrawPanel, ImgDisplay);
+        Transform displayItem = Instantiate(joinMainView.DrawPanel, ImgDisplay);
         Vector2 vDisplayItem = displayItem.GetComponent<RectTransform>().sizeDelta;
         float rate = rectImgDisplay.x / vDisplayItem.x;
         displayItem.localScale = new Vector3(rate, rate, rate);
@@ -83,7 +92,67 @@ public class DisplayView : MonoBehaviour
         draw.texture = joinMainView.GetDrawTexture();
         draw.SetNativeSize();
         draw.transform.GetComponent<RectTransform>().localScale = new Vector3(rate, rate, rate);
+
+        //复制到需要截屏的摄像机
+        /*
+        Transform copyParent = GameObject.Find("ShotScreen_Canvas").transform;
+        Transform copyItem = Instantiate(ImgDisplay,copyParent);
+        copyItem.localPosition = Vector3.zero;
+        ChangeLayer(copyItem, "Draw");
+        */       
     }
+
+    //修改层级
+    void ChangeLayer(Transform trans, string targetLayer)
+    {
+        if (LayerMask.NameToLayer(targetLayer) == -1)
+        {
+            Debug.Log("Layer中不存在,请手动添加LayerName");
+
+            return;
+        }
+        //遍历更改所有子物体layer
+        trans.gameObject.layer = LayerMask.NameToLayer(targetLayer);
+        foreach (Transform child in trans)
+        {
+            ChangeLayer(child, targetLayer);
+            Debug.Log(child.name + "子对象Layer更改成功！");
+        }
+    }
+    // <summary>
+    /// 对相机截图。 
+    /// </summary>
+    /// <returns>The screenshot2.</returns>
+    /// <param name="camera">Camera.要被截屏的相机</param>
+    /// <param name="rect">Rect.截屏的区域</param>
+    /*
+    Texture2D CaptureCamera(Camera camera, Rect rect)
+    {
+        // 创建一个RenderTexture对象
+        RenderTexture rt = new RenderTexture((int)Screen.width, (int)Screen.height, 0);
+        // 临时设置相关相机的targetTexture为rt, 并手动渲染相关相机
+        camera.targetTexture = rt;
+        camera.Render();
+
+        // 激活这个rt, 并从中中读取像素。
+        RenderTexture.active = rt;
+        Texture2D screenShot = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGB24, false);
+        screenShot.ReadPixels(rect, 0, 0);// 注：这个时候，它是从RenderTexture.active中读取像素
+        screenShot.Apply();
+
+        // 重置相关参数，以使用camera继续在屏幕上显示
+        camera.targetTexture = null;
+        RenderTexture.active = null; // JC: added to avoid errors
+        Destroy(rt);
+        // 最后将这些纹理数据，成一个png图片文件
+        byte[] bytes = screenShot.EncodeToPNG();
+        string filename = Application.persistentDataPath + "/Screenshot2.png";
+        System.IO.File.WriteAllBytes(filename, bytes);
+        Debug.Log(string.Format("截屏了一张照片: {0}", filename));
+
+        return screenShot;
+    }
+    */
 
     IEnumerator CutScreen()
     {
@@ -100,6 +169,7 @@ public class DisplayView : MonoBehaviour
         tex.ReadPixels(rect, 0, 0, true);
         Color32 color = new Color32(0,0,0,0);
         //处理图片，裁切成圆角的
+        /*
         //左下角（左下角的坐标是0，0）
         Vector2 leftBottom = new Vector2(radius, radius);
         for (int i = 0; i < radius; i++)
@@ -152,7 +222,7 @@ public class DisplayView : MonoBehaviour
                 }
             }
         }
-
+        */
 
         tex.Apply();
         yield return tex;
@@ -166,6 +236,7 @@ public class DisplayView : MonoBehaviour
         fileStream.BeginWrite(b, 0, b.Length, new AsyncCallback(EndWrite), fileStream);//异步方法
         Debug.Log("保存的沙河地址：------------" + savePath);
     }
+
 
     public void EndWrite(IAsyncResult result)
     {

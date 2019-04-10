@@ -34,7 +34,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void InitItem(int index)
     {
         Init();
-        Debug.Log("Init");
         int type = GameManager.instance.curSelectResType;
         partType = (PartType)type;
         string path = GameManager.instance.resPathList[type][index];
@@ -43,7 +42,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("RedDragItem BeginDrag");
         if (isInit==false)
         {
             Init();
@@ -55,7 +53,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
-        Debug.Log("offset:" + offset);
     }
 
     public void OnDrag(PointerEventData eventData)

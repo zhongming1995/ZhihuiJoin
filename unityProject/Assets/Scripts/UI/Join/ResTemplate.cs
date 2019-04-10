@@ -18,9 +18,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
 
     void Start()
     {
-        HandLegGroup = GameObject.Find("DrawItemGroup/HandLegGroup").transform;
-        EyeMouthHairGroup = GameObject.Find("DrawItemGroup/EyeMouthHairGroup").transform;
-        HatHeadwearGroup = GameObject.Find("DrawItemGroup/HatHeadwearGroup").transform;
         scrollRect = transform.GetComponentInParent<ScrollRect>();
     }
 
@@ -33,36 +30,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
             scrollRect.OnBeginDrag(eventData);
             return;
         }
-
-        /*
-        //Debug.Log("=======traPos:"+transform.position);
-        //GameObject obj1 = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", null, new Vector3(transform.position.x, transform.position.y, 0), Vector3.one);
-        
-        PartType type = (PartType)GameManager.instance.curSelectResType;
-        if (type == PartType.Hand || type == PartType.Leg)//手脚
-        {
-            genParent = HandLegGroup;
-        }
-        else if (type == PartType.Eye || type == PartType.Mouth || type == PartType.Hair)
-        {
-            genParent = EyeMouthHairGroup;
-        }
-        else if (type == PartType.Hat || type == PartType.HeadWear)
-        {
-            genParent = HatHeadwearGroup;
-        }
-        Debug.Log(transform.position);
-
-        //Vector3 screenPos = eventData.pointerCurrentRaycast.screenPosition;
-        // Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
-        //Debug.Log(worldPos);
-        //Vector3 pos = transform.GetComponent<RectTransform>().anchoredPosition3D;
-        //Debug.Log("w:------------" + pos);
-        //Vector3 worldPos = Camera.main.ScreenToWorldPoint(transform.position);
-        GameObject obj = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", genParent, new Vector3(transform.position.x,transform.position.y,0), Vector3.one);
-        obj.GetComponent<MobileDrag>().InitItem(transform.GetSiblingIndex(), genParent, new Vector3(transform.position.x, transform.position.y, 0));
-        //eventData.pointerDrag = obj;
-       */
         
         int type = GameManager.instance.curSelectResType;
         if (type == 6 || type == 7)//手脚
