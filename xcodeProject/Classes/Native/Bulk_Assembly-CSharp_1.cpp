@@ -671,7 +671,6 @@ extern String_t* _stringLiteralE304A1FA0C9E35C090105C0353C56ED86C10553C;
 extern String_t* _stringLiteralE38724431E81A740F69A706C57C4CF53E4790CC3;
 extern String_t* _stringLiteralEAEF99A09E561A86004BAEB87A80BB4CFCE8CE67;
 extern String_t* _stringLiteralEBD30C18540B208A108C92EC710F3DE0A74CA364;
-extern String_t* _stringLiteralECF0FBF7BC2A81FCC10838D51A3EF2C715AF0535;
 extern String_t* _stringLiteralEF89F04B763F03322BD12286C8924D4A588E0906;
 extern String_t* _stringLiteralF0374BF6850510A6D638E11F39F66FB98C3BDB53;
 extern String_t* _stringLiteralF13578E734B97324C1E77CD189742910F6524D03;
@@ -15966,8 +15965,6 @@ inline void SingletonMono_1_set_instance_m5117C0EBB6B5151B7C3E75F90F539DBA42AEA9
 extern "C" IL2CPP_METHOD_ATTR StringU5BU5D_t933FB07893230EA91C40FF900D5400665E87B14E* String_Split_m13262358217AD2C119FD1B9733C3C0289D608512 (String_t* __this, CharU5BU5D_t4CC6ABF0AD71BEC97E3C2F1E9C5677E46D3A75C2* p0, const RuntimeMethod* method);
 // System.String System.String::Concat(System.String,System.String,System.String)
 extern "C" IL2CPP_METHOD_ATTR String_t* String_Concat_mF4626905368D6558695A823466A1AF65EADB9923 (String_t* p0, String_t* p1, String_t* p2, const RuntimeMethod* method);
-// System.Void UnityEngine.Debug::Log(System.Object)
-extern "C" IL2CPP_METHOD_ATTR void Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708 (RuntimeObject * p0, const RuntimeMethod* method);
 // System.String Helper.UIHelper::PathToResourcePath(System.String)
 extern "C" IL2CPP_METHOD_ATTR String_t* UIHelper_PathToResourcePath_m511D9D932CEAF27A5D8AA75403727978D3FFB62A (UIHelper_t96DE6990B3F0A63D3D130BA0E5EA94A10D0133C2 * __this, String_t* ___path0, const RuntimeMethod* method);
 // System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
@@ -15990,6 +15987,8 @@ extern "C" IL2CPP_METHOD_ATTR void Transform_SetParent_mFAF9209CAB6A864552074BA0
 extern "C" IL2CPP_METHOD_ATTR void Transform_set_localPosition_m275F5550DD939F83AFEB5E8D681131172E2E1728 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  p0, const RuntimeMethod* method);
 // System.Void UnityEngine.Transform::set_localScale(UnityEngine.Vector3)
 extern "C" IL2CPP_METHOD_ATTR void Transform_set_localScale_m7ED1A6E5A87CD1D483515B99D6D3121FB92B0556 (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * __this, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  p0, const RuntimeMethod* method);
+// System.Void UnityEngine.Debug::Log(System.Object)
+extern "C" IL2CPP_METHOD_ATTR void Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708 (RuntimeObject * p0, const RuntimeMethod* method);
 // !!0 UnityEngine.Component::GetComponent<UnityEngine.RectTransform>()
 inline RectTransform_t285CBD8775B25174B75164F10618F8B9728E1B20 * Component_GetComponent_TisRectTransform_t285CBD8775B25174B75164F10618F8B9728E1B20_m751D9E690C55EAC53AB8C54812EFEAA238E52575 (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method)
 {
@@ -18882,7 +18881,6 @@ extern "C" IL2CPP_METHOD_ATTR String_t* UIHelper_PathToResourcePath_m511D9D932CE
 		s_Il2CppMethodInitialized = true;
 	}
 	StringU5BU5D_t933FB07893230EA91C40FF900D5400665E87B14E* V_0 = NULL;
-	String_t* V_1 = NULL;
 	{
 		String_t* L_0 = ___path0;
 		CharU5BU5D_t4CC6ABF0AD71BEC97E3C2F1E9C5677E46D3A75C2* L_1 = (CharU5BU5D_t4CC6ABF0AD71BEC97E3C2F1E9C5677E46D3A75C2*)SZArrayNew(CharU5BU5D_t4CC6ABF0AD71BEC97E3C2F1E9C5677E46D3A75C2_il2cpp_TypeInfo_var, (uint32_t)1);
@@ -18901,13 +18899,7 @@ extern "C" IL2CPP_METHOD_ATTR String_t* UIHelper_PathToResourcePath_m511D9D932CE
 		int32_t L_8 = 1;
 		String_t* L_9 = (L_7)->GetAt(static_cast<il2cpp_array_size_t>(L_8));
 		String_t* L_10 = String_Concat_mF4626905368D6558695A823466A1AF65EADB9923(L_6, _stringLiteral42099B4AF021E53FD8FD4E056C2568D7C2E3FFA8, L_9, /*hidden argument*/NULL);
-		V_1 = L_10;
-		String_t* L_11 = V_1;
-		String_t* L_12 = String_Concat_mB78D0094592718DA6D5DB6C712A9C225631666BE(_stringLiteralECF0FBF7BC2A81FCC10838D51A3EF2C715AF0535, L_11, /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
-		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708(L_12, /*hidden argument*/NULL);
-		String_t* L_13 = V_1;
-		return L_13;
+		return L_10;
 	}
 }
 // System.Void Helper.UIHelper::SetImage(System.String,UnityEngine.UI.Image,System.Boolean,System.Action)
@@ -19778,46 +19770,46 @@ IL_0050:
 		int32_t L_7 = ___index0;
 		if ((!(((uint32_t)L_7) == ((uint32_t)1))))
 		{
-			goto IL_0092;
+			goto IL_0087;
 		}
 	}
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
 		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708(_stringLiteralEF89F04B763F03322BD12286C8924D4A588E0906, /*hidden argument*/NULL);
-		__this->set_MultiColorMode_29((bool)0);
 		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_8 = __this->get_mobilePaint_20();
 		NullCheck(L_8);
-		MobilePaint_SetDrawModeEraser_mA1D4D12382A63FCFCA21A309130CFC3E59140F19(L_8, /*hidden argument*/NULL);
-		int32_t L_9 = __this->get_eraseSize_28();
-		int32_t L_10 = L_9;
-		RuntimeObject * L_11 = Box(Int32_t585191389E07734F19F3156FF88FB3EF4800D102_il2cpp_TypeInfo_var, &L_10);
-		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708(L_11, /*hidden argument*/NULL);
-		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_12 = __this->get_mobilePaint_20();
-		int32_t L_13 = __this->get_eraseSize_28();
-		NullCheck(L_12);
-		MobilePaint_SetBrushSize_mA85A413BC8DF377ACFE1A6460626F6C827AC865B(L_12, L_13, /*hidden argument*/NULL);
+		MobilePaint_SetMultiColor_m49FC75000FE6D67487E5343EDE4198E0F165ADB2(L_8, (bool)0, /*hidden argument*/NULL);
+		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_9 = __this->get_mobilePaint_20();
+		NullCheck(L_9);
+		MobilePaint_SetDrawModeEraser_mA1D4D12382A63FCFCA21A309130CFC3E59140F19(L_9, /*hidden argument*/NULL);
+		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_10 = __this->get_mobilePaint_20();
+		int32_t L_11 = __this->get_eraseSize_28();
+		NullCheck(L_10);
+		MobilePaint_SetBrushSize_mA85A413BC8DF377ACFE1A6460626F6C827AC865B(L_10, L_11, /*hidden argument*/NULL);
 		return;
 	}
 
-IL_0092:
+IL_0087:
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
 		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708(_stringLiteral21D19BD5E997D4CB0151EDF3EA67EAA536B5D2AD, /*hidden argument*/NULL);
-		__this->set_MultiColorMode_29((bool)0);
+		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_12 = __this->get_mobilePaint_20();
+		NullCheck(L_12);
+		MobilePaint_SetMultiColor_m49FC75000FE6D67487E5343EDE4198E0F165ADB2(L_12, (bool)0, /*hidden argument*/NULL);
+		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_13 = __this->get_mobilePaint_20();
+		NullCheck(L_13);
+		MobilePaint_SetDrawModeBrush_m4DB985F404A4896CC77A21ED60987B18CD24E78E(L_13, /*hidden argument*/NULL);
 		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_14 = __this->get_mobilePaint_20();
+		int32_t L_15 = __this->get_penSize_27();
 		NullCheck(L_14);
-		MobilePaint_SetDrawModeBrush_m4DB985F404A4896CC77A21ED60987B18CD24E78E(L_14, /*hidden argument*/NULL);
-		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_15 = __this->get_mobilePaint_20();
-		int32_t L_16 = __this->get_penSize_27();
-		NullCheck(L_15);
-		MobilePaint_ChangeBrush_mC496A35A1C9897F817CF0F8F8E5F18A8DD8B3EE0(L_15, L_16, /*hidden argument*/NULL);
+		MobilePaint_ChangeBrush_mC496A35A1C9897F817CF0F8F8E5F18A8DD8B3EE0(L_14, L_15, /*hidden argument*/NULL);
+		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_16 = __this->get_mobilePaint_20();
+		NullCheck(L_16);
+		MobilePaint_SetBrushSize_mA85A413BC8DF377ACFE1A6460626F6C827AC865B(L_16, 1, /*hidden argument*/NULL);
 		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_17 = __this->get_mobilePaint_20();
+		Color32_t23ABC4AE0E0BDFD2E22EE1FA0DA3904FFE5F6E23  L_18 = ___color1;
 		NullCheck(L_17);
-		MobilePaint_SetBrushSize_mA85A413BC8DF377ACFE1A6460626F6C827AC865B(L_17, 1, /*hidden argument*/NULL);
-		MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8 * L_18 = __this->get_mobilePaint_20();
-		Color32_t23ABC4AE0E0BDFD2E22EE1FA0DA3904FFE5F6E23  L_19 = ___color1;
-		NullCheck(L_18);
-		MobilePaint_SetPaintColor_mC134AA60678375A18726474441D3BCDB3E224134(L_18, L_19, /*hidden argument*/NULL);
+		MobilePaint_SetPaintColor_mC134AA60678375A18726474441D3BCDB3E224134(L_17, L_18, /*hidden argument*/NULL);
 		return;
 	}
 }
