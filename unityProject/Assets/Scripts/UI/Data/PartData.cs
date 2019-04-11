@@ -2,15 +2,30 @@
 
 namespace UI.Data
 {
-    public enum PartType {
+    //public enum PartType {
+    //    Body = 0,
+    //    Eye = 1,
+    //    Mouth = 2,
+    //    Hair = 3,
+    //    Hat = 4,
+    //    HeadWear = 5,
+    //    Hand = 6,
+    //    Leg = 7
+    //}
+
+    public enum PartType
+    {
         Body = 0,
-        Eye = 1,
-        Mouth = 2,
-        Hair = 3,
-        Hat = 4,
-        HeadWear = 5,
-        Hand = 6,
-        Leg = 7
+        LeftEye = 1,
+        RightEye = 2,
+        Mouth = 3,
+        Hair = 4,
+        Hat = 5,
+        HeadWear = 6,
+        LeftHand = 7,
+        RightHand = 8,
+        LeftLeg = 9,
+        RightLeg = 10
     }
 
     [Serializable]

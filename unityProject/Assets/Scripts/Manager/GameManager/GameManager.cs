@@ -53,7 +53,7 @@ namespace GameMgr
         [HideInInspector]
         public int resTypeCount = 8;//素材资源种类，目前8种
         [HideInInspector]
-        public int curSelectResType = 0;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手7脚
+        public int curSelectResType = 0;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手 7脚
         [HideInInspector]
         public Transform LeftTopPoint;
         [HideInInspector]

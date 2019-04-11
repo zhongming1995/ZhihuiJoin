@@ -6,6 +6,7 @@ using Helper;
 using UnityEngine;
 using UnityEngine.UI;
 using UI.Data;
+using DataMgr;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class JoinMainView : MonoBehaviour
     public Button BtnNext;
     public Button BtnOk;
     public Image ImgReference;
-    public Image ImgBody;
+    public Image ImgDraw;
     public Transform DrawPanel;//画布
     public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
@@ -118,15 +119,9 @@ public class JoinMainView : MonoBehaviour
         step = 1;//初始是第一步
         ShowTypeByStep(step);
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
-        //Invoke("LoadColorButtons", 0.5f);
         PenScaleSlider.value = 0.5f;
         ImageScaleSlider.value = 0.5f;
         AdjustBurshSize(PenScaleSlider.value);
-    }
-
-    void LoadColorButtons()
-    {
-        LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
     }
 
     //类型按钮
@@ -182,9 +177,13 @@ public class JoinMainView : MonoBehaviour
         BtnOk.onClick.AddListener(delegate
         {
             gameObject.SetActive(false);
+            Texture2D t = GetDrawTexture();
+            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+            ImgDraw.sprite = s;
+            ImgDraw.SetNativeSize();
+            ImgDraw.transform.localScale = Vector3.one;
+            DataManager.instance.partDataList = DataManager.instance.TransformToPartsList(DrawPanel);
             UIHelper.instance.LoadPrefab("prefabs/display|display_view", GameManager.instance.Root, Vector3.zero, Vector3.one, true);
-
-            //DataManager.instance.TransformToPartsList(DrawPanel);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate

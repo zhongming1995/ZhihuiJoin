@@ -8,6 +8,8 @@ using UI.Data;
 
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
+    public PartType partType;
+
     private Image image;
     private JoinMainView joinMainView;
     private Vector3 leftTop;
@@ -15,7 +17,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private Vector2 anchorLeftTop;
     private Vector2 anchorRightBottom;
     private RectTransform rt;
-    public PartType partType;
     bool isInit = false;//是否获取了需要的控件
     Vector3 offset;
 
@@ -35,9 +36,66 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     {
         Init();
         int type = GameManager.instance.curSelectResType;
-        partType = (PartType)type;
+        //partType = (PartType)type;
+        partType = GetPartTypeByResType(type, index);
+        Debug.Log("type:" + partType.ToString());
         string path = GameManager.instance.resPathList[type][index];
         UIHelper.instance.SetImage(path, image, true);
+    }
+
+    /// <summary>
+    /// Gets the type of the part type by res.//素材类型 0颜色(身体) 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手 7脚
+    /// </summary>
+    /// <param name="resType">素材类型</param>
+    /// <param name="index">素材下标</param>
+    PartType GetPartTypeByResType(int resType,int index)
+    {
+        Debug.Log("inde:" + index);
+        if (resType == 0)
+        {
+            return PartType.Body;
+        }
+        if (resType == 1)
+        {
+            if (index%2!=0)//右眼
+            {
+                return PartType.RightEye;
+            }
+            return PartType.LeftEye;
+        }
+        if (resType == 2)
+        {
+            return PartType.Mouth;
+        }
+        if (resType == 3)
+        {
+            return PartType.Hair;
+        }
+        if (resType == 4)
+        {
+            return PartType.Hat;
+        }
+        if (resType == 5)
+        {
+            return PartType.HeadWear;
+        }
+        if (resType == 6)
+        {
+            if (index % 2 != 0)//右手
+            {
+                return PartType.RightHand;
+            }
+            return PartType.LeftHand;
+        }
+        if (resType == 7)
+        {
+            if (index % 2 != 0)//右脚
+            {
+                return PartType.RightLeg;
+            }
+            return PartType.LeftLeg;
+        }
+        return PartType.Body;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -119,7 +177,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             {
                 SetState(true);
                 transform.localPosition = Vector3.zero;
-                //涂色的纹理在这里清空！！！
                 return;
             }
             joinMainView.SetSelectResObj(null);
