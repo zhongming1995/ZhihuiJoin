@@ -118,9 +118,9 @@ namespace DataMgr
                 Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
                 img.sprite = s;
                 img.SetNativeSize();
-                DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
-                item.partType = part[i].Type;
-                item.Init();
+                //DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
+                //item.partType = part[i].Type;
+                //item.Init();
             }
             return person;
         }

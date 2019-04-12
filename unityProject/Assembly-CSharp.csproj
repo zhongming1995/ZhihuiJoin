@@ -116,9 +116,9 @@
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResConf.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResUtil.cs" />
-    <Compile Include="Assets\Scripts\UI\Data\PartData.cs" />
     <Compile Include="Assets\Scripts\UI\Display\DisplayPartItem.cs" />
     <Compile Include="Assets\Scripts\UI\Display\DisplayView.cs" />
+    <Compile Include="Assets\Scripts\UI\Display\PartData.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\MobileDrag.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\MobilePaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\MyPaint.cs" />

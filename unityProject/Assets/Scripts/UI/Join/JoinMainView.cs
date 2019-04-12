@@ -5,7 +5,6 @@ using GameMgr;
 using Helper;
 using UnityEngine;
 using UnityEngine.UI;
-using UI.Data;
 using DataMgr;
 
 public class JoinMainView : MonoBehaviour

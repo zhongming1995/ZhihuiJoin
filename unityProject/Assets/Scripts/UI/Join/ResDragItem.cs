@@ -4,7 +4,6 @@ using GameMgr;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
-using UI.Data;
 
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
@@ -50,7 +49,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     /// <param name="index">素材下标</param>
     PartType GetPartTypeByResType(int resType,int index)
     {
-        Debug.Log("inde:" + index);
         if (resType == 0)
         {
             return PartType.Body;

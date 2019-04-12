@@ -24,6 +24,6 @@ public class AppEntry : SingletonMono<AppEntry>
         Application.targetFrameRate = 30;
 
         //打印
-        //Debug.unityLogger.logEnabled = false;
+        Debug.unityLogger.logEnabled = false;
     }
 }
