@@ -103,6 +103,8 @@ struct SafeSerializationManager_t4A754D86B0F784B18CBC36C073BA564BED109770;
 struct String_t;
 // System.Void
 struct Void_t22962CB4C05B1D89B55A6E1139F0E87A90987017;
+// UnityEngine.AnimationClip
+struct AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE;
 // UnityEngine.AnimationEvent
 struct AnimationEvent_tEDD4E45FEA5CA4657CBBF1E0CFF657191D90673F;
 // UnityEngine.AnimationState
@@ -115,6 +117,8 @@ struct AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312;
 struct OnOverrideControllerDirtyCallback_t73560E6E30067C09BC58A15F9D2726051B077E2E;
 // UnityEngine.Object
 struct Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0;
+// UnityEngine.RuntimeAnimatorController
+struct RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD;
 // UnityEngine.ScriptableObject
 struct ScriptableObject_tAB015486CEAB714DA0D5C1BA389B84FB90427734;
 // UnityEngine.StateMachineBehaviour
@@ -130,6 +134,7 @@ extern RuntimeClass* AnimationScriptPlayable_t73DEE79FEABE593A01BC5B5FC403DD19CE
 extern RuntimeClass* AnimatorControllerPlayable_t352C2C3D059CFC0404FF4FBBA302F16C5966F44B_il2cpp_TypeInfo_var;
 extern RuntimeClass* InvalidCastException_t91DF9E7D7FCCDA6C562CB4A9A18903E016680FDA_il2cpp_TypeInfo_var;
 extern RuntimeClass* InvalidOperationException_t0530E734D823F78310CAFAFA424CA5164D93A1F1_il2cpp_TypeInfo_var;
+extern RuntimeClass* Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var;
 extern RuntimeClass* PlayableHandle_t9D3B4E540D4413CED81DDD6A24C5373BEFA1D182_il2cpp_TypeInfo_var;
 extern String_t* _stringLiteral04E4E32AA834F9BA9336C5388E9470F196EB0891;
 extern String_t* _stringLiteral35482DF98E7DEED2FC6BDE9BDD1E273E27CF1F2C;
@@ -184,6 +189,7 @@ extern const uint32_t AnimatorControllerPlayable_Equals_m04685CCA5A5FC388A0387D3
 extern const uint32_t AnimatorControllerPlayable_SetHandle_m2CAE8DABC4B19AB6BD90249D0D7FC7A9E07C3A96_MetadataUsageId;
 extern const uint32_t AnimatorControllerPlayable__cctor_m6FCC197F3BF33EAFC37D5217617FCDC64E8B304E_MetadataUsageId;
 extern const uint32_t AnimatorControllerPlayable__ctor_m739B1BFC592B6C160410141057F1B2BA1B971897_MetadataUsageId;
+extern const uint32_t RuntimeAnimatorController__ctor_mF55B0DDD5700D725CD4E59521E5A16BD774ABC32_MetadataUsageId;
 struct Exception_t_marshaled_com;
 struct Exception_t_marshaled_pinvoke;
 struct Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0;;
@@ -2796,6 +2802,26 @@ struct HumanBone_t2CE168CF8638CEABF48FB7B7CCF77BBE0CECF995_marshaled_com
 	HumanLimit_t6AB2A599FC9E1F7E1598954FA9A0E568ECA5B6F3  ___limit_2;
 };
 #endif // HUMANBONE_T2CE168CF8638CEABF48FB7B7CCF77BBE0CECF995_H
+#ifndef MOTION_T497BF9244B6A769D1AE925C3876B187C56C8CF8F_H
+#define MOTION_T497BF9244B6A769D1AE925C3876B187C56C8CF8F_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// UnityEngine.Motion
+struct  Motion_t497BF9244B6A769D1AE925C3876B187C56C8CF8F  : public Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0
+{
+public:
+
+public:
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // MOTION_T497BF9244B6A769D1AE925C3876B187C56C8CF8F_H
 #ifndef RUNTIMEANIMATORCONTROLLER_TDA6672C8194522C2F60F8F2F241657E57C3520BD_H
 #define RUNTIMEANIMATORCONTROLLER_TDA6672C8194522C2F60F8F2F241657E57C3520BD_H
 #ifdef __clang__
@@ -2864,6 +2890,26 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // ASYNCCALLBACK_T3F3DA3BEDAEE81DD1D24125DF8EB30E85EE14DA4_H
+#ifndef ANIMATIONCLIP_T336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE_H
+#define ANIMATIONCLIP_T336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// UnityEngine.AnimationClip
+struct  AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE  : public Motion_t497BF9244B6A769D1AE925C3876B187C56C8CF8F
+{
+public:
+
+public:
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // ANIMATIONCLIP_T336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE_H
 #ifndef ANIMATOROVERRIDECONTROLLER_T130F04B57E753FD4288EF3235699ABE7C88FF312_H
 #define ANIMATOROVERRIDECONTROLLER_T130F04B57E753FD4288EF3235699ABE7C88FF312_H
 #ifdef __clang__
@@ -3131,10 +3177,18 @@ inline bool PlayableHandle_IsPlayableOfType_TisAnimatorControllerPlayable_t352C2
 }
 // System.Boolean UnityEngine.Animations.AnimatorControllerPlayable::Equals(UnityEngine.Animations.AnimatorControllerPlayable)
 extern "C" IL2CPP_METHOD_ATTR bool AnimatorControllerPlayable_Equals_m04685CCA5A5FC388A0387D3453A677C0CB47D173 (AnimatorControllerPlayable_t352C2C3D059CFC0404FF4FBBA302F16C5966F44B * __this, AnimatorControllerPlayable_t352C2C3D059CFC0404FF4FBBA302F16C5966F44B  ___other0, const RuntimeMethod* method);
+// System.Void UnityEngine.Animator::SetBoolString(System.String,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46 (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, bool ___value1, const RuntimeMethod* method);
 // System.Void UnityEngine.Animator::SetTriggerString(System.String)
 extern "C" IL2CPP_METHOD_ATTR void Animator_SetTriggerString_m77CE57996467D0C973FA2D0CB4DF87BD062C8A1E (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, const RuntimeMethod* method);
 // System.Void UnityEngine.Animator::ResetTriggerString(System.String)
 extern "C" IL2CPP_METHOD_ATTR void Animator_ResetTriggerString_m31B233F948D7551D220FEDA56B002E6724B89851 (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, const RuntimeMethod* method);
+// System.Void UnityEngine.RuntimeAnimatorController::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void RuntimeAnimatorController__ctor_mF55B0DDD5700D725CD4E59521E5A16BD774ABC32 (RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * __this, const RuntimeMethod* method);
+// System.Void UnityEngine.AnimatorOverrideController::Internal_Create(UnityEngine.AnimatorOverrideController,UnityEngine.RuntimeAnimatorController)
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_Internal_Create_mAC25B8D357801591F1B380422AFCD5C42D399896 (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * ___self0, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * ___controller1, const RuntimeMethod* method);
+// System.Void UnityEngine.AnimatorOverrideController::Internal_SetClipByName(System.String,UnityEngine.AnimationClip)
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_Internal_SetClipByName_m94185D1A47205EB4037389C5EFBCAECCD118F94D (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * __this, String_t* ___name0, AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE * ___clip1, const RuntimeMethod* method);
 // System.Void UnityEngine.AnimatorOverrideController/OnOverrideControllerDirtyCallback::Invoke()
 extern "C" IL2CPP_METHOD_ATTR void OnOverrideControllerDirtyCallback_Invoke_m002CFC2CE3C42A058380BE98F015E654D5F9F177 (OnOverrideControllerDirtyCallback_t73560E6E30067C09BC58A15F9D2726051B077E2E * __this, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Playables.PlayableHandle::IsPlayableOfType<UnityEngine.Experimental.Animations.AnimationScriptPlayable>()
@@ -3148,8 +3202,18 @@ extern "C" IL2CPP_METHOD_ATTR void AnimationScriptPlayable__ctor_mCEAA71DEFF829C
 extern "C" IL2CPP_METHOD_ATTR PlayableHandle_t9D3B4E540D4413CED81DDD6A24C5373BEFA1D182  AnimationScriptPlayable_GetHandle_mE9B490654A320F11EFBB0E3180C6CF647E384C80 (AnimationScriptPlayable_t73DEE79FEABE593A01BC5B5FC403DD19CEC38F5F * __this, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Experimental.Animations.AnimationScriptPlayable::Equals(UnityEngine.Experimental.Animations.AnimationScriptPlayable)
 extern "C" IL2CPP_METHOD_ATTR bool AnimationScriptPlayable_Equals_m39A1F71C360404625ABD1EAD32DCAEDD7736E1B3 (AnimationScriptPlayable_t73DEE79FEABE593A01BC5B5FC403DD19CEC38F5F * __this, AnimationScriptPlayable_t73DEE79FEABE593A01BC5B5FC403DD19CEC38F5F  ___other0, const RuntimeMethod* method);
+// System.Void UnityEngine.Object::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void Object__ctor_m091EBAEBC7919B0391ABDAFB7389ADC12206525B (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.ScriptableObject::.ctor()
 extern "C" IL2CPP_METHOD_ATTR void ScriptableObject__ctor_m6E2B3821A4A361556FC12E9B1C71E1D5DC002C5B (ScriptableObject_tAB015486CEAB714DA0D5C1BA389B84FB90427734 * __this, const RuntimeMethod* method);
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -4227,6 +4291,16 @@ extern "C" IL2CPP_METHOD_ATTR void AnimatorControllerPlayable__cctor_m6FCC197F3B
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void UnityEngine.Animator::SetBool(System.String,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void Animator_SetBool_m497805BA217139E42808899782FA05C15BC9879E (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, bool ___value1, const RuntimeMethod* method)
+{
+	{
+		String_t* L_0 = ___name0;
+		bool L_1 = ___value1;
+		Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46(__this, L_0, L_1, /*hidden argument*/NULL);
+		return;
+	}
+}
 // System.Void UnityEngine.Animator::SetTrigger(System.String)
 extern "C" IL2CPP_METHOD_ATTR void Animator_SetTrigger_m68D29B7FA54C2F230F5AD780D462612B18E74245 (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, const RuntimeMethod* method)
 {
@@ -4245,6 +4319,25 @@ extern "C" IL2CPP_METHOD_ATTR void Animator_ResetTrigger_m70120C9A00EA482BF0880D
 		return;
 	}
 }
+// UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()
+extern "C" IL2CPP_METHOD_ATTR RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * Animator_get_runtimeAnimatorController_m68C657899041D4CEF8958BBBDD39941647C2B53E (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, const RuntimeMethod* method)
+{
+	typedef RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * (*Animator_get_runtimeAnimatorController_m68C657899041D4CEF8958BBBDD39941647C2B53E_ftn) (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A *);
+	static Animator_get_runtimeAnimatorController_m68C657899041D4CEF8958BBBDD39941647C2B53E_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Animator_get_runtimeAnimatorController_m68C657899041D4CEF8958BBBDD39941647C2B53E_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animator::get_runtimeAnimatorController()");
+	RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * retVal = _il2cpp_icall_func(__this);
+	return retVal;
+}
+// System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
+extern "C" IL2CPP_METHOD_ATTR void Animator_set_runtimeAnimatorController_mE5D0038029047B06727775438D1A32ADD677A36D (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * ___value0, const RuntimeMethod* method)
+{
+	typedef void (*Animator_set_runtimeAnimatorController_mE5D0038029047B06727775438D1A32ADD677A36D_ftn) (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A *, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD *);
+	static Animator_set_runtimeAnimatorController_mE5D0038029047B06727775438D1A32ADD677A36D_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Animator_set_runtimeAnimatorController_mE5D0038029047B06727775438D1A32ADD677A36D_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)");
+	_il2cpp_icall_func(__this, ___value0);
+}
 // System.Boolean UnityEngine.Animator::get_hasBoundPlayables()
 extern "C" IL2CPP_METHOD_ATTR bool Animator_get_hasBoundPlayables_m283AF0BA9B841E3FD1ADC5541C41B936A9D1EB05 (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, const RuntimeMethod* method)
 {
@@ -4254,6 +4347,15 @@ extern "C" IL2CPP_METHOD_ATTR bool Animator_get_hasBoundPlayables_m283AF0BA9B841
 	_il2cpp_icall_func = (Animator_get_hasBoundPlayables_m283AF0BA9B841E3FD1ADC5541C41B936A9D1EB05_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animator::get_hasBoundPlayables()");
 	bool retVal = _il2cpp_icall_func(__this);
 	return retVal;
+}
+// System.Void UnityEngine.Animator::SetBoolString(System.String,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46 (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, bool ___value1, const RuntimeMethod* method)
+{
+	typedef void (*Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46_ftn) (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A *, String_t*, bool);
+	static Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Animator::SetBoolString(System.String,System.Boolean)");
+	_il2cpp_icall_func(__this, ___name0, ___value1);
 }
 // System.Void UnityEngine.Animator::SetTriggerString(System.String)
 extern "C" IL2CPP_METHOD_ATTR void Animator_SetTriggerString_m77CE57996467D0C973FA2D0CB4DF87BD062C8A1E (Animator_tF1A88E66B3B731DDA75A066DBAE9C55837660F5A * __this, String_t* ___name0, const RuntimeMethod* method)
@@ -4289,6 +4391,53 @@ extern "C" IL2CPP_METHOD_ATTR void Animator_ResetTriggerString_m31B233F948D7551D
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void UnityEngine.AnimatorOverrideController::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController__ctor_mC372D23A97FC9920B659DE290F40C18D9799DD55 (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * __this, const RuntimeMethod* method)
+{
+	{
+		RuntimeAnimatorController__ctor_mF55B0DDD5700D725CD4E59521E5A16BD774ABC32(__this, /*hidden argument*/NULL);
+		AnimatorOverrideController_Internal_Create_mAC25B8D357801591F1B380422AFCD5C42D399896(__this, (RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD *)NULL, /*hidden argument*/NULL);
+		__this->set_OnOverrideControllerDirty_4((OnOverrideControllerDirtyCallback_t73560E6E30067C09BC58A15F9D2726051B077E2E *)NULL);
+		return;
+	}
+}
+// System.Void UnityEngine.AnimatorOverrideController::Internal_Create(UnityEngine.AnimatorOverrideController,UnityEngine.RuntimeAnimatorController)
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_Internal_Create_mAC25B8D357801591F1B380422AFCD5C42D399896 (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * ___self0, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * ___controller1, const RuntimeMethod* method)
+{
+	typedef void (*AnimatorOverrideController_Internal_Create_mAC25B8D357801591F1B380422AFCD5C42D399896_ftn) (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 *, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD *);
+	static AnimatorOverrideController_Internal_Create_mAC25B8D357801591F1B380422AFCD5C42D399896_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (AnimatorOverrideController_Internal_Create_mAC25B8D357801591F1B380422AFCD5C42D399896_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AnimatorOverrideController::Internal_Create(UnityEngine.AnimatorOverrideController,UnityEngine.RuntimeAnimatorController)");
+	_il2cpp_icall_func(___self0, ___controller1);
+}
+// System.Void UnityEngine.AnimatorOverrideController::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_set_runtimeAnimatorController_m6C601CF94807CFCB90DA215801B75AB888B44489 (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * __this, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * ___value0, const RuntimeMethod* method)
+{
+	typedef void (*AnimatorOverrideController_set_runtimeAnimatorController_m6C601CF94807CFCB90DA215801B75AB888B44489_ftn) (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 *, RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD *);
+	static AnimatorOverrideController_set_runtimeAnimatorController_m6C601CF94807CFCB90DA215801B75AB888B44489_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (AnimatorOverrideController_set_runtimeAnimatorController_m6C601CF94807CFCB90DA215801B75AB888B44489_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AnimatorOverrideController::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)");
+	_il2cpp_icall_func(__this, ___value0);
+}
+// System.Void UnityEngine.AnimatorOverrideController::set_Item(System.String,UnityEngine.AnimationClip)
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_set_Item_mAA829B1F85A46B29D207340E4594CD347E56D69B (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * __this, String_t* ___name0, AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE * ___value1, const RuntimeMethod* method)
+{
+	{
+		String_t* L_0 = ___name0;
+		AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE * L_1 = ___value1;
+		AnimatorOverrideController_Internal_SetClipByName_m94185D1A47205EB4037389C5EFBCAECCD118F94D(__this, L_0, L_1, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void UnityEngine.AnimatorOverrideController::Internal_SetClipByName(System.String,UnityEngine.AnimationClip)
+extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_Internal_SetClipByName_m94185D1A47205EB4037389C5EFBCAECCD118F94D (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * __this, String_t* ___name0, AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE * ___clip1, const RuntimeMethod* method)
+{
+	typedef void (*AnimatorOverrideController_Internal_SetClipByName_m94185D1A47205EB4037389C5EFBCAECCD118F94D_ftn) (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 *, String_t*, AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE *);
+	static AnimatorOverrideController_Internal_SetClipByName_m94185D1A47205EB4037389C5EFBCAECCD118F94D_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (AnimatorOverrideController_Internal_SetClipByName_m94185D1A47205EB4037389C5EFBCAECCD118F94D_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AnimatorOverrideController::Internal_SetClipByName(System.String,UnityEngine.AnimationClip)");
+	_il2cpp_icall_func(__this, ___name0, ___clip1);
+}
 // System.Void UnityEngine.AnimatorOverrideController::OnInvalidateOverrideController(UnityEngine.AnimatorOverrideController)
 extern "C" IL2CPP_METHOD_ATTR void AnimatorOverrideController_OnInvalidateOverrideController_mA538F1349FCF3968C5042F2D8860114F51818CB2 (AnimatorOverrideController_t130F04B57E753FD4288EF3235699ABE7C88FF312 * ___controller0, const RuntimeMethod* method)
 {
@@ -4785,6 +4934,29 @@ extern "C" void HumanBone_t2CE168CF8638CEABF48FB7B7CCF77BBE0CECF995_marshal_com_
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void UnityEngine.RuntimeAnimatorController::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void RuntimeAnimatorController__ctor_mF55B0DDD5700D725CD4E59521E5A16BD774ABC32 (RuntimeAnimatorController_tDA6672C8194522C2F60F8F2F241657E57C3520BD * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (RuntimeAnimatorController__ctor_mF55B0DDD5700D725CD4E59521E5A16BD774ABC32_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
+		Object__ctor_m091EBAEBC7919B0391ABDAFB7389ADC12206525B(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

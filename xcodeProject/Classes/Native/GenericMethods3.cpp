@@ -1078,12 +1078,11 @@ extern const uint32_t Marshal_PtrToStructure_TisRuntimeObject_mDB88EE58460703A7A
 extern const uint32_t Marshal_StructureToPtr_TisRuntimeObject_m20EFFD65B4857CBDE07FE795E1918763FD51E8AE_MetadataUsageId;
 extern const uint32_t Mesh_SetUvsImpl_TisRuntimeObject_m283D6CC271F7FC1C87FFB32C5D26588CB977A807_MetadataUsageId;
 extern const uint32_t Mesh_SetUvsImpl_TisVector2_tA85D2DD88578276CA8A8796756458277E72D073D_m67576E41684A71A434A5236E3FEDAB1C5261DF9E_MetadataUsageId;
-extern const uint32_t Object_Instantiate_TisRuntimeObject_m73EEBB28CACDFA6979C3B74E0EE960684825A5DD_MetadataUsageId;
-extern const uint32_t Object_Instantiate_TisRuntimeObject_m77C8BC4FB7BBE80C1AB9475F22E19B2D2762A368_MetadataUsageId;
 extern const uint32_t Object_Instantiate_TisRuntimeObject_mEF511C369E0CA9462FD3427DFC2375E81469570F_MetadataUsageId;
 extern const uint32_t Object_Instantiate_TisRuntimeObject_mFE9C42D5336D4F9EFF8CD96E2A26962EFF523947_MetadataUsageId;
 extern const uint32_t ResManager_Load_TisRuntimeObject_m4DA50FE565EDB3A458231C7483C49A6ECEC394E2_MetadataUsageId;
 extern const uint32_t Resources_GetBuiltinResource_TisRuntimeObject_m85F17CF969B8729F73D7FC6E935EF20EF3AAA994_MetadataUsageId;
+extern const uint32_t Resources_Load_TisRuntimeObject_m5DBFEC24E0DC9FC8734E858A489BC7B8B64B0BFF_MetadataUsageId;
 extern const uint32_t ScriptableObject_CreateInstance_TisRuntimeObject_m7A8F75139352BA04C2EEC1D72D430FAC94C753DE_MetadataUsageId;
 extern const uint32_t TaskToApm_End_TisInt32_t585191389E07734F19F3156FF88FB3EF4800D102_m7A78383A6B69F06EC91BDED0E0F6F3DE02960234_MetadataUsageId;
 extern const uint32_t TaskToApm_End_TisRuntimeObject_m5B4926B1E892216126696393D8316A1E707B9A85_MetadataUsageId;
@@ -15626,12 +15625,12 @@ extern "C" IL2CPP_METHOD_ATTR void Object_CheckNullArgument_m8D42F516655D770DFEE
 extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * Object_Internal_CloneSingle_m4231A0B9138AC40B76655B772F687CC7E6160C06 (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___data0, const RuntimeMethod* method);
 // System.Void UnityEngine.UnityException::.ctor(System.String)
 extern "C" IL2CPP_METHOD_ATTR void UnityException__ctor_mE42363D886E6DD7F075A6AEA689434C8E96722D9 (UnityException_t513F7D97037DB40AE78D7C3AAA2F9E011D050C28 * __this, String_t* ___message0, const RuntimeMethod* method);
-// UnityEngine.Object UnityEngine.Object::Instantiate(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * Object_Instantiate_m674B3934708548332899CE953CA56BB696C1C887 (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___original0, Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * ___parent1, bool ___instantiateInWorldSpace2, const RuntimeMethod* method);
 // UnityEngine.Object UnityEngine.Object::Instantiate(UnityEngine.Object,UnityEngine.Vector3,UnityEngine.Quaternion)
 extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * Object_Instantiate_mAF9C2662167396DEE640598515B60BE41B9D5082 (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ___original0, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___position1, Quaternion_t319F3319A7D43FFA5D819AD6C0A98851F0095357  ___rotation2, const RuntimeMethod* method);
 // UnityEngine.Object UnityEngine.Resources::GetBuiltinResource(System.Type,System.String)
 extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * Resources_GetBuiltinResource_m73DDAC485E1E06C925628AA7285AC63D0797BD0A (Type_t * ___type0, String_t* ___path1, const RuntimeMethod* method);
+// UnityEngine.Object UnityEngine.Resources::Load(System.String,System.Type)
+extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * Resources_Load_mF0FA033BF566CDDA6A0E69BB97283B44C40726E7 (String_t* ___path0, Type_t * ___systemTypeInstance1, const RuntimeMethod* method);
 // UnityEngine.ScriptableObject UnityEngine.ScriptableObject::CreateInstance(System.Type)
 extern "C" IL2CPP_METHOD_ATTR ScriptableObject_tAB015486CEAB714DA0D5C1BA389B84FB90427734 * ScriptableObject_CreateInstance_mDC77B7257A5E276CB272D3475B9B473B23A7128D (Type_t * ___type0, const RuntimeMethod* method);
 // System.Void System.IO.__Error::WrongAsyncResult()
@@ -32857,57 +32856,6 @@ IL_0045:
 		return L_7;
 	}
 }
-// T UnityEngine.Object::Instantiate<System.Object>(T,UnityEngine.Transform)
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Object_Instantiate_TisRuntimeObject_m73EEBB28CACDFA6979C3B74E0EE960684825A5DD_gshared (RuntimeObject * ___original0, Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * ___parent1, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Object_Instantiate_TisRuntimeObject_m73EEBB28CACDFA6979C3B74E0EE960684825A5DD_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	RuntimeObject * V_0 = NULL;
-	{
-		RuntimeObject * L_0 = ___original0;
-		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_1 = ___parent1;
-		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
-		RuntimeObject * L_2 = ((  RuntimeObject * (*) (RuntimeObject *, Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA *, bool, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0)->methodPointer)((RuntimeObject *)L_0, (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA *)L_1, (bool)0, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(method->rgctx_data, 0));
-		V_0 = (RuntimeObject *)L_2;
-		goto IL_000f;
-	}
-
-IL_000f:
-	{
-		RuntimeObject * L_3 = V_0;
-		return L_3;
-	}
-}
-// T UnityEngine.Object::Instantiate<System.Object>(T,UnityEngine.Transform,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Object_Instantiate_TisRuntimeObject_m77C8BC4FB7BBE80C1AB9475F22E19B2D2762A368_gshared (RuntimeObject * ___original0, Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * ___parent1, bool ___worldPositionStays2, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Object_Instantiate_TisRuntimeObject_m77C8BC4FB7BBE80C1AB9475F22E19B2D2762A368_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	RuntimeObject * V_0 = NULL;
-	{
-		RuntimeObject * L_0 = ___original0;
-		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_1 = ___parent1;
-		bool L_2 = ___worldPositionStays2;
-		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
-		Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * L_3 = Object_Instantiate_m674B3934708548332899CE953CA56BB696C1C887((Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 *)L_0, (Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA *)L_1, (bool)L_2, /*hidden argument*/NULL);
-		V_0 = (RuntimeObject *)((RuntimeObject *)Castclass((RuntimeObject*)L_3, IL2CPP_RGCTX_DATA(method->rgctx_data, 0)));
-		goto IL_0019;
-	}
-
-IL_0019:
-	{
-		RuntimeObject * L_4 = V_0;
-		return L_4;
-	}
-}
 // T UnityEngine.Object::Instantiate<System.Object>(T,UnityEngine.Vector3,UnityEngine.Quaternion)
 extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Object_Instantiate_TisRuntimeObject_mFE9C42D5336D4F9EFF8CD96E2A26962EFF523947_gshared (RuntimeObject * ___original0, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___position1, Quaternion_t319F3319A7D43FFA5D819AD6C0A98851F0095357  ___rotation2, const RuntimeMethod* method)
 {
@@ -32950,6 +32898,32 @@ extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Resources_GetBuiltinResource_TisRu
 		Type_t * L_1 = Type_GetTypeFromHandle_m9DC58ADF0512987012A8A016FB64B068F3B1AFF6((RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D )L_0, /*hidden argument*/NULL);
 		String_t* L_2 = ___path0;
 		Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * L_3 = Resources_GetBuiltinResource_m73DDAC485E1E06C925628AA7285AC63D0797BD0A((Type_t *)L_1, (String_t*)L_2, /*hidden argument*/NULL);
+		V_0 = (RuntimeObject *)((RuntimeObject *)Castclass((RuntimeObject*)L_3, IL2CPP_RGCTX_DATA(method->rgctx_data, 1)));
+		goto IL_001c;
+	}
+
+IL_001c:
+	{
+		RuntimeObject * L_4 = V_0;
+		return L_4;
+	}
+}
+// T UnityEngine.Resources::Load<System.Object>(System.String)
+extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Resources_Load_TisRuntimeObject_m5DBFEC24E0DC9FC8734E858A489BC7B8B64B0BFF_gshared (String_t* ___path0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Resources_Load_TisRuntimeObject_m5DBFEC24E0DC9FC8734E858A489BC7B8B64B0BFF_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	RuntimeObject * V_0 = NULL;
+	{
+		String_t* L_0 = ___path0;
+		RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D  L_1 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 0)) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_2 = Type_GetTypeFromHandle_m9DC58ADF0512987012A8A016FB64B068F3B1AFF6((RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D )L_1, /*hidden argument*/NULL);
+		Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * L_3 = Resources_Load_mF0FA033BF566CDDA6A0E69BB97283B44C40726E7((String_t*)L_0, (Type_t *)L_2, /*hidden argument*/NULL);
 		V_0 = (RuntimeObject *)((RuntimeObject *)Castclass((RuntimeObject*)L_3, IL2CPP_RGCTX_DATA(method->rgctx_data, 1)));
 		goto IL_001c;
 	}

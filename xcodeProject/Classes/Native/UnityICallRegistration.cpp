@@ -38,11 +38,39 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Animator_ResetTriggerString();
 		Register_UnityEngine_Animator_ResetTriggerString();
 
+		//System.Void UnityEngine.Animator::SetBoolString(System.String,System.Boolean)
+		void Register_UnityEngine_Animator_SetBoolString();
+		Register_UnityEngine_Animator_SetBoolString();
+
 		//System.Void UnityEngine.Animator::SetTriggerString(System.String)
 		void Register_UnityEngine_Animator_SetTriggerString();
 		Register_UnityEngine_Animator_SetTriggerString();
 
+		//System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
+		void Register_UnityEngine_Animator_set_runtimeAnimatorController();
+		Register_UnityEngine_Animator_set_runtimeAnimatorController();
+
+		//UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()
+		void Register_UnityEngine_Animator_get_runtimeAnimatorController();
+		Register_UnityEngine_Animator_get_runtimeAnimatorController();
+
 	//End Registrations for type : UnityEngine.Animator
+
+	//Start Registrations for type : UnityEngine.AnimatorOverrideController
+
+		//System.Void UnityEngine.AnimatorOverrideController::Internal_Create(UnityEngine.AnimatorOverrideController,UnityEngine.RuntimeAnimatorController)
+		void Register_UnityEngine_AnimatorOverrideController_Internal_Create();
+		Register_UnityEngine_AnimatorOverrideController_Internal_Create();
+
+		//System.Void UnityEngine.AnimatorOverrideController::Internal_SetClipByName(System.String,UnityEngine.AnimationClip)
+		void Register_UnityEngine_AnimatorOverrideController_Internal_SetClipByName();
+		Register_UnityEngine_AnimatorOverrideController_Internal_SetClipByName();
+
+		//System.Void UnityEngine.AnimatorOverrideController::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
+		void Register_UnityEngine_AnimatorOverrideController_set_runtimeAnimatorController();
+		Register_UnityEngine_AnimatorOverrideController_set_runtimeAnimatorController();
+
+	//End Registrations for type : UnityEngine.AnimatorOverrideController
 
 	//Start Registrations for type : UnityEngine.Application
 
@@ -1678,10 +1706,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Object_Internal_CloneSingle();
 		Register_UnityEngine_Object_Internal_CloneSingle();
 
-		//UnityEngine.Object UnityEngine.Object::Internal_CloneSingleWithParent(UnityEngine.Object,UnityEngine.Transform,System.Boolean)
-		void Register_UnityEngine_Object_Internal_CloneSingleWithParent();
-		Register_UnityEngine_Object_Internal_CloneSingleWithParent();
-
 		//UnityEngine.Object UnityEngine.Object::Internal_InstantiateSingle_Injected(UnityEngine.Object,UnityEngine.Vector3&,UnityEngine.Quaternion&)
 		void Register_UnityEngine_Object_Internal_InstantiateSingle_Injected();
 		Register_UnityEngine_Object_Internal_InstantiateSingle_Injected();
@@ -2501,10 +2525,6 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Texture2D::SetAllPixels32(UnityEngine.Color32[],System.Int32)
 		void Register_UnityEngine_Texture2D_SetAllPixels32();
 		Register_UnityEngine_Texture2D_SetAllPixels32();
-
-		//System.Void UnityEngine.Texture2D::SetPixelImpl_Injected(System.Int32,System.Int32,System.Int32,UnityEngine.Color&)
-		void Register_UnityEngine_Texture2D_SetPixelImpl_Injected();
-		Register_UnityEngine_Texture2D_SetPixelImpl_Injected();
 
 		//UnityEngine.Color32[] UnityEngine.Texture2D::GetPixels32(System.Int32)
 		void Register_UnityEngine_Texture2D_GetPixels32();

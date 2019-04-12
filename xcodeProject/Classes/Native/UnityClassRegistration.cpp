@@ -214,8 +214,8 @@ class LocalizationAsset;
 class Material; template <> void RegisterUnityClass<Material>(const char*);
 class ProceduralMaterial; 
 class Mesh; template <> void RegisterUnityClass<Mesh>(const char*);
-class Motion; 
-class AnimationClip; 
+class Motion; template <> void RegisterUnityClass<Motion>(const char*);
+class AnimationClip; template <> void RegisterUnityClass<AnimationClip>(const char*);
 class PreviewAnimationClip; 
 class NavMeshData; 
 class OcclusionCullingData; 
@@ -223,7 +223,7 @@ class PhysicMaterial;
 class PhysicsMaterial2D; 
 class PreloadData; template <> void RegisterUnityClass<PreloadData>(const char*);
 class RuntimeAnimatorController; template <> void RegisterUnityClass<RuntimeAnimatorController>(const char*);
-class AnimatorController; 
+class AnimatorController; template <> void RegisterUnityClass<AnimatorController>(const char*);
 class AnimatorOverrideController; template <> void RegisterUnityClass<AnimatorOverrideController>(const char*);
 class SampleClip; template <> void RegisterUnityClass<SampleClip>(const char*);
 class AudioClip; template <> void RegisterUnityClass<AudioClip>(const char*);
@@ -287,7 +287,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 83 non stripped classes
+	//Total: 86 non stripped classes
 	//0. Behaviour
 	RegisterUnityClass<Behaviour>("Core");
 	//1. Unity::Component
@@ -404,55 +404,61 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<AssetBundle>("AssetBundle");
 	//57. AssetBundleManifest
 	RegisterUnityClass<AssetBundleManifest>("AssetBundle");
-	//58. Collider
+	//58. AnimationClip
+	RegisterUnityClass<AnimationClip>("Animation");
+	//59. Motion
+	RegisterUnityClass<Motion>("Animation");
+	//60. Collider
 	RegisterUnityClass<Collider>("Physics");
-	//59. PolygonCollider2D
+	//61. PolygonCollider2D
 	RegisterUnityClass<PolygonCollider2D>("Physics2D");
-	//60. Collider2D
+	//62. Collider2D
 	RegisterUnityClass<Collider2D>("Physics2D");
-	//61. MeshCollider
+	//63. MeshCollider
 	RegisterUnityClass<MeshCollider>("Physics");
-	//62. TagManager
+	//64. TagManager
 	RegisterUnityClass<TagManager>("Core");
-	//63. GraphicsSettings
+	//65. GraphicsSettings
 	RegisterUnityClass<GraphicsSettings>("Core");
-	//64. DelayedCallManager
+	//66. DelayedCallManager
 	RegisterUnityClass<DelayedCallManager>("Core");
-	//65. InputManager
+	//67. InputManager
 	RegisterUnityClass<InputManager>("Core");
-	//66. TimeManager
+	//68. TimeManager
 	RegisterUnityClass<TimeManager>("Core");
-	//67. BuildSettings
+	//69. BuildSettings
 	RegisterUnityClass<BuildSettings>("Core");
-	//68. PlayerSettings
+	//70. PlayerSettings
 	RegisterUnityClass<PlayerSettings>("Core");
-	//69. ResourceManager
+	//71. ResourceManager
 	RegisterUnityClass<ResourceManager>("Core");
-	//70. RuntimeInitializeOnLoadManager
+	//72. RuntimeInitializeOnLoadManager
 	RegisterUnityClass<RuntimeInitializeOnLoadManager>("Core");
-	//71. ScriptMapper
+	//73. ScriptMapper
 	RegisterUnityClass<ScriptMapper>("Core");
-	//72. PhysicsManager
+	//74. PhysicsManager
 	RegisterUnityClass<PhysicsManager>("Physics");
-	//73. MonoManager
+	//75. MonoManager
 	RegisterUnityClass<MonoManager>("Core");
-	//74. TextAsset
+	//76. TextAsset
 	RegisterUnityClass<TextAsset>("Core");
-	//75. MonoScript
+	//77. MonoScript
 	RegisterUnityClass<MonoScript>("Core");
-	//76. UnityConnectSettings
+	//78. UnityConnectSettings
 	RegisterUnityClass<UnityConnectSettings>("UnityConnect");
-	//77. AudioManager
+	//79. AudioManager
 	RegisterUnityClass<AudioManager>("Audio");
-	//78. Physics2DSettings
+	//80. Physics2DSettings
 	RegisterUnityClass<Physics2DSettings>("Physics2D");
-	//79. LevelGameManager
+	//81. LevelGameManager
 	RegisterUnityClass<LevelGameManager>("Core");
-	//80. LightProbes
+	//82. LightProbes
 	RegisterUnityClass<LightProbes>("Core");
-	//81. LightmapSettings
+	//83. LightmapSettings
 	RegisterUnityClass<LightmapSettings>("Core");
-	//82. RenderSettings
+	//84. RenderSettings
 	RegisterUnityClass<RenderSettings>("Core");
+	//85. AnimatorController
+	RegisterUnityClass<AnimatorController>("Animation");
 
 }
