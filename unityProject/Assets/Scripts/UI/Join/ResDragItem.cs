@@ -34,11 +34,11 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void InitItem(int index)
     {
         Init();
-        int type = GameManager.instance.curSelectResType;
+        TemplateResType type = GameManager.instance.curSelectResType;
         //partType = (PartType)type;
         partType = GetPartTypeByResType(type, index);
         Debug.Log("type:" + partType.ToString());
-        string path = GameManager.instance.resPathList[type][index];
+        string path = GameManager.instance.resPathList[(int)type][index];
         UIHelper.instance.SetImage(path, image, true);
     }
 
@@ -47,13 +47,13 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     /// </summary>
     /// <param name="resType">素材类型</param>
     /// <param name="index">素材下标</param>
-    PartType GetPartTypeByResType(int resType,int index)
+    PartType GetPartTypeByResType(TemplateResType resType,int index)
     {
-        if (resType == 0)
+        if (resType == TemplateResType.Body)
         {
             return PartType.Body;
         }
-        if (resType == 1)
+        if (resType == TemplateResType.Eye)
         {
             if (index%2!=0)//右眼
             {
@@ -61,23 +61,23 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             }
             return PartType.LeftEye;
         }
-        if (resType == 2)
+        if (resType == TemplateResType.Mouth)
         {
             return PartType.Mouth;
         }
-        if (resType == 3)
+        if (resType == TemplateResType.Hair)
         {
             return PartType.Hair;
         }
-        if (resType == 4)
+        if (resType == TemplateResType.Hat)
         {
             return PartType.Hat;
         }
-        if (resType == 5)
+        if (resType == TemplateResType.HeadWear)
         {
             return PartType.HeadWear;
         }
-        if (resType == 6)
+        if (resType == TemplateResType.Hand)
         {
             if (index % 2 != 0)//右手
             {
@@ -85,7 +85,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             }
             return PartType.LeftHand;
         }
-        if (resType == 7)
+        if (resType == TemplateResType.Leg)
         {
             if (index % 2 != 0)//右脚
             {

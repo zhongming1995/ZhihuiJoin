@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 using Helper;
 using GameMgr;
 using UnityEngine.UI;
-using UI.Data;
 
 public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
@@ -31,16 +30,16 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
             return;
         }
         
-        int type = GameManager.instance.curSelectResType;
-        if (type == 6 || type == 7)//手脚
+        TemplateResType type = GameManager.instance.curSelectResType;
+        if (type == TemplateResType.Hand || type == TemplateResType.Leg)//手脚
         {
             genParent = GameObject.Find("img_draw_bg/draw_panel/group_handleg").transform;
         }
-        else if (type == 1 || type == 2 || type == 3)
+        else if (type == TemplateResType.Eye || type ==  TemplateResType.Mouth || type == TemplateResType.Hair)
         {
             genParent = GameObject.Find("img_draw_bg/draw_panel/group_eyemouthhair").transform;
         }
-        else if (type == 4 || type == 5)
+        else if (type == TemplateResType.Hat || type == TemplateResType.HeadWear)
         {
             genParent = GameObject.Find("img_draw_bg/draw_panel/group_hatheadwear").transform;
         }

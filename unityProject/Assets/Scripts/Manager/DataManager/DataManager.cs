@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UI.Data;
 using UnityEngine.UI;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;

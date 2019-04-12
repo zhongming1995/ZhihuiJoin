@@ -110,11 +110,11 @@ public class JoinMainView : MonoBehaviour
             UIHelper.instance.SetImage(string.Format(typeUnSelectPath, i.ToString()), t.GetChild(1).GetComponent<Image>(), true);
             t.GetComponent<Button>().onClick.AddListener(delegate
             {
-                TypeButtonClick(clickType);
+                TypeButtonClick((TemplateResType)clickType);
             });
             typeTransList.Add(t);
         }
-        TypeButtonClick(0);//初始选中第一个类型
+        TypeButtonClick(TemplateResType.Body);//初始选中第一个类型
         step = 1;//初始是第一步
         ShowTypeByStep(step);
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
@@ -133,7 +133,7 @@ public class JoinMainView : MonoBehaviour
         UIHelper.instance.SetImage(string.Format(typeUnSelectPath, resType.ToString()), t.GetChild(1).GetComponent<Image>(), true);
         t.GetComponent<Button>().onClick.AddListener(delegate
         {
-            TypeButtonClick(resType);
+            TypeButtonClick((TemplateResType)resType);
         });
         typeTransList.Add(t);
     }
@@ -253,7 +253,7 @@ public class JoinMainView : MonoBehaviour
     }
 
     //右侧素材类型切换
-    public void SetCurSelectType(int type)
+    public void SetCurSelectType(TemplateResType type)
     {
         GameManager.instance.SetJoinCurSelectType(type);
       
@@ -288,7 +288,7 @@ public class JoinMainView : MonoBehaviour
     }
 
     //右侧类型图标点击事件
-    private void TypeButtonClick(int n)
+    private void TypeButtonClick(TemplateResType type)
     {
         ShowBackBtn(false);
 
@@ -296,16 +296,17 @@ public class JoinMainView : MonoBehaviour
         seq.Append(ResListTrans.DOLocalMoveX(454, 0.2f));
         seq.InsertCallback(0.2f, () =>
         {
-            SetCurSelectType(n);
+
+            SetCurSelectType(type);
             for (int i = 0; i < GameManager.instance.resTypeCount; i++)
             {
-                if (i == n)
+                if (i == (int)type)
                 {
                     typeTransList[i].GetChild(0).gameObject.SetActive(true);
                     typeTransList[i].GetChild(1).gameObject.SetActive(false);
-                    if (loadResult[n] == false)
+                    if (loadResult[(int)type] == false)
                     {
-                        LoadResListByType(n);
+                        LoadResListByType((int)type);
                     }
                     ResScrollViewList[i].gameObject.SetActive(true);
                     
@@ -327,7 +328,7 @@ public class JoinMainView : MonoBehaviour
     {
         if (step==1)
         {
-            SetCurSelectType(0);
+            SetCurSelectType(TemplateResType.Body);
             BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -338,7 +339,7 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step==2)
         {
-            SetCurSelectType(1);
+            SetCurSelectType(TemplateResType.Eye);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -352,7 +353,7 @@ public class JoinMainView : MonoBehaviour
             }
         }else if (step == 3)
         {
-            SetCurSelectType(4);
+            SetCurSelectType(TemplateResType.Hat);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
@@ -372,7 +373,7 @@ public class JoinMainView : MonoBehaviour
         }
         else if (step == 4)
         {
-            SetCurSelectType(6);
+            SetCurSelectType(TemplateResType.Hand);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(false);
             BtnOk.gameObject.SetActive(true);

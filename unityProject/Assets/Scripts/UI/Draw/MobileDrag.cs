@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameMgr;
-using UI.Data;
 using Draw_MobilePaint;
 using ResMgr;
 using UnityEngine.EventSystems;
@@ -51,8 +50,7 @@ public class MobileDrag : MonoBehaviour
         Init();
         Debug.Log("Init");
         parentTrans = parent;
-        int type = GameManager.instance.curSelectResType;
-        partType = (PartType)type;
+        TemplateResType type = GameManager.instance.curSelectResType;
         string path;
         if (partType==PartType.Body)
         {
@@ -60,7 +58,7 @@ public class MobileDrag : MonoBehaviour
         }
         else
         {
-            path = GameManager.instance.resPathList[type][index];
+            path = GameManager.instance.resPathList[(int)type][index];
         } 
         //设置绘画背景，初始化绘画组件中的内容
         mobilePaint = transform.GetComponent<MobilePaint>();
