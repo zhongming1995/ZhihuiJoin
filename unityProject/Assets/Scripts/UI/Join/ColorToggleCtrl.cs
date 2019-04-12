@@ -12,22 +12,17 @@ public class ColorToggleCtrl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Debug.Log("Color Start");
         joinMainView = transform.GetComponentInParent<JoinMainView>();
         tg = transform.GetComponent<ToggleGroup>();
         int count = transform.childCount;
+        Debug.Log(count);
         for (int i = 0; i < count; i++)
         {
+            Debug.Log("i:" + i);
             int index = i;
             Toggle t = transform.GetChild(i).GetComponent<Toggle>();
             t.group = tg;
-            //if (i == 2)
-            //{
-            //    t.isOn = true;
-            //}
-            //else
-            //{
-            //    t.isOn = false;
-            //}
             t.onValueChanged.AddListener(delegate
             {
                 SelectOneColor(t.isOn,index);

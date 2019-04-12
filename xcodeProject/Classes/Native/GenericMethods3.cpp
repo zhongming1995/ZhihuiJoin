@@ -1052,7 +1052,6 @@ extern const uint32_t BaseInvokableCall_ThrowOnInvalidArg_TisRuntimeObject_m6619
 extern const uint32_t BaseInvokableCall_ThrowOnInvalidArg_TisSingle_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_m03AC9F5BC274DC40423B6D8620CA8900D19B6779_MetadataUsageId;
 extern const uint32_t BaseInvokableCall_ThrowOnInvalidArg_TisVector2_tA85D2DD88578276CA8A8796756458277E72D073D_m110A09BF0261A233C8ED6B7D740EE06868023749_MetadataUsageId;
 extern const uint32_t CollectionExtensions_GetValueOrDefault_TisRuntimeObject_TisRuntimeObject_m5D116C3383F95724C01C628C0D0069F3D7F65621_MetadataUsageId;
-extern const uint32_t Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_MetadataUsageId;
 extern const uint32_t Component_GetComponentInChildren_TisRuntimeObject_m0A52F3C5B5FF663BE30EF619B4D961185A4C97EC_MetadataUsageId;
 extern const uint32_t Component_GetComponentInParent_TisRuntimeObject_m36052D294AB8C1574678FEF9A9749145A073E8E3_MetadataUsageId;
 extern const uint32_t Component_GetComponent_TisRuntimeObject_m3FED1FF44F93EF1C3A07526800331B638EF4105B_MetadataUsageId;
@@ -1065,7 +1064,7 @@ extern const uint32_t ExecuteEvents_GetEventHandler_TisRuntimeObject_m254A7FA10E
 extern const uint32_t ExecuteEvents_GetEventList_TisRuntimeObject_mA4681676316B1EE13CF467A8E893FFE669D26DC5_MetadataUsageId;
 extern const uint32_t ExecuteEvents_ValidateEventData_TisRuntimeObject_m5B436B848D80B3DA7931E611A9AAE2428E5DA8DA_MetadataUsageId;
 extern const uint32_t GameObject_AddComponent_TisRuntimeObject_mCB8164FB05F8DCF99E098ADC5E13E96FEF6FC4E9_MetadataUsageId;
-extern const uint32_t GameObject_GetComponentInChildren_TisRuntimeObject_mA15208779D36FF60D56159BD6B74200FF125201E_MetadataUsageId;
+extern const uint32_t GameObject_GetComponentInChildren_TisRuntimeObject_mE0E4439053E8E8916697BF562D209F4C587FDCBF_MetadataUsageId;
 extern const uint32_t GameObject_GetComponent_TisRuntimeObject_m41E09C4CA476451FE275573062956CED105CB79A_MetadataUsageId;
 extern const uint32_t GameObject_GetComponentsInChildren_TisRuntimeObject_m480234581F731A03837A715CDD95230957255B5B_MetadataUsageId;
 extern const uint32_t GameObject_GetComponentsInChildren_TisRuntimeObject_m929835D48D2CB63076BBC59BC54618852FDEFE98_MetadataUsageId;
@@ -32609,33 +32608,6 @@ IL_001d:
 		return L_3;
 	}
 }
-// T UnityEngine.Component::GetComponentInChildren<System.Object>(System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_gshared (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, bool ___includeInactive0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	RuntimeObject * V_0 = NULL;
-	{
-		RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D  L_0 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 0)) };
-		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
-		Type_t * L_1 = Type_GetTypeFromHandle_m9DC58ADF0512987012A8A016FB64B068F3B1AFF6((RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D )L_0, /*hidden argument*/NULL);
-		bool L_2 = ___includeInactive0;
-		NullCheck((Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 *)__this);
-		Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * L_3 = Component_GetComponentInChildren_mEF7890FAC10EA2F776464285B0DCC58B8C373D34((Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 *)__this, (Type_t *)L_1, (bool)L_2, /*hidden argument*/NULL);
-		V_0 = (RuntimeObject *)((RuntimeObject *)Castclass((RuntimeObject*)L_3, IL2CPP_RGCTX_DATA(method->rgctx_data, 1)));
-		goto IL_001d;
-	}
-
-IL_001d:
-	{
-		RuntimeObject * L_4 = V_0;
-		return L_4;
-	}
-}
 // T UnityEngine.Component::GetComponentInParent<System.Object>()
 extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Component_GetComponentInParent_TisRuntimeObject_m36052D294AB8C1574678FEF9A9749145A073E8E3_gshared (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method)
 {
@@ -32786,12 +32758,12 @@ IL_0010:
 	}
 }
 // T UnityEngine.GameObject::GetComponentInChildren<System.Object>(System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * GameObject_GetComponentInChildren_TisRuntimeObject_mA15208779D36FF60D56159BD6B74200FF125201E_gshared (GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * __this, bool ___includeInactive0, const RuntimeMethod* method)
+extern "C" IL2CPP_METHOD_ATTR RuntimeObject * GameObject_GetComponentInChildren_TisRuntimeObject_mE0E4439053E8E8916697BF562D209F4C587FDCBF_gshared (GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * __this, bool ___includeInactive0, const RuntimeMethod* method)
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_method (GameObject_GetComponentInChildren_TisRuntimeObject_mA15208779D36FF60D56159BD6B74200FF125201E_MetadataUsageId);
+		il2cpp_codegen_initialize_method (GameObject_GetComponentInChildren_TisRuntimeObject_mE0E4439053E8E8916697BF562D209F4C587FDCBF_MetadataUsageId);
 		s_Il2CppMethodInitialized = true;
 	}
 	RuntimeObject * V_0 = NULL;

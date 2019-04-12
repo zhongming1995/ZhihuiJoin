@@ -8,6 +8,7 @@ using GameMgr;
 using System.IO;
 using System.Runtime.InteropServices;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DisplayView : MonoBehaviour
 {
@@ -41,7 +42,18 @@ public class DisplayView : MonoBehaviour
     void Start()
     {
         rectImgDisplay = ImgDisplay.GetComponent<RectTransform>().sizeDelta;
-        joinMainView = GameManager.instance.Root.GetComponentInChildren<JoinMainView>(true);
+        //joinMainView = GameManager.instance.Root.GetComponentInChildren<JoinMainView>(true);
+        joinMainView = transform.GetComponentInParent<Canvas>().gameObject.GetComponentInChildren<JoinMainView>(true);
+        GameObject CAnvas = transform.GetComponentInParent<Canvas>().gameObject;
+        if (CAnvas==null)
+        {
+            Debug.Log("null1");
+        }
+        joinMainView = CAnvas.GetComponentInChildren<JoinMainView>(true);
+        if (joinMainView==null)
+        {
+            Debug.Log("null2");
+        }
         AddEvent();
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
@@ -53,15 +65,16 @@ public class DisplayView : MonoBehaviour
     {
         BtnHome.onClick.AddListener(delegate
         {
-            UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root, Vector3.zero, Vector3.one, true);
-            Destroy(gameObject);
-            Destroy(joinMainView.gameObject);
+            //UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root, Vector3.zero, Vector3.one, true);
+            //Destroy(gameObject);
+            //Destroy(joinMainView.gameObject);
+            SceneManager.LoadScene("home");
         });
 
         BtnBack.onClick.AddListener(delegate
         {
-            Destroy(gameObject);
             joinMainView.gameObject.SetActive(true);
+            Destroy(gameObject);
         });
         BtnSave.onClick.AddListener(delegate
         {

@@ -105,7 +105,7 @@ namespace DataMgr
         {
 
             GameObject person = new GameObject("person");
-            person.transform.SetParent(GameObject.Find("root").transform);
+            //person.transform.SetParent(GameObject.Find("root").transform);
             for (int i = 0; i < part.Count; i++)
             {
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);

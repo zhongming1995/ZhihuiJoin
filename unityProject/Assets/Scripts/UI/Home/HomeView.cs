@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Helper;
 using GameMgr;
+using UnityEngine.SceneManagement;
 
 public class HomeView : MonoBehaviour
 {
@@ -31,15 +32,10 @@ public class HomeView : MonoBehaviour
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标
                 GameManager.instance.homeSelectIndex = j;
-                GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|join_main_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);
-                Destroy(gameObject);
-                });
-               
+                //GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|join_main_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);
+                //Destroy(gameObject);
+                SceneManager.LoadScene("join");
+            });
         }
-    }
-
-    void ItemClickEvent(int index)
-    {
-
     }
 }

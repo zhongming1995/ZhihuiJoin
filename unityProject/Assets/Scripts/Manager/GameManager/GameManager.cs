@@ -64,7 +64,7 @@ namespace GameMgr
         void Awake()
         {
             instance = this;
-            Root = GameObject.Find("root").GetComponent<RectTransform>();
+            //Root = GameObject.Find("root").GetComponent<RectTransform>();
         }
 
         void Start()
@@ -73,6 +73,7 @@ namespace GameMgr
             InitResPrefabList();//素材中的预制体路径
             InitResList();//素材资源
             InitColor();
+            Debug.Log("game start");
         }
 
         //初始化颜色列表

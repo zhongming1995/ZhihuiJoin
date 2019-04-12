@@ -6,6 +6,7 @@ using Helper;
 using UnityEngine;
 using UnityEngine.UI;
 using DataMgr;
+using UnityEngine.SceneManagement;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -25,13 +26,15 @@ public class JoinMainView : MonoBehaviour
     public Slider ImageScaleSlider;//控制图片大小的slider
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
-   
+    public Transform ContentColor;
+    public GameObject Draw;
+
     private MobilePaint mobilePaint;
     private Transform BodyGroup;
+    private Transform CanvasTrans;
 
 
     //定义数据变量
-    [HideInInspector]
     private Transform curSelectResObj ;
     private int typeCount = 8;//资源类型数量
     private int step = 1;//步骤1-4
@@ -77,11 +80,16 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(63.0f,-50.0f,-13824.0f), new Vector3(150,150,150));
+        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(0f, 0f, 0), new Vector3(135,135,135));
+
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
+        draw.transform.localPosition = new Vector3(-1757, -68, 0);
+
+        //Canvas结点
+        CanvasTrans = transform.GetComponentInParent<Canvas>().transform;
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -99,7 +107,6 @@ public class JoinMainView : MonoBehaviour
         //LoadResList((int)PartType.Body);
 
         //加载所有类型素材
-
         string typeUnSelectPath = "sprite/ui|splice_type_{0}";
         string typeSelectPath = "sprite/ui|splice_type_{0}_select";
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
@@ -114,6 +121,9 @@ public class JoinMainView : MonoBehaviour
             });
             typeTransList.Add(t);
         }
+
+        ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
+
         TypeButtonClick(TemplateResType.Body);//初始选中第一个类型
         step = 1;//初始是第一步
         ShowTypeByStep(step);
@@ -155,8 +165,7 @@ public class JoinMainView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
-            UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);
-            Destroy(gameObject);
+            SceneManager.LoadScene("home");
         });
 
         BtnPre.onClick.AddListener(delegate
@@ -182,7 +191,7 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.partDataList = DataManager.instance.TransformToPartsList(DrawPanel);
-            UIHelper.instance.LoadPrefab("prefabs/display|display_view", GameManager.instance.Root, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefab("prefabs/display|display_view",CanvasTrans, Vector3.zero, Vector3.one, true);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate
