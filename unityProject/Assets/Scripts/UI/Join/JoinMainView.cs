@@ -27,7 +27,6 @@ public class JoinMainView : MonoBehaviour
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
-    public GameObject Draw;
 
     private MobilePaint mobilePaint;
     private Transform BodyGroup;
@@ -184,6 +183,20 @@ public class JoinMainView : MonoBehaviour
 
         BtnOk.onClick.AddListener(delegate
         {
+            /*测试贴图加载
+            byte[] b = GetDrawTexture().EncodeToPNG();
+            Texture2D t = new Texture2D(GetDrawTexture().width, GetDrawTexture().height,TextureFormat.RGBA32,false);
+            t.filterMode = FilterMode.Point;
+            //t.wrapMode = TextureWrapMode.Clamp;
+            //t.LoadRawTextureData(b);
+            //t.Apply();
+            t.LoadImage(b);
+            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+            testImage.sprite = s;
+            testImage.SetNativeSize();
+            testImage.transform.localScale = Vector3.one;
+            */
+
             gameObject.SetActive(false);
             Texture2D t = GetDrawTexture();
             Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
@@ -192,6 +205,7 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.partDataList = DataManager.instance.TransformToPartsList(DrawPanel);
             UIHelper.instance.LoadPrefab("prefabs/display|display_view",CanvasTrans, Vector3.zero, Vector3.one, true);
+
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate

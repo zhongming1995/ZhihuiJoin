@@ -1,15 +1,9 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
     <Files>
-      <File FileName="Assets/Scripts/AppEntry.cs" Line="32" Column="40" />
-      <File FileName="Assets/Scripts/UI/Draw/ZhihuiPaint.cs" Line="1339" Column="1" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="108" Column="77" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="52" Column="72" />
-      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="42" Column="6" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="67" Column="34" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="82" Column="89" />
-      <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="19" Column="26" />
-      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="69" Column="31" />
+      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="118" Column="36" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="44" Column="24" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="104" Column="74" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -42,8 +42,9 @@ namespace DataMgr
                     }
                     PartType type = img.GetComponent<ResDragItem>().partType;
                     byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
-                    float[] pos = new float[] { img.localPosition.x, img.localPosition.y, img.localPosition.z };
-                    float[] scale = new float[] { img.localScale.x, img.localScale.y, img.localScale.z };
+                    //byte[] b = img.GetComponent<Image>().sprite.texture.GetRawTextureData();
+                    float[] pos = { img.localPosition.x, img.localPosition.y, img.localPosition.z };
+                    float[] scale =  { img.localScale.x, img.localScale.y, img.localScale.z };
                     PartData p = new PartData(type,b, pos, scale);
                     parts.Add(p);
                 }
@@ -112,8 +113,10 @@ namespace DataMgr
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
                 Image img = obj.GetComponent<Image>();
-                Texture2D t = new Texture2D(500, 500);
+                Texture2D t = new Texture2D(500, 500,TextureFormat.RGBA32,false);
+                t.filterMode = FilterMode.Point;
                 t.LoadImage(part[i].ImgBytes);
+                t.Apply(false);
                 Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
                 img.sprite = s;
                 img.SetNativeSize();

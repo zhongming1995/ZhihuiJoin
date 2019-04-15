@@ -44,16 +44,7 @@ public class DisplayView : MonoBehaviour
         rectImgDisplay = ImgDisplay.GetComponent<RectTransform>().sizeDelta;
         //joinMainView = GameManager.instance.Root.GetComponentInChildren<JoinMainView>(true);
         joinMainView = transform.GetComponentInParent<Canvas>().gameObject.GetComponentInChildren<JoinMainView>(true);
-        GameObject CAnvas = transform.GetComponentInParent<Canvas>().gameObject;
-        if (CAnvas==null)
-        {
-            Debug.Log("null1");
-        }
-        joinMainView = CAnvas.GetComponentInChildren<JoinMainView>(true);
-        if (joinMainView==null)
-        {
-            Debug.Log("null2");
-        }
+     
         AddEvent();
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
@@ -103,14 +94,17 @@ public class DisplayView : MonoBehaviour
         draw.SetNativeSize();
         draw.transform.localScale = new Vector3(rate, rate, rate);
         */
+
         GameObject person = null;
         if (DataManager.instance.partDataList!=null)
         {
             person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
         }
         person.transform.SetParent(ImgDisplay);
-        person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
+        person.transform.localScale = new Vector3(1, 1, 1);
+        //person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
+              
         //生成静态展示图片
         StartCoroutine(CutScreen());
     }

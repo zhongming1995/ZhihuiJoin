@@ -485,6 +485,11 @@ namespace Draw_MobilePaint
             return drawTexture;
         }
 
+        public byte[] GetDrawByte()
+        {
+            return drawPixels;
+        }
+
         // *** MAINLOOP ***
         void Update()
         {
@@ -1070,6 +1075,11 @@ namespace Draw_MobilePaint
                                 }
                                 pixels[pixel + 3] = customBrushBytes[brushPixel + 3];
                                 drawPixels[pixel + 3] = pixels[pixel + 3];
+                                //if (pixels[pixel+3]>0 && pixels[pixel+3]<255)
+                                //{
+                                //    drawPixels[pixel + 3] = 0;
+                                //}
+
                             }
                         }
                     }
