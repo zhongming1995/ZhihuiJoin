@@ -229,25 +229,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -3083435009294184216, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.00014701358
-      objectReference: {fileID: 0}
-    - target: {fileID: 6808743495733313284, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.00003062196
-      objectReference: {fileID: 0}
     - target: {fileID: 6808743495733313284, guid: f50301d364e9148d9a859ee2a414da2f,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3920427307502649609, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000020064886
       objectReference: {fileID: 0}
     - target: {fileID: 3920427307502649609, guid: f50301d364e9148d9a859ee2a414da2f,
         type: 3}
@@ -256,18 +241,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217457582498926561, guid: f50301d364e9148d9a859ee2a414da2f,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000020064886
-      objectReference: {fileID: 0}
-    - target: {fileID: 8217457582498926561, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8564766699816228221, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.000020064886
       objectReference: {fileID: 0}
     - target: {fileID: 8564766699816228221, guid: f50301d364e9148d9a859ee2a414da2f,
         type: 3}
@@ -276,18 +251,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2524796100964343015, guid: f50301d364e9148d9a859ee2a414da2f,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000026410635
-      objectReference: {fileID: 0}
-    - target: {fileID: 2524796100964343015, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6571652777225870849, guid: f50301d364e9148d9a859ee2a414da2f,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000026410635
       objectReference: {fileID: 0}
     - target: {fileID: 6571652777225870849, guid: f50301d364e9148d9a859ee2a414da2f,
         type: 3}

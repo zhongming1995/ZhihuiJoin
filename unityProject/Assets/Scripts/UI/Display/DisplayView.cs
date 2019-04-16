@@ -20,8 +20,8 @@ public class DisplayView : MonoBehaviour
     public Transform PosFlag2;//右下角截屏定位点
     public Transform PosFlagLeftBottom;//左下角圆形裁切定位点
     public Transform PosFlagLeftTop;//左下角圆形裁切定位点
-    public Transform PosFlagRightBottom;//左下角圆形裁切定位点
-    public Transform PosFlagRightTop;//左下角圆形裁切定位点
+
+    public Button TestBtn;
 
     private JoinMainView joinMainView;
     private Transform displayItem;//展示界面的物体
@@ -35,6 +35,7 @@ public class DisplayView : MonoBehaviour
     private int texWidth = 0;
     private int texHeight = 0;
     private Texture2D staticTexture;//静态展示图片
+    private DisplayPartItem[] lstDisplayItem;
 
     [DllImport("__Internal")]
     private static extern void UnityToIOS_SavePhotoToAlbum(string path);
@@ -101,9 +102,10 @@ public class DisplayView : MonoBehaviour
             person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
         }
         person.transform.SetParent(ImgDisplay);
-        person.transform.localScale = new Vector3(1, 1, 1);
-        //person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
+        person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
+
+        lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
               
         //生成静态展示图片
         StartCoroutine(CutScreen());
@@ -153,6 +155,14 @@ public class DisplayView : MonoBehaviour
         fileStream.EndWrite(result);
         Debug.Log("异步保存图片完成------------");
         UnityToIOS_SavePhotoToAlbum(savePath);
+    }
+
+    public void Greeting()
+    {
+        for (int i = 0; i < lstDisplayItem.Length; i++)
+        {
+            lstDisplayItem[i].PlayGreeting();
+        }
     }
 
 }

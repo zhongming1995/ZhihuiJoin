@@ -42,7 +42,6 @@ namespace DataMgr
                     }
                     PartType type = img.GetComponent<ResDragItem>().partType;
                     byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
-                    //byte[] b = img.GetComponent<Image>().sprite.texture.GetRawTextureData();
                     float[] pos = { img.localPosition.x, img.localPosition.y, img.localPosition.z };
                     float[] scale =  { img.localScale.x, img.localScale.y, img.localScale.z };
                     PartData p = new PartData(type,b, pos, scale);
@@ -106,9 +105,12 @@ namespace DataMgr
         {
 
             GameObject person = new GameObject("person");
-            //person.transform.SetParent(GameObject.Find("root").transform);
+            //GameObject body = new GameObject("body");
+            //body.transform.SetParent(person.transform);
+            Transform transBody = person.transform;
             for (int i = 0; i < part.Count; i++)
             {
+                /*
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
@@ -123,8 +125,48 @@ namespace DataMgr
                 //DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
                 //item.partType = part[i].Type;
                 //item.Init();
+                */
+                //将Hat,HeadWear,Mouse,Hair,Eye作为Body的子物体
+                Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
+                Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
+                PartType partType = part[i].Type;
+                GameObject obj;
+                obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
+                if (partType == PartType.LeftLeg||partType==PartType.RightLeg||partType==PartType.LeftHand||partType==PartType.RightHand||partType==PartType.Body)
+                {
+                    //obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
+                    if (partType==PartType.Body)
+                    {
+                        transBody = obj.transform;
+                    }
+                }
+                else
+                {
+                    obj.transform.SetParent(transBody);
+                    //obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", transBody, pos, scale);
+                }
+
+                Image img = obj.GetComponent<Image>();
+                Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+                t.filterMode = FilterMode.Point;
+                t.LoadImage(part[i].ImgBytes);
+                t.Apply(false);
+                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+                img.sprite = s;
+                img.SetNativeSize();
+                obj.transform.localScale = scale;
+
+                DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
+                item.partType = part[i].Type;
+                item.Init();
             }
+            //body.transform.SetAsLastSibling();
             return person;
+        }
+
+        public DisplayPartItem[] GetListDiaplayItem(Transform personObj)
+        {
+             return personObj.GetComponentsInChildren<DisplayPartItem>();
         }
     }
 }
