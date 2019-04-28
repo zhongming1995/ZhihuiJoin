@@ -773,13 +773,17 @@ extern "C" void SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pi
 extern "C" void SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
 extern "C" void SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_cleanup(void* marshaledStructure);
 extern const RuntimeType SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_0_0_0;
+extern "C" void DelegatePInvokeWrapper_AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6();
+extern const RuntimeType AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6_0_0_0;
 extern "C" void DelegatePInvokeWrapper_AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD();
 extern const RuntimeType AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD_0_0_0;
 extern "C" void DelegatePInvokeWrapper_AreaWasPainted_tC7C5AB83194EAFC4108C7F804DA8E886BE5B55B5();
 extern const RuntimeType AreaWasPainted_tC7C5AB83194EAFC4108C7F804DA8E886BE5B55B5_0_0_0;
+extern "C" void DelegatePInvokeWrapper_MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653();
+extern const RuntimeType MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653_0_0_0;
 extern "C" void DelegatePInvokeWrapper_AreaWasPainted_t537D2557735149202851C1AF691D54AA43D52E57();
 extern const RuntimeType AreaWasPainted_t537D2557735149202851C1AF691D54AA43D52E57_0_0_0;
-extern Il2CppInteropData g_Il2CppInteropData[228] = 
+extern Il2CppInteropData g_Il2CppInteropData[230] = 
 {
 	{ NULL, Escape_t7D205DCBE40F7D5FE25F443E2DBF79A63870C5C6_marshal_pinvoke, Escape_t7D205DCBE40F7D5FE25F443E2DBF79A63870C5C6_marshal_pinvoke_back, Escape_t7D205DCBE40F7D5FE25F443E2DBF79A63870C5C6_marshal_pinvoke_cleanup, NULL, NULL, &Escape_t7D205DCBE40F7D5FE25F443E2DBF79A63870C5C6_0_0_0 } /* Mono.Globalization.Unicode.SimpleCollator/Escape */,
 	{ NULL, SafeStringMarshal_tD41B530333F2C9F500BD6FEC91735D16F06C9A6F_marshal_pinvoke, SafeStringMarshal_tD41B530333F2C9F500BD6FEC91735D16F06C9A6F_marshal_pinvoke_back, SafeStringMarshal_tD41B530333F2C9F500BD6FEC91735D16F06C9A6F_marshal_pinvoke_cleanup, NULL, NULL, &SafeStringMarshal_tD41B530333F2C9F500BD6FEC91735D16F06C9A6F_0_0_0 } /* Mono.SafeStringMarshal */,
@@ -1005,8 +1009,10 @@ extern Il2CppInteropData g_Il2CppInteropData[228] =
 	{ DelegatePInvokeWrapper_Raycast3DCallback_t83483916473C9710AEDB316A65CBE62C58935C5F, NULL, NULL, NULL, NULL, NULL, &Raycast3DCallback_t83483916473C9710AEDB316A65CBE62C58935C5F_0_0_0 } /* UnityEngine.UI.ReflectionMethodsCache/Raycast3DCallback */,
 	{ DelegatePInvokeWrapper_RaycastAllCallback_t751407A44270E02FAA43D0846A58EE6A8C4AE1CE, NULL, NULL, NULL, NULL, NULL, &RaycastAllCallback_t751407A44270E02FAA43D0846A58EE6A8C4AE1CE_0_0_0 } /* UnityEngine.UI.ReflectionMethodsCache/RaycastAllCallback */,
 	{ NULL, SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke, SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_back, SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_cleanup, NULL, NULL, &SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_0_0_0 } /* UnityEngine.UI.SpriteState */,
+	{ DelegatePInvokeWrapper_AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6, NULL, NULL, NULL, NULL, NULL, &AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6_0_0_0 } /* AniEvent/AnimationEndDelegate */,
 	{ DelegatePInvokeWrapper_AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD, NULL, NULL, NULL, NULL, NULL, &AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD_0_0_0 } /* Draw.ZhihuiPaint/AreaWasPainted */,
 	{ DelegatePInvokeWrapper_AreaWasPainted_tC7C5AB83194EAFC4108C7F804DA8E886BE5B55B5, NULL, NULL, NULL, NULL, NULL, &AreaWasPainted_tC7C5AB83194EAFC4108C7F804DA8E886BE5B55B5_0_0_0 } /* Draw_MobilePaint.MobilePaint/AreaWasPainted */,
+	{ DelegatePInvokeWrapper_MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653, NULL, NULL, NULL, NULL, NULL, &MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653_0_0_0 } /* Draw_MobilePaint.MobilePaint/MouseDrawDelegate */,
 	{ DelegatePInvokeWrapper_AreaWasPainted_t537D2557735149202851C1AF691D54AA43D52E57, NULL, NULL, NULL, NULL, NULL, &AreaWasPainted_t537D2557735149202851C1AF691D54AA43D52E57_0_0_0 } /* unitycoder_MobilePaint.MobilePaint/AreaWasPainted */,
 	NULL,
 };

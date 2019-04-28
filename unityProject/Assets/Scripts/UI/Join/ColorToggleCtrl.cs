@@ -3,23 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using GameMgr;
+using AudioMgr;
 
 public class ColorToggleCtrl : MonoBehaviour
 {
+    private bool isFirstValueChange = true;
     public List<Toggle> toggleLst = new List<Toggle>();
     ToggleGroup tg;
     JoinMainView joinMainView;
+    JoinGuide joinGuide;
     // Use this for initialization
     void Start()
     {
-        Debug.Log("Color Start");
         joinMainView = transform.GetComponentInParent<JoinMainView>();
+        joinGuide = transform.GetComponentInParent<JoinGuide>();
         tg = transform.GetComponent<ToggleGroup>();
         int count = transform.childCount;
-        Debug.Log(count);
         for (int i = 0; i < count; i++)
         {
-            Debug.Log("i:" + i);
             int index = i;
             Toggle t = transform.GetChild(i).GetComponent<Toggle>();
             t.group = tg;
@@ -38,6 +39,16 @@ public class ColorToggleCtrl : MonoBehaviour
     private void SelectOneColor(bool isOn,int index) {
         if (isOn)
         {
+            //播放音效
+            if (isFirstValueChange == false)
+            {
+                AudioManager.instance.PlayAudio(EffectAudioType.Option,"Audio/button_effect/color_effect|color_" + index);
+                joinGuide.DoOperation();
+            }
+            if (isFirstValueChange)
+            {
+                isFirstValueChange = false;
+            }
             //index：0为七彩笔 1为橡皮擦 2以后为颜色
             joinMainView.SelectColor(index,GameManager.instance.ColorList[index]);
             joinMainView.ShowBackBtn(false);

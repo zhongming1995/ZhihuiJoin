@@ -1,5 +1,25 @@
 void RegisterAllStrippedInternalCalls()
 {
+	//Start Registrations for type : UnityEngine.Animation
+
+		//System.Boolean UnityEngine.Animation::Play(System.String,UnityEngine.PlayMode)
+		void Register_UnityEngine_Animation_Play();
+		Register_UnityEngine_Animation_Play();
+
+		//System.Int32 UnityEngine.Animation::GetStateCount()
+		void Register_UnityEngine_Animation_GetStateCount();
+		Register_UnityEngine_Animation_GetStateCount();
+
+		//System.Void UnityEngine.Animation::AddClip(UnityEngine.AnimationClip,System.String,System.Int32,System.Int32,System.Boolean)
+		void Register_UnityEngine_Animation_AddClip();
+		Register_UnityEngine_Animation_AddClip();
+
+		//UnityEngine.AnimationState UnityEngine.Animation::GetStateAtIndex(System.Int32)
+		void Register_UnityEngine_Animation_GetStateAtIndex();
+		Register_UnityEngine_Animation_GetStateAtIndex();
+
+	//End Registrations for type : UnityEngine.Animation
+
 	//Start Registrations for type : UnityEngine.AnimationCurve
 
 		//System.Boolean UnityEngine.AnimationCurve::Internal_Equals(System.IntPtr)
@@ -38,39 +58,11 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Animator_ResetTriggerString();
 		Register_UnityEngine_Animator_ResetTriggerString();
 
-		//System.Void UnityEngine.Animator::SetBoolString(System.String,System.Boolean)
-		void Register_UnityEngine_Animator_SetBoolString();
-		Register_UnityEngine_Animator_SetBoolString();
-
 		//System.Void UnityEngine.Animator::SetTriggerString(System.String)
 		void Register_UnityEngine_Animator_SetTriggerString();
 		Register_UnityEngine_Animator_SetTriggerString();
 
-		//System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
-		void Register_UnityEngine_Animator_set_runtimeAnimatorController();
-		Register_UnityEngine_Animator_set_runtimeAnimatorController();
-
-		//UnityEngine.RuntimeAnimatorController UnityEngine.Animator::get_runtimeAnimatorController()
-		void Register_UnityEngine_Animator_get_runtimeAnimatorController();
-		Register_UnityEngine_Animator_get_runtimeAnimatorController();
-
 	//End Registrations for type : UnityEngine.Animator
-
-	//Start Registrations for type : UnityEngine.AnimatorOverrideController
-
-		//System.Void UnityEngine.AnimatorOverrideController::Internal_Create(UnityEngine.AnimatorOverrideController,UnityEngine.RuntimeAnimatorController)
-		void Register_UnityEngine_AnimatorOverrideController_Internal_Create();
-		Register_UnityEngine_AnimatorOverrideController_Internal_Create();
-
-		//System.Void UnityEngine.AnimatorOverrideController::Internal_SetClipByName(System.String,UnityEngine.AnimationClip)
-		void Register_UnityEngine_AnimatorOverrideController_Internal_SetClipByName();
-		Register_UnityEngine_AnimatorOverrideController_Internal_SetClipByName();
-
-		//System.Void UnityEngine.AnimatorOverrideController::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
-		void Register_UnityEngine_AnimatorOverrideController_set_runtimeAnimatorController();
-		Register_UnityEngine_AnimatorOverrideController_set_runtimeAnimatorController();
-
-	//End Registrations for type : UnityEngine.AnimatorOverrideController
 
 	//Start Registrations for type : UnityEngine.Application
 
@@ -153,6 +145,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Boolean UnityEngine.AudioClip::get_ambisonic()
 		void Register_UnityEngine_AudioClip_get_ambisonic();
 		Register_UnityEngine_AudioClip_get_ambisonic();
+
+		//System.Single UnityEngine.AudioClip::get_length()
+		void Register_UnityEngine_AudioClip_get_length();
+		Register_UnityEngine_AudioClip_get_length();
 
 	//End Registrations for type : UnityEngine.AudioClip
 
@@ -242,9 +238,33 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_AudioSource_Play();
 		Register_UnityEngine_AudioSource_Play();
 
+		//System.Void UnityEngine.AudioSource::Stop()
+		void Register_UnityEngine_AudioSource_Stop();
+		Register_UnityEngine_AudioSource_Stop();
+
+		//System.Void UnityEngine.AudioSource::set_clip(UnityEngine.AudioClip)
+		void Register_UnityEngine_AudioSource_set_clip();
+		Register_UnityEngine_AudioSource_set_clip();
+
+		//System.Void UnityEngine.AudioSource::set_loop(System.Boolean)
+		void Register_UnityEngine_AudioSource_set_loop();
+		Register_UnityEngine_AudioSource_set_loop();
+
 		//System.Void UnityEngine.AudioSource::set_pitch(System.Single)
 		void Register_UnityEngine_AudioSource_set_pitch();
 		Register_UnityEngine_AudioSource_set_pitch();
+
+		//System.Void UnityEngine.AudioSource::set_playOnAwake(System.Boolean)
+		void Register_UnityEngine_AudioSource_set_playOnAwake();
+		Register_UnityEngine_AudioSource_set_playOnAwake();
+
+		//System.Void UnityEngine.AudioSource::set_rolloffMode(UnityEngine.AudioRolloffMode)
+		void Register_UnityEngine_AudioSource_set_rolloffMode();
+		Register_UnityEngine_AudioSource_set_rolloffMode();
+
+		//System.Void UnityEngine.AudioSource::set_spatialBlend(System.Single)
+		void Register_UnityEngine_AudioSource_set_spatialBlend();
+		Register_UnityEngine_AudioSource_set_spatialBlend();
 
 		//System.Void UnityEngine.AudioSource::set_volume(System.Single)
 		void Register_UnityEngine_AudioSource_set_volume();

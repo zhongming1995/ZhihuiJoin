@@ -21,8 +21,6 @@ public class DisplayView : MonoBehaviour
     public Transform PosFlagLeftBottom;//左下角圆形裁切定位点
     public Transform PosFlagLeftTop;//左下角圆形裁切定位点
 
-    public Button TestBtn;
-
     private JoinMainView joinMainView;
     private Transform displayItem;//展示界面的物体
     private Vector2 rectImgDisplay;
@@ -57,9 +55,6 @@ public class DisplayView : MonoBehaviour
     {
         BtnHome.onClick.AddListener(delegate
         {
-            //UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root, Vector3.zero, Vector3.one, true);
-            //Destroy(gameObject);
-            //Destroy(joinMainView.gameObject);
             SceneManager.LoadScene("home");
         });
 
@@ -68,12 +63,7 @@ public class DisplayView : MonoBehaviour
             joinMainView.gameObject.SetActive(true);
             Destroy(gameObject);
         });
-        BtnSave.onClick.AddListener(delegate
-        {
-            SavePic();
-            //StartCoroutine(CutScreen());
-            //DataManager.instance.TransformToPartsList(displayItem);
-        });
+        BtnSave.onClick.AddListener(SavePic);
     }
 
     public void Display()
@@ -104,6 +94,10 @@ public class DisplayView : MonoBehaviour
         person.transform.SetParent(ImgDisplay);
         person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
+
+        //加上按钮
+        Button btn = person.gameObject.AddComponent<Button>();
+        btn.onClick.AddListener(Greeting);
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
               

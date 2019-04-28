@@ -10,6 +10,8 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
 {
     private ScrollRect scrollRect;//父容器滑动列表
     private Transform genParent;
+    private JoinMainView joinMainView;
+    private JoinGuide joinGuide;
     bool moveSelf = true;
     private Transform HandLegGroup;
     private Transform EyeMouthHairGroup;
@@ -18,10 +20,13 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     void Start()
     {
         scrollRect = transform.GetComponentInParent<ScrollRect>();
+        joinMainView = GetComponentInParent<JoinMainView>();
+        joinGuide = GetComponentInParent<JoinGuide>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        joinGuide.OperationStart();
         moveSelf = true;
         if (Mathf.Abs(eventData.delta.x) < Mathf.Abs(eventData.delta.y) )
         {
@@ -46,7 +51,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
         GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
         obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex());
         eventData.pointerDrag = obj;
-        
     }
 
     public void OnDrag(PointerEventData eventData)

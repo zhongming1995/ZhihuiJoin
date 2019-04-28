@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Helper;
 using GameMgr;
 using UnityEngine.SceneManagement;
+using AudioMgr;
 
 public class HomeView : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class HomeView : MonoBehaviour
 
     void Start()
     {
+        //停止音效
+        AudioManager.instance.StopEffect();
         ListViewContent = transform.Find("list_items/Scroll View/Viewport/Content");
         for (int i = 0; i < GameManager.instance.homePathList.Count; i++)
         {
@@ -34,8 +37,24 @@ public class HomeView : MonoBehaviour
                 GameManager.instance.homeSelectIndex = j;
                 //GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|join_main_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);
                 //Destroy(gameObject);
-                SceneManager.LoadScene("join");
+                //设置类型
+                if (j < 26)
+                {
+                    GameManager.instance.curJoinType = JoinType.Letter;
+                }
+                else
+                {
+                    GameManager.instance.curJoinType = JoinType.Num;
+                }
+                //跳转后再播放素材模版音效
+                AudioManager.instance.PlayAudio(EffectAudioType.Option,GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
+                JumpToJoin();
             });
         }
+    }
+
+    private void JumpToJoin()
+    {
+        SceneManager.LoadScene("join");
     }
 }

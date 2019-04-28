@@ -211,6 +211,15 @@ namespace Draw_MobilePaint
         private bool MultiColor = false;
         private int colorIndex = 0;
 
+        //求绘画占比
+        public bool havePainted;//是否涂色过
+        private int fullArea;// 总面积
+        private int alreadyFillArea;// 已涂色面积
+        public float PaintPercent;//涂色面积占比
+        public delegate void MouseDrawDelegate();
+        public MouseDrawDelegate drawStart;
+        public MouseDrawDelegate drawEnd;
+
         void Awake()
         {
             // cache components
@@ -456,13 +465,15 @@ namespace Draw_MobilePaint
 
             ClearImage(updateUndoBuffer: false);
 
-            //获取了texWidth和height以后，再获取可绘画区域
-            ReadDrawArea();
+
 
             drawPixels = new byte[texWidth * texHeight * 4];
             drawTexture = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, false);
             drawTexture.filterMode = filterMode;
             drawTexture.wrapMode = TextureWrapMode.Clamp;
+
+            //获取了texWidth和height以后，再获取可绘画区域
+            ReadDrawArea();
 
         } // InitializeEverything
 
@@ -527,11 +538,11 @@ namespace Draw_MobilePaint
             {
                 for (float j = 0; j < 1.0f; j = j + 0.1f)
                 {
-                    Debug.Log("测试点：(" + i + "," + j + ")");
+                    //Debug.Log("测试点：(" + i + "," + j + ")");
                     bool createResult = CreateAreaLockMask((int)(i * texWidth), (int)(j * texHeight));
                     if (createResult)
                     {
-                        Debug.Log("取样点：(" + i + "," + j + ")");
+                        //Debug.Log("取样点：(" + i + "," + j + ")");
                         return true;
                     }
                 }
@@ -632,14 +643,16 @@ namespace Draw_MobilePaint
                         break;
                 }
                 textureNeedsUpdate = true;
-                //Debug.Log("set true1111111111111");
             }
 
 
             if (Input.GetMouseButtonDown(0))
             {
+                if (drawStart!=null)
+                {
+                    drawStart();
+                }
                 timeCount = -1;
-                //Debug.Log("Button Down2----------");
                 // take this position as start position
                 if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask))
                 {
@@ -687,13 +700,18 @@ namespace Draw_MobilePaint
             // left mouse button released
             if (Input.GetMouseButtonUp(0))
             {
+                if (drawEnd!=null)
+                {
+                    drawEnd();
+                }
                 // calculate area size
                 timeCount = -1;
                 colorIndex = 0;
-                if (getAreaSize && useLockArea && useMaskLayerOnly && drawMode != DrawMode.FloodFill)
-                {
-                    LockAreaFillWithThresholdMaskOnlyGetArea(initialX, initialY, true);
-                }
+                //LockAreaFillWithThresholdMaskOnly(initialX, initialY);
+                //if (getAreaSize && useLockArea && useMaskLayerOnly && drawMode != DrawMode.FloodFill)
+                //{
+                //    LockAreaFillWithThresholdMaskOnlyGetArea(initialX, initialY, true);
+                //}
 
                 // end shape line here
                 if (drawMode == DrawMode.ShapeLines)
@@ -720,7 +738,6 @@ namespace Draw_MobilePaint
                         Vector2 extendLine = (pixelUV - new Vector2((float)firstClickX, (float)firstClickY)).normalized * (brushSize * 0.25f);
                         DrawLine(firstClickX - (int)extendLine.x, firstClickY - (int)extendLine.y, (int)pixelUV.x + (int)extendLine.x, (int)pixelUV.y + (int)extendLine.y);
                     }
-                    Debug.Log("set tru3333333333333");
                     textureNeedsUpdate = true;
                 }
 
@@ -949,6 +966,7 @@ namespace Draw_MobilePaint
         // actual custom brush painting function
         void DrawCustomBrush(int px, int py)
         {
+            havePainted = true;
             timeCount++;
             //限制笔触的密度
             if (timeCount % 10!=0)
@@ -1690,15 +1708,23 @@ namespace Draw_MobilePaint
             return (a - b) <= paintThreshold;
         }
 
+        //****modify*****
+        bool left ;
+        bool right ;
+        bool top ;
+        bool bottom ;
+
         // create locking mask floodfill, using threshold, checking pixels from mask only
         bool LockAreaFillWithThresholdMaskOnly(int x, int y)
         {
-            Debug.Log("LockAreaFillWithThresholdMaskOnly-------:("+x+","+y+")");
+            //Debug.Log("LockAreaFillWithThresholdMaskOnly-------:("+x+","+y+")");
             // get canvas color from this point
             byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
             byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
             byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];
             byte hitColorA = maskPixels[(texWidth * y + x) * 4 + 3];
+
+            //int alreadyFilled = 0;
 
             if (hitColorA == 0)//透明部分不可绘画
             {
@@ -1739,6 +1765,16 @@ namespace Draw_MobilePaint
                         fillPointX.Enqueue(ptsx);
                         fillPointY.Enqueue(ptsy - 1);
                         lockMaskPixels[pixel] = 1;
+
+                        //if (bottom==false)
+                        //{
+                        //    fullArea++;
+                        //}
+                        //if (drawPixels[pixel+3]!=0)
+                        //{
+                        //    alreadyFilled++;
+                        //}
+
                     }
                 }
 
@@ -1754,6 +1790,15 @@ namespace Draw_MobilePaint
                         fillPointX.Enqueue(ptsx + 1);
                         fillPointY.Enqueue(ptsy);
                         lockMaskPixels[pixel] = 1;
+
+                        //if (right==false)
+                        //{
+                        //    fullArea++;
+                        //}
+                        //if (drawPixels[pixel + 3] != 0)
+                        //{
+                        //    alreadyFilled++;
+                        //}
                     }
                 }
 
@@ -1769,6 +1814,16 @@ namespace Draw_MobilePaint
                         fillPointX.Enqueue(ptsx - 1);
                         fillPointY.Enqueue(ptsy);
                         lockMaskPixels[pixel] = 1;
+
+                        //if (left==false)
+                        //{
+                        //    fullArea++;
+
+                        //}
+                        //if (drawPixels[pixel + 3] != 0)
+                        //{
+                        //    alreadyFilled++;
+                        //}
                     }
                 }
 
@@ -1784,9 +1839,31 @@ namespace Draw_MobilePaint
                         fillPointX.Enqueue(ptsx);
                         fillPointY.Enqueue(ptsy + 1);
                         lockMaskPixels[pixel] = 1;
+
+                        //if (top==false)
+                        //{
+                        //    fullArea++;
+                        //}
+                        //if (drawPixels[pixel + 3] != 0)
+                        //{
+                        //    alreadyFilled++;
+                        //}
                     }
                 }
             }
+            //top = true;
+            //bottom = true;
+            //left = true;
+            //right = true;
+            //if (fullArea!=0)
+            //{
+            //    PaintPercent = alreadyFilled / (float)fullArea * 100;
+            //}
+            //else
+            //{
+            //    PaintPercent = 0;
+            //}
+            //Debug.Log("涂色面积占比：" + PaintPercent);
             return true;
         } // LockAreaFillWithThresholdMaskOnly
 
@@ -2566,13 +2643,11 @@ namespace Draw_MobilePaint
                 var referenceTexture = myRenderer.material.mainTexture;
                 var screenPoint = cam.WorldToScreenPoint(transform.position);
                 var localPoint = transform.position * 100f * resolutionScaler;
-                Debug.Log(transform.position);
-                Debug.Log(localPoint);
                 referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom left
                 referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top left
                 referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top right
                 referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom right
-                Debug.Log("画布四周1:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
+                //Debug.Log("画布四周1:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
 
                 //transform.GetComponent<RectTransform>().GetWorldCorners(referenceCorners);
                 //referenceCorners[0] = cam.WorldToScreenPoint(referenceCorners[0]);

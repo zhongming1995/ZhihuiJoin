@@ -26385,7 +26385,7 @@ IL_002d:
 	}
 }
 // T DG.Tweening.TweenSettingsExtensions::SetLoops<System.Object>(T,System.Int32)
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * TweenSettingsExtensions_SetLoops_TisRuntimeObject_mC72FD6FD183837D32ABC8C1E3A427D662943E0AC_gshared (RuntimeObject * ___t0, int32_t ___loops1, const RuntimeMethod* method)
+extern "C" IL2CPP_METHOD_ATTR RuntimeObject * TweenSettingsExtensions_SetLoops_TisRuntimeObject_m17146DBF18DC057770E423FAB037A9ED4809360B_gshared (RuntimeObject * ___t0, int32_t ___loops1, const RuntimeMethod* method)
 {
 	{
 		RuntimeObject * L_0 = ___t0;

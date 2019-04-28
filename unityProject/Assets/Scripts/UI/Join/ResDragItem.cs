@@ -11,6 +11,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     private Image image;
     private JoinMainView joinMainView;
+    private JoinGuide joinGuide;
     private Vector3 leftTop;
     private Vector3 rightBottom;
     private Vector2 anchorLeftTop;
@@ -22,6 +23,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     void Init()
     {
         joinMainView = GetComponentInParent<JoinMainView>();
+        joinGuide = GetComponentInParent<JoinGuide>();
         leftTop = joinMainView.PosLeftTop.position;
         rightBottom = joinMainView.PosRightBottom.position;
         anchorLeftTop = joinMainView.PosLeftTop.GetComponent<RectTransform>().anchoredPosition;
@@ -37,7 +39,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         TemplateResType type = GameManager.instance.curSelectResType;
         //partType = (PartType)type;
         partType = GetPartTypeByResType(type, index);
-        Debug.Log("type:" + partType.ToString());
         string path = GameManager.instance.resPathList[(int)type][index];
         UIHelper.instance.SetImage(path, image, true);
     }
@@ -98,6 +99,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        joinGuide.OperationStart();
         if (isInit==false)
         {
             Init();
@@ -135,6 +137,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        joinGuide.OperationEnd();
         //选中画笔的情况下，素材不可以拖动
         if (GameManager.instance.curSelectResType == 0)
         {
@@ -144,6 +147,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         if (InCorrectArea())
         {
             joinMainView.SetSelectResObj(transform);
+            joinMainView.hasDraged = true;
             float posx = rt.anchoredPosition.x;
             float posy = rt.anchoredPosition.y;
             if (rt.anchoredPosition.x>anchorLeftTop.x&&rt.anchoredPosition.x<(anchorLeftTop.x+rt.sizeDelta.x/2))
@@ -180,7 +184,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             joinMainView.SetSelectResObj(null);
             Destroy(gameObject);
         }
-         }
+    }
 
     public void SetState(bool enable)
     {

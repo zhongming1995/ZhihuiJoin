@@ -33,10 +33,10 @@ public class MobileDrag : MonoBehaviour
     
     bool isInit = false;//是否获取了需要的控件
 
-
+    /*
     void Init()
     {
-        leftTop = GameManager.instance.LeftTopPoint.position;
+        leftTop = GameManager.instance.LeftTopPoint.position;//没赋值
         rightBottom = GameManager.instance.RightBottomPoint.position;
         anchorLeftTop = GameManager.instance.LeftTopPoint.GetComponent<RectTransform>().anchoredPosition;
         anchorRightBottom = GameManager.instance.RightBottomPoint.GetComponent<RectTransform>().anchoredPosition;
@@ -123,4 +123,5 @@ public class MobileDrag : MonoBehaviour
             Debug.Log("mouse up");
         }
     }
+    */
 }

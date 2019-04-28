@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Helper;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayPartItem : MonoBehaviour
 {
@@ -37,6 +37,7 @@ public class DisplayPartItem : MonoBehaviour
             Vector3 oriPos = transform.localPosition;
             transform.localPosition = new Vector3(oriPos.x - rectTransform.sizeDelta.x / 2, oriPos.y + rectTransform.sizeDelta.y / 2, oriPos.z);
         }
+
         //设置对应的动画
         UpdateAnimationClip();
         //打招呼的动作
@@ -45,9 +46,10 @@ public class DisplayPartItem : MonoBehaviour
 
     public void UpdateAnimationClip()
     {
-        string clipName = "Animator/Greeting_" + partType.ToString();
+        string clipName = "Animator|Greeting_" + partType.ToString();
         animation = GetComponent<Animation>();
-        AnimationClip clip = Resources.Load<AnimationClip>(clipName) as AnimationClip;
+        //AnimationClip clip = Resources.Load<AnimationClip>(clipName) as AnimationClip;
+        AnimationClip clip = UIHelper.instance.LoadAnimationClip(clipName);
         if (clip!=null)
         {
             animation.AddClip(clip, "greeting");

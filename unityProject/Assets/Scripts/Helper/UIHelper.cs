@@ -75,6 +75,22 @@ namespace Helper
             }
             return go;
         }
+
+        public AnimationClip LoadAnimationClip(string path)
+        {
+            path = PathToResourcePath(path);
+            AnimationClip clip = Resources.Load<AnimationClip>(path) as AnimationClip;
+            return clip;
+        }
+
+        public AudioClip LoadAudioClip(string path)
+        {
+            path = PathToResourcePath(path);
+            AudioClip clip = Resources.Load<AudioClip>(path) as AudioClip;
+            return clip;
+        }
+
+
         /*
         public void SetImage(string path, Image image, bool useNativeSize = false, Action cb = null)
         {

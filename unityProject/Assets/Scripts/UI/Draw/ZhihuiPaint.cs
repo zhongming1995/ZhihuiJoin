@@ -24,7 +24,7 @@ namespace Draw
 		BackgroundColor
 	}
 
-	public class ZhihuiPaint : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler
+	public class ZhihuiPaint : MonoBehaviour
 	{
 		
 		[Header("Mouse or Touch")]
@@ -325,20 +325,6 @@ namespace Draw
 
 		} // InitializeEverything
 
-		public void OnBeginDrag (PointerEventData eventData)
-		{
-			
-		}
-
-		public void OnDrag (PointerEventData eventData)
-		{
-			
-		}
-
-		public void OnEndDrag (PointerEventData eventData)
-		{
-			
-		}
 
 		public Vector2 CurrMousePosition()
 		{

@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\Common\SliderExt.cs" />
     <Compile Include="Assets\Scripts\Helper\UIDepth.cs" />
     <Compile Include="Assets\Scripts\Helper\UIHelper.cs" />
+    <Compile Include="Assets\Scripts\Manager\AudioManager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager\DataManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResConf.cs" />
@@ -124,11 +125,12 @@
     <Compile Include="Assets\Scripts\UI\Draw\MyPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\ZhihuiPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
+    <Compile Include="Assets\Scripts\UI\Join\AniEvent.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ColorToggleCtrl.cs" />
+    <Compile Include="Assets\Scripts\UI\Join\JoinGuide.cs" />
     <Compile Include="Assets\Scripts\UI\Join\JoinMainView.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResDragItem.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResTemplate.cs" />
-    <Compile Include="Assets\Test.cs" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasDefault.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DecalModified.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DX11\EdgeTesselation.shader" />

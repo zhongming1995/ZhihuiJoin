@@ -7,9 +7,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DataMgr;
 using UnityEngine.SceneManagement;
+using AudioMgr;
+using System.Collections;
+using System;
 
 public class JoinMainView : MonoBehaviour
 {
+    private JoinGuide joinGuide;
     public Button BtnBack;
     public Button BtnBackCheck;
     public Button BtnPre;
@@ -28,17 +32,20 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
 
-    private MobilePaint mobilePaint;
+    public MobilePaint mobilePaint;
     private Transform BodyGroup;
     private Transform CanvasTrans;
 
+    public bool hasPainted;//涂色过，即涂色面积>0过
+    public bool hasDraged;//是否拖入过素材（附着过）
 
     //定义数据变量
     private Transform curSelectResObj ;
     private int typeCount = 8;//资源类型数量
     private int step = 1;//步骤1-4
-    private List<Transform> typeTransList = new List<Transform>();//类型列表
+    public List<Transform> typeTransList = new List<Transform>();//类型列表
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
+    private bool[] guideResult = {false,false,false,false };//用来标示每一步的引导语音是否已经播放
 
     private int penSize = -1;
     private int eraseSize = 35;
@@ -47,35 +54,59 @@ public class JoinMainView : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("start");
         Init();
     }
 
     void Update()
     {
-        if (GameManager.instance.curSelectResType == 0)
+        if (mobilePaint != null)
         {
-            if (mobilePaint!=null)
+            if (mobilePaint.havePainted)
+            {
+                //只要有大于0过就ok
+                hasPainted = true;
+            }
+            if (step==1)
+            {
+                if (hasPainted == true && guideResult[0] == true)
+                {
+                    BtnNext.interactable = true;
+                }
+                else
+                {
+                    BtnNext.interactable = false;
+                }
+            }
+            if (step==4)
+            {
+                if (guideResult[3]==true)
+                {
+                    BtnOk.interactable = true;
+                }
+                else
+                {
+                    BtnOk.interactable = false;
+                }
+            }
+            if (GameManager.instance.curSelectResType == 0)
             {
                 mobilePaint.MousePaint();
             }
         }
-
-
-    }
-
-    void OnEnable()
-    {
-
     }
 
     private void Init()
     {
+        //引导脚本
+        joinGuide = GetComponent<JoinGuide>();
+        if (joinGuide==null)
+        {
+            joinGuide = gameObject.AddComponent<JoinGuide>();
+        }
+
         //按钮点击
         AddClickEvent();
-
-        //赋值给GameManager，因为外部要调用
-        GameManager.instance.LeftTopPoint = PosLeftTop;
-        GameManager.instance.RightBottomPoint = PosRightBottom;
 
         //绘画素材
         BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
@@ -87,6 +118,7 @@ public class JoinMainView : MonoBehaviour
         mobilePaint.SetBrushSize(1);
         draw.transform.localPosition = new Vector3(-1741, -68, 0);
 
+        joinGuide.AddMobileDrawDelagate();
         //Canvas结点
         CanvasTrans = transform.GetComponentInParent<Canvas>().transform;
 
@@ -105,7 +137,7 @@ public class JoinMainView : MonoBehaviour
         //加载颜色列表
         //LoadResList((int)PartType.Body);
 
-        //加载所有类型素材
+        //右边素材切换按钮
         string typeUnSelectPath = "sprite/ui|splice_type_{0}";
         string typeSelectPath = "sprite/ui|splice_type_{0}_select";
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
@@ -116,14 +148,15 @@ public class JoinMainView : MonoBehaviour
             UIHelper.instance.SetImage(string.Format(typeUnSelectPath, i.ToString()), t.GetChild(1).GetComponent<Image>(), true);
             t.GetComponent<Button>().onClick.AddListener(delegate
             {
-                TypeButtonClick((TemplateResType)clickType);
+                joinGuide.DoOperation();
+                AudioManager.instance.PlayAudio(EffectAudioType.Option,"Audio/button_effect/material_effect|material_" + clickType);
+                TypeButtonClick((TemplateResType)clickType,true);
             });
             typeTransList.Add(t);
         }
 
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
 
-        TypeButtonClick(TemplateResType.Body);//初始选中第一个类型
         step = 1;//初始是第一步
         ShowTypeByStep(step);
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
@@ -132,9 +165,14 @@ public class JoinMainView : MonoBehaviour
         AdjustBurshSize(PenScaleSlider.value);
     }
 
-    //类型按钮
+    /// <summary>
+    /// 根据类型加载右边的素材列表
+    /// 这个方法暂时没有用到
+    /// </summary>
+    /// <param name="resType">Res type.</param>
     void LoadResList(int resType)
     {
+        TemplateResType tmpType = (TemplateResType)resType;
         string typeUnSelectPath = "sprite/ui|splice_type_{0}";
         string typeSelectPath = "sprite/ui|splice_type_{0}_select";
         Transform t = UIHelper.instance.LoadPrefab("prefabs/join|res_type_item", ConResType, Vector3.zero, Vector3.one, false).transform;
@@ -142,7 +180,7 @@ public class JoinMainView : MonoBehaviour
         UIHelper.instance.SetImage(string.Format(typeUnSelectPath, resType.ToString()), t.GetChild(1).GetComponent<Image>(), true);
         t.GetComponent<Button>().onClick.AddListener(delegate
         {
-            TypeButtonClick((TemplateResType)resType);
+            TypeButtonClick((TemplateResType)resType,true);
         });
         typeTransList.Add(t);
     }
@@ -164,11 +202,13 @@ public class JoinMainView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            joinGuide.DoOperation();
             SceneManager.LoadScene("home");
         });
 
         BtnPre.onClick.AddListener(delegate
         {
+            joinGuide.DoOperation();
             step = Mathf.Max(1, step - 1);
             ShowTypeByStep(step);
             ShowBackBtn(false);
@@ -176,6 +216,7 @@ public class JoinMainView : MonoBehaviour
 
         BtnNext.onClick.AddListener(delegate
         {
+            joinGuide.DoOperation();
             step = Mathf.Min(4, step + 1);
             ShowTypeByStep(step);
             ShowBackBtn(false);
@@ -183,20 +224,7 @@ public class JoinMainView : MonoBehaviour
 
         BtnOk.onClick.AddListener(delegate
         {
-            /*测试贴图加载
-            byte[] b = GetDrawTexture().EncodeToPNG();
-            Texture2D t = new Texture2D(GetDrawTexture().width, GetDrawTexture().height,TextureFormat.RGBA32,false);
-            t.filterMode = FilterMode.Point;
-            //t.wrapMode = TextureWrapMode.Clamp;
-            //t.LoadRawTextureData(b);
-            //t.Apply();
-            t.LoadImage(b);
-            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-            testImage.sprite = s;
-            testImage.SetNativeSize();
-            testImage.transform.localScale = Vector3.one;
-            */
-
+            joinGuide.DoOperation();
             gameObject.SetActive(false);
             Texture2D t = GetDrawTexture();
             Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
@@ -210,13 +238,14 @@ public class JoinMainView : MonoBehaviour
 
         ImageScaleSlider.onValueChanged.AddListener(delegate
         {
+            joinGuide.DoOperation();
             ShowBackBtn(false);
-           
             curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
         });
 
         PenScaleSlider.onValueChanged.AddListener(delegate
         {
+            joinGuide.DoOperation();
             ShowBackBtn(false);
             AdjustBurshSize(PenScaleSlider.value);
         });
@@ -249,7 +278,6 @@ public class JoinMainView : MonoBehaviour
         penIndex = index;
         if (index == 0)
         {
-            Debug.Log("彩虹笔");
             MultiColorMode = true;
             mobilePaint.SetDrawModeBrush();
             mobilePaint.ChangeBrush(penSize);
@@ -259,14 +287,12 @@ public class JoinMainView : MonoBehaviour
         }
         else if (index == 1)
         {
-            Debug.Log("橡皮擦");
             mobilePaint.SetMultiColor(false);
             mobilePaint.SetDrawModeEraser();
             mobilePaint.SetBrushSize(eraseSize);
         }
         else
         {
-            Debug.Log("单色蜡笔");
             mobilePaint.SetMultiColor(false);
             mobilePaint.SetDrawModeBrush();
             mobilePaint.ChangeBrush(penSize);
@@ -301,6 +327,7 @@ public class JoinMainView : MonoBehaviour
             ImageScaleSlider.gameObject.SetActive(false);
             return;
         }
+        Debug.Log(t.name);
         if (ImageScaleSlider.gameObject.activeSelf == false)
         {
             ImageScaleSlider.gameObject.SetActive(true);
@@ -311,8 +338,12 @@ public class JoinMainView : MonoBehaviour
     }
 
     //右侧类型图标点击事件
-    private void TypeButtonClick(TemplateResType type)
+    private void TypeButtonClick(TemplateResType type,bool isClick = false)
     {
+        if (isClick && type == GameManager.instance.curSelectResType)
+        {
+            return;
+        }
         ShowBackBtn(false);
 
         Sequence seq = DOTween.Sequence();
@@ -363,7 +394,7 @@ public class JoinMainView : MonoBehaviour
         }else if (step==2)
         {
             SetCurSelectType(TemplateResType.Eye);
-            BtnPre.gameObject.SetActive(true);
+            BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
             for (int i = 0; i < 4; i++)
@@ -412,6 +443,19 @@ public class JoinMainView : MonoBehaviour
         }
 
         TypeButtonClick(GameManager.instance.curSelectResType);
+        if (guideResult[step - 1] == false)
+        {
+            //播放引导语音
+            string audioPath = "Audio/guide_effect|guide_" + GameManager.instance.curJoinType.ToString().ToLower() + "_" + step.ToString();
+            if (step == 1)
+            {
+                StartCoroutine(CorPlayGuideStep1(audioPath, step));
+            }
+            else
+            {
+                PlayGuideAudio(audioPath, step);
+            }
+        }
     }
 
     //加载所有类型素材
@@ -496,4 +540,23 @@ public class JoinMainView : MonoBehaviour
         return null;
     }
 
+    public void PlayGuideAudio(string path,int step)
+    {
+        BtnNext.interactable = false;
+        AudioManager.instance.PlayAudio(EffectAudioType.Guide, path,()=>
+        {
+            guideResult[step - 1] = true;
+            BtnNext.interactable = true;
+            if (joinGuide.isOperating == false)
+            {
+                joinGuide.DoOperation();
+            }
+        });
+    }
+
+    IEnumerator CorPlayGuideStep1(string path,int step)
+    {
+        yield return new WaitForSeconds(1);
+        PlayGuideAudio(path,step);
+    }
 }

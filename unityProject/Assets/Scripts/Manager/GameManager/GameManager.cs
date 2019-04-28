@@ -2,12 +2,19 @@
 using UnityEngine;
 namespace GameMgr
 {
+    public enum JoinType
+    {
+        Letter,
+        Num
+    }
     public class GameManager : SingletonMono<GameManager>
     {
         [HideInInspector]
         public List<string> homePathList = new List<string>();//选择界面的资源路径
         [HideInInspector]
         public List<string> drawBgPathList = new List<string>();//画图背景资源路径
+        [HideInInspector]
+        public List<string> drawAudioPathList = new List<string>();//绘画模板的音频路径
 
         private List<string> colorPathList = new List<string>();//颜色资源路径
 
@@ -55,16 +62,11 @@ namespace GameMgr
         [HideInInspector]
         public TemplateResType curSelectResType = TemplateResType.Body;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手 7脚
         [HideInInspector]
-        public Transform LeftTopPoint;
-        [HideInInspector]
-        public Transform RightBottomPoint;
-        [HideInInspector]
-        public Transform Root;
+        public JoinType curJoinType;//当前拼接的类型是字母，数字还是别的
 
         void Awake()
         {
             instance = this;
-            //Root = GameObject.Find("root").GetComponent<RectTransform>();
         }
 
         void Start()
@@ -73,7 +75,6 @@ namespace GameMgr
             InitResPrefabList();//素材中的预制体路径
             InitResList();//素材资源
             InitColor();
-            Debug.Log("game start");
         }
 
         //初始化颜色列表
@@ -116,20 +117,24 @@ namespace GameMgr
             //26个字母
             string homeLetterPath = "sprite/homeitems|splice_home_{0}_pic";
             string drawBgLetterPath = "sprite/draw|draw_letter_{0}_pic";
+            string drawLetterAudioPath = "Audio/letter_tmplate|template_letter_{0}";
             //3个数字
             string homeNumPath = "sprite/homeitems|splice_home_number_{0}_pic";
             string drawBgNumPath = "sprite/draw|draw_num_{0}_pic";
+            string drawNumAudioPath = "Audio/num_template|template_num_{0}";
 
             for (int i = 0; i < 26; i++)
             {
                 homePathList.Add(string.Format(homeLetterPath, i.ToString()));
                 drawBgPathList.Add(string.Format(drawBgLetterPath, i.ToString()));
+                drawAudioPathList.Add(string.Format(drawLetterAudioPath, i.ToString()));
             }
 
             for (int i = 0; i < 3; i++)
             {
                 homePathList.Add(string.Format(homeNumPath, i.ToString()));
                 drawBgPathList.Add(string.Format(drawBgNumPath, i.ToString()));
+                drawAudioPathList.Add(string.Format(drawNumAudioPath, i.ToString()));
             }
         }
 
@@ -395,6 +400,5 @@ namespace GameMgr
             curSelectResType = type;
         }
     }
-
    
 }

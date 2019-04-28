@@ -27,6 +27,7 @@
 
 
 extern "C" void TweenSettingsExtensions_SetEase_TisRuntimeObject_m1CE41997D3274EBE885B839BC2912EBD7CBD4A8E_gshared ();
+extern "C" void TweenSettingsExtensions_SetLoops_TisRuntimeObject_m17146DBF18DC057770E423FAB037A9ED4809360B_gshared ();
 extern "C" void TweenSettingsExtensions_SetUpdate_TisRuntimeObject_m65E66C56DDA01FFC801BB66E6D126BA14175D20F_gshared ();
 extern "C" void Enumerable_SingleOrDefault_TisRuntimeObject_m4C9F6C91DBB44BA8D94999E3EC7EF87729B81802_gshared ();
 extern "C" void Marshal_PtrToStructure_TisRuntimeObject_mDB88EE58460703A7A664B670DE68020F9D1CAD72_gshared ();
@@ -5626,7 +5627,6 @@ extern "C" void TweenSettingsExtensions_SetId_TisRuntimeObject_m1B70EEF39FEB903F
 extern "C" void TweenSettingsExtensions_SetLink_TisRuntimeObject_mE17E181848ACCF3FE570082913219FCDEBCACFE2_gshared ();
 extern "C" void TweenSettingsExtensions_SetLink_TisRuntimeObject_m2938ECD208E0FA04B108029EA030B05879CB725C_gshared ();
 extern "C" void TweenSettingsExtensions_SetLoops_TisRuntimeObject_m5E542C7890BF54F87D7D70863F43F7F1C87CB602_gshared ();
-extern "C" void TweenSettingsExtensions_SetLoops_TisRuntimeObject_mC72FD6FD183837D32ABC8C1E3A427D662943E0AC_gshared ();
 extern "C" void TweenSettingsExtensions_SetRecyclable_TisRuntimeObject_m65074CB4F0CFD2C694710D1AC93E7097F9101364_gshared ();
 extern "C" void TweenSettingsExtensions_SetRecyclable_TisRuntimeObject_m92FD6D5DA8F816AA031FE843AA401CC49FE0E394_gshared ();
 extern "C" void TweenSettingsExtensions_SetRelative_TisRuntimeObject_mED924771660BAD1F9BFEFCE90BB1BC27B821F436_gshared ();
@@ -7008,7 +7008,7 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[6142] =
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLink_TisRuntimeObject_mE17E181848ACCF3FE570082913219FCDEBCACFE2_gshared/* 836*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLink_TisRuntimeObject_m2938ECD208E0FA04B108029EA030B05879CB725C_gshared/* 837*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetTarget_TisRuntimeObject_mDB6721FAFCA2D26E6E803B08F2C23A7BC127625B_gshared/* 838*/,
-	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLoops_TisRuntimeObject_mC72FD6FD183837D32ABC8C1E3A427D662943E0AC_gshared/* 839*/,
+	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLoops_TisRuntimeObject_m17146DBF18DC057770E423FAB037A9ED4809360B_gshared/* 839*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLoops_TisRuntimeObject_m5E542C7890BF54F87D7D70863F43F7F1C87CB602_gshared/* 840*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetEase_TisRuntimeObject_m1CE41997D3274EBE885B839BC2912EBD7CBD4A8E_gshared/* 841*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetEase_TisRuntimeObject_m19C313FF90C44BB63FA1A16F679DFD1DB038603B_gshared/* 842*/,

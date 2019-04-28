@@ -134,26 +134,6 @@ struct Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA;
 
 
 
-#ifndef U3CMODULEU3E_T3E933490017077F9EDC981FC79F07E2DEAA09C9D_H
-#define U3CMODULEU3E_T3E933490017077F9EDC981FC79F07E2DEAA09C9D_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// <Module>
-struct  U3CModuleU3E_t3E933490017077F9EDC981FC79F07E2DEAA09C9D 
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // U3CMODULEU3E_T3E933490017077F9EDC981FC79F07E2DEAA09C9D_H
 #ifndef U3CMODULEU3E_TDBB8B8FDA571F608D819B1D5558C135A3972639B_H
 #define U3CMODULEU3E_TDBB8B8FDA571F608D819B1D5558C135A3972639B_H
 #ifdef __clang__
@@ -174,8 +154,8 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // U3CMODULEU3E_TDBB8B8FDA571F608D819B1D5558C135A3972639B_H
-#ifndef U3CMODULEU3E_T2E16431D825A5D233BFED659B3C516DAB0AC0286_H
-#define U3CMODULEU3E_T2E16431D825A5D233BFED659B3C516DAB0AC0286_H
+#ifndef U3CMODULEU3E_T3E933490017077F9EDC981FC79F07E2DEAA09C9D_H
+#define U3CMODULEU3E_T3E933490017077F9EDC981FC79F07E2DEAA09C9D_H
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -183,7 +163,7 @@ public:
 #endif
 
 // <Module>
-struct  U3CModuleU3E_t2E16431D825A5D233BFED659B3C516DAB0AC0286 
+struct  U3CModuleU3E_t3E933490017077F9EDC981FC79F07E2DEAA09C9D 
 {
 public:
 
@@ -193,7 +173,7 @@ public:
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-#endif // U3CMODULEU3E_T2E16431D825A5D233BFED659B3C516DAB0AC0286_H
+#endif // U3CMODULEU3E_T3E933490017077F9EDC981FC79F07E2DEAA09C9D_H
 #ifndef U3CMODULEU3E_T304FD43409445C967EFB33BCD33189C66F66BB72_H
 #define U3CMODULEU3E_T304FD43409445C967EFB33BCD33189C66F66BB72_H
 #ifdef __clang__
@@ -214,6 +194,26 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // U3CMODULEU3E_T304FD43409445C967EFB33BCD33189C66F66BB72_H
+#ifndef U3CMODULEU3E_T2E16431D825A5D233BFED659B3C516DAB0AC0286_H
+#define U3CMODULEU3E_T2E16431D825A5D233BFED659B3C516DAB0AC0286_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// <Module>
+struct  U3CModuleU3E_t2E16431D825A5D233BFED659B3C516DAB0AC0286 
+{
+public:
+
+public:
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // U3CMODULEU3E_T2E16431D825A5D233BFED659B3C516DAB0AC0286_H
 #ifndef RUNTIMEOBJECT_H
 #define RUNTIMEOBJECT_H
 #ifdef __clang__
@@ -2731,6 +2731,35 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // AUDIOEXTENSIONMANAGER_TC973F0DD47CBACBEA5C3A9D845082BAC1149CFDB_H
+#ifndef AUDIOROLLOFFMODE_T6E80F49565F8A29A85F0EE610614DACE40BEDA61_H
+#define AUDIOROLLOFFMODE_T6E80F49565F8A29A85F0EE610614DACE40BEDA61_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// UnityEngine.AudioRolloffMode
+struct  AudioRolloffMode_t6E80F49565F8A29A85F0EE610614DACE40BEDA61 
+{
+public:
+	// System.Int32 UnityEngine.AudioRolloffMode::value__
+	int32_t ___value___2;
+
+public:
+	inline static int32_t get_offset_of_value___2() { return static_cast<int32_t>(offsetof(AudioRolloffMode_t6E80F49565F8A29A85F0EE610614DACE40BEDA61, ___value___2)); }
+	inline int32_t get_value___2() const { return ___value___2; }
+	inline int32_t* get_address_of_value___2() { return &___value___2; }
+	inline void set_value___2(int32_t value)
+	{
+		___value___2 = value;
+	}
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // AUDIOROLLOFFMODE_T6E80F49565F8A29A85F0EE610614DACE40BEDA61_H
 #ifndef AUDIOSPATIALIZEREXTENSIONDEFINITION_TF4C5755345CD7C3A169E9FB21164785ABD9EFDD7_H
 #define AUDIOSPATIALIZEREXTENSIONDEFINITION_TF4C5755345CD7C3A169E9FB21164785ABD9EFDD7_H
 #ifdef __clang__
@@ -5303,26 +5332,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // AUDIOBEHAVIOUR_TC612EC4E17A648A5C568621F3FBF1DBD773C71C7_H
-#ifndef GUIELEMENT_T7509096A8399BAB91367BBDD2F90EB2BACB1C4C4_H
-#define GUIELEMENT_T7509096A8399BAB91367BBDD2F90EB2BACB1C4C4_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.GUIElement
-struct  GUIElement_t7509096A8399BAB91367BBDD2F90EB2BACB1C4C4  : public Behaviour_tBDC7E9C3C898AD8348891B82D3E345801D920CA8
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // GUIELEMENT_T7509096A8399BAB91367BBDD2F90EB2BACB1C4C4_H
 #ifndef RECTTRANSFORM_T285CBD8775B25174B75164F10618F8B9728E1B20_H
 #define RECTTRANSFORM_T285CBD8775B25174B75164F10618F8B9728E1B20_H
 #ifdef __clang__
@@ -5451,26 +5460,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // AUDIOSOURCE_T5196F862B4E60F404613361C90D87FBDD041E93C_H
-#ifndef GUITEXT_T1AAED515CF7E63F24B55C5FC988555DA14DA10F1_H
-#define GUITEXT_T1AAED515CF7E63F24B55C5FC988555DA14DA10F1_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.GUIText
-struct  GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1  : public GUIElement_t7509096A8399BAB91367BBDD2F90EB2BACB1C4C4
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // GUITEXT_T1AAED515CF7E63F24B55C5FC988555DA14DA10F1_H
 
 
 
@@ -5896,18 +5885,26 @@ extern const int32_t g_FieldOffsetTable2186[1] =
 {
 	AudioListener_tE3E1467B84A4AFD509947B44A7C8ACFB67FF2099::get_offset_of_spatializerExtension_4(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2187 = { sizeof (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2187[2] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2187 = { sizeof (AudioRolloffMode_t6E80F49565F8A29A85F0EE610614DACE40BEDA61)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2187[4] = 
+{
+	AudioRolloffMode_t6E80F49565F8A29A85F0EE610614DACE40BEDA61::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
+	0,
+	0,
+	0,
+};
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2188 = { sizeof (AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2188[2] = 
 {
 	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C::get_offset_of_spatializerExtension_4(),
 	AudioSource_t5196F862B4E60F404613361C90D87FBDD041E93C::get_offset_of_ambisonicExtension_5(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2188 = { sizeof (AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2189 = { sizeof (U3CModuleU3E_t3E933490017077F9EDC981FC79F07E2DEAA09C9D), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2190 = { sizeof (ImageConversion_t578D0CCFF2C4D5356FE3356CB8FAEDD456D3FC43), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2191 = { sizeof (U3CModuleU3E_tDBB8B8FDA571F608D819B1D5558C135A3972639B), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2192 = { sizeof (FontStyle_t273973EBB1F40C2381F6D60AB957149DE5720CF3)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable2192[5] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2189 = { sizeof (AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2190 = { sizeof (U3CModuleU3E_t3E933490017077F9EDC981FC79F07E2DEAA09C9D), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2191 = { sizeof (ImageConversion_t578D0CCFF2C4D5356FE3356CB8FAEDD456D3FC43), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2192 = { sizeof (U3CModuleU3E_tDBB8B8FDA571F608D819B1D5558C135A3972639B), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2193 = { sizeof (FontStyle_t273973EBB1F40C2381F6D60AB957149DE5720CF3)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2193[5] = 
 {
 	FontStyle_t273973EBB1F40C2381F6D60AB957149DE5720CF3::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	0,
@@ -5915,8 +5912,8 @@ extern const int32_t g_FieldOffsetTable2192[5] =
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2193 = { sizeof (TextGenerationError_t7D5BA12E3120623131293E20A1120847377A2524)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable2193[5] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2194 = { sizeof (TextGenerationError_t7D5BA12E3120623131293E20A1120847377A2524)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2194[5] = 
 {
 	TextGenerationError_t7D5BA12E3120623131293E20A1120847377A2524::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	0,
@@ -5924,8 +5921,8 @@ extern const int32_t g_FieldOffsetTable2193[5] =
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2194 = { sizeof (TextGenerationSettings_t37703542535A1638D2A08F41DB629A483616AF68)+ sizeof (RuntimeObject), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2194[18] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2195 = { sizeof (TextGenerationSettings_t37703542535A1638D2A08F41DB629A483616AF68)+ sizeof (RuntimeObject), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2195[18] = 
 {
 	TextGenerationSettings_t37703542535A1638D2A08F41DB629A483616AF68::get_offset_of_font_0() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	TextGenerationSettings_t37703542535A1638D2A08F41DB629A483616AF68::get_offset_of_color_1() + static_cast<int32_t>(sizeof(RuntimeObject)),
@@ -5946,8 +5943,8 @@ extern const int32_t g_FieldOffsetTable2194[18] =
 	TextGenerationSettings_t37703542535A1638D2A08F41DB629A483616AF68::get_offset_of_pivot_16() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	TextGenerationSettings_t37703542535A1638D2A08F41DB629A483616AF68::get_offset_of_generateOutOfBounds_17() + static_cast<int32_t>(sizeof(RuntimeObject)),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2195 = { sizeof (TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2195[11] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2196 = { sizeof (TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2196[11] = 
 {
 	TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8::get_offset_of_m_Ptr_0(),
 	TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8::get_offset_of_m_LastString_1(),
@@ -5961,8 +5958,8 @@ extern const int32_t g_FieldOffsetTable2195[11] =
 	TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8::get_offset_of_m_CachedCharacters_9(),
 	TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8::get_offset_of_m_CachedLines_10(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2196 = { sizeof (TextAnchor_tEC19034D476659A5E05366C63564F34DD30E7C57)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable2196[10] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2197 = { sizeof (TextAnchor_tEC19034D476659A5E05366C63564F34DD30E7C57)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2197[10] = 
 {
 	TextAnchor_tEC19034D476659A5E05366C63564F34DD30E7C57::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	0,
@@ -5975,21 +5972,20 @@ extern const int32_t g_FieldOffsetTable2196[10] =
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2197 = { sizeof (HorizontalWrapMode_t56D876281F814EC1AF0C21A34E20BBF4BEEA302C)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable2197[3] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2198 = { sizeof (HorizontalWrapMode_t56D876281F814EC1AF0C21A34E20BBF4BEEA302C)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2198[3] = 
 {
 	HorizontalWrapMode_t56D876281F814EC1AF0C21A34E20BBF4BEEA302C::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2198 = { sizeof (VerticalWrapMode_tD909C5B2F6A25AE3797BC71373196D850FC845E9)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
-extern const int32_t g_FieldOffsetTable2198[3] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2199 = { sizeof (VerticalWrapMode_tD909C5B2F6A25AE3797BC71373196D850FC845E9)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable2199[3] = 
 {
 	VerticalWrapMode_tD909C5B2F6A25AE3797BC71373196D850FC845E9::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	0,
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2199 = { sizeof (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1), -1, 0, 0 };
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

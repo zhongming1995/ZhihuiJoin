@@ -11,7 +11,6 @@ namespace DataMgr
 {
     public class DataManager : SingletonMono<DataManager>
     {
-        public Image image;
         string personFilePath = "";
         public List<PartData> partDataList = new List<PartData>();
 
@@ -34,7 +33,6 @@ namespace DataMgr
                 Transform t = trans.GetChild(i);
                 for (int j = 0; j < t.childCount; j++)
                 {
-                    Debug.Log("i:" + i + ",j" + j);
                     Transform img = t.GetChild(j);
                     if (img.GetComponent<ResDragItem>()==null)
                     {
@@ -127,6 +125,7 @@ namespace DataMgr
                 //item.Init();
                 */
                 //将Hat,HeadWear,Mouse,Hair,Eye作为Body的子物体
+                /*
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 PartType partType = part[i].Type;
@@ -134,7 +133,6 @@ namespace DataMgr
                 obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
                 if (partType == PartType.LeftLeg||partType==PartType.RightLeg||partType==PartType.LeftHand||partType==PartType.RightHand||partType==PartType.Body)
                 {
-                    //obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
                     if (partType==PartType.Body)
                     {
                         transBody = obj.transform;
@@ -143,7 +141,6 @@ namespace DataMgr
                 else
                 {
                     obj.transform.SetParent(transBody);
-                    //obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", transBody, pos, scale);
                 }
 
                 Image img = obj.GetComponent<Image>();
@@ -159,8 +156,44 @@ namespace DataMgr
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
                 item.partType = part[i].Type;
                 item.Init();
+                */
+
+                Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
+                Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
+                PartType partType = part[i].Type;
+                GameObject obj;
+                obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_item", person.transform, pos, scale);
+                if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
+                {
+                    if (partType == PartType.Body)
+                    {
+                        transBody = obj.transform;
+                    }
+                }
+                else
+                {
+                    obj.transform.SetParent(transBody);
+                }
+
+                Image img = obj.transform.Find("img_item").GetComponent<Image>();
+                Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+                t.filterMode = FilterMode.Point;
+                t.LoadImage(part[i].ImgBytes);
+                t.Apply(false);
+                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+                img.sprite = s;
+                img.SetNativeSize();
+                obj.transform.localScale = scale;
+
+                //调整父节点的大小
+                float w = img.GetComponent<RectTransform>().sizeDelta.x;
+                float h = img.GetComponent<RectTransform>().sizeDelta.y;
+                obj.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(w, h);
+
+                DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
+                item.partType = part[i].Type;
+                item.Init();
             }
-            //body.transform.SetAsLastSibling();
             return person;
         }
 
