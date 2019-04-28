@@ -264,6 +264,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayReminderAudio(string path, Action cb = null)
         {
+            curAudioType = EffectAudioType.Reminder;
             PlayEffect(path, cb);
         }
 
