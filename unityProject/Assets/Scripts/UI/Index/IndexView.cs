@@ -28,6 +28,7 @@ public class IndexView : MonoBehaviour
         s.Append(BtnPlay.transform.DOScale(new Vector3(1f, 1f, 1f), 0.2f));
         s.Append(BtnPlay.transform.DOScale(new Vector3(1.05f, 1.05f, 1f), 0.6f));
         s.Append(BtnPlay.transform.DOScale(new Vector3(1f, 1f, 1f), 0.25f));
+        s.AppendInterval(0.5f);
         s.SetLoops(-1);
     }
 }

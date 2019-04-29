@@ -20,6 +20,8 @@ public class JoinGuide : MonoBehaviour
     private AniEvent drawAniEvent;
     private AniEvent dragAniEvent;
 
+    private Tweener curReminderTweener;
+
     void Start()
     {
         joinMainView = GetComponent<JoinMainView>();
@@ -100,7 +102,6 @@ public class JoinGuide : MonoBehaviour
             if (joinMainView.hasPainted)
             {
                 Debug.Log("提示语音并提示下一步");
-                DoHaveDrawReminder();
                 DoDrawNextStepReminder();
             }
             else
@@ -182,8 +183,8 @@ public class JoinGuide : MonoBehaviour
             }
             else if (rCount % 4 == 3)
             {
-                Debug.Log("头发=====");
-                DoHairReminder();
+                Debug.Log("嘴巴=====");
+                DoMouthReminder();
             }
             else if (rCount % 4 == 0)
             {
@@ -242,11 +243,6 @@ public class JoinGuide : MonoBehaviour
                 DoCompleteReminder();
             }
         }
-    }
-
-    private void DoHaveDrawReminder()
-    {
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, "Audio/Reminder|guide_universal_01");
     }
 
     private void DoEyeReminder()

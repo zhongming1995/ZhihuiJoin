@@ -125,7 +125,9 @@
     <Compile Include="Assets\Scripts\UI\Draw\MyPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\ZhihuiPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
+    <Compile Include="Assets\Scripts\UI\Index\CarriageAni.cs" />
     <Compile Include="Assets\Scripts\UI\Index\IndexView.cs" />
+    <Compile Include="Assets\Scripts\UI\Index\WheelRotate.cs" />
     <Compile Include="Assets\Scripts\UI\Join\AniEvent.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ColorToggleCtrl.cs" />
     <Compile Include="Assets\Scripts\UI\Join\JoinGuide.cs" />

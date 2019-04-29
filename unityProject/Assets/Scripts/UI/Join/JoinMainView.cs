@@ -54,7 +54,6 @@ public class JoinMainView : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("start");
         Init();
     }
 
@@ -212,6 +211,7 @@ public class JoinMainView : MonoBehaviour
             step = Mathf.Max(1, step - 1);
             ShowTypeByStep(step);
             ShowBackBtn(false);
+            BtnNext.interactable = true;
         });
 
         BtnNext.onClick.AddListener(delegate

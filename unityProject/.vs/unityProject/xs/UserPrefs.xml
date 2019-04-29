@@ -1,19 +1,9 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="55" Column="17" />
-      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="21" Column="17" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AppEntry.cs" Line="32" Column="9" />
-      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="12" Column="13" />
-      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="243" Column="24" />
-      <File FileName="Assets/Editor/PreImport/PreImporter.cs" Line="17" Column="52" />
-      <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="13" Column="6" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="21" Column="40" />
+      <File FileName="Assets/Scripts/UI/Join/JoinGuide.cs" Line="244" Column="6" />
+      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="175" Column="14" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="212" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
