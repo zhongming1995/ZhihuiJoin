@@ -46153,6 +46153,20 @@ static void U3CU3Ec__DisplayClass5_0_tB342439585BE9836B63F3F98A8647569F3B7362C_C
 		CompilerGeneratedAttribute__ctor_mF260765569D213C09F35C6D0892EBB713427CCBF(tmp, NULL);
 	}
 }
+static void U3CU3Ec_t420D72A4471A4D80CFD63D4843AC3EFAFBDD12AC_CustomAttributesCacheGenerator(CustomAttributesCache* cache)
+{
+	{
+		CompilerGeneratedAttribute_t29C03D4EB4F2193B5BF85D03923EA47423C946FC * tmp = (CompilerGeneratedAttribute_t29C03D4EB4F2193B5BF85D03923EA47423C946FC *)cache->attributes[0];
+		CompilerGeneratedAttribute__ctor_mF260765569D213C09F35C6D0892EBB713427CCBF(tmp, NULL);
+	}
+}
+static void U3CU3Ec_tF0995195E5A2BE642F7E758DA9143F7C91F5BE89_CustomAttributesCacheGenerator(CustomAttributesCache* cache)
+{
+	{
+		CompilerGeneratedAttribute_t29C03D4EB4F2193B5BF85D03923EA47423C946FC * tmp = (CompilerGeneratedAttribute_t29C03D4EB4F2193B5BF85D03923EA47423C946FC *)cache->attributes[0];
+		CompilerGeneratedAttribute__ctor_mF260765569D213C09F35C6D0892EBB713427CCBF(tmp, NULL);
+	}
+}
 static void U3CU3Ec__DisplayClass5_0_tAAFFB01E6EE8DB3632BCAFDBEAFB1E14FA978063_CustomAttributesCacheGenerator(CustomAttributesCache* cache)
 {
 	{
@@ -48219,7 +48233,7 @@ static void U3CPrivateImplementationDetailsU3E_t4846F3E0DC61BBD6AE249FF1EAAC4CB6
 		CompilerGeneratedAttribute__ctor_mF260765569D213C09F35C6D0892EBB713427CCBF(tmp, NULL);
 	}
 }
-extern const CustomAttributesCacheGenerator g_AttributeGenerators[4071] = 
+extern const CustomAttributesCacheGenerator g_AttributeGenerators[4073] = 
 {
 	Registry_t241E9489A52A385888DBC941B714B48401DBB28E_CustomAttributesCacheGenerator,
 	RegistryHive_t2E3C080E06490EF25AB8301633B4B6469A6914F0_CustomAttributesCacheGenerator,
@@ -51998,6 +52012,8 @@ extern const CustomAttributesCacheGenerator g_AttributeGenerators[4071] =
 	U3CU3Ec_t35FA162761421EB2A1A8A8093F3310F3E74C7A47_CustomAttributesCacheGenerator,
 	U3CCutScreenU3Ed__24_t5D1B79FBD20E69E2449E0F86AD75361A335551E8_CustomAttributesCacheGenerator,
 	U3CU3Ec__DisplayClass5_0_tB342439585BE9836B63F3F98A8647569F3B7362C_CustomAttributesCacheGenerator,
+	U3CU3Ec_t420D72A4471A4D80CFD63D4843AC3EFAFBDD12AC_CustomAttributesCacheGenerator,
+	U3CU3Ec_tF0995195E5A2BE642F7E758DA9143F7C91F5BE89_CustomAttributesCacheGenerator,
 	U3CU3Ec__DisplayClass5_0_tAAFFB01E6EE8DB3632BCAFDBEAFB1E14FA978063_CustomAttributesCacheGenerator,
 	U3CCorReminderU3Ed__12_t2810CC6D9F05DDC0538C3A143A8C06837EECD93F_CustomAttributesCacheGenerator,
 	U3CU3Ec__DisplayClass35_0_tAD7D81D933E0C4751F77096882C92984AAE7D7D2_CustomAttributesCacheGenerator,

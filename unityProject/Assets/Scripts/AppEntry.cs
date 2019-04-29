@@ -29,6 +29,6 @@ public class AppEntry : SingletonMono<AppEntry>
 
         DontDestroyOnLoad(gameObject);
 
-        SceneManager.LoadScene("home");
+        SceneManager.LoadScene("index");
     }
 }

@@ -9,19 +9,18 @@ using AudioMgr;
 
 public class HomeView : MonoBehaviour
 {
+    public Button btnHome;
     private List<GameObject> itemObjList = new List<GameObject>();
     private Transform ListViewContent;
     private Transform Root;
     private Transform SelectItemView;
     // Start is called before the first frame update
 
-    void Awake()
-    {
-       
-    }
-
     void Start()
     {
+        //按钮点击事件
+        BtnClickEvent();
+
         //停止音效
         AudioManager.instance.StopEffect();
         ListViewContent = transform.Find("list_items/Scroll View/Viewport/Content");
@@ -56,5 +55,13 @@ public class HomeView : MonoBehaviour
     private void JumpToJoin()
     {
         SceneManager.LoadScene("join");
+    }
+
+    private void BtnClickEvent()
+    {
+        btnHome.onClick.AddListener(delegate
+        {
+            SceneManager.LoadScene("index");
+        });
     }
 }

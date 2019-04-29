@@ -408,8 +408,25 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2088579517425430886, guid: 7306c714fce45484db53d9256f561ec8,
+        type: 3}
+      propertyPath: btnHome
+      value: 
+      objectReference: {fileID: 1529051540}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7306c714fce45484db53d9256f561ec8, type: 3}
+--- !u!114 &1529051540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2088579516111674017, guid: 7306c714fce45484db53d9256f561ec8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1529051539}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1750069960
 GameObject:
   m_ObjectHideFlags: 0

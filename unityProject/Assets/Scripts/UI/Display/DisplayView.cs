@@ -41,7 +41,6 @@ public class DisplayView : MonoBehaviour
     void Start()
     {
         rectImgDisplay = ImgDisplay.GetComponent<RectTransform>().sizeDelta;
-        //joinMainView = GameManager.instance.Root.GetComponentInChildren<JoinMainView>(true);
         joinMainView = transform.GetComponentInParent<Canvas>().gameObject.GetComponentInChildren<JoinMainView>(true);
      
         AddEvent();

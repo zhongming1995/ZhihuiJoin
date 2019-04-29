@@ -106,17 +106,6 @@ struct InterfaceActionInvoker0
 		((Action)invokeData.methodPtr)(obj, invokeData.method);
 	}
 };
-template <typename T1>
-struct InterfaceActionInvoker1
-{
-	typedef void (*Action)(void*, T1, const RuntimeMethod*);
-
-	static inline void Invoke (Il2CppMethodSlot slot, RuntimeClass* declaringInterface, RuntimeObject* obj, T1 p1)
-	{
-		const VirtualInvokeData& invokeData = il2cpp_codegen_get_interface_invoke_data(slot, obj, declaringInterface);
-		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
-	}
-};
 template <typename T1, typename T2>
 struct InterfaceActionInvoker2
 {
@@ -695,8 +684,6 @@ struct GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F;
 struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A;
 // UnityEngine.GradientColorKey[]
 struct GradientColorKeyU5BU5D_t87AB0ECDF284E0012F0C752F79F9C64E841C62F7;
-// UnityEngine.ILogger
-struct ILogger_t572B66532D8EB6E76240476A788384A26D70866F;
 // UnityEngine.LineRenderer
 struct LineRenderer_tD225C480F28F28A4D737866474F21001B803B7C3;
 // UnityEngine.Material
@@ -827,7 +814,6 @@ extern RuntimeClass* FileStream_tA770BF9AF0906644D43C81B962C7DBC3BC79A418_il2cpp
 extern RuntimeClass* GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F_il2cpp_TypeInfo_var;
 extern RuntimeClass* IAsyncResult_t8E194308510B375B42432981AE5E7488C458D598_il2cpp_TypeInfo_var;
 extern RuntimeClass* IFormatter_tA0082CE1C045BFE2ACC344FDB54D086775620E7C_il2cpp_TypeInfo_var;
-extern RuntimeClass* ILogger_t572B66532D8EB6E76240476A788384A26D70866F_il2cpp_TypeInfo_var;
 extern RuntimeClass* Int32U5BU5D_t2B9E4FDDDB9F0A00EC0AC631BA2DA915EB1ECF83_il2cpp_TypeInfo_var;
 extern RuntimeClass* Int32_t585191389E07734F19F3156FF88FB3EF4800D102_il2cpp_TypeInfo_var;
 extern RuntimeClass* List_1_t02218CE37FD9D09EE4EC464F0D43E9FD9DE0C581_il2cpp_TypeInfo_var;
@@ -1005,6 +991,7 @@ extern String_t* _stringLiteralDA90B535F88478AE105556179B4935C2334A6D79;
 extern String_t* _stringLiteralDD041BBC60CFA9E7600F68001B358A63A48BD858;
 extern String_t* _stringLiteralDDB450D32245718E2F90DDA388E43B2910E36683;
 extern String_t* _stringLiteralE304A1FA0C9E35C090105C0353C56ED86C10553C;
+extern String_t* _stringLiteralE540CDD1328B2B21E29A95405C301B9313B7C346;
 extern String_t* _stringLiteralE83249BD3BA79932E16FB1FB5100DAFADE9954C2;
 extern String_t* _stringLiteralE9D71F5EE7C92D6DC9E92FFDAD17B8BD49418F98;
 extern String_t* _stringLiteralF13578E734B97324C1E77CD189742910F6524D03;
@@ -15691,24 +15678,26 @@ public:
 	bool ___MultiColor_110;
 	// System.Int32 Draw_MobilePaint.MobilePaint::colorIndex
 	int32_t ___colorIndex_111;
+	// System.Boolean Draw_MobilePaint.MobilePaint::havePainted
+	bool ___havePainted_112;
 	// System.Int32 Draw_MobilePaint.MobilePaint::fullArea
-	int32_t ___fullArea_112;
+	int32_t ___fullArea_113;
 	// System.Int32 Draw_MobilePaint.MobilePaint::alreadyFillArea
-	int32_t ___alreadyFillArea_113;
+	int32_t ___alreadyFillArea_114;
 	// System.Single Draw_MobilePaint.MobilePaint::PaintPercent
-	float ___PaintPercent_114;
+	float ___PaintPercent_115;
 	// Draw_MobilePaint.MobilePaint/MouseDrawDelegate Draw_MobilePaint.MobilePaint::drawStart
-	MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * ___drawStart_115;
+	MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * ___drawStart_116;
 	// Draw_MobilePaint.MobilePaint/MouseDrawDelegate Draw_MobilePaint.MobilePaint::drawEnd
-	MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * ___drawEnd_116;
+	MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * ___drawEnd_117;
 	// System.Boolean Draw_MobilePaint.MobilePaint::left
-	bool ___left_117;
+	bool ___left_118;
 	// System.Boolean Draw_MobilePaint.MobilePaint::right
-	bool ___right_118;
+	bool ___right_119;
 	// System.Boolean Draw_MobilePaint.MobilePaint::top
-	bool ___top_119;
+	bool ___top_120;
 	// System.Boolean Draw_MobilePaint.MobilePaint::bottom
-	bool ___bottom_120;
+	bool ___bottom_121;
 
 public:
 	inline static int32_t get_offset_of_enableTouch_4() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___enableTouch_4)); }
@@ -16585,78 +16574,86 @@ public:
 		___colorIndex_111 = value;
 	}
 
-	inline static int32_t get_offset_of_fullArea_112() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___fullArea_112)); }
-	inline int32_t get_fullArea_112() const { return ___fullArea_112; }
-	inline int32_t* get_address_of_fullArea_112() { return &___fullArea_112; }
-	inline void set_fullArea_112(int32_t value)
+	inline static int32_t get_offset_of_havePainted_112() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___havePainted_112)); }
+	inline bool get_havePainted_112() const { return ___havePainted_112; }
+	inline bool* get_address_of_havePainted_112() { return &___havePainted_112; }
+	inline void set_havePainted_112(bool value)
 	{
-		___fullArea_112 = value;
+		___havePainted_112 = value;
 	}
 
-	inline static int32_t get_offset_of_alreadyFillArea_113() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___alreadyFillArea_113)); }
-	inline int32_t get_alreadyFillArea_113() const { return ___alreadyFillArea_113; }
-	inline int32_t* get_address_of_alreadyFillArea_113() { return &___alreadyFillArea_113; }
-	inline void set_alreadyFillArea_113(int32_t value)
+	inline static int32_t get_offset_of_fullArea_113() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___fullArea_113)); }
+	inline int32_t get_fullArea_113() const { return ___fullArea_113; }
+	inline int32_t* get_address_of_fullArea_113() { return &___fullArea_113; }
+	inline void set_fullArea_113(int32_t value)
 	{
-		___alreadyFillArea_113 = value;
+		___fullArea_113 = value;
 	}
 
-	inline static int32_t get_offset_of_PaintPercent_114() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___PaintPercent_114)); }
-	inline float get_PaintPercent_114() const { return ___PaintPercent_114; }
-	inline float* get_address_of_PaintPercent_114() { return &___PaintPercent_114; }
-	inline void set_PaintPercent_114(float value)
+	inline static int32_t get_offset_of_alreadyFillArea_114() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___alreadyFillArea_114)); }
+	inline int32_t get_alreadyFillArea_114() const { return ___alreadyFillArea_114; }
+	inline int32_t* get_address_of_alreadyFillArea_114() { return &___alreadyFillArea_114; }
+	inline void set_alreadyFillArea_114(int32_t value)
 	{
-		___PaintPercent_114 = value;
+		___alreadyFillArea_114 = value;
 	}
 
-	inline static int32_t get_offset_of_drawStart_115() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___drawStart_115)); }
-	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * get_drawStart_115() const { return ___drawStart_115; }
-	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 ** get_address_of_drawStart_115() { return &___drawStart_115; }
-	inline void set_drawStart_115(MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * value)
+	inline static int32_t get_offset_of_PaintPercent_115() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___PaintPercent_115)); }
+	inline float get_PaintPercent_115() const { return ___PaintPercent_115; }
+	inline float* get_address_of_PaintPercent_115() { return &___PaintPercent_115; }
+	inline void set_PaintPercent_115(float value)
 	{
-		___drawStart_115 = value;
-		Il2CppCodeGenWriteBarrier((&___drawStart_115), value);
+		___PaintPercent_115 = value;
 	}
 
-	inline static int32_t get_offset_of_drawEnd_116() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___drawEnd_116)); }
-	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * get_drawEnd_116() const { return ___drawEnd_116; }
-	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 ** get_address_of_drawEnd_116() { return &___drawEnd_116; }
-	inline void set_drawEnd_116(MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * value)
+	inline static int32_t get_offset_of_drawStart_116() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___drawStart_116)); }
+	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * get_drawStart_116() const { return ___drawStart_116; }
+	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 ** get_address_of_drawStart_116() { return &___drawStart_116; }
+	inline void set_drawStart_116(MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * value)
 	{
-		___drawEnd_116 = value;
-		Il2CppCodeGenWriteBarrier((&___drawEnd_116), value);
+		___drawStart_116 = value;
+		Il2CppCodeGenWriteBarrier((&___drawStart_116), value);
 	}
 
-	inline static int32_t get_offset_of_left_117() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___left_117)); }
-	inline bool get_left_117() const { return ___left_117; }
-	inline bool* get_address_of_left_117() { return &___left_117; }
-	inline void set_left_117(bool value)
+	inline static int32_t get_offset_of_drawEnd_117() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___drawEnd_117)); }
+	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * get_drawEnd_117() const { return ___drawEnd_117; }
+	inline MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 ** get_address_of_drawEnd_117() { return &___drawEnd_117; }
+	inline void set_drawEnd_117(MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * value)
 	{
-		___left_117 = value;
+		___drawEnd_117 = value;
+		Il2CppCodeGenWriteBarrier((&___drawEnd_117), value);
 	}
 
-	inline static int32_t get_offset_of_right_118() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___right_118)); }
-	inline bool get_right_118() const { return ___right_118; }
-	inline bool* get_address_of_right_118() { return &___right_118; }
-	inline void set_right_118(bool value)
+	inline static int32_t get_offset_of_left_118() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___left_118)); }
+	inline bool get_left_118() const { return ___left_118; }
+	inline bool* get_address_of_left_118() { return &___left_118; }
+	inline void set_left_118(bool value)
 	{
-		___right_118 = value;
+		___left_118 = value;
 	}
 
-	inline static int32_t get_offset_of_top_119() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___top_119)); }
-	inline bool get_top_119() const { return ___top_119; }
-	inline bool* get_address_of_top_119() { return &___top_119; }
-	inline void set_top_119(bool value)
+	inline static int32_t get_offset_of_right_119() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___right_119)); }
+	inline bool get_right_119() const { return ___right_119; }
+	inline bool* get_address_of_right_119() { return &___right_119; }
+	inline void set_right_119(bool value)
 	{
-		___top_119 = value;
+		___right_119 = value;
 	}
 
-	inline static int32_t get_offset_of_bottom_120() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___bottom_120)); }
-	inline bool get_bottom_120() const { return ___bottom_120; }
-	inline bool* get_address_of_bottom_120() { return &___bottom_120; }
-	inline void set_bottom_120(bool value)
+	inline static int32_t get_offset_of_top_120() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___top_120)); }
+	inline bool get_top_120() const { return ___top_120; }
+	inline bool* get_address_of_top_120() { return &___top_120; }
+	inline void set_top_120(bool value)
 	{
-		___bottom_120 = value;
+		___top_120 = value;
+	}
+
+	inline static int32_t get_offset_of_bottom_121() { return static_cast<int32_t>(offsetof(MobilePaint_tBBEB33FB9F0B04A0B3141935911671D8E71E84F8, ___bottom_121)); }
+	inline bool get_bottom_121() const { return ___bottom_121; }
+	inline bool* get_address_of_bottom_121() { return &___bottom_121; }
+	inline void set_bottom_121(bool value)
+	{
+		___bottom_121 = value;
 	}
 };
 
@@ -20728,8 +20725,6 @@ extern "C" IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_mEAEC84B222C60319D593E456
 extern "C" IL2CPP_METHOD_ATTR void Input_set_multiTouchEnabled_mF0E9DD01DB2AA0B7A4ECB00FDF5C8BA77182E094 (bool p0, const RuntimeMethod* method);
 // System.Void UnityEngine.Application::set_targetFrameRate(System.Int32)
 extern "C" IL2CPP_METHOD_ATTR void Application_set_targetFrameRate_mC20C40E50BAB994B10DDAC0E3C26A851025337BC (int32_t p0, const RuntimeMethod* method);
-// UnityEngine.ILogger UnityEngine.Debug::get_unityLogger()
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject* Debug_get_unityLogger_mFA75EC397E067D09FD66D56B4E7692C3FCC3E960 (const RuntimeMethod* method);
 // UnityEngine.GameObject UnityEngine.Component::get_gameObject()
 extern "C" IL2CPP_METHOD_ATTR GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * Component_get_gameObject_m0B0570BA8DDD3CD78A9DB568EA18D7317686603C (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Object::DontDestroyOnLoad(UnityEngine.Object)
@@ -22389,14 +22384,10 @@ extern "C" IL2CPP_METHOD_ATTR void AppEntry_Start_m2ABE413052A1116E12585E62D2C49
 	{
 		Input_set_multiTouchEnabled_mF0E9DD01DB2AA0B7A4ECB00FDF5C8BA77182E094((bool)0, /*hidden argument*/NULL);
 		Application_set_targetFrameRate_mC20C40E50BAB994B10DDAC0E3C26A851025337BC(((int32_t)60), /*hidden argument*/NULL);
-		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
-		RuntimeObject* L_0 = Debug_get_unityLogger_mFA75EC397E067D09FD66D56B4E7692C3FCC3E960(/*hidden argument*/NULL);
-		NullCheck(L_0);
-		InterfaceActionInvoker1< bool >::Invoke(0 /* System.Void UnityEngine.ILogger::set_logEnabled(System.Boolean) */, ILogger_t572B66532D8EB6E76240476A788384A26D70866F_il2cpp_TypeInfo_var, L_0, (bool)0);
-		GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * L_1 = Component_get_gameObject_m0B0570BA8DDD3CD78A9DB568EA18D7317686603C(__this, /*hidden argument*/NULL);
+		GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * L_0 = Component_get_gameObject_m0B0570BA8DDD3CD78A9DB568EA18D7317686603C(__this, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
-		Object_DontDestroyOnLoad_m4DC90770AD6084E4B1B8489C6B41205DC020C207(L_1, /*hidden argument*/NULL);
-		SceneManager_LoadScene_mFC850AC783E5EA05D6154976385DFECC251CDFB9(_stringLiteralE83249BD3BA79932E16FB1FB5100DAFADE9954C2, /*hidden argument*/NULL);
+		Object_DontDestroyOnLoad_m4DC90770AD6084E4B1B8489C6B41205DC020C207(L_0, /*hidden argument*/NULL);
+		SceneManager_LoadScene_mFC850AC783E5EA05D6154976385DFECC251CDFB9(_stringLiteralE540CDD1328B2B21E29A95405C301B9313B7C346, /*hidden argument*/NULL);
 		return;
 	}
 }
@@ -23099,6 +23090,7 @@ extern "C" IL2CPP_METHOD_ATTR void AudioManager_PlayGuideAudio_mCB22E4E897C7EDCD
 extern "C" IL2CPP_METHOD_ATTR void AudioManager_PlayReminderAudio_m72E748460D2F781B66BDDC1B9AFF56D7E88267CC (AudioManager_t3FD20E28B4B67B6BDF08EFD4BF41AD9E188C23D2 * __this, String_t* ___path0, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___cb1, const RuntimeMethod* method)
 {
 	{
+		__this->set_curAudioType_9(1);
 		String_t* L_0 = ___path0;
 		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___cb1;
 		AudioManager_PlayEffect_m05CE7221DDC1C918F612A8CC97B0078D31BE4AF6(__this, L_0, L_1, /*hidden argument*/NULL);
@@ -38993,14 +38985,14 @@ IL_029a:
 		}
 	}
 	{
-		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_79 = __this->get_drawStart_115();
+		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_79 = __this->get_drawStart_116();
 		if (!L_79)
 		{
 			goto IL_02b5;
 		}
 	}
 	{
-		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_80 = __this->get_drawStart_115();
+		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_80 = __this->get_drawStart_116();
 		NullCheck(L_80);
 		MouseDrawDelegate_Invoke_mFF32F4EB437C2948DB2281428EEFDF1E072B0969(L_80, /*hidden argument*/NULL);
 	}
@@ -39144,14 +39136,14 @@ IL_03b0:
 		}
 	}
 	{
-		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_106 = __this->get_drawEnd_116();
+		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_106 = __this->get_drawEnd_117();
 		if (!L_106)
 		{
 			goto IL_03ce;
 		}
 	}
 	{
-		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_107 = __this->get_drawEnd_116();
+		MouseDrawDelegate_t4EBACB7AC0F4F7CF47D2960C675E658387351653 * L_107 = __this->get_drawEnd_117();
 		NullCheck(L_107);
 		MouseDrawDelegate_Invoke_mFF32F4EB437C2948DB2281428EEFDF1E072B0969(L_107, /*hidden argument*/NULL);
 	}
@@ -40103,45 +40095,46 @@ extern "C" IL2CPP_METHOD_ATTR void MobilePaint_DrawCustomBrush_m91E79DF11F2DDF5D
 	int32_t G_B45_0 = 0;
 	int32_t G_B45_1 = 0;
 	{
+		__this->set_havePainted_112((bool)1);
 		int32_t L_0 = __this->get_timeCount_109();
 		__this->set_timeCount_109(((int32_t)il2cpp_codegen_add((int32_t)L_0, (int32_t)1)));
 		int32_t L_1 = __this->get_timeCount_109();
 		if (!((int32_t)((int32_t)L_1%(int32_t)((int32_t)10))))
 		{
-			goto IL_001a;
+			goto IL_0021;
 		}
 	}
 	{
 		return;
 	}
 
-IL_001a:
+IL_0021:
 	{
 		bool L_2 = __this->get_MultiColor_110();
 		if (!L_2)
 		{
-			goto IL_006b;
+			goto IL_0072;
 		}
 	}
 	{
 		int32_t L_3 = __this->get_timeCount_109();
 		if (((int32_t)((int32_t)L_3%(int32_t)((int32_t)100))))
 		{
-			goto IL_006b;
+			goto IL_0072;
 		}
 	}
 	{
 		int32_t L_4 = __this->get_colorIndex_111();
 		if ((((int32_t)L_4) <= ((int32_t)6)))
 		{
-			goto IL_003d;
+			goto IL_0044;
 		}
 	}
 	{
 		__this->set_colorIndex_111(0);
 	}
 
-IL_003d:
+IL_0044:
 	{
 		GameManager_t3FDE0C8ED2B92B72375E31805A27942AA0816F7C * L_5 = SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C(/*hidden argument*/SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C_RuntimeMethod_var);
 		NullCheck(L_5);
@@ -40156,7 +40149,7 @@ IL_003d:
 		__this->set_colorIndex_111(((int32_t)il2cpp_codegen_add((int32_t)L_11, (int32_t)1)));
 	}
 
-IL_006b:
+IL_0072:
 	{
 		int32_t L_12 = ___px0;
 		int32_t L_13 = __this->get_customBrushWidthHalf_54();
@@ -40167,22 +40160,22 @@ IL_006b:
 		int32_t L_16 = V_0;
 		if ((((int32_t)L_16) >= ((int32_t)0)))
 		{
-			goto IL_0085;
+			goto IL_008c;
 		}
 	}
 	{
 		V_0 = 0;
-		goto IL_009c;
+		goto IL_00a3;
 	}
 
-IL_0085:
+IL_008c:
 	{
 		int32_t L_17 = V_0;
 		int32_t L_18 = __this->get_customBrushWidth_52();
 		int32_t L_19 = __this->get_texWidth_86();
 		if ((((int32_t)((int32_t)il2cpp_codegen_add((int32_t)L_17, (int32_t)L_18))) < ((int32_t)L_19)))
 		{
-			goto IL_009c;
+			goto IL_00a3;
 		}
 	}
 	{
@@ -40190,27 +40183,27 @@ IL_0085:
 		V_0 = L_20;
 	}
 
-IL_009c:
+IL_00a3:
 	{
 		int32_t L_21 = V_1;
 		if ((((int32_t)L_21) >= ((int32_t)1)))
 		{
-			goto IL_00a4;
+			goto IL_00ab;
 		}
 	}
 	{
 		V_1 = 1;
-		goto IL_00bb;
+		goto IL_00c2;
 	}
 
-IL_00a4:
+IL_00ab:
 	{
 		int32_t L_22 = V_1;
 		int32_t L_23 = __this->get_customBrushHeight_53();
 		int32_t L_24 = __this->get_texHeight_87();
 		if ((((int32_t)((int32_t)il2cpp_codegen_add((int32_t)L_22, (int32_t)L_23))) < ((int32_t)L_24)))
 		{
-			goto IL_00bb;
+			goto IL_00c2;
 		}
 	}
 	{
@@ -40218,7 +40211,7 @@ IL_00a4:
 		V_1 = L_25;
 	}
 
-IL_00bb:
+IL_00c2:
 	{
 		int32_t L_26 = __this->get_texWidth_86();
 		int32_t L_27 = V_1;
@@ -40226,16 +40219,16 @@ IL_00bb:
 		V_2 = ((int32_t)((int32_t)((int32_t)il2cpp_codegen_add((int32_t)((int32_t)il2cpp_codegen_multiply((int32_t)L_26, (int32_t)L_27)), (int32_t)L_28))<<(int32_t)2));
 		V_3 = 0;
 		V_4 = 0;
-		goto IL_05e6;
+		goto IL_05ed;
 	}
 
-IL_00d2:
+IL_00d9:
 	{
 		V_5 = 0;
-		goto IL_05bb;
+		goto IL_05c2;
 	}
 
-IL_00da:
+IL_00e1:
 	{
 		int32_t L_29 = __this->get_customBrushWidth_52();
 		int32_t L_30 = V_4;
@@ -40248,21 +40241,21 @@ IL_00da:
 		uint8_t L_35 = (L_32)->GetAt(static_cast<il2cpp_array_size_t>(L_34));
 		if ((((int32_t)L_35) <= ((int32_t)0)))
 		{
-			goto IL_05b1;
+			goto IL_05b8;
 		}
 	}
 	{
 		bool L_36 = __this->get_useLockArea_28();
 		if (!L_36)
 		{
-			goto IL_011a;
+			goto IL_0121;
 		}
 	}
 	{
 		bool L_37 = __this->get_useLockArea_28();
 		if (!L_37)
 		{
-			goto IL_05b1;
+			goto IL_05b8;
 		}
 	}
 	{
@@ -40273,23 +40266,23 @@ IL_00da:
 		uint8_t L_41 = (L_38)->GetAt(static_cast<il2cpp_array_size_t>(L_40));
 		if ((!(((uint32_t)L_41) == ((uint32_t)1))))
 		{
-			goto IL_05b1;
+			goto IL_05b8;
 		}
 	}
 
-IL_011a:
+IL_0121:
 	{
 		bool L_42 = __this->get_useCustomBrushAlpha_49();
 		if (!L_42)
 		{
-			goto IL_0355;
+			goto IL_035c;
 		}
 	}
 	{
 		bool L_43 = __this->get_useAdditiveColors_22();
 		if (!L_43)
 		{
-			goto IL_027d;
+			goto IL_0284;
 		}
 	}
 	{
@@ -40303,7 +40296,7 @@ IL_011a:
 		bool L_49 = __this->get_overrideCustomBrushColor_48();
 		if (!L_49)
 		{
-			goto IL_01d5;
+			goto IL_01dc;
 		}
 	}
 	{
@@ -40346,10 +40339,10 @@ IL_011a:
 		uint8_t L_79 = MobilePaint_ByteLerp_mB159ABBF3959CFA66C3C29BB28C70422DAFDA6D6(__this, L_75, L_77, L_78, /*hidden argument*/NULL);
 		NullCheck(L_70);
 		(L_70)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_71, (int32_t)2))), (uint8_t)L_79);
-		goto IL_024d;
+		goto IL_0254;
 	}
 
-IL_01d5:
+IL_01dc:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_80 = __this->get_pixels_76();
 		int32_t L_81 = V_2;
@@ -40401,7 +40394,7 @@ IL_01d5:
 		(L_104)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_105, (int32_t)2))), (uint8_t)L_115);
 	}
 
-IL_024d:
+IL_0254:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_116 = __this->get_pixels_76();
 		int32_t L_117 = V_2;
@@ -40416,15 +40409,15 @@ IL_024d:
 		uint8_t L_125 = MobilePaint_ByteLerp_mB159ABBF3959CFA66C3C29BB28C70422DAFDA6D6(__this, L_121, L_123, L_124, /*hidden argument*/NULL);
 		NullCheck(L_116);
 		(L_116)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_117, (int32_t)3))), (uint8_t)L_125);
-		goto IL_05b1;
+		goto IL_05b8;
 	}
 
-IL_027d:
+IL_0284:
 	{
 		bool L_126 = __this->get_overrideCustomBrushColor_48();
 		if (!L_126)
 		{
-			goto IL_0304;
+			goto IL_030b;
 		}
 	}
 	{
@@ -40467,10 +40460,10 @@ IL_027d:
 		uint8_t L_156 = MobilePaint_ByteLerp_mB159ABBF3959CFA66C3C29BB28C70422DAFDA6D6(__this, L_152, L_154, L_155, /*hidden argument*/NULL);
 		NullCheck(L_147);
 		(L_147)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_148, (int32_t)2))), (uint8_t)L_156);
-		goto IL_033c;
+		goto IL_0343;
 	}
 
-IL_0304:
+IL_030b:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_157 = __this->get_pixels_76();
 		int32_t L_158 = V_2;
@@ -40501,7 +40494,7 @@ IL_0304:
 		(L_169)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_170, (int32_t)2))), (uint8_t)L_174);
 	}
 
-IL_033c:
+IL_0343:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_175 = __this->get_pixels_76();
 		int32_t L_176 = V_2;
@@ -40512,22 +40505,22 @@ IL_033c:
 		uint8_t L_180 = (L_177)->GetAt(static_cast<il2cpp_array_size_t>(L_179));
 		NullCheck(L_175);
 		(L_175)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_176, (int32_t)3))), (uint8_t)L_180);
-		goto IL_05b1;
+		goto IL_05b8;
 	}
 
-IL_0355:
+IL_035c:
 	{
 		bool L_181 = __this->get_useAdditiveColors_22();
 		if (!L_181)
 		{
-			goto IL_048f;
+			goto IL_0496;
 		}
 	}
 	{
 		bool L_182 = __this->get_overrideCustomBrushColor_48();
 		if (!L_182)
 		{
-			goto IL_03e7;
+			goto IL_03ee;
 		}
 	}
 	{
@@ -40570,10 +40563,10 @@ IL_0355:
 		uint8_t L_212 = MobilePaint_ByteLerp_mB159ABBF3959CFA66C3C29BB28C70422DAFDA6D6(__this, L_208, L_210, L_211, /*hidden argument*/NULL);
 		NullCheck(L_203);
 		(L_203)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_204, (int32_t)2))), (uint8_t)L_212);
-		goto IL_045f;
+		goto IL_0466;
 	}
 
-IL_03e7:
+IL_03ee:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_213 = __this->get_pixels_76();
 		int32_t L_214 = V_2;
@@ -40625,7 +40618,7 @@ IL_03e7:
 		(L_237)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_238, (int32_t)2))), (uint8_t)L_248);
 	}
 
-IL_045f:
+IL_0466:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_249 = __this->get_pixels_76();
 		int32_t L_250 = V_2;
@@ -40640,15 +40633,15 @@ IL_045f:
 		uint8_t L_258 = MobilePaint_ByteLerp_mB159ABBF3959CFA66C3C29BB28C70422DAFDA6D6(__this, L_254, L_256, L_257, /*hidden argument*/NULL);
 		NullCheck(L_249);
 		(L_249)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_250, (int32_t)3))), (uint8_t)L_258);
-		goto IL_05b1;
+		goto IL_05b8;
 	}
 
-IL_048f:
+IL_0496:
 	{
 		bool L_259 = __this->get_overrideCustomBrushColor_48();
 		if (!L_259)
 		{
-			goto IL_0551;
+			goto IL_0558;
 		}
 	}
 	{
@@ -40718,10 +40711,10 @@ IL_048f:
 		uint8_t L_307 = (L_304)->GetAt(static_cast<il2cpp_array_size_t>(L_306));
 		NullCheck(L_302);
 		(L_302)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_303, (int32_t)2))), (uint8_t)L_307);
-		goto IL_0589;
+		goto IL_0590;
 	}
 
-IL_0551:
+IL_0558:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_308 = __this->get_pixels_76();
 		int32_t L_309 = V_2;
@@ -40752,7 +40745,7 @@ IL_0551:
 		(L_320)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_321, (int32_t)2))), (uint8_t)L_325);
 	}
 
-IL_0589:
+IL_0590:
 	{
 		ByteU5BU5D_tD06FDBE8142446525DF1C40351D523A228373821* L_326 = __this->get_pixels_76();
 		int32_t L_327 = V_2;
@@ -40774,7 +40767,7 @@ IL_0589:
 		(L_332)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add((int32_t)L_333, (int32_t)3))), (uint8_t)L_337);
 	}
 
-IL_05b1:
+IL_05b8:
 	{
 		int32_t L_338 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add((int32_t)L_338, (int32_t)4));
@@ -40782,13 +40775,13 @@ IL_05b1:
 		V_5 = ((int32_t)il2cpp_codegen_add((int32_t)L_339, (int32_t)1));
 	}
 
-IL_05bb:
+IL_05c2:
 	{
 		int32_t L_340 = V_5;
 		int32_t L_341 = __this->get_customBrushWidth_52();
 		if ((((int32_t)L_340) < ((int32_t)L_341)))
 		{
-			goto IL_00da;
+			goto IL_00e1;
 		}
 	}
 	{
@@ -40798,7 +40791,7 @@ IL_05bb:
 		if (!L_343)
 		{
 			G_B44_0 = L_342;
-			goto IL_05d7;
+			goto IL_05de;
 		}
 	}
 	{
@@ -40806,16 +40799,16 @@ IL_05bb:
 		int32_t L_345 = V_4;
 		G_B45_0 = ((int32_t)il2cpp_codegen_add((int32_t)L_344, (int32_t)L_345));
 		G_B45_1 = G_B43_0;
-		goto IL_05d8;
+		goto IL_05df;
 	}
 
-IL_05d7:
+IL_05de:
 	{
 		G_B45_0 = 1;
 		G_B45_1 = G_B44_0;
 	}
 
-IL_05d8:
+IL_05df:
 	{
 		int32_t L_346 = V_0;
 		V_2 = ((int32_t)il2cpp_codegen_multiply((int32_t)((int32_t)il2cpp_codegen_add((int32_t)((int32_t)il2cpp_codegen_add((int32_t)((int32_t)il2cpp_codegen_multiply((int32_t)G_B45_1, (int32_t)G_B45_0)), (int32_t)L_346)), (int32_t)1)), (int32_t)4));
@@ -40823,13 +40816,13 @@ IL_05d8:
 		V_4 = ((int32_t)il2cpp_codegen_add((int32_t)L_347, (int32_t)1));
 	}
 
-IL_05e6:
+IL_05ed:
 	{
 		int32_t L_348 = V_4;
 		int32_t L_349 = __this->get_customBrushHeight_53();
 		if ((((int32_t)L_348) < ((int32_t)L_349)))
 		{
-			goto IL_00d2;
+			goto IL_00d9;
 		}
 	}
 	{
