@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class WheelRotate : MonoBehaviour
 {
-    private float RotateSpeed = 0.8f;
+    private float RotateSpeed = 1.5f;
     // Start is called before the first frame update
     void Start()
     {

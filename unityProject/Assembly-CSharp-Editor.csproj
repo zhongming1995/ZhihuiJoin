@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
     <Compile Include="Assets\Editor\PreImport\PreImporter.cs" />
     <Compile Include="Assets\Editor\PreImport\PreImportTexture.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
@@ -317,12 +318,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenEditor">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/DOTween/Editor/DOTweenEditor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -337,6 +332,33 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenProEditor">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/Editor/DemiEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity2018.3.1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -60,13 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\MobilePaint\Scripts\Brush\CloseCustomBrushDialog.cs" />
     <Compile Include="Assets\MobilePaint\Scripts\Brush\CustomBrushPicker.cs" />
     <Compile Include="Assets\MobilePaint\Scripts\Common\GUIScaler.cs" />
@@ -129,6 +123,7 @@
     <Compile Include="Assets\Scripts\UI\Draw\ZhihuiPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
     <Compile Include="Assets\Scripts\UI\Index\CarriageAni.cs" />
+    <Compile Include="Assets\Scripts\UI\Index\CloudAni.cs" />
     <Compile Include="Assets\Scripts\UI\Index\IndexView.cs" />
     <Compile Include="Assets\Scripts\UI\Index\WheelRotate.cs" />
     <Compile Include="Assets\Scripts\UI\Join\AniEvent.cs" />
@@ -137,16 +132,22 @@
     <Compile Include="Assets\Scripts\UI\Join\JoinMainView.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResDragItem.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResTemplate.cs" />
+    <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasDefault.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DecalModified.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DX11\EdgeTesselation.shader" />
     <None Include="Assets\shader\ImageMask.shader" />
+    <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\MobilePaint\Documentation\release_notes.txt" />
+    <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasWithAlpha.shader" />
+    <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasMaskAndAlpha.shader" />
-    <None Include="Assets\DOTween\readme.txt" />
+    <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasWithMask.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasWithMask2.shader" />
+    <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -360,9 +361,6 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/DOTween/DOTween.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
@@ -371,6 +369,24 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
