@@ -20,7 +20,8 @@ public class JoinGuide : MonoBehaviour
     private AniEvent drawAniEvent;
     private AniEvent dragAniEvent;
 
-    private Tweener curReminderTweener;
+    private Transform curAniTrans;
+    private Sequence sequence;
 
     void Start()
     {
@@ -257,10 +258,7 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_01";
         }
         DoScaleAni(joinMainView.typeTransList[1].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[1].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoMouthReminder()
@@ -275,10 +273,7 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_02";
         }
         DoScaleAni(joinMainView.typeTransList[2].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[2].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoHairReminder()
@@ -293,10 +288,7 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_03";
         }
         DoScaleAni(joinMainView.typeTransList[3].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[3].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoHatReminder()
@@ -311,10 +303,7 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_04";
         }
         DoScaleAni(joinMainView.typeTransList[4].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[4].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoHeadWearReminder()
@@ -329,10 +318,7 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_05";
         }
         DoScaleAni(joinMainView.typeTransList[5].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[5].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoHandReminder()
@@ -347,10 +333,7 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_6";
         }
         DoScaleAni(joinMainView.typeTransList[6].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[6].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoLegReminder()
@@ -365,53 +348,59 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/Reminder/num|guide_num_7";
         }
         DoScaleAni(joinMainView.typeTransList[7].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.typeTransList[7].transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoScaleAni(Transform trans)
     {
+        curAniTrans = trans;
         Sequence s = DOTween.Sequence();
         s.Append(trans.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.25f));
         s.Append(trans.DOScale(new Vector3(1f, 1f, 1f), 0.25f));
         s.SetLoops(4);
+
+        sequence = DOTween.Sequence();
+        sequence.Append(s);
+        sequence.AppendInterval(1);
+
+        sequence.SetLoops(2);
     }
 
     private void DoDrawNextStepReminder()
     {
         string path = "Audio/Reminder|guide_universal_01";
         DoScaleAni(joinMainView.BtnNext.transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path, () =>
-        {
-            DoScaleAni(joinMainView.BtnNext.transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoNextStepReminder()
     {
         string path = "Audio/Reminder|guide_universal_02";
         DoScaleAni(joinMainView.BtnNext.transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.BtnNext.transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoCompleteReminder()
     {
         string path = "Audio/Reminder|guide_universal_02";
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path,()=>
-        {
-            DoScaleAni(joinMainView.BtnOk.transform);
-        });
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void BreakReminder()
     {
         DrawReminder.gameObject.SetActive(false);
         DragReminder.gameObject.SetActive(false);
+        //停止提示动画
+        if (sequence!=null)
+        {
+            Debug.Log("kill===");
+            sequence.Kill();
+            sequence = null;
+        }
+        if (curAniTrans!=null)
+        {
+            curAniTrans.localScale = Vector3.one;
+        }
     }
 
     private void OnEnable()

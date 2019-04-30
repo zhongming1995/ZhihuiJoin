@@ -107,6 +107,9 @@
     <Compile Include="Assets\MobilePaint\Scripts\UserInterface\PaletteDialog.cs" />
     <Compile Include="Assets\MobilePaint\Scripts\UserInterface\ToggleMode.cs" />
     <Compile Include="Assets\Scripts\AppEntry.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPool\GameObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPool\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\Common\ObjectPool\RefObject.cs" />
     <Compile Include="Assets\Scripts\Common\Singleton.cs" />
     <Compile Include="Assets\Scripts\Common\SliderExt.cs" />
     <Compile Include="Assets\Scripts\Helper\UIDepth.cs" />
