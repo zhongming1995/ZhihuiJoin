@@ -10125,90 +10125,6 @@ public:
 };
 
 
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_m3106B5C67EF6270B9DB4B5E1C5C687BCAA446F24_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m52A95CEFA755CAAEE1E8755101ACA45A295A7A35_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_GetResult_mC2B7B126733CDE385D61F2036F9D0668B36F171B_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_mCBD6C3EF024E1D7C538268F338BD0C4BA712FA92_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m51FAB5E9A9B65CADB2FC226EDDA77B18E003AD60_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR int32_t ConfiguredTaskAwaiter_GetResult_m05FB789E6901C9496B94A722DF99239A979A2623_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_m1358F59D9346DF4A24793C6A211BC0AF3BC3AB04_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m3AC164CB90BE3D616C765C4E34A083B8E38E7696_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  ConfiguredTaskAwaiter_GetResult_m519FEE37CB8F736EE39E33E1C36D4A0EE8C2611C_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_mA1F08104B225C8640528B38BFD0AAAEE84541586_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m4839332C5C05D22963CEA62A1FEE699C68109404_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * ConfiguredTaskAwaiter_GetResult_m4EE5BF4F8536CCC951CA3F4E3C494411AE2D507E_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_m1429B429A92D467192E16F1291BAA5761706EAB0_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_mA3AA09BD7CC25D9F838DF9BBBF200B41C65BBD57_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  ConfiguredTaskAwaiter_GetResult_mE6DE53E996B30ABB828D43811259EC164DDC607B_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7_gshared (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  ConfiguredTaskAwaitable_1_GetAwaiter_m2EF8D361B5AFBDA824FE2D5CE4704EF99AECA48F_gshared (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21_gshared (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  ConfiguredTaskAwaitable_1_GetAwaiter_m10B0B84F72A27E623BD94882380E582459F8B8DE_gshared (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65_gshared (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  ConfiguredTaskAwaitable_1_GetAwaiter_m2334D52A2F0403A09E55D5B4B4AA4DA5B2E318B5_gshared (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7_gshared (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  ConfiguredTaskAwaitable_1_GetAwaiter_m86C543D72022CB5D0C43053C4AF5F37EA4E690A7_gshared (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7_gshared (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method);
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  ConfiguredTaskAwaitable_1_GetAwaiter_m39313F8D5E6D9668C8853AD0C710E7563C478D3B_gshared (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m682D0FAFEEB8268BB1EC46583C9F93A15999E743_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR bool TaskAwaiter_1_GetResult_m77546DD82B46E6BAAAA79AB5F1BBCD2567E0F7F8_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m8D75DA13F52ABD6D5ACD823594F6A5CD43BE2A3E_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR int32_t TaskAwaiter_1_GetResult_m0E9661BE4684BA278EE9C6A4EE23FF62AEC86FB9_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m7E93B0299FE83F1033255A6301667738DFE5AAE9_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  TaskAwaiter_1_GetResult_m4217CDEFE01548F642DB37447D3641FFE2598806_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m4204CC2DE0200E2EFA43C485022F816D27298975_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * TaskAwaiter_1_GetResult_m9E148849CD4747E1BDD831E4FB2D7ECFA13C11C8_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, const RuntimeMethod* method);
 // System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>)
 extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_mEC801EB8DC0BEA0BA3D3EBB76982C94FA66621F1_gshared (TaskAwaiter_1_t2A96C6E5A8159F39BE46A120CE0712DCA38C4BCE * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, const RuntimeMethod* method);
 // System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.VoidTaskResult>::UnsafeOnCompleted(System.Action)
@@ -10243,6 +10159,24 @@ extern "C" IL2CPP_METHOD_ATTR SparselyPopulatedArrayFragment_1_t5B09020C4A85177C
 extern "C" IL2CPP_METHOD_ATTR int32_t SparselyPopulatedArrayAddInfo_1_get_Index_m67962DFCB592CCD200FB0BED160411FA56EED54A_gshared (SparselyPopulatedArrayAddInfo_1_tE2FD5B8C39028B875C42E17AA5865FC55F2A0C0B * __this, const RuntimeMethod* method);
 // TResult System.Threading.Tasks.Task`1<System.Object>::get_Result()
 extern "C" IL2CPP_METHOD_ATTR RuntimeObject * Task_1_get_Result_m653E95E70604B69D29BC9679AA4588ED82AD01D7_gshared (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * __this, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * p0, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7_gshared (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * p0, bool p1, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * p0, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21_gshared (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * p0, bool p1, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * p0, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65_gshared (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * p0, bool p1, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * p0, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7_gshared (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * p0, bool p1, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7_gshared (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * p0, bool p1, const RuntimeMethod* method);
 // System.Boolean System.ValueTuple`2<System.Int32,System.Boolean>::Equals(System.ValueTuple`2<T1,T2>)
 extern "C" IL2CPP_METHOD_ATTR bool ValueTuple_2_Equals_mFB1DF702E0F7701ACA642584D932529CD7B5636E_gshared (ValueTuple_2_t446756A8057B54D18CAD5BA1D73699DA4B40A264 * __this, ValueTuple_2_t446756A8057B54D18CAD5BA1D73699DA4B40A264  p0, const RuntimeMethod* method);
 // System.Boolean System.ValueTuple`2<System.Int32,System.Boolean>::Equals(System.Object)
@@ -10288,232 +10222,20 @@ extern "C" IL2CPP_METHOD_ATTR RuntimeObject * List_1_get_Item_mFDB8AD680C6000727
 // System.Int32 System.Collections.Generic.List`1<System.Object>::get_Count()
 extern "C" IL2CPP_METHOD_ATTR int32_t List_1_get_Count_m507C9149FF7F83AAC72C29091E745D557DA47D22_gshared (List_1_t05CC3C859AB5E6024394EF9A42E3E696628CA02D * __this, const RuntimeMethod* method);
 
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80 (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, bool, const RuntimeMethod*))ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Threading.Tasks.Task::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19 (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * __this, const RuntimeMethod* method);
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::get_IsCompleted()
-inline bool ConfiguredTaskAwaiter_get_IsCompleted_m3106B5C67EF6270B9DB4B5E1C5C687BCAA446F24 (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *, const RuntimeMethod*))ConfiguredTaskAwaiter_get_IsCompleted_m3106B5C67EF6270B9DB4B5E1C5C687BCAA446F24_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter::OnCompletedInternal(System.Threading.Tasks.Task,System.Action,System.Boolean,System.Boolean)
-extern "C" IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3 (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * ___task0, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation1, bool ___continueOnCapturedContext2, bool ___flowExecutionContext3, const RuntimeMethod* method);
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::UnsafeOnCompleted(System.Action)
-inline void ConfiguredTaskAwaiter_UnsafeOnCompleted_m52A95CEFA755CAAEE1E8755101ACA45A295A7A35 (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))ConfiguredTaskAwaiter_UnsafeOnCompleted_m52A95CEFA755CAAEE1E8755101ACA45A295A7A35_gshared)(__this, ___continuation0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter::ValidateEnd(System.Threading.Tasks.Task)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * ___task0, const RuntimeMethod* method);
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::GetResult()
-inline bool ConfiguredTaskAwaiter_GetResult_mC2B7B126733CDE385D61F2036F9D0668B36F171B (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *, const RuntimeMethod*))ConfiguredTaskAwaiter_GetResult_mC2B7B126733CDE385D61F2036F9D0668B36F171B_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26 (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, bool, const RuntimeMethod*))ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::get_IsCompleted()
-inline bool ConfiguredTaskAwaiter_get_IsCompleted_mCBD6C3EF024E1D7C538268F338BD0C4BA712FA92 (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *, const RuntimeMethod*))ConfiguredTaskAwaiter_get_IsCompleted_mCBD6C3EF024E1D7C538268F338BD0C4BA712FA92_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::UnsafeOnCompleted(System.Action)
-inline void ConfiguredTaskAwaiter_UnsafeOnCompleted_m51FAB5E9A9B65CADB2FC226EDDA77B18E003AD60 (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))ConfiguredTaskAwaiter_UnsafeOnCompleted_m51FAB5E9A9B65CADB2FC226EDDA77B18E003AD60_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::GetResult()
-inline int32_t ConfiguredTaskAwaiter_GetResult_m05FB789E6901C9496B94A722DF99239A979A2623 (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, const RuntimeMethod* method)
-{
-	return ((  int32_t (*) (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *, const RuntimeMethod*))ConfiguredTaskAwaiter_GetResult_m05FB789E6901C9496B94A722DF99239A979A2623_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6 (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *, Task_1_t8906695C9865566AA79419735634FF27AC74506E *, bool, const RuntimeMethod*))ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::get_IsCompleted()
-inline bool ConfiguredTaskAwaiter_get_IsCompleted_m1358F59D9346DF4A24793C6A211BC0AF3BC3AB04 (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *, const RuntimeMethod*))ConfiguredTaskAwaiter_get_IsCompleted_m1358F59D9346DF4A24793C6A211BC0AF3BC3AB04_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::UnsafeOnCompleted(System.Action)
-inline void ConfiguredTaskAwaiter_UnsafeOnCompleted_m3AC164CB90BE3D616C765C4E34A083B8E38E7696 (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))ConfiguredTaskAwaiter_UnsafeOnCompleted_m3AC164CB90BE3D616C765C4E34A083B8E38E7696_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::GetResult()
-inline Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  ConfiguredTaskAwaiter_GetResult_m519FEE37CB8F736EE39E33E1C36D4A0EE8C2611C (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, const RuntimeMethod* method)
-{
-	return ((  Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  (*) (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *, const RuntimeMethod*))ConfiguredTaskAwaiter_GetResult_m519FEE37CB8F736EE39E33E1C36D4A0EE8C2611C_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, bool, const RuntimeMethod*))ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::get_IsCompleted()
-inline bool ConfiguredTaskAwaiter_get_IsCompleted_mA1F08104B225C8640528B38BFD0AAAEE84541586 (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *, const RuntimeMethod*))ConfiguredTaskAwaiter_get_IsCompleted_mA1F08104B225C8640528B38BFD0AAAEE84541586_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::UnsafeOnCompleted(System.Action)
-inline void ConfiguredTaskAwaiter_UnsafeOnCompleted_m4839332C5C05D22963CEA62A1FEE699C68109404 (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))ConfiguredTaskAwaiter_UnsafeOnCompleted_m4839332C5C05D22963CEA62A1FEE699C68109404_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::GetResult()
-inline RuntimeObject * ConfiguredTaskAwaiter_GetResult_m4EE5BF4F8536CCC951CA3F4E3C494411AE2D507E (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, const RuntimeMethod* method)
-{
-	return ((  RuntimeObject * (*) (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *, const RuntimeMethod*))ConfiguredTaskAwaiter_GetResult_m4EE5BF4F8536CCC951CA3F4E3C494411AE2D507E_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840 (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *, bool, const RuntimeMethod*))ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::get_IsCompleted()
-inline bool ConfiguredTaskAwaiter_get_IsCompleted_m1429B429A92D467192E16F1291BAA5761706EAB0 (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *, const RuntimeMethod*))ConfiguredTaskAwaiter_get_IsCompleted_m1429B429A92D467192E16F1291BAA5761706EAB0_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::UnsafeOnCompleted(System.Action)
-inline void ConfiguredTaskAwaiter_UnsafeOnCompleted_mA3AA09BD7CC25D9F838DF9BBBF200B41C65BBD57 (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))ConfiguredTaskAwaiter_UnsafeOnCompleted_mA3AA09BD7CC25D9F838DF9BBBF200B41C65BBD57_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::GetResult()
-inline VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  ConfiguredTaskAwaiter_GetResult_mE6DE53E996B30ABB828D43811259EC164DDC607B (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, const RuntimeMethod* method)
-{
-	return ((  VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  (*) (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *, const RuntimeMethod*))ConfiguredTaskAwaiter_GetResult_mE6DE53E996B30ABB828D43811259EC164DDC607B_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7 (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 *, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::GetAwaiter()
-inline ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  ConfiguredTaskAwaitable_1_GetAwaiter_m2EF8D361B5AFBDA824FE2D5CE4704EF99AECA48F (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, const RuntimeMethod* method)
-{
-	return ((  ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  (*) (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 *, const RuntimeMethod*))ConfiguredTaskAwaitable_1_GetAwaiter_m2EF8D361B5AFBDA824FE2D5CE4704EF99AECA48F_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21 (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A *, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::GetAwaiter()
-inline ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  ConfiguredTaskAwaitable_1_GetAwaiter_m10B0B84F72A27E623BD94882380E582459F8B8DE (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, const RuntimeMethod* method)
-{
-	return ((  ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  (*) (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A *, const RuntimeMethod*))ConfiguredTaskAwaitable_1_GetAwaiter_m10B0B84F72A27E623BD94882380E582459F8B8DE_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65 (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 *, Task_1_t8906695C9865566AA79419735634FF27AC74506E *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::GetAwaiter()
-inline ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  ConfiguredTaskAwaitable_1_GetAwaiter_m2334D52A2F0403A09E55D5B4B4AA4DA5B2E318B5 (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, const RuntimeMethod* method)
-{
-	return ((  ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  (*) (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 *, const RuntimeMethod*))ConfiguredTaskAwaitable_1_GetAwaiter_m2334D52A2F0403A09E55D5B4B4AA4DA5B2E318B5_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7 (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 *, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::GetAwaiter()
-inline ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  ConfiguredTaskAwaitable_1_GetAwaiter_m86C543D72022CB5D0C43053C4AF5F37EA4E690A7 (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, const RuntimeMethod* method)
-{
-	return ((  ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  (*) (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 *, const RuntimeMethod*))ConfiguredTaskAwaitable_1_GetAwaiter_m86C543D72022CB5D0C43053C4AF5F37EA4E690A7_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-inline void ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7 (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	((  void (*) (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 *, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7_gshared)(__this, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::GetAwaiter()
-inline ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  ConfiguredTaskAwaitable_1_GetAwaiter_m39313F8D5E6D9668C8853AD0C710E7563C478D3B (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, const RuntimeMethod* method)
-{
-	return ((  ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  (*) (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 *, const RuntimeMethod*))ConfiguredTaskAwaitable_1_GetAwaiter_m39313F8D5E6D9668C8853AD0C710E7563C478D3B_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-inline void TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462 (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, const RuntimeMethod*))TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462_gshared)(__this, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::UnsafeOnCompleted(System.Action)
-inline void TaskAwaiter_1_UnsafeOnCompleted_m682D0FAFEEB8268BB1EC46583C9F93A15999E743 (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))TaskAwaiter_1_UnsafeOnCompleted_m682D0FAFEEB8268BB1EC46583C9F93A15999E743_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::GetResult()
-inline bool TaskAwaiter_1_GetResult_m77546DD82B46E6BAAAA79AB5F1BBCD2567E0F7F8 (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, const RuntimeMethod* method)
-{
-	return ((  bool (*) (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *, const RuntimeMethod*))TaskAwaiter_1_GetResult_m77546DD82B46E6BAAAA79AB5F1BBCD2567E0F7F8_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-inline void TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, const RuntimeMethod*))TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C_gshared)(__this, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::UnsafeOnCompleted(System.Action)
-inline void TaskAwaiter_1_UnsafeOnCompleted_m8D75DA13F52ABD6D5ACD823594F6A5CD43BE2A3E (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))TaskAwaiter_1_UnsafeOnCompleted_m8D75DA13F52ABD6D5ACD823594F6A5CD43BE2A3E_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::GetResult()
-inline int32_t TaskAwaiter_1_GetResult_m0E9661BE4684BA278EE9C6A4EE23FF62AEC86FB9 (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, const RuntimeMethod* method)
-{
-	return ((  int32_t (*) (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *, const RuntimeMethod*))TaskAwaiter_1_GetResult_m0E9661BE4684BA278EE9C6A4EE23FF62AEC86FB9_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-inline void TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7 (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *, Task_1_t8906695C9865566AA79419735634FF27AC74506E *, const RuntimeMethod*))TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7_gshared)(__this, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::UnsafeOnCompleted(System.Action)
-inline void TaskAwaiter_1_UnsafeOnCompleted_m7E93B0299FE83F1033255A6301667738DFE5AAE9 (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))TaskAwaiter_1_UnsafeOnCompleted_m7E93B0299FE83F1033255A6301667738DFE5AAE9_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::GetResult()
-inline Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  TaskAwaiter_1_GetResult_m4217CDEFE01548F642DB37447D3641FFE2598806 (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, const RuntimeMethod* method)
-{
-	return ((  Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  (*) (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *, const RuntimeMethod*))TaskAwaiter_1_GetResult_m4217CDEFE01548F642DB37447D3641FFE2598806_gshared)(__this, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-inline void TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0 (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, const RuntimeMethod*))TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0_gshared)(__this, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::UnsafeOnCompleted(System.Action)
-inline void TaskAwaiter_1_UnsafeOnCompleted_m4204CC2DE0200E2EFA43C485022F816D27298975 (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	((  void (*) (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))TaskAwaiter_1_UnsafeOnCompleted_m4204CC2DE0200E2EFA43C485022F816D27298975_gshared)(__this, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::GetResult()
-inline RuntimeObject * TaskAwaiter_1_GetResult_m9E148849CD4747E1BDD831E4FB2D7ECFA13C11C8 (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, const RuntimeMethod* method)
-{
-	return ((  RuntimeObject * (*) (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *, const RuntimeMethod*))TaskAwaiter_1_GetResult_m9E148849CD4747E1BDD831E4FB2D7ECFA13C11C8_gshared)(__this, method);
-}
 // System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>)
 inline void TaskAwaiter_1__ctor_mEC801EB8DC0BEA0BA3D3EBB76982C94FA66621F1 (TaskAwaiter_1_t2A96C6E5A8159F39BE46A120CE0712DCA38C4BCE * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, const RuntimeMethod* method)
 {
 	((  void (*) (TaskAwaiter_1_t2A96C6E5A8159F39BE46A120CE0712DCA38C4BCE *, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *, const RuntimeMethod*))TaskAwaiter_1__ctor_mEC801EB8DC0BEA0BA3D3EBB76982C94FA66621F1_gshared)(__this, ___task0, method);
 }
+// System.Void System.Runtime.CompilerServices.TaskAwaiter::OnCompletedInternal(System.Threading.Tasks.Task,System.Action,System.Boolean,System.Boolean)
+extern "C" IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3 (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * ___task0, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation1, bool ___continueOnCapturedContext2, bool ___flowExecutionContext3, const RuntimeMethod* method);
 // System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.VoidTaskResult>::UnsafeOnCompleted(System.Action)
 inline void TaskAwaiter_1_UnsafeOnCompleted_mCD78FE2109BECF3B49ABCC367C9A1304BD390A98 (TaskAwaiter_1_t2A96C6E5A8159F39BE46A120CE0712DCA38C4BCE * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
 {
 	((  void (*) (TaskAwaiter_1_t2A96C6E5A8159F39BE46A120CE0712DCA38C4BCE *, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *, const RuntimeMethod*))TaskAwaiter_1_UnsafeOnCompleted_mCD78FE2109BECF3B49ABCC367C9A1304BD390A98_gshared)(__this, ___continuation0, method);
 }
+// System.Void System.Runtime.CompilerServices.TaskAwaiter::ValidateEnd(System.Threading.Tasks.Task)
+extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * ___task0, const RuntimeMethod* method);
 // TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Threading.Tasks.VoidTaskResult>::GetResult()
 inline VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  TaskAwaiter_1_GetResult_m9653F7144240DCB33FCDAC21DE6A89FD12F58BA5 (TaskAwaiter_1_t2A96C6E5A8159F39BE46A120CE0712DCA38C4BCE * __this, const RuntimeMethod* method)
 {
@@ -10621,6 +10343,8 @@ extern "C" IL2CPP_METHOD_ATTR void Task__ctor_m0769EBAC32FC56E43AA3EA4697369AD1C
 extern "C" IL2CPP_METHOD_ATTR void ArgumentOutOfRangeException__ctor_m300CE4D04A068C209FD858101AC361C1B600B5AE (ArgumentOutOfRangeException_t94D19DF918A54511AEDF4784C9A08741BAD1DEDA * __this, String_t* ___paramName0, String_t* ___message1, const RuntimeMethod* method);
 // System.Void System.Threading.Tasks.Task::ScheduleAndStart(System.Boolean)
 extern "C" IL2CPP_METHOD_ATTR void Task_ScheduleAndStart_m7A3334C89BD4B47370D0A3CAE575EA54CCA01AEF (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * __this, bool ___needsProtection0, const RuntimeMethod* method);
+// System.Boolean System.Threading.Tasks.Task::get_IsCompleted()
+extern "C" IL2CPP_METHOD_ATTR bool Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19 (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * __this, const RuntimeMethod* method);
 // System.Boolean System.Threading.Tasks.Task::AtomicStateUpdate(System.Int32,System.Int32)
 extern "C" IL2CPP_METHOD_ATTR bool Task_AtomicStateUpdate_m8453A8B2D404F085626BC0BCFCB2593AA373F530 (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * __this, int32_t ___newBits0, int32_t ___illegalBits1, const RuntimeMethod* method);
 // System.Int32 System.Threading.Interlocked::Exchange(System.Int32&,System.Int32)
@@ -10649,6 +10373,51 @@ extern "C" IL2CPP_METHOD_ATTR void Task_Finish_m3CBED2C27D7A1E20A9D2A659D4DEA38F
 extern "C" IL2CPP_METHOD_ATTR void Task_RecordInternalCancellationRequest_m013F01E4EAD86112C78A242191F3A3887F0A15BB (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * __this, CancellationToken_t9E956952F7F20908F2AE72EDF36D97E6C7DB63AB  ___tokenToRecord0, RuntimeObject * ___cancellationException1, const RuntimeMethod* method);
 // System.Void System.Threading.Tasks.Task::CancellationCleanupLogic()
 extern "C" IL2CPP_METHOD_ATTR void Task_CancellationCleanupLogic_m85636A9F2412CDC73F9CFC7CEB87A3C48ECF6BB2 (Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 * __this, const RuntimeMethod* method);
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+inline void TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462 (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * p0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, const RuntimeMethod*))TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462_gshared)(__this, p0, method);
+}
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+inline void ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7 (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * p0, bool p1, const RuntimeMethod* method)
+{
+	((  void (*) (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 *, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7_gshared)(__this, p0, p1, method);
+}
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+inline void TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * p0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, const RuntimeMethod*))TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C_gshared)(__this, p0, method);
+}
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+inline void ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21 (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * p0, bool p1, const RuntimeMethod* method)
+{
+	((  void (*) (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A *, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21_gshared)(__this, p0, p1, method);
+}
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+inline void TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7 (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * p0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *, Task_1_t8906695C9865566AA79419735634FF27AC74506E *, const RuntimeMethod*))TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7_gshared)(__this, p0, method);
+}
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+inline void ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65 (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * p0, bool p1, const RuntimeMethod* method)
+{
+	((  void (*) (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 *, Task_1_t8906695C9865566AA79419735634FF27AC74506E *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65_gshared)(__this, p0, p1, method);
+}
+// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>)
+inline void TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0 (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * p0, const RuntimeMethod* method)
+{
+	((  void (*) (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, const RuntimeMethod*))TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0_gshared)(__this, p0, method);
+}
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+inline void ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7 (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * p0, bool p1, const RuntimeMethod* method)
+{
+	((  void (*) (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 *, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7_gshared)(__this, p0, p1, method);
+}
+// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
+inline void ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7 (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * p0, bool p1, const RuntimeMethod* method)
+{
+	((  void (*) (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 *, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *, bool, const RuntimeMethod*))ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7_gshared)(__this, p0, p1, method);
+}
 // System.Void System.Threading.Monitor::Enter(System.Object,System.Boolean&)
 extern "C" IL2CPP_METHOD_ATTR void Monitor_Enter_mC5B353DD83A0B0155DF6FBCC4DF5A580C25534C5 (RuntimeObject * ___obj0, bool* ___lockTaken1, const RuntimeMethod* method);
 // System.Void System.Array::Copy(System.Array,System.Array,System.Int32)
@@ -10869,777 +10638,6 @@ extern "C" IL2CPP_METHOD_ATTR Coroutine_tAE7DB2FC70A0AE6477F896F852057CB0754F06E
 extern "C" IL2CPP_METHOD_ATTR void MonoBehaviour_StopCoroutine_m3CDD6C046CC660D4CD6583FCE97F88A9735FD5FA (MonoBehaviour_t4A60845CF505405AF8BE8C61CC07F75CADEF6429 * __this, RuntimeObject* p0, const RuntimeMethod* method);
 // System.Void UnityEngine.Debug::LogError(System.Object)
 extern "C" IL2CPP_METHOD_ATTR void Debug_LogError_m3BCF9B78263152261565DCA9DB7D55F0C391ED29 (RuntimeObject * p0, const RuntimeMethod* method);
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		bool L_1 = ___continueOnCapturedContext1;
-		__this->set_m_continueOnCapturedContext_1(L_1);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80_AdjustorThunk (RuntimeObject * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *>(__this + 1);
-	ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_m3106B5C67EF6270B9DB4B5E1C5C687BCAA446F24_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		NullCheck((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0);
-		bool L_1 = Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		return L_1;
-	}
-}
-extern "C"  bool ConfiguredTaskAwaiter_get_IsCompleted_m3106B5C67EF6270B9DB4B5E1C5C687BCAA446F24_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *>(__this + 1);
-	return ConfiguredTaskAwaiter_get_IsCompleted_m3106B5C67EF6270B9DB4B5E1C5C687BCAA446F24(_thisAdjusted, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m52A95CEFA755CAAEE1E8755101ACA45A295A7A35_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		bool L_2 = (bool)__this->get_m_continueOnCapturedContext_1();
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)L_2, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter_UnsafeOnCompleted_m52A95CEFA755CAAEE1E8755101ACA45A295A7A35_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *>(__this + 1);
-	ConfiguredTaskAwaiter_UnsafeOnCompleted_m52A95CEFA755CAAEE1E8755101ACA45A295A7A35(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Boolean>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_GetResult_mC2B7B126733CDE385D61F2036F9D0668B36F171B_gshared (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_1 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		NullCheck((Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)L_1);
-		bool L_2 = ((  bool (*) (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  bool ConfiguredTaskAwaiter_GetResult_mC2B7B126733CDE385D61F2036F9D0668B36F171B_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 *>(__this + 1);
-	return ConfiguredTaskAwaiter_GetResult_mC2B7B126733CDE385D61F2036F9D0668B36F171B(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		bool L_1 = ___continueOnCapturedContext1;
-		__this->set_m_continueOnCapturedContext_1(L_1);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26_AdjustorThunk (RuntimeObject * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *>(__this + 1);
-	ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_mCBD6C3EF024E1D7C538268F338BD0C4BA712FA92_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		NullCheck((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0);
-		bool L_1 = Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		return L_1;
-	}
-}
-extern "C"  bool ConfiguredTaskAwaiter_get_IsCompleted_mCBD6C3EF024E1D7C538268F338BD0C4BA712FA92_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *>(__this + 1);
-	return ConfiguredTaskAwaiter_get_IsCompleted_mCBD6C3EF024E1D7C538268F338BD0C4BA712FA92(_thisAdjusted, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m51FAB5E9A9B65CADB2FC226EDDA77B18E003AD60_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		bool L_2 = (bool)__this->get_m_continueOnCapturedContext_1();
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)L_2, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter_UnsafeOnCompleted_m51FAB5E9A9B65CADB2FC226EDDA77B18E003AD60_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *>(__this + 1);
-	ConfiguredTaskAwaiter_UnsafeOnCompleted_m51FAB5E9A9B65CADB2FC226EDDA77B18E003AD60(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Int32>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR int32_t ConfiguredTaskAwaiter_GetResult_m05FB789E6901C9496B94A722DF99239A979A2623_gshared (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_1 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		NullCheck((Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)L_1);
-		int32_t L_2 = ((  int32_t (*) (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  int32_t ConfiguredTaskAwaiter_GetResult_m05FB789E6901C9496B94A722DF99239A979A2623_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E *>(__this + 1);
-	return ConfiguredTaskAwaiter_GetResult_m05FB789E6901C9496B94A722DF99239A979A2623(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		bool L_1 = ___continueOnCapturedContext1;
-		__this->set_m_continueOnCapturedContext_1(L_1);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6_AdjustorThunk (RuntimeObject * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *>(__this + 1);
-	ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_m1358F59D9346DF4A24793C6A211BC0AF3BC3AB04_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		NullCheck((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0);
-		bool L_1 = Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		return L_1;
-	}
-}
-extern "C"  bool ConfiguredTaskAwaiter_get_IsCompleted_m1358F59D9346DF4A24793C6A211BC0AF3BC3AB04_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *>(__this + 1);
-	return ConfiguredTaskAwaiter_get_IsCompleted_m1358F59D9346DF4A24793C6A211BC0AF3BC3AB04(_thisAdjusted, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m3AC164CB90BE3D616C765C4E34A083B8E38E7696_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		bool L_2 = (bool)__this->get_m_continueOnCapturedContext_1();
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)L_2, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter_UnsafeOnCompleted_m3AC164CB90BE3D616C765C4E34A083B8E38E7696_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *>(__this + 1);
-	ConfiguredTaskAwaiter_UnsafeOnCompleted_m3AC164CB90BE3D616C765C4E34A083B8E38E7696(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Nullable`1<System.Int32>>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  ConfiguredTaskAwaiter_GetResult_m519FEE37CB8F736EE39E33E1C36D4A0EE8C2611C_gshared (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_1 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		NullCheck((Task_1_t8906695C9865566AA79419735634FF27AC74506E *)L_1);
-		Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  L_2 = ((  Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  (*) (Task_1_t8906695C9865566AA79419735634FF27AC74506E *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_t8906695C9865566AA79419735634FF27AC74506E *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  ConfiguredTaskAwaiter_GetResult_m519FEE37CB8F736EE39E33E1C36D4A0EE8C2611C_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 *>(__this + 1);
-	return ConfiguredTaskAwaiter_GetResult_m519FEE37CB8F736EE39E33E1C36D4A0EE8C2611C(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		bool L_1 = ___continueOnCapturedContext1;
-		__this->set_m_continueOnCapturedContext_1(L_1);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B_AdjustorThunk (RuntimeObject * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *>(__this + 1);
-	ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_mA1F08104B225C8640528B38BFD0AAAEE84541586_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		NullCheck((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0);
-		bool L_1 = Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		return L_1;
-	}
-}
-extern "C"  bool ConfiguredTaskAwaiter_get_IsCompleted_mA1F08104B225C8640528B38BFD0AAAEE84541586_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *>(__this + 1);
-	return ConfiguredTaskAwaiter_get_IsCompleted_mA1F08104B225C8640528B38BFD0AAAEE84541586(_thisAdjusted, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_m4839332C5C05D22963CEA62A1FEE699C68109404_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		bool L_2 = (bool)__this->get_m_continueOnCapturedContext_1();
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)L_2, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter_UnsafeOnCompleted_m4839332C5C05D22963CEA62A1FEE699C68109404_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *>(__this + 1);
-	ConfiguredTaskAwaiter_UnsafeOnCompleted_m4839332C5C05D22963CEA62A1FEE699C68109404(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Object>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * ConfiguredTaskAwaiter_GetResult_m4EE5BF4F8536CCC951CA3F4E3C494411AE2D507E_gshared (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_1 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		NullCheck((Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)L_1);
-		RuntimeObject * L_2 = ((  RuntimeObject * (*) (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  RuntimeObject * ConfiguredTaskAwaiter_GetResult_m4EE5BF4F8536CCC951CA3F4E3C494411AE2D507E_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E *>(__this + 1);
-	return ConfiguredTaskAwaiter_GetResult_m4EE5BF4F8536CCC951CA3F4E3C494411AE2D507E(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		bool L_1 = ___continueOnCapturedContext1;
-		__this->set_m_continueOnCapturedContext_1(L_1);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840_AdjustorThunk (RuntimeObject * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *>(__this + 1);
-	ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Boolean System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::get_IsCompleted()
-extern "C" IL2CPP_METHOD_ATTR bool ConfiguredTaskAwaiter_get_IsCompleted_m1429B429A92D467192E16F1291BAA5761706EAB0_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * L_0 = (Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)__this->get_m_task_0();
-		NullCheck((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0);
-		bool L_1 = Task_get_IsCompleted_mA675F47CE1DBD1948BDC9215DCAE93F07FC32E19((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		return L_1;
-	}
-}
-extern "C"  bool ConfiguredTaskAwaiter_get_IsCompleted_m1429B429A92D467192E16F1291BAA5761706EAB0_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *>(__this + 1);
-	return ConfiguredTaskAwaiter_get_IsCompleted_m1429B429A92D467192E16F1291BAA5761706EAB0(_thisAdjusted, method);
-}
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaiter_UnsafeOnCompleted_mA3AA09BD7CC25D9F838DF9BBBF200B41C65BBD57_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * L_0 = (Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		bool L_2 = (bool)__this->get_m_continueOnCapturedContext_1();
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)L_2, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaiter_UnsafeOnCompleted_mA3AA09BD7CC25D9F838DF9BBBF200B41C65BBD57_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *>(__this + 1);
-	ConfiguredTaskAwaiter_UnsafeOnCompleted_mA3AA09BD7CC25D9F838DF9BBBF200B41C65BBD57(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<System.Threading.Tasks.VoidTaskResult>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  ConfiguredTaskAwaiter_GetResult_mE6DE53E996B30ABB828D43811259EC164DDC607B_gshared (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * L_0 = (Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * L_1 = (Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)__this->get_m_task_0();
-		NullCheck((Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)L_1);
-		VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  L_2 = ((  VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  (*) (Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  VoidTaskResult_t66EBC10DDE738848DB00F6EC1A2536D7D4715F40  ConfiguredTaskAwaiter_GetResult_mE6DE53E996B30ABB828D43811259EC164DDC607B_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 *>(__this + 1);
-	return ConfiguredTaskAwaiter_GetResult_mE6DE53E996B30ABB828D43811259EC164DDC607B(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7_gshared (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = ___task0;
-		bool L_1 = ___continueOnCapturedContext1;
-		ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  L_2;
-		memset(&L_2, 0, sizeof(L_2));
-		ConfiguredTaskAwaiter__ctor_mBC2C82388746A0B33A7CC359CB90AB34F4CB0F80((&L_2), (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		__this->set_m_configuredTaskAwaiter_0(L_2);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7_AdjustorThunk (RuntimeObject * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 *>(__this + 1);
-	ConfiguredTaskAwaitable_1__ctor_mFB57BDDFCD7717F4EFBA0C41312C99E8E24D31C7(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Boolean>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  ConfiguredTaskAwaitable_1_GetAwaiter_m2EF8D361B5AFBDA824FE2D5CE4704EF99AECA48F_gshared (ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * __this, const RuntimeMethod* method)
-{
-	{
-		ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  L_0 = (ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065 )__this->get_m_configuredTaskAwaiter_0();
-		return L_0;
-	}
-}
-extern "C"  ConfiguredTaskAwaiter_t785B9A8BC038067B15BF7BC1343F623CB02FD065  ConfiguredTaskAwaitable_1_GetAwaiter_m2EF8D361B5AFBDA824FE2D5CE4704EF99AECA48F_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_t1BE33447D45233CB970D730E5238A5ACDDBF1B82 *>(__this + 1);
-	return ConfiguredTaskAwaitable_1_GetAwaiter_m2EF8D361B5AFBDA824FE2D5CE4704EF99AECA48F(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21_gshared (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = ___task0;
-		bool L_1 = ___continueOnCapturedContext1;
-		ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  L_2;
-		memset(&L_2, 0, sizeof(L_2));
-		ConfiguredTaskAwaiter__ctor_mFD356296FDD56905A728A7EF64E95DA08F0CDE26((&L_2), (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		__this->set_m_configuredTaskAwaiter_0(L_2);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21_AdjustorThunk (RuntimeObject * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A *>(__this + 1);
-	ConfiguredTaskAwaitable_1__ctor_m9038EF920A0F90A746627FF394F3A44ED51CFB21(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Int32>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  ConfiguredTaskAwaitable_1_GetAwaiter_m10B0B84F72A27E623BD94882380E582459F8B8DE_gshared (ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * __this, const RuntimeMethod* method)
-{
-	{
-		ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  L_0 = (ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E )__this->get_m_configuredTaskAwaiter_0();
-		return L_0;
-	}
-}
-extern "C"  ConfiguredTaskAwaiter_t18D0589F789FFE82A30A223888FB7C5BED32C63E  ConfiguredTaskAwaitable_1_GetAwaiter_m10B0B84F72A27E623BD94882380E582459F8B8DE_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_t10E65A50D6EC08956E9F550CD64330F4DED0D38A *>(__this + 1);
-	return ConfiguredTaskAwaitable_1_GetAwaiter_m10B0B84F72A27E623BD94882380E582459F8B8DE(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65_gshared (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = ___task0;
-		bool L_1 = ___continueOnCapturedContext1;
-		ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  L_2;
-		memset(&L_2, 0, sizeof(L_2));
-		ConfiguredTaskAwaiter__ctor_m65A330A30ED362D6C4EAF458B49EC2BDA696FCC6((&L_2), (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		__this->set_m_configuredTaskAwaiter_0(L_2);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65_AdjustorThunk (RuntimeObject * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 *>(__this + 1);
-	ConfiguredTaskAwaitable_1__ctor_m6206D3FA84DD3A2669B888A18E1B64B0F3D53D65(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Nullable`1<System.Int32>>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  ConfiguredTaskAwaitable_1_GetAwaiter_m2334D52A2F0403A09E55D5B4B4AA4DA5B2E318B5_gshared (ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * __this, const RuntimeMethod* method)
-{
-	{
-		ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  L_0 = (ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740 )__this->get_m_configuredTaskAwaiter_0();
-		return L_0;
-	}
-}
-extern "C"  ConfiguredTaskAwaiter_t7DF2E84988582301369783F2ECA65B4F26D5A740  ConfiguredTaskAwaitable_1_GetAwaiter_m2334D52A2F0403A09E55D5B4B4AA4DA5B2E318B5_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_tBB2B2DCC75E051E96BC844D2AADFE67C2EB3A872 *>(__this + 1);
-	return ConfiguredTaskAwaitable_1_GetAwaiter_m2334D52A2F0403A09E55D5B4B4AA4DA5B2E318B5(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7_gshared (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = ___task0;
-		bool L_1 = ___continueOnCapturedContext1;
-		ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  L_2;
-		memset(&L_2, 0, sizeof(L_2));
-		ConfiguredTaskAwaiter__ctor_mFE77210335876C9788ECDD3C5393C4636B39A00B((&L_2), (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		__this->set_m_configuredTaskAwaiter_0(L_2);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7_AdjustorThunk (RuntimeObject * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 *>(__this + 1);
-	ConfiguredTaskAwaitable_1__ctor_mB82ADF237AE2CA3076F32A86D153EBD7B339E3B7(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Object>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  ConfiguredTaskAwaitable_1_GetAwaiter_m86C543D72022CB5D0C43053C4AF5F37EA4E690A7_gshared (ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * __this, const RuntimeMethod* method)
-{
-	{
-		ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  L_0 = (ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E )__this->get_m_configuredTaskAwaiter_0();
-		return L_0;
-	}
-}
-extern "C"  ConfiguredTaskAwaiter_tFB3C4197768C6CF02BE088F703AA6E46D703D46E  ConfiguredTaskAwaitable_1_GetAwaiter_m86C543D72022CB5D0C43053C4AF5F37EA4E690A7_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_tA36F8230F9392F8C09FD6FDBAEA3F1A41388CCA8 *>(__this + 1);
-	return ConfiguredTaskAwaitable_1_GetAwaiter_m86C543D72022CB5D0C43053C4AF5F37EA4E690A7(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::.ctor(System.Threading.Tasks.Task`1<TResult>,System.Boolean)
-extern "C" IL2CPP_METHOD_ATTR void ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7_gshared (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	{
-		Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * L_0 = ___task0;
-		bool L_1 = ___continueOnCapturedContext1;
-		ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  L_2;
-		memset(&L_2, 0, sizeof(L_2));
-		ConfiguredTaskAwaiter__ctor_m0E48D705E5FED5CC83670FA7A2B32702BBE20840((&L_2), (Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 *)L_0, (bool)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 1));
-		__this->set_m_configuredTaskAwaiter_0(L_2);
-		return;
-	}
-}
-extern "C"  void ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7_AdjustorThunk (RuntimeObject * __this, Task_1_t1359D75350E9D976BFA28AD96E417450DE277673 * ___task0, bool ___continueOnCapturedContext1, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 *>(__this + 1);
-	ConfiguredTaskAwaitable_1__ctor_mAD28136B3EBB7A59923B02CD31DE0E0DB4B69FA7(_thisAdjusted, ___task0, ___continueOnCapturedContext1, method);
-}
-// System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1/ConfiguredTaskAwaiter<TResult> System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1<System.Threading.Tasks.VoidTaskResult>::GetAwaiter()
-extern "C" IL2CPP_METHOD_ATTR ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  ConfiguredTaskAwaitable_1_GetAwaiter_m39313F8D5E6D9668C8853AD0C710E7563C478D3B_gshared (ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * __this, const RuntimeMethod* method)
-{
-	{
-		ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  L_0 = (ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4 )__this->get_m_configuredTaskAwaiter_0();
-		return L_0;
-	}
-}
-extern "C"  ConfiguredTaskAwaiter_t5A7BFB889EC19616C3271962663CCFD263CE8CA4  ConfiguredTaskAwaitable_1_GetAwaiter_m39313F8D5E6D9668C8853AD0C710E7563C478D3B_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 * _thisAdjusted = reinterpret_cast<ConfiguredTaskAwaitable_1_tBF6C7E1E5DE2AF3654C5691FB3AF9811B3D076C3 *>(__this + 1);
-	return ConfiguredTaskAwaitable_1_GetAwaiter_m39313F8D5E6D9668C8853AD0C710E7563C478D3B(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462_AdjustorThunk (RuntimeObject * __this, Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * ___task0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *>(__this + 1);
-	TaskAwaiter_1__ctor_m078326DA7A5138138D497CB9B078D8579CF14462(_thisAdjusted, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m682D0FAFEEB8268BB1EC46583C9F93A15999E743_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)1, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1_UnsafeOnCompleted_m682D0FAFEEB8268BB1EC46583C9F93A15999E743_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *>(__this + 1);
-	TaskAwaiter_1_UnsafeOnCompleted_m682D0FAFEEB8268BB1EC46583C9F93A15999E743(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Boolean>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR bool TaskAwaiter_1_GetResult_m77546DD82B46E6BAAAA79AB5F1BBCD2567E0F7F8_gshared (TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_0 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 * L_1 = (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)__this->get_m_task_0();
-		NullCheck((Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)L_1);
-		bool L_2 = ((  bool (*) (Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_tD6131FE3A3A2F1D58DB886B6CF31A2672B75B439 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  bool TaskAwaiter_1_GetResult_m77546DD82B46E6BAAAA79AB5F1BBCD2567E0F7F8_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_tFD52D9BC245E2C60016F2E6F4CC4A15361418090 *>(__this + 1);
-	return TaskAwaiter_1_GetResult_m77546DD82B46E6BAAAA79AB5F1BBCD2567E0F7F8(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C_AdjustorThunk (RuntimeObject * __this, Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * ___task0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *>(__this + 1);
-	TaskAwaiter_1__ctor_m4A4E61E7DB982E9BCA40B3EFD7FF84D8419D285C(_thisAdjusted, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m8D75DA13F52ABD6D5ACD823594F6A5CD43BE2A3E_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)1, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1_UnsafeOnCompleted_m8D75DA13F52ABD6D5ACD823594F6A5CD43BE2A3E_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *>(__this + 1);
-	TaskAwaiter_1_UnsafeOnCompleted_m8D75DA13F52ABD6D5ACD823594F6A5CD43BE2A3E(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Int32>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR int32_t TaskAwaiter_1_GetResult_m0E9661BE4684BA278EE9C6A4EE23FF62AEC86FB9_gshared (TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_0 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 * L_1 = (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)__this->get_m_task_0();
-		NullCheck((Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)L_1);
-		int32_t L_2 = ((  int32_t (*) (Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_t640F0CBB720BB9CD14B90B7B81624471A9F56D87 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  int32_t TaskAwaiter_1_GetResult_m0E9661BE4684BA278EE9C6A4EE23FF62AEC86FB9_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t76D3FA58DD26D9E230E85DA513E242AC5927BE24 *>(__this + 1);
-	return TaskAwaiter_1_GetResult_m0E9661BE4684BA278EE9C6A4EE23FF62AEC86FB9(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7_AdjustorThunk (RuntimeObject * __this, Task_1_t8906695C9865566AA79419735634FF27AC74506E * ___task0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *>(__this + 1);
-	TaskAwaiter_1__ctor_m6CE299FBBBB67F3F7D17B3C313A054E4936AACA7(_thisAdjusted, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m7E93B0299FE83F1033255A6301667738DFE5AAE9_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)1, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1_UnsafeOnCompleted_m7E93B0299FE83F1033255A6301667738DFE5AAE9_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *>(__this + 1);
-	TaskAwaiter_1_UnsafeOnCompleted_m7E93B0299FE83F1033255A6301667738DFE5AAE9(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Nullable`1<System.Int32>>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  TaskAwaiter_1_GetResult_m4217CDEFE01548F642DB37447D3641FFE2598806_gshared (TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_0 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_t8906695C9865566AA79419735634FF27AC74506E * L_1 = (Task_1_t8906695C9865566AA79419735634FF27AC74506E *)__this->get_m_task_0();
-		NullCheck((Task_1_t8906695C9865566AA79419735634FF27AC74506E *)L_1);
-		Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  L_2 = ((  Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  (*) (Task_1_t8906695C9865566AA79419735634FF27AC74506E *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_t8906695C9865566AA79419735634FF27AC74506E *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  Nullable_1_t0D03270832B3FFDDC0E7C2D89D4A0EA25376A1EB  TaskAwaiter_1_GetResult_m4217CDEFE01548F642DB37447D3641FFE2598806_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t9327EC945A8840DECFE162F5E830F4C834E806E4 *>(__this + 1);
-	return TaskAwaiter_1_GetResult_m4217CDEFE01548F642DB37447D3641FFE2598806(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::.ctor(System.Threading.Tasks.Task`1<TResult>)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = ___task0;
-		__this->set_m_task_0(L_0);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0_AdjustorThunk (RuntimeObject * __this, Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * ___task0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *>(__this + 1);
-	TaskAwaiter_1__ctor_m965BA6A8F352B8C6133D6AAEBC60B7767AFBCCB0(_thisAdjusted, ___task0, method);
-}
-// System.Void System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::UnsafeOnCompleted(System.Action)
-extern "C" IL2CPP_METHOD_ATTR void TaskAwaiter_1_UnsafeOnCompleted_m4204CC2DE0200E2EFA43C485022F816D27298975_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_1 = ___continuation0;
-		TaskAwaiter_OnCompletedInternal_m2D91F596B0BF61EF0213B36C2F3EF520851783C3((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, (Action_t591D2A86165F896B4B800BB5C25CE18672A55579 *)L_1, (bool)1, (bool)0, /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void TaskAwaiter_1_UnsafeOnCompleted_m4204CC2DE0200E2EFA43C485022F816D27298975_AdjustorThunk (RuntimeObject * __this, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___continuation0, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *>(__this + 1);
-	TaskAwaiter_1_UnsafeOnCompleted_m4204CC2DE0200E2EFA43C485022F816D27298975(_thisAdjusted, ___continuation0, method);
-}
-// TResult System.Runtime.CompilerServices.TaskAwaiter`1<System.Object>::GetResult()
-extern "C" IL2CPP_METHOD_ATTR RuntimeObject * TaskAwaiter_1_GetResult_m9E148849CD4747E1BDD831E4FB2D7ECFA13C11C8_gshared (TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * __this, const RuntimeMethod* method)
-{
-	{
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_0 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		TaskAwaiter_ValidateEnd_mE371CFCA15DE9618E07CB6751C588335FCE62F6D((Task_t1F48C203E163126EBC69ACCA679D1A462DEE9EB2 *)L_0, /*hidden argument*/NULL);
-		Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 * L_1 = (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)__this->get_m_task_0();
-		NullCheck((Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)L_1);
-		RuntimeObject * L_2 = ((  RuntimeObject * (*) (Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *, const RuntimeMethod*))IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0)->methodPointer)((Task_1_tA56001ED5270173CA1432EDFCD84EABB1024BC09 *)L_1, /*hidden argument*/IL2CPP_RGCTX_METHOD_INFO(InitializedTypeInfo(method->klass)->rgctx_data, 0));
-		return L_2;
-	}
-}
-extern "C"  RuntimeObject * TaskAwaiter_1_GetResult_m9E148849CD4747E1BDD831E4FB2D7ECFA13C11C8_AdjustorThunk (RuntimeObject * __this, const RuntimeMethod* method)
-{
-	TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 * _thisAdjusted = reinterpret_cast<TaskAwaiter_1_t8CDB78D2A4D48E80C35A8FF6FC04A82B9FC35977 *>(__this + 1);
-	return TaskAwaiter_1_GetResult_m9E148849CD4747E1BDD831E4FB2D7ECFA13C11C8(_thisAdjusted, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"

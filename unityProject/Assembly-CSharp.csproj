@@ -361,6 +361,24 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
@@ -369,24 +387,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween46">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween50">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween43">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
-    </Reference>
-    <Reference Include="DemiLib">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTweenPro">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

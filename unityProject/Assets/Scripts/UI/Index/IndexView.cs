@@ -21,7 +21,6 @@ public class IndexView : MonoBehaviour
             SceneManager.LoadScene("home");
         });
 
-        //
         StartCoroutine(CorGenerateCloud());
     }
 
@@ -43,30 +42,33 @@ public class IndexView : MonoBehaviour
     {
         while (true)
         {
-            //Transform cloud = gamePool.ExitPool().transform;
-            //InitCloud(cloud);
-            Transform cloud = Instantiate(Cloud,Cloud.parent);
-            cloud.gameObject.SetActive(true);
-            cloud.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-            cloud.SetAsFirstSibling();
+            Transform cloud = gamePool.ExitPool().transform;
+            InitCloud(cloud);
+           
+
+            //Transform cloud = Instantiate(Cloud,Cloud.parent);
+            //cloud.gameObject.SetActive(true);
+            //cloud.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            //cloud.SetAsFirstSibling();
             yield return new WaitForSeconds(0.7f);
         }
     }
 
     private void InitCloud(Transform cloud)
     {
-        cloud.SetParent(TrainHead);
-        transform.localPosition = new Vector3(-118, 84, 0);
-        Debug.Log(transform.localPosition);
-        transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-        transform.GetComponent<Image>().DOFade(1, 0.01f);
-
-        cloud.gameObject.SetActive(true);
+        cloud.localPosition = Cloud.localPosition;
+        cloud.SetAsFirstSibling();
+        Image img = cloud.GetComponent<Image>();
+        Color c = img.color;
+        img.color = new Color(img.color.r, img.color.g, img.color.b, 255);
+        cloud.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        cloud.name = "cloud";
 
     }
 
     public void CloudEnterPool(GameObject cloud)
     {
+        cloud.gameObject.SetActive(false);
         gamePool.EnterPool(cloud);
     }
 }

@@ -249,8 +249,6 @@ struct Type_t;
 struct TypeU5BU5D_t7FE623A666B49176DE123306221193E888A12F5F;
 // System.Void
 struct Void_t22962CB4C05B1D89B55A6E1139F0E87A90987017;
-// UnityEngine.Audio.AudioMixer
-struct AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F;
 // UnityEngine.AudioAmbisonicExtensionDefinition
 struct AudioAmbisonicExtensionDefinition_t4BCCD3A1E75B8DFBA3749F3007E33490E8536417;
 // UnityEngine.AudioAmbisonicExtensionDefinition[]
@@ -2248,26 +2246,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // AUDIOCLIPPLAYABLE_T6094311F945E65BC29F85B23A81E8426D596553C_H
-#ifndef AUDIOMIXER_T4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F_H
-#define AUDIOMIXER_T4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.Audio.AudioMixer
-struct  AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F  : public Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // AUDIOMIXER_T4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F_H
 #ifndef AUDIOMIXERPLAYABLE_T2C445EB39F9111CCFF7E2E1F813B22007862FA9F_H
 #define AUDIOMIXERPLAYABLE_T2C445EB39F9111CCFF7E2E1F813B22007862FA9F_H
 #ifdef __clang__
@@ -3132,34 +3110,6 @@ extern "C"  bool AudioClipPlayable_Equals_mEB47B5F2E1C643D403FA916C8961F117593DC
 {
 	AudioClipPlayable_t6094311F945E65BC29F85B23A81E8426D596553C * _thisAdjusted = reinterpret_cast<AudioClipPlayable_t6094311F945E65BC29F85B23A81E8426D596553C *>(__this + 1);
 	return AudioClipPlayable_Equals_mEB47B5F2E1C643D403FA916C8961F117593DCFC0(_thisAdjusted, ___other0, method);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Boolean UnityEngine.Audio.AudioMixer::SetFloat(System.String,System.Single)
-extern "C" IL2CPP_METHOD_ATTR bool AudioMixer_SetFloat_m9BDEA496607AEB0DA6B79D7C2623E38D38CFA1E1 (AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F * __this, String_t* ___name0, float ___value1, const RuntimeMethod* method)
-{
-	typedef bool (*AudioMixer_SetFloat_m9BDEA496607AEB0DA6B79D7C2623E38D38CFA1E1_ftn) (AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F *, String_t*, float);
-	static AudioMixer_SetFloat_m9BDEA496607AEB0DA6B79D7C2623E38D38CFA1E1_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (AudioMixer_SetFloat_m9BDEA496607AEB0DA6B79D7C2623E38D38CFA1E1_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Audio.AudioMixer::SetFloat(System.String,System.Single)");
-	bool retVal = _il2cpp_icall_func(__this, ___name0, ___value1);
-	return retVal;
-}
-// System.Boolean UnityEngine.Audio.AudioMixer::GetFloat(System.String,System.Single&)
-extern "C" IL2CPP_METHOD_ATTR bool AudioMixer_GetFloat_mBE309288DAC61AAC159BF1E98CD6402B6856E594 (AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F * __this, String_t* ___name0, float* ___value1, const RuntimeMethod* method)
-{
-	typedef bool (*AudioMixer_GetFloat_mBE309288DAC61AAC159BF1E98CD6402B6856E594_ftn) (AudioMixer_t4B13E2A32B5CCB989E7F0DFBF5370CFEF561541F *, String_t*, float*);
-	static AudioMixer_GetFloat_mBE309288DAC61AAC159BF1E98CD6402B6856E594_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (AudioMixer_GetFloat_mBE309288DAC61AAC159BF1E98CD6402B6856E594_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Audio.AudioMixer::GetFloat(System.String,System.Single&)");
-	bool retVal = _il2cpp_icall_func(__this, ___name0, ___value1);
-	return retVal;
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

@@ -721,10 +721,6 @@ extern "C" void StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_marshal_
 extern "C" void StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
 extern "C" void StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_marshal_pinvoke_cleanup(void* marshaledStructure);
 extern const RuntimeType StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_0_0_0;
-extern "C" void UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_marshal_pinvoke(void* managedStructure, void* marshaledStructure);
-extern "C" void UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
-extern "C" void UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_marshal_pinvoke_cleanup(void* marshaledStructure);
-extern const RuntimeType UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_0_0_0;
 extern "C" void Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_marshal_pinvoke(void* managedStructure, void* marshaledStructure);
 extern "C" void Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
 extern "C" void Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_marshal_pinvoke_cleanup(void* marshaledStructure);
@@ -773,6 +769,10 @@ extern "C" void SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pi
 extern "C" void SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
 extern "C" void SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_cleanup(void* marshaledStructure);
 extern const RuntimeType SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_0_0_0;
+extern "C" void SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_marshal_pinvoke(void* managedStructure, void* marshaledStructure);
+extern "C" void SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_marshal_pinvoke_back(void* marshaledStructure, void* managedStructure);
+extern "C" void SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_marshal_pinvoke_cleanup(void* marshaledStructure);
+extern const RuntimeType SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_0_0_0;
 extern "C" void DelegatePInvokeWrapper_AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6();
 extern const RuntimeType AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6_0_0_0;
 extern "C" void DelegatePInvokeWrapper_AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD();
@@ -992,7 +992,6 @@ extern Il2CppInteropData g_Il2CppInteropData[230] =
 	{ NULL, PathOptions_tE44D7F93669AF298F0376DB1276BFAF8902F65A7_marshal_pinvoke, PathOptions_tE44D7F93669AF298F0376DB1276BFAF8902F65A7_marshal_pinvoke_back, PathOptions_tE44D7F93669AF298F0376DB1276BFAF8902F65A7_marshal_pinvoke_cleanup, NULL, NULL, &PathOptions_tE44D7F93669AF298F0376DB1276BFAF8902F65A7_0_0_0 } /* DG.Tweening.Plugins.Options.PathOptions */,
 	{ NULL, RectOptions_t1C4579A85851F16B3300F373FC807B4913D59A5E_marshal_pinvoke, RectOptions_t1C4579A85851F16B3300F373FC807B4913D59A5E_marshal_pinvoke_back, RectOptions_t1C4579A85851F16B3300F373FC807B4913D59A5E_marshal_pinvoke_cleanup, NULL, NULL, &RectOptions_t1C4579A85851F16B3300F373FC807B4913D59A5E_0_0_0 } /* DG.Tweening.Plugins.Options.RectOptions */,
 	{ NULL, StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_marshal_pinvoke, StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_marshal_pinvoke_back, StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_marshal_pinvoke_cleanup, NULL, NULL, &StringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_0_0_0 } /* DG.Tweening.Plugins.Options.StringOptions */,
-	{ NULL, UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_marshal_pinvoke, UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_marshal_pinvoke_back, UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_marshal_pinvoke_cleanup, NULL, NULL, &UintOptions_tCD241771582D5159D0129AA82E86590D0A0FC1E6_0_0_0 } /* DG.Tweening.Plugins.Options.UintOptions */,
 	{ NULL, Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_marshal_pinvoke, Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_marshal_pinvoke_back, Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_marshal_pinvoke_cleanup, NULL, NULL, &Vector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_0_0_0 } /* DG.Tweening.Plugins.Options.Vector3ArrayOptions */,
 	{ NULL, VectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_marshal_pinvoke, VectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_marshal_pinvoke_back, VectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_marshal_pinvoke_cleanup, NULL, NULL, &VectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_0_0_0 } /* DG.Tweening.Plugins.Options.VectorOptions */,
 	{ DelegatePInvokeWrapper_TweenCallback_tD2CEE8D219857E8D988DBEC4D2DE19FA5FCB3E83, NULL, NULL, NULL, NULL, NULL, &TweenCallback_tD2CEE8D219857E8D988DBEC4D2DE19FA5FCB3E83_0_0_0 } /* DG.Tweening.TweenCallback */,
@@ -1009,6 +1008,7 @@ extern Il2CppInteropData g_Il2CppInteropData[230] =
 	{ DelegatePInvokeWrapper_Raycast3DCallback_t83483916473C9710AEDB316A65CBE62C58935C5F, NULL, NULL, NULL, NULL, NULL, &Raycast3DCallback_t83483916473C9710AEDB316A65CBE62C58935C5F_0_0_0 } /* UnityEngine.UI.ReflectionMethodsCache/Raycast3DCallback */,
 	{ DelegatePInvokeWrapper_RaycastAllCallback_t751407A44270E02FAA43D0846A58EE6A8C4AE1CE, NULL, NULL, NULL, NULL, NULL, &RaycastAllCallback_t751407A44270E02FAA43D0846A58EE6A8C4AE1CE_0_0_0 } /* UnityEngine.UI.ReflectionMethodsCache/RaycastAllCallback */,
 	{ NULL, SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke, SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_back, SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_marshal_pinvoke_cleanup, NULL, NULL, &SpriteState_t58B9DD66A79CD69AB4CFC3AD0C41E45DC2192C0A_0_0_0 } /* UnityEngine.UI.SpriteState */,
+	{ NULL, SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_marshal_pinvoke, SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_marshal_pinvoke_back, SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_marshal_pinvoke_cleanup, NULL, NULL, &SpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_0_0_0 } /* DG.Tweening.Plugins.SpiralOptions */,
 	{ DelegatePInvokeWrapper_AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6, NULL, NULL, NULL, NULL, NULL, &AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6_0_0_0 } /* AniEvent/AnimationEndDelegate */,
 	{ DelegatePInvokeWrapper_AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD, NULL, NULL, NULL, NULL, NULL, &AreaWasPainted_tE2F41090C63AB0ADD8423F3590BBDCD4764A7DBD_0_0_0 } /* Draw.ZhihuiPaint/AreaWasPainted */,
 	{ DelegatePInvokeWrapper_AreaWasPainted_tC7C5AB83194EAFC4108C7F804DA8E886BE5B55B5, NULL, NULL, NULL, NULL, NULL, &AreaWasPainted_tC7C5AB83194EAFC4108C7F804DA8E886BE5B55B5_0_0_0 } /* Draw_MobilePaint.MobilePaint/AreaWasPainted */,

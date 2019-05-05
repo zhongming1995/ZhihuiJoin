@@ -128,18 +128,6 @@ void RegisterAllStrippedInternalCalls()
 
 	//End Registrations for type : UnityEngine.AsyncOperation
 
-	//Start Registrations for type : UnityEngine.Audio.AudioMixer
-
-		//System.Boolean UnityEngine.Audio.AudioMixer::GetFloat(System.String,System.Single&)
-		void Register_UnityEngine_Audio_AudioMixer_GetFloat();
-		Register_UnityEngine_Audio_AudioMixer_GetFloat();
-
-		//System.Boolean UnityEngine.Audio.AudioMixer::SetFloat(System.String,System.Single)
-		void Register_UnityEngine_Audio_AudioMixer_SetFloat();
-		Register_UnityEngine_Audio_AudioMixer_SetFloat();
-
-	//End Registrations for type : UnityEngine.Audio.AudioMixer
-
 	//Start Registrations for type : UnityEngine.AudioClip
 
 		//System.Boolean UnityEngine.AudioClip::get_ambisonic()
@@ -914,6 +902,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_GameObject_Internal_AddComponentWithType();
 		Register_UnityEngine_GameObject_Internal_AddComponentWithType();
 
+		//UnityEngine.GameObject UnityEngine.GameObject::CreatePrimitive(UnityEngine.PrimitiveType)
+		void Register_UnityEngine_GameObject_CreatePrimitive();
+		Register_UnityEngine_GameObject_CreatePrimitive();
+
 		//UnityEngine.GameObject UnityEngine.GameObject::Find(System.String)
 		void Register_UnityEngine_GameObject_Find();
 		Register_UnityEngine_GameObject_Find();
@@ -957,10 +949,6 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Gradient::Cleanup()
 		void Register_UnityEngine_Gradient_Cleanup();
 		Register_UnityEngine_Gradient_Cleanup();
-
-		//UnityEngine.GradientColorKey[] UnityEngine.Gradient::get_colorKeys()
-		void Register_UnityEngine_Gradient_get_colorKeys();
-		Register_UnityEngine_Gradient_get_colorKeys();
 
 	//End Registrations for type : UnityEngine.Gradient
 
@@ -1734,6 +1722,10 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.ParticleSystem
 
+		//System.Void UnityEngine.ParticleSystem::Clear(System.Boolean)
+		void Register_UnityEngine_ParticleSystem_Clear();
+		Register_UnityEngine_ParticleSystem_Clear();
+
 		//System.Void UnityEngine.ParticleSystem::Emit_Injected(UnityEngine.ParticleSystem/EmitParams&,System.Int32)
 		void Register_UnityEngine_ParticleSystem_Emit_Injected();
 		Register_UnityEngine_ParticleSystem_Emit_Injected();
@@ -1745,6 +1737,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.ParticleSystem::Internal_EmitOld(UnityEngine.ParticleSystem/Particle&)
 		void Register_UnityEngine_ParticleSystem_Internal_EmitOld();
 		Register_UnityEngine_ParticleSystem_Internal_EmitOld();
+
+		//System.Void UnityEngine.ParticleSystem::Stop(System.Boolean,UnityEngine.ParticleSystemStopBehavior)
+		void Register_UnityEngine_ParticleSystem_Stop();
+		Register_UnityEngine_ParticleSystem_Stop();
 
 	//End Registrations for type : UnityEngine.ParticleSystem
 
@@ -1901,10 +1897,6 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Quaternion::LookRotation_Injected(UnityEngine.Vector3&,UnityEngine.Vector3&,UnityEngine.Quaternion&)
 		void Register_UnityEngine_Quaternion_LookRotation_Injected();
 		Register_UnityEngine_Quaternion_LookRotation_Injected();
-
-		//System.Void UnityEngine.Quaternion::Slerp_Injected(UnityEngine.Quaternion&,UnityEngine.Quaternion&,System.Single,UnityEngine.Quaternion&)
-		void Register_UnityEngine_Quaternion_Slerp_Injected();
-		Register_UnityEngine_Quaternion_Slerp_Injected();
 
 	//End Registrations for type : UnityEngine.Quaternion
 
@@ -2162,10 +2154,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Rigidbody_get_rotation_Injected();
 		Register_UnityEngine_Rigidbody_get_rotation_Injected();
 
-		//System.Void UnityEngine.Rigidbody::set_rotation_Injected(UnityEngine.Quaternion&)
-		void Register_UnityEngine_Rigidbody_set_rotation_Injected();
-		Register_UnityEngine_Rigidbody_set_rotation_Injected();
-
 	//End Registrations for type : UnityEngine.Rigidbody
 
 	//Start Registrations for type : UnityEngine.Rigidbody2D
@@ -2185,10 +2173,6 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Rigidbody2D::get_position_Injected(UnityEngine.Vector2&)
 		void Register_UnityEngine_Rigidbody2D_get_position_Injected();
 		Register_UnityEngine_Rigidbody2D_get_position_Injected();
-
-		//System.Void UnityEngine.Rigidbody2D::set_position_Injected(UnityEngine.Vector2&)
-		void Register_UnityEngine_Rigidbody2D_set_position_Injected();
-		Register_UnityEngine_Rigidbody2D_set_position_Injected();
 
 	//End Registrations for type : UnityEngine.Rigidbody2D
 
@@ -2609,10 +2593,6 @@ void RegisterAllStrippedInternalCalls()
 		//System.Single UnityEngine.Time::get_realtimeSinceStartup()
 		void Register_UnityEngine_Time_get_realtimeSinceStartup();
 		Register_UnityEngine_Time_get_realtimeSinceStartup();
-
-		//System.Single UnityEngine.Time::get_smoothDeltaTime()
-		void Register_UnityEngine_Time_get_smoothDeltaTime();
-		Register_UnityEngine_Time_get_smoothDeltaTime();
 
 		//System.Single UnityEngine.Time::get_time()
 		void Register_UnityEngine_Time_get_time();

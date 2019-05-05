@@ -10,7 +10,7 @@
       <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="173" Column="23" />
       <File FileName="Assets/Scripts/UI/Index/CloudAni.cs" Line="38" Column="54" />
       <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="52" Column="48" />
-      <File FileName="Assets/Scripts/UI/Index/WheelRotate.cs" Line="6" Column="34" />
+      <File FileName="Assets/Scripts/UI/Index/WheelRotate.cs" Line="6" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
