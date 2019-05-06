@@ -46,7 +46,7 @@ public class DisplayPartItem : MonoBehaviour
 
     public void UpdateAnimationClip()
     {
-        string clipName = "Animator|Greeting_" + partType.ToString();
+        string clipName = "Animator/Greeting|Greeting_" + partType.ToString();
         animation = GetComponent<Animation>();
         //AnimationClip clip = Resources.Load<AnimationClip>(clipName) as AnimationClip;
         AnimationClip clip = UIHelper.instance.LoadAnimationClip(clipName);
