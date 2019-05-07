@@ -12,6 +12,7 @@ public class DisplayPartItem : MonoBehaviour
     private string actionName = "Greeting_LeftEye";
     public string Greeting = "Greeting";
     public string Dancing1 = "Dance_1";
+    public string Default = "Default";
 
     public void SetPartType(PartType type)
     {
@@ -51,29 +52,7 @@ public class DisplayPartItem : MonoBehaviour
         //设置对应的动画
         //AddDanceAnimationClip();
         //打招呼的动作
-        PlayDance1();
-    }
-
-    public void AddGreetingAnimationClip()
-    {
-        string clipName = "Animator/Greeting|Greeting_" + partType.ToString();
-        animation = GetComponent<Animation>();
-        AnimationClip clip = UIHelper.instance.LoadAnimationClip(clipName);
-        if (clip!=null)
-        {
-            animation.AddClip(clip, Greeting);
-        }
-    }
-
-    public void AddDanceAnimationClip()
-    {
-        string clipName = "Animator/Dance|Dance_1_" + partType.ToString();
-        animation = GetComponent<Animation>();
-        AnimationClip clip = UIHelper.instance.LoadAnimationClip(clipName);
-        if (clip != null)
-        {
-            animation.AddClip(clip, Dancing1);
-        }
+        //PlayDance1();
     }
 
     public void PlayGreeting()
@@ -83,13 +62,22 @@ public class DisplayPartItem : MonoBehaviour
         //{
         //    animation.Play(aniName);
         //}
-        PlayDance1();
+        PlayDefault();
     }
 
     public void PlayDance1()
     {
         string aniName = Dancing1 + "_" + partType.ToString();
         if (animation.GetClip(aniName)!=null)
+        {
+            animation.Play(aniName);
+        }
+    }
+
+    public void PlayDefault()
+    {
+        string aniName = Default + "_" + partType.ToString();
+        if (animation.GetClip(aniName) != null)
         {
             animation.Play(aniName);
         }

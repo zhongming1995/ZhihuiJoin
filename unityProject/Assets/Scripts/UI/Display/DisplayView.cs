@@ -94,12 +94,17 @@ public class DisplayView : MonoBehaviour
         person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
 
+
+
         //加上按钮
         Button btn = person.gameObject.AddComponent<Button>();
         btn.onClick.AddListener(Greeting);
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-              
+
+        //播放打招呼的动画
+        Greeting();
+
         //生成静态展示图片
         StartCoroutine(CutScreen());
     }
@@ -152,6 +157,10 @@ public class DisplayView : MonoBehaviour
 
     public void Greeting()
     {
+        if (lstDisplayItem==null)
+        {
+            Debug.Log("null");
+        }
         for (int i = 0; i < lstDisplayItem.Length; i++)
         {
             lstDisplayItem[i].PlayGreeting();

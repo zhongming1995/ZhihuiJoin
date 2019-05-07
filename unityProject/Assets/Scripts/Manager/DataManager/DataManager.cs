@@ -12,6 +12,8 @@ namespace DataMgr
     public class DataManager : SingletonMono<DataManager>
     {
         string personFilePath = "";
+
+        [HideInInspector]
         public List<PartData> partDataList = new List<PartData>();
 
         void Awake()
@@ -103,8 +105,6 @@ namespace DataMgr
         {
 
             GameObject person = new GameObject("person");
-            //GameObject body = new GameObject("body");
-            //body.transform.SetParent(person.transform);
             Transform transBody = person.transform;
             for (int i = 0; i < part.Count; i++)
             {
@@ -151,7 +151,10 @@ namespace DataMgr
 
         public DisplayPartItem[] GetListDiaplayItem(Transform personObj)
         {
-             return personObj.GetComponentsInChildren<DisplayPartItem>();
+            Debug.Log(personObj);
+            DisplayPartItem[] arr = personObj.GetComponentsInChildren<DisplayPartItem>(true);
+            Debug.Log("len====" + arr.Length);
+            return personObj.GetComponentsInChildren<DisplayPartItem>(true);
         }
     }
 }

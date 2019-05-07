@@ -54,7 +54,6 @@ public class JoinGuide : MonoBehaviour
             if (AudioManager.instance.effectAudioSource.isPlaying == false && isOperating == false)
             {
                 operationStartTime += 0.1f;
-                Debug.Log(operationStartTime);
                 if (operationStartTime > noOperatipnTimeLimit)
                 {
                     reminderCount++;
