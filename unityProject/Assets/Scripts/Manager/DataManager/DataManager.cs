@@ -108,66 +108,18 @@ namespace DataMgr
             Transform transBody = person.transform;
             for (int i = 0; i < part.Count; i++)
             {
-                /*
-                Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
-                Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
-                Image img = obj.GetComponent<Image>();
-                Texture2D t = new Texture2D(500, 500,TextureFormat.RGBA32,false);
-                t.filterMode = FilterMode.Point;
-                t.LoadImage(part[i].ImgBytes);
-                t.Apply(false);
-                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-                img.sprite = s;
-                img.SetNativeSize();
-                //DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
-                //item.partType = part[i].Type;
-                //item.Init();
-                */
-                //将Hat,HeadWear,Mouse,Hair,Eye作为Body的子物体
-                /*
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 PartType partType = part[i].Type;
                 GameObject obj;
-                obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_res", person.transform, pos, scale);
-                if (partType == PartType.LeftLeg||partType==PartType.RightLeg||partType==PartType.LeftHand||partType==PartType.RightHand||partType==PartType.Body)
-                {
-                    if (partType==PartType.Body)
-                    {
-                        transBody = obj.transform;
-                    }
-                }
-                else
-                {
-                    obj.transform.SetParent(transBody);
-                }
-
-                Image img = obj.GetComponent<Image>();
-                Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
-                t.filterMode = FilterMode.Point;
-                t.LoadImage(part[i].ImgBytes);
-                t.Apply(false);
-                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-                img.sprite = s;
-                img.SetNativeSize();
-                obj.transform.localScale = scale;
-
-                DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
-                item.partType = part[i].Type;
-                item.Init();
-                */
-
-                Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
-                Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                PartType partType = part[i].Type;
-                GameObject obj;
-                obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_item", person.transform, pos, scale);
+                //obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_item", person.transform, pos, scale);
+                string path = "Prefabs/display/display_part|display_item_" + partType.ToString().ToLower();  
+                obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                 if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
                 {
                     if (partType == PartType.Body)
                     {
-                        transBody = obj.transform;
+                        transBody = obj.transform.Find("img_item").transform;
                     }
                 }
                 else

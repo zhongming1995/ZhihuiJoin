@@ -10,6 +10,8 @@ public class DisplayPartItem : MonoBehaviour
     private Animation animation;
     private RectTransform rectTransform;
     private string actionName = "Greeting_LeftEye";
+    public string Greeting = "Greeting";
+    public string Dancing1 = "Dance_1";
 
     public void SetPartType(PartType type)
     {
@@ -18,6 +20,8 @@ public class DisplayPartItem : MonoBehaviour
 
     public void Init()
     {
+        animation = GetComponent<Animation>();
+        /*
         rectTransform = GetComponent<RectTransform>();
 
         //修改锚点
@@ -29,7 +33,12 @@ public class DisplayPartItem : MonoBehaviour
         {
             rectTransform.pivot = new Vector2(1, 1);
             Vector3 oriPos = transform.localPosition;
+            RectTransform rectImg = rectTransform.Find("img_item").GetComponent<RectTransform>();
+            //rectImg.offsetMin = new Vector2(1, 1);
+            //rectImg.offsetMax = new Vector2(1, 1);
+            rectImg.pivot = new Vector2(1, 1);
             transform.localPosition = new Vector3(oriPos.x + rectTransform.sizeDelta.x / 2, oriPos.y + rectTransform.sizeDelta.y / 2, oriPos.z);
+            //rectImg.transform.localPosition = 
         }
         else if (partType == PartType.RightHand || partType == PartType.RightLeg)
         {
@@ -37,45 +46,52 @@ public class DisplayPartItem : MonoBehaviour
             Vector3 oriPos = transform.localPosition;
             transform.localPosition = new Vector3(oriPos.x - rectTransform.sizeDelta.x / 2, oriPos.y + rectTransform.sizeDelta.y / 2, oriPos.z);
         }
+        */
 
         //设置对应的动画
-        UpdateAnimationClip();
+        //AddDanceAnimationClip();
         //打招呼的动作
-        PlayGreeting();
+        PlayDance1();
     }
 
-    public void UpdateAnimationClip()
+    public void AddGreetingAnimationClip()
     {
         string clipName = "Animator/Greeting|Greeting_" + partType.ToString();
         animation = GetComponent<Animation>();
-        //AnimationClip clip = Resources.Load<AnimationClip>(clipName) as AnimationClip;
         AnimationClip clip = UIHelper.instance.LoadAnimationClip(clipName);
         if (clip!=null)
         {
-            animation.AddClip(clip, "greeting");
+            animation.AddClip(clip, Greeting);
         }
+    }
 
-        /*
-         *   用Animator的做法，后来改成Animation     
-        animator = GetComponent<Animator>();
-
-        AnimatorOverrideController overrideController = new AnimatorOverrideController();
-        overrideController.runtimeAnimatorController = animator.runtimeAnimatorController;
-        string clipName = "Animator/Greeting_" + partType.ToString();
-        Debug.Log("clipName:" + clipName);
-        overrideController[actionName] = Resources.Load<AnimationClip>(clipName) as AnimationClip;
-        if (overrideController[actionName] == null)
+    public void AddDanceAnimationClip()
+    {
+        string clipName = "Animator/Dance|Dance_1_" + partType.ToString();
+        animation = GetComponent<Animation>();
+        AnimationClip clip = UIHelper.instance.LoadAnimationClip(clipName);
+        if (clip != null)
         {
-            Debug.Log("null");
+            animation.AddClip(clip, Dancing1);
         }
-        animator.runtimeAnimatorController = null;
-        animator.runtimeAnimatorController = overrideController;
-        */
-
     }
 
     public void PlayGreeting()
     {
-        animation.Play("greeting");
+        //string aniName = Greeting + "_" + partType.ToString();
+        //if (animation.GetClip(aniName) != null)
+        //{
+        //    animation.Play(aniName);
+        //}
+        PlayDance1();
+    }
+
+    public void PlayDance1()
+    {
+        string aniName = Dancing1 + "_" + partType.ToString();
+        if (animation.GetClip(aniName)!=null)
+        {
+            animation.Play(aniName);
+        }
     }
 }
