@@ -32,17 +32,21 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
 
+    [HideInInspector]
     public MobilePaint mobilePaint;
     private Transform BodyGroup;
     private Transform CanvasTrans;
 
+    [HideInInspector]
     public bool hasPainted;//涂色过，即涂色面积>0过
+    [HideInInspector]
     public bool hasDraged;//是否拖入过素材（附着过）
 
     //定义数据变量
     private Transform curSelectResObj ;
     private int typeCount = 8;//资源类型数量
     private int step = 1;//步骤1-4
+    [HideInInspector]
     public List<Transform> typeTransList = new List<Transform>();//类型列表
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
     private bool[] guideResult = {false,false,false,false };//用来标示每一步的引导语音是否已经播放

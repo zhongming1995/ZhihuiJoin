@@ -132,6 +132,9 @@
     <Compile Include="Assets\Scripts\UI\Join\JoinMainView.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResDragItem.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResTemplate.cs" />
+    <Compile Include="Assets\Scripts\UI\Piano\PianoKey.cs" />
+    <Compile Include="Assets\Scripts\UI\Piano\PianoSpectrum.cs" />
+    <Compile Include="Assets\Scripts\UI\Piano\PianoView.cs" />
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\MobilePaint\Materials\Shaders\CanvasDefault.shader" />
     <None Include="Assets\MobilePaint\Materials\Shaders\DecalModified.shader" />
