@@ -35,7 +35,8 @@ public class JoinMainView : MonoBehaviour
     [HideInInspector]
     public MobilePaint mobilePaint;
     private Transform BodyGroup;
-    private Transform CanvasTrans;
+    [HideInInspector]
+    public Transform CanvasTrans;
 
     [HideInInspector]
     public bool hasPainted;//涂色过，即涂色面积>0过
@@ -235,7 +236,7 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.sprite = s;
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
-            DataManager.instance.partDataList = DataManager.instance.TransformToPartsList(DrawPanel);
+            DataManager.instance.TransformToPartsList(DrawPanel);
             UIHelper.instance.LoadPrefab("prefabs/display|display_view",CanvasTrans, Vector3.zero, Vector3.one, true);
 
         });

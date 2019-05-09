@@ -15,6 +15,9 @@ namespace DataMgr
 
         [HideInInspector]
         public List<PartData> partDataList = new List<PartData>();
+        private DisplayPartItem[] lstDisplayItem ;
+
+        private GameObject curPerson;
 
         void Awake()
         {
@@ -49,6 +52,7 @@ namespace DataMgr
                 }
             }
             Debug.Log("部位数：" + parts.Count);
+            partDataList = parts;
             return parts;
             //SerializePersonData(parts);
         }
@@ -103,7 +107,6 @@ namespace DataMgr
         /// <param name="part">Part.</param>
         public GameObject GetPersonObj(List<PartData> part)
         {
-
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
             for (int i = 0; i < part.Count; i++)
@@ -112,7 +115,6 @@ namespace DataMgr
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 PartType partType = part[i].Type;
                 GameObject obj;
-                //obj = UIHelper.instance.LoadPrefab("Prefabs/display|display_item", person.transform, pos, scale);
                 string path = "Prefabs/display/display_part|display_item_" + partType.ToString().ToLower();  
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                 if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
@@ -146,15 +148,54 @@ namespace DataMgr
                 item.partType = part[i].Type;
                 item.Init();
             }
+            curPerson = person;
+            GetListDiaplayItem(person.transform);
             return person;
         }
 
         public DisplayPartItem[] GetListDiaplayItem(Transform personObj)
         {
-            Debug.Log(personObj);
-            DisplayPartItem[] arr = personObj.GetComponentsInChildren<DisplayPartItem>(true);
-            Debug.Log("len====" + arr.Length);
-            return personObj.GetComponentsInChildren<DisplayPartItem>(true);
+            lstDisplayItem = personObj.GetComponentsInChildren<DisplayPartItem>(true);
+            return lstDisplayItem;
+        }
+
+        public void PersonGreeting()
+        {
+            if (lstDisplayItem == null)
+            {
+                Debug.Log("lstDisplayItem is null-----");
+                return;
+            }
+            for (int i = 0; i < lstDisplayItem.Length; i++)
+            {
+                lstDisplayItem[i].PlayGreeting();
+            }
+        }
+
+        public void PersonDance1()
+        {
+            if (lstDisplayItem == null)
+            {
+                Debug.Log("lstDisplayItem is null-----");
+                return;
+            }
+            for (int i = 0; i < lstDisplayItem.Length; i++)
+            {
+                lstDisplayItem[i].PlayDance1();
+            }
+        }
+
+        public void PersonDefaultAni()
+        {
+            if (lstDisplayItem == null)
+            {
+                Debug.Log("lstDisplayItem is null-----");
+                return;
+            }
+            for (int i = 0; i < lstDisplayItem.Length; i++)
+            {
+                lstDisplayItem[i].PlayDefault();
+            }
         }
     }
 }

@@ -17,18 +17,18 @@ public class PianoKey : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Application.platform==RuntimePlatform.OSXEditor||Application.platform==RuntimePlatform.WindowsEditor)
-        {
-            DoKeyDown(transform);
-        }
+        //if (Application.platform==RuntimePlatform.OSXEditor||Application.platform==RuntimePlatform.WindowsEditor)
+        //{
+        //    DoKeyDown(transform);
+        //}
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
-        {
+        //if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
+        //{
             DoKeyDown(transform);
-        }
+        //}
     }
 
     public void OnPointerExit(PointerEventData eventData)

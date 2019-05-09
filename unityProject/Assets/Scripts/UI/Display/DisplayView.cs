@@ -15,11 +15,10 @@ public class DisplayView : MonoBehaviour
     public Button BtnHome;
     public Button BtnBack;
     public Button BtnSave;
+    public Button BtnGame;
     public Transform ImgDisplay;
     public Transform PosFlag1;//左上角截屏定位点
     public Transform PosFlag2;//右下角截屏定位点
-    public Transform PosFlagLeftBottom;//左下角圆形裁切定位点
-    public Transform PosFlagLeftTop;//左下角圆形裁切定位点
 
     private JoinMainView joinMainView;
     private Transform displayItem;//展示界面的物体
@@ -63,28 +62,16 @@ public class DisplayView : MonoBehaviour
             Destroy(gameObject);
         });
         BtnSave.onClick.AddListener(SavePic);
+
+        BtnGame.onClick.AddListener(delegate
+        {
+            gameObject.SetActive(false);
+            UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view",joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
+        });
     }
 
     public void Display()
     {
-        /*
-        displayItem = Instantiate(joinMainView.DrawPanel, ImgDisplay);
-        Vector2 vDisplayItem = displayItem.GetComponent<RectTransform>().sizeDelta;
-        float rate = rectImgDisplay.x / vDisplayItem.x;
-        displayItem.localScale = new Vector3(rate, rate, rate);
-
-        //隐藏带底图的
-        Destroy(displayItem.Find("group_body").GetChild(1).gameObject);
-        //显示自己画的部分
-        Image draw = displayItem.Find("group_body/img_draw").GetComponent<Image>();
-        draw.gameObject.SetActive(true);
-        Texture2D t = joinMainView.GetDrawTexture();
-        Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-        draw.sprite = s;
-        draw.SetNativeSize();
-        draw.transform.localScale = new Vector3(rate, rate, rate);
-        */
-
         GameObject person = null;
         if (DataManager.instance.partDataList!=null)
         {
@@ -94,19 +81,17 @@ public class DisplayView : MonoBehaviour
         person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
 
-
-
         //加上按钮
         Button btn = person.gameObject.AddComponent<Button>();
         btn.onClick.AddListener(Greeting);
 
-        lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-
-        //播放打招呼的动画
-        Greeting();
+        //lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
 
         //生成静态展示图片
         StartCoroutine(CutScreen());
+
+        //播放打招呼的动画
+        Greeting();
     }
 
     IEnumerator CutScreen()
@@ -157,14 +142,15 @@ public class DisplayView : MonoBehaviour
 
     public void Greeting()
     {
-        if (lstDisplayItem==null)
-        {
-            Debug.Log("null");
-        }
-        for (int i = 0; i < lstDisplayItem.Length; i++)
-        {
-            lstDisplayItem[i].PlayGreeting();
-        }
+        DataManager.instance.PersonGreeting();
+        //if (lstDisplayItem==null)
+        //{
+        //    Debug.Log("null");
+        //}
+        //for (int i = 0; i < lstDisplayItem.Length; i++)
+        //{
+        //    lstDisplayItem[i].PlayGreeting();
+        //}
     }
 
 }

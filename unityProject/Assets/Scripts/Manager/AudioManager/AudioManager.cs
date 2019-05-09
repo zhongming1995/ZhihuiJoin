@@ -162,21 +162,19 @@ namespace AudioMgr {
         }
 
         /// <summary>
-        /// 播放音效（选项语音+引导语音+提示语音）
+        /// 设置音频资源
         /// </summary>
         /// <param name="path">Path.</param>
-        /// <param name="cb">Cb.</param>
-        public void PlayEffect(string path, Action cb = null)
+        private AudioClip SetAudioClip(string path)
         {
-            Debug.Log("=======playEff:" + path);
             if (!_effectEnable)
             {
-                return;
+                return null;
             }
 
             if (string.IsNullOrEmpty(path))
             {
-                return;
+                return null;
             }
             AudioClip clip;
             if (audioDic.ContainsKey(path))
@@ -191,24 +189,92 @@ namespace AudioMgr {
             if (clip == null)
             {
                 Debug.LogWarning("play effect:audio clip is null-----");
-                return;
+                return null;
             }
-            if (effectAudioSource.isPlaying && effectAudioSource.clip == clip)
+
+            return clip;
+        }
+
+        /// <summary>
+        /// 播放音效（选项语音+引导语音+提示语音）
+        /// </summary>
+        /// <param name="path">Path.</param>
+        /// <param name="cb">Cb.</param>
+        public void PlayEffect(string path, Action cb = null)
+        {
+            Debug.Log("=======playEff:" + path);
+            AudioClip clip = SetAudioClip(path);
+            if (clip != null)
             {
-                Debug.LogWarning("play effect:same audio clip--------");
-                return;
+                if (effectAudioSource.isPlaying && effectAudioSource.clip == clip)
+                {
+                    Debug.LogWarning("play effect:same audio clip--------");
+                    return;
+                }
+                instance.effectAudioSource.volume = effectVolumn;
+                instance.effectAudioSource.playOnAwake = false;
+                instance.effectAudioSource.clip = clip;
+                instance.effectAudioSource.rolloffMode = AudioRolloffMode.Linear;
+                instance.effectAudioSource.enabled = true;
+                instance.effectAudioSource.spatialBlend = 0f;
+                instance.effectAudioSource.Play();
+                if (cb != null)
+                {
+                    cor_play = StartCoroutine("Cor_PlayEffect", cb);
+                }
             }
-            //在这里处理旧的
-            instance.effectAudioSource.volume = effectVolumn;
-            instance.effectAudioSource.playOnAwake = false;
-            instance.effectAudioSource.clip = clip;
-            instance.effectAudioSource.rolloffMode = AudioRolloffMode.Linear;
-            instance.effectAudioSource.enabled = true;
-            instance.effectAudioSource.spatialBlend = 0f;
-            instance.effectAudioSource.Play();
-            if (cb != null)
+            else
             {
-                cor_play = StartCoroutine("Cor_PlayEffect", cb);
+                Debug.Log("clip is null2-------------");
+            }
+            //if (!_effectEnable)
+            //{
+            //    return;
+            //}
+
+            //if (string.IsNullOrEmpty(path))
+            //{
+            //    return;
+            //}
+            //AudioClip clip;
+            //if (audioDic.ContainsKey(path))
+            //{
+            //    clip = audioDic[path];
+            //}
+            //else
+            //{
+            //    clip = UIHelper.instance.LoadAudioClip(path);
+            //    audioDic.Add(path, clip);
+            //}
+            //if (clip == null)
+            //{
+            //    Debug.LogWarning("play effect:audio clip is null-----");
+            //    return;
+            //}
+            //if (effectAudioSource.isPlaying && effectAudioSource.clip == clip)
+            //{
+            //    Debug.LogWarning("play effect:same audio clip--------");
+            //    return;
+            //}
+            //instance.effectAudioSource.volume = effectVolumn;
+            //instance.effectAudioSource.playOnAwake = false;
+            //instance.effectAudioSource.clip = clip;
+            //instance.effectAudioSource.rolloffMode = AudioRolloffMode.Linear;
+            //instance.effectAudioSource.enabled = true;
+            //instance.effectAudioSource.spatialBlend = 0f;
+            //instance.effectAudioSource.Play();
+            //if (cb != null)
+            //{
+            //    cor_play = StartCoroutine("Cor_PlayEffect", cb);
+            //}
+        }
+
+        public void PlayPiano(string path)
+        {
+            AudioClip clip = SetAudioClip(path);
+            if (clip!=null)
+            {
+                instance.effectAudioSource.PlayOneShot(clip);
             }
         }
 
