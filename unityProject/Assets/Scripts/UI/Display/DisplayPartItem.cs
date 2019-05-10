@@ -70,7 +70,15 @@ public class DisplayPartItem : MonoBehaviour
         string aniName = Dancing1 + "_" + partType.ToString();
         if (animation.GetClip(aniName)!=null)
         {
-            animation.Play(aniName);
+            if (animation.isPlaying)
+            {
+                animation.Stop();
+                animation.Play(aniName);
+            }
+            else
+            {
+                animation.Play(aniName);
+            }
         }
     }
 

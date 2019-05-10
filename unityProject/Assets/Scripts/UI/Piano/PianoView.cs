@@ -4,19 +4,23 @@ using AudioMgr;
 using DataMgr;
 using Helper;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PianoView : MonoBehaviour
 {
     public Transform Keys;
     public Transform PersonParent;
     public Transform Audio;
+    public Button BtnBack;
+    public Button BtnBackCheck;
 
     private int curSpecturmIndex = 0;//当前弹奏正确的音符的下标
     private List<PianoKey> pianoKeys = new List<PianoKey>();
+    private List<Animation> pianoKeyAnimations = new List<Animation>();
+    private List<GameObject> reminders = new List<GameObject>();
     private AudioSource[] audioSources;
     private List<int> songSpectrums;
     private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();//音符音频库
-
 
     void Start()
     {
@@ -29,16 +33,29 @@ public class PianoView : MonoBehaviour
         //加载小人
         LoadPerson();
         //给琴谱赋值
-        songSpectrums = PianoSpectrum.FindFriendSpecturms;
-        //8个琴键脚本
+        songSpectrums = PianoSpectrum.LittleStarSpecturms;
+        //8个琴键脚本,8个琴键提示动画
         for (int i = 0; i < Keys.childCount; i++)
         {
-            PianoKey pk = Keys.GetChild(i).GetComponent<PianoKey>();
+            Transform key = Keys.GetChild(i);
+            PianoKey pk = key.GetComponentInChildren<PianoKey>();
             pk.Init(i);
             pianoKeys.Add(pk);
+
+            Animation ani = key.GetComponentInChildren<Animation>();
+            pianoKeyAnimations.Add(ani);
+
+            GameObject reminder = ani.transform.Find("reminder").gameObject;
+            reminder.SetActive(false);
+            reminders.Add(reminder);
         }
+
         //8个AudioSource
         audioSources = Audio.GetComponentsInChildren<AudioSource>();
+        //隐藏返回按钮
+        ShowBackBtn(false);
+        //按钮点击
+        AddClickEvent();
     }
 
     private void LoadPerson()
@@ -53,17 +70,36 @@ public class PianoView : MonoBehaviour
         person.transform.localPosition = Vector3.zero;
     }
 
+    //显示返回按钮，否则是半透明状态
+    public void ShowBackBtn(bool show)
+    {
+        BtnBack.gameObject.SetActive(show);
+        BtnBackCheck.gameObject.SetActive(!show);
+    }
+
+    //按钮点击事件
+    private void AddClickEvent()
+    {
+        BtnBackCheck.onClick.AddListener(delegate
+        {
+            ShowBackBtn(true);
+        });
+
+        BtnBack.onClick.AddListener(delegate
+        {
+            DisplayView view = transform.parent.GetComponentInChildren<DisplayView>(true);
+            view.gameObject.SetActive(true);
+            Destroy(gameObject);
+            Resources.UnloadUnusedAssets();
+            System.GC.Collect();
+        });
+    }
+
     public void PlayPiano(int index)
     {
         string path = "Audio/piano|" + (index+1).ToString();
-        //AudioManager.instance.PlayPiano(path);
-        //if (IsCorrectSpectrum(index))
-        //{
-        //    curSpecturmIndex++;
-        //    ReminderKey();
-        //}
-        
-
+        ShowBackBtn(false);
+        reminders[index].SetActive(false);
         if (string.IsNullOrEmpty(path))
         {
             return;
@@ -116,8 +152,10 @@ public class PianoView : MonoBehaviour
         {
             return;
         }
-        Debug.Log("提示----------"+songSpectrums[curSpecturmIndex]);
+        int keyIndex = songSpectrums[curSpecturmIndex];
+        Debug.Log("提示----------" + keyIndex);
+        reminders[keyIndex-1].SetActive(true);
+        pianoKeyAnimations[keyIndex-1].Play();
     }
-
 
 }

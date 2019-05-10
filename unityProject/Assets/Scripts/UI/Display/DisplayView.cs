@@ -142,15 +142,7 @@ public class DisplayView : MonoBehaviour
 
     public void Greeting()
     {
-        DataManager.instance.PersonGreeting();
-        //if (lstDisplayItem==null)
-        //{
-        //    Debug.Log("null");
-        //}
-        //for (int i = 0; i < lstDisplayItem.Length; i++)
-        //{
-        //    lstDisplayItem[i].PlayGreeting();
-        //}
+        DataManager.instance.PersonDance1();
     }
 
 }
