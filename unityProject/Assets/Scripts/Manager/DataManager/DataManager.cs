@@ -15,7 +15,7 @@ namespace DataMgr
 
         [HideInInspector]
         public List<PartData> partDataList = new List<PartData>();
-        private DisplayPartItem[] lstDisplayItem ;
+        //private DisplayPartItem[] lstDisplayItem ;
 
         private GameObject curPerson;
 
@@ -155,46 +155,46 @@ namespace DataMgr
 
         public DisplayPartItem[] GetListDiaplayItem(Transform personObj)
         {
-            lstDisplayItem = personObj.GetComponentsInChildren<DisplayPartItem>(true);
+            DisplayPartItem[] lstDisplayItem = personObj.GetComponentsInChildren<DisplayPartItem>(true);
             return lstDisplayItem;
         }
 
-        public void PersonGreeting()
+        public void PersonGreeting(DisplayPartItem[] itemList)
         {
-            if (lstDisplayItem == null)
+            if (itemList == null)
             {
-                Debug.Log("lstDisplayItem is null-----");
+                Debug.Log("itemList is null-----");
                 return;
             }
-            for (int i = 0; i < lstDisplayItem.Length; i++)
+            for (int i = 0; i < itemList.Length; i++)
             {
-                lstDisplayItem[i].PlayGreeting();
+                itemList[i].PlayGreeting();
             }
         }
 
-        public void PersonDance1()
+        public void PersonDance1(DisplayPartItem[] itemList)
         {
-            if (lstDisplayItem == null)
+            if (itemList == null)
             {
-                Debug.Log("lstDisplayItem is null-----");
+                Debug.Log("itemList is null-----");
                 return;
             }
-            for (int i = 0; i < lstDisplayItem.Length; i++)
+            for (int i = 0; i < itemList.Length; i++)
             {
-                lstDisplayItem[i].PlayDance1();
+                itemList[i].PlayDance1();
             }
         }
 
-        public void PersonDefaultAni()
+        public void PersonDefaultAni(DisplayPartItem[] itemList)
         {
-            if (lstDisplayItem == null)
+            if (itemList == null)
             {
-                Debug.Log("lstDisplayItem is null-----");
+                Debug.Log("itemList is null-----");
                 return;
             }
-            for (int i = 0; i < lstDisplayItem.Length; i++)
+            for (int i = 0; i < itemList.Length; i++)
             {
-                lstDisplayItem[i].PlayDefault();
+                itemList[i].PlayDefault();
             }
         }
     }

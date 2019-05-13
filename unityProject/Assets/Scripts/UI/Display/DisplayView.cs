@@ -60,6 +60,8 @@ public class DisplayView : MonoBehaviour
         {
             joinMainView.gameObject.SetActive(true);
             Destroy(gameObject);
+            Resources.UnloadUnusedAssets();
+            GC.Collect();
         });
         BtnSave.onClick.AddListener(SavePic);
 
@@ -85,7 +87,7 @@ public class DisplayView : MonoBehaviour
         Button btn = person.gameObject.AddComponent<Button>();
         btn.onClick.AddListener(Greeting);
 
-        //lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+        lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
 
         //生成静态展示图片
         StartCoroutine(CutScreen());
@@ -142,7 +144,8 @@ public class DisplayView : MonoBehaviour
 
     public void Greeting()
     {
-        DataManager.instance.PersonDance1();
+        Debug.Log("click---------");
+        DataManager.instance.PersonDance1(lstDisplayItem);
     }
 
 }
