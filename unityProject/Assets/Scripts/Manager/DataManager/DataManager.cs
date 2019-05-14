@@ -161,6 +161,7 @@ namespace DataMgr
 
         public void PersonGreeting(DisplayPartItem[] itemList)
         {
+            Debug.Log("---------"+itemList.Length);
             if (itemList == null)
             {
                 Debug.Log("itemList is null-----");

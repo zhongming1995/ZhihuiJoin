@@ -1,26 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataMgr;
+using Helper;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class PianoView : MonoBehaviour
 {
     public Transform Keys;
     public Transform PersonParent;
-    public Transform Audio;
     public Button BtnBack;
     public Button BtnBackCheck;
     public Transform ResultWindow;
     public Button RBtnHome;
     public Button RBtnEdit;
     public Button RBtnReplay;
+    public Transform WindowPersonParent;
 
     private int curSpecturmIndex = 0;//当前弹奏正确的音符的下标
     private List<PianoKey> pianoKeys = new List<PianoKey>();
     private List<Animation> pianoKeyAnimations = new List<Animation>();
-    private List<GameObject> reminders = new List<GameObject>();
+    private List<Image> reminders = new List<Image>();
     private List<AudioSource> audioSources = new List<AudioSource>();
+    private List<ParticleSystem> particles = new List<ParticleSystem>();
     private List<int> songSpectrums;
     private DisplayPartItem[] lstDisplayItem;
     private DisplayPartItem[] windowlstDisplayItem;
@@ -46,14 +50,6 @@ public class PianoView : MonoBehaviour
             pk.Init(i);
             pianoKeys.Add(pk);
             //Audio
-            if (key==null)
-            {
-                Debug.Log("null1");
-            }
-            if (audioSources==null)
-            {
-                Debug.Log("null2");
-            }
             audioSources.Add(key.GetComponentInChildren<AudioSource>());
             //提示动画
             Animation ani = key.GetComponentInChildren<Animation>();
@@ -61,7 +57,11 @@ public class PianoView : MonoBehaviour
             //提示物体
             GameObject reminder = ani.transform.Find("reminder").gameObject;
             reminder.SetActive(false);
-            reminders.Add(reminder);
+            Image img_reminder = reminder.GetComponent<Image>();
+            reminders.Add(img_reminder);
+            //粒子特效
+            ParticleSystem ps = key.GetComponentInChildren<ParticleSystem>();
+            particles.Add(ps);
         }
         //隐藏返回按钮
         ShowBackBtn(false);
@@ -70,7 +70,7 @@ public class PianoView : MonoBehaviour
         //隐藏结果弹窗
         ResultWindow.gameObject.SetActive(false);
         //结果弹窗上添加小人
-        LoadWindowPerson();
+        //LoadWindowPerson();
     }
 
     private void LoadPerson()
@@ -94,11 +94,25 @@ public class PianoView : MonoBehaviour
         {
             person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
         }
-        person.transform.SetParent(ResultWindow);
+        person.transform.SetParent(WindowPersonParent);
         person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
 
         windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+
+        //加上按钮
+        Button btn = person.gameObject.AddComponent<Button>();
+        btn.onClick.AddListener(Greeting);
+        Debug.Log("greeting");
+        //默认打招呼一次
+        Greeting();
+    }
+
+    private int RandowSymbol()
+    {
+        Random rd = new Random();
+        int n = rd.Next(1, 7);
+        return n;
     }
 
 
@@ -121,7 +135,6 @@ public class PianoView : MonoBehaviour
         {
             DisplayView view = transform.parent.GetComponentInChildren<DisplayView>(true);
             view.gameObject.SetActive(true);
-            gameObject.SetActive(false);
             Destroy(gameObject);
             Resources.UnloadUnusedAssets();
             GC.Collect();
@@ -129,12 +142,18 @@ public class PianoView : MonoBehaviour
 
         RBtnHome.onClick.AddListener(delegate
         {
-            Debug.Log("Home");
+            SceneManager.LoadScene("Home");
         });
 
         RBtnEdit.onClick.AddListener(delegate
         {
-            Debug.Log("edit");
+            JoinMainView joinMainView = transform.parent.GetComponentInChildren<JoinMainView>(true);
+            DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
+            Destroy(gameObject);
+            Destroy(displayView.gameObject);
+            joinMainView.gameObject.SetActive(true);
+            Resources.UnloadUnusedAssets();
+            GC.Collect();
         });
 
         RBtnReplay.onClick.AddListener(delegate
@@ -154,8 +173,9 @@ public class PianoView : MonoBehaviour
     public void PlayPiano(int index)
     {
         ShowBackBtn(false);
-        reminders[index].SetActive(false);
+        reminders[index].gameObject.SetActive(false);
         audioSources[index].Play();
+        particles[index].Play();
         if (IsCorrectSpectrum(index))
         {
             curSpecturmIndex++;
@@ -187,12 +207,25 @@ public class PianoView : MonoBehaviour
         {
             Debug.Log("弹奏完成---------");
             ResultWindow.gameObject.SetActive(true);
+            if (WindowPersonParent.childCount==0)
+            {
+                LoadWindowPerson();
+            }
+            Greeting();
             return;
         }
         int keyIndex = songSpectrums[curSpecturmIndex];
         Debug.Log("提示----------" + keyIndex);
-        reminders[keyIndex-1].SetActive(true);
+        int n = RandowSymbol();
+        string path = string.Format("Sprite/piano_symbols|game_music_symbol{0}_pic@3x", n);
+        UIHelper.instance.SetImage(path, reminders[keyIndex - 1], false);
+        reminders[keyIndex-1].gameObject.SetActive(true);
         pianoKeyAnimations[keyIndex-1].Play();
     }
 
+    public void Greeting()
+    {
+        Debug.Log("piano greeting");
+        DataManager.instance.PersonGreeting(windowlstDisplayItem);
+    }
 }

@@ -11273,6 +11273,8 @@ extern "C" IL2CPP_METHOD_ATTR void TouchScreenKeyboard_SetSelection_mB728B6A7B07
 extern "C" IL2CPP_METHOD_ATTR bool TrackedReference_op_Equality_m6176AA0B99576B1734E9A9D7DDA0A27ECACBAA96 (TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___x0, TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___y1, const RuntimeMethod* method);
 // System.Int32 System.IntPtr::op_Explicit(System.IntPtr)
 extern "C" IL2CPP_METHOD_ATTR int32_t IntPtr_op_Explicit_mD69722A4C61D33FE70E790325C6E0DC690F9494F (intptr_t p0, const RuntimeMethod* method);
+// System.Boolean UnityEngine.TrackedReference::op_Inequality(UnityEngine.TrackedReference,UnityEngine.TrackedReference)
+extern "C" IL2CPP_METHOD_ATTR bool TrackedReference_op_Inequality_m6F0E8F8E6027E553421BCDEB5062D466914F3D87 (TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___x0, TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___y1, const RuntimeMethod* method);
 // System.Void UnityEngine.Component::.ctor()
 extern "C" IL2CPP_METHOD_ATTR void Component__ctor_m5E2740C0ACA4B368BC460315FAA2EDBFEAC0B8EF (Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.Transform::get_position_Injected(UnityEngine.Vector3&)
@@ -16552,6 +16554,16 @@ extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 *
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Resources_GetBuiltinResource_m73DDAC485E1E06C925628AA7285AC63D0797BD0A_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Resources::GetBuiltinResource(System.Type,System.String)");
 	Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * retVal = _il2cpp_icall_func(___type0, ___path1);
+	return retVal;
+}
+// UnityEngine.AsyncOperation UnityEngine.Resources::UnloadUnusedAssets()
+extern "C" IL2CPP_METHOD_ATTR AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * Resources_UnloadUnusedAssets_m04EC5EA06A8F7F26ED95BD704E1DDF62BBAB7043 (const RuntimeMethod* method)
+{
+	typedef AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * (*Resources_UnloadUnusedAssets_m04EC5EA06A8F7F26ED95BD704E1DDF62BBAB7043_ftn) ();
+	static Resources_UnloadUnusedAssets_m04EC5EA06A8F7F26ED95BD704E1DDF62BBAB7043_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Resources_UnloadUnusedAssets_m04EC5EA06A8F7F26ED95BD704E1DDF62BBAB7043_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Resources::UnloadUnusedAssets()");
+	AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * retVal = _il2cpp_icall_func();
 	return retVal;
 }
 #ifdef __clang__
@@ -22788,6 +22800,24 @@ IL_0067:
 		return L_17;
 	}
 }
+// System.Boolean UnityEngine.TrackedReference::op_Inequality(UnityEngine.TrackedReference,UnityEngine.TrackedReference)
+extern "C" IL2CPP_METHOD_ATTR bool TrackedReference_op_Inequality_m6F0E8F8E6027E553421BCDEB5062D466914F3D87 (TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___x0, TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___y1, const RuntimeMethod* method)
+{
+	bool V_0 = false;
+	{
+		TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * L_0 = ___x0;
+		TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * L_1 = ___y1;
+		bool L_2 = TrackedReference_op_Equality_m6176AA0B99576B1734E9A9D7DDA0A27ECACBAA96(L_0, L_1, /*hidden argument*/NULL);
+		V_0 = (bool)((((int32_t)L_2) == ((int32_t)0))? 1 : 0);
+		goto IL_0011;
+	}
+
+IL_0011:
+	{
+		bool L_3 = V_0;
+		return L_3;
+	}
+}
 // System.Boolean UnityEngine.TrackedReference::Equals(System.Object)
 extern "C" IL2CPP_METHOD_ATTR bool TrackedReference_Equals_mB1E157BE74CB5240DA6C4D3A38047A015B067C20 (TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * __this, RuntimeObject * ___o0, const RuntimeMethod* method)
 {
@@ -22825,6 +22855,23 @@ extern "C" IL2CPP_METHOD_ATTR int32_t TrackedReference_GetHashCode_mFA57A6A43AAB
 IL_0012:
 	{
 		int32_t L_2 = V_0;
+		return L_2;
+	}
+}
+// System.Boolean UnityEngine.TrackedReference::op_Implicit(UnityEngine.TrackedReference)
+extern "C" IL2CPP_METHOD_ATTR bool TrackedReference_op_Implicit_mE2F202D7C4D71679836CC2AE2CA08645E3208E44 (TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * ___exists0, const RuntimeMethod* method)
+{
+	bool V_0 = false;
+	{
+		TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 * L_0 = ___exists0;
+		bool L_1 = TrackedReference_op_Inequality_m6F0E8F8E6027E553421BCDEB5062D466914F3D87(L_0, (TrackedReference_tE93229EF7055CBB35B2A98DD2493947428D06107 *)NULL, /*hidden argument*/NULL);
+		V_0 = L_1;
+		goto IL_000e;
+	}
+
+IL_000e:
+	{
+		bool L_2 = V_0;
 		return L_2;
 	}
 }

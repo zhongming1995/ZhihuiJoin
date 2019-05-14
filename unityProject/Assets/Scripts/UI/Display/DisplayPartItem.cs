@@ -16,10 +16,8 @@ public class DisplayPartItem : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("OnEnable");
         if (item_animation == null)
         {
-            Debug.Log("animation==null");
             item_animation = GetComponent<Animation>();
         }
     }
@@ -37,21 +35,19 @@ public class DisplayPartItem : MonoBehaviour
 
     public void PlayGreeting()
     {
-        //string aniName = Greeting + "_" + partType.ToString();
-        //if (animation.GetClip(aniName) != null)
-        //{
-        //    animation.Play(aniName);
-        //}
-        PlayDefault();
+        Debug.Log("Play------");
+        string aniName = Greeting + "_" + partType.ToString();
+        Debug.Log("aniName:"+aniName);
+        if (item_animation.GetClip(aniName) != null)
+        {
+            Debug.Log("zhen play-----");
+            item_animation.Play(aniName);
+        }
     }
 
     public void PlayDance1()
     {
         string aniName = Dancing1 + "_" + partType.ToString();
-        if (item_animation == null)
-        {
-            Debug.Log("null1");
-        }
         if (item_animation.GetClip(aniName)!=null)
         {
             if (item_animation.isPlaying)

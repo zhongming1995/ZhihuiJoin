@@ -370,44 +370,44 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<ParticleSystemRenderer>("ParticleSystem");
 	//40. Rigidbody
 	RegisterUnityClass<Rigidbody>("Physics");
-	//41. Animator
-	RegisterUnityClass<Animator>("Animation");
-	//42. AnimatorOverrideController
-	RegisterUnityClass<AnimatorOverrideController>("Animation");
-	//43. RuntimeAnimatorController
-	RegisterUnityClass<RuntimeAnimatorController>("Animation");
-	//44. Animation
-	RegisterUnityClass<Animation>("Animation");
-	//45. AudioClip
-	RegisterUnityClass<AudioClip>("Audio");
-	//46. SampleClip
-	RegisterUnityClass<SampleClip>("Audio");
-	//47. AudioListener
-	RegisterUnityClass<AudioListener>("Audio");
-	//48. AudioBehaviour
-	RegisterUnityClass<AudioBehaviour>("Audio");
-	//49. AudioSource
-	RegisterUnityClass<AudioSource>("Audio");
-	//50. Rigidbody2D
-	RegisterUnityClass<Rigidbody2D>("Physics2D");
-	//51. TextRenderingPrivate::GUIText
-	RegisterUnityClass<TextRenderingPrivate::GUIText>("TextRendering");
-	//52. TextRendering::Font
-	RegisterUnityClass<TextRendering::Font>("TextRendering");
-	//53. UI::Canvas
-	RegisterUnityClass<UI::Canvas>("UI");
-	//54. UI::CanvasGroup
-	RegisterUnityClass<UI::CanvasGroup>("UI");
-	//55. UI::CanvasRenderer
-	RegisterUnityClass<UI::CanvasRenderer>("UI");
-	//56. AssetBundle
-	RegisterUnityClass<AssetBundle>("AssetBundle");
-	//57. AssetBundleManifest
-	RegisterUnityClass<AssetBundleManifest>("AssetBundle");
-	//58. AnimationClip
+	//41. AnimationClip
 	RegisterUnityClass<AnimationClip>("Animation");
-	//59. Motion
+	//42. Motion
 	RegisterUnityClass<Motion>("Animation");
+	//43. Animator
+	RegisterUnityClass<Animator>("Animation");
+	//44. AnimatorOverrideController
+	RegisterUnityClass<AnimatorOverrideController>("Animation");
+	//45. RuntimeAnimatorController
+	RegisterUnityClass<RuntimeAnimatorController>("Animation");
+	//46. Animation
+	RegisterUnityClass<Animation>("Animation");
+	//47. AudioClip
+	RegisterUnityClass<AudioClip>("Audio");
+	//48. SampleClip
+	RegisterUnityClass<SampleClip>("Audio");
+	//49. AudioListener
+	RegisterUnityClass<AudioListener>("Audio");
+	//50. AudioBehaviour
+	RegisterUnityClass<AudioBehaviour>("Audio");
+	//51. AudioSource
+	RegisterUnityClass<AudioSource>("Audio");
+	//52. Rigidbody2D
+	RegisterUnityClass<Rigidbody2D>("Physics2D");
+	//53. TextRenderingPrivate::GUIText
+	RegisterUnityClass<TextRenderingPrivate::GUIText>("TextRendering");
+	//54. TextRendering::Font
+	RegisterUnityClass<TextRendering::Font>("TextRendering");
+	//55. UI::Canvas
+	RegisterUnityClass<UI::Canvas>("UI");
+	//56. UI::CanvasGroup
+	RegisterUnityClass<UI::CanvasGroup>("UI");
+	//57. UI::CanvasRenderer
+	RegisterUnityClass<UI::CanvasRenderer>("UI");
+	//58. AssetBundle
+	RegisterUnityClass<AssetBundle>("AssetBundle");
+	//59. AssetBundleManifest
+	RegisterUnityClass<AssetBundleManifest>("AssetBundle");
 	//60. PolygonCollider2D
 	RegisterUnityClass<PolygonCollider2D>("Physics2D");
 	//61. Collider2D

@@ -1517,9 +1517,11 @@ extern const uint32_t Exception_get_Source_mF1C5DE7EDD1567C4ACE302CFD82AC3365040
 extern const uint32_t ExecutionEngineException__ctor_m0F3956D4F5C1C6B86BF8553E5A2609C277A704BF_MetadataUsageId;
 extern const uint32_t FieldAccessException__ctor_mD94509B3F2F26A43BF0A6FB70F729FEEFBFE767D_MetadataUsageId;
 extern const uint32_t FormatException__ctor_m6DAD3E32EE0445420B4893EA683425AC3441609B_MetadataUsageId;
+extern const uint32_t GC_Collect_mF2593114B9B3F291CD995BFB7033C2EEF51CF971_MetadataUsageId;
 extern const uint32_t GC_ReRegisterForFinalize_m4978CBD78D693FF77EA40D4000F0EF9F2C2E54C8_MetadataUsageId;
 extern const uint32_t GC_SuppressFinalize_m037319A9B95A5BA437E806DE592802225EE5B425_MetadataUsageId;
 extern const uint32_t GC__cctor_m090AEF5149E28698EB92F40E5733BDF951BE1584_MetadataUsageId;
+extern const uint32_t GC_get_MaxGeneration_m690A529E5E2B9E64B00B156DFC10090633B466AB_MetadataUsageId;
 extern const uint32_t MatchNumberDelegate_BeginInvoke_m5A60BA102F7AAD41A7B3B81CD6DF864C3C87785F_MetadataUsageId;
 extern const uint32_t StackFrame_GetSecureFileName_m70617D4D68A1202A794040045930720D63B00BA7_MetadataUsageId;
 extern const uint32_t StackFrame_ToString_m205044F382A04F9B05D7A2718DE7A7692EF38580_MetadataUsageId;
@@ -17626,6 +17628,12 @@ extern "C" IL2CPP_METHOD_ATTR void SystemException__ctor_mB0550111A1A8D18B697B61
 extern "C" IL2CPP_METHOD_ATTR void MemberAccessException__ctor_m9190C2717422BB9A0C877B8C1493A75521AB8101 (MemberAccessException_tDA869AFFB4FC1EA0EEF3143D85999710AC4774F0 * __this, String_t* ___message0, const RuntimeMethod* method);
 // System.Void System.MemberAccessException::.ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
 extern "C" IL2CPP_METHOD_ATTR void MemberAccessException__ctor_m8D560A4375A75BBD6631BE42402BC4B41B8F7E5F (MemberAccessException_tDA869AFFB4FC1EA0EEF3143D85999710AC4774F0 * __this, SerializationInfo_t1BB80E9C9DEA52DBF464487234B045E2930ADA26 * ___info0, StreamingContext_t2CCDC54E0E8D078AF4A50E3A8B921B828A900034  ___context1, const RuntimeMethod* method);
+// System.Int32 System.GC::get_MaxGeneration()
+extern "C" IL2CPP_METHOD_ATTR int32_t GC_get_MaxGeneration_m690A529E5E2B9E64B00B156DFC10090633B466AB (const RuntimeMethod* method);
+// System.Void System.GC::InternalCollect(System.Int32)
+extern "C" IL2CPP_METHOD_ATTR void GC_InternalCollect_mB583398715B329963DFE06AF42777BAE9DB5DCA4 (int32_t ___generation0, const RuntimeMethod* method);
+// System.Int32 System.GC::GetMaxGeneration()
+extern "C" IL2CPP_METHOD_ATTR int32_t GC_GetMaxGeneration_mF04A8A694F34D3E56FA641987AC82561B9BF5BAF (const RuntimeMethod* method);
 // System.Void System.GC::_SuppressFinalize(System.Object)
 extern "C" IL2CPP_METHOD_ATTR void GC__SuppressFinalize_mAEE97F4E88DFE238F79A9A05363D132B6DFEB6E8 (RuntimeObject * ___o0, const RuntimeMethod* method);
 // System.Void System.GC::_ReRegisterForFinalize(System.Object)
@@ -36478,6 +36486,20 @@ extern "C" IL2CPP_METHOD_ATTR void FormatException__ctor_mDC141C414E24BE865FC885
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Int32 System.GC::GetMaxGeneration()
+extern "C" IL2CPP_METHOD_ATTR int32_t GC_GetMaxGeneration_mF04A8A694F34D3E56FA641987AC82561B9BF5BAF (const RuntimeMethod* method)
+{
+	typedef int32_t (*GC_GetMaxGeneration_mF04A8A694F34D3E56FA641987AC82561B9BF5BAF_ftn) ();
+	using namespace il2cpp::icalls;
+	return  ((GC_GetMaxGeneration_mF04A8A694F34D3E56FA641987AC82561B9BF5BAF_ftn)mscorlib::System::GC::GetMaxGeneration) ();
+}
+// System.Void System.GC::InternalCollect(System.Int32)
+extern "C" IL2CPP_METHOD_ATTR void GC_InternalCollect_mB583398715B329963DFE06AF42777BAE9DB5DCA4 (int32_t ___generation0, const RuntimeMethod* method)
+{
+	typedef void (*GC_InternalCollect_mB583398715B329963DFE06AF42777BAE9DB5DCA4_ftn) (int32_t);
+	using namespace il2cpp::icalls;
+	 ((GC_InternalCollect_mB583398715B329963DFE06AF42777BAE9DB5DCA4_ftn)mscorlib::System::GC::InternalCollect) (___generation0);
+}
 // System.Void System.GC::register_ephemeron_array(System.Runtime.CompilerServices.Ephemeron[])
 extern "C" IL2CPP_METHOD_ATTR void GC_register_ephemeron_array_mF6745DC9E70671B69469D62488C2183A46C10729 (EphemeronU5BU5D_t575534899E3EE9D8B85CAF11342BA22D164C7C10* ___array0, const RuntimeMethod* method)
 {
@@ -36492,11 +36514,42 @@ extern "C" IL2CPP_METHOD_ATTR RuntimeObject * GC_get_ephemeron_tombstone_m8311F5
 	using namespace il2cpp::icalls;
 	return  ((GC_get_ephemeron_tombstone_m8311F5A5E44DB7E6DA454732E2A7C992A9E20CCC_ftn)mscorlib::System::GC::get_ephemeron_tombstone) ();
 }
+// System.Void System.GC::Collect()
+extern "C" IL2CPP_METHOD_ATTR void GC_Collect_mF2593114B9B3F291CD995BFB7033C2EEF51CF971 (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (GC_Collect_mF2593114B9B3F291CD995BFB7033C2EEF51CF971_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(GC_tC1D7BD74E8F44ECCEF5CD2B5D84BFF9AAE02D01D_il2cpp_TypeInfo_var);
+		int32_t L_0 = GC_get_MaxGeneration_m690A529E5E2B9E64B00B156DFC10090633B466AB(/*hidden argument*/NULL);
+		GC_InternalCollect_mB583398715B329963DFE06AF42777BAE9DB5DCA4(L_0, /*hidden argument*/NULL);
+		return;
+	}
+}
 // System.Void System.GC::KeepAlive(System.Object)
 extern "C" IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void GC_KeepAlive_mE836EDA45A7C6BFDCEA004B9089FA6B4810BDA89 (RuntimeObject * ___obj0, const RuntimeMethod* method)
 {
 	{
 		return;
+	}
+}
+// System.Int32 System.GC::get_MaxGeneration()
+extern "C" IL2CPP_METHOD_ATTR int32_t GC_get_MaxGeneration_m690A529E5E2B9E64B00B156DFC10090633B466AB (const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (GC_get_MaxGeneration_m690A529E5E2B9E64B00B156DFC10090633B466AB_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(GC_tC1D7BD74E8F44ECCEF5CD2B5D84BFF9AAE02D01D_il2cpp_TypeInfo_var);
+		int32_t L_0 = GC_GetMaxGeneration_mF04A8A694F34D3E56FA641987AC82561B9BF5BAF(/*hidden argument*/NULL);
+		return L_0;
 	}
 }
 // System.Void System.GC::_SuppressFinalize(System.Object)

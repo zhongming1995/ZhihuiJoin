@@ -6,19 +6,39 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Animation_Play();
 		Register_UnityEngine_Animation_Play();
 
+		//System.Boolean UnityEngine.Animation::PlayDefaultAnimation(UnityEngine.PlayMode)
+		void Register_UnityEngine_Animation_PlayDefaultAnimation();
+		Register_UnityEngine_Animation_PlayDefaultAnimation();
+
+		//System.Boolean UnityEngine.Animation::get_isPlaying()
+		void Register_UnityEngine_Animation_get_isPlaying();
+		Register_UnityEngine_Animation_get_isPlaying();
+
 		//System.Int32 UnityEngine.Animation::GetStateCount()
 		void Register_UnityEngine_Animation_GetStateCount();
 		Register_UnityEngine_Animation_GetStateCount();
 
-		//System.Void UnityEngine.Animation::AddClip(UnityEngine.AnimationClip,System.String,System.Int32,System.Int32,System.Boolean)
-		void Register_UnityEngine_Animation_AddClip();
-		Register_UnityEngine_Animation_AddClip();
+		//System.Void UnityEngine.Animation::INTERNAL_CALL_Stop(UnityEngine.Animation)
+		void Register_UnityEngine_Animation_INTERNAL_CALL_Stop();
+		Register_UnityEngine_Animation_INTERNAL_CALL_Stop();
+
+		//UnityEngine.AnimationState UnityEngine.Animation::GetState(System.String)
+		void Register_UnityEngine_Animation_GetState();
+		Register_UnityEngine_Animation_GetState();
 
 		//UnityEngine.AnimationState UnityEngine.Animation::GetStateAtIndex(System.Int32)
 		void Register_UnityEngine_Animation_GetStateAtIndex();
 		Register_UnityEngine_Animation_GetStateAtIndex();
 
 	//End Registrations for type : UnityEngine.Animation
+
+	//Start Registrations for type : UnityEngine.AnimationClip
+
+		//System.Void UnityEngine.AnimationClip::Internal_CreateAnimationClip(UnityEngine.AnimationClip)
+		void Register_UnityEngine_AnimationClip_Internal_CreateAnimationClip();
+		Register_UnityEngine_AnimationClip_Internal_CreateAnimationClip();
+
+	//End Registrations for type : UnityEngine.AnimationClip
 
 	//Start Registrations for type : UnityEngine.AnimationCurve
 
@@ -47,6 +67,14 @@ void RegisterAllStrippedInternalCalls()
 		Register_UnityEngine_AnimationCurve_Internal_Destroy();
 
 	//End Registrations for type : UnityEngine.AnimationCurve
+
+	//Start Registrations for type : UnityEngine.AnimationState
+
+		//UnityEngine.AnimationClip UnityEngine.AnimationState::get_clip()
+		void Register_UnityEngine_AnimationState_get_clip();
+		Register_UnityEngine_AnimationState_get_clip();
+
+	//End Registrations for type : UnityEngine.AnimationState
 
 	//Start Registrations for type : UnityEngine.Animator
 
@@ -225,6 +253,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.AudioSource::Play(System.UInt64)
 		void Register_UnityEngine_AudioSource_Play();
 		Register_UnityEngine_AudioSource_Play();
+
+		//System.Void UnityEngine.AudioSource::PlayOneShotHelper(UnityEngine.AudioClip,System.Single)
+		void Register_UnityEngine_AudioSource_PlayOneShotHelper();
+		Register_UnityEngine_AudioSource_PlayOneShotHelper();
 
 		//System.Void UnityEngine.AudioSource::Stop()
 		void Register_UnityEngine_AudioSource_Stop();
@@ -1738,6 +1770,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_ParticleSystem_Internal_EmitOld();
 		Register_UnityEngine_ParticleSystem_Internal_EmitOld();
 
+		//System.Void UnityEngine.ParticleSystem::Play(System.Boolean)
+		void Register_UnityEngine_ParticleSystem_Play();
+		Register_UnityEngine_ParticleSystem_Play();
+
 		//System.Void UnityEngine.ParticleSystem::Stop(System.Boolean,UnityEngine.ParticleSystemStopBehavior)
 		void Register_UnityEngine_ParticleSystem_Stop();
 		Register_UnityEngine_ParticleSystem_Stop();
@@ -2125,6 +2161,10 @@ void RegisterAllStrippedInternalCalls()
 	//End Registrations for type : UnityEngine.RenderTexture
 
 	//Start Registrations for type : UnityEngine.Resources
+
+		//UnityEngine.AsyncOperation UnityEngine.Resources::UnloadUnusedAssets()
+		void Register_UnityEngine_Resources_UnloadUnusedAssets();
+		Register_UnityEngine_Resources_UnloadUnusedAssets();
 
 		//UnityEngine.Object UnityEngine.Resources::GetBuiltinResource(System.Type,System.String)
 		void Register_UnityEngine_Resources_GetBuiltinResource();

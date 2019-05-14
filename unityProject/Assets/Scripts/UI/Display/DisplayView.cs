@@ -144,8 +144,7 @@ public class DisplayView : MonoBehaviour
 
     public void Greeting()
     {
-        Debug.Log("click---------");
-        DataManager.instance.PersonDance1(lstDisplayItem);
+        DataManager.instance.PersonGreeting(lstDisplayItem);
     }
 
 }
