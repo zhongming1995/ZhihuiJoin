@@ -12,6 +12,8 @@ public class DisplayPartItem : MonoBehaviour
     private string actionName = "Greeting_LeftEye";
     public string Greeting = "Greeting";
     public string Dancing1 = "Dance_1";
+    public string Dancing2 = "Dance_2";
+    public string Dancing3 = "Dance_3";
     public string Default = "Default";
 
     private void OnEnable()
@@ -35,14 +37,15 @@ public class DisplayPartItem : MonoBehaviour
 
     public void PlayGreeting()
     {
-        Debug.Log("Play------");
+        /*
         string aniName = Greeting + "_" + partType.ToString();
         Debug.Log("aniName:"+aniName);
         if (item_animation.GetClip(aniName) != null)
         {
-            Debug.Log("zhen play-----");
             item_animation.Play(aniName);
         }
+        */
+        PlayDance3();
     }
 
     public void PlayDance1()
@@ -68,6 +71,40 @@ public class DisplayPartItem : MonoBehaviour
         if (item_animation.GetClip(aniName) != null)
         {
             item_animation.Play(aniName);
+        }
+    }
+
+    public void PlayDance2()
+    {
+        string aniName = Dancing2 + "_" + partType.ToString();
+        if (item_animation.GetClip(aniName) != null)
+        {
+            if (item_animation.isPlaying)
+            {
+                item_animation.Stop();
+                item_animation.Play(aniName);
+            }
+            else
+            {
+                item_animation.Play(aniName);
+            }
+        }
+    }
+
+    public void PlayDance3()
+    {
+        string aniName = Dancing3 + "_" + partType.ToString();
+        if (item_animation.GetClip(aniName) != null)
+        {
+            if (item_animation.isPlaying)
+            {
+                item_animation.Stop();
+                item_animation.Play(aniName);
+            }
+            else
+            {
+                item_animation.Play(aniName);
+            }
         }
     }
 }
