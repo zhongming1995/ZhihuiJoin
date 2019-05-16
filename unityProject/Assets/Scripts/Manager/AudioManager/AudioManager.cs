@@ -202,7 +202,6 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayEffect(string path, Action cb = null)
         {
-            Debug.Log("=======playEff:" + path);
             AudioClip clip = SetAudioClip(path);
             if (clip != null)
             {

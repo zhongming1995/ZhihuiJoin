@@ -2489,60 +2489,38 @@ public:
 struct  MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5  : public RuntimeObject
 {
 public:
-	// System.String System.Uri/MoreInfo::Path
-	String_t* ___Path_0;
-	// System.String System.Uri/MoreInfo::Fragment
-	String_t* ___Fragment_1;
 	// System.String System.Uri/MoreInfo::AbsoluteUri
-	String_t* ___AbsoluteUri_2;
+	String_t* ___AbsoluteUri_0;
 	// System.Int32 System.Uri/MoreInfo::Hash
-	int32_t ___Hash_3;
+	int32_t ___Hash_1;
 	// System.String System.Uri/MoreInfo::RemoteUrl
-	String_t* ___RemoteUrl_4;
+	String_t* ___RemoteUrl_2;
 
 public:
-	inline static int32_t get_offset_of_Path_0() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___Path_0)); }
-	inline String_t* get_Path_0() const { return ___Path_0; }
-	inline String_t** get_address_of_Path_0() { return &___Path_0; }
-	inline void set_Path_0(String_t* value)
+	inline static int32_t get_offset_of_AbsoluteUri_0() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___AbsoluteUri_0)); }
+	inline String_t* get_AbsoluteUri_0() const { return ___AbsoluteUri_0; }
+	inline String_t** get_address_of_AbsoluteUri_0() { return &___AbsoluteUri_0; }
+	inline void set_AbsoluteUri_0(String_t* value)
 	{
-		___Path_0 = value;
-		Il2CppCodeGenWriteBarrier((&___Path_0), value);
+		___AbsoluteUri_0 = value;
+		Il2CppCodeGenWriteBarrier((&___AbsoluteUri_0), value);
 	}
 
-	inline static int32_t get_offset_of_Fragment_1() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___Fragment_1)); }
-	inline String_t* get_Fragment_1() const { return ___Fragment_1; }
-	inline String_t** get_address_of_Fragment_1() { return &___Fragment_1; }
-	inline void set_Fragment_1(String_t* value)
+	inline static int32_t get_offset_of_Hash_1() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___Hash_1)); }
+	inline int32_t get_Hash_1() const { return ___Hash_1; }
+	inline int32_t* get_address_of_Hash_1() { return &___Hash_1; }
+	inline void set_Hash_1(int32_t value)
 	{
-		___Fragment_1 = value;
-		Il2CppCodeGenWriteBarrier((&___Fragment_1), value);
+		___Hash_1 = value;
 	}
 
-	inline static int32_t get_offset_of_AbsoluteUri_2() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___AbsoluteUri_2)); }
-	inline String_t* get_AbsoluteUri_2() const { return ___AbsoluteUri_2; }
-	inline String_t** get_address_of_AbsoluteUri_2() { return &___AbsoluteUri_2; }
-	inline void set_AbsoluteUri_2(String_t* value)
+	inline static int32_t get_offset_of_RemoteUrl_2() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___RemoteUrl_2)); }
+	inline String_t* get_RemoteUrl_2() const { return ___RemoteUrl_2; }
+	inline String_t** get_address_of_RemoteUrl_2() { return &___RemoteUrl_2; }
+	inline void set_RemoteUrl_2(String_t* value)
 	{
-		___AbsoluteUri_2 = value;
-		Il2CppCodeGenWriteBarrier((&___AbsoluteUri_2), value);
-	}
-
-	inline static int32_t get_offset_of_Hash_3() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___Hash_3)); }
-	inline int32_t get_Hash_3() const { return ___Hash_3; }
-	inline int32_t* get_address_of_Hash_3() { return &___Hash_3; }
-	inline void set_Hash_3(int32_t value)
-	{
-		___Hash_3 = value;
-	}
-
-	inline static int32_t get_offset_of_RemoteUrl_4() { return static_cast<int32_t>(offsetof(MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5, ___RemoteUrl_4)); }
-	inline String_t* get_RemoteUrl_4() const { return ___RemoteUrl_4; }
-	inline String_t** get_address_of_RemoteUrl_4() { return &___RemoteUrl_4; }
-	inline void set_RemoteUrl_4(String_t* value)
-	{
-		___RemoteUrl_4 = value;
-		Il2CppCodeGenWriteBarrier((&___RemoteUrl_4), value);
+		___RemoteUrl_2 = value;
+		Il2CppCodeGenWriteBarrier((&___RemoteUrl_2), value);
 	}
 };
 
@@ -8356,13 +8334,11 @@ extern const int32_t g_FieldOffsetTable1521[8] =
 	Offset_t4D3750A78885B564FB4602C405B9EFF5A32066C7::get_offset_of_End_7() + static_cast<int32_t>(sizeof(RuntimeObject)),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1522 = { sizeof (MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1522[5] = 
+extern const int32_t g_FieldOffsetTable1522[3] = 
 {
-	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_Path_0(),
-	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_Fragment_1(),
-	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_AbsoluteUri_2(),
-	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_Hash_3(),
-	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_RemoteUrl_4(),
+	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_AbsoluteUri_0(),
+	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_Hash_1(),
+	MoreInfo_t83B9EC79244C26B468C115E54C0BEF09BB2E05B5::get_offset_of_RemoteUrl_2(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1523 = { sizeof (Check_t597B1C13F5DD4DAAA857F961852721AE4DD0BD5E)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
 extern const int32_t g_FieldOffsetTable1523[10] = 

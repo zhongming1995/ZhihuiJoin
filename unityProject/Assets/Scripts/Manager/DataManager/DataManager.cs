@@ -51,7 +51,6 @@ namespace DataMgr
                     parts.Add(p);
                 }
             }
-            Debug.Log("部位数：" + parts.Count);
             partDataList = parts;
             return parts;
             //SerializePersonData(parts);
@@ -161,7 +160,6 @@ namespace DataMgr
 
         public void PersonGreeting(DisplayPartItem[] itemList)
         {
-            Debug.Log("---------"+itemList.Length);
             if (itemList == null)
             {
                 Debug.Log("itemList is null-----");

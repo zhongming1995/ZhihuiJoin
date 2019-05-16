@@ -332,7 +332,6 @@ public class JoinMainView : MonoBehaviour
             ImageScaleSlider.gameObject.SetActive(false);
             return;
         }
-        Debug.Log(t.name);
         if (ImageScaleSlider.gameObject.activeSelf == false)
         {
             ImageScaleSlider.gameObject.SetActive(true);

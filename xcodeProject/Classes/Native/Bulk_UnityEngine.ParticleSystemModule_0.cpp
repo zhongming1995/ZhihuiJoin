@@ -26,24 +26,15 @@ struct CharU5BU5D_t4CC6ABF0AD71BEC97E3C2F1E9C5677E46D3A75C2;
 struct String_t;
 // System.Void
 struct Void_t22962CB4C05B1D89B55A6E1139F0E87A90987017;
-// UnityEngine.Gradient
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A;
 // UnityEngine.ParticleSystem
 struct ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D;
 // UnityEngine.ParticleSystemRenderer
 struct ParticleSystemRenderer_t86E4ED2C0ADF5D2E7FA3D636B6B070600D05C459;
 
-extern RuntimeClass* Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_il2cpp_TypeInfo_var;
 extern RuntimeClass* Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_il2cpp_TypeInfo_var;
-extern const uint32_t MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_pinvoke_FromNativeMethodDefinition_MetadataUsageId;
 extern const uint32_t ParticleSystem_Emit_m8C3FCE4F94165CDF0B86326DDB5DB886C1D7B0CF_MetadataUsageId;
 extern const uint32_t Particle_set_angularVelocity3D_m0F282D7EE110DF290E04B2B99FEC697ED89BF4EF_MetadataUsageId;
 extern const uint32_t Particle_set_rotation3D_m46DB39BFDEEF27C6119F5EEE2C0B1CA9093FC834_MetadataUsageId;
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A;;
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com;
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com;;
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke;
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke;;
 
 
 
@@ -385,65 +376,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // VOID_T22962CB4C05B1D89B55A6E1139F0E87A90987017_H
-#ifndef COLOR_T119BCA590009762C7223FDD3AF9706653AC84ED2_H
-#define COLOR_T119BCA590009762C7223FDD3AF9706653AC84ED2_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.Color
-struct  Color_t119BCA590009762C7223FDD3AF9706653AC84ED2 
-{
-public:
-	// System.Single UnityEngine.Color::r
-	float ___r_0;
-	// System.Single UnityEngine.Color::g
-	float ___g_1;
-	// System.Single UnityEngine.Color::b
-	float ___b_2;
-	// System.Single UnityEngine.Color::a
-	float ___a_3;
-
-public:
-	inline static int32_t get_offset_of_r_0() { return static_cast<int32_t>(offsetof(Color_t119BCA590009762C7223FDD3AF9706653AC84ED2, ___r_0)); }
-	inline float get_r_0() const { return ___r_0; }
-	inline float* get_address_of_r_0() { return &___r_0; }
-	inline void set_r_0(float value)
-	{
-		___r_0 = value;
-	}
-
-	inline static int32_t get_offset_of_g_1() { return static_cast<int32_t>(offsetof(Color_t119BCA590009762C7223FDD3AF9706653AC84ED2, ___g_1)); }
-	inline float get_g_1() const { return ___g_1; }
-	inline float* get_address_of_g_1() { return &___g_1; }
-	inline void set_g_1(float value)
-	{
-		___g_1 = value;
-	}
-
-	inline static int32_t get_offset_of_b_2() { return static_cast<int32_t>(offsetof(Color_t119BCA590009762C7223FDD3AF9706653AC84ED2, ___b_2)); }
-	inline float get_b_2() const { return ___b_2; }
-	inline float* get_address_of_b_2() { return &___b_2; }
-	inline void set_b_2(float value)
-	{
-		___b_2 = value;
-	}
-
-	inline static int32_t get_offset_of_a_3() { return static_cast<int32_t>(offsetof(Color_t119BCA590009762C7223FDD3AF9706653AC84ED2, ___a_3)); }
-	inline float get_a_3() const { return ___a_3; }
-	inline float* get_address_of_a_3() { return &___a_3; }
-	inline void set_a_3(float value)
-	{
-		___a_3 = value;
-	}
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // COLOR_T119BCA590009762C7223FDD3AF9706653AC84ED2_H
 #ifndef COLOR32_T23ABC4AE0E0BDFD2E22EE1FA0DA3904FFE5F6E23_H
 #define COLOR32_T23ABC4AE0E0BDFD2E22EE1FA0DA3904FFE5F6E23_H
 #ifdef __clang__
@@ -567,46 +499,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // COLOR32_T23ABC4AE0E0BDFD2E22EE1FA0DA3904FFE5F6E23_H
-#ifndef MAINMODULE_T99C675667E0A363368324132DFA34B27FFEE6FC7_H
-#define MAINMODULE_T99C675667E0A363368324132DFA34B27FFEE6FC7_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.ParticleSystem/MainModule
-struct  MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 
-{
-public:
-	// UnityEngine.ParticleSystem UnityEngine.ParticleSystem/MainModule::m_ParticleSystem
-	ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___m_ParticleSystem_0;
-
-public:
-	inline static int32_t get_offset_of_m_ParticleSystem_0() { return static_cast<int32_t>(offsetof(MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7, ___m_ParticleSystem_0)); }
-	inline ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * get_m_ParticleSystem_0() const { return ___m_ParticleSystem_0; }
-	inline ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D ** get_address_of_m_ParticleSystem_0() { return &___m_ParticleSystem_0; }
-	inline void set_m_ParticleSystem_0(ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * value)
-	{
-		___m_ParticleSystem_0 = value;
-		Il2CppCodeGenWriteBarrier((&___m_ParticleSystem_0), value);
-	}
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-// Native definition for P/Invoke marshalling of UnityEngine.ParticleSystem/MainModule
-struct MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_pinvoke
-{
-	ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___m_ParticleSystem_0;
-};
-// Native definition for COM marshalling of UnityEngine.ParticleSystem/MainModule
-struct MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_com
-{
-	ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___m_ParticleSystem_0;
-};
-#endif // MAINMODULE_T99C675667E0A363368324132DFA34B27FFEE6FC7_H
 #ifndef VECTOR3_TDCF05E21F632FE2BA260C06E0D10CA81513E6720_H
 #define VECTOR3_TDCF05E21F632FE2BA260C06E0D10CA81513E6720_H
 #ifdef __clang__
@@ -762,45 +654,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // VECTOR3_TDCF05E21F632FE2BA260C06E0D10CA81513E6720_H
-#ifndef GRADIENT_T35A694DDA1066524440E325E582B01E33DE66A3A_H
-#define GRADIENT_T35A694DDA1066524440E325E582B01E33DE66A3A_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.Gradient
-struct  Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A  : public RuntimeObject
-{
-public:
-	// System.IntPtr UnityEngine.Gradient::m_Ptr
-	intptr_t ___m_Ptr_0;
-
-public:
-	inline static int32_t get_offset_of_m_Ptr_0() { return static_cast<int32_t>(offsetof(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A, ___m_Ptr_0)); }
-	inline intptr_t get_m_Ptr_0() const { return ___m_Ptr_0; }
-	inline intptr_t* get_address_of_m_Ptr_0() { return &___m_Ptr_0; }
-	inline void set_m_Ptr_0(intptr_t value)
-	{
-		___m_Ptr_0 = value;
-	}
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-// Native definition for P/Invoke marshalling of UnityEngine.Gradient
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke
-{
-	intptr_t ___m_Ptr_0;
-};
-// Native definition for COM marshalling of UnityEngine.Gradient
-struct Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com
-{
-	intptr_t ___m_Ptr_0;
-};
-#endif // GRADIENT_T35A694DDA1066524440E325E582B01E33DE66A3A_H
 #ifndef OBJECT_TAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_H
 #define OBJECT_TAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_H
 #ifdef __clang__
@@ -1025,35 +878,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // PARTICLE_T64AF74F5D9C7EE7018AD98F29E4FF653558A581E_H
-#ifndef PARTICLESYSTEMGRADIENTMODE_T7CCC7CC3D80C8FF5134FF94F28BBB579595E8CD5_H
-#define PARTICLESYSTEMGRADIENTMODE_T7CCC7CC3D80C8FF5134FF94F28BBB579595E8CD5_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.ParticleSystemGradientMode
-struct  ParticleSystemGradientMode_t7CCC7CC3D80C8FF5134FF94F28BBB579595E8CD5 
-{
-public:
-	// System.Int32 UnityEngine.ParticleSystemGradientMode::value__
-	int32_t ___value___2;
-
-public:
-	inline static int32_t get_offset_of_value___2() { return static_cast<int32_t>(offsetof(ParticleSystemGradientMode_t7CCC7CC3D80C8FF5134FF94F28BBB579595E8CD5, ___value___2)); }
-	inline int32_t get_value___2() const { return ___value___2; }
-	inline int32_t* get_address_of_value___2() { return &___value___2; }
-	inline void set_value___2(int32_t value)
-	{
-		___value___2 = value;
-	}
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // PARTICLESYSTEMGRADIENTMODE_T7CCC7CC3D80C8FF5134FF94F28BBB579595E8CD5_H
 #ifndef PARTICLESYSTEMSTOPBEHAVIOR_T391374C3CA738F223224E1F294A11CD06D3E1EF0_H
 #define PARTICLESYSTEMSTOPBEHAVIOR_T391374C3CA738F223224E1F294A11CD06D3E1EF0_H
 #ifdef __clang__
@@ -1262,95 +1086,6 @@ struct EmitParams_t03557E552852EC6B71876CD05C4098733702A219_marshaled_com
 	int32_t ___m_ApplyShapeToPosition_10;
 };
 #endif // EMITPARAMS_T03557E552852EC6B71876CD05C4098733702A219_H
-#ifndef MINMAXGRADIENT_TD94D591FCD1E394D6502774CDFC068CFA893FE6B_H
-#define MINMAXGRADIENT_TD94D591FCD1E394D6502774CDFC068CFA893FE6B_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.ParticleSystem/MinMaxGradient
-struct  MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B 
-{
-public:
-	// UnityEngine.ParticleSystemGradientMode UnityEngine.ParticleSystem/MinMaxGradient::m_Mode
-	int32_t ___m_Mode_0;
-	// UnityEngine.Gradient UnityEngine.ParticleSystem/MinMaxGradient::m_GradientMin
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * ___m_GradientMin_1;
-	// UnityEngine.Gradient UnityEngine.ParticleSystem/MinMaxGradient::m_GradientMax
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * ___m_GradientMax_2;
-	// UnityEngine.Color UnityEngine.ParticleSystem/MinMaxGradient::m_ColorMin
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___m_ColorMin_3;
-	// UnityEngine.Color UnityEngine.ParticleSystem/MinMaxGradient::m_ColorMax
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___m_ColorMax_4;
-
-public:
-	inline static int32_t get_offset_of_m_Mode_0() { return static_cast<int32_t>(offsetof(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B, ___m_Mode_0)); }
-	inline int32_t get_m_Mode_0() const { return ___m_Mode_0; }
-	inline int32_t* get_address_of_m_Mode_0() { return &___m_Mode_0; }
-	inline void set_m_Mode_0(int32_t value)
-	{
-		___m_Mode_0 = value;
-	}
-
-	inline static int32_t get_offset_of_m_GradientMin_1() { return static_cast<int32_t>(offsetof(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B, ___m_GradientMin_1)); }
-	inline Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * get_m_GradientMin_1() const { return ___m_GradientMin_1; }
-	inline Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A ** get_address_of_m_GradientMin_1() { return &___m_GradientMin_1; }
-	inline void set_m_GradientMin_1(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * value)
-	{
-		___m_GradientMin_1 = value;
-		Il2CppCodeGenWriteBarrier((&___m_GradientMin_1), value);
-	}
-
-	inline static int32_t get_offset_of_m_GradientMax_2() { return static_cast<int32_t>(offsetof(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B, ___m_GradientMax_2)); }
-	inline Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * get_m_GradientMax_2() const { return ___m_GradientMax_2; }
-	inline Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A ** get_address_of_m_GradientMax_2() { return &___m_GradientMax_2; }
-	inline void set_m_GradientMax_2(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * value)
-	{
-		___m_GradientMax_2 = value;
-		Il2CppCodeGenWriteBarrier((&___m_GradientMax_2), value);
-	}
-
-	inline static int32_t get_offset_of_m_ColorMin_3() { return static_cast<int32_t>(offsetof(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B, ___m_ColorMin_3)); }
-	inline Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  get_m_ColorMin_3() const { return ___m_ColorMin_3; }
-	inline Color_t119BCA590009762C7223FDD3AF9706653AC84ED2 * get_address_of_m_ColorMin_3() { return &___m_ColorMin_3; }
-	inline void set_m_ColorMin_3(Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  value)
-	{
-		___m_ColorMin_3 = value;
-	}
-
-	inline static int32_t get_offset_of_m_ColorMax_4() { return static_cast<int32_t>(offsetof(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B, ___m_ColorMax_4)); }
-	inline Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  get_m_ColorMax_4() const { return ___m_ColorMax_4; }
-	inline Color_t119BCA590009762C7223FDD3AF9706653AC84ED2 * get_address_of_m_ColorMax_4() { return &___m_ColorMax_4; }
-	inline void set_m_ColorMax_4(Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  value)
-	{
-		___m_ColorMax_4 = value;
-	}
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-// Native definition for P/Invoke marshalling of UnityEngine.ParticleSystem/MinMaxGradient
-struct MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_pinvoke
-{
-	int32_t ___m_Mode_0;
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke ___m_GradientMin_1;
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke ___m_GradientMax_2;
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___m_ColorMin_3;
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___m_ColorMax_4;
-};
-// Native definition for COM marshalling of UnityEngine.ParticleSystem/MinMaxGradient
-struct MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_com
-{
-	int32_t ___m_Mode_0;
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com* ___m_GradientMin_1;
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com* ___m_GradientMax_2;
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___m_ColorMin_3;
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___m_ColorMax_4;
-};
-#endif // MINMAXGRADIENT_TD94D591FCD1E394D6502774CDFC068CFA893FE6B_H
 #ifndef PARTICLESYSTEM_T45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D_H
 #define PARTICLESYSTEM_T45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D_H
 #ifdef __clang__
@@ -1412,12 +1147,6 @@ public:
 #endif
 #endif // PARTICLESYSTEMRENDERER_T86E4ED2C0ADF5D2E7FA3D636B6B070600D05C459_H
 
-extern "C" void Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke(const Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A& unmarshaled, Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke& marshaled);
-extern "C" void Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke_back(const Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke& marshaled, Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A& unmarshaled);
-extern "C" void Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke_cleanup(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_pinvoke& marshaled);
-extern "C" void Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com(const Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A& unmarshaled, Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com& marshaled);
-extern "C" void Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com_back(const Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com& marshaled, Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A& unmarshaled);
-extern "C" void Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com_cleanup(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshaled_com& marshaled);
 
 
 // System.Void UnityEngine.ParticleSystem/Particle::set_position(UnityEngine.Vector3)
@@ -1442,14 +1171,6 @@ extern "C" IL2CPP_METHOD_ATTR void Particle_set_startColor_m67807C44D14862EBD8C0
 extern "C" IL2CPP_METHOD_ATTR void Particle_set_randomSeed_m1311237E65918DDD765FC4D6BAE85047D8B8CBCE (Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E * __this, uint32_t ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Internal_EmitOld(UnityEngine.ParticleSystem/Particle&)
 extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_Internal_EmitOld_m5D0EC31DDF54DB9DB5075EA54CC25A5A7A125A76 (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E * ___particle0, const RuntimeMethod* method);
-// UnityEngine.ParticleSystem/MainModule UnityEngine.ParticleSystem::get_main()
-extern "C" IL2CPP_METHOD_ATTR MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  ParticleSystem_get_main_m360B0AA57C71DE0358B6B07133C68B5FD88C742F (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, const RuntimeMethod* method);
-// UnityEngine.ParticleSystem/MinMaxGradient UnityEngine.ParticleSystem/MinMaxGradient::op_Implicit(UnityEngine.Color)
-extern "C" IL2CPP_METHOD_ATTR MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  MinMaxGradient_op_Implicit_m1E7229BF9D38DF952891FA7423BE30E74EEB40E0 (Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___color0, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem/MainModule::set_startColor(UnityEngine.ParticleSystem/MinMaxGradient)
-extern "C" IL2CPP_METHOD_ATTR void MainModule_set_startColor_m50DF5CA21C1A06579B05C18F5F232529ADB36BED (MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 * __this, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  ___value0, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem/MainModule::.ctor(UnityEngine.ParticleSystem)
-extern "C" IL2CPP_METHOD_ATTR void MainModule__ctor_m10DC65291ACEC243EC5302404E059717B552BA7A (MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 * __this, ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___particleSystem0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Play(System.Boolean)
 extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_Play_mBB238026E6389F44C76498D31038FE7A8C47E3AA (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, bool ___withChildren0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Stop(System.Boolean,UnityEngine.ParticleSystemStopBehavior)
@@ -1458,14 +1179,6 @@ extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_Stop_m0EEE504756C56D38D3F8AB0F
 extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_Emit_Internal_m1857956B7219B8232C1777E515706F8075C8B925 (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, int32_t ___count0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem::Emit_Injected(UnityEngine.ParticleSystem/EmitParams&,System.Int32)
 extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_Emit_Injected_mB34A23399928EDC3111C060A2346A1EF63E1B9CC (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, EmitParams_t03557E552852EC6B71876CD05C4098733702A219 * ___emitParams0, int32_t ___count1, const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem/MainModule::SetStartColor(UnityEngine.ParticleSystem,UnityEngine.ParticleSystem/MinMaxGradient&)
-extern "C" IL2CPP_METHOD_ATTR void MainModule_SetStartColor_mF25281013D09B50B6B6800AF801AAC931D60BB02 (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___system0, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B * ___gradient1, const RuntimeMethod* method);
-// System.Void UnityEngine.Gradient::.ctor()
-extern "C" IL2CPP_METHOD_ATTR void Gradient__ctor_m297B6B928FDA6BD99A142736017F5C0E2B30BE7F (Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A * __this, const RuntimeMethod* method);
-// UnityEngine.Color UnityEngine.Color::get_black()
-extern "C" IL2CPP_METHOD_ATTR Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  Color_get_black_mEB3C91F45F8AA7E4842238DFCC578BB322723DAF (const RuntimeMethod* method);
-// System.Void UnityEngine.ParticleSystem/MinMaxGradient::.ctor(UnityEngine.Color)
-extern "C" IL2CPP_METHOD_ATTR void MinMaxGradient__ctor_m7584305C4D88E5D376BF6C0CB055741D6EC18DF2 (MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B * __this, Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___color0, const RuntimeMethod* method);
 // System.Void UnityEngine.ParticleSystem/Particle::set_remainingLifetime(System.Single)
 extern "C" IL2CPP_METHOD_ATTR void Particle_set_remainingLifetime_mD6ABB0C19127BD86DE3723B443331E5968EE0E87 (Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E * __this, float ___value0, const RuntimeMethod* method);
 // System.Void UnityEngine.Vector3::.ctor(System.Single,System.Single,System.Single)
@@ -1526,39 +1239,6 @@ extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_Emit_m26C1CE51747F6F96A02AF1E5
 	{
 		ParticleSystem_Internal_EmitOld_m5D0EC31DDF54DB9DB5075EA54CC25A5A7A125A76(__this, (Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E *)(&___particle0), /*hidden argument*/NULL);
 		return;
-	}
-}
-// System.Void UnityEngine.ParticleSystem::set_startColor(UnityEngine.Color)
-extern "C" IL2CPP_METHOD_ATTR void ParticleSystem_set_startColor_m1ADF0989D5B42E333C6329284D47AED1637F3546 (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___value0, const RuntimeMethod* method)
-{
-	MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  L_0 = ParticleSystem_get_main_m360B0AA57C71DE0358B6B07133C68B5FD88C742F(__this, /*hidden argument*/NULL);
-		V_0 = L_0;
-		Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  L_1 = ___value0;
-		MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  L_2 = MinMaxGradient_op_Implicit_m1E7229BF9D38DF952891FA7423BE30E74EEB40E0(L_1, /*hidden argument*/NULL);
-		MainModule_set_startColor_m50DF5CA21C1A06579B05C18F5F232529ADB36BED((MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 *)(&V_0), L_2, /*hidden argument*/NULL);
-		return;
-	}
-}
-// UnityEngine.ParticleSystem/MainModule UnityEngine.ParticleSystem::get_main()
-extern "C" IL2CPP_METHOD_ATTR MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  ParticleSystem_get_main_m360B0AA57C71DE0358B6B07133C68B5FD88C742F (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * __this, const RuntimeMethod* method)
-{
-	MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  L_0;
-		memset(&L_0, 0, sizeof(L_0));
-		MainModule__ctor_m10DC65291ACEC243EC5302404E059717B552BA7A((&L_0), __this, /*hidden argument*/NULL);
-		V_0 = L_0;
-		goto IL_000d;
-	}
-
-IL_000d:
-	{
-		MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7  L_1 = V_0;
-		return L_1;
 	}
 }
 // System.Void UnityEngine.ParticleSystem::Play(System.Boolean)
@@ -1778,234 +1458,6 @@ extern "C" void EmitParams_t03557E552852EC6B71876CD05C4098733702A219_marshal_com
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Conversion methods for marshalling of: UnityEngine.ParticleSystem/MainModule
-extern "C" void MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshal_pinvoke(const MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7& unmarshaled, MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_pinvoke& marshaled)
-{
-	Exception_t* ___m_ParticleSystem_0Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_ParticleSystem' of type 'MainModule': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_ParticleSystem_0Exception, NULL, NULL);
-}
-extern "C" void MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshal_pinvoke_back(const MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_pinvoke& marshaled, MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7& unmarshaled)
-{
-	Exception_t* ___m_ParticleSystem_0Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_ParticleSystem' of type 'MainModule': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_ParticleSystem_0Exception, NULL, NULL);
-}
-// Conversion method for clean up from marshalling of: UnityEngine.ParticleSystem/MainModule
-extern "C" void MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshal_pinvoke_cleanup(MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_pinvoke& marshaled)
-{
-}
-// Conversion methods for marshalling of: UnityEngine.ParticleSystem/MainModule
-extern "C" void MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshal_com(const MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7& unmarshaled, MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_com& marshaled)
-{
-	Exception_t* ___m_ParticleSystem_0Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_ParticleSystem' of type 'MainModule': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_ParticleSystem_0Exception, NULL, NULL);
-}
-extern "C" void MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshal_com_back(const MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_com& marshaled, MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7& unmarshaled)
-{
-	Exception_t* ___m_ParticleSystem_0Exception = il2cpp_codegen_get_marshal_directive_exception("Cannot marshal field 'm_ParticleSystem' of type 'MainModule': Reference type field marshaling is not supported.");
-	IL2CPP_RAISE_MANAGED_EXCEPTION(___m_ParticleSystem_0Exception, NULL, NULL);
-}
-// Conversion method for clean up from marshalling of: UnityEngine.ParticleSystem/MainModule
-extern "C" void MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshal_com_cleanup(MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7_marshaled_com& marshaled)
-{
-}
-// System.Void UnityEngine.ParticleSystem/MainModule::.ctor(UnityEngine.ParticleSystem)
-extern "C" IL2CPP_METHOD_ATTR void MainModule__ctor_m10DC65291ACEC243EC5302404E059717B552BA7A (MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 * __this, ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___particleSystem0, const RuntimeMethod* method)
-{
-	{
-		ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * L_0 = ___particleSystem0;
-		__this->set_m_ParticleSystem_0(L_0);
-		return;
-	}
-}
-extern "C"  void MainModule__ctor_m10DC65291ACEC243EC5302404E059717B552BA7A_AdjustorThunk (RuntimeObject * __this, ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___particleSystem0, const RuntimeMethod* method)
-{
-	MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 * _thisAdjusted = reinterpret_cast<MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 *>(__this + 1);
-	MainModule__ctor_m10DC65291ACEC243EC5302404E059717B552BA7A(_thisAdjusted, ___particleSystem0, method);
-}
-// System.Void UnityEngine.ParticleSystem/MainModule::set_startColor(UnityEngine.ParticleSystem/MinMaxGradient)
-extern "C" IL2CPP_METHOD_ATTR void MainModule_set_startColor_m50DF5CA21C1A06579B05C18F5F232529ADB36BED (MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 * __this, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  ___value0, const RuntimeMethod* method)
-{
-	{
-		ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * L_0 = __this->get_m_ParticleSystem_0();
-		MainModule_SetStartColor_mF25281013D09B50B6B6800AF801AAC931D60BB02(L_0, (MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B *)(&___value0), /*hidden argument*/NULL);
-		return;
-	}
-}
-extern "C"  void MainModule_set_startColor_m50DF5CA21C1A06579B05C18F5F232529ADB36BED_AdjustorThunk (RuntimeObject * __this, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  ___value0, const RuntimeMethod* method)
-{
-	MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 * _thisAdjusted = reinterpret_cast<MainModule_t99C675667E0A363368324132DFA34B27FFEE6FC7 *>(__this + 1);
-	MainModule_set_startColor_m50DF5CA21C1A06579B05C18F5F232529ADB36BED(_thisAdjusted, ___value0, method);
-}
-// System.Void UnityEngine.ParticleSystem/MainModule::SetStartColor(UnityEngine.ParticleSystem,UnityEngine.ParticleSystem/MinMaxGradient&)
-extern "C" IL2CPP_METHOD_ATTR void MainModule_SetStartColor_mF25281013D09B50B6B6800AF801AAC931D60BB02 (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D * ___system0, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B * ___gradient1, const RuntimeMethod* method)
-{
-	typedef void (*MainModule_SetStartColor_mF25281013D09B50B6B6800AF801AAC931D60BB02_ftn) (ParticleSystem_t45DA87A3E83E738DA3FDAA5A48A133F1A1247C3D *, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B *);
-	static MainModule_SetStartColor_mF25281013D09B50B6B6800AF801AAC931D60BB02_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (MainModule_SetStartColor_mF25281013D09B50B6B6800AF801AAC931D60BB02_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.ParticleSystem/MainModule::SetStartColor(UnityEngine.ParticleSystem,UnityEngine.ParticleSystem/MinMaxGradient&)");
-	_il2cpp_icall_func(___system0, ___gradient1);
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-
-
-
-// Conversion methods for marshalling of: UnityEngine.ParticleSystem/MinMaxGradient
-extern "C" void MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshal_pinvoke(const MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B& unmarshaled, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_pinvoke& marshaled)
-{
-	marshaled.___m_Mode_0 = unmarshaled.get_m_Mode_0();
-	if (unmarshaled.get_m_GradientMin_1() != NULL)
-	{
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke(*unmarshaled.get_m_GradientMin_1(), marshaled.___m_GradientMin_1);
-	}
-	if (unmarshaled.get_m_GradientMax_2() != NULL)
-	{
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke(*unmarshaled.get_m_GradientMax_2(), marshaled.___m_GradientMax_2);
-	}
-	marshaled.___m_ColorMin_3 = unmarshaled.get_m_ColorMin_3();
-	marshaled.___m_ColorMax_4 = unmarshaled.get_m_ColorMax_4();
-}
-extern "C" void MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshal_pinvoke_back(const MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_pinvoke& marshaled, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B& unmarshaled)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_pinvoke_FromNativeMethodDefinition_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	int32_t unmarshaled_m_Mode_temp_0 = 0;
-	unmarshaled_m_Mode_temp_0 = marshaled.___m_Mode_0;
-	unmarshaled.set_m_Mode_0(unmarshaled_m_Mode_temp_0);
-	unmarshaled.set_m_GradientMin_1((Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A*)il2cpp_codegen_object_new(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_il2cpp_TypeInfo_var));
-	Gradient__ctor_m297B6B928FDA6BD99A142736017F5C0E2B30BE7F(unmarshaled.get_m_GradientMin_1(), NULL);
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke_back(marshaled.___m_GradientMin_1, *unmarshaled.get_m_GradientMin_1());
-	unmarshaled.set_m_GradientMax_2((Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A*)il2cpp_codegen_object_new(Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_il2cpp_TypeInfo_var));
-	Gradient__ctor_m297B6B928FDA6BD99A142736017F5C0E2B30BE7F(unmarshaled.get_m_GradientMax_2(), NULL);
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke_back(marshaled.___m_GradientMax_2, *unmarshaled.get_m_GradientMax_2());
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  unmarshaled_m_ColorMin_temp_3;
-	memset(&unmarshaled_m_ColorMin_temp_3, 0, sizeof(unmarshaled_m_ColorMin_temp_3));
-	unmarshaled_m_ColorMin_temp_3 = marshaled.___m_ColorMin_3;
-	unmarshaled.set_m_ColorMin_3(unmarshaled_m_ColorMin_temp_3);
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  unmarshaled_m_ColorMax_temp_4;
-	memset(&unmarshaled_m_ColorMax_temp_4, 0, sizeof(unmarshaled_m_ColorMax_temp_4));
-	unmarshaled_m_ColorMax_temp_4 = marshaled.___m_ColorMax_4;
-	unmarshaled.set_m_ColorMax_4(unmarshaled_m_ColorMax_temp_4);
-}
-// Conversion method for clean up from marshalling of: UnityEngine.ParticleSystem/MinMaxGradient
-extern "C" void MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshal_pinvoke_cleanup(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_pinvoke& marshaled)
-{
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke_cleanup(marshaled.___m_GradientMin_1);
-	Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_pinvoke_cleanup(marshaled.___m_GradientMax_2);
-}
-
-
-
-
-// Conversion methods for marshalling of: UnityEngine.ParticleSystem/MinMaxGradient
-extern "C" void MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshal_com(const MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B& unmarshaled, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_com& marshaled)
-{
-	marshaled.___m_Mode_0 = unmarshaled.get_m_Mode_0();
-	if (unmarshaled.get_m_GradientMin_1() != NULL)
-	{
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com(*unmarshaled.get_m_GradientMin_1(), *marshaled.___m_GradientMin_1);
-	}
-	if (unmarshaled.get_m_GradientMax_2() != NULL)
-	{
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com(*unmarshaled.get_m_GradientMax_2(), *marshaled.___m_GradientMax_2);
-	}
-	marshaled.___m_ColorMin_3 = unmarshaled.get_m_ColorMin_3();
-	marshaled.___m_ColorMax_4 = unmarshaled.get_m_ColorMax_4();
-}
-extern "C" void MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshal_com_back(const MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_com& marshaled, MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B& unmarshaled)
-{
-	int32_t unmarshaled_m_Mode_temp_0 = 0;
-	unmarshaled_m_Mode_temp_0 = marshaled.___m_Mode_0;
-	unmarshaled.set_m_Mode_0(unmarshaled_m_Mode_temp_0);
-	if (unmarshaled.get_m_GradientMin_1() != NULL)
-	{
-		Gradient__ctor_m297B6B928FDA6BD99A142736017F5C0E2B30BE7F(unmarshaled.get_m_GradientMin_1(), NULL);
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com_back(*marshaled.___m_GradientMin_1, *unmarshaled.get_m_GradientMin_1());
-	}
-	if (unmarshaled.get_m_GradientMax_2() != NULL)
-	{
-		Gradient__ctor_m297B6B928FDA6BD99A142736017F5C0E2B30BE7F(unmarshaled.get_m_GradientMax_2(), NULL);
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com_back(*marshaled.___m_GradientMax_2, *unmarshaled.get_m_GradientMax_2());
-	}
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  unmarshaled_m_ColorMin_temp_3;
-	memset(&unmarshaled_m_ColorMin_temp_3, 0, sizeof(unmarshaled_m_ColorMin_temp_3));
-	unmarshaled_m_ColorMin_temp_3 = marshaled.___m_ColorMin_3;
-	unmarshaled.set_m_ColorMin_3(unmarshaled_m_ColorMin_temp_3);
-	Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  unmarshaled_m_ColorMax_temp_4;
-	memset(&unmarshaled_m_ColorMax_temp_4, 0, sizeof(unmarshaled_m_ColorMax_temp_4));
-	unmarshaled_m_ColorMax_temp_4 = marshaled.___m_ColorMax_4;
-	unmarshaled.set_m_ColorMax_4(unmarshaled_m_ColorMax_temp_4);
-}
-// Conversion method for clean up from marshalling of: UnityEngine.ParticleSystem/MinMaxGradient
-extern "C" void MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshal_com_cleanup(MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B_marshaled_com& marshaled)
-{
-	if (marshaled.___m_GradientMin_1 != NULL)
-	{
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com_cleanup(*marshaled.___m_GradientMin_1);
-	}
-	if (marshaled.___m_GradientMax_2 != NULL)
-	{
-		Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A_marshal_com_cleanup(*marshaled.___m_GradientMax_2);
-	}
-}
-// System.Void UnityEngine.ParticleSystem/MinMaxGradient::.ctor(UnityEngine.Color)
-extern "C" IL2CPP_METHOD_ATTR void MinMaxGradient__ctor_m7584305C4D88E5D376BF6C0CB055741D6EC18DF2 (MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B * __this, Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___color0, const RuntimeMethod* method)
-{
-	{
-		__this->set_m_Mode_0(0);
-		__this->set_m_GradientMin_1((Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A *)NULL);
-		__this->set_m_GradientMax_2((Gradient_t35A694DDA1066524440E325E582B01E33DE66A3A *)NULL);
-		Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  L_0 = Color_get_black_mEB3C91F45F8AA7E4842238DFCC578BB322723DAF(/*hidden argument*/NULL);
-		__this->set_m_ColorMin_3(L_0);
-		Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  L_1 = ___color0;
-		__this->set_m_ColorMax_4(L_1);
-		return;
-	}
-}
-extern "C"  void MinMaxGradient__ctor_m7584305C4D88E5D376BF6C0CB055741D6EC18DF2_AdjustorThunk (RuntimeObject * __this, Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___color0, const RuntimeMethod* method)
-{
-	MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B * _thisAdjusted = reinterpret_cast<MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B *>(__this + 1);
-	MinMaxGradient__ctor_m7584305C4D88E5D376BF6C0CB055741D6EC18DF2(_thisAdjusted, ___color0, method);
-}
-// UnityEngine.ParticleSystem/MinMaxGradient UnityEngine.ParticleSystem/MinMaxGradient::op_Implicit(UnityEngine.Color)
-extern "C" IL2CPP_METHOD_ATTR MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  MinMaxGradient_op_Implicit_m1E7229BF9D38DF952891FA7423BE30E74EEB40E0 (Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  ___color0, const RuntimeMethod* method)
-{
-	MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  L_0 = ___color0;
-		MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  L_1;
-		memset(&L_1, 0, sizeof(L_1));
-		MinMaxGradient__ctor_m7584305C4D88E5D376BF6C0CB055741D6EC18DF2((&L_1), L_0, /*hidden argument*/NULL);
-		V_0 = L_1;
-		goto IL_000d;
-	}
-
-IL_000d:
-	{
-		MinMaxGradient_tD94D591FCD1E394D6502774CDFC068CFA893FE6B  L_2 = V_0;
-		return L_2;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
 // System.Void UnityEngine.ParticleSystem/Particle::set_lifetime(System.Single)
 extern "C" IL2CPP_METHOD_ATTR void Particle_set_lifetime_m0DB60575386F2D365BCCCAB07538FC2BFF81EC17 (Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E * __this, float ___value0, const RuntimeMethod* method)
 {
@@ -2171,14 +1623,6 @@ extern "C"  void Particle_set_angularVelocity3D_m0F282D7EE110DF290E04B2B99FEC697
 	Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E * _thisAdjusted = reinterpret_cast<Particle_t64AF74F5D9C7EE7018AD98F29E4FF653558A581E *>(__this + 1);
 	Particle_set_angularVelocity3D_m0F282D7EE110DF290E04B2B99FEC697ED89BF4EF(_thisAdjusted, ___value0, method);
 }
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

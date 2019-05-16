@@ -28,6 +28,8 @@ public class PianoView : MonoBehaviour
     private List<int> songSpectrums;
     private DisplayPartItem[] lstDisplayItem;
     private DisplayPartItem[] windowlstDisplayItem;
+    private int lastSymbolNum;
+    private int lastDanceNum;
 
     void Start()
     {
@@ -40,7 +42,8 @@ public class PianoView : MonoBehaviour
         //加载小人
         LoadPerson();
         //给琴谱赋值
-        songSpectrums = PianoSpectrum.LittleStarSpecturms;
+        int n = RandomSongNum();
+        songSpectrums = PianoSpectrum.SongsList[n];
         //8个琴键脚本,8个琴键提示动画
         for (int i = 0; i < Keys.childCount; i++)
         {
@@ -52,10 +55,10 @@ public class PianoView : MonoBehaviour
             //Audio
             audioSources.Add(key.GetComponentInChildren<AudioSource>());
             //提示动画
-            Animation ani = key.GetComponentInChildren<Animation>();
+            Animation ani = key.GetComponentInChildren<Animation>(true);
             pianoKeyAnimations.Add(ani);
             //提示物体
-            GameObject reminder = ani.transform.Find("reminder").gameObject;
+            GameObject reminder = key.Find("reminder").gameObject;
             reminder.SetActive(false);
             Image img_reminder = reminder.GetComponent<Image>();
             reminders.Add(img_reminder);
@@ -69,6 +72,12 @@ public class PianoView : MonoBehaviour
         AddClickEvent();
         //隐藏结果弹窗
         ResultWindow.gameObject.SetActive(false);
+    }
+
+    int RandomSongNum()
+    {
+        Random rd = new Random();
+        return rd.Next(0, 3);
     }
 
     private void LoadPerson()
@@ -109,6 +118,11 @@ public class PianoView : MonoBehaviour
     {
         Random rd = new Random();
         int n = rd.Next(1, 7);
+        while (n == lastSymbolNum)
+        {
+            n = rd.Next(1,7);
+        }
+        lastSymbolNum = n;
         return n;
     }
 
@@ -210,7 +224,7 @@ public class PianoView : MonoBehaviour
         int keyIndex = songSpectrums[curSpecturmIndex];
         int n = RandowSymbol();
         string path = string.Format("Sprite/piano_symbols|game_music_symbol{0}_pic@3x", n);
-        UIHelper.instance.SetImage(path, reminders[keyIndex - 1], false);
+        UIHelper.instance.SetImage(path, reminders[keyIndex - 1], true);
         reminders[keyIndex-1].gameObject.SetActive(true);
         pianoKeyAnimations[keyIndex-1].Play();
     }
@@ -224,6 +238,11 @@ public class PianoView : MonoBehaviour
     {
         Random r = new Random();
         int n = r.Next(1, 5);
+        while(n==lastDanceNum)
+        {
+            n = r.Next(1, 5);
+        }
+        lastDanceNum = n;
         DataManager.instance.PersonDance(lstDisplayItem, n);
     }
 }

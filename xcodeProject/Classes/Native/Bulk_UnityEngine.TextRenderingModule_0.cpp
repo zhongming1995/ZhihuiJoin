@@ -104,8 +104,6 @@ struct Void_t22962CB4C05B1D89B55A6E1139F0E87A90987017;
 struct Font_t1EDE54AF557272BE314EB4B40EFA50CEB353CA26;
 // UnityEngine.Font/FontTextureRebuildCallback
 struct FontTextureRebuildCallback_tD700C63BB1A449E3A0464C81701E981677D3021C;
-// UnityEngine.GUIText
-struct GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1;
 // UnityEngine.GameObject
 struct GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F;
 // UnityEngine.Material
@@ -2133,26 +2131,6 @@ struct MulticastDelegate_t_marshaled_com : public Delegate_t_marshaled_com
 	DelegateU5BU5D_tDFCDEE2A6322F96C0FE49AF47E9ADB8C4B294E86* ___delegates_11;
 };
 #endif // MULTICASTDELEGATE_T_H
-#ifndef COMPONENT_T05064EF382ABCAF4B8C94F8A350EA85184C26621_H
-#define COMPONENT_T05064EF382ABCAF4B8C94F8A350EA85184C26621_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.Component
-struct  Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621  : public Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // COMPONENT_T05064EF382ABCAF4B8C94F8A350EA85184C26621_H
 #ifndef FONT_T1EDE54AF557272BE314EB4B40EFA50CEB353CA26_H
 #define FONT_T1EDE54AF557272BE314EB4B40EFA50CEB353CA26_H
 #ifdef __clang__
@@ -2524,26 +2502,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // ASYNCCALLBACK_T3F3DA3BEDAEE81DD1D24125DF8EB30E85EE14DA4_H
-#ifndef BEHAVIOUR_TBDC7E9C3C898AD8348891B82D3E345801D920CA8_H
-#define BEHAVIOUR_TBDC7E9C3C898AD8348891B82D3E345801D920CA8_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.Behaviour
-struct  Behaviour_tBDC7E9C3C898AD8348891B82D3E345801D920CA8  : public Component_t05064EF382ABCAF4B8C94F8A350EA85184C26621
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // BEHAVIOUR_TBDC7E9C3C898AD8348891B82D3E345801D920CA8_H
 #ifndef FONTTEXTUREREBUILDCALLBACK_TD700C63BB1A449E3A0464C81701E981677D3021C_H
 #define FONTTEXTUREREBUILDCALLBACK_TD700C63BB1A449E3A0464C81701E981677D3021C_H
 #ifdef __clang__
@@ -2727,46 +2685,6 @@ struct TextGenerator_tD455BE18A64C7DDF854F6DB3CCEBF705121C58A8_marshaled_com
 	int32_t ___m_CachedLines_10;
 };
 #endif // TEXTGENERATOR_TD455BE18A64C7DDF854F6DB3CCEBF705121C58A8_H
-#ifndef GUIELEMENT_T7509096A8399BAB91367BBDD2F90EB2BACB1C4C4_H
-#define GUIELEMENT_T7509096A8399BAB91367BBDD2F90EB2BACB1C4C4_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.GUIElement
-struct  GUIElement_t7509096A8399BAB91367BBDD2F90EB2BACB1C4C4  : public Behaviour_tBDC7E9C3C898AD8348891B82D3E345801D920CA8
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // GUIELEMENT_T7509096A8399BAB91367BBDD2F90EB2BACB1C4C4_H
-#ifndef GUITEXT_T1AAED515CF7E63F24B55C5FC988555DA14DA10F1_H
-#define GUITEXT_T1AAED515CF7E63F24B55C5FC988555DA14DA10F1_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// UnityEngine.GUIText
-struct  GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1  : public GUIElement_t7509096A8399BAB91367BBDD2F90EB2BACB1C4C4
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // GUITEXT_T1AAED515CF7E63F24B55C5FC988555DA14DA10F1_H
 // System.Delegate[]
 struct DelegateU5BU5D_tDFCDEE2A6322F96C0FE49AF47E9ADB8C4B294E86  : public RuntimeArray
 {
@@ -2871,10 +2789,6 @@ inline void Action_1_Invoke_mC307FDDD4FEA6818EE9A27D962C2C512B835DAEB (Action_1_
 extern "C" IL2CPP_METHOD_ATTR void FontTextureRebuildCallback_Invoke_m4E6CFDE11932BA7F129C9A2C4CAE294562B07480 (FontTextureRebuildCallback_tD700C63BB1A449E3A0464C81701E981677D3021C * __this, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Font::HasCharacter(System.Int32)
 extern "C" IL2CPP_METHOD_ATTR bool Font_HasCharacter_m59FF574F1E4A2F9807CCF0C5D56C29E68D514D51 (Font_t1EDE54AF557272BE314EB4B40EFA50CEB353CA26 * __this, int32_t ___c0, const RuntimeMethod* method);
-// System.Void UnityEngine.GUIText::get_pixelOffset_Injected(UnityEngine.Vector2&)
-extern "C" IL2CPP_METHOD_ATTR void GUIText_get_pixelOffset_Injected_m960EC24DA273012750F2FE9DDC12860D67BCF5D9 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D * ___ret0, const RuntimeMethod* method);
-// System.Void UnityEngine.GUIText::set_pixelOffset_Injected(UnityEngine.Vector2&)
-extern "C" IL2CPP_METHOD_ATTR void GUIText_set_pixelOffset_Injected_mFAE5AD78586B14DBBEEE910FD39E5EDD6D464099 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D * ___value0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Mathf::Approximately(System.Single,System.Single)
 extern "C" IL2CPP_METHOD_ATTR bool Mathf_Approximately_m91AF00403E0D2DEA1AAE68601AD218CFAD70DF7E (float p0, float p1, const RuntimeMethod* method);
 // System.Boolean UnityEngine.TextGenerationSettings::CompareColors(UnityEngine.Color,UnityEngine.Color)
@@ -3337,70 +3251,6 @@ extern "C" IL2CPP_METHOD_ATTR void FontTextureRebuildCallback_EndInvoke_m8EEDB96
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Int32 UnityEngine.GUIText::get_fontSize()
-extern "C" IL2CPP_METHOD_ATTR int32_t GUIText_get_fontSize_mB51DAB2EF493D7EA932EEC731603B4F0867F0F46 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, const RuntimeMethod* method)
-{
-	typedef int32_t (*GUIText_get_fontSize_mB51DAB2EF493D7EA932EEC731603B4F0867F0F46_ftn) (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 *);
-	static GUIText_get_fontSize_mB51DAB2EF493D7EA932EEC731603B4F0867F0F46_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (GUIText_get_fontSize_mB51DAB2EF493D7EA932EEC731603B4F0867F0F46_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.GUIText::get_fontSize()");
-	int32_t retVal = _il2cpp_icall_func(__this);
-	return retVal;
-}
-// System.Void UnityEngine.GUIText::set_fontSize(System.Int32)
-extern "C" IL2CPP_METHOD_ATTR void GUIText_set_fontSize_m1DD22870196D29901BD5B7691C6782E472A85FEC (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, int32_t ___value0, const RuntimeMethod* method)
-{
-	typedef void (*GUIText_set_fontSize_m1DD22870196D29901BD5B7691C6782E472A85FEC_ftn) (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 *, int32_t);
-	static GUIText_set_fontSize_m1DD22870196D29901BD5B7691C6782E472A85FEC_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (GUIText_set_fontSize_m1DD22870196D29901BD5B7691C6782E472A85FEC_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.GUIText::set_fontSize(System.Int32)");
-	_il2cpp_icall_func(__this, ___value0);
-}
-// UnityEngine.Vector2 UnityEngine.GUIText::get_pixelOffset()
-extern "C" IL2CPP_METHOD_ATTR Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  GUIText_get_pixelOffset_m7EF7D59B5CCB113AA0476B7B5FDF7A75363D4C24 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, const RuntimeMethod* method)
-{
-	Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  V_0;
-	memset(&V_0, 0, sizeof(V_0));
-	{
-		GUIText_get_pixelOffset_Injected_m960EC24DA273012750F2FE9DDC12860D67BCF5D9(__this, (Vector2_tA85D2DD88578276CA8A8796756458277E72D073D *)(&V_0), /*hidden argument*/NULL);
-		Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  L_0 = V_0;
-		return L_0;
-	}
-}
-// System.Void UnityEngine.GUIText::set_pixelOffset(UnityEngine.Vector2)
-extern "C" IL2CPP_METHOD_ATTR void GUIText_set_pixelOffset_m698D3D598BDBA9C58795F151994796B1C8BC5852 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  ___value0, const RuntimeMethod* method)
-{
-	{
-		GUIText_set_pixelOffset_Injected_mFAE5AD78586B14DBBEEE910FD39E5EDD6D464099(__this, (Vector2_tA85D2DD88578276CA8A8796756458277E72D073D *)(&___value0), /*hidden argument*/NULL);
-		return;
-	}
-}
-// System.Void UnityEngine.GUIText::get_pixelOffset_Injected(UnityEngine.Vector2&)
-extern "C" IL2CPP_METHOD_ATTR void GUIText_get_pixelOffset_Injected_m960EC24DA273012750F2FE9DDC12860D67BCF5D9 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D * ___ret0, const RuntimeMethod* method)
-{
-	typedef void (*GUIText_get_pixelOffset_Injected_m960EC24DA273012750F2FE9DDC12860D67BCF5D9_ftn) (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 *, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D *);
-	static GUIText_get_pixelOffset_Injected_m960EC24DA273012750F2FE9DDC12860D67BCF5D9_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (GUIText_get_pixelOffset_Injected_m960EC24DA273012750F2FE9DDC12860D67BCF5D9_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.GUIText::get_pixelOffset_Injected(UnityEngine.Vector2&)");
-	_il2cpp_icall_func(__this, ___ret0);
-}
-// System.Void UnityEngine.GUIText::set_pixelOffset_Injected(UnityEngine.Vector2&)
-extern "C" IL2CPP_METHOD_ATTR void GUIText_set_pixelOffset_Injected_mFAE5AD78586B14DBBEEE910FD39E5EDD6D464099 (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 * __this, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D * ___value0, const RuntimeMethod* method)
-{
-	typedef void (*GUIText_set_pixelOffset_Injected_mFAE5AD78586B14DBBEEE910FD39E5EDD6D464099_ftn) (GUIText_t1AAED515CF7E63F24B55C5FC988555DA14DA10F1 *, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D *);
-	static GUIText_set_pixelOffset_Injected_mFAE5AD78586B14DBBEEE910FD39E5EDD6D464099_ftn _il2cpp_icall_func;
-	if (!_il2cpp_icall_func)
-	_il2cpp_icall_func = (GUIText_set_pixelOffset_Injected_mFAE5AD78586B14DBBEEE910FD39E5EDD6D464099_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.GUIText::set_pixelOffset_Injected(UnityEngine.Vector2&)");
-	_il2cpp_icall_func(__this, ___value0);
-}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
