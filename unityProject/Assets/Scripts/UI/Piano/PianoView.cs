@@ -69,8 +69,6 @@ public class PianoView : MonoBehaviour
         AddClickEvent();
         //隐藏结果弹窗
         ResultWindow.gameObject.SetActive(false);
-        //结果弹窗上添加小人
-        //LoadWindowPerson();
     }
 
     private void LoadPerson()
@@ -103,7 +101,6 @@ public class PianoView : MonoBehaviour
         //加上按钮
         Button btn = person.gameObject.AddComponent<Button>();
         btn.onClick.AddListener(Greeting);
-        Debug.Log("greeting");
         //默认打招呼一次
         Greeting();
     }
@@ -158,7 +155,6 @@ public class PianoView : MonoBehaviour
 
         RBtnReplay.onClick.AddListener(delegate
         {
-            Debug.Log("replay");
             ResultWindow.gameObject.SetActive(false);
             Replay();
         });
@@ -190,12 +186,10 @@ public class PianoView : MonoBehaviour
         {
             return false;
         }
-        Debug.Log("当前提示index:" + curSpecturmIndex+"  琴键："+songSpectrums[curSpecturmIndex]);
-        Debug.Log("当前弹奏的琴键：" + key);
         if (songSpectrums[curSpecturmIndex] == key)
         {
-            Debug.Log("正确========");
-            DataManager.instance.PersonDance1(lstDisplayItem);
+            //DataManager.instance.PersonDance1(lstDisplayItem);
+            Dance();
             return true;
         }
         return false;
@@ -205,7 +199,6 @@ public class PianoView : MonoBehaviour
     {
         if (curSpecturmIndex >= songSpectrums.Count)
         {
-            Debug.Log("弹奏完成---------");
             ResultWindow.gameObject.SetActive(true);
             if (WindowPersonParent.childCount==0)
             {
@@ -215,7 +208,6 @@ public class PianoView : MonoBehaviour
             return;
         }
         int keyIndex = songSpectrums[curSpecturmIndex];
-        Debug.Log("提示----------" + keyIndex);
         int n = RandowSymbol();
         string path = string.Format("Sprite/piano_symbols|game_music_symbol{0}_pic@3x", n);
         UIHelper.instance.SetImage(path, reminders[keyIndex - 1], false);
@@ -225,7 +217,13 @@ public class PianoView : MonoBehaviour
 
     public void Greeting()
     {
-        Debug.Log("piano greeting");
         DataManager.instance.PersonGreeting(windowlstDisplayItem);
+    }
+
+    public void Dance()
+    {
+        Random r = new Random();
+        int n = r.Next(1, 5);
+        DataManager.instance.PersonDance(lstDisplayItem, n);
     }
 }

@@ -173,7 +173,7 @@ namespace DataMgr
             }
         }
 
-        public void PersonDance1(DisplayPartItem[] itemList)
+        public void PersonDance(DisplayPartItem[] itemList,int n)
         {
             if (itemList == null)
             {
@@ -182,7 +182,14 @@ namespace DataMgr
             }
             for (int i = 0; i < itemList.Length; i++)
             {
-                itemList[i].PlayDance1();
+                if (itemList[i].item_animation.isPlaying)
+                {
+                    return;
+                }
+            }
+            for (int i = 0; i < itemList.Length; i++)
+            {
+                itemList[i].PlayDance(n);
             }
         }
 

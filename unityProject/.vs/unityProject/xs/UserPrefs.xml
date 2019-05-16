@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Piano/PianoView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayPartItem.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="214" Column="24" />
       <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="90" Column="37" />
       <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="172" Column="33" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="40" Column="30" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="96" Column="41" />
       <File FileName="Assets/Scripts/UI/Piano/PianoKey.cs" Line="48" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

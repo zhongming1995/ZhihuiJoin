@@ -7,13 +7,14 @@ public class DisplayPartItem : MonoBehaviour
     //部位类型
     public PartType partType;
     //private Animator animator;
-    private Animation item_animation;
+    public Animation item_animation;
     private RectTransform rectTransform;
     private string actionName = "Greeting_LeftEye";
     public string Greeting = "Greeting";
     public string Dancing1 = "Dance_1";
     public string Dancing2 = "Dance_2";
     public string Dancing3 = "Dance_3";
+    public string Dance = "Dance_";
     public string Default = "Default";
 
     private void OnEnable()
@@ -45,7 +46,7 @@ public class DisplayPartItem : MonoBehaviour
             item_animation.Play(aniName);
         }
         */
-        PlayDance3();
+        PlayDance(4);
     }
 
     public void PlayDance1()
@@ -100,6 +101,22 @@ public class DisplayPartItem : MonoBehaviour
             {
                 item_animation.Stop();
                 item_animation.Play(aniName);
+            }
+            else
+            {
+                item_animation.Play(aniName);
+            }
+        }
+    }
+
+    public void PlayDance(int index)
+    {
+        string aniName = Dance + index.ToString() + "_" + partType.ToString();
+        if (item_animation.GetClip(aniName) != null)
+        {
+            if (item_animation.isPlaying)
+            {
+                return;
             }
             else
             {
