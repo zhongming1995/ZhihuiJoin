@@ -46,7 +46,7 @@ public class DisplayPartItem : MonoBehaviour
             item_animation.Play(aniName);
         }
         */
-        PlayDance(4);
+        PlayDance(2);
     }
 
     public void PlayDance1()
