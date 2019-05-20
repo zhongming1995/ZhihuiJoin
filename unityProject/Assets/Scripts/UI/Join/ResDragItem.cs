@@ -8,6 +8,7 @@ using DG.Tweening;
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
     public PartType partType;
+    private Vector3 partScale = new Vector3(1,1,1);
 
     private Image image;
     private JoinMainView joinMainView;
@@ -41,6 +42,11 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         partType = GetPartTypeByResType(type, index);
         string path = GameManager.instance.resPathList[(int)type][index];
         UIHelper.instance.SetImage(path, image, true);
+    }
+
+    public void SetScale(Vector3 scale)
+    {
+        partScale = scale;
     }
 
     /// <summary>
@@ -150,25 +156,45 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             joinMainView.hasDraged = true;
             float posx = rt.anchoredPosition.x;
             float posy = rt.anchoredPosition.y;
-            if (rt.anchoredPosition.x>anchorLeftTop.x&&rt.anchoredPosition.x<(anchorLeftTop.x+rt.sizeDelta.x/2))
+            //if (rt.anchoredPosition.x>anchorLeftTop.x&&rt.anchoredPosition.x<(anchorLeftTop.x+rt.sizeDelta.x/2))
+            //{
+            //    Debug.Log("x左压线");
+            //    posx = anchorLeftTop.x + rt.sizeDelta.x / 2;
+            //}
+            //if (rt.anchoredPosition.x<anchorRightBottom.x&&rt.anchoredPosition.x>(anchorRightBottom.x-rt.sizeDelta.x/2))
+            //{
+            //    Debug.Log("x右压线");
+            //    posx = anchorRightBottom.x - rt.sizeDelta.x / 2;
+            //}
+            //if (rt.anchoredPosition.y>anchorRightBottom.y&&rt.anchoredPosition.y<(anchorRightBottom.y+rt.sizeDelta.y/2))
+            //{
+            //    Debug.Log("下压线");
+            //    posy = anchorRightBottom.y + rt.sizeDelta.y / 2;
+            //}
+            //if (rt.anchoredPosition.y < anchorLeftTop.y && rt.anchoredPosition.y > (anchorLeftTop.y - rt.sizeDelta.y / 2)) 
+            //{
+            //    Debug.Log("上压线");
+            //    posy = anchorLeftTop.y - rt.sizeDelta.y / 2;
+            //}
+            if (rt.anchoredPosition.x > anchorLeftTop.x && rt.anchoredPosition.x < (anchorLeftTop.x + rt.sizeDelta.x*partScale.x / 2))
             {
                 Debug.Log("x左压线");
-                posx = anchorLeftTop.x + rt.sizeDelta.x / 2;
+                posx = anchorLeftTop.x + rt.sizeDelta.x * partScale.x / 2;
             }
-            if (rt.anchoredPosition.x<anchorRightBottom.x&&rt.anchoredPosition.x>(anchorRightBottom.x-rt.sizeDelta.x/2))
+            if (rt.anchoredPosition.x < anchorRightBottom.x && rt.anchoredPosition.x > (anchorRightBottom.x - rt.sizeDelta.x* partScale.x / 2))
             {
                 Debug.Log("x右压线");
-                posx = anchorRightBottom.x - rt.sizeDelta.x / 2;
+                posx = anchorRightBottom.x - rt.sizeDelta.x * partScale.x / 2;
             }
-            if (rt.anchoredPosition.y>anchorRightBottom.y&&rt.anchoredPosition.y<(anchorRightBottom.y+rt.sizeDelta.y/2))
+            if (rt.anchoredPosition.y > anchorRightBottom.y && rt.anchoredPosition.y < (anchorRightBottom.y + rt.sizeDelta.y * partScale.y / 2))
             {
                 Debug.Log("下压线");
-                posy = anchorRightBottom.y + rt.sizeDelta.y / 2;
+                posy = anchorRightBottom.y + rt.sizeDelta.y * partScale.y / 2;
             }
-            if (rt.anchoredPosition.y < anchorLeftTop.y && rt.anchoredPosition.y > (anchorLeftTop.y - rt.sizeDelta.y / 2)) 
+            if (rt.anchoredPosition.y < anchorLeftTop.y && rt.anchoredPosition.y > (anchorLeftTop.y - rt.sizeDelta.y * partScale.y / 2))
             {
                 Debug.Log("上压线");
-                posy = anchorLeftTop.y - rt.sizeDelta.y / 2;
+                posy = anchorLeftTop.y - rt.sizeDelta.y * partScale.y / 2;
             }
             rt.DOAnchorPos(new Vector2(posx, posy), 0.5f);
             return;

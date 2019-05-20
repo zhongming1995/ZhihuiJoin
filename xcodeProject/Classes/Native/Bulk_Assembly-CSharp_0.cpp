@@ -668,6 +668,7 @@ extern String_t* _stringLiteral39CB5BBC4B31919252939A2B3BC2A5A1FCA550EE;
 extern String_t* _stringLiteral3A6F7395F665294843CA182E9916B551B26F0C30;
 extern String_t* _stringLiteral3A93C9C2B25DF8DF5D270B6F5C77C59CBF731702;
 extern String_t* _stringLiteral3AD90D6761503C7EE1F19467D4C3EECCC3FE08B3;
+extern String_t* _stringLiteral3B53A79676A9B076CAAB0FA7E4B27C28AF3DF8A9;
 extern String_t* _stringLiteral3B73A47AAC0C0CC7BA807A1C8BDC7D17D5CEBBBC;
 extern String_t* _stringLiteral3B9FAE193151C3D1AADAD65547BF3338E6722D6E;
 extern String_t* _stringLiteral3BC15C8AAE3E4124DD409035F32EA2FD6835EFC9;
@@ -951,6 +952,7 @@ extern const uint32_t DisplayPartItem_PlayDance2_m75C346BAEC6EF6ADB42CDD71040259
 extern const uint32_t DisplayPartItem_PlayDance3_m14016DC330588E3BCC13D19D19E334FAFD8B5F3A_MetadataUsageId;
 extern const uint32_t DisplayPartItem_PlayDance_mBE6EB826119CC90176A81082039576D840E3E0E2_MetadataUsageId;
 extern const uint32_t DisplayPartItem_PlayDefault_m11A3F5ED38FFE80AB336E099F4BF0686B414E7CC_MetadataUsageId;
+extern const uint32_t DisplayPartItem_PlayGreeting_m739A058049672D02208AFD093569F4605ADFF41A_MetadataUsageId;
 extern const uint32_t DisplayPartItem__ctor_m588B27E9B459E6BE0B4F50B69950799543318A41_MetadataUsageId;
 extern const uint32_t DisplayView_AddEvent_mF49CC8D2777D6506F7D1E0FE80C4C1B1E5056E27_MetadataUsageId;
 extern const uint32_t DisplayView_CutScreen_m87F86CC5F1C5492068995A27A221E162D7B500AA_MetadataUsageId;
@@ -16139,10 +16141,10 @@ inline Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * Component_GetCompon
 extern "C" IL2CPP_METHOD_ATTR String_t* String_Concat_mF4626905368D6558695A823466A1AF65EADB9923 (String_t* p0, String_t* p1, String_t* p2, const RuntimeMethod* method);
 // UnityEngine.AnimationClip UnityEngine.Animation::GetClip(System.String)
 extern "C" IL2CPP_METHOD_ATTR AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE * Animation_GetClip_m969655322B952D724332615B75AAD0092CDD59D1 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, String_t* p0, const RuntimeMethod* method);
-// System.Void UnityEngine.Animation::Stop()
-extern "C" IL2CPP_METHOD_ATTR void Animation_Stop_mDEEBC36F3D8E57380C0161D8A744AE7019282B36 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Animation::Play(System.String)
 extern "C" IL2CPP_METHOD_ATTR bool Animation_Play_m743CCCF04B64977460915D9E7007B0859BDF6AE9 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, String_t* p0, const RuntimeMethod* method);
+// System.Void UnityEngine.Animation::Stop()
+extern "C" IL2CPP_METHOD_ATTR void Animation_Stop_mDEEBC36F3D8E57380C0161D8A744AE7019282B36 (Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * __this, const RuntimeMethod* method);
 // System.String System.Int32::ToString()
 extern "C" IL2CPP_METHOD_ATTR String_t* Int32_ToString_m1863896DE712BF97C031D55B12E1583F1982DC02 (int32_t* __this, const RuntimeMethod* method);
 // System.String System.String::Concat(System.String,System.String,System.String,System.String)
@@ -21221,8 +21223,46 @@ extern "C" IL2CPP_METHOD_ATTR void DisplayPartItem_Init_m49B9355971CC0C5D46A284B
 // System.Void DisplayPartItem::PlayGreeting()
 extern "C" IL2CPP_METHOD_ATTR void DisplayPartItem_PlayGreeting_m739A058049672D02208AFD093569F4605ADFF41A (DisplayPartItem_t014D94958C9B5C8301ECE030199B1AE448DA0C59 * __this, const RuntimeMethod* method)
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
 	{
-		DisplayPartItem_PlayDance_mBE6EB826119CC90176A81082039576D840E3E0E2(__this, 4, /*hidden argument*/NULL);
+		il2cpp_codegen_initialize_method (DisplayPartItem_PlayGreeting_m739A058049672D02208AFD093569F4605ADFF41A_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	String_t* V_0 = NULL;
+	{
+		String_t* L_0 = __this->get_Greeting_8();
+		int32_t* L_1 = __this->get_address_of_partType_4();
+		RuntimeObject * L_2 = Box(PartType_t7AB552B02CE329CDC135DF52A537BD0BC3852CEC_il2cpp_TypeInfo_var, L_1);
+		NullCheck(L_2);
+		String_t* L_3 = VirtFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, L_2);
+		*L_1 = *(int32_t*)UnBox(L_2);
+		String_t* L_4 = String_Concat_mF4626905368D6558695A823466A1AF65EADB9923(L_0, _stringLiteral53A0ACFAD59379B3E050338BF9F23CFC172EE787, L_3, /*hidden argument*/NULL);
+		V_0 = L_4;
+		String_t* L_5 = V_0;
+		String_t* L_6 = String_Concat_mB78D0094592718DA6D5DB6C712A9C225631666BE(_stringLiteral3B53A79676A9B076CAAB0FA7E4B27C28AF3DF8A9, L_5, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
+		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708(L_6, /*hidden argument*/NULL);
+		Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * L_7 = __this->get_item_animation_5();
+		String_t* L_8 = V_0;
+		NullCheck(L_7);
+		AnimationClip_t336CFC94F6275526DC0B9BEEF833D4D89D6DEDDE * L_9 = Animation_GetClip_m969655322B952D724332615B75AAD0092CDD59D1(L_7, L_8, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
+		bool L_10 = Object_op_Inequality_m31EF58E217E8F4BDD3E409DEF79E1AEE95874FC1(L_9, (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 *)NULL, /*hidden argument*/NULL);
+		if (!L_10)
+		{
+			goto IL_0053;
+		}
+	}
+	{
+		Animation_tCFC171459D159DDEC6500B55543A76219D49BB9C * L_11 = __this->get_item_animation_5();
+		String_t* L_12 = V_0;
+		NullCheck(L_11);
+		Animation_Play_m743CCCF04B64977460915D9E7007B0859BDF6AE9(L_11, L_12, /*hidden argument*/NULL);
+	}
+
+IL_0053:
+	{
 		return;
 	}
 }

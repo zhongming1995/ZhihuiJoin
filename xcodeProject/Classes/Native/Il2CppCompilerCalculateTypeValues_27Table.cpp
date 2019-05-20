@@ -1526,8 +1526,8 @@ struct U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields
 public:
 	// PianoView/<>c PianoView/<>c::<>9
 	U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB * ___U3CU3E9_0;
-	// UnityEngine.Events.UnityAction PianoView/<>c::<>9__26_2
-	UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 * ___U3CU3E9__26_2_1;
+	// UnityEngine.Events.UnityAction PianoView/<>c::<>9__27_2
+	UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 * ___U3CU3E9__27_2_1;
 
 public:
 	inline static int32_t get_offset_of_U3CU3E9_0() { return static_cast<int32_t>(offsetof(U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields, ___U3CU3E9_0)); }
@@ -1539,13 +1539,13 @@ public:
 		Il2CppCodeGenWriteBarrier((&___U3CU3E9_0), value);
 	}
 
-	inline static int32_t get_offset_of_U3CU3E9__26_2_1() { return static_cast<int32_t>(offsetof(U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields, ___U3CU3E9__26_2_1)); }
-	inline UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 * get_U3CU3E9__26_2_1() const { return ___U3CU3E9__26_2_1; }
-	inline UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 ** get_address_of_U3CU3E9__26_2_1() { return &___U3CU3E9__26_2_1; }
-	inline void set_U3CU3E9__26_2_1(UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 * value)
+	inline static int32_t get_offset_of_U3CU3E9__27_2_1() { return static_cast<int32_t>(offsetof(U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields, ___U3CU3E9__27_2_1)); }
+	inline UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 * get_U3CU3E9__27_2_1() const { return ___U3CU3E9__27_2_1; }
+	inline UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 ** get_address_of_U3CU3E9__27_2_1() { return &___U3CU3E9__27_2_1; }
+	inline void set_U3CU3E9__27_2_1(UnityAction_tD19B26F1B2C048E38FD5801A33573BE01064CAF4 * value)
 	{
-		___U3CU3E9__26_2_1 = value;
-		Il2CppCodeGenWriteBarrier((&___U3CU3E9__26_2_1), value);
+		___U3CU3E9__27_2_1 = value;
+		Il2CppCodeGenWriteBarrier((&___U3CU3E9__27_2_1), value);
 	}
 };
 
@@ -11108,7 +11108,7 @@ extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2776 = { sizeof (U3CU
 extern const int32_t g_FieldOffsetTable2776[2] = 
 {
 	U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields::get_offset_of_U3CU3E9_0(),
-	U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields::get_offset_of_U3CU3E9__26_2_1(),
+	U3CU3Ec_t894A01A3E31AEF38270A9AF4639FC21010ACE4BB_StaticFields::get_offset_of_U3CU3E9__27_2_1(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2777 = { sizeof (DrawMode_t59DAA691B1F54217C3776E83477D0ED4A5EE9F13)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
 extern const int32_t g_FieldOffsetTable2777[7] = 

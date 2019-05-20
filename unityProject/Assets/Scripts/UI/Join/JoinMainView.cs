@@ -246,6 +246,7 @@ public class JoinMainView : MonoBehaviour
             joinGuide.DoOperation();
             ShowBackBtn(false);
             curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
+            curSelectResObj.GetComponent<ResDragItem>().SetScale(curSelectResObj.transform.localScale);
         });
 
         PenScaleSlider.onValueChanged.AddListener(delegate
