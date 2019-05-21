@@ -542,7 +542,7 @@ namespace Draw_MobilePaint
                     bool createResult = CreateAreaLockMask((int)(i * texWidth), (int)(j * texHeight));
                     if (createResult)
                     {
-                        //Debug.Log("取样点：(" + i + "," + j + ")");
+                        Debug.Log("取样点：(" + i + "," + j + ")");
                         return true;
                     }
                 }
