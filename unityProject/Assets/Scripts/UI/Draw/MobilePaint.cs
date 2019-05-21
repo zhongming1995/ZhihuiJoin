@@ -349,15 +349,15 @@ namespace Draw_MobilePaint
                myRenderer.material.mainTexture = texture;
             }
 
-            if (Screen.width * 1.0f / Screen.height > overrideWidth * 1.0f / overrideHeight)
-            {
-                resolutionScaler = Screen.height * 1.0f / overrideHeight;
-            }
-            else
-            {
+            //if (Screen.width * 1.0f / Screen.height > overrideWidth * 1.0f / overrideHeight)
+            //{
+            //    resolutionScaler = Screen.height * 1.0f / overrideHeight;
+            //}
+            //else
+            //{
                 resolutionScaler = Screen.width * 1.0f / overrideWidth;
-            }
-         
+            //}
+            Debug.Log("resolution:=========="+resolutionScaler);
             // cached calculations
             brushSizeX1 = brushSize << 1;
             brushSizeXbrushSize = brushSize * brushSize;
@@ -2643,10 +2643,10 @@ namespace Draw_MobilePaint
                 var referenceTexture = myRenderer.material.mainTexture;
                 var screenPoint = cam.WorldToScreenPoint(transform.position);
                 var localPoint = transform.position * 100f * resolutionScaler;
-                referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom left
-                referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top left
-                referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y + referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // top right
-                referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width / 2 - localPoint.x, screenPoint.y - referenceTexture.height / 2 - localPoint.y, cam.nearClipPlane); // bottom right
+                referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width*resolutionScaler / 2 - localPoint.x, screenPoint.y - referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // bottom left
+                referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y + referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // top left
+                referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y + referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // top right
+                referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y - referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // bottom right
                 //Debug.Log("画布四周1:" + referenceCorners[0] + "|" + referenceCorners[1] + "|" + referenceCorners[2] + "|" + referenceCorners[3]);
 
                 //transform.GetComponent<RectTransform>().GetWorldCorners(referenceCorners);
@@ -3003,7 +3003,6 @@ namespace Draw_MobilePaint
                 texHeight = newTexture.height;
                 myRenderer.material.SetTexture("_MaskTex", newTexture);
                 ReadMaskImage();
-                Debug.Log("set true77777777777");
                 textureNeedsUpdate = true;
             }
         } // SetMaskImage
