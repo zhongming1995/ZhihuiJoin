@@ -142,8 +142,8 @@ public class JoinMainView : MonoBehaviour
         //LoadResList((int)PartType.Body);
 
         //右边素材切换按钮
-        string typeUnSelectPath = "sprite/ui|splice_type_{0}";
-        string typeSelectPath = "sprite/ui|splice_type_{0}_select";
+        string typeUnSelectPath = "sprite/ui/join|splice_type_{0}";
+        string typeSelectPath = "sprite/ui/join|splice_type_{0}_select";
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
             int clickType = i;

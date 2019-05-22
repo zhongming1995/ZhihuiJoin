@@ -18,8 +18,9 @@ public class PianoView : MonoBehaviour
     public Button RBtnEdit;
     public Button RBtnReplay;
     public Transform WindowPersonParent;
-    public Animator StarLeft;
-    public Animator StarRight;
+    public Transform SongAniLeft;
+    public Transform SongAniRight;
+    public Image ImgSongName;
 
     private int curSpecturmIndex = 0;//当前弹奏正确的音符的下标
     private List<PianoKey> pianoKeys = new List<PianoKey>();
@@ -32,6 +33,9 @@ public class PianoView : MonoBehaviour
     private DisplayPartItem[] windowlstDisplayItem;
     private int lastSymbolNum;
     private int lastDanceNum;
+    private int songIndex;
+    private Animator AniLeft;
+    private Animator AniRight;
 
     void Start()
     {
@@ -44,8 +48,12 @@ public class PianoView : MonoBehaviour
         //加载小人
         LoadPerson();
         //给琴谱赋值
-        int n = RandomSongNum();
-        songSpectrums = PianoSpectrum.SongsList[n];
+        songIndex = RandomSongNum();
+        songSpectrums = PianoSpectrum.SongsList[songIndex];
+        //根据歌曲不同加载不同的动画
+        LoadSongAni(songIndex);
+        //显示歌曲名称
+        SetSongName(songIndex);
         //8个琴键脚本,8个琴键提示动画
         for (int i = 0; i < Keys.childCount; i++)
         {
@@ -80,6 +88,21 @@ public class PianoView : MonoBehaviour
     {
         Random rd = new Random();
         return rd.Next(0, 3);
+    }
+
+    void LoadSongAni(int index)
+    {
+        string path = "Prefabs/game/piano|song_ani_" + index.ToString();
+        GameObject left = UIHelper.instance.LoadPrefab(path, SongAniLeft, Vector3.zero, Vector3.one);
+        GameObject right = UIHelper.instance.LoadPrefab(path, SongAniRight, Vector3.zero, Vector3.one);
+        AniLeft = left.GetComponent<Animator>();
+        AniRight = right.GetComponent<Animator>();
+    }
+
+    void SetSongName(int index)
+    {
+        string path = "Sprite/ui/piano/song_name|game_music_" + index.ToString();
+        UIHelper.instance.SetImage(path, ImgSongName, true);
     }
 
     private void LoadPerson()
@@ -225,7 +248,7 @@ public class PianoView : MonoBehaviour
         }
         int keyIndex = songSpectrums[curSpecturmIndex];
         int n = RandowSymbol();
-        string path = string.Format("Sprite/piano_symbols|game_music_symbol{0}_pic@3x", n);
+        string path = string.Format("Sprite/ui/piano_symbols|game_music_symbol{0}_pic@3x", n);
         UIHelper.instance.SetImage(path, reminders[keyIndex - 1], true);
         reminders[keyIndex-1].gameObject.SetActive(true);
         pianoKeyAnimations[keyIndex-1].Play();
@@ -247,16 +270,15 @@ public class PianoView : MonoBehaviour
         lastDanceNum = n;
         DataManager.instance.PersonDance(lstDisplayItem, n);
         //星星跳跃
-        StarRight.SetBool("isJump", true);
-        StarLeft.SetBool("isJump", true);
+        AniLeft.SetBool("isJump", true);
+        AniRight.SetBool("isJump", true);
         //0.5f后让星星回归默认状态（从jump到default动作不打断，从default到jump是打断的）
         Invoke("StarToDefault", 0.5f);
     }
 
     void StarToDefault()
     {
-        StarRight.SetBool("isJump", false);
-        StarLeft.SetBool("isJump", false);
-
+        AniLeft.SetBool("isJump", false);
+        AniRight.SetBool("isJump", false);
     }
 }
