@@ -39,7 +39,6 @@ public class DisplayPartItem : MonoBehaviour
     public void PlayGreeting()
     {
         string aniName = Greeting + "_" + partType.ToString();
-        Debug.Log("aniName:"+aniName);
         if (item_animation.GetClip(aniName) != null)
         {
             item_animation.Play(aniName);

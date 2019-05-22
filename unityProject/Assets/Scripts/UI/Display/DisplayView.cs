@@ -69,6 +69,7 @@ public class DisplayView : MonoBehaviour
         {
             gameObject.SetActive(false);
             UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view",joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
+            //UIHelper.instance.LoadPrefab("prefabs/game/card|card_view", joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
         });
     }
 
@@ -104,6 +105,7 @@ public class DisplayView : MonoBehaviour
         staticTexture = new Texture2D(texWidth, texHeight,TextureFormat.RGBA32,true);
         //计算四个角要裁切的圆半径
         radius = (int)((decimal)radius / referenceWidth * texWidth);
+        Debug.Log(texWidth + "," + texHeight);
         //左下角是0，0
         Rect rect = new Rect((int)screenPosFlag1.x, Screen.height - (int)(Screen.height - screenPosFlag2.y),texWidth,texHeight);
         yield return new WaitForEndOfFrame();

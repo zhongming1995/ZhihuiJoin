@@ -1267,13 +1267,14 @@ public:
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2800 = { sizeof (RefObject_tDE5561A423C4F3CED309CEA9806ADAD0440BDA77), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2800[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2800 = { 0, -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2801 = { sizeof (RefObject_tDE5561A423C4F3CED309CEA9806ADAD0440BDA77), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2801[1] = 
 {
 	RefObject_tDE5561A423C4F3CED309CEA9806ADAD0440BDA77::get_offset_of__refCount_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2801 = { sizeof (DOTweenAnimation_tD3653FC0F0806D2747A349461B0F542EAE124B95), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2801[28] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2802 = { sizeof (DOTweenAnimation_tD3653FC0F0806D2747A349461B0F542EAE124B95), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable2802[28] = 
 {
 	DOTweenAnimation_tD3653FC0F0806D2747A349461B0F542EAE124B95::get_offset_of_delay_15(),
 	DOTweenAnimation_tD3653FC0F0806D2747A349461B0F542EAE124B95::get_offset_of_duration_16(),
@@ -1304,13 +1305,13 @@ extern const int32_t g_FieldOffsetTable2801[28] =
 	DOTweenAnimation_tD3653FC0F0806D2747A349461B0F542EAE124B95::get_offset_of_optionalString_41(),
 	DOTweenAnimation_tD3653FC0F0806D2747A349461B0F542EAE124B95::get_offset_of__playCount_42(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2802 = { sizeof (DOTweenAnimationExtensions_tED069AD902CB6735F3C41CD13A524CA7995C653F), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2803 = { sizeof (U3CPrivateImplementationDetailsU3E_t4846F3E0DC61BBD6AE249FF1EAAC4CB64097DE4A), -1, sizeof(U3CPrivateImplementationDetailsU3E_t4846F3E0DC61BBD6AE249FF1EAAC4CB64097DE4A_StaticFields), 0 };
-extern const int32_t g_FieldOffsetTable2803[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2803 = { sizeof (DOTweenAnimationExtensions_tED069AD902CB6735F3C41CD13A524CA7995C653F), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2804 = { sizeof (U3CPrivateImplementationDetailsU3E_t4846F3E0DC61BBD6AE249FF1EAAC4CB64097DE4A), -1, sizeof(U3CPrivateImplementationDetailsU3E_t4846F3E0DC61BBD6AE249FF1EAAC4CB64097DE4A_StaticFields), 0 };
+extern const int32_t g_FieldOffsetTable2804[1] = 
 {
 	U3CPrivateImplementationDetailsU3E_t4846F3E0DC61BBD6AE249FF1EAAC4CB64097DE4A_StaticFields::get_offset_of_U39365FDAD4BD75AEF9446E0B22483D217BE36E309_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2804 = { sizeof (__StaticArrayInitTypeSizeU3D24_t0186834C621050282F5EF637E836A6E1DC934A34)+ sizeof (RuntimeObject), sizeof(__StaticArrayInitTypeSizeU3D24_t0186834C621050282F5EF637E836A6E1DC934A34 ), 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2805 = { sizeof (__StaticArrayInitTypeSizeU3D24_t0186834C621050282F5EF637E836A6E1DC934A34)+ sizeof (RuntimeObject), sizeof(__StaticArrayInitTypeSizeU3D24_t0186834C621050282F5EF637E836A6E1DC934A34 ), 0, 0 };
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

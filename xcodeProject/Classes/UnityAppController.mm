@@ -13,6 +13,8 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#import <Photos/PHPhotoLibrary.h>
+
 #include <mach/mach_time.h>
 
 // MSAA_DEFAULT_SAMPLE_COUNT was moved to iPhone_GlesSupport.h
@@ -147,14 +149,29 @@ static id mySelf;
 
 extern "C" void UnityToIOS_SavePhotoToAlbum(char *path)
 {
+    /*
+    static PHAuthorizationStatus curStates = PHAuthorizationStatusAuthorized;
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        curStates = status;
+    }];
+    if(curStates == PHAuthorizationStatusNotDetermined){
+        NSLog(@"尚未授权");
+    }else if(curStates == PHAuthorizationStatusRestricted){
+        NSLog(@"受限制，无权限");
+        [MBProgressHUD showSuccess:@"无相册使用权限！"];
+        return;
+    }else if(curStates == PHAuthorizationStatusDenied){
+        NSLog(@"用户拒绝授权");
+//        [MBProgressHUD showSuccess:@"您已禁止访问相册，请到系统设置中打开"];
+        return;
+    }else{
+        NSLog(@"用户已授权");
+    }
+     */
     NSString *strRead = [NSString stringWithUTF8String:path];
     UIImage *img = [UIImage imageWithContentsOfFile:strRead];
     if(img){
-        //UIImageWriteToSavedPhotosAlbum(img,nil,NULL,NULL);
         UIImageWriteToSavedPhotosAlbum(img, mySelf , @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-//        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-//            [MBProgressHUD showSuccess:@"保存成功"];
-//        }];
     }
 }
 
@@ -190,6 +207,10 @@ extern "C" void UnityRequestQuit()
     NSLog(@"result---->%@", result);
 }
 
+//提示
+-(void)showTip:(NSString *)str{
+    [MBProgressHUD showSuccess:str];
+}
 
 - (void)creatAlert:(NSTimer *)timer{
     
@@ -198,7 +219,6 @@ extern "C" void UnityRequestQuit()
     [alert dismissViewControllerAnimated:YES completion:nil];
     
     alert = nil;
-    
 }
 
 

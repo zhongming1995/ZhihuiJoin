@@ -18,6 +18,8 @@ public class PianoView : MonoBehaviour
     public Button RBtnEdit;
     public Button RBtnReplay;
     public Transform WindowPersonParent;
+    public Animator StarLeft;
+    public Animator StarRight;
 
     private int curSpecturmIndex = 0;//当前弹奏正确的音符的下标
     private List<PianoKey> pianoKeys = new List<PianoKey>();
@@ -244,5 +246,17 @@ public class PianoView : MonoBehaviour
         }
         lastDanceNum = n;
         DataManager.instance.PersonDance(lstDisplayItem, n);
+        //星星跳跃
+        StarRight.SetBool("isJump", true);
+        StarLeft.SetBool("isJump", true);
+        //0.5f后让星星回归默认状态（从jump到default动作不打断，从default到jump是打断的）
+        Invoke("StarToDefault", 0.5f);
+    }
+
+    void StarToDefault()
+    {
+        StarRight.SetBool("isJump", false);
+        StarLeft.SetBool("isJump", false);
+
     }
 }

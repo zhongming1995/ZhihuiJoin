@@ -22,6 +22,8 @@
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,12 +31,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSCameraUsageDescription</key>
-	<string>camera</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>0</string>
+	<string></string>
+	<key>Photo Library Usage Description</key>
+	<string>储存图片需要访问您的相册</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>
 	<key>UILaunchStoryboardName</key>
