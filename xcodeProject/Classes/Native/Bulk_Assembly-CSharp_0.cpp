@@ -871,6 +871,7 @@ extern const RuntimeMethod* SingletonMono_1_get_instance_mE5A4AFD212A4455BC3B1EE
 extern const RuntimeMethod* SingletonMono_1_set_instance_m1D48D2E6D3621A59489559759527FE6BF3BE1076_RuntimeMethod_var;
 extern const RuntimeMethod* SingletonMono_1_set_instance_m2DAFCD492AC3D9C728F02785ECBCA718EE76F711_RuntimeMethod_var;
 extern const RuntimeMethod* SingletonMono_1_set_instance_m5B17CC8E9EAA9E6BE38811133730B9D1786B696E_RuntimeMethod_var;
+extern const RuntimeMethod* SingletonMono_1_set_instance_m6B0A1EA10062FA3F5EA9255B696D2103EF6CEFCC_RuntimeMethod_var;
 extern const RuntimeMethod* TweenExtensions_Pause_TisTween_t119487E0AB84EF563521F1043116BDBAE68AC437_m529B6F33798CB84E797D71E3198919A6497E7293_RuntimeMethod_var;
 extern const RuntimeMethod* TweenExtensions_Play_TisTween_t119487E0AB84EF563521F1043116BDBAE68AC437_m9E8C7301C1E8005250B7ABA0A3424D2257F1F60E_RuntimeMethod_var;
 extern const RuntimeMethod* TweenSettingsExtensions_From_TisTweener_t9B2A5E94EE6D11F7607E58AE4E37186FF63587C8_mFF86D677A8E261EF7475CE0D7756E653C4824FC1_RuntimeMethod_var;
@@ -909,12 +910,14 @@ extern const RuntimeType* SpriteRenderer_tCD51E875611195DBB91123B68434881D3441BC
 extern const RuntimeType* Text_tE9317B57477F4B50AA4C16F460DE6F82DAD6D030_0_0_0_var;
 extern const RuntimeType* Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA_0_0_0_var;
 extern const uint32_t AniEvent_AnimationEnd_m8DD5E99E98543A9BDEB895F6432798BFC264153C_MetadataUsageId;
+extern const uint32_t AppEntry_Awake_m56A87EFD4D68EC73290CA13EB9DB50F576A8080D_MetadataUsageId;
 extern const uint32_t AppEntry_Start_m2ABE413052A1116E12585E62D2C4929126774EBD_MetadataUsageId;
 extern const uint32_t AppEntry__ctor_m8A67A30CF9B5B7E82BEBCC0B2BDD47354E301573_MetadataUsageId;
 extern const uint32_t AreaWasPainted_BeginInvoke_m2E2FDF7C8649E3C194F8DEBA34383C26AF8FBDDC_MetadataUsageId;
 extern const uint32_t AreaWasPainted_BeginInvoke_mBE021695B7163E126891FE1C33D208D3EB7AA42F_MetadataUsageId;
 extern const uint32_t AudioManager_Awake_m16EBE82FD87E8399D2A1005F3954F640594988C1_MetadataUsageId;
 extern const uint32_t AudioManager_Cor_PlayEffect_mDE3951F8154A960B62A0ED40362FAAB77B0557EE_MetadataUsageId;
+extern const uint32_t AudioManager_PlayAudio_m63BF563FDC4ACC35196CF820E3314C22D689FF3C_MetadataUsageId;
 extern const uint32_t AudioManager_PlayBGM_m8059A3E16D15CC6439AE6BDF7DF067BFAA467040_MetadataUsageId;
 extern const uint32_t AudioManager_PlayDefaultBGM_mE549EFFA4202E86B89CDF70B9ECB81F6CC5FF98D_MetadataUsageId;
 extern const uint32_t AudioManager_PlayEffect_m05CE7221DDC1C918F612A8CC97B0078D31BE4AF6_MetadataUsageId;
@@ -15453,10 +15456,10 @@ public:
 };
 
 
-// System.Void SingletonMono`1<System.Object>::.ctor()
-extern "C" IL2CPP_METHOD_ATTR void SingletonMono_1__ctor_m9E19B2414965102609D85FA96C15F29D0F785E80_gshared (SingletonMono_1_t73A0B690A01FD22D2D2E38679B5BB311F049703D * __this, const RuntimeMethod* method);
 // System.Void SingletonMono`1<System.Object>::set_instance(T)
 extern "C" IL2CPP_METHOD_ATTR void SingletonMono_1_set_instance_m03A4B7826A16D069472F2C0BB7B2C15CD79C5779_gshared (RuntimeObject * p0, const RuntimeMethod* method);
+// System.Void SingletonMono`1<System.Object>::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void SingletonMono_1__ctor_m9E19B2414965102609D85FA96C15F29D0F785E80_gshared (SingletonMono_1_t73A0B690A01FD22D2D2E38679B5BB311F049703D * __this, const RuntimeMethod* method);
 // T SingletonMono`1<System.Object>::get_instance()
 extern "C" IL2CPP_METHOD_ATTR RuntimeObject * SingletonMono_1_get_instance_m63D861456033E6BF8F32F1EDC060D2E3898CC1C9_gshared (const RuntimeMethod* method);
 // System.Boolean System.Collections.Generic.Dictionary`2<System.Object,System.Object>::ContainsKey(!0)
@@ -15558,6 +15561,11 @@ extern "C" IL2CPP_METHOD_ATTR void Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018
 extern "C" IL2CPP_METHOD_ATTR void AnimationEndDelegate_Invoke_m429D186C572BE6BD5EC1D211B33D6AD3E472E426 (AnimationEndDelegate_tE4F39B819D0D63C0375EA827FFF8BE77305613E6 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.MonoBehaviour::.ctor()
 extern "C" IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_mEAEC84B222C60319D593E456D769B3311DFCEF97 (MonoBehaviour_t4A60845CF505405AF8BE8C61CC07F75CADEF6429 * __this, const RuntimeMethod* method);
+// System.Void SingletonMono`1<AppEntry>::set_instance(T)
+inline void SingletonMono_1_set_instance_m6B0A1EA10062FA3F5EA9255B696D2103EF6CEFCC (AppEntry_t73ECD3BE197AE44027605734D304755D5113235A * p0, const RuntimeMethod* method)
+{
+	((  void (*) (AppEntry_t73ECD3BE197AE44027605734D304755D5113235A *, const RuntimeMethod*))SingletonMono_1_set_instance_m03A4B7826A16D069472F2C0BB7B2C15CD79C5779_gshared)(p0, method);
+}
 // System.Void UnityEngine.Input::set_multiTouchEnabled(System.Boolean)
 extern "C" IL2CPP_METHOD_ATTR void Input_set_multiTouchEnabled_mF0E9DD01DB2AA0B7A4ECB00FDF5C8BA77182E094 (bool p0, const RuntimeMethod* method);
 // System.Void UnityEngine.Application::set_targetFrameRate(System.Int32)
@@ -17011,6 +17019,20 @@ extern "C" IL2CPP_METHOD_ATTR void AnimationEndDelegate_EndInvoke_m42FD79495687F
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void AppEntry::Awake()
+extern "C" IL2CPP_METHOD_ATTR void AppEntry_Awake_m56A87EFD4D68EC73290CA13EB9DB50F576A8080D (AppEntry_t73ECD3BE197AE44027605734D304755D5113235A * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (AppEntry_Awake_m56A87EFD4D68EC73290CA13EB9DB50F576A8080D_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		SingletonMono_1_set_instance_m6B0A1EA10062FA3F5EA9255B696D2103EF6CEFCC(__this, /*hidden argument*/SingletonMono_1_set_instance_m6B0A1EA10062FA3F5EA9255B696D2103EF6CEFCC_RuntimeMethod_var);
+		return;
+	}
+}
 // System.Void AppEntry::Start()
 extern "C" IL2CPP_METHOD_ATTR void AppEntry_Start_m2ABE413052A1116E12585E62D2C4929126774EBD (AppEntry_t73ECD3BE197AE44027605734D304755D5113235A * __this, const RuntimeMethod* method)
 {
@@ -17031,6 +17053,15 @@ extern "C" IL2CPP_METHOD_ATTR void AppEntry_Start_m2ABE413052A1116E12585E62D2C49
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_il2cpp_TypeInfo_var);
 		Object_DontDestroyOnLoad_m4DC90770AD6084E4B1B8489C6B41205DC020C207(L_1, /*hidden argument*/NULL);
 		SceneManager_LoadScene_mFC850AC783E5EA05D6154976385DFECC251CDFB9(_stringLiteralE540CDD1328B2B21E29A95405C301B9313B7C346, /*hidden argument*/NULL);
+		return;
+	}
+}
+// System.Void AppEntry::SetMultiTouchEnable(System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void AppEntry_SetMultiTouchEnable_m6A31D00F434FDE9FB45965F2495C5FA39252E9FE (AppEntry_t73ECD3BE197AE44027605734D304755D5113235A * __this, bool ___enable0, const RuntimeMethod* method)
+{
+	{
+		bool L_0 = ___enable0;
+		Input_set_multiTouchEnabled_mF0E9DD01DB2AA0B7A4ECB00FDF5C8BA77182E094(L_0, /*hidden argument*/NULL);
 		return;
 	}
 }
@@ -17809,50 +17840,59 @@ extern "C" IL2CPP_METHOD_ATTR void AudioManager_PlayReminderAudio_m72E748460D2F7
 // System.Void AudioMgr.AudioManager::PlayAudio(AudioMgr.EffectAudioType,System.String,System.Action)
 extern "C" IL2CPP_METHOD_ATTR void AudioManager_PlayAudio_m63BF563FDC4ACC35196CF820E3314C22D689FF3C (AudioManager_t3FD20E28B4B67B6BDF08EFD4BF41AD9E188C23D2 * __this, int32_t ___type0, String_t* ___path1, Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * ___cb2, const RuntimeMethod* method)
 {
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
 	{
-		int32_t L_0 = ___type0;
-		if ((!(((uint32_t)L_0) == ((uint32_t)2))))
+		il2cpp_codegen_initialize_method (AudioManager_PlayAudio_m63BF563FDC4ACC35196CF820E3314C22D689FF3C_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		String_t* L_0 = ___path1;
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
+		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708(L_0, /*hidden argument*/NULL);
+		int32_t L_1 = ___type0;
+		if ((!(((uint32_t)L_1) == ((uint32_t)2))))
 		{
-			goto IL_000d;
+			goto IL_0013;
 		}
 	}
 	{
-		String_t* L_1 = ___path1;
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_2 = ___cb2;
-		AudioManager_PlayOptionAudio_m483F398FCF59F08CB6AB6728DC15118027ED27CB(__this, L_1, L_2, /*hidden argument*/NULL);
+		String_t* L_2 = ___path1;
+		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_3 = ___cb2;
+		AudioManager_PlayOptionAudio_m483F398FCF59F08CB6AB6728DC15118027ED27CB(__this, L_2, L_3, /*hidden argument*/NULL);
 		return;
 	}
 
-IL_000d:
+IL_0013:
 	{
-		int32_t L_3 = ___type0;
-		if (L_3)
+		int32_t L_4 = ___type0;
+		if (L_4)
 		{
-			goto IL_0019;
+			goto IL_001f;
 		}
 	}
 	{
-		String_t* L_4 = ___path1;
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_5 = ___cb2;
-		AudioManager_PlayGuideAudio_mCB22E4E897C7EDCDF2A9F400FAFC316C131929B4(__this, L_4, L_5, /*hidden argument*/NULL);
+		String_t* L_5 = ___path1;
+		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_6 = ___cb2;
+		AudioManager_PlayGuideAudio_mCB22E4E897C7EDCDF2A9F400FAFC316C131929B4(__this, L_5, L_6, /*hidden argument*/NULL);
 		return;
 	}
 
-IL_0019:
+IL_001f:
 	{
-		int32_t L_6 = ___type0;
-		if ((!(((uint32_t)L_6) == ((uint32_t)1))))
+		int32_t L_7 = ___type0;
+		if ((!(((uint32_t)L_7) == ((uint32_t)1))))
 		{
-			goto IL_0025;
+			goto IL_002b;
 		}
 	}
 	{
-		String_t* L_7 = ___path1;
-		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_8 = ___cb2;
-		AudioManager_PlayReminderAudio_m72E748460D2F781B66BDDC1B9AFF56D7E88267CC(__this, L_7, L_8, /*hidden argument*/NULL);
+		String_t* L_8 = ___path1;
+		Action_t591D2A86165F896B4B800BB5C25CE18672A55579 * L_9 = ___cb2;
+		AudioManager_PlayReminderAudio_m72E748460D2F781B66BDDC1B9AFF56D7E88267CC(__this, L_8, L_9, /*hidden argument*/NULL);
 	}
 
-IL_0025:
+IL_002b:
 	{
 		return;
 	}

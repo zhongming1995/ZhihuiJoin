@@ -207,11 +207,6 @@ extern "C" void UnityRequestQuit()
     NSLog(@"result---->%@", result);
 }
 
-//提示
--(void)showTip:(NSString *)str{
-    [MBProgressHUD showSuccess:str];
-}
-
 - (void)creatAlert:(NSTimer *)timer{
     
     UIAlertController * alert = (UIAlertController *)[timer userInfo];
