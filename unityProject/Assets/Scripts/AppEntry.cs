@@ -8,7 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
-    // Start is called before the first frame updates
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         //第一步资源加载
@@ -27,8 +31,15 @@ public class AppEntry : SingletonMono<AppEntry>
         //打印
         Debug.unityLogger.logEnabled = false;
 
+        //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
 
+        //跳转到首页
         SceneManager.LoadScene("index");
+    }
+
+    public void SetMultiTouchEnable(bool enable)
+    {
+        Input.multiTouchEnabled = enable;
     }
 }

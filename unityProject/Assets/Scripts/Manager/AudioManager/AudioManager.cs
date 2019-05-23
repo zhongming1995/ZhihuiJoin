@@ -335,6 +335,7 @@ namespace AudioMgr {
 
         public void PlayAudio(EffectAudioType type, string path, Action cb = null)
         {
+            Debug.Log(path);
             if (type == EffectAudioType.Option)
             {
                 PlayOptionAudio(path, cb);

@@ -41,6 +41,7 @@ public class PianoView : MonoBehaviour
     {
         Init();
         ReminderKey();
+        AppEntry.instance.SetMultiTouchEnable(true);
     }
 
     void Init()
@@ -280,5 +281,10 @@ public class PianoView : MonoBehaviour
     {
         AniLeft.SetBool("isJump", false);
         AniRight.SetBool("isJump", false);
+    }
+
+    private void OnDestroy()
+    {
+        AppEntry.instance.SetMultiTouchEnable(false);
     }
 }

@@ -46,7 +46,8 @@ public class JoinMainView : MonoBehaviour
     //定义数据变量
     private Transform curSelectResObj ;
     private int typeCount = 8;//资源类型数量
-    private int step = 1;//步骤1-4
+    [HideInInspector]
+    public int step = 1;//步骤1-4
     [HideInInspector]
     public List<Transform> typeTransList = new List<Transform>();//类型列表
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
@@ -56,6 +57,11 @@ public class JoinMainView : MonoBehaviour
     private int eraseSize = 35;
     private bool MultiColorMode = false;
     private int penIndex = 2;//0七彩 1橡皮 2以后单色（修改初始颜色需要到mobilepaint里修改）
+
+    private void OnEnable()
+    {
+        AppEntry.instance.SetMultiTouchEnable(false);
+    }
 
     void Start()
     {

@@ -325,11 +325,11 @@ public class JoinGuide : MonoBehaviour
         string path = string.Empty;
         if (GameManager.instance.curJoinType == JoinType.Letter)
         {
-            path = "Audio/reminder/letter|guide_letter_6";
+            path = "Audio/reminder/letter|guide_letter_06";
         }
         else
         {
-            path = "Audio/reminder/num|guide_num_6";
+            path = "Audio/reminder/num|guide_num_06";
         }
         DoScaleAni(joinMainView.typeTransList[6].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -340,11 +340,11 @@ public class JoinGuide : MonoBehaviour
         string path = string.Empty;
         if (GameManager.instance.curJoinType == JoinType.Letter)
         {
-            path = "Audio/reminder/letter|guide_letter_7";
+            path = "Audio/reminder/letter|guide_letter_07";
         }
         else
         {
-            path = "Audio/reminder/num|guide_num_7";
+            path = "Audio/reminder/num|guide_num_07";
         }
         DoScaleAni(joinMainView.typeTransList[7].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -367,9 +367,18 @@ public class JoinGuide : MonoBehaviour
 
     private void DoDrawNextStepReminder()
     {
-        string path = "Audio/reminder|guide_universal_01";
-        DoScaleAni(joinMainView.BtnNext.transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
+        if (joinMainView.step==4)
+        {
+            string path = "Audio/reminder|guide_universal_02";
+            DoScaleAni(joinMainView.BtnOk.transform);
+            AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
+        }
+        else
+        {
+            string path = "Audio/reminder|guide_universal_01";
+            DoScaleAni(joinMainView.BtnNext.transform);
+            AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
+        }
     }
 
     private void DoNextStepReminder()
@@ -383,6 +392,7 @@ public class JoinGuide : MonoBehaviour
     {
         string path = "Audio/reminder|guide_universal_02";
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
+        DoScaleAni(joinMainView.BtnOk.transform);
     }
 
     private void BreakReminder()
@@ -395,6 +405,9 @@ public class JoinGuide : MonoBehaviour
             Debug.Log("kill reminder ani===");
             sequence.Kill();
             sequence = null;
+
+            //停止提示语音
+            AudioManager.instance.StopEffect();
         }
         if (curAniTrans!=null)
         {
