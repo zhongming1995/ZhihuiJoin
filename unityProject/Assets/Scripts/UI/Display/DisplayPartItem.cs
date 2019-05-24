@@ -38,14 +38,11 @@ public class DisplayPartItem : MonoBehaviour
 
     public void PlayGreeting()
     {
-        /*
         string aniName = Greeting + "_" + partType.ToString();
         if (item_animation.GetClip(aniName) != null)
         {
             item_animation.Play(aniName);
         }
-        */
-        PlayDance(2);
     }
 
     public void PlayDefault()
