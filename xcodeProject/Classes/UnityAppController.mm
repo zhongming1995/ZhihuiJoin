@@ -204,7 +204,7 @@ extern "C" void UnityRequestQuit()
         result = @"图片保存到相册成功!";
         [MBProgressHUD showSuccess:@"保存成功！"];
     }
-    NSLog(@"result---->%@", result);
+//    NSLog(@"result---->%@", result);
 }
 
 - (void)creatAlert:(NSTimer *)timer{

@@ -38,28 +38,14 @@ public class DisplayPartItem : MonoBehaviour
 
     public void PlayGreeting()
     {
+        /*
         string aniName = Greeting + "_" + partType.ToString();
         if (item_animation.GetClip(aniName) != null)
         {
             item_animation.Play(aniName);
         }
-    }
-
-    public void PlayDance1()
-    {
-        string aniName = Dancing1 + "_" + partType.ToString();
-        if (item_animation.GetClip(aniName)!=null)
-        {
-            if (item_animation.isPlaying)
-            {
-                item_animation.Stop();
-                item_animation.Play(aniName);
-            }
-            else
-            {
-                item_animation.Play(aniName);
-            }
-        }
+        */
+        PlayDance(2);
     }
 
     public void PlayDefault()
@@ -71,40 +57,7 @@ public class DisplayPartItem : MonoBehaviour
         }
     }
 
-    public void PlayDance2()
-    {
-        string aniName = Dancing2 + "_" + partType.ToString();
-        if (item_animation.GetClip(aniName) != null)
-        {
-            if (item_animation.isPlaying)
-            {
-                item_animation.Stop();
-                item_animation.Play(aniName);
-            }
-            else
-            {
-                item_animation.Play(aniName);
-            }
-        }
-    }
-
-    public void PlayDance3()
-    {
-        string aniName = Dancing3 + "_" + partType.ToString();
-        if (item_animation.GetClip(aniName) != null)
-        {
-            if (item_animation.isPlaying)
-            {
-                item_animation.Stop();
-                item_animation.Play(aniName);
-            }
-            else
-            {
-                item_animation.Play(aniName);
-            }
-        }
-    }
-
+    //跳舞动作 1左抬腿 2翻跟斗 3右抬腿 
     public void PlayDance(int index)
     {
         string aniName = Dance + index.ToString() + "_" + partType.ToString();
