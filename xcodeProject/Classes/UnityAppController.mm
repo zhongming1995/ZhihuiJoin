@@ -13,7 +13,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-#import <Photos/PHPhotoLibrary.h>
+//#import <Photos/PHPhotoLibrary.h>
 
 #include <mach/mach_time.h>
 
@@ -41,8 +41,7 @@
 #include <unistd.h>
 #include <sys/sysctl.h>
 
-
-#import "MBProgressHUD+PX.h"
+//#import "MBProgressHUD+PX.h"
 
 // we assume that app delegate is never changed and we can cache it, instead of re-query UIApplication every time
 UnityAppController* _UnityAppController = nil;
@@ -147,33 +146,33 @@ static id mySelf;
     UnitySetPlayerFocus(1);
 }
 
-extern "C" void UnityToIOS_SavePhotoToAlbum(char *path)
-{
-    /*
-    static PHAuthorizationStatus curStates = PHAuthorizationStatusAuthorized;
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        curStates = status;
-    }];
-    if(curStates == PHAuthorizationStatusNotDetermined){
-        NSLog(@"尚未授权");
-    }else if(curStates == PHAuthorizationStatusRestricted){
-        NSLog(@"受限制，无权限");
-        [MBProgressHUD showSuccess:@"无相册使用权限！"];
-        return;
-    }else if(curStates == PHAuthorizationStatusDenied){
-        NSLog(@"用户拒绝授权");
-//        [MBProgressHUD showSuccess:@"您已禁止访问相册，请到系统设置中打开"];
-        return;
-    }else{
-        NSLog(@"用户已授权");
-    }
-     */
-    NSString *strRead = [NSString stringWithUTF8String:path];
-    UIImage *img = [UIImage imageWithContentsOfFile:strRead];
-    if(img){
-        UIImageWriteToSavedPhotosAlbum(img, mySelf , @selector(image:didFinishSavingWithError:contextInfo:), NULL);
-    }
-}
+//extern "C" void UnityToIOS_SavePhotoToAlbum(char *path)
+//{
+//    /*
+//    static PHAuthorizationStatus curStates = PHAuthorizationStatusAuthorized;
+//    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+//        curStates = status;
+//    }];
+//    if(curStates == PHAuthorizationStatusNotDetermined){
+//        NSLog(@"尚未授权");
+//    }else if(curStates == PHAuthorizationStatusRestricted){
+//        NSLog(@"受限制，无权限");
+//        [MBProgressHUD showSuccess:@"无相册使用权限！"];
+//        return;
+//    }else if(curStates == PHAuthorizationStatusDenied){
+//        NSLog(@"用户拒绝授权");
+////        [MBProgressHUD showSuccess:@"您已禁止访问相册，请到系统设置中打开"];
+//        return;
+//    }else{
+//        NSLog(@"用户已授权");
+//    }
+//     */
+//    NSString *strRead = [NSString stringWithUTF8String:path];
+//    UIImage *img = [UIImage imageWithContentsOfFile:strRead];
+//    if(img){
+//        UIImageWriteToSavedPhotosAlbum(img, mySelf , @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+//    }
+//}
 
 extern "C" void UnityDestroyDisplayLink()
 {
@@ -190,22 +189,22 @@ extern "C" void UnityRequestQuit()
 }
 
 #if UNITY_SUPPORT_ROTATION
-//图片保存到本地的回调
--(void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
-{
-    NSString* result;
-    if(error)
-    {
-        result = @"图片保存到相册失败!";
-        [MBProgressHUD showSuccess:@"保存失败！"];
-    }
-    else
-    {
-        result = @"图片保存到相册成功!";
-        [MBProgressHUD showSuccess:@"保存成功！"];
-    }
+////图片保存到本地的回调
+//-(void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
+//{
+//    NSString* result;
+//    if(error)
+//    {
+//        result = @"图片保存到相册失败!";
+//        [MBProgressHUD showSuccess:@"保存失败！"];
+//    }
+//    else
+//    {
+//        result = @"图片保存到相册成功!";
+//        [MBProgressHUD showSuccess:@"保存成功！"];
+//    }
 //    NSLog(@"result---->%@", result);
-}
+//}
 
 - (void)creatAlert:(NSTimer *)timer{
     
@@ -308,6 +307,9 @@ extern "C" void UnityRequestQuit()
 {
     ::printf("-> applicationDidFinishLaunching()\n");
     mySelf=self;
+
+//    [UnityToIOS shareInstance]
+    
     // send notfications
 #if !PLATFORM_TVOS
     if (UILocalNotification* notification = [launchOptions objectForKey: UIApplicationLaunchOptionsLocalNotificationKey])

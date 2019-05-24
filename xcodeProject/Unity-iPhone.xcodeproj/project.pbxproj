@@ -132,6 +132,7 @@
 		5368F7002296A18600091848 /* Bulk_UnityEngine.UI_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5368F68E2296A18600091848 /* Bulk_UnityEngine.UI_2.cpp */; };
 		5368F7012296A18600091848 /* Il2CppCompilerCalculateTypeValues_13Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5368F68F2296A18600091848 /* Il2CppCompilerCalculateTypeValues_13Table.cpp */; };
 		5368F7022296A18600091848 /* Il2CppCompilerCalculateTypeValues_12Table.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5368F6902296A18600091848 /* Il2CppCompilerCalculateTypeValues_12Table.cpp */; };
+		536BE37B2297D31100F778A3 /* UnityToIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 536BE37A2297D31100F778A3 /* UnityToIOS.m */; };
 		5623C57617FDCB0800090B9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		5623C57717FDCB0800090B9E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 830B5C100E5ED4C100C7819F /* UIKit.framework */; };
 		5623C57D17FDCB0900090B9E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5623C57B17FDCB0900090B9E /* InfoPlist.strings */; };
@@ -354,6 +355,8 @@
 		5368F68E2296A18600091848 /* Bulk_UnityEngine.UI_2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bulk_UnityEngine.UI_2.cpp; sourceTree = "<group>"; };
 		5368F68F2296A18600091848 /* Il2CppCompilerCalculateTypeValues_13Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppCompilerCalculateTypeValues_13Table.cpp; sourceTree = "<group>"; };
 		5368F6902296A18600091848 /* Il2CppCompilerCalculateTypeValues_12Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppCompilerCalculateTypeValues_12Table.cpp; sourceTree = "<group>"; };
+		536BE37A2297D31100F778A3 /* UnityToIOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnityToIOS.m; sourceTree = "<group>"; };
+		536BE37C2297D32000F778A3 /* UnityToIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnityToIOS.h; sourceTree = "<group>"; };
 		5623C57317FDCB0800090B9E /* Unity-iPhone Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Unity-iPhone Tests.xctest"; path = ZhihuiJoin.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5623C57A17FDCB0900090B9E /* Unity-iPhone Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unity-iPhone Tests-Info.plist"; sourceTree = "<group>"; };
 		5623C57C17FDCB0900090B9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -689,6 +692,15 @@
 			path = Native;
 			sourceTree = "<group>";
 		};
+		536BE3792297D28D00F778A3 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				536BE37A2297D31100F778A3 /* UnityToIOS.m */,
+				536BE37C2297D32000F778A3 /* UnityToIOS.h */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
 		5623C57817FDCB0800090B9E /* Unity-iPhone Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +852,7 @@
 		D8A1C7220E80637F000160D3 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				536BE3792297D28D00F778A3 /* Plugins */,
 				AAC3E38B1A68945900F6174A /* RegisterFeatures.cpp */,
 				AAC3E38C1A68945900F6174A /* RegisterFeatures.h */,
 				D8A1C72A0E8063A1000160D3 /* libiPhone-lib.a */,
@@ -1102,6 +1115,7 @@
 				5368F6B32296A18600091848 /* Bulk_UnityEngine.PhysicsModule_0.cpp in Sources */,
 				5368F6942296A18600091848 /* Bulk_mscorlib_18.cpp in Sources */,
 				5368F6F52296A18600091848 /* Bulk_mscorlib_17.cpp in Sources */,
+				536BE37B2297D31100F778A3 /* UnityToIOS.m in Sources */,
 				5368F6EF2296A18600091848 /* Bulk_Generics_8.cpp in Sources */,
 				5368F6952296A18600091848 /* Bulk_Generics_2.cpp in Sources */,
 				5368F6F22296A18600091848 /* Il2CppCompilerCalculateTypeValues_26Table.cpp in Sources */,
