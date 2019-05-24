@@ -90,6 +90,13 @@ namespace Helper
             return clip;
         }
 
+        public RuntimeAnimatorController LoadAnimationController(string path)
+        {
+            path = PathToResourcePath(path);
+            RuntimeAnimatorController aniController = Resources.Load<RuntimeAnimatorController>(path) as RuntimeAnimatorController;
+            return aniController;
+        }
+
 
         /*
         public void SetImage(string path, Image image, bool useNativeSize = false, Action cb = null)

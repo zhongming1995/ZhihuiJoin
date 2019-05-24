@@ -94,7 +94,7 @@ public class DisplayView : MonoBehaviour
         StartCoroutine(CutScreen());
 
         //播放打招呼的动画
-        Greeting();
+        Invoke("Greeting", 0.5f);
     }
 
     IEnumerator CutScreen()

@@ -34,8 +34,8 @@ public class PianoView : MonoBehaviour
     private int lastSymbolNum;
     private int lastDanceNum;
     private int songIndex;
-    private Animator AniLeft;
-    private Animator AniRight;
+    public Animator AniLeft;
+    public Animator AniRight;
 
     void Start()
     {
@@ -48,13 +48,14 @@ public class PianoView : MonoBehaviour
     {
         //加载小人
         LoadPerson();
-        //给琴谱赋值
-        songIndex = RandomSongNum();
-        songSpectrums = PianoSpectrum.SongsList[songIndex];
-        //根据歌曲不同加载不同的动画
-        LoadSongAni(songIndex);
-        //显示歌曲名称
-        SetSongName(songIndex);
+        SelectSong();
+        ////给琴谱赋值
+        //songIndex = RandomSongNum();
+        //songSpectrums = PianoSpectrum.SongsList[songIndex];
+        ////根据歌曲不同加载不同的动画
+        //LoadSongAni(songIndex);
+        ////显示歌曲名称
+        //SetSongName(songIndex);
         //8个琴键脚本,8个琴键提示动画
         for (int i = 0; i < Keys.childCount; i++)
         {
@@ -85,19 +86,42 @@ public class PianoView : MonoBehaviour
         ResultWindow.gameObject.SetActive(false);
     }
 
-    int RandomSongNum()
+    void SelectSong()
     {
+        //给琴谱赋值
+        songIndex = RandomSongNum();
+        songSpectrums = PianoSpectrum.SongsList[songIndex];
+        //根据歌曲不同加载不同的动画
+        LoadSongAni(songIndex);
+        //显示歌曲名称
+        SetSongName(songIndex);
+    }
+
+    int RandomSongNum()
+    { 
         Random rd = new Random();
-        return rd.Next(0, 3);
+        int n = songIndex;
+        while (n == songIndex)
+        {
+            n = rd.Next(0, 3);
+        }
+        return n;
     }
 
     void LoadSongAni(int index)
     {
+        string path = string.Format("Animator/Piano_Ani/Ani_{0}|song_ani_{1}", index, index);
+        Debug.Log("path:" + path);
+        RuntimeAnimatorController runAni = UIHelper.instance.LoadAnimationController(path);
+        AniLeft.runtimeAnimatorController = runAni;
+        AniRight.runtimeAnimatorController = runAni;
+        /*
         string path = "Prefabs/game/piano|song_ani_" + index.ToString();
         GameObject left = UIHelper.instance.LoadPrefab(path, SongAniLeft, Vector3.zero, Vector3.one);
         GameObject right = UIHelper.instance.LoadPrefab(path, SongAniRight, Vector3.zero, Vector3.one);
         AniLeft = left.GetComponent<Animator>();
         AniRight = right.GetComponent<Animator>();
+        */       
     }
 
     void SetSongName(int index)
@@ -143,7 +167,7 @@ public class PianoView : MonoBehaviour
     private int RandowSymbol()
     {
         Random rd = new Random();
-        int n = rd.Next(1, 7);
+        int n = lastSymbolNum;
         while (n == lastSymbolNum)
         {
             n = rd.Next(1,7);
@@ -202,6 +226,7 @@ public class PianoView : MonoBehaviour
 
     void Replay()
     {
+        SelectSong();
         curSpecturmIndex = 0;
         ReminderKey();
     }
@@ -239,12 +264,7 @@ public class PianoView : MonoBehaviour
     {
         if (curSpecturmIndex >= songSpectrums.Count)
         {
-            ResultWindow.gameObject.SetActive(true);
-            if (WindowPersonParent.childCount==0)
-            {
-                LoadWindowPerson();
-            }
-            Greeting();
+            Invoke("ShowWindow", 1.0f);
             return;
         }
         int keyIndex = songSpectrums[curSpecturmIndex];
@@ -253,6 +273,16 @@ public class PianoView : MonoBehaviour
         UIHelper.instance.SetImage(path, reminders[keyIndex - 1], true);
         reminders[keyIndex-1].gameObject.SetActive(true);
         pianoKeyAnimations[keyIndex-1].Play();
+    }
+
+    void ShowWindow()
+    {
+        ResultWindow.gameObject.SetActive(true);
+        if (WindowPersonParent.childCount == 0)
+        {
+            LoadWindowPerson();
+        }
+        Greeting();
     }
 
     public void Greeting()

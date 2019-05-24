@@ -2,7 +2,7 @@
 
 public class PianoSpectrum 
 {
-    //1 《小星星》 2《数鸭子》 3《找朋友》
+    //0 《小星星》 1《数鸭子》 2《找朋友》
     public static List<int> LittleStarSpecturms = new List<int>
     {
         1,1,5,5,6,6,5,
