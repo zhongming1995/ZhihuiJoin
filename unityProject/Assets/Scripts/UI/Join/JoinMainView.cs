@@ -120,13 +120,14 @@ public class JoinMainView : MonoBehaviour
 
         //绘画素材
         BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(0f, 0f, 0), new Vector3(134,134,134));
+        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
 
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
-        draw.transform.localPosition = new Vector3(-1741, -68, 0);
+        //draw.transform.localPosition = new Vector3(-1741, -68, 0);
+        //draw.transform.localPosition = new Vector3(0, 0, 0);
 
         joinGuide.AddMobileDrawDelagate();
         //Canvas结点
