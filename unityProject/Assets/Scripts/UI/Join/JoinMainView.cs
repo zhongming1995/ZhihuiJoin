@@ -126,8 +126,6 @@ public class JoinMainView : MonoBehaviour
         mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
-        //draw.transform.localPosition = new Vector3(-1741, -68, 0);
-        //draw.transform.localPosition = new Vector3(0, 0, 0);
 
         joinGuide.AddMobileDrawDelagate();
         //Canvas结点
@@ -194,6 +192,15 @@ public class JoinMainView : MonoBehaviour
             TypeButtonClick((TemplateResType)resType,true);
         });
         typeTransList.Add(t);
+    }
+
+    /// <summary>
+    /// 返回编辑时，回到第二步
+    /// </summary>
+    /// <param name="show">If set to <c>true</c> show.</param>
+    public void BackToJoinEdit()
+    {
+        ShowTypeByStep(2);
     }
 
     //显示返回按钮，否则是半透明状态
@@ -392,6 +399,7 @@ public class JoinMainView : MonoBehaviour
     //根据步骤决定显示哪个类型的素材
     private void ShowTypeByStep(int step)
     {
+        this.step = step;
         if (step==1)
         {
             SetCurSelectType(TemplateResType.Body);

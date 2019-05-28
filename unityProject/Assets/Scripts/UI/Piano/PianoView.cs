@@ -213,6 +213,7 @@ public class PianoView : MonoBehaviour
             Destroy(gameObject);
             Destroy(displayView.gameObject);
             joinMainView.gameObject.SetActive(true);
+            joinMainView.BackToJoinEdit();
             Resources.UnloadUnusedAssets();
             GC.Collect();
         });

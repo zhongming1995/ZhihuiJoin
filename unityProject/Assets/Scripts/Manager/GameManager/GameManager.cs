@@ -58,11 +58,14 @@ namespace GameMgr
         [HideInInspector]
         public int homeSelectIndex = 0;//选择了那个字母或数字，存放的是下标
         [HideInInspector]
+        public float homeContentPosx = 0;//记录列表页的位置
+        [HideInInspector]
         public int resTypeCount = 8;//素材资源种类，目前8种
         [HideInInspector]
         public TemplateResType curSelectResType = TemplateResType.Body;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手 7脚
         [HideInInspector]
         public JoinType curJoinType;//当前拼接的类型是字母，数字还是别的
+
 
         void Awake()
         {

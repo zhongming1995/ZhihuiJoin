@@ -24,6 +24,9 @@ public class HomeView : MonoBehaviour
         //停止音效
         AudioManager.instance.StopEffect();
         ListViewContent = transform.Find("list_items/Scroll View/Viewport/Content");
+        //列表定位
+        ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
+
         for (int i = 0; i < GameManager.instance.homePathList.Count; i++)
         {
             int j = i;
@@ -36,6 +39,8 @@ public class HomeView : MonoBehaviour
                 GameManager.instance.homeSelectIndex = j;
                 //GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|join_main_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);
                 //Destroy(gameObject);
+                GameManager.instance.homeContentPosx = ListViewContent.localPosition.x;
+                //记录列表的位置
                 //设置类型
                 if (j < 26)
                 {

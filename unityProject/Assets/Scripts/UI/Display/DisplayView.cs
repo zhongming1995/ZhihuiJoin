@@ -59,6 +59,7 @@ public class DisplayView : MonoBehaviour
         BtnBack.onClick.AddListener(delegate
         {
             joinMainView.gameObject.SetActive(true);
+            joinMainView.BackToJoinEdit();
             Destroy(gameObject);
             Resources.UnloadUnusedAssets();
             GC.Collect();
