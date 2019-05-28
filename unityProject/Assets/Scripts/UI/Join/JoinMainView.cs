@@ -44,7 +44,8 @@ public class JoinMainView : MonoBehaviour
     public bool hasDraged;//是否拖入过素材（附着过）
 
     //定义数据变量
-    private Transform curSelectResObj ;
+    private Transform curSelectResObj;
+    private ResDragItem curResDragItem;//选中部位身上挂的脚本
     private int typeCount = 8;//资源类型数量
     [HideInInspector]
     public int step = 1;//步骤1-4
@@ -324,12 +325,17 @@ public class JoinMainView : MonoBehaviour
     //右侧素材类型切换
     public void SetCurSelectType(TemplateResType type)
     {
+        if (GameManager.instance.curSelectResType==type)
+        {
+            Debug.Log("同一个类型，不处理-------");
+            return;
+        }
         GameManager.instance.SetJoinCurSelectType(type);
-      
         if (type == 0)
         {
             PenScaleSlider.gameObject.SetActive(true);
             ImageScaleSlider.gameObject.SetActive(false);
+            curResDragItem.SetOutline(false);
         }
         else
         {
@@ -341,12 +347,21 @@ public class JoinMainView : MonoBehaviour
     //选中某个部件
     public void SetSelectResObj(Transform t)
     {
+        Transform oldObj = curSelectResObj;
         curSelectResObj = t;
+        //旧的不选中
+        if (oldObj != null)
+        {
+            curResDragItem.SetOutline(false);
+        }
         if (t == null)
         {
             ImageScaleSlider.gameObject.SetActive(false);
             return;
         }
+        //新的选中
+        curResDragItem = curSelectResObj.GetComponent<ResDragItem>();
+        curResDragItem.SetOutline(true);
         if (ImageScaleSlider.gameObject.activeSelf == false)
         {
             ImageScaleSlider.gameObject.SetActive(true);

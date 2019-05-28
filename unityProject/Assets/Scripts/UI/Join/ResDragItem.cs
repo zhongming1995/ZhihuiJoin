@@ -8,6 +8,7 @@ using DG.Tweening;
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
     public PartType partType;
+    public Material selectMaterial;//选中状态，描边
     private Vector3 partScale = new Vector3(1,1,1);
 
     private Image image;
@@ -38,7 +39,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     {
         Init();
         TemplateResType type = GameManager.instance.curSelectResType;
-        //partType = (PartType)type;
         partType = GetPartTypeByResType(type, index);
         string path = GameManager.instance.resPathList[(int)type][index];
         UIHelper.instance.SetImage(path, image, true);
@@ -153,29 +153,10 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         if (InCorrectArea())
         {
             joinMainView.SetSelectResObj(transform);
+            SetOutline(true);
             joinMainView.hasDraged = true;
             float posx = rt.anchoredPosition.x;
             float posy = rt.anchoredPosition.y;
-            //if (rt.anchoredPosition.x>anchorLeftTop.x&&rt.anchoredPosition.x<(anchorLeftTop.x+rt.sizeDelta.x/2))
-            //{
-            //    Debug.Log("x左压线");
-            //    posx = anchorLeftTop.x + rt.sizeDelta.x / 2;
-            //}
-            //if (rt.anchoredPosition.x<anchorRightBottom.x&&rt.anchoredPosition.x>(anchorRightBottom.x-rt.sizeDelta.x/2))
-            //{
-            //    Debug.Log("x右压线");
-            //    posx = anchorRightBottom.x - rt.sizeDelta.x / 2;
-            //}
-            //if (rt.anchoredPosition.y>anchorRightBottom.y&&rt.anchoredPosition.y<(anchorRightBottom.y+rt.sizeDelta.y/2))
-            //{
-            //    Debug.Log("下压线");
-            //    posy = anchorRightBottom.y + rt.sizeDelta.y / 2;
-            //}
-            //if (rt.anchoredPosition.y < anchorLeftTop.y && rt.anchoredPosition.y > (anchorLeftTop.y - rt.sizeDelta.y / 2)) 
-            //{
-            //    Debug.Log("上压线");
-            //    posy = anchorLeftTop.y - rt.sizeDelta.y / 2;
-            //}
             if (rt.anchoredPosition.x > anchorLeftTop.x && rt.anchoredPosition.x < (anchorLeftTop.x + rt.sizeDelta.x*partScale.x / 2))
             {
                 Debug.Log("x左压线");
@@ -248,6 +229,20 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             return;
         }
         joinMainView.SetSelectResObj(transform);
+        SetOutline(true);
         joinMainView.ShowBackBtn(false);
+    }
+
+    public void SetOutline(bool isSelect)
+    {
+        if (isSelect)
+        {
+            image.material = selectMaterial;
+        }
+        else
+        {
+            Debug.Log("取消选中");
+            image.material = null;
+        }
     }
 }

@@ -507,6 +507,7 @@ MonoBehaviour:
   - {r: 1, g: 1, b: 1, a: 1}
   MultiColorList: []
   homeSelectIndex: 0
+  homeContentPosx: 0
   resTypeCount: 8
   curSelectResType: 0
   curJoinType: 0

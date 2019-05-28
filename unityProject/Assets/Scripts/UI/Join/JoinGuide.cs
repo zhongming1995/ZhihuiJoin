@@ -95,7 +95,6 @@ public class JoinGuide : MonoBehaviour
 
     private void DoReminder(int rCount)
     {
-        Debug.Log(GameManager.instance.curSelectResType);
         if (GameManager.instance.curSelectResType==TemplateResType.Body)//第一步
         {
             //是否画过一笔
