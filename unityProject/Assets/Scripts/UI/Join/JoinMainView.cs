@@ -36,9 +36,6 @@ public class JoinMainView : MonoBehaviour
     public MobilePaint mobilePaint;
     private Transform BodyGroup;
     [HideInInspector]
-    public Transform CanvasTrans;
-
-    [HideInInspector]
     public bool hasPainted;//涂色过，即涂色面积>0过
     [HideInInspector]
     public bool hasDraged;//是否拖入过素材（附着过）
@@ -66,7 +63,9 @@ public class JoinMainView : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("1time--------------"+Time.realtimeSinceStartup);
         Init();
+        Debug.Log("2time--------------" + Time.realtimeSinceStartup);
     }
 
     void Update()
@@ -129,8 +128,6 @@ public class JoinMainView : MonoBehaviour
         mobilePaint.SetBrushSize(1);
 
         joinGuide.AddMobileDrawDelagate();
-        //Canvas结点
-        CanvasTrans = transform.GetComponentInParent<Canvas>().transform;
 
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
@@ -252,7 +249,7 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.TransformToPartsList(DrawPanel);
-            UIHelper.instance.LoadPrefab("prefabs/display|display_view",CanvasTrans, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefab("prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
 
         });
 
