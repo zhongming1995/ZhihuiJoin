@@ -1,13 +1,10 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/GameManager/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Game/PauseWindow.cs" Line="41" Column="12" />
-      <File FileName="Assets/Scripts/UI/Game/ChooseGameWindow.cs" Line="43" Column="24" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="52" Column="38" />
-      <File FileName="Assets/Scripts/UI/Game/GameOperDelegate.cs" Line="27" Column="6" />
-      <File FileName="Assets/Scripts/UI/Game/CompleteWindow.cs" Line="74" Column="22" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="336" Column="58" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="15" Column="56" />
+      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="63" Column="43" />
+      <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="12" Column="28" />
+      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="71" Column="49" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="69" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

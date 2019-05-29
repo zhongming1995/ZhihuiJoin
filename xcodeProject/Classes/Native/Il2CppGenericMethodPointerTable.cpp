@@ -50,8 +50,8 @@ extern "C" void Marshal_PtrToStructure_TisRuntimeObject_mDB88EE58460703A7A664B67
 extern "C" void TaskToApm_End_TisInt32_t585191389E07734F19F3156FF88FB3EF4800D102_m7A78383A6B69F06EC91BDED0E0F6F3DE02960234_gshared ();
 extern "C" void AssetBundle_LoadAsset_TisRuntimeObject_mDF43689C0477D3EF298987E8C1C8D7B7102F2BA9_gshared ();
 extern "C" void Component_GetComponent_TisRuntimeObject_m3FED1FF44F93EF1C3A07526800331B638EF4105B_gshared ();
-extern "C" void Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_gshared ();
 extern "C" void Component_GetComponentInChildren_TisRuntimeObject_m0A52F3C5B5FF663BE30EF619B4D961185A4C97EC_gshared ();
+extern "C" void Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_gshared ();
 extern "C" void Component_GetComponentInParent_TisRuntimeObject_m36052D294AB8C1574678FEF9A9749145A073E8E3_gshared ();
 extern "C" void GameObject_AddComponent_TisRuntimeObject_mCB8164FB05F8DCF99E098ADC5E13E96FEF6FC4E9_gshared ();
 extern "C" void GameObject_GetComponent_TisRuntimeObject_m41E09C4CA476451FE275573062956CED105CB79A_gshared ();

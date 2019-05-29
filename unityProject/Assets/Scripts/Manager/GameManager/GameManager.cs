@@ -67,6 +67,8 @@ namespace GameMgr
         public JoinType curJoinType;//当前拼接的类型是字母，数字还是别的
         [HideInInspector]
         public Canvas gameCanvas;//项目只用了一个场景的时候，用这个Canvas
+        [HideInInspector]
+        public string nextSceneName;//接下来要跳转的场景名
 
         void Awake()
         {

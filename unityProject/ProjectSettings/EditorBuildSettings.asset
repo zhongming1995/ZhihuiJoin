@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/join.unity
     guid: 8f4ee0c4cb73c482898a257c1b5755b4
+  - enabled: 1
+    path: Assets/Scenes/transition.unity
+    guid: 53fe4cba06b504107a7045b392f9c305
   m_configObjects: {}

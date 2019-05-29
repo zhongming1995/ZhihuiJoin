@@ -19299,6 +19299,35 @@ extern "C" IL2CPP_METHOD_ATTR void AsyncOperation_InternalDestroy_m22D4FE202FC59
 	_il2cpp_icall_func = (AsyncOperation_InternalDestroy_m22D4FE202FC59024E9ED7F6537C87D26F96FC551_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AsyncOperation::InternalDestroy(System.IntPtr)");
 	_il2cpp_icall_func(___ptr0);
 }
+// System.Boolean UnityEngine.AsyncOperation::get_isDone()
+extern "C" IL2CPP_METHOD_ATTR bool AsyncOperation_get_isDone_m2A08EE3D38FD9FE81F2D619FA66255B6F61DAB54 (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * __this, const RuntimeMethod* method)
+{
+	typedef bool (*AsyncOperation_get_isDone_m2A08EE3D38FD9FE81F2D619FA66255B6F61DAB54_ftn) (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D *);
+	static AsyncOperation_get_isDone_m2A08EE3D38FD9FE81F2D619FA66255B6F61DAB54_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (AsyncOperation_get_isDone_m2A08EE3D38FD9FE81F2D619FA66255B6F61DAB54_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AsyncOperation::get_isDone()");
+	bool retVal = _il2cpp_icall_func(__this);
+	return retVal;
+}
+// System.Single UnityEngine.AsyncOperation::get_progress()
+extern "C" IL2CPP_METHOD_ATTR float AsyncOperation_get_progress_m27F7D885AF1A989B993199181DE70D7B0F1E3984 (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * __this, const RuntimeMethod* method)
+{
+	typedef float (*AsyncOperation_get_progress_m27F7D885AF1A989B993199181DE70D7B0F1E3984_ftn) (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D *);
+	static AsyncOperation_get_progress_m27F7D885AF1A989B993199181DE70D7B0F1E3984_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (AsyncOperation_get_progress_m27F7D885AF1A989B993199181DE70D7B0F1E3984_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AsyncOperation::get_progress()");
+	float retVal = _il2cpp_icall_func(__this);
+	return retVal;
+}
+// System.Void UnityEngine.AsyncOperation::set_allowSceneActivation(System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void AsyncOperation_set_allowSceneActivation_m297E3269310864DE1110ED51C7E2E302B32185C9 (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * __this, bool ___value0, const RuntimeMethod* method)
+{
+	typedef void (*AsyncOperation_set_allowSceneActivation_m297E3269310864DE1110ED51C7E2E302B32185C9_ftn) (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D *, bool);
+	static AsyncOperation_set_allowSceneActivation_m297E3269310864DE1110ED51C7E2E302B32185C9_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (AsyncOperation_set_allowSceneActivation_m297E3269310864DE1110ED51C7E2E302B32185C9_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.AsyncOperation::set_allowSceneActivation(System.Boolean)");
+	_il2cpp_icall_func(__this, ___value0);
+}
 // System.Void UnityEngine.AsyncOperation::Finalize()
 extern "C" IL2CPP_METHOD_ATTR void AsyncOperation_Finalize_m36607FEC5F5766510DD0B14440CD9775CF1C23C2 (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * __this, const RuntimeMethod* method)
 {
@@ -30415,6 +30444,16 @@ IL_000d:
 		bool L_2 = V_0;
 		return L_2;
 	}
+}
+// System.Boolean UnityEngine.Input::get_anyKey()
+extern "C" IL2CPP_METHOD_ATTR bool Input_get_anyKey_m8DCF0DC50EECF96CAD6C86A8A7133E65BC382F76 (const RuntimeMethod* method)
+{
+	typedef bool (*Input_get_anyKey_m8DCF0DC50EECF96CAD6C86A8A7133E65BC382F76_ftn) ();
+	static Input_get_anyKey_m8DCF0DC50EECF96CAD6C86A8A7133E65BC382F76_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Input_get_anyKey_m8DCF0DC50EECF96CAD6C86A8A7133E65BC382F76_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Input::get_anyKey()");
+	bool retVal = _il2cpp_icall_func();
+	return retVal;
 }
 // UnityEngine.Vector3 UnityEngine.Input::get_mousePosition()
 extern "C" IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  Input_get_mousePosition_mC8B181E5125330ECFB9F8C5D94AA8F4AD1ABD10C (const RuntimeMethod* method)

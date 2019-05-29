@@ -150,9 +150,21 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.AsyncOperation
 
+		//System.Boolean UnityEngine.AsyncOperation::get_isDone()
+		void Register_UnityEngine_AsyncOperation_get_isDone();
+		Register_UnityEngine_AsyncOperation_get_isDone();
+
+		//System.Single UnityEngine.AsyncOperation::get_progress()
+		void Register_UnityEngine_AsyncOperation_get_progress();
+		Register_UnityEngine_AsyncOperation_get_progress();
+
 		//System.Void UnityEngine.AsyncOperation::InternalDestroy(System.IntPtr)
 		void Register_UnityEngine_AsyncOperation_InternalDestroy();
 		Register_UnityEngine_AsyncOperation_InternalDestroy();
+
+		//System.Void UnityEngine.AsyncOperation::set_allowSceneActivation(System.Boolean)
+		void Register_UnityEngine_AsyncOperation_set_allowSceneActivation();
+		Register_UnityEngine_AsyncOperation_set_allowSceneActivation();
 
 	//End Registrations for type : UnityEngine.AsyncOperation
 
@@ -1129,6 +1141,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Boolean UnityEngine.Input::GetMouseButtonUp(System.Int32)
 		void Register_UnityEngine_Input_GetMouseButtonUp();
 		Register_UnityEngine_Input_GetMouseButtonUp();
+
+		//System.Boolean UnityEngine.Input::get_anyKey()
+		void Register_UnityEngine_Input_get_anyKey();
+		Register_UnityEngine_Input_get_anyKey();
 
 		//System.Boolean UnityEngine.Input::get_mousePresent()
 		void Register_UnityEngine_Input_get_mousePresent();
