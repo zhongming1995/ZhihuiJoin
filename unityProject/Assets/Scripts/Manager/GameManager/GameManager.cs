@@ -56,7 +56,7 @@ namespace GameMgr
 
         //创建出来的画布
         [HideInInspector]
-        public int homeSelectIndex = 0;//选择了那个字母或数字，存放的是下标
+        public int homeSelectIndex = -1;//选择了那个字母或数字，存放的是下标
         [HideInInspector]
         public float homeContentPosx = 0;//记录列表页的位置
         [HideInInspector]
@@ -65,7 +65,8 @@ namespace GameMgr
         public TemplateResType curSelectResType = TemplateResType.Body;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手 7脚
         [HideInInspector]
         public JoinType curJoinType;//当前拼接的类型是字母，数字还是别的
-
+        [HideInInspector]
+        public Canvas gameCanvas;//项目只用了一个场景的时候，用这个Canvas
 
         void Awake()
         {
@@ -78,6 +79,19 @@ namespace GameMgr
             InitResPrefabList();//素材中的预制体路径
             InitResList();//素材资源
             InitColor();
+            //游戏画布
+            gameCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+        }
+
+        public Canvas GetCanvas()
+        {
+            return GameObject.Find("Canvas").GetComponent<Canvas>();
+        }
+
+        public void ReInit()
+        {
+            homeSelectIndex = -1;
+            curSelectResType = TemplateResType.Body;
         }
 
         //初始化颜色列表

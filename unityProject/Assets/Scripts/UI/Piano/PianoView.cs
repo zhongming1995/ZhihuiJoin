@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataMgr;
+using GameMgr;
 using Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,11 +14,6 @@ public class PianoView : MonoBehaviour
     public Transform PersonParent;
     public Button BtnBack;
     public Button BtnBackCheck;
-    public Transform ResultWindow;
-    public Button RBtnHome;
-    public Button RBtnEdit;
-    public Button RBtnReplay;
-    public Transform WindowPersonParent;
     public Transform SongAniLeft;
     public Transform SongAniRight;
     public Image ImgSongName;
@@ -30,7 +26,7 @@ public class PianoView : MonoBehaviour
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private List<int> songSpectrums;
     private DisplayPartItem[] lstDisplayItem;
-    private DisplayPartItem[] windowlstDisplayItem;
+    //private DisplayPartItem[] windowlstDisplayItem;
     private int lastSymbolNum;
     private int lastDanceNum;
     private int songIndex;
@@ -44,18 +40,28 @@ public class PianoView : MonoBehaviour
         AppEntry.instance.SetMultiTouchEnable(true);
     }
 
+    private void OnEnable()
+    {
+        GameOperDelegate.backToEdit += BackToEditFunc;
+        GameOperDelegate.gameReplay += Replay;
+    }
+
+    private void OnDisable()
+    {
+        GameOperDelegate.backToEdit -= BackToEditFunc;
+        GameOperDelegate.gameReplay -= Replay;
+    }
+
+    private void OnDestroy()
+    {
+        AppEntry.instance.SetMultiTouchEnable(false);
+    }
+
     void Init()
     {
         //加载小人
         LoadPerson();
         SelectSong();
-        ////给琴谱赋值
-        //songIndex = RandomSongNum();
-        //songSpectrums = PianoSpectrum.SongsList[songIndex];
-        ////根据歌曲不同加载不同的动画
-        //LoadSongAni(songIndex);
-        ////显示歌曲名称
-        //SetSongName(songIndex);
         //8个琴键脚本,8个琴键提示动画
         for (int i = 0; i < Keys.childCount; i++)
         {
@@ -82,8 +88,6 @@ public class PianoView : MonoBehaviour
         ShowBackBtn(false);
         //按钮点击
         AddClickEvent();
-        //隐藏结果弹窗
-        ResultWindow.gameObject.SetActive(false);
     }
 
     void SelectSong()
@@ -115,13 +119,6 @@ public class PianoView : MonoBehaviour
         RuntimeAnimatorController runAni = UIHelper.instance.LoadAnimationController(path);
         AniLeft.runtimeAnimatorController = runAni;
         AniRight.runtimeAnimatorController = runAni;
-        /*
-        string path = "Prefabs/game/piano|song_ani_" + index.ToString();
-        GameObject left = UIHelper.instance.LoadPrefab(path, SongAniLeft, Vector3.zero, Vector3.one);
-        GameObject right = UIHelper.instance.LoadPrefab(path, SongAniRight, Vector3.zero, Vector3.one);
-        AniLeft = left.GetComponent<Animator>();
-        AniRight = right.GetComponent<Animator>();
-        */       
     }
 
     void SetSongName(int index)
@@ -142,26 +139,6 @@ public class PianoView : MonoBehaviour
         person.transform.localPosition = Vector3.zero;
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-    }
-
-    private void LoadWindowPerson()
-    {
-        GameObject person = null;
-        if (DataManager.instance.partDataList != null)
-        {
-            person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
-        }
-        person.transform.SetParent(WindowPersonParent);
-        person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
-        person.transform.localPosition = Vector3.zero;
-
-        windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-
-        //加上按钮
-        Button btn = person.gameObject.AddComponent<Button>();
-        btn.onClick.AddListener(Greeting);
-        //默认打招呼一次
-        Greeting();
     }
 
     private int RandowSymbol()
@@ -200,29 +177,6 @@ public class PianoView : MonoBehaviour
             Resources.UnloadUnusedAssets();
             GC.Collect();
         });
-
-        RBtnHome.onClick.AddListener(delegate
-        {
-            SceneManager.LoadScene("Home");
-        });
-
-        RBtnEdit.onClick.AddListener(delegate
-        {
-            JoinMainView joinMainView = transform.parent.GetComponentInChildren<JoinMainView>(true);
-            DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
-            Destroy(gameObject);
-            Destroy(displayView.gameObject);
-            joinMainView.gameObject.SetActive(true);
-            joinMainView.BackToJoinEdit();
-            Resources.UnloadUnusedAssets();
-            GC.Collect();
-        });
-
-        RBtnReplay.onClick.AddListener(delegate
-        {
-            ResultWindow.gameObject.SetActive(false);
-            Replay();
-        });
     }
 
     void Replay()
@@ -254,7 +208,6 @@ public class PianoView : MonoBehaviour
         }
         if (songSpectrums[curSpecturmIndex] == key)
         {
-            //DataManager.instance.PersonDance1(lstDisplayItem);
             Dance();
             return true;
         }
@@ -278,17 +231,8 @@ public class PianoView : MonoBehaviour
 
     void ShowWindow()
     {
-        ResultWindow.gameObject.SetActive(true);
-        if (WindowPersonParent.childCount == 0)
-        {
-            LoadWindowPerson();
-        }
-        Greeting();
-    }
-
-    public void Greeting()
-    {
-        DataManager.instance.PersonGreeting(windowlstDisplayItem);
+        string path = "Prefabs/game|window_complete";
+        UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     public void Dance()
@@ -314,8 +258,10 @@ public class PianoView : MonoBehaviour
         AniRight.SetBool("isJump", false);
     }
 
-    private void OnDestroy()
+    public void BackToEditFunc()
     {
-        AppEntry.instance.SetMultiTouchEnable(false);
+        Destroy(gameObject);
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }

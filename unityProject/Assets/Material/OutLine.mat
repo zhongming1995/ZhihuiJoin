@@ -41,8 +41,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: a1a818736095b4c33b0d225f3c750bb9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 0, y: 0}
+        m_Offset: {x: -2, y: -2}
     - _Mask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -78,7 +78,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OffsetUV: 0.005
+    - _OffsetUV: 0.01
     - _OriginAlphaThreshold: 0.211
     - _OutlineFactor: 0.071
     - _Parallax: 0.02

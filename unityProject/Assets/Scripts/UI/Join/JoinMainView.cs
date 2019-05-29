@@ -327,7 +327,6 @@ public class JoinMainView : MonoBehaviour
     {
         if (GameManager.instance.curSelectResType==type)
         {
-            Debug.Log("同一个类型，不处理-------");
             return;
         }
         GameManager.instance.SetJoinCurSelectType(type);
@@ -335,7 +334,6 @@ public class JoinMainView : MonoBehaviour
         {
             PenScaleSlider.gameObject.SetActive(true);
             ImageScaleSlider.gameObject.SetActive(false);
-            curResDragItem.SetOutline(false);
         }
         else
         {
@@ -347,21 +345,40 @@ public class JoinMainView : MonoBehaviour
     //选中某个部件
     public void SetSelectResObj(Transform t)
     {
+        ResDragItem oldDragItem = curResDragItem;
         Transform oldObj = curSelectResObj;
         curSelectResObj = t;
-        //旧的不选中
-        if (oldObj != null)
+
+        if (oldObj==null)
         {
-            curResDragItem.SetOutline(false);
+            if (t==null)
+            {
+                ImageScaleSlider.gameObject.SetActive(false);
+                return;
+            }
+            curResDragItem = curSelectResObj.GetComponent<ResDragItem>();
+            curResDragItem.SetOutline(true);
         }
-        if (t == null)
+        else
         {
-            ImageScaleSlider.gameObject.SetActive(false);
-            return;
+            if (t==null)
+            {
+                oldDragItem.SetOutline(false);
+                ImageScaleSlider.gameObject.SetActive(false);
+                return;
+            }
+            if (oldObj.GetInstanceID()!=t.GetInstanceID())
+            {
+                oldDragItem.SetOutline(false);
+                curResDragItem = curSelectResObj.GetComponent<ResDragItem>();
+                curResDragItem.SetOutline(true);
+            }
+            else
+            {
+                return;
+            }
         }
-        //新的选中
-        curResDragItem = curSelectResObj.GetComponent<ResDragItem>();
-        curResDragItem.SetOutline(true);
+        //以下是t不为空,且与old不是同一个物体才会执行的
         if (ImageScaleSlider.gameObject.activeSelf == false)
         {
             ImageScaleSlider.gameObject.SetActive(true);

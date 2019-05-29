@@ -88,6 +88,10 @@
     <Compile Include="Assets\Scripts\UI\Draw\MobilePaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\MyPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\ZhihuiPaint.cs" />
+    <Compile Include="Assets\Scripts\UI\Game\ChooseGameWindow.cs" />
+    <Compile Include="Assets\Scripts\UI\Game\CompleteWindow.cs" />
+    <Compile Include="Assets\Scripts\UI\Game\GameOperDelegate.cs" />
+    <Compile Include="Assets\Scripts\UI\Game\PauseWindow.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
     <Compile Include="Assets\Scripts\UI\Index\IndexView.cs" />
     <Compile Include="Assets\Scripts\UI\Join\AniEvent.cs" />

@@ -49,6 +49,23 @@ public class DisplayView : MonoBehaviour
         BtnSave.interactable = false;
     }
 
+    private void OnEnable()
+    {
+        ChooseGameWindow.pianoBegin += HideDisplayView;
+        ChooseGameWindow.cardBegin += HideDisplayView;
+    }
+
+    private void OnDisable()
+    {
+        ChooseGameWindow.pianoBegin -= HideDisplayView;
+        ChooseGameWindow.cardBegin -= HideDisplayView;
+    }
+
+    public void HideDisplayView()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void AddEvent()
     {
         BtnHome.onClick.AddListener(delegate
@@ -68,8 +85,9 @@ public class DisplayView : MonoBehaviour
 
         BtnGame.onClick.AddListener(delegate
         {
-            gameObject.SetActive(false);
-            UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view",joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
+            //gameObject.SetActive(false);
+            UIHelper.instance.LoadPrefab("prefabs/game|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view",joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
             //UIHelper.instance.LoadPrefab("prefabs/game/card|card_view", joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
         });
     }

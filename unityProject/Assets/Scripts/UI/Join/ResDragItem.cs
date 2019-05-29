@@ -20,6 +20,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private Vector2 anchorRightBottom;
     private RectTransform rt;
     bool isInit = false;//是否获取了需要的控件
+    bool isSelected = false;//是否被选中高亮
     Vector3 offset;
 
     void Init()
@@ -115,6 +116,10 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return;
         }
+        if (isSelected)
+        {
+            //ShowOutLine(false);
+        }
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
     }
@@ -149,11 +154,14 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return;
         }
+        if (isSelected)
+        {
+            //ShowOutLine(true);
+        }
         joinMainView.ShowBackBtn(false);
         if (InCorrectArea())
         {
             joinMainView.SetSelectResObj(transform);
-            SetOutline(true);
             joinMainView.hasDraged = true;
             float posx = rt.anchoredPosition.x;
             float posy = rt.anchoredPosition.y;
@@ -229,11 +237,16 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             return;
         }
         joinMainView.SetSelectResObj(transform);
-        SetOutline(true);
         joinMainView.ShowBackBtn(false);
     }
 
     public void SetOutline(bool isSelect)
+    {
+        isSelected = isSelect;
+        ShowOutLine(isSelect);
+    }
+
+    private void ShowOutLine(bool isSelect)
     {
         if (isSelect)
         {
@@ -241,7 +254,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         else
         {
-            Debug.Log("取消选中");
             image.material = null;
         }
     }

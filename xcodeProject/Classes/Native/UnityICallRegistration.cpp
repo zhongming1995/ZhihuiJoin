@@ -18,10 +18,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Animation_GetStateCount();
 		Register_UnityEngine_Animation_GetStateCount();
 
-		//System.Void UnityEngine.Animation::INTERNAL_CALL_Stop(UnityEngine.Animation)
-		void Register_UnityEngine_Animation_INTERNAL_CALL_Stop();
-		Register_UnityEngine_Animation_INTERNAL_CALL_Stop();
-
 		//UnityEngine.AnimationState UnityEngine.Animation::GetState(System.String)
 		void Register_UnityEngine_Animation_GetState();
 		Register_UnityEngine_Animation_GetState();
@@ -93,6 +89,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Void UnityEngine.Animator::SetTriggerString(System.String)
 		void Register_UnityEngine_Animator_SetTriggerString();
 		Register_UnityEngine_Animator_SetTriggerString();
+
+		//System.Void UnityEngine.Animator::set_runtimeAnimatorController(UnityEngine.RuntimeAnimatorController)
+		void Register_UnityEngine_Animator_set_runtimeAnimatorController();
+		Register_UnityEngine_Animator_set_runtimeAnimatorController();
 
 	//End Registrations for type : UnityEngine.Animator
 
@@ -1465,6 +1465,10 @@ void RegisterAllStrippedInternalCalls()
 	//End Registrations for type : UnityEngine.NoAllocHelpers
 
 	//Start Registrations for type : UnityEngine.Object
+
+		//System.Int32 UnityEngine.Object::GetOffsetOfInstanceIDInCPlusPlusObject()
+		void Register_UnityEngine_Object_GetOffsetOfInstanceIDInCPlusPlusObject();
+		Register_UnityEngine_Object_GetOffsetOfInstanceIDInCPlusPlusObject();
 
 		//System.String UnityEngine.Object::GetName(UnityEngine.Object)
 		void Register_UnityEngine_Object_GetName();
