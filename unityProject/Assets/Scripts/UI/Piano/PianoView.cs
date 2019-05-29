@@ -171,11 +171,9 @@ public class PianoView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
-            DisplayView view = transform.parent.GetComponentInChildren<DisplayView>(true);
-            view.gameObject.SetActive(true);
-            Destroy(gameObject);
-            Resources.UnloadUnusedAssets();
-            GC.Collect();
+            //暂停游戏
+            string path = "Prefabs/game|window_pause";
+            UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
 
@@ -183,7 +181,16 @@ public class PianoView : MonoBehaviour
     {
         SelectSong();
         curSpecturmIndex = 0;
+        HideAllReminder();
         ReminderKey();
+    }
+
+    void HideAllReminder()
+    {
+        for (int i = 0; i < reminders.Count; i++)
+        {
+            reminders[i].gameObject.SetActive(false);
+        }
     }
 
     public void PlayPiano(int index)
