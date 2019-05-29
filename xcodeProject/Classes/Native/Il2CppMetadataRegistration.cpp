@@ -50,6 +50,6 @@ extern const Il2CppMetadataRegistration g_MetadataRegistration =
 	g_FieldOffsetTable,
 	2821,
 	g_Il2CppTypeDefinitionSizesTable,
-	9210,
+	9211,
 	g_MetadataUsages,
 };
