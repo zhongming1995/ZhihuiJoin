@@ -32,7 +32,6 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
 
-    [HideInInspector]
     public MobilePaint mobilePaint;
     private Transform BodyGroup;
     [HideInInspector]
@@ -108,41 +107,44 @@ public class JoinMainView : MonoBehaviour
 
     private void Init()
     {
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //引导脚本
         joinGuide = GetComponent<JoinGuide>();
         if (joinGuide==null)
         {
             joinGuide = gameObject.AddComponent<JoinGuide>();
         }
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //按钮点击
         AddClickEvent();
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //绘画素材
-        BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
-
+        //BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
+        //GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);//1111111
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
-        mobilePaint = draw.GetComponent<MobilePaint>();
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
+        //mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         joinGuide.AddMobileDrawDelagate();
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
         {
             ImageScaleSlider.gameObject.SetActive(false);
         }
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //返回按钮显示半透明
         ShowBackBtn(false);
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //加载颜色列表
         //LoadResList((int)PartType.Body);
+        Invoke("Test", 3.0f);
 
         //右边素材切换按钮
         string typeUnSelectPath = "sprite/ui/join|splice_type_{0}";
@@ -161,15 +163,21 @@ public class JoinMainView : MonoBehaviour
             });
             typeTransList.Add(t);
         }
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);//2222222222
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
-
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         step = 1;//初始是第一步
         ShowTypeByStep(step);
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
         PenScaleSlider.value = 0.5f;
         ImageScaleSlider.value = 0.5f;
         AdjustBurshSize(PenScaleSlider.value);
+        Debug.Log("time--------------" + Time.realtimeSinceStartup);//3333333
+    }
+
+    void Test()
+    {
+        Debug.Log("  test time--------------" + Time.realtimeSinceStartup);//3333333
     }
 
     /// <summary>

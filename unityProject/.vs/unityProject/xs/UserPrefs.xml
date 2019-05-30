@@ -4,7 +4,7 @@
       <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="63" Column="43" />
       <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="12" Column="28" />
       <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="71" Column="49" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="69" Column="13" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="118" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
