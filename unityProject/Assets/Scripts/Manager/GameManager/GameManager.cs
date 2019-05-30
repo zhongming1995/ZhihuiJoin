@@ -69,6 +69,8 @@ namespace GameMgr
         public Canvas gameCanvas;//项目只用了一个场景的时候，用这个Canvas
         [HideInInspector]
         public string nextSceneName;//接下来要跳转的场景名
+        [HideInInspector]
+        public string nextViewPath;//接下来要打开的view的路径
 
         void Awake()
         {
@@ -417,6 +419,16 @@ namespace GameMgr
         public void SetJoinCurSelectType(TemplateResType type)
         {
             curSelectResType = type;
+        }
+
+        public void SetNextSceneName(string name)
+        {
+            nextSceneName = name;
+        }
+
+        public void SetNextViewPath(string path)
+        {
+            nextViewPath = path;
         }
     }
    

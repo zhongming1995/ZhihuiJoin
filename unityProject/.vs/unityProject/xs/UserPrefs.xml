@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/GameManager/GameManager.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="63" Column="43" />
-      <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="12" Column="28" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="71" Column="49" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="118" Column="15" />
+      <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="15" Column="17" />
+      <File FileName="Assets/Scripts/UI/Transition/TransitionPrefabView.cs" Line="16" Column="78" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="287" Column="13" />
+      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="84" Column="47" />
+      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="424" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

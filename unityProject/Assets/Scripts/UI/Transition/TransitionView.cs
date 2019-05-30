@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using GameMgr;
+using Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,7 +10,6 @@ using UnityEngine.UI;
 public class TransitionView : MonoBehaviour
 {
     public Text TxtProgress;
-
     private float progress;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,10 @@ public class TransitionView : MonoBehaviour
         StartCoroutine("LoadScene");
     }
 
+
     IEnumerator LoadScene()
     {
+        yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(GameManager.instance.nextSceneName);
         async.allowSceneActivation = false;
         while (!async.isDone)
@@ -34,13 +37,10 @@ public class TransitionView : MonoBehaviour
 
             if (progress >= 0.9f)
             {
-                TxtProgress.text = "按任意键跳转场景";
-                if (Input.anyKey)
-                {
-                    async.allowSceneActivation = true;
-                }
+                async.allowSceneActivation = true;
             }
             yield return null;
         }
     }
+
 }

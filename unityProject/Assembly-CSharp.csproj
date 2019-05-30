@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\UI\Piano\PianoKey.cs" />
     <Compile Include="Assets\Scripts\UI\Piano\PianoSpectrum.cs" />
     <Compile Include="Assets\Scripts\UI\Piano\PianoView.cs" />
+    <Compile Include="Assets\Scripts\UI\Transition\TransitionPrefabView.cs" />
     <Compile Include="Assets\Scripts\UI\Transition\TransitionView.cs" />
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\shader\OutLine.shader" />

@@ -76,6 +76,45 @@ namespace Helper
             return go;
         }
 
+        public void LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false,Action<float> progressCall = null, Action<GameObject> loadCall = null)
+        {
+            StartCoroutine(Cor_LoadPrefabAsync(path, parent, pos, scale, stretch, progressCall,loadCall));
+        }
+
+        public IEnumerator Cor_LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false, Action<float> progressCall = null,Action<GameObject> loadCall=null)
+        {
+            Debug.Log("path=======" + path);
+            path = PathToResourcePath(path);
+            float progress;
+            yield return new WaitForEndOfFrame();
+            ResourceRequest request = Resources.LoadAsync(path);
+            while (!request.isDone)
+            {
+                if (request.progress < 0.9f)
+                {
+                    progress = request.progress;
+                }
+                else
+                {
+                    progress = 1.0f;
+                }
+                progressCall?.Invoke(progress);
+
+                yield return null;
+            }
+            GameObject go = Instantiate(request.asset) as GameObject;
+            go.transform.SetParent(parent);
+            go.transform.localPosition = pos;
+            go.transform.localScale = scale;
+            if (stretch == true)
+            {
+                go.transform.GetComponent<RectTransform>().offsetMin = Vector2.zero;
+                go.transform.GetComponent<RectTransform>().offsetMax = Vector2.zero;
+            }
+            loadCall?.Invoke(go);
+            yield return go;
+        }
+
         public AnimationClip LoadAnimationClip(string path)
         {
             path = PathToResourcePath(path);

@@ -337,7 +337,7 @@ namespace Draw_MobilePaint
 
 
         } // StartupValidation()
-
+    
         //bool firstRun = false; // TODO: this could be used to check if InitializeEverything() was called after first run
 
         // rebuilds everything and reloads masks,textures..
@@ -349,14 +349,8 @@ namespace Draw_MobilePaint
                myRenderer.material.mainTexture = texture;
             }
 
-            //if (Screen.width * 1.0f / Screen.height > overrideWidth * 1.0f / overrideHeight)
-            //{
-            //    resolutionScaler = Screen.height * 1.0f / overrideHeight;
-            //}
-            //else
-            //{
-                resolutionScaler = Screen.width * 1.0f / overrideWidth;
-            //}
+            resolutionScaler = Screen.width * 1.0f / overrideWidth;
+
             Debug.Log("resolution:=========="+resolutionScaler);
             // cached calculations
             brushSizeX1 = brushSize << 1;
@@ -378,29 +372,21 @@ namespace Draw_MobilePaint
 
             CreateMyQuad();//根据材质的贴图大小创建画布
 
-            // create texture
-            if (useMaskImage)
+            if (overrideResolution)
             {
-                SetMaskImage(maskTex);
-            }
-            else {  // no mask texture
+                var err = false;
+                if (overrideWidth < 0 || overrideWidth > 4096) err = true;
+                if (overrideHeight < 0 || overrideHeight > 4096) err = true;
+                if (err) Debug.LogError("overrideWidth or overrideWidth is invalid - clamping to 4 or 4096");
+                texWidth = (int)Mathf.Clamp(overrideWidth, 4, 4096);
+                texHeight = (int)Mathf.Clamp(overrideHeight, 4, 4096);
 
-                // overriding will also ignore Resolution Scaler value
-                if (overrideResolution)
-                {
-                    var err = false;
-                    if (overrideWidth < 0 || overrideWidth > 4096) err = true;
-                    if (overrideHeight < 0 || overrideHeight > 4096) err = true;
-                    if (err) Debug.LogError("overrideWidth or overrideWidth is invalid - clamping to 4 or 4096");
-                    texWidth = (int)Mathf.Clamp(overrideWidth, 4, 4096);
-                    texHeight = (int)Mathf.Clamp(overrideHeight, 4, 4096);
-
-                }
-                else { // use screen size as texture size
-                    texWidth = (int)(Screen.width * resolutionScaler + canvasSizeAdjust.x);
-                    texHeight = (int)(Screen.height * resolutionScaler + canvasSizeAdjust.y);
-                }
             }
+            else { // use screen size as texture size
+                texWidth = (int)(Screen.width * resolutionScaler + canvasSizeAdjust.x);
+                texHeight = (int)(Screen.height * resolutionScaler + canvasSizeAdjust.y);
+            }
+            
 
             // we have no texture set for canvas, FIXME: this returns true if called initialize again, since texture gets created after this
             if (myRenderer.material.GetTexture(targetTexture) == null && !usingClearingImage) // temporary fix by adding && !usingClearingImage

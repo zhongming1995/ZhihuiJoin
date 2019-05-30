@@ -1142,10 +1142,6 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Input_GetMouseButtonUp();
 		Register_UnityEngine_Input_GetMouseButtonUp();
 
-		//System.Boolean UnityEngine.Input::get_anyKey()
-		void Register_UnityEngine_Input_get_anyKey();
-		Register_UnityEngine_Input_get_anyKey();
-
 		//System.Boolean UnityEngine.Input::get_mousePresent()
 		void Register_UnityEngine_Input_get_mousePresent();
 		Register_UnityEngine_Input_get_mousePresent();
