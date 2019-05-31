@@ -380,6 +380,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1915408960492920419}
   - component: {fileID: 1915408960492920416}
+  - component: {fileID: 1085661980}
+  - component: {fileID: 1085661979}
   m_Layer: 5
   m_Name: display_view
   m_TagString: Untagged
@@ -437,6 +439,30 @@ MonoBehaviour:
   ImgDisplay: {fileID: 1915408960988555162}
   PosFlag1: {fileID: 9094858595984916457}
   PosFlag2: {fileID: 8511515437794499850}
+--- !u!225 &1085661980
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915408960492920418}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1085661979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915408960492920418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07223db3db6f0440c88ed027bdea407e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1915408960988555165
 GameObject:
   m_ObjectHideFlags: 0

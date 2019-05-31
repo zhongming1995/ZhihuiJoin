@@ -69,7 +69,6 @@ namespace Helper
             go.transform.localScale = scale;
             if (stretch == true)
             {
-                Debug.Log("stretch");
                 go.transform.GetComponent<RectTransform>().offsetMin = Vector2.zero;
                 go.transform.GetComponent<RectTransform>().offsetMax = Vector2.zero;
             }
@@ -83,7 +82,6 @@ namespace Helper
 
         public IEnumerator Cor_LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false, Action<float> progressCall = null,Action<GameObject> loadCall=null)
         {
-            Debug.Log("path=======" + path);
             path = PathToResourcePath(path);
             float progress;
             yield return new WaitForEndOfFrame();

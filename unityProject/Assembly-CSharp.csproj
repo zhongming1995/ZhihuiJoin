@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Effect\ButtonScaleAni.cs" />
     <Compile Include="Assets\Scripts\Effect\CarriageAni.cs" />
     <Compile Include="Assets\Scripts\Effect\CloudAni.cs" />
+    <Compile Include="Assets\Scripts\Effect\FadeIn.cs" />
     <Compile Include="Assets\Scripts\Effect\WheelRotate.cs" />
     <Compile Include="Assets\Scripts\Helper\UIDepth.cs" />
     <Compile Include="Assets\Scripts\Helper\UIHelper.cs" />
@@ -109,6 +110,7 @@
     <None Include="Assets\shader\OutLine.shader" />
     <None Include="Assets\shader\ImageMask.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+    <None Include="Assets\shader\ImageOutline.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />

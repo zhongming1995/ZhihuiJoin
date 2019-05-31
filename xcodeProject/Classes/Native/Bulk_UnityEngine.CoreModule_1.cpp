@@ -380,6 +380,8 @@ struct RenderTexture_tBC47D853E3DA6511CD6C49DBF78D47B890FCD2F6;
 struct Renderer_t0556D67DD582620D1F495627EDE30D03284151F4;
 // UnityEngine.RequireComponent
 struct RequireComponent_t07725D895B775D6ED768EF52D4EE326539BA65E1;
+// UnityEngine.ResourceRequest
+struct ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486;
 // UnityEngine.RuntimeInitializeOnLoadMethodAttribute
 struct RuntimeInitializeOnLoadMethodAttribute_t885895E16D3B9209752951C406B870126AA69D70;
 // UnityEngine.ScriptableObject
@@ -679,6 +681,7 @@ extern const uint32_t RenderTextureDescriptor_get_depthBufferBits_m51E82C47A0CA0
 extern const uint32_t RenderTexture_ValidateRenderTextureDesc_mE4BA319BF91FCA90B517EF080E84EE395A4EAD01_MetadataUsageId;
 extern const uint32_t RenderTexture__ctor_m3B3534A6C9696C5CB12ADC78F922237F69CEA33A_MetadataUsageId;
 extern const uint32_t Resolution_ToString_m42289CE0FC4ED41A9DC62B398F46F7954BC52F04_MetadataUsageId;
+extern const uint32_t Resources_LoadAsync_m84A8016123793959F3152D009715F98646311D56_MetadataUsageId;
 extern const uint32_t Resources_Load_mDBE6B83A74A52A1A6F5A68F7E5BC112DBB81B3C1_MetadataUsageId;
 extern const uint32_t SceneManager_Internal_ActiveSceneChanged_mE9AB93D6979594CFCED5B3696F727B7D5E6B25F5_MetadataUsageId;
 extern const uint32_t SceneManager_Internal_SceneLoaded_m800F5F7F7B30D5206913EF65548FD7F8DE9EF718_MetadataUsageId;
@@ -10659,10 +10662,16 @@ extern "C" IL2CPP_METHOD_ATTR Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598
 extern "C" IL2CPP_METHOD_ATTR void Attribute__ctor_m45CAD4B01265CC84CC5A84F62EE2DBE85DE89EC0 (Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74 * __this, const RuntimeMethod* method);
 // System.String UnityEngine.Resolution::ToString()
 extern "C" IL2CPP_METHOD_ATTR String_t* Resolution_ToString_m42289CE0FC4ED41A9DC62B398F46F7954BC52F04 (Resolution_t350D132B8526B5211E0BF8B22782F20D55994A90 * __this, const RuntimeMethod* method);
-// System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
-extern "C" IL2CPP_METHOD_ATTR Type_t * Type_GetTypeFromHandle_m9DC58ADF0512987012A8A016FB64B068F3B1AFF6 (RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D  p0, const RuntimeMethod* method);
+// System.Void UnityEngine.AsyncOperation::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void AsyncOperation__ctor_mEEE6114B72B8807F4AA6FF48FA79E4EFE480293F (AsyncOperation_t304C51ABED8AE734CC8DDDFE13013D8D5A44641D * __this, const RuntimeMethod* method);
 // UnityEngine.Object UnityEngine.Resources::Load(System.String,System.Type)
 extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * Resources_Load_mF0FA033BF566CDDA6A0E69BB97283B44C40726E7 (String_t* ___path0, Type_t * ___systemTypeInstance1, const RuntimeMethod* method);
+// System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
+extern "C" IL2CPP_METHOD_ATTR Type_t * Type_GetTypeFromHandle_m9DC58ADF0512987012A8A016FB64B068F3B1AFF6 (RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D  p0, const RuntimeMethod* method);
+// UnityEngine.ResourceRequest UnityEngine.Resources::LoadAsync(System.String,System.Type)
+extern "C" IL2CPP_METHOD_ATTR ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * Resources_LoadAsync_m7A78B42B839F6ED3A198CE55359006823666D13F (String_t* ___path0, Type_t * ___type1, const RuntimeMethod* method);
+// UnityEngine.ResourceRequest UnityEngine.Resources::LoadAsyncInternal(System.String,System.Type)
+extern "C" IL2CPP_METHOD_ATTR ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * Resources_LoadAsyncInternal_m90563E8C10B5F7F7CEF0AE32C9477CFF897115B9 (String_t* ___path0, Type_t * ___type1, const RuntimeMethod* method);
 // System.Void UnityEngine.Scripting.PreserveAttribute::.ctor()
 extern "C" IL2CPP_METHOD_ATTR void PreserveAttribute__ctor_mD842EE86496947B39FE0FBC67393CE4401AC53AA (PreserveAttribute_t864F9DAA4DBF2524206AD57CE51AEB955702AA3F * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.RuntimeInitializeOnLoadMethodAttribute::set_loadType(UnityEngine.RuntimeInitializeLoadType)
@@ -15021,6 +15030,32 @@ extern "C" void ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486_marsha
 extern "C" void ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486_marshal_com_cleanup(ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486_marshaled_com& marshaled)
 {
 }
+// System.Void UnityEngine.ResourceRequest::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void ResourceRequest__ctor_m9ABE408F147B831EA22F202333FA0A84B8AA575C (ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * __this, const RuntimeMethod* method)
+{
+	{
+		AsyncOperation__ctor_mEEE6114B72B8807F4AA6FF48FA79E4EFE480293F(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// UnityEngine.Object UnityEngine.ResourceRequest::get_asset()
+extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * ResourceRequest_get_asset_m22E63CEED8581B913F8424D2100A47A335032A75 (ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * __this, const RuntimeMethod* method)
+{
+	Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * V_0 = NULL;
+	{
+		String_t* L_0 = __this->get_m_Path_2();
+		Type_t * L_1 = __this->get_m_Type_3();
+		Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * L_2 = Resources_Load_mF0FA033BF566CDDA6A0E69BB97283B44C40726E7(L_0, L_1, /*hidden argument*/NULL);
+		V_0 = L_2;
+		goto IL_0018;
+	}
+
+IL_0018:
+	{
+		Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * L_3 = V_0;
+		return L_3;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -15063,6 +15098,71 @@ extern "C" IL2CPP_METHOD_ATTR Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 *
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Resources_Load_mF0FA033BF566CDDA6A0E69BB97283B44C40726E7_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Resources::Load(System.String,System.Type)");
 	Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 * retVal = _il2cpp_icall_func(___path0, ___systemTypeInstance1);
+	return retVal;
+}
+// UnityEngine.ResourceRequest UnityEngine.Resources::LoadAsync(System.String)
+extern "C" IL2CPP_METHOD_ATTR ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * Resources_LoadAsync_m84A8016123793959F3152D009715F98646311D56 (String_t* ___path0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Resources_LoadAsync_m84A8016123793959F3152D009715F98646311D56_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * V_0 = NULL;
+	{
+		String_t* L_0 = ___path0;
+		RuntimeTypeHandle_t7B542280A22F0EC4EAC2061C29178845847A8B2D  L_1 = { reinterpret_cast<intptr_t> (Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0_0_0_0_var) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_2 = Type_GetTypeFromHandle_m9DC58ADF0512987012A8A016FB64B068F3B1AFF6(L_1, /*hidden argument*/NULL);
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_3 = Resources_LoadAsync_m7A78B42B839F6ED3A198CE55359006823666D13F(L_0, L_2, /*hidden argument*/NULL);
+		V_0 = L_3;
+		goto IL_0017;
+	}
+
+IL_0017:
+	{
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_4 = V_0;
+		return L_4;
+	}
+}
+// UnityEngine.ResourceRequest UnityEngine.Resources::LoadAsync(System.String,System.Type)
+extern "C" IL2CPP_METHOD_ATTR ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * Resources_LoadAsync_m7A78B42B839F6ED3A198CE55359006823666D13F (String_t* ___path0, Type_t * ___type1, const RuntimeMethod* method)
+{
+	ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * V_0 = NULL;
+	ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * V_1 = NULL;
+	{
+		String_t* L_0 = ___path0;
+		Type_t * L_1 = ___type1;
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_2 = Resources_LoadAsyncInternal_m90563E8C10B5F7F7CEF0AE32C9477CFF897115B9(L_0, L_1, /*hidden argument*/NULL);
+		V_0 = L_2;
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_3 = V_0;
+		String_t* L_4 = ___path0;
+		NullCheck(L_3);
+		L_3->set_m_Path_2(L_4);
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_5 = V_0;
+		Type_t * L_6 = ___type1;
+		NullCheck(L_5);
+		L_5->set_m_Type_3(L_6);
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_7 = V_0;
+		V_1 = L_7;
+		goto IL_001e;
+	}
+
+IL_001e:
+	{
+		ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * L_8 = V_1;
+		return L_8;
+	}
+}
+// UnityEngine.ResourceRequest UnityEngine.Resources::LoadAsyncInternal(System.String,System.Type)
+extern "C" IL2CPP_METHOD_ATTR ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * Resources_LoadAsyncInternal_m90563E8C10B5F7F7CEF0AE32C9477CFF897115B9 (String_t* ___path0, Type_t * ___type1, const RuntimeMethod* method)
+{
+	typedef ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * (*Resources_LoadAsyncInternal_m90563E8C10B5F7F7CEF0AE32C9477CFF897115B9_ftn) (String_t*, Type_t *);
+	static Resources_LoadAsyncInternal_m90563E8C10B5F7F7CEF0AE32C9477CFF897115B9_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Resources_LoadAsyncInternal_m90563E8C10B5F7F7CEF0AE32C9477CFF897115B9_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Resources::LoadAsyncInternal(System.String,System.Type)");
+	ResourceRequest_t22744D420D4DEF7C924A01EB117C0FEC6B07D486 * retVal = _il2cpp_icall_func(___path0, ___type1);
 	return retVal;
 }
 // UnityEngine.Object UnityEngine.Resources::GetBuiltinResource(System.Type,System.String)

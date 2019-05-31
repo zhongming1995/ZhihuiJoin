@@ -513,6 +513,7 @@ MonoBehaviour:
   curJoinType: 0
   gameCanvas: {fileID: 0}
   nextSceneName: 
+  nextViewPath: 
 --- !u!114 &992738288
 MonoBehaviour:
   m_ObjectHideFlags: 0

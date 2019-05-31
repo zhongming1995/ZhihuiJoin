@@ -1,7 +1,7 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-//图片描边效果～
-Shader "ImageEffect/Edge"
+//图片描边效果～29FF00
+Shader "ImageEffect/OutLine"
 {
     Properties
     {

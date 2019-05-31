@@ -12,21 +12,16 @@ public class ButtonScaleAni : MonoBehaviour,IPointerDownHandler,IPointerUpHandle
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("click");
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("down");
         transform.DOScale(endValue, duration);
-        //transform.localScale = endValue;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("up");
         transform.DOScale(originValue, duration);
-        //transform.localScale = originValue;
     }
 
 }

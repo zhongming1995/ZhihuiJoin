@@ -753,6 +753,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2219}
   - component: {fileID: 2449}
+  - component: {fileID: 1364502973}
+  - component: {fileID: 1364502972}
   m_Layer: 5
   m_Name: piano_view
   m_TagString: Untagged
@@ -808,6 +810,30 @@ MonoBehaviour:
   ImgSongName: {fileID: 2579}
   AniLeft: {fileID: 3603297856656277427}
   AniRight: {fileID: 3603297857150024867}
+--- !u!114 &1364502973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07223db3db6f0440c88ed027bdea407e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &1364502972
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1795
 GameObject:
   m_ObjectHideFlags: 0
@@ -3427,15 +3453,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 360c6d7ce11f04067a148a4ec54f6151, type: 3}
---- !u!224 &412920378919099638 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 412920379314173918, guid: 360c6d7ce11f04067a148a4ec54f6151,
-    type: 3}
-  m_PrefabInstance: {fileID: 678718248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3603297856656277427 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3603297855979656347, guid: 360c6d7ce11f04067a148a4ec54f6151,
+    type: 3}
+  m_PrefabInstance: {fileID: 678718248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &412920378919099638 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 412920379314173918, guid: 360c6d7ce11f04067a148a4ec54f6151,
     type: 3}
   m_PrefabInstance: {fileID: 678718248}
   m_PrefabAsset: {fileID: 0}
@@ -3633,15 +3659,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 360c6d7ce11f04067a148a4ec54f6151, type: 3}
---- !u!224 &412920380618448870 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 412920379314173918, guid: 360c6d7ce11f04067a148a4ec54f6151,
-    type: 3}
-  m_PrefabInstance: {fileID: 1321363512}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3603297857150024867 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3603297855979656347, guid: 360c6d7ce11f04067a148a4ec54f6151,
+    type: 3}
+  m_PrefabInstance: {fileID: 1321363512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &412920380618448870 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 412920379314173918, guid: 360c6d7ce11f04067a148a4ec54f6151,
     type: 3}
   m_PrefabInstance: {fileID: 1321363512}
   m_PrefabAsset: {fileID: 0}

@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Common.ObjectPool;
+using GameMgr;
 
 public class IndexView : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class IndexView : MonoBehaviour
         PlayButtonAni();
         BtnPlay.onClick.AddListener(delegate
         {
-            SceneManager.LoadScene("home");
+            GameManager.instance.SetNextSceneName("home");
+            SceneManager.LoadScene("transition");
         });
 
         StartCoroutine(CorGenerateCloud());

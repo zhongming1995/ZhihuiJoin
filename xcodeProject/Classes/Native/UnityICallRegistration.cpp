@@ -1922,6 +1922,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Resources_Load();
 		Register_UnityEngine_Resources_Load();
 
+		//UnityEngine.ResourceRequest UnityEngine.Resources::LoadAsyncInternal(System.String,System.Type)
+		void Register_UnityEngine_Resources_LoadAsyncInternal();
+		Register_UnityEngine_Resources_LoadAsyncInternal();
+
 	//End Registrations for type : UnityEngine.Resources
 
 	//Start Registrations for type : UnityEngine.Rigidbody

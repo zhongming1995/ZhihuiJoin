@@ -108,7 +108,6 @@ public class JoinMainView : MonoBehaviour
 
     private void Init()
     {
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         ResListTrans.localPosition = new Vector3(oriPos_ResContentList, ResListTrans.localPosition.y, ResListTrans.localPosition.z);
         //引导脚本
         joinGuide = GetComponent<JoinGuide>();
@@ -116,37 +115,17 @@ public class JoinMainView : MonoBehaviour
         {
             joinGuide = gameObject.AddComponent<JoinGuide>();
         }
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //按钮点击
         AddClickEvent();
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
-        //绘画字母
-        //Debug.Log("time--------------" + Time.realtimeSinceStartup);
-        ////绘画素材
-        ////BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        ////GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
-        //Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
-        ////mobilePaint = draw.GetComponent<MobilePaint>();
-        //mobilePaint.InitializeEverything(s.texture);
-        //mobilePaint.SetBrushSize(1);
-        //PenScaleSlider.value = 0.5f;
-        //ImageScaleSlider.value = 0.5f;
-        //AdjustBurshSize(PenScaleSlider.value);
-        //Debug.Log("time--------------" + Time.realtimeSinceStartup);
-        //joinGuide.AddMobileDrawDelagate();
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
         {
             ImageScaleSlider.gameObject.SetActive(false);
         }
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         //返回按钮显示半透明
         ShowBackBtn(false);
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
 
         //右边素材切换按钮
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
@@ -159,51 +138,34 @@ public class JoinMainView : MonoBehaviour
                 TypeButtonClick((TemplateResType)clickType, true);
             });
         }
-        /*
-        string typeUnSelectPath = "sprite/ui/join|splice_type_{0}";
-        string typeSelectPath = "sprite/ui/join|splice_type_{0}_select";
-        for (int i = 0; i < GameManager.instance.resTypeCount; i++)
-        {
-            int clickType = i;
-            Transform t = UIHelper.instance.LoadPrefab("prefabs/join|res_type_item", ConResType,Vector3.zero,Vector3.one,false).transform;
-            UIHelper.instance.SetImage(string.Format(typeSelectPath, i.ToString()), t.GetChild(0).GetComponent<Image>(), true);
-            UIHelper.instance.SetImage(string.Format(typeUnSelectPath, i.ToString()), t.GetChild(1).GetComponent<Image>(), true);
-            t.GetComponent<Button>().onClick.AddListener(delegate
-            {
-                joinGuide.DoOperation();
-                AudioManager.instance.PlayAudio(EffectAudioType.Option,"Audio/button_effect/material_effect|material_" + clickType);
-                TypeButtonClick((TemplateResType)clickType,true);
-            });
-            typeTransList.Add(t);
-        }
-        */
-
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);//2222222222
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);
         step = 1;//初始是第一步
         ShowTypeByStep(step);
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
-        Debug.Log("time--------------" + Time.realtimeSinceStartup);//3333333
+    }
+
+    void ShowDrawPanel()
+    {
+        mobilePaint.gameObject.SetActive(true);
     }
 
     void SetDrawMessage()
     {
-        Debug.Log("timeload1--------------" + Time.realtimeSinceStartup);
         //绘画素材
         //BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
         //GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         //mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
-        Debug.Log("timeload2--------------" + Time.realtimeSinceStartup);
         mobilePaint.SetBrushSize(1);
         PenScaleSlider.value = 0.5f;
         ImageScaleSlider.value = 0.5f;
         AdjustBurshSize(PenScaleSlider.value);
-        Debug.Log("timeload3--------------" + Time.realtimeSinceStartup);
         joinGuide.AddMobileDrawDelagate();
+
+        mobilePaint.gameObject.SetActive(false);
+        Invoke("ShowDrawPanel", 0.4f);
     }
 
     /// <summary>
