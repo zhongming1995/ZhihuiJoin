@@ -110,12 +110,12 @@ public class DisplayView : MonoBehaviour
         StartCoroutine(CutScreen());
 
         //播放打招呼的动画
-        Invoke("Greeting", 1f);
+        Invoke("Greeting", 0.5f);
     }
 
     IEnumerator CutScreen()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         //图片大小
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);

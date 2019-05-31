@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Effect/FadeIn.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="522" Column="69" />
       <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="65" Column="32" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="91" Column="13" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="114" Column="6" />
+      <File FileName="Assets/Scripts/Effect/FadeIn.cs" Line="42" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

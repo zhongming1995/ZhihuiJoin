@@ -40,7 +40,7 @@ public class FadeIn : MonoBehaviour
         {
             canvasGroup.alpha = alpha;
             alpha += 0.05f;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.01f);//0.2s完成
         }
         fadeInComplete?.Invoke();
     }
