@@ -46,7 +46,6 @@ namespace DataMgr
                     PartType type = img.GetComponent<ResDragItem>().partType;
                     byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
                     float[] pos = { img.localPosition.x, img.localPosition.y, img.localPosition.z };
-                    Debug.Log("pos:"+pos);
                     float[] scale =  { img.localScale.x, img.localScale.y, img.localScale.z };
                     PartData p = new PartData(type,b, pos, scale);
                     parts.Add(p);

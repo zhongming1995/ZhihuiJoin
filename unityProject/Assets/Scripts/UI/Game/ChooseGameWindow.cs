@@ -12,11 +12,11 @@ public class ChooseGameWindow : MonoBehaviour
 
     private DisplayView displayView;
 
-    public delegate void PianoBegin();
-    public static event PianoBegin pianoBegin;
+    //public delegate void PianoBegin();
+    //public static event PianoBegin pianoBegin;
 
-    public delegate void CardBegin();
-    public static event CardBegin cardBegin;
+    //public delegate void CardBegin();
+    //public static event CardBegin cardBegin;
 
     // Start is called before the first frame update
     void Start()
@@ -30,19 +30,15 @@ public class ChooseGameWindow : MonoBehaviour
         BtnClose.onClick.AddListener(CloseWindow);
         BtnPiano.onClick.AddListener(delegate
         {
-            //displayView.gameObject.SetActive(false);
-            pianoBegin?.Invoke();
             GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
             UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             CloseWindow();
+            GameOperDelegate.PlayPiano();
         });
         BtnCard.onClick.AddListener(delegate
         {
-            //displayView.gameObject.SetActive(false);
-            cardBegin?.Invoke();
-            GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
-            UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             CloseWindow();
+            GameOperDelegate.PlayCard();
         });
     }
 

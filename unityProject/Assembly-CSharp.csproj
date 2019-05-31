@@ -107,10 +107,9 @@
     <Compile Include="Assets\Scripts\UI\Transition\TransitionPrefabView.cs" />
     <Compile Include="Assets\Scripts\UI\Transition\TransitionView.cs" />
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
-    <None Include="Assets\shader\OutLine.shader" />
-    <None Include="Assets\shader\ImageMask.shader" />
+    <None Include="Assets\Shader\ImageMask.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
-    <None Include="Assets\shader\ImageOutline.shader" />
+    <None Include="Assets\Shader\ImageOutline.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />

@@ -32,6 +32,7 @@ public class PianoView : MonoBehaviour
     private int songIndex;
     public Animator AniLeft;
     public Animator AniRight;
+    private GameObject completeWindow;
 
     void Start()
     {
@@ -43,13 +44,15 @@ public class PianoView : MonoBehaviour
     private void OnEnable()
     {
         GameOperDelegate.backToEdit += BackToEditFunc;
-        GameOperDelegate.gameReplay += Replay;
+        GameOperDelegate.pianoBegin += Replay;
+        GameOperDelegate.cardBegin += PlayCard;
     }
 
     private void OnDisable()
     {
         GameOperDelegate.backToEdit -= BackToEditFunc;
-        GameOperDelegate.gameReplay -= Replay;
+        GameOperDelegate.pianoBegin -= Replay;
+        GameOperDelegate.cardBegin -= PlayCard;
     }
 
     private void OnDestroy()
@@ -179,6 +182,7 @@ public class PianoView : MonoBehaviour
 
     void Replay()
     {
+        Destroy(completeWindow);
         SelectSong();
         curSpecturmIndex = 0;
         HideAllReminder();
@@ -239,7 +243,7 @@ public class PianoView : MonoBehaviour
     void ShowWindow()
     {
         string path = "Prefabs/game|window_complete";
-        UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     public void Dance()
@@ -270,5 +274,12 @@ public class PianoView : MonoBehaviour
         Destroy(gameObject);
         Resources.UnloadUnusedAssets();
         GC.Collect();
+    }
+
+    void PlayCard()
+    {
+        Destroy(completeWindow);
+        GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
+        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 }

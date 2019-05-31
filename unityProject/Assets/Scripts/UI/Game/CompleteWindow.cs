@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using DataMgr;
+using GameMgr;
+using Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +12,7 @@ public class CompleteWindow : MonoBehaviour
 {
     public Button BtnHome;
     public Button BtnEdit;
-    public Button BtnReplay;
+    public Button BtnGame;
     public Transform WindowPersonParent;
 
     private DisplayPartItem[] windowlstDisplayItem;
@@ -60,10 +62,10 @@ public class CompleteWindow : MonoBehaviour
             GameOperDelegate.GotoEdit();
         });
 
-        BtnReplay.onClick.AddListener(delegate
+        BtnGame.onClick.AddListener(delegate
         {
-            CloseWindow();
             GameOperDelegate.Replay();
+            UIHelper.instance.LoadPrefab("prefabs/game|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
 

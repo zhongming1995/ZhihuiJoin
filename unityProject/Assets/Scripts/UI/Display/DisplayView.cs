@@ -51,14 +51,14 @@ public class DisplayView : MonoBehaviour
 
     private void OnEnable()
     {
-        ChooseGameWindow.pianoBegin += HideDisplayView;
-        ChooseGameWindow.cardBegin += HideDisplayView;
+        GameOperDelegate.pianoBegin += HideDisplayView;
+        GameOperDelegate.cardBegin += HideDisplayView;
     }
 
     private void OnDisable()
     {
-        ChooseGameWindow.pianoBegin -= HideDisplayView;
-        ChooseGameWindow.cardBegin -= HideDisplayView;
+        GameOperDelegate.pianoBegin -= HideDisplayView;
+        GameOperDelegate.cardBegin -= HideDisplayView;
     }
 
     public void HideDisplayView()
