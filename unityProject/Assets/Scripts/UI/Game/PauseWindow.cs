@@ -52,6 +52,10 @@ public class PauseWindow : MonoBehaviour
     void CloseWindow()
     {
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }

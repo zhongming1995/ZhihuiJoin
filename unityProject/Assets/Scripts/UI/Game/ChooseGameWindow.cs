@@ -28,10 +28,9 @@ public class ChooseGameWindow : MonoBehaviour
     void AddClickEvent()
     {
         BtnClose.onClick.AddListener(CloseWindow);
+
         BtnPiano.onClick.AddListener(delegate
         {
-            GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
-            UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             CloseWindow();
             GameOperDelegate.PlayPiano();
         });
@@ -45,6 +44,11 @@ public class ChooseGameWindow : MonoBehaviour
     void CloseWindow()
     {
         Destroy(gameObject);
+
+    }
+
+    void OnDestroy()
+    {
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }

@@ -72,12 +72,16 @@ public class CompleteWindow : MonoBehaviour
     void CloseWindow()
     {
         Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
     }
 
     public void Greeting()
     {
         DataManager.instance.PersonGreeting(windowlstDisplayItem);
+    }
+
+    void OnDestroy()
+    {
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }

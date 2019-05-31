@@ -351,8 +351,6 @@ namespace Draw
 			}
 		}
 
-		bool point_down =false;
-
 		// handle mouse events
 		void MousePaint()
 		{

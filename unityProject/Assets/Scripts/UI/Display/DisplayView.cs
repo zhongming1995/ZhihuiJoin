@@ -51,14 +51,28 @@ public class DisplayView : MonoBehaviour
 
     private void OnEnable()
     {
-        GameOperDelegate.pianoBegin += HideDisplayView;
-        GameOperDelegate.cardBegin += HideDisplayView;
+        GameOperDelegate.pianoBegin += PlayPiano;
+        GameOperDelegate.cardBegin += PlayCard;
     }
 
     private void OnDisable()
     {
-        GameOperDelegate.pianoBegin -= HideDisplayView;
-        GameOperDelegate.cardBegin -= HideDisplayView;
+        GameOperDelegate.pianoBegin -= PlayPiano;
+        GameOperDelegate.cardBegin -= PlayCard;
+    }
+
+    private void PlayPiano()
+    {
+        GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
+        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        HideDisplayView();
+    }
+
+    private void PlayCard()
+    {
+        GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
+        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        HideDisplayView();
     }
 
     public void HideDisplayView()

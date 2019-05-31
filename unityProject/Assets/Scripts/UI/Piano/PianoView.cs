@@ -55,11 +55,6 @@ public class PianoView : MonoBehaviour
         GameOperDelegate.cardBegin -= PlayCard;
     }
 
-    private void OnDestroy()
-    {
-        AppEntry.instance.SetMultiTouchEnable(false);
-    }
-
     void Init()
     {
         //加载小人
@@ -279,7 +274,15 @@ public class PianoView : MonoBehaviour
     void PlayCard()
     {
         Destroy(completeWindow);
+        Destroy(gameObject);
         GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
         UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+    }
+
+    void OnDestroy()
+    {
+        AppEntry.instance.SetMultiTouchEnable(false);
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }
