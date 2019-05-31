@@ -108,7 +108,7 @@ public class JoinMainView : MonoBehaviour
 
     private void Init()
     {
-        ResListTrans.localPosition = new Vector3(oriPos_ResContentList, ResListTrans.localPosition.y, ResListTrans.localPosition.z);
+        //ResListTrans.localPosition = new Vector3(oriPos_ResContentList, ResListTrans.localPosition.y, ResListTrans.localPosition.z);
         //引导脚本
         joinGuide = GetComponent<JoinGuide>();
         if (joinGuide==null)
@@ -139,7 +139,7 @@ public class JoinMainView : MonoBehaviour
             });
         }
         step = 1;//初始是第一步
-        ShowTypeByStep(step);
+        ShowTypeByStep(step,true);
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
@@ -156,7 +156,6 @@ public class JoinMainView : MonoBehaviour
         //BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
         //GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
-        //mobilePaint = draw.GetComponent<MobilePaint>();
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
         PenScaleSlider.value = 0.5f;
@@ -395,7 +394,7 @@ public class JoinMainView : MonoBehaviour
         seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.2f));
         seq.InsertCallback(0.2f, () =>
         {
-
+            /*
             SetCurSelectType(type);
             for (int i = 0; i < GameManager.instance.resTypeCount; i++)
             {
@@ -405,7 +404,6 @@ public class JoinMainView : MonoBehaviour
                     typeTransList[i].GetChild(1).gameObject.SetActive(false);
                     if (loadResult[(int)type] == false)
                     {
-                        Debug.Log("load==========");
                         LoadResListByType((int)type);
                     }
                     ResScrollViewList[i].gameObject.SetActive(true);
@@ -418,13 +416,40 @@ public class JoinMainView : MonoBehaviour
                     ResScrollViewList[i].gameObject.SetActive(false);
                 }
             }
+            */
+            ShowResListByType(type);
         });
         seq.Append(ResListTrans.DOLocalMoveX(desPos_ResContentList, 0.2f));
 
     }
 
+    private void ShowResListByType(TemplateResType type)
+    {
+        SetCurSelectType(type);
+        for (int i = 0; i < GameManager.instance.resTypeCount; i++)
+        {
+            if (i == (int)type)
+            {
+                typeTransList[i].GetChild(0).gameObject.SetActive(true);
+                typeTransList[i].GetChild(1).gameObject.SetActive(false);
+                if (loadResult[(int)type] == false)
+                {
+                    LoadResListByType((int)type);
+                }
+                ResScrollViewList[i].gameObject.SetActive(true);
+
+            }
+            else
+            {
+                typeTransList[i].GetChild(0).gameObject.SetActive(false);
+                typeTransList[i].GetChild(1).gameObject.SetActive(true);
+                ResScrollViewList[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
     //根据步骤决定显示哪个类型的素材
-    private void ShowTypeByStep(int step)
+    private void ShowTypeByStep(int step,bool isDefault = false)
     {
         this.step = step;
         if (step==1)
@@ -488,8 +513,15 @@ public class JoinMainView : MonoBehaviour
                 typeTransList[i].gameObject.SetActive(true);
             }
         }
+        if (isDefault == false)
+        {
+            TypeButtonClick(GameManager.instance.curSelectResType);
+        }
+        else
+        {
+            ShowResListByType(GameManager.instance.curSelectResType);
+        }
 
-        TypeButtonClick(GameManager.instance.curSelectResType);
         if (guideResult[step - 1] == false)
         {
             //播放引导语音

@@ -85,10 +85,7 @@ public class DisplayView : MonoBehaviour
 
         BtnGame.onClick.AddListener(delegate
         {
-            //gameObject.SetActive(false);
             UIHelper.instance.LoadPrefab("prefabs/game|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view",joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
-            //UIHelper.instance.LoadPrefab("prefabs/game/card|card_view", joinMainView.CanvasTrans, Vector3.zero, Vector3.one, true);
         });
     }
 
@@ -113,11 +110,12 @@ public class DisplayView : MonoBehaviour
         StartCoroutine(CutScreen());
 
         //播放打招呼的动画
-        Invoke("Greeting", 0.5f);
+        Invoke("Greeting", 1f);
     }
 
     IEnumerator CutScreen()
     {
+        yield return new WaitForSeconds(0.5f);
         //图片大小
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
