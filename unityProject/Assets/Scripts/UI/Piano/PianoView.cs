@@ -46,6 +46,7 @@ public class PianoView : MonoBehaviour
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += Replay;
         GameOperDelegate.cardBegin += PlayCard;
+        GameOperDelegate.gameReplay += Replay;
     }
 
     private void OnDisable()
@@ -53,6 +54,7 @@ public class PianoView : MonoBehaviour
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= Replay;
         GameOperDelegate.cardBegin -= PlayCard;
+        GameOperDelegate.gameReplay -= Replay;
     }
 
     void Init()

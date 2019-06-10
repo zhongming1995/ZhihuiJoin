@@ -64,7 +64,7 @@ public class CompleteWindow : MonoBehaviour
 
         BtnGame.onClick.AddListener(delegate
         {
-            GameOperDelegate.Replay();
+            //GameOperDelegate.Replay();
             UIHelper.instance.LoadPrefab("prefabs/game|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
