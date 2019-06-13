@@ -26,28 +26,34 @@ public class ChooseGameWindow :WindowParent
 
     void AddClickEvent()
     {
-        BtnClose.onClick.AddListener(CloseWindow);
+        BtnClose.onClick.AddListener(delegate {
+            CloseWindow();
+        });
 
         BtnPiano.onClick.AddListener(delegate
         {
-            CloseWindow();
+            DestroyWindow();
             GameOperDelegate.PlayPiano();
         });
         BtnCard.onClick.AddListener(delegate
         {
-            CloseWindow();
+            DestroyWindow();
             GameOperDelegate.PlayCard();
         });
     }
 
-    void CloseWindow()
+    void CloseWindow(Action callBack = null)
     {
-        OutAni();
+        OutAni(callBack);
+    }
+
+    void DestroyWindow()
+    {
+        Destroy(gameObject);
     }
 
     void OnDestroy()
     {
-        Debug.Log("Destroy");
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }

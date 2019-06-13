@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class WindowParent : MonoBehaviour
 {
@@ -19,7 +20,15 @@ public class WindowParent : MonoBehaviour
 
     public void InAni()
     {
-        Debug.Log("InAni");
+        if (mask == null)
+        {
+            mask = transform.Find("window_mask").GetComponent<Image>();
+        }
+        if (window==null)
+        {
+            window = transform.Find("window_bg");
+        }
+
         //mask
         Color c = mask.color;
         mask.color = new Color(c.r, c.g, c.b, oriMaskAlpha);
@@ -30,13 +39,16 @@ public class WindowParent : MonoBehaviour
         window.DOScale(desWindowScale, windowDuration);
     }
 
-    public void OutAni()
+    public void OutAni(Action callBack = null)
     {
         //mask
         mask.DOFade(oriMaskAlpha, maskDuration);
 
         //window
-        window.DOScale(oriWindowScale, windowDuration).OnComplete(OutComplete);
+        window.DOScale(oriWindowScale, windowDuration).OnComplete(()=> {
+            callBack?.Invoke();
+            OutComplete();
+        });
     }
 
     void OutComplete()

@@ -5,13 +5,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseWindow : MonoBehaviour
+public class PauseWindow : WindowParent
 {
     public Button BtnHome;
     public Button BtnEdit;
     public Button BtnReplay;
     public Button BtnClose;
 
+    private void OnEnable()
+    {
+        InAni();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +35,10 @@ public class PauseWindow : MonoBehaviour
         {
             JoinMainView joinMainView = transform.parent.GetComponentInChildren<JoinMainView>(true);
             DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
-            Destroy(gameObject);
+            DestroyWindow();
             Destroy(displayView.gameObject);
             joinMainView.gameObject.SetActive(true);
             joinMainView.BackToJoinEdit();
-            Resources.UnloadUnusedAssets();
-            GC.Collect();
             GameOperDelegate.GotoEdit();
         });
 
@@ -50,6 +52,11 @@ public class PauseWindow : MonoBehaviour
     }
 
     void CloseWindow()
+    {
+        OutAni();
+    }
+
+    void DestroyWindow()
     {
         Destroy(gameObject);
     }

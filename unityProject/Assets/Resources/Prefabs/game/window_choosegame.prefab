@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -216, y: -106}
-  m_SizeDelta: {x: 360, y: 300}
+  m_AnchoredPosition: {x: -394, y: 4}
+  m_SizeDelta: {x: 603, y: 624}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5179329588243501591
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5e01f37889ed841e3a61798514937494, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 125c5b921762c4f9882f60e81eba768d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -152,8 +152,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 377, y: 421}
-  m_SizeDelta: {x: 154, y: 149}
+  m_AnchoredPosition: {x: 900, y: 653}
+  m_SizeDelta: {x: 103, y: 103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4538066618296350058
 CanvasRenderer:
@@ -183,7 +183,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6a107c02a26ee4401a5f4d492bbcad22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e11bfaa2d05b44cc1b2a085968da228a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -385,8 +385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 216, y: -56}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: 401, y: 3}
+  m_SizeDelta: {x: 630, y: 616}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6865945312016953000
 CanvasRenderer:
@@ -416,7 +416,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 83844d1cb84454a2fa023147a73486b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c92406c4ee474d099b4814d758ec513, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766633690250284295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
