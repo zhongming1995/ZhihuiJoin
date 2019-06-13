@@ -5,11 +5,11 @@ using DG.Tweening;
 
 public class FadeIn : MonoBehaviour
 {
-    float alpha;
-    CanvasGroup canvasGroup;
-
     public delegate void FadeInComplete();
     public static FadeInComplete fadeInComplete;
+
+    float alpha;
+    CanvasGroup canvasGroup;
 
     void Start()
     {
@@ -17,8 +17,11 @@ public class FadeIn : MonoBehaviour
         {
             GetCanvasGroup();
         }
-        alpha = 0;
-        StartCoroutine("Cor_FadeIn");
+        if (canvasGroup!=null)
+        {
+            alpha = 0;
+            StartCoroutine("Cor_FadeIn");
+        }
     }
 
     void GetCanvasGroup()

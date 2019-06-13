@@ -106,6 +106,7 @@
     <Compile Include="Assets\Scripts\UI\Piano\PianoView.cs" />
     <Compile Include="Assets\Scripts\UI\Transition\TransitionPrefabView.cs" />
     <Compile Include="Assets\Scripts\UI\Transition\TransitionView.cs" />
+    <Compile Include="Assets\Scripts\UI\Window\WindowParent.cs" />
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\Shader\ImageMask.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
@@ -116,19 +117,19 @@
     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -329,31 +330,31 @@
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity2018.3.1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

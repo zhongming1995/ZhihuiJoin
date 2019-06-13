@@ -4,7 +4,7 @@ using Helper;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChooseGameWindow : MonoBehaviour
+public class ChooseGameWindow :WindowParent
 {
     public Button BtnPiano;
     public Button BtnCard;
@@ -12,11 +12,10 @@ public class ChooseGameWindow : MonoBehaviour
 
     private DisplayView displayView;
 
-    //public delegate void PianoBegin();
-    //public static event PianoBegin pianoBegin;
-
-    //public delegate void CardBegin();
-    //public static event CardBegin cardBegin;
+    void OnEnable()
+    {
+        InAni();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -43,12 +42,12 @@ public class ChooseGameWindow : MonoBehaviour
 
     void CloseWindow()
     {
-        Destroy(gameObject);
-
+        OutAni();
     }
 
     void OnDestroy()
     {
+        Debug.Log("Destroy");
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }
