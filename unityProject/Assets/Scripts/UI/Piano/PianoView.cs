@@ -115,7 +115,6 @@ public class PianoView : MonoBehaviour
     void LoadSongAni(int index)
     {
         string path = string.Format("Animator/Piano_Ani/Ani_{0}|song_ani_{1}", index, index);
-        Debug.Log("path:" + path);
         RuntimeAnimatorController runAni = UIHelper.instance.LoadAnimationController(path);
         AniLeft.runtimeAnimatorController = runAni;
         AniRight.runtimeAnimatorController = runAni;

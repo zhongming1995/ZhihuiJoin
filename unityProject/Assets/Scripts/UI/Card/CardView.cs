@@ -6,14 +6,15 @@ using DG.Tweening;
 using Helper;
 using GameMgr;
 using System;
+using Random = System.Random;
 
 public class CardView : MonoBehaviour
 {
     public Button BtnBack;
     public Button BtnBackCheck;
-    //public Transform card;
-    //public Button btnFlip;
-    //private bool forward;
+    public GridLayoutGroup cardContent;
+
+    private int chapter = 4;
 
     private void OnEnable()
     {
@@ -29,13 +30,12 @@ public class CardView : MonoBehaviour
         GameOperDelegate.cardBegin -= PlayCard;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         AddClickEvent();
-        //SetOrigin(card);
         //隐藏返回按钮
         ShowBackBtn(false);
+        InitGame();
     }
 
     //显示返回按钮，否则是半透明状态
@@ -58,41 +58,6 @@ public class CardView : MonoBehaviour
             string path = "Prefabs/game|window_pause";
             UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
-        //btnFlip.onClick.AddListener(delegate
-        //{
-        //    Debug.Log("flip--------");
-        //    if (forward)
-        //    {
-        //        ToBackward(card);
-        //    }else
-        //    {
-        //        ToForward(card);
-        //    }
-        //    forward = !forward;
-        //});
-    }
-
-    //翻到背面
-    void ToBackward(Transform t)
-    {
-        //Sequence s = DOTween.Sequence();
-        //s.Append(t.GetChild(1).DORotate(new Vector3(0, 90, 0), 0.5f));
-        //s.Append(t.GetChild(0).DORotate(new Vector3(0, 0, 0), 0.5f));
-    }
-
-    //翻到正面
-    void ToForward(Transform t)
-    {
-        //Sequence s = DOTween.Sequence();
-        //s.Append(t.GetChild(0).DORotate(new Vector3(0, 90, 0), 0.5f));
-        //s.Append(t.GetChild(1).DORotate(new Vector3(0, 0, 0), 0.5f));
-    }
-
-    void SetOrigin(Transform t)
-    {
-        //forward = true;
-        //t.GetChild(1).rotation = new Quaternion(0, 0, 0,0);
-        //t.GetChild(0).rotation = new Quaternion(0, 90, 0, 0);
     }
 
     public void BackToEditFunc()
@@ -102,6 +67,56 @@ public class CardView : MonoBehaviour
         GC.Collect();
     }
 
+    void InitGame()
+    {
+        cardContent.constraint = GridLayoutGroup.Constraint.FixedRowCount;
+        if (chapter==1)
+        {
+            cardContent.constraintCount = 2;
+        }else if (chapter==2)
+        {
+            cardContent.constraintCount = 2;
+        }else if (chapter == 3)
+        {
+            cardContent.constraintCount = 2;
+        }
+        else
+        {
+            cardContent.constraintCount = 3;
+        }
+        //牌下标
+        List<int> cardIndexList = CardController.instance.GenCard(chapter);
+        //打印
+        Debug.Log("-----------index-----------");
+        for (int i = 0; i < cardIndexList.Count; i++)
+        {
+            Debug.Log(cardIndexList[i]);
+        }
+
+        //打乱顺序
+        Debug.Log("-----------牌------------");
+        List<int> randomList = new List<int>();
+        while (cardIndexList.Count>0)
+        {
+            //取随机数
+            Random random = new Random();
+            int listIndex = random.Next(0, cardIndexList.Count);
+            int cardIndex = cardIndexList[listIndex];
+            randomList.Add(cardIndex);
+            cardIndexList.RemoveAt(listIndex);
+            Debug.Log(cardIndex);
+        }
+
+        //产生牌
+        for (int i = 0; i < randomList.Count; i++)
+        {
+            GameObject card = UIHelper.instance.LoadPrefab("Prefabs/game/card|card_item", cardContent.transform, Vector3.zero, Vector3.one, false);
+            CardItem cardItem = card.GetComponent<CardItem>();
+            string path = GameManager.instance.homePathList[randomList[i]];
+            cardItem.InitCard(randomList[i], path);
+        }
+    }
+
     void PlayPiano()
     {
 
@@ -109,10 +124,9 @@ public class CardView : MonoBehaviour
 
     void PlayCard()
     {
-        //Destroy(completeWindow);
-        Destroy(gameObject);
-        GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
-        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //Destroy(gameObject);
+        //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
+        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void OnDestroy()

@@ -35,13 +35,13 @@ namespace GameMgr
         private List<string> letterHeadWarePathList = new List<string>();//字母饰品资源路径
         private List<string> numHeadWarePathList = new List<string>();//数字饰品资源路径
 
-        private List<string> letterHandPathList = new List<string>();//字母饰品资源路径
-        private List<string> numHandPathList = new List<string>();//数字饰品资源路径
-        private List<string> AniHandPathList = new List<string>();//数字饰品资源路径
+        private List<string> letterHandPathList = new List<string>();//字母手资源路径
+        private List<string> numHandPathList = new List<string>();//数字手资源路径
+        private List<string> AniHandPathList = new List<string>();//数字手资源路径
 
-        private List<string> letterLegPathList = new List<string>();//数字饰品资源路径
-        private List<string> numLegPathList = new List<string>();//数字饰品资源路径
-        private List<string> aniLegPathList = new List<string>();//数字饰品资源路径
+        private List<string> letterLegPathList = new List<string>();//数字脚资源路径
+        private List<string> numLegPathList = new List<string>();//数字脚资源路径
+        private List<string> aniLegPathList = new List<string>();//数字脚资源路径
 
         [HideInInspector]
         public List<List<string>> resPathList = new List<List<string>>();//全部资源路径
@@ -139,7 +139,7 @@ namespace GameMgr
             string homeLetterPath = "sprite/homeitems|splice_home_{0}_pic";
             string drawBgLetterPath = "sprite/draw|draw_letter_{0}_pic";
             string drawLetterAudioPath = "Audio/letter_tmplate|template_letter_{0}";
-            //3个数字
+            //10个数字
             string homeNumPath = "sprite/homeitems|splice_home_number_{0}_pic";
             string drawBgNumPath = "sprite/draw|draw_num_{0}_pic";
             string drawNumAudioPath = "Audio/num_template|template_num_{0}";
@@ -151,7 +151,7 @@ namespace GameMgr
                 drawAudioPathList.Add(string.Format(drawLetterAudioPath, i.ToString()));
             }
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 10; i++)
             {
                 homePathList.Add(string.Format(homeNumPath, i.ToString()));
                 drawBgPathList.Add(string.Format(drawBgNumPath, i.ToString()));
@@ -263,7 +263,7 @@ namespace GameMgr
 
             string numHandPath = "sprite/fodder/hand|number_hand_L_{0}";
             string numHandPath_R = "sprite/fodder/hand|number_hand_R_{0}";
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 numHandPathList.Add(string.Format(numHandPath, i.ToString()));
                 numHandPathList.Add(string.Format(numHandPath_R, i.ToString()));
@@ -288,7 +288,7 @@ namespace GameMgr
 
             string numLegPath = "sprite/fodder/leg|number_leg_L_{0}";
             string numLegPath_R = "sprite/fodder/leg|number_leg_R_{0}";
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
                 numLegPathList.Add(string.Format(numLegPath, i.ToString()));
                 numLegPathList.Add(string.Format(numLegPath_R, i.ToString()));

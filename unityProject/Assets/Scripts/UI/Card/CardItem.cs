@@ -9,6 +9,8 @@ public class CardItem : MonoBehaviour
 {
     public int ID { get; set; }
 
+    private Transform CardObj;
+    private Image ImgCardBg;
     private Image ImgCard;
     private Image ImgBack;
     private Button BtnCard;
@@ -16,34 +18,33 @@ public class CardItem : MonoBehaviour
 
     private void Start()
     {
-        InitCard(0);
+
     }
 
-    public void InitCard(int id)
+    public void InitCard(int id,string path)
     {
         ID = id;
-        ImgCard = transform.GetChild(0).GetComponent<Image>();
-        ImgBack = transform.GetChild(1).GetComponent<Image>();
-        BtnCard = ImgCard.GetComponent<Button>();
+        CardObj = transform.Find("card");
+        ImgCardBg = CardObj.Find("img_card_bg").GetComponent<Image>();
+        ImgCard = CardObj.Find("img_card_bg/img_card").GetComponent<Image>();
+        ImgBack = CardObj.Find("img_back").GetComponent<Image>();
+        BtnCard = ImgCardBg.GetComponent<Button>();
         BtnBack = ImgBack.GetComponent<Button>();
 
         //设置图片
-        string path = "";
-        //UIHelper.instance.SetImage(path, ImgBack, true);
+        UIHelper.instance.SetImage(path, ImgCard, false);
 
         //设置正反
-        ImgBack.transform.rotation = new Quaternion(0, 0, 0, 0);
-        ImgCard.transform.DORotate(new Vector3(0, 90, 0), 0.01f);
+        //ImgBack.transform.rotation = new Quaternion(0, 90, 0, 0);
+        //ImgCardBg.transform.rotation = new Quaternion(0, 0, 0, 0);
 
         BtnCard.onClick.AddListener(delegate
         {
-            Debug.Log("播放音频");
             FlipToBackward();
         });
 
         BtnBack.onClick.AddListener(delegate
         {
-            Debug.Log("翻牌");
             FlipToForward();
         });
     }
@@ -52,16 +53,16 @@ public class CardItem : MonoBehaviour
     {
         Debug.Log("翻到正面");
         Sequence s = DOTween.Sequence();
-        s.Append(ImgBack.transform.DORotate(new Vector3(0, 90, 0), 0.5f));
-        s.Append(ImgCard.transform.DORotate(new Vector3(0, 0, 0), 0.5f));
+        s.Append(ImgBack.transform.DORotate(new Vector3(0, 90,0), 0.25f));
+        s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 0, 0), 0.25f));
     }
 
     private void FlipToBackward()
     {
         Debug.Log("翻到反面");
         Sequence s = DOTween.Sequence();
-        s.Append(ImgCard.transform.DORotate(new Vector3(0, 90, 0), 0.5f));
-        s.Append(ImgBack.transform.DORotate(new Vector3(0, 0, 0), 0.5f));
+        s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 90, 0), 0.25f));
+        s.Append(ImgBack.transform.DORotate(new Vector3(0, 0, 0), 0.25f));
     }
 
 }
