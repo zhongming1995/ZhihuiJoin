@@ -9,8 +9,18 @@ public class CardController : SingletonMono<CardController>
     [HideInInspector]
     public int chapter = 1;//第几关，1234关对应2，3，4，6对牌
 
+    public delegate void ShieldOper(bool shield);
+    public static event ShieldOper shieldOper;
+
+    public delegate void CardDismiss(List<CardItem> list);
+    public static event CardDismiss cardDismiss;
+
+    public delegate void CardFlipBack(List<CardItem> list);
+    public static event CardFlipBack cardFlipBack;
+
     private int startIndex;
     private int endIndex;
+    private List<CardItem> compareList = new List<CardItem>();//用来比较两张牌是否一致的数组
 
     void Awake()
     {
@@ -69,5 +79,36 @@ public class CardController : SingletonMono<CardController>
         }
 
         return cardIndexList;
+    }
+
+    public bool AddCompareList(CardItem card)
+    {
+        if (compareList.Count==0)//翻一张
+        {
+            compareList.Add(card);
+            return false;
+        }
+
+        if (compareList.Count>0)
+        {
+            shieldOper?.Invoke(true);
+            compareList.Add(card);
+            if (compareList[0].ID==card.ID)
+            {
+                Debug.Log("===相同，消除===");
+                cardDismiss?.Invoke(compareList);
+            }
+            else
+            {
+                Debug.Log("===不同，翻回去===");
+                cardFlipBack?.Invoke(compareList);
+            }
+        }
+        return true;
+    }
+
+    public void ClearCompareList()
+    {
+        compareList.Clear();
     }
 }
