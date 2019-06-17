@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using Helper;
 using GameMgr;
 using System;
@@ -15,6 +14,7 @@ public class CardView : MonoBehaviour
     public GridLayoutGroup cardContent;
     public Image ImgMask;
     public Image ImgProgress;
+    public Transform ChapterObj;
 
     private float countMaxTime = 5;
     private float countTime = 0;//用于计时
@@ -92,6 +92,7 @@ public class CardView : MonoBehaviour
         }
 
         CardController.instance.SetChapter(chapter);
+        SetChapterNum();
         randomCardList.Clear();
         countTime = 0;
         cardContent.constraint = GridLayoutGroup.Constraint.FixedRowCount;
@@ -183,16 +184,30 @@ public class CardView : MonoBehaviour
         completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
+    void SetChapterNum()
+    {
+        for (int i = 0; i < CardController.instance.chapter; i++)
+        {
+            ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(true);
+        }
+        for (int i = CardController.instance.chapter; i < 4; i++)
+        {
+            ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(false);
+        }
+    }
+
     void PlayPiano()
     {
-
+        Destroy(completeWindow);
+        Destroy(gameObject);
+        GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
+        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void PlayCard()
     {
-        //Destroy(gameObject);
-        //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
-        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        Destroy(completeWindow);
+        InitGame(1);
     }
 
     void ShowMask(bool shield)
