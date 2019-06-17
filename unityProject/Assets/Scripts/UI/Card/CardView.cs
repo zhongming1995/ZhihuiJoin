@@ -16,10 +16,11 @@ public class CardView : MonoBehaviour
     public Image ImgMask;
     public Image ImgProgress;
 
-    private int chapter = 4;
     private float countMaxTime = 5;
     private float countTime = 0;//用于计时
-    private List<CardItem> randomCardList = new List<CardItem>();
+    private List<CardItem> randomCardList = new List<CardItem>(); 
+
+    private GameObject completeWindow;
 
 
     private void OnEnable()
@@ -30,6 +31,7 @@ public class CardView : MonoBehaviour
         CardController.shieldOper += ShowMask;//屏蔽翻牌
         CardController.cardDismiss += CardDismiss;
         CardController.cardFlipBack += CardFlipBack;
+        CardController.chapterEnd += ChapterEndFunc;
     }
 
     private void OnDisable()
@@ -40,6 +42,7 @@ public class CardView : MonoBehaviour
         CardController.shieldOper -= ShowMask;
         CardController.cardDismiss -= CardDismiss;
         CardController.cardFlipBack -= CardFlipBack;
+        CardController.chapterEnd -= ChapterEndFunc;
     }
 
     void Start()
@@ -48,7 +51,7 @@ public class CardView : MonoBehaviour
         AddClickEvent();
         //隐藏返回按钮
         ShowBackBtn(false);
-        InitGame();
+        InitGame(1);
     }
 
     //显示返回按钮，否则是半透明状态
@@ -80,8 +83,15 @@ public class CardView : MonoBehaviour
         GC.Collect();
     }
 
-    void InitGame()
+    void InitGame(int chapter)
     {
+        //delete old
+        for (int i = 0; i < cardContent.transform.childCount; i++)
+        {
+            Destroy(cardContent.transform.GetChild(i).gameObject);
+        }
+
+        CardController.instance.SetChapter(chapter);
         randomCardList.Clear();
         countTime = 0;
         cardContent.constraint = GridLayoutGroup.Constraint.FixedRowCount;
@@ -131,6 +141,9 @@ public class CardView : MonoBehaviour
             cardItem.InitCard(randomIdList[i], path);
             randomCardList.Add(cardItem);
         }
+
+        CardController.instance.SetCardAllList(randomCardList);
+
         StartCoroutine("Cor_CountTimeFilp");
 
     }
@@ -149,6 +162,25 @@ public class CardView : MonoBehaviour
             randomCardList[i].FlipToBackward();
         }
         ShowMask(false);
+    }
+
+    void ChapterEndFunc()
+    {
+        if (CardController.instance.chapter<4)
+        {
+            //generate new
+            InitGame(CardController.instance.chapter + 1);
+        }
+        else
+        {
+            ShowCompleteWindow();
+        }
+    }
+
+    void ShowCompleteWindow()
+    {
+        string path = "Prefabs/game|window_complete";
+        completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void PlayPiano()
@@ -175,6 +207,7 @@ public class CardView : MonoBehaviour
 
     IEnumerator Cor_CardDismissReal(List<CardItem> list)
     {
+        int id = list[0].ID;
         yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < list.Count; i++)
         {
@@ -182,6 +215,7 @@ public class CardView : MonoBehaviour
         }
         ShowMask(false);
         CardController.instance.ClearCompareList();
+        CardController.instance.DeletePair(id);
     }   
 
     void CardFlipBack(List<CardItem> list)
@@ -191,11 +225,9 @@ public class CardView : MonoBehaviour
 
     IEnumerator Cor_CardFlipBack(List<CardItem> list)
     {
-        Debug.Log(list.Count);
         yield return new WaitForSeconds(1.0f);
         for (int i = 0; i < list.Count; i++)
         {
-            Debug.Log("list");
             list[i].FlipToBackward();
         }
         ShowMask(false);

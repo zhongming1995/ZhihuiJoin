@@ -18,9 +18,13 @@ public class CardController : SingletonMono<CardController>
     public delegate void CardFlipBack(List<CardItem> list);
     public static event CardFlipBack cardFlipBack;
 
+    public delegate void ChapterEnd();
+    public static event ChapterEnd chapterEnd;
+
     private int startIndex;
     private int endIndex;
     private List<CardItem> compareList = new List<CardItem>();//用来比较两张牌是否一致的数组
+    private List<CardItem> cardAllList = new List<CardItem>();//存在于界面上的牌
 
     void Awake()
     {
@@ -68,7 +72,6 @@ public class CardController : SingletonMono<CardController>
         {
             Random rd = new Random();
             int n = GameManager.instance.homeSelectIndex;
-            Debug.Log("contains:" + cardIndexList.Contains(n));
             while (cardIndexList.Contains(n))
             {
                 n = rd.Next(startIndex,endIndex+1);
@@ -110,5 +113,52 @@ public class CardController : SingletonMono<CardController>
     public void ClearCompareList()
     {
         compareList.Clear();
+    }
+
+    public void CleadCardAllList()
+    {
+        cardAllList.Clear();
+    }
+
+    public void SetChapter(int c)
+    {
+        chapter = c;
+    }
+
+    public void SetCardAllList(List<CardItem> list)
+    {
+        cardAllList = list;
+    }
+
+    public void DeletePair(int id)
+    {
+        Debug.Log("before");
+        for (int i = 0; i < cardAllList.Count; i++)
+        {
+            Debug.Log(cardAllList[i].ID);
+        }
+
+        for (int j = 0; j < 2; j++)
+        {
+            for (int i = 0; i < cardAllList.Count; i++)
+            {
+                if (cardAllList[i].ID == id)
+                {
+                    cardAllList.RemoveAt(i);
+                }
+            }
+        }
+
+        Debug.Log("after");
+        for (int i = 0; i < cardAllList.Count; i++)
+        {
+            Debug.Log(cardAllList[i].ID);
+        }
+
+        //判断数组是否空了
+        if (cardAllList.Count == 0)
+        {
+            chapterEnd?.Invoke();
+        }
     }
 }
