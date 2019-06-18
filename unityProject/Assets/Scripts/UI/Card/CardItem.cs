@@ -30,20 +30,10 @@ public class CardItem : MonoBehaviour
         ImgCardBg = CardObj.Find("img_card_bg").GetComponent<Image>();
         ImgCard = CardObj.Find("img_card_bg/img_card").GetComponent<Image>();
         ImgBack = CardObj.Find("img_back").GetComponent<Image>();
-        //BtnCard = ImgCardBg.GetComponent<Button>();
         BtnBack = ImgBack.GetComponent<Button>();
 
         //设置图片
-        UIHelper.instance.SetImage(path, ImgCard, false);
-
-        //设置正反
-        //ImgBack.transform.rotation = new Quaternion(0, 90, 0, 0);
-        //ImgCardBg.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-        //BtnCard.onClick.AddListener(delegate
-        //{
-        //    //FlipToBackward();
-        //});
+        UIHelper.instance.SetImage(path, ImgCard, true);
 
         BtnBack.onClick.AddListener(delegate
         {

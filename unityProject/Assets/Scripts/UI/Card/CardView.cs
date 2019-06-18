@@ -155,10 +155,13 @@ public class CardView : MonoBehaviour
     //计时翻牌
     IEnumerator Cor_CountTimeFilp()
     {
+        float perX = ImgProgress.GetComponent<RectTransform>().sizeDelta.x / (countMaxTime / 0.1f);
+        Debug.Log(perX);
         while (countTime<countMaxTime)
         {
             countTime += 0.1f;
-            ImgProgress.fillAmount = 1 - countTime / countMaxTime;
+            //ImgProgress.fillAmount = 1 - countTime / countMaxTime;
+            ImgProgress.transform.localPosition = new Vector3(ImgProgress.transform.localPosition.x + perX, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
             yield return new WaitForSeconds(0.1f);
         }
         for (int i = 0; i < randomCardList.Count; i++)
