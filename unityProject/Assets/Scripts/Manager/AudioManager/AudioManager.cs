@@ -285,11 +285,13 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
+            Debug.Log(curAudioType == EffectAudioType.Guide);
+            Debug.Log(effectAudioSource.isPlaying);
             if (curAudioType== EffectAudioType.Guide&&effectAudioSource.isPlaying)
             {
                 return;
             }
-
+            Debug.Log("PlayOptionAudio-------------");
             curAudioType = EffectAudioType.Option;
             //PlayEffect(path, cb);
             if (commonBtnClip == null)
@@ -307,7 +309,8 @@ namespace AudioMgr {
 
         IEnumerator Cor_PlayOptionAfterButtonAudio(string path,Action cb)
         {
-            effectAudioSource.PlayOneShot(commonBtnClip);
+            effectAudioSource.clip = commonBtnClip;
+            effectAudioSource.Play();
             yield return new WaitForSeconds(commonBtnClip.length);
             if (path!=null)
             {
@@ -322,6 +325,11 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayGuideAudio(string path,Action cb = null)
         {
+            Debug.Log("PlayGuideAudio~~~~");
+            if (cor_playOptionAfterBtn!=null)
+            {
+                StopCoroutine(cor_playOptionAfterBtn);
+            }
             curAudioType = EffectAudioType.Guide;
             PlayEffect(path, cb);
         }
@@ -333,6 +341,10 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayReminderAudio(string path, Action cb = null)
         {
+            if (cor_playOptionAfterBtn != null)
+            {
+                StopCoroutine(cor_playOptionAfterBtn);
+            }
             curAudioType = EffectAudioType.Reminder;
             PlayEffect(path, cb);
         }

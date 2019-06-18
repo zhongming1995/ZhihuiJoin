@@ -57,15 +57,14 @@ public class CardItem : MonoBehaviour
         CardController.instance.AddCompareList(this);
     }
 
-    public void FlipToForward(Action action=null)
+    public void FlipToForward(Action action = null)
     {
         action?.Invoke();
 
         Debug.Log("翻到正面");
         Sequence s = DOTween.Sequence();
-        s.Append(ImgBack.transform.DORotate(new Vector3(0, 90,0), 0.25f));
+        s.Append(ImgBack.transform.DORotate(new Vector3(0, 90, 0), 0.25f));
         s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 0, 0), 0.25f));
-
     }
 
     public void FlipToBackward(Action action=null)
