@@ -1,4 +1,5 @@
 ﻿using System;
+using AudioMgr;
 using GameMgr;
 using Helper;
 using UnityEngine;
@@ -27,16 +28,19 @@ public class ChooseGameWindow :WindowParent
     void AddClickEvent()
     {
         BtnClose.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
         });
 
         BtnPiano.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayPiano();
         });
         BtnCard.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayCard();
         });

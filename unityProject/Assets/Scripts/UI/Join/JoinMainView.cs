@@ -208,6 +208,7 @@ public class JoinMainView : MonoBehaviour
     {
         BtnBackCheck.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             ShowBackBtn(true);
         });
 
@@ -215,10 +216,12 @@ public class JoinMainView : MonoBehaviour
         {
             joinGuide.DoOperation();
             SceneManager.LoadScene("home");
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         });
 
         BtnPre.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             step = Mathf.Max(1, step - 1);
             ShowTypeByStep(step);
@@ -228,6 +231,7 @@ public class JoinMainView : MonoBehaviour
 
         BtnNext.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             step = Mathf.Min(4, step + 1);
             ShowTypeByStep(step);
@@ -236,6 +240,7 @@ public class JoinMainView : MonoBehaviour
 
         BtnOk.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             gameObject.SetActive(false);
             Texture2D t = GetDrawTexture();

@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System;
 using UnityEngine.SceneManagement;
+using AudioMgr;
 
 public class DisplayView : MonoBehaviour
 {
@@ -84,21 +85,27 @@ public class DisplayView : MonoBehaviour
     {
         BtnHome.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SceneManager.LoadScene("home");
         });
 
         BtnBack.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinMainView.gameObject.SetActive(true);
             joinMainView.BackToJoinEdit();
             Destroy(gameObject);
             Resources.UnloadUnusedAssets();
             GC.Collect();
         });
-        BtnSave.onClick.AddListener(SavePic);
+        BtnSave.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            SavePic();
+        });
 
         BtnGame.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             UIHelper.instance.LoadPrefab("prefabs/game|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }

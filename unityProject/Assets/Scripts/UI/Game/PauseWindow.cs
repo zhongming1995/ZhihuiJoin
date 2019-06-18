@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AudioMgr;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,12 +28,14 @@ public class PauseWindow : WindowParent
     {
         BtnHome.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SceneManager.LoadScene("Home");
             GameOperDelegate.GoToHome();
         });
 
         BtnEdit.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             JoinMainView joinMainView = transform.parent.GetComponentInChildren<JoinMainView>(true);
             DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
             DestroyWindow();
@@ -44,11 +47,15 @@ public class PauseWindow : WindowParent
 
         BtnReplay.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
             GameOperDelegate.Replay();
         });
 
-        BtnClose.onClick.AddListener(CloseWindow);
+        BtnClose.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            CloseWindow();
+        });
     }
 
     void CloseWindow()

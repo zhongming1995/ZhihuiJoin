@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Common.ObjectPool;
 using GameMgr;
+using AudioMgr;
 
 public class IndexView : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class IndexView : MonoBehaviour
         PlayButtonAni();
         BtnPlay.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             GameManager.instance.SetNextSceneName("home");
             SceneManager.LoadScene("transition");
         });

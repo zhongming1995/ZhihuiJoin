@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AudioMgr;
 using DataMgr;
 using GameMgr;
 using Helper;
@@ -43,6 +44,8 @@ public class PianoView : MonoBehaviour
 
     private void OnEnable()
     {
+        AudioManager.instance.BgmPause();
+
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += Replay;
         GameOperDelegate.cardBegin += PlayCard;
@@ -51,6 +54,8 @@ public class PianoView : MonoBehaviour
 
     private void OnDisable()
     {
+        AudioManager.instance.BgmUnPause();
+
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= Replay;
         GameOperDelegate.cardBegin -= PlayCard;
@@ -165,11 +170,13 @@ public class PianoView : MonoBehaviour
     {
         BtnBackCheck.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             ShowBackBtn(true);
         });
 
         BtnBack.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //暂停游戏
             string path = "Prefabs/game|window_pause";
             UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);

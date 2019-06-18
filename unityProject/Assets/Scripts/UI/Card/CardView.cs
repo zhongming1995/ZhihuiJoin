@@ -6,6 +6,7 @@ using Helper;
 using GameMgr;
 using System;
 using Random = System.Random;
+using AudioMgr;
 
 public class CardView : MonoBehaviour
 {
@@ -65,11 +66,13 @@ public class CardView : MonoBehaviour
     {
         BtnBackCheck.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             ShowBackBtn(true);
         });
 
         BtnBack.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //暂停游戏
             string path = "Prefabs/game|window_pause";
             UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2396}
   - component: {fileID: 2395}
   m_Layer: 5
-  m_Name: btn_back
+  m_Name: btn_pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 2400}
   - component: {fileID: 2399}
   m_Layer: 5
-  m_Name: btn_back_check
+  m_Name: btn_pause_check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

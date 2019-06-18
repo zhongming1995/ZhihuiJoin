@@ -31,6 +31,8 @@ namespace AudioMgr {
         private string defaultBgmPath = "";
         private Coroutine cor_play;
         private EffectAudioType curAudioType;
+        private AudioClip commonBtnClip;//通用的按钮音效
+        private IEnumerator cor_playOptionAfterBtn;
 
         private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();//音频库
         private AudioSource[] audioSourceArr; //音频源数（一个播bgm,一个播音效)
@@ -47,16 +49,25 @@ namespace AudioMgr {
                     instance.bgmAudioSource.enabled = _bgmEnable;
                     if (_bgmEnable)
                     {
-                        instance.bgmAudioSource.Play();
+                        instance.bgmAudioSource.UnPause();
                     }
                     else
                     {
-                        instance.bgmAudioSource.Stop();
+                        instance.bgmAudioSource.Pause();
                     }
                 }
             }
         }
 
+        public void BgmPause()
+        {
+            bgmAudioSource.Pause();
+        }
+
+        public void BgmUnPause()
+        {
+            bgmAudioSource.UnPause();
+        }
         private bool _effectEnable = true;    //是允许播放音效
         public bool EffectEnable
         {
@@ -226,46 +237,6 @@ namespace AudioMgr {
             {
                 Debug.Log("clip is null2-------------");
             }
-            //if (!_effectEnable)
-            //{
-            //    return;
-            //}
-
-            //if (string.IsNullOrEmpty(path))
-            //{
-            //    return;
-            //}
-            //AudioClip clip;
-            //if (audioDic.ContainsKey(path))
-            //{
-            //    clip = audioDic[path];
-            //}
-            //else
-            //{
-            //    clip = UIHelper.instance.LoadAudioClip(path);
-            //    audioDic.Add(path, clip);
-            //}
-            //if (clip == null)
-            //{
-            //    Debug.LogWarning("play effect:audio clip is null-----");
-            //    return;
-            //}
-            //if (effectAudioSource.isPlaying && effectAudioSource.clip == clip)
-            //{
-            //    Debug.LogWarning("play effect:same audio clip--------");
-            //    return;
-            //}
-            //instance.effectAudioSource.volume = effectVolumn;
-            //instance.effectAudioSource.playOnAwake = false;
-            //instance.effectAudioSource.clip = clip;
-            //instance.effectAudioSource.rolloffMode = AudioRolloffMode.Linear;
-            //instance.effectAudioSource.enabled = true;
-            //instance.effectAudioSource.spatialBlend = 0f;
-            //instance.effectAudioSource.Play();
-            //if (cb != null)
-            //{
-            //    cor_play = StartCoroutine("Cor_PlayEffect", cb);
-            //}
         }
 
         public void PlayPiano(string path)
@@ -296,6 +267,17 @@ namespace AudioMgr {
             }
         }
 
+        public void StopEffectAfterCommonBtn()
+        {
+            StartCoroutine("Cor_StopEffectAfterCommonBtn");
+        }
+
+        IEnumerator Cor_StopEffectAfterCommonBtn()
+        {
+            yield return new WaitForSeconds(commonBtnClip.length);
+            StopEffect();
+        }
+
         /// <summary>
         /// 播放选项语音
         /// </summary>
@@ -307,8 +289,30 @@ namespace AudioMgr {
             {
                 return;
             }
+
             curAudioType = EffectAudioType.Option;
-            PlayEffect(path, cb);
+            //PlayEffect(path, cb);
+            if (commonBtnClip == null)
+            {
+                commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/button_effect|common_button");
+            }
+            if (cor_playOptionAfterBtn != null)
+            {
+                StopCoroutine(cor_playOptionAfterBtn);
+            }
+            cor_playOptionAfterBtn = Cor_PlayOptionAfterButtonAudio(path, cb);
+            StartCoroutine(cor_playOptionAfterBtn);
+
+        }
+
+        IEnumerator Cor_PlayOptionAfterButtonAudio(string path,Action cb)
+        {
+            effectAudioSource.PlayOneShot(commonBtnClip);
+            yield return new WaitForSeconds(commonBtnClip.length);
+            if (path!=null)
+            {
+                PlayEffect(path, cb);
+            }
         }
 
         /// <summary>

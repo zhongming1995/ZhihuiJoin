@@ -22,7 +22,7 @@ public class HomeView : MonoBehaviour
         BtnClickEvent();
 
         //停止音效
-        AudioManager.instance.StopEffect();
+        AudioManager.instance.StopEffectAfterCommonBtn();
         ListViewContent = transform.Find("list_items/Scroll View/Viewport/Content");
         //列表定位
         ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
@@ -57,6 +57,8 @@ public class HomeView : MonoBehaviour
         }
     }
 
+
+
     private void JumpToJoin()
     {
         GameManager.instance.SetNextSceneName("join");
@@ -67,6 +69,7 @@ public class HomeView : MonoBehaviour
     {
         btnHome.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SceneManager.LoadScene("index");
         });
     }

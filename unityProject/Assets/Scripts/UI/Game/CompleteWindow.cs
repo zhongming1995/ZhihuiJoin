@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AudioMgr;
 using DataMgr;
 using GameMgr;
 using Helper;
@@ -52,12 +53,14 @@ public class CompleteWindow : WindowParent
     {
         BtnHome.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SceneManager.LoadScene("Home");
             GameOperDelegate.GoToHome();
         });
 
         BtnEdit.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             JoinMainView joinMainView = transform.parent.GetComponentInChildren<JoinMainView>(true);
             DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
             Destroy(displayView.gameObject);
@@ -69,6 +72,7 @@ public class CompleteWindow : WindowParent
 
         BtnGame.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             UIHelper.instance.LoadPrefab("prefabs/game|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
