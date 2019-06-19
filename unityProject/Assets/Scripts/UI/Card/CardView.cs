@@ -31,6 +31,7 @@ public class CardView : MonoBehaviour
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += PlayPiano;
         GameOperDelegate.cardBegin += PlayCard;
+        GameOperDelegate.gameReplay += Replay;
         CardController.shieldOper += ShowMask;//屏蔽翻牌
         CardController.cardDismiss += CardDismiss;
         CardController.cardFlipBack += CardFlipBack;
@@ -42,6 +43,7 @@ public class CardView : MonoBehaviour
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= PlayPiano;
         GameOperDelegate.cardBegin -= PlayCard;
+        GameOperDelegate.gameReplay -= Replay;
         CardController.shieldOper -= ShowMask;
         CardController.cardDismiss -= CardDismiss;
         CardController.cardFlipBack -= CardFlipBack;
@@ -97,6 +99,8 @@ public class CardView : MonoBehaviour
             Destroy(cardContent.transform.GetChild(i).gameObject);
         }
 
+        CardController.instance.CleadCardAllList();
+        CardController.instance.ClearCompareList();
         CardController.instance.SetChapter(chapter);
         randomCardList.Clear();
         countTime = 0;
@@ -144,8 +148,8 @@ public class CardView : MonoBehaviour
             GameObject card = UIHelper.instance.LoadPrefab("Prefabs/game/card|card_item", cardContent.transform, Vector3.zero, Vector3.one, false);
             card.transform.localScale = Vector3.zero;
             CardItem cardItem = card.GetComponent<CardItem>();
-            string path = GameManager.instance.homePathList[randomIdList[i]];
-            cardItem.InitCard(randomIdList[i], path);
+
+            cardItem.InitCard(randomIdList[i]);
             randomCardList.Add(cardItem);
         }
         CardController.instance.SetCardAllList(randomCardList);
@@ -154,11 +158,11 @@ public class CardView : MonoBehaviour
         SetChapterNum();
 
         //出现牌
-        ChapterObj.GetChild(chapter - 1).GetChild(1).gameObject.SetActive(true);
+        //ChapterObj.GetChild(chapter - 1).GetChild(1).gameObject.SetActive(true);
         ChapterObj.GetChild(chapter - 1).GetChild(1).transform.localScale = Vector3.zero;
         Sequence s = DOTween.Sequence();
-        s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.6f, 1.6f, 1.6f), 0.15f));
-        s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.1f));
+        s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 0.2f));
+        s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.15f));
         for (int i = 0; i < randomCardList.Count; i++)
         {
             s.Append(randomCardList[i].transform.DOScale(Vector3.one, 0.1f));
@@ -202,7 +206,12 @@ public class CardView : MonoBehaviour
 
     void ChapterEndFunc()
     {
-        if (CardController.instance.chapter<4)
+        Invoke("ChapterEndFuncReal", 0.5f);
+    }
+
+    void ChapterEndFuncReal()
+    {
+        if (CardController.instance.chapter < 4)
         {
             //generate new
             InitGame(CardController.instance.chapter + 1);
@@ -242,6 +251,11 @@ public class CardView : MonoBehaviour
     void PlayCard()
     {
         Destroy(completeWindow);
+        InitGame(1);
+    }
+
+    void Replay()
+    {
         InitGame(1);
     }
 

@@ -273,8 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76a10b8f1b6549ffabc207884e8c64f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mask: {fileID: 0}
-  window: {fileID: 0}
+  mask: {fileID: 2879808412111532902}
+  window: {fileID: 5216634479173849224}
   oriMaskAlpha: 0
   desMaskAlpha: 0.4
   maskDuration: 0.2

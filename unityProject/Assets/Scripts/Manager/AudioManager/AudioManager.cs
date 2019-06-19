@@ -291,7 +291,6 @@ namespace AudioMgr {
             {
                 return;
             }
-            Debug.Log("PlayOptionAudio-------------");
             curAudioType = EffectAudioType.Option;
             //PlayEffect(path, cb);
             if (commonBtnClip == null)
