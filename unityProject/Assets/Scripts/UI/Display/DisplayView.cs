@@ -136,7 +136,7 @@ public class DisplayView : MonoBehaviour
 
     IEnumerator CutScreen()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.45f);
         //图片大小
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
