@@ -53,7 +53,7 @@ public class CardItem : MonoBehaviour
 
         Debug.Log("翻到正面");
         Sequence s = DOTween.Sequence();
-        s.Append(ImgBack.transform.DORotate(new Vector3(0, 90, 0), 0.25f));
+        s.Append(ImgBack.transform.DORotate(new Vector3(0, 90, 0), 0.2f));
         s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 0, 0), 0.25f));
     }
 
@@ -61,7 +61,7 @@ public class CardItem : MonoBehaviour
     {
         Debug.Log("翻到反面");
         Sequence s = DOTween.Sequence();
-        s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 90, 0), 0.25f));
+        s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 90, 0), 0.2f));
         s.Append(ImgBack.transform.DORotate(new Vector3(0, 0, 0), 0.25f));
         if (action != null)
         {

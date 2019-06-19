@@ -151,7 +151,7 @@ public class CardView : MonoBehaviour
         CardController.instance.SetCardAllList(randomCardList);
 
         //出现关卡
-        //SetChapterNum();
+        SetChapterNum();
 
         //出现牌
         ChapterObj.GetChild(chapter - 1).GetChild(1).gameObject.SetActive(true);
@@ -218,18 +218,17 @@ public class CardView : MonoBehaviour
         completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
-    //void SetChapterNum()
-    //{
-    //    for (int i = 0; i < CardController.instance.chapter; i++)
-    //    {
-    //        ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(true);
-    //    }
-    //    ChapterObj.GetChild(CardController.instance.chapter - 1).transform.localScale = Vector3.zero;
-    //    for (int i = CardController.instance.chapter; i < 4; i++)
-    //    {
-    //        ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(false);
-    //    }
-    //}
+    void SetChapterNum()
+    {
+        for (int i = 0; i < CardController.instance.chapter; i++)
+        {
+            ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(true);
+        }
+        for (int i = CardController.instance.chapter; i < 4; i++)
+        {
+            ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(false);
+        }
+    }
 
     void PlayPiano()
     {
