@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Helper;
 using GameMgr;
 using System;
+using DG.Tweening;
 using Random = System.Random;
 using AudioMgr;
 
@@ -17,6 +18,7 @@ public class CardView : MonoBehaviour
     public Image ImgProgress;
     public Transform ChapterObj;
 
+    private float oriProgressPosx;//初始时间进度条的位置
     private float countMaxTime = 5;
     private float countTime = 0;//用于计时
     private List<CardItem> randomCardList = new List<CardItem>(); 
@@ -48,6 +50,7 @@ public class CardView : MonoBehaviour
 
     void Start()
     {
+        oriProgressPosx = ImgProgress.transform.localPosition.x;
         ShowMask(true);
         AddClickEvent();
         //隐藏返回按钮
@@ -95,7 +98,6 @@ public class CardView : MonoBehaviour
         }
 
         CardController.instance.SetChapter(chapter);
-        SetChapterNum();
         randomCardList.Clear();
         countTime = 0;
         cardContent.constraint = GridLayoutGroup.Constraint.FixedRowCount;
@@ -140,23 +142,45 @@ public class CardView : MonoBehaviour
         for (int i = 0; i < randomIdList.Count; i++)
         {
             GameObject card = UIHelper.instance.LoadPrefab("Prefabs/game/card|card_item", cardContent.transform, Vector3.zero, Vector3.one, false);
+            card.transform.localScale = Vector3.zero;
             CardItem cardItem = card.GetComponent<CardItem>();
             string path = GameManager.instance.homePathList[randomIdList[i]];
             cardItem.InitCard(randomIdList[i], path);
             randomCardList.Add(cardItem);
         }
-
         CardController.instance.SetCardAllList(randomCardList);
 
-        StartCoroutine("Cor_CountTimeFilp");
+        //出现关卡
+        //SetChapterNum();
 
+        //出现牌
+        ChapterObj.GetChild(chapter - 1).GetChild(1).gameObject.SetActive(true);
+        ChapterObj.GetChild(chapter - 1).GetChild(1).transform.localScale = Vector3.zero;
+        Sequence s = DOTween.Sequence();
+        s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.6f, 1.6f, 1.6f), 0.15f));
+        s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.1f));
+        for (int i = 0; i < randomCardList.Count; i++)
+        {
+            s.Append(randomCardList[i].transform.DOScale(Vector3.one, 0.1f));
+        }
+        s.AppendInterval(0.2f);
+        s.AppendCallback(() =>
+        {
+            for (int i = 0; i < randomCardList.Count; i++)
+            {
+                randomCardList[i].FlipToForward();
+            }
+            StartCoroutine("Cor_CountTimeFilp");
+        });
     }
 
     //计时翻牌
     IEnumerator Cor_CountTimeFilp()
     {
+        ImgProgress.transform.parent.parent.transform.localScale = Vector3.one;
+        ImgProgress.transform.localPosition = new Vector3(oriProgressPosx, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
+        //倒计时
         float perX = ImgProgress.GetComponent<RectTransform>().sizeDelta.x / (countMaxTime / 0.1f);
-        Debug.Log(perX);
         while (countTime<countMaxTime)
         {
             countTime += 0.1f;
@@ -164,6 +188,10 @@ public class CardView : MonoBehaviour
             ImgProgress.transform.localPosition = new Vector3(ImgProgress.transform.localPosition.x + perX, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
             yield return new WaitForSeconds(0.1f);
         }
+
+        //时间消失
+        ImgProgress.transform.parent.parent.transform.DOScale(Vector3.zero, 0.2f);
+
         for (int i = 0; i < randomCardList.Count; i++)
         {
             randomCardList[i].FlipToBackward();
@@ -190,17 +218,18 @@ public class CardView : MonoBehaviour
         completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
-    void SetChapterNum()
-    {
-        for (int i = 0; i < CardController.instance.chapter; i++)
-        {
-            ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(true);
-        }
-        for (int i = CardController.instance.chapter; i < 4; i++)
-        {
-            ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(false);
-        }
-    }
+    //void SetChapterNum()
+    //{
+    //    for (int i = 0; i < CardController.instance.chapter; i++)
+    //    {
+    //        ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(true);
+    //    }
+    //    ChapterObj.GetChild(CardController.instance.chapter - 1).transform.localScale = Vector3.zero;
+    //    for (int i = CardController.instance.chapter; i < 4; i++)
+    //    {
+    //        ChapterObj.GetChild(i).GetChild(1).gameObject.SetActive(false);
+    //    }
+    //}
 
     void PlayPiano()
     {
