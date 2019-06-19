@@ -12,10 +12,10 @@ public class CardController : SingletonMono<CardController>
     public delegate void ShieldOper(bool shield);
     public static event ShieldOper shieldOper;
 
-    public delegate void CardDismiss(List<CardItem> list);
+    public delegate void CardDismiss(CardItem item1, CardItem item2);
     public static event CardDismiss cardDismiss;
 
-    public delegate void CardFlipBack(List<CardItem> list);
+    public delegate void CardFlipBack(CardItem item1, CardItem item2);
     public static event CardFlipBack cardFlipBack;
 
     public delegate void ChapterEnd();
@@ -99,12 +99,14 @@ public class CardController : SingletonMono<CardController>
             if (compareList[0].ID==card.ID)
             {
                 Debug.Log("===相同，消除===");
-                cardDismiss?.Invoke(compareList);
+                cardDismiss?.Invoke(compareList[0],compareList[1]);
+                ClearCompareList();
             }
             else
             {
                 Debug.Log("===不同，翻回去===");
-                cardFlipBack?.Invoke(compareList);
+                cardFlipBack?.Invoke(compareList[0],compareList[1]);
+                ClearCompareList();
             }
         }
         return true;

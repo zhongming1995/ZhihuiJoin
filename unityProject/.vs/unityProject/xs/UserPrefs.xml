@@ -1,11 +1,9 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Effect/FadeIn.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Card/CardView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="154" Column="25" />
+      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="148" Column="49" />
       <File FileName="Assets/Scripts/UI/Card/CardItem.cs" Line="64" Column="74" />
       <File FileName="Assets/Scripts/UI/Card/CardController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="127" Column="9" />
-      <File FileName="Assets/Scripts/Effect/FadeIn.cs" Line="46" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

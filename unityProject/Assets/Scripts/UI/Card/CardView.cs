@@ -194,9 +194,10 @@ public class CardView : MonoBehaviour
 
         for (int i = 0; i < randomCardList.Count; i++)
         {
-            randomCardList[i].FlipToBackward();
+            randomCardList[i].FlipToBackward(()=> {
+                ShowMask(false);
+            });
         }
-        ShowMask(false);
     }
 
     void ChapterEndFunc()
@@ -249,38 +250,34 @@ public class CardView : MonoBehaviour
         ImgMask.gameObject.SetActive(shield);
     }
 
-    void CardDismiss(List<CardItem> list)
+    void CardDismiss(CardItem item1,CardItem item2)
     {
-        StartCoroutine("Cor_CardDismissReal",list);
+        StartCoroutine(Cor_CardDismissReal(item1,item2));
     }
 
-    IEnumerator Cor_CardDismissReal(List<CardItem> list)
+    IEnumerator Cor_CardDismissReal(CardItem item1, CardItem item2)
     {
-        int id = list[0].ID;
         yield return new WaitForSeconds(1.0f);
-        for (int i = 0; i < list.Count; i++)
-        {
-            list[i].Dismiss();
-        }
+        item1.Dismiss();
+        item2.Dismiss();
+        CardController.instance.DeletePair(item1.ID);
         ShowMask(false);
-        CardController.instance.ClearCompareList();
-        CardController.instance.DeletePair(id);
-    }   
-
-    void CardFlipBack(List<CardItem> list)
-    {
-        StartCoroutine("Cor_CardFlipBack",list);
     }
 
-    IEnumerator Cor_CardFlipBack(List<CardItem> list)
+
+    void CardFlipBack(CardItem item1,CardItem item2)
+    {
+        StartCoroutine(Cor_CardFlipBack(item1,item2));
+    }
+
+    IEnumerator Cor_CardFlipBack(CardItem item1,CardItem item2)
     {
         yield return new WaitForSeconds(1.0f);
-        for (int i = 0; i < list.Count; i++)
+        item1.FlipToBackward();
+        item2.FlipToBackward(() =>
         {
-            list[i].FlipToBackward();
-        }
-        ShowMask(false);
-        CardController.instance.ClearCompareList();
+            ShowMask(false);
+        });
     }
 
     void OnDestroy()
