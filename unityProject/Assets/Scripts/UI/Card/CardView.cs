@@ -16,6 +16,7 @@ public class CardView : MonoBehaviour
     public GridLayoutGroup cardContent;
     public Image ImgMask;
     public Image ImgProgress;
+    public CanvasGroup CanvasGroupTime;
     public Transform ChapterObj;
 
     private float oriProgressPosx;//初始时间进度条的位置
@@ -158,7 +159,6 @@ public class CardView : MonoBehaviour
         SetChapterNum();
 
         //出现牌
-        //ChapterObj.GetChild(chapter - 1).GetChild(1).gameObject.SetActive(true);
         ChapterObj.GetChild(chapter - 1).GetChild(1).transform.localScale = Vector3.zero;
         Sequence s = DOTween.Sequence();
         s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 0.2f));
@@ -183,18 +183,25 @@ public class CardView : MonoBehaviour
     {
         ImgProgress.transform.parent.parent.transform.localScale = Vector3.one;
         ImgProgress.transform.localPosition = new Vector3(oriProgressPosx, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
+        while (CanvasGroupTime.alpha<1)
+        {
+            CanvasGroupTime.alpha += 0.2f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
         //倒计时
         float perX = ImgProgress.GetComponent<RectTransform>().sizeDelta.x / (countMaxTime / 0.1f);
         while (countTime<countMaxTime)
         {
             countTime += 0.1f;
-            //ImgProgress.fillAmount = 1 - countTime / countMaxTime;
             ImgProgress.transform.localPosition = new Vector3(ImgProgress.transform.localPosition.x + perX, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
             yield return new WaitForSeconds(0.1f);
         }
 
         //时间消失
-        ImgProgress.transform.parent.parent.transform.DOScale(Vector3.zero, 0.2f);
+        ImgProgress.transform.parent.parent.transform.DOScale(Vector3.zero, 0.2f).OnComplete(()=> {
+            CanvasGroupTime.alpha = 0;
+        });
 
         for (int i = 0; i < randomCardList.Count; i++)
         {
@@ -206,7 +213,7 @@ public class CardView : MonoBehaviour
 
     void ChapterEndFunc()
     {
-        Invoke("ChapterEndFuncReal", 0.5f);
+        Invoke("ChapterEndFuncReal", 0.7f);
     }
 
     void ChapterEndFuncReal()

@@ -285,8 +285,6 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
-            Debug.Log(curAudioType == EffectAudioType.Guide);
-            Debug.Log(effectAudioSource.isPlaying);
             if (curAudioType== EffectAudioType.Guide&&effectAudioSource.isPlaying)
             {
                 return;

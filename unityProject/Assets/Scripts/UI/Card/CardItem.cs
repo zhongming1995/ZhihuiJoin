@@ -52,7 +52,7 @@ public class CardItem : MonoBehaviour
                 person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
             }
             person.transform.SetParent(ImgCardMask.transform);
-            person.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            person.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             person.transform.localPosition = Vector3.zero;
             person.transform.localRotation = new Quaternion(0, 0, 0, 0);
         }

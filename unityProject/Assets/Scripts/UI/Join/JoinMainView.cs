@@ -63,9 +63,7 @@ public class JoinMainView : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("1time--------------"+Time.realtimeSinceStartup);
         Init();
-        Debug.Log("2time--------------" + Time.realtimeSinceStartup);
     }
 
     void Update()
@@ -164,7 +162,7 @@ public class JoinMainView : MonoBehaviour
         joinGuide.AddMobileDrawDelagate();
 
         mobilePaint.gameObject.SetActive(false);
-        Invoke("ShowDrawPanel", 0.4f);
+        Invoke("ShowDrawPanel",0.2f);
     }
 
     /// <summary>
