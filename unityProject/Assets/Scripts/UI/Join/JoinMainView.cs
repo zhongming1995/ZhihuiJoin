@@ -638,7 +638,7 @@ public class JoinMainView : MonoBehaviour
 
     IEnumerator CorPlayGuideStep1(string path,int step)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.4f);
         PlayGuideAudio(path,step);
     }
 }

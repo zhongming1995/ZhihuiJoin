@@ -16,7 +16,6 @@ public class CardView : MonoBehaviour
     public GridLayoutGroup cardContent;
     public Image ImgMask;
     public Image ImgProgress;
-    public CanvasGroup CanvasGroupTime;
     public Transform ChapterObj;
 
     private float oriProgressPosx;//初始时间进度条的位置
@@ -161,8 +160,10 @@ public class CardView : MonoBehaviour
         //出现牌
         ChapterObj.GetChild(chapter - 1).GetChild(1).transform.localScale = Vector3.zero;
         Sequence s = DOTween.Sequence();
+        s.AppendInterval(0.5f);
         s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 0.2f));
         s.Append(ChapterObj.GetChild(chapter - 1).GetChild(1).transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.15f));
+
         for (int i = 0; i < randomCardList.Count; i++)
         {
             s.Append(randomCardList[i].transform.DOScale(Vector3.one, 0.1f));
@@ -183,11 +184,6 @@ public class CardView : MonoBehaviour
     {
         ImgProgress.transform.parent.parent.transform.localScale = Vector3.one;
         ImgProgress.transform.localPosition = new Vector3(oriProgressPosx, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
-        while (CanvasGroupTime.alpha<1)
-        {
-            CanvasGroupTime.alpha += 0.2f;
-            yield return new WaitForSeconds(0.1f);
-        }
 
         //倒计时
         float perX = ImgProgress.GetComponent<RectTransform>().sizeDelta.x / (countMaxTime / 0.1f);
@@ -199,9 +195,7 @@ public class CardView : MonoBehaviour
         }
 
         //时间消失
-        ImgProgress.transform.parent.parent.transform.DOScale(Vector3.zero, 0.2f).OnComplete(()=> {
-            CanvasGroupTime.alpha = 0;
-        });
+        ImgProgress.transform.parent.parent.transform.DOScale(Vector3.zero, 0.2f);
 
         for (int i = 0; i < randomCardList.Count; i++)
         {
@@ -213,7 +207,7 @@ public class CardView : MonoBehaviour
 
     void ChapterEndFunc()
     {
-        Invoke("ChapterEndFuncReal", 0.7f);
+        Invoke("ChapterEndFuncReal", 1.0f);
     }
 
     void ChapterEndFuncReal()
@@ -280,9 +274,12 @@ public class CardView : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         item1.Dismiss();
-        item2.Dismiss();
+        item2.Dismiss(()=> {
+            ShowMask(false);
+            });
+
         CardController.instance.DeletePair(item1.ID);
-        ShowMask(false);
+        //ShowMask(false);
     }
 
 

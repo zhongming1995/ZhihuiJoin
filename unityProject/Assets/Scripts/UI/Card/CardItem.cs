@@ -92,10 +92,19 @@ public class CardItem : MonoBehaviour
         }
     }
 
-    public void Dismiss()
+    public void Dismiss(Action action = null)
     {
-        CardObj.gameObject.SetActive(false);
-        ps.Play();
+        Tweener t1 = CardObj.transform.DORotate(new Vector3(0, 0, -360), 0.5f,RotateMode.LocalAxisAdd).OnComplete(()=> {
+            ps.Play();
+        });
+        Tweener t2 =CardObj.transform.DOScale(Vector3.zero, 0.5f);
+        if (action!=null)
+        {
+            t2.OnComplete(() =>
+            {
+                action();
+            });
+        }
+       
     }
-
 }

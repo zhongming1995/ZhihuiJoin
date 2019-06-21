@@ -74,7 +74,7 @@ public class CardController : SingletonMono<CardController>
             int n = GameManager.instance.homeSelectIndex;
             while (cardIndexList.Contains(n))
             {
-                n = rd.Next(startIndex,endIndex+1);
+                n = rd.Next(startIndex,endIndex);
                 Debug.Log("n:" + n);
             }
             cardIndexList.Add(n);
