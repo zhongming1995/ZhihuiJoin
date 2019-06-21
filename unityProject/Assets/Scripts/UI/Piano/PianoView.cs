@@ -232,7 +232,7 @@ public class PianoView : MonoBehaviour
     {
         if (curSpecturmIndex >= songSpectrums.Count)
         {
-            Invoke("ShowWindow", 1.0f);
+            Invoke("ShowWindow", 0f);
             return;
         }
         int keyIndex = songSpectrums[curSpecturmIndex];

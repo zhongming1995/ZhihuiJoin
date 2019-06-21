@@ -17,6 +17,7 @@ public class WindowParent : MonoBehaviour
     public Vector3 oriWindowScale = new Vector3(0, 0, 0);
     public Vector3 desWindowScale = new Vector3(1, 1, 1);
     public float windowDuration = 0.2f;
+    public float windowDelayTime = 0f;
 
     public void InAni()
     {

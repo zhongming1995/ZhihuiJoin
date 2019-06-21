@@ -59,8 +59,8 @@ public class CardItem : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
-            AudioManager.instance.PlayPiano(GameManager.instance.drawAudioPathList[ID]);
             FlipToForward(CompareCard);
+            AudioManager.instance.PlayPiano(GameManager.instance.drawAudioPathList[ID]);
         });
     }
 

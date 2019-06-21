@@ -53,7 +53,7 @@ public class CardView : MonoBehaviour
     void Start()
     {
         oriProgressPosx = ImgProgress.transform.localPosition.x;
-        ShowMask(true);
+        //ShowMask(true);
         AddClickEvent();
         //隐藏返回按钮
         ShowBackBtn(false);
@@ -93,6 +93,7 @@ public class CardView : MonoBehaviour
 
     void InitGame(int chapter)
     {
+        ShowMask(true);
         //delete old
         for (int i = 0; i < cardContent.transform.childCount; i++)
         {
@@ -207,7 +208,7 @@ public class CardView : MonoBehaviour
 
     void ChapterEndFunc()
     {
-        Invoke("ChapterEndFuncReal", 1.0f);
+        Invoke("ChapterEndFuncReal", 1.3f);
     }
 
     void ChapterEndFuncReal()
@@ -276,10 +277,9 @@ public class CardView : MonoBehaviour
         item1.Dismiss();
         item2.Dismiss(()=> {
             ShowMask(false);
-            });
+         });
 
         CardController.instance.DeletePair(item1.ID);
-        //ShowMask(false);
     }
 
 

@@ -11,6 +11,7 @@ namespace AudioMgr {
         Guide = 0,//引导语音
         Reminder = 1,//提示语音
         Option = 2,//选项语音
+        None = 3,//未播放
     }
 
     /// <summary>
@@ -251,6 +252,7 @@ namespace AudioMgr {
         IEnumerator Cor_PlayEffect(Action cb)
         {
             yield return new WaitForSeconds(instance.effectAudioSource.clip.length);
+            curAudioType = EffectAudioType.None;
             cb?.Invoke();
         }
 
@@ -285,16 +287,19 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
-            if (curAudioType== EffectAudioType.Guide&&effectAudioSource.isPlaying)
-            {
-                return;
-            }
-            curAudioType = EffectAudioType.Option;
-            //PlayEffect(path, cb);
             if (commonBtnClip == null)
             {
                 commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/button_effect|common_button");
             }
+            //effectAudioSource.clip = commonBtnClip;
+            effectAudioSource.PlayOneShot(commonBtnClip);
+            Debug.Log("playOneShot--------");
+            if (curAudioType == EffectAudioType.Guide&&effectAudioSource.isPlaying)
+            {
+                return;
+            }
+            curAudioType = EffectAudioType.Option;
+           
             if (cor_playOptionAfterBtn != null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);
@@ -306,8 +311,6 @@ namespace AudioMgr {
 
         IEnumerator Cor_PlayOptionAfterButtonAudio(string path,Action cb)
         {
-            effectAudioSource.clip = commonBtnClip;
-            effectAudioSource.Play();
             yield return new WaitForSeconds(commonBtnClip.length);
             if (path!=null)
             {
@@ -322,7 +325,6 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayGuideAudio(string path,Action cb = null)
         {
-            Debug.Log("PlayGuideAudio~~~~");
             if (cor_playOptionAfterBtn!=null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);
@@ -348,7 +350,6 @@ namespace AudioMgr {
 
         public void PlayAudio(EffectAudioType type, string path, Action cb = null)
         {
-            Debug.Log(path);
             if (type == EffectAudioType.Option)
             {
                 PlayOptionAudio(path, cb);

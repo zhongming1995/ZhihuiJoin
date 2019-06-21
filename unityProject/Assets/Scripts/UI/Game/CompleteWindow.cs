@@ -20,13 +20,23 @@ public class CompleteWindow : WindowParent
 
     private void OnEnable()
     {
+        window.gameObject.SetActive(false);
+        mask.gameObject.SetActive(false);
+        Invoke("Show", 1.0f);
+    }
+
+    void Show()
+    {
+        window.gameObject.SetActive(true);
+        mask.gameObject.SetActive(true);
         InAni();
     }
+
 
     void Start()
     {
         AddClickEvent();
-        LoadPerson();
+        Invoke("LoadPerson", 0f);
     }
 
     void LoadPerson()
