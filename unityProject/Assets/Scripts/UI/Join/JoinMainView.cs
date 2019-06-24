@@ -131,6 +131,7 @@ public class JoinMainView : MonoBehaviour
             int clickType = i;
             typeTransList[i].GetComponent<Button>().onClick.AddListener(delegate
             {
+                SetSelectResObj(null);
                 joinGuide.DoOperation();
                 AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/button_effect/material_effect|material_" + clickType);
                 TypeButtonClick((TemplateResType)clickType, true);

@@ -1,15 +1,11 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Home/HomeView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/ResDragItem.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="36" Column="24" />
-      <File FileName="Assets/Scripts/UI/Game/CompleteWindow.cs" Line="37" Column="25" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="169" Column="14" />
-      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="74" Column="14" />
-      <File FileName="Assets/Scripts/UI/Window/WindowParent.cs" Line="45" Column="10" />
-      <File FileName="Assets/Scripts/UI/Game/PauseWindow.cs" Line="18" Column="29" />
-      <File FileName="Assets/Scripts/UI/Game/ChooseGameWindow.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="57" Column="33" />
-      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="18" Column="5" />
+      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="360" Column="21" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="133" Column="14" />
+      <File FileName="Assets/Scripts/UI/Join/JoinGuide.cs" Line="395" Column="6" />
+      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="238" Column="10" />
+      <File FileName="Assets/Scripts/UI/Join/PanelTouch.cs" Line="5" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
