@@ -20,16 +20,21 @@ public class CompleteWindow : WindowParent
 
     private void OnEnable()
     {
-        window.gameObject.SetActive(false);
-        mask.gameObject.SetActive(false);
+        //window.gameObject.SetActive(false);
+        //mask.gameObject.SetActive(false);
+
+        window.localScale = Vector3.zero;
+        mask.transform.localScale = Vector3.zero;
         Invoke("Show", 1.0f);
     }
 
     void Show()
     {
-        window.gameObject.SetActive(true);
-        mask.gameObject.SetActive(true);
-        InAni();
+        //window.gameObject.SetActive(true);
+        //mask.gameObject.SetActive(true);
+        window.localScale = Vector3.zero;
+        mask.transform.localScale = Vector3.one;
+        InAni(Greeting);
     }
 
 
@@ -94,6 +99,7 @@ public class CompleteWindow : WindowParent
 
     public void Greeting()
     {
+        Debug.Log("Greeting==============");
         DataManager.instance.PersonGreeting(windowlstDisplayItem);
     }
 

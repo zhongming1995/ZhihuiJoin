@@ -8,10 +8,10 @@ namespace AudioMgr {
 
     public enum EffectAudioType
     {
-        Guide = 0,//引导语音
-        Reminder = 1,//提示语音
-        Option = 2,//选项语音
-        None = 3,//未播放
+        None = 0,//未播放
+        Guide = 1,//引导语音
+        Reminder = 2,//提示语音
+        Option = 3,//选项语音
     }
 
     /// <summary>
@@ -62,12 +62,18 @@ namespace AudioMgr {
 
         public void BgmPause()
         {
-            bgmAudioSource.Pause();
+            if (bgmAudioSource!=null)
+            {
+                bgmAudioSource.Pause();
+            }
         }
 
         public void BgmUnPause()
         {
-            bgmAudioSource.UnPause();
+            if (bgmAudioSource!=null)
+            {
+                bgmAudioSource.UnPause();
+            }
         }
         private bool _effectEnable = true;    //是允许播放音效
         public bool EffectEnable
@@ -287,15 +293,16 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
+            Debug.Log("PlayOptionAudio--------");
             if (commonBtnClip == null)
             {
                 commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/button_effect|common_button");
             }
             //effectAudioSource.clip = commonBtnClip;
             effectAudioSource.PlayOneShot(commonBtnClip);
-            Debug.Log("playOneShot--------");
             if (curAudioType == EffectAudioType.Guide&&effectAudioSource.isPlaying)
             {
+                Debug.Log("Return=============");
                 return;
             }
             curAudioType = EffectAudioType.Option;
@@ -325,6 +332,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayGuideAudio(string path,Action cb = null)
         {
+            Debug.Log("PlayGuideAudio------------");
             if (cor_playOptionAfterBtn!=null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);
@@ -340,6 +348,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayReminderAudio(string path, Action cb = null)
         {
+            Debug.Log("PlayReminderAudio------------");
             if (cor_playOptionAfterBtn != null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);

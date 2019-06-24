@@ -19,8 +19,9 @@ public class WindowParent : MonoBehaviour
     public float windowDuration = 0.2f;
     public float windowDelayTime = 0f;
 
-    public void InAni()
+    public void InAni(Action callBack = null)
     {
+        Debug.Log("InAni-------");
         if (mask == null)
         {
             mask = transform.Find("window_mask").GetComponent<Image>();
@@ -37,7 +38,11 @@ public class WindowParent : MonoBehaviour
 
         //window
         window.localScale = oriWindowScale;
-        window.DOScale(desWindowScale, windowDuration);
+        Tweener tweener = window.DOScale(desWindowScale, windowDuration);
+        if (callBack!=null)
+        {
+            tweener.OnComplete(() => { callBack(); });
+        }
     }
 
     public void OutAni(Action callBack = null)

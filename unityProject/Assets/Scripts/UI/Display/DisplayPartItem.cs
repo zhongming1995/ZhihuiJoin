@@ -11,9 +11,6 @@ public class DisplayPartItem : MonoBehaviour
     private RectTransform rectTransform;
     private string actionName = "Greeting_LeftEye";
     public string Greeting = "Greeting";
-    public string Dancing1 = "Dance_1";
-    public string Dancing2 = "Dance_2";
-    public string Dancing3 = "Dance_3";
     public string Dance = "Dance_";
     public string Default = "Default";
 
@@ -39,6 +36,7 @@ public class DisplayPartItem : MonoBehaviour
     public void PlayGreeting()
     {
         string aniName = Greeting + "_" + partType.ToString();
+        Debug.Log("aniName:" + aniName);
         if (item_animation.GetClip(aniName) != null)
         {
             item_animation.Play(aniName);
