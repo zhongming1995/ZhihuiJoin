@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b7ff4477a9d04dc2a544711fe4289da
+guid: 109d9b3436fad4f4d8371a13aff78bac
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: correct
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/rabbit/correct
+  assetBundleName: atlas/ui/rabbit/correct
   assetBundleVariant: ab

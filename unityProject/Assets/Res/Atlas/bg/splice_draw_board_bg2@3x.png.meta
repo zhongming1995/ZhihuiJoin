@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 56a3401ba4e9c4fc68e1e6fb126b354d
+guid: dd54deb0990b34fb18c6c85a3411a628
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: bg
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/bg
+  assetBundleName: atlas/bg
   assetBundleVariant: ab

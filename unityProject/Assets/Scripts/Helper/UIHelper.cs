@@ -27,9 +27,9 @@ namespace Helper
 
         public void SetImage(string path, Image image, bool useNativeSize = false, Action cb = null)
         {
-            path = PathToResourcePath(path);
-            //image.sprite = ResManager.instance.LoadSprite(path);
-            image.sprite = Resources.Load(path,typeof(Sprite)) as Sprite;
+            //path = PathToResourcePath(path);
+            image.sprite = ResManager.instance.LoadSprite(path);
+            //image.sprite = Resources.Load(path,typeof(Sprite)) as Sprite;
             if (useNativeSize)
             {
                 image.SetNativeSize();

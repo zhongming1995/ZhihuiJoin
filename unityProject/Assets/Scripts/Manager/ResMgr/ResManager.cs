@@ -8,7 +8,7 @@ namespace ResMgr
     {
         //字典存放加载过的AssetBundle，ex: "sprite/homeitems.ab":ab
         private Dictionary<string, AssetBundle> _assetBundleDic = new Dictionary<string, AssetBundle>();
-        //字段存放加载过的resex: "prefabs/home|home_item":res
+        //字段存放加载过的res，ex: "prefabs/home|home_item":res
         private Dictionary<string, Object> _resDic = new Dictionary<string, Object>();
 
         //加载AssetBundleManifest的超时时间
@@ -20,6 +20,7 @@ namespace ResMgr
         {
             instance = this;
             LoadMainAssetBundle();
+            Debug.Log("Awake=====");
         }
 
         void Start()
@@ -121,14 +122,14 @@ namespace ResMgr
         {
             string[] pathList = path.Split('|');
             string assetBundleName = string.Format(@"{0}{1}", pathList[0], ResConf.ASSET_BUNDLE_SUFFIX);
-            //Debug.Log("Load assetBundleName:" + assetBundleName);
+            Debug.Log("Load assetBundleName:" + assetBundleName);
             string assetName = pathList[1];
            //Debug.Log("Load assetName：" + assetName);
-#if UNITY_EDITOR
-            string[] str = AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(assetBundleName, assetName);
-            T t = AssetDatabase.LoadAssetAtPath<T>(str[0]);
-            return t;
-#endif
+//#if UNITY_EDITOR
+            //string[] str = AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(assetBundleName, assetName);
+            //T t = AssetDatabase.LoadAssetAtPath<T>(str[0]);
+            //return t;
+//#endif
             if (_resDic.ContainsKey(path))
             {
                 Debug.Log("该资源已经被加载过了：" + path);

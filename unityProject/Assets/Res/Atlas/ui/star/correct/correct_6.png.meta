@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd45b74a6345c4808b9819da31c6a64d
+guid: 701e94f73941b47a4b6a92d2d1b237f6
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: correct
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/star/correct
+  assetBundleName: atlas/ui/star/correct
   assetBundleVariant: ab

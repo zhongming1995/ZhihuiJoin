@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79cd98d7a6c484217b5e045db0aacc54
+guid: bae16ff419cfb4c708c821b8bbad3f18
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: piano
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/piano
+  assetBundleName: atlas/ui/piano
   assetBundleVariant: ab

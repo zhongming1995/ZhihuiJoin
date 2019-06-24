@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e82a70e1f584e46baa34b48e9d1087a4
+guid: 337794155b33e4eaaa39a6542e60d192
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: "\u6548\u679C\u56FE"
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: "sprite/ui/\u6548\u679C\u56FE"
+  assetBundleName: "atlas/ui/\u6548\u679C\u56FE"
   assetBundleVariant: ab

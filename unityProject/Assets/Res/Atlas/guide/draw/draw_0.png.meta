@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0ef0ca8da2b3d42b99becb79a9d81576
+guid: 4f250efa1aa1243c1802d86dfa738948
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: draw
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/guide/draw
+  assetBundleName: atlas/guide/draw
   assetBundleVariant: ab

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1b57b3ef415e4b95ac88a9be96abea9
+guid: f09585e0e50ae47f3a14070cc13a237c
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: index
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/index
+  assetBundleName: atlas/ui/index
   assetBundleVariant: ab

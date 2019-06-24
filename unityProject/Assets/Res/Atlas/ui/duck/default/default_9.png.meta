@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b594bbb2be82d4039aac7c1e220dc50b
+guid: 5db3916e0de7e40c2a513a9edd9447e8
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: default
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/duck/default
+  assetBundleName: atlas/ui/duck/default
   assetBundleVariant: ab

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 73a57d1bb82864adcb905c5bf2b6a5db
+guid: 2c4ac5c5d283745e7ae2cecbcdc0738b
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: card
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/card
+  assetBundleName: atlas/ui/card
   assetBundleVariant: ab

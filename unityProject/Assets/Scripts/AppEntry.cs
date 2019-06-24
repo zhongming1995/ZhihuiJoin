@@ -16,11 +16,11 @@ public class AppEntry : SingletonMono<AppEntry>
     void Start()
     {
         //第一步资源加载
-       // if (ResManager.instance.LoadMainAssetBundle())
+        //if (ResManager.instance.LoadMainAssetBundle())
         //{
-            //加载第一个页面
-            //UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root , Vector3.zero, Vector3.one,true);
-       // }
+        //    //加载第一个页面
+        //    UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root , Vector3.zero, Vector3.one,true);
+        //}
 
         //屏蔽多点触摸
         Input.multiTouchEnabled = false;
@@ -35,7 +35,10 @@ public class AppEntry : SingletonMono<AppEntry>
         DontDestroyOnLoad(gameObject);
 
         //跳转到首页
-        SceneManager.LoadScene("index");
+        if (ResManager.instance.LoadMainAssetBundle())
+        {
+            SceneManager.LoadScene("index");
+        }
     }
 
     public void SetMultiTouchEnable(bool enable)

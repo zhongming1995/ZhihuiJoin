@@ -13,7 +13,7 @@ namespace Common.PreImprot.Editor
     {
         void OnPreprocessTexture()
         {
-            if (assetPath.Contains("Res/Atlas"))
+            if (assetPath.Contains("Res/Atlas") || assetPath.Contains("Res/Sprite"))
             {
                 string atlasName = new DirectoryInfo(Path.GetDirectoryName(assetPath)).Name;
                 TextureImporter textureImporter = assetImporter as TextureImporter;
@@ -22,7 +22,7 @@ namespace Common.PreImprot.Editor
                 //if (atlasName == "Atlas")
                 {
                     textureImporter.textureType = TextureImporterType.Sprite;
-//                    textureImporter.spritePackingTag = atlasName;
+                    textureImporter.spritePackingTag = atlasName;
                     textureImporter.mipmapEnabled = false;
                     textureImporter.spriteImportMode = SpriteImportMode.Single;
                     textureImporter.filterMode = FilterMode.Bilinear;

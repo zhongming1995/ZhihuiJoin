@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e19e99a96ef5e49348b825375fb646d0
+guid: b5f7d8aa1816d4596b476de84a2dd51c
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+  spritePackingTag: join
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/ui/join
+  assetBundleName: atlas/ui/join
   assetBundleVariant: ab
