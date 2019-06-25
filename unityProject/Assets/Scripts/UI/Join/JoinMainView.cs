@@ -213,9 +213,9 @@ public class JoinMainView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            AudioManager.instance.StopEffect();
             joinGuide.DoOperation();
             SceneManager.LoadScene("home");
-            AudioManager.instance.StopEffect();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         });
 

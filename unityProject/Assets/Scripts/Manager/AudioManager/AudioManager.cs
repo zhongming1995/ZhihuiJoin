@@ -264,6 +264,7 @@ namespace AudioMgr {
 
         public void StopEffect()
         {
+            curAudioType = EffectAudioType.None;
             if (effectAudioSource)
             {
                 effectAudioSource.Stop();
@@ -277,6 +278,7 @@ namespace AudioMgr {
 
         public void StopEffectAfterCommonBtn()
         {
+            curAudioType = EffectAudioType.None;
             StartCoroutine("Cor_StopEffectAfterCommonBtn");
         }
 
@@ -300,9 +302,14 @@ namespace AudioMgr {
             }
             //effectAudioSource.clip = commonBtnClip;
             effectAudioSource.PlayOneShot(commonBtnClip);
+            if (path == null)
+            {
+                Debug.Log("return1----------------11");
+                return;
+            }
             if (curAudioType == EffectAudioType.Guide&&effectAudioSource.isPlaying)
             {
-                Debug.Log("Return=============");
+                Debug.Log("Return===============22");
                 return;
             }
             curAudioType = EffectAudioType.Option;
