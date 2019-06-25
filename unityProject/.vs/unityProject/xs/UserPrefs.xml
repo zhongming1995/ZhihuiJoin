@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Platform/CallManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
     <Files>
-      <File FileName="Assets/Scripts/Platform/CallManager.cs" Line="12" Column="9" />
+      <File FileName="Assets/Scripts/Platform/CallManager.cs" Line="17" Column="18" />
       <File FileName="Assets/Scripts/UI/Game/GameOperDelegate.cs" Line="37" Column="24" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="57" Column="20" />
       <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="7" Column="37" />
+      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="611" Column="51" />
+      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="409" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

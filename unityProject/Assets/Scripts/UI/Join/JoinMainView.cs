@@ -584,6 +584,8 @@ public class JoinMainView : MonoBehaviour
     {
         string resPrefabPath = GameManager.instance.resPrefabPathList[type];
         List<string> resPath = GameManager.instance.resPathList[type];
+        float width = ResContentList[type].GetComponent<RectTransform>().rect.size.x;
+        Debug.Log("width========"+width);
         if (resPath.Count <= 0)
         {
             return;
@@ -598,7 +600,11 @@ public class JoinMainView : MonoBehaviour
                 {
                     imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
                 }
-                UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
+                Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
+                UIHelper.instance.SetImage(imgPath, resImg, true);
+                float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, y + 40);
+                //UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
                 if (type == 0)
                 {
                     string selectPath = imgPath + "_select";
@@ -608,7 +614,11 @@ public class JoinMainView : MonoBehaviour
             else
             {
                 string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
+                //UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
+                Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
+                UIHelper.instance.SetImage(imgPath, resImg, true);
+                float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width+20, y+45);
             }
         }
 
