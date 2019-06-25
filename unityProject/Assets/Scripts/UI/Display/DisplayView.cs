@@ -20,6 +20,7 @@ public class DisplayView : MonoBehaviour
     public Transform ImgDisplay;
     public Transform PosFlag1;//左上角截屏定位点
     public Transform PosFlag2;//右下角截屏定位点
+    public Transform ImgMask;//保存图片时的mask
 
     private JoinMainView joinMainView;
     private Transform displayItem;//展示界面的物体
@@ -48,18 +49,28 @@ public class DisplayView : MonoBehaviour
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
         Display();
         BtnSave.interactable = false;
+        ShowMask(false);
+    }
+
+    private void ShowMask(bool show)
+    {
+        Debug.Log("show1");
+        ImgMask.gameObject.SetActive(show);
+        Debug.Log("show2");
     }
 
     private void OnEnable()
     {
         GameOperDelegate.pianoBegin += PlayPiano;
         GameOperDelegate.cardBegin += PlayCard;
+        CallManager.savePhotoCallBack += SavePhotoCallBack;
     }
 
     private void OnDisable()
     {
         GameOperDelegate.pianoBegin -= PlayPiano;
         GameOperDelegate.cardBegin -= PlayCard;
+        CallManager.savePhotoCallBack -= SavePhotoCallBack;
     }
 
     private void PlayPiano()
@@ -101,6 +112,7 @@ public class DisplayView : MonoBehaviour
             GC.Collect();
         });
         BtnSave.onClick.AddListener(delegate {
+            ShowMask(true);
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SavePic();
         });
@@ -138,7 +150,7 @@ public class DisplayView : MonoBehaviour
 
     IEnumerator CutScreen()
     {
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(1f);
         //图片大小
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
@@ -179,8 +191,22 @@ public class DisplayView : MonoBehaviour
     {
         FileStream fileStream = (FileStream)result.AsyncState;
         fileStream.EndWrite(result);
+        fileStream.Close();
         Debug.Log("异步保存图片完成------------");
-        UnityToIOS_SavePhotoToAlbum(savePath);
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            UnityToIOS_SavePhotoToAlbum(savePath);
+        }
+        else
+        {
+            SavePhotoCallBack("test");
+        }
+    }
+
+    private void SavePhotoCallBack(string result)
+    {
+        Debug.Log("Display SavePhotoCallBack===========");
+        ShowMask(false);
     }
 
     public void Greeting()
