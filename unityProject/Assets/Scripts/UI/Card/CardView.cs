@@ -26,24 +26,24 @@ public class CardView : MonoBehaviour
     private GameObject completeWindow;
 
 
-    private void OnEnable()
+    private void AddListener()
     {
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += PlayPiano;
         GameOperDelegate.cardBegin += PlayCard;
-        GameOperDelegate.gameReplay += Replay;
+        GameOperDelegate.gameReplay += PlayCard;
         CardController.shieldOper += ShowMask;//屏蔽翻牌
         CardController.cardDismiss += CardDismiss;
         CardController.cardFlipBack += CardFlipBack;
         CardController.chapterEnd += ChapterEndFunc;
     }
 
-    private void OnDisable()
+    private void RemoveListener()
     {
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= PlayPiano;
         GameOperDelegate.cardBegin -= PlayCard;
-        GameOperDelegate.gameReplay -= Replay;
+        GameOperDelegate.gameReplay -= PlayCard;
         CardController.shieldOper -= ShowMask;
         CardController.cardDismiss -= CardDismiss;
         CardController.cardFlipBack -= CardFlipBack;
@@ -55,6 +55,7 @@ public class CardView : MonoBehaviour
         oriProgressPosx = ImgProgress.transform.localPosition.x;
         //ShowMask(true);
         AddClickEvent();
+        AddListener();
         //隐藏返回按钮
         ShowBackBtn(false);
         InitGame(1);
@@ -246,20 +247,26 @@ public class CardView : MonoBehaviour
     {
         Destroy(completeWindow);
         Destroy(gameObject);
-        GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
-        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+
+        //GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
+        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void PlayCard()
     {
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
         Destroy(completeWindow);
         InitGame(1);
     }
 
-    void Replay()
-    {
-        InitGame(1);
-    }
+    //void Replay()
+    //{
+    //    gameObject.SetActive(false);
+    //    gameObject.SetActive(true);
+    //    InitGame(1);
+    //}
 
     void ShowMask(bool shield)
     {
@@ -300,6 +307,7 @@ public class CardView : MonoBehaviour
 
     void OnDestroy()
     {
+        RemoveListener();
         AppEntry.instance.SetMultiTouchEnable(false);
         Resources.UnloadUnusedAssets();
         GC.Collect();

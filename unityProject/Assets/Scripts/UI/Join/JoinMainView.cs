@@ -249,9 +249,9 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.TransformToPartsList(DrawPanel);
-            //UIHelper.instance.LoadPrefab("prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            GameManager.instance.SetNextViewPath("prefabs/display|display_view");
-            UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefab("prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath("prefabs/display|display_view");
+            //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate

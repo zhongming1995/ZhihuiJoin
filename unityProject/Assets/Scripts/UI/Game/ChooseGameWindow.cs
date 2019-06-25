@@ -15,7 +15,6 @@ public class ChooseGameWindow :WindowParent
 
     void OnEnable()
     {
-        Debug.Log("222222");
         InAni();
     }
 

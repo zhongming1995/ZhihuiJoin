@@ -64,15 +64,17 @@ public class DisplayView : MonoBehaviour
 
     private void PlayPiano()
     {
-        GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
-        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
+        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
     }
 
     private void PlayCard()
     {
-        GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
-        UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
+        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefab("prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
     }
 

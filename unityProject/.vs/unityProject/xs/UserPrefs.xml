@@ -1,12 +1,18 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinGuide.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Card/CardItem.cs" Line="84" Column="27" />
       <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="23" Column="38" />
       <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="40" Column="30" />
-      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="296" Column="18" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="217" Column="32" />
-      <File FileName="Assets/Scripts/UI/Join/JoinGuide.cs" Line="409" Column="45" />
+      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="273" Column="32" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="253" Column="81" />
+      <File FileName="Assets/Scripts/UI/Join/JoinGuide.cs" Line="408" Column="21" />
+      <File FileName="Assets/Scripts/Effect/FadeIn.cs" Line="29" Column="9" />
+      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="46" Column="49" />
+      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="190" Column="36" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="23" Column="5" />
+      <File FileName="Assets/Scripts/UI/Game/ChooseGameWindow.cs" Line="39" Column="39" />
+      <File FileName="Assets/Scripts/UI/Game/GameOperDelegate.cs" Line="37" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
