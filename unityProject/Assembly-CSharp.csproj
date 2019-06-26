@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResConf.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResUtil.cs" />
+    <Compile Include="Assets\Scripts\Platform\CallManager.cs" />
     <Compile Include="Assets\Scripts\UI\Card\CardController.cs" />
     <Compile Include="Assets\Scripts\UI\Card\CardItem.cs" />
     <Compile Include="Assets\Scripts\UI\Card\CardView.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\UI\Join\ColorToggleCtrl.cs" />
     <Compile Include="Assets\Scripts\UI\Join\JoinGuide.cs" />
     <Compile Include="Assets\Scripts\UI\Join\JoinMainView.cs" />
+    <Compile Include="Assets\Scripts\UI\Join\PanelTouch.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResDragItem.cs" />
     <Compile Include="Assets\Scripts\UI\Join\ResTemplate.cs" />
     <Compile Include="Assets\Scripts\UI\Piano\PianoKey.cs" />

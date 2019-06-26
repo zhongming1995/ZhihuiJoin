@@ -564,6 +564,7 @@ MonoBehaviour:
   oriWindowScale: {x: 0, y: 0, z: 0}
   desWindowScale: {x: 1, y: 1, z: 1}
   windowDuration: 0.2
+  windowDelayTime: 0
   BtnHome: {fileID: 2651729613362987338}
   BtnEdit: {fileID: 2651729613317929791}
   BtnReplay: {fileID: 2651729612714696168}
@@ -580,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4dac94e56ab4ea587f70a00a405385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 6
+  order: 100
   isUI: 1
 --- !u!223 &6636772459362855276
 Canvas:

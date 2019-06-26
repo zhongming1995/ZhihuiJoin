@@ -59,6 +59,7 @@ public class CardItem : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            BtnBack.interactable = false;
             FlipToForward(CompareCard);
             AudioManager.instance.PlayPiano(GameManager.instance.drawAudioPathList[ID]);
         });
@@ -80,6 +81,7 @@ public class CardItem : MonoBehaviour
 
     public void FlipToBackward(Action action=null)
     {
+        BtnBack.interactable = true;
         Sequence s = DOTween.Sequence();
         s.Append(ImgCardBg.transform.DORotate(new Vector3(0, 90, 0), 0.2f));
         s.Append(ImgBack.transform.DORotate(new Vector3(0, 0, 0), 0.25f));

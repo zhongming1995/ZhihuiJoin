@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4dac94e56ab4ea587f70a00a405385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  order: 6
+  order: 100
   isUI: 1
 --- !u!223 &6052605403795199584
 Canvas:

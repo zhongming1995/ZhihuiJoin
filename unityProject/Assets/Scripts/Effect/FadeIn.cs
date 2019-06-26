@@ -11,17 +11,22 @@ public class FadeIn : MonoBehaviour
     float alpha;
     CanvasGroup canvasGroup;
 
-    void Start()
+    private void OnEnable()
     {
-        if (canvasGroup==null)
+        if (canvasGroup == null)
         {
             GetCanvasGroup();
         }
-        if (canvasGroup!=null)
+        if (canvasGroup != null)
         {
             alpha = 0;
             StartCoroutine("Cor_FadeIn");
         }
+    }
+
+    void Start()
+    {
+
     }
 
     void GetCanvasGroup()

@@ -21,8 +21,8 @@ public class IndexView : MonoBehaviour
         BtnPlay.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextSceneName("home");
-            SceneManager.LoadScene("transition");
+            //GameManager.instance.SetNextSceneName("home");
+            SceneManager.LoadScene("home");
         });
 
         StartCoroutine(CorGenerateCloud());

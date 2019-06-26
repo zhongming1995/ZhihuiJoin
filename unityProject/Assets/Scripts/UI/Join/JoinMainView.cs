@@ -131,6 +131,7 @@ public class JoinMainView : MonoBehaviour
             int clickType = i;
             typeTransList[i].GetComponent<Button>().onClick.AddListener(delegate
             {
+                SetSelectResObj(null);
                 joinGuide.DoOperation();
                 AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/button_effect/material_effect|material_" + clickType);
                 TypeButtonClick((TemplateResType)clickType, true);
@@ -212,9 +213,9 @@ public class JoinMainView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            AudioManager.instance.StopEffect();
             joinGuide.DoOperation();
             SceneManager.LoadScene("home");
-            AudioManager.instance.StopEffect();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         });
 
@@ -248,9 +249,9 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.TransformToPartsList(DrawPanel);
-            //UIHelper.instance.LoadPrefab("prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            GameManager.instance.SetNextViewPath("prefabs/display|display_view");
-            UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefab("prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath("prefabs/display|display_view");
+            //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate
@@ -583,6 +584,8 @@ public class JoinMainView : MonoBehaviour
     {
         string resPrefabPath = GameManager.instance.resPrefabPathList[type];
         List<string> resPath = GameManager.instance.resPathList[type];
+        float width = ResContentList[type].GetComponent<RectTransform>().rect.size.x;
+        Debug.Log("width========"+width);
         if (resPath.Count <= 0)
         {
             return;
@@ -597,7 +600,11 @@ public class JoinMainView : MonoBehaviour
                 {
                     imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
                 }
-                UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
+                Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
+                UIHelper.instance.SetImage(imgPath, resImg, true);
+                float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, y + 40);
+                //UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
                 if (type == 0)
                 {
                     string selectPath = imgPath + "_select";
@@ -607,7 +614,11 @@ public class JoinMainView : MonoBehaviour
             else
             {
                 string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
+                //UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
+                Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
+                UIHelper.instance.SetImage(imgPath, resImg, true);
+                float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width+20, y+45);
             }
         }
 

@@ -406,7 +406,7 @@ public class JoinGuide : MonoBehaviour
             sequence = null;
 
             //停止提示语音
-            AudioManager.instance.StopEffectAfterCommonBtn();
+            AudioManager.instance.StopEffect();
         }
         if (curAniTrans!=null)
         {
