@@ -114,7 +114,7 @@ namespace DataMgr
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 PartType partType = part[i].Type;
                 GameObject obj;
-                string path = "Prefabs/display/display_part|display_item_" + partType.ToString().ToLower();  
+                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();  
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                 if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
                 {

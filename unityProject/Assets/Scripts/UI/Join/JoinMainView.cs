@@ -133,7 +133,7 @@ public class JoinMainView : MonoBehaviour
             {
                 SetSelectResObj(null);
                 joinGuide.DoOperation();
-                AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/button_effect/material_effect|material_" + clickType);
+                AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/option_audio/material_option_audio|material_" + clickType);
                 TypeButtonClick((TemplateResType)clickType, true);
             });
         }
@@ -164,26 +164,6 @@ public class JoinMainView : MonoBehaviour
 
         mobilePaint.gameObject.SetActive(false);
         Invoke("ShowDrawPanel",0.2f);
-    }
-
-    /// <summary>
-    /// 根据类型加载右边的素材列表
-    /// 这个方法暂时没有用到
-    /// </summary>
-    /// <param name="resType">Res type.</param>
-    void LoadResList(int resType)
-    {
-        TemplateResType tmpType = (TemplateResType)resType;
-        string typeUnSelectPath = "sprite/ui|splice_type_{0}";
-        string typeSelectPath = "sprite/ui|splice_type_{0}_select";
-        Transform t = UIHelper.instance.LoadPrefab("prefabs/join|res_type_item", ConResType, Vector3.zero, Vector3.one, false).transform;
-        UIHelper.instance.SetImage(string.Format(typeSelectPath, resType.ToString()), t.GetChild(0).GetComponent<Image>(), true);
-        UIHelper.instance.SetImage(string.Format(typeUnSelectPath, resType.ToString()), t.GetChild(1).GetComponent<Image>(), true);
-        t.GetComponent<Button>().onClick.AddListener(delegate
-        {
-            TypeButtonClick((TemplateResType)resType,true);
-        });
-        typeTransList.Add(t);
     }
 
     /// <summary>

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEditor;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace ResMgr
 {
@@ -49,7 +51,7 @@ namespace ResMgr
             }
         }
 
-        public bool LoadMainAssetBundle()
+        public bool LoadMainAssetBundle(Action completeCall = null)
         {
             //Debug.Log("UnityTest====================平台：" + ResConf.resPlatForm);
             string path = ResUtil.GetStreamingAssetPathWithoutFile(ResConf.BUNDLE_NAME);//用LoadFromFile方法不能加file://
@@ -60,20 +62,26 @@ namespace ResMgr
             return true;
         }
 
-        private AssetBundle LoadAssetBundle(string bundlePath)
+        IEnumerator Cor_LoadAssetBundle(string path,Action<AssetBundle> completeCall = null)
         {
-            //Debug.LogError(bundlePath);
+            AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
+            yield return request;
+        }
+
+        private AssetBundle LoadAssetBundle(string bundlePath,Action completeCall = null)
+        {
+            Debug.LogError(bundlePath);
             string realBundlePath = string.Format(@"{0}{1}", bundlePath, ResConf.ASSET_BUNDLE_SUFFIX);
-            //Debug.LogError(realBundlePath);
+            Debug.LogError(realBundlePath);
             string[] dependeceList = mainManifest.GetAllDependencies(realBundlePath);
-            //Debug.LogError(dependeceList.Length);
+            Debug.LogError(dependeceList.Length);
             //先加载依赖AssetBundle
             for (int j = 0; j < dependeceList.Length; j++)
             {
-                //Debug.LogError("依赖：" + dependeceList[j]);
+                Debug.LogError("依赖：" + dependeceList[j]);
                 if (_assetBundleDic.ContainsKey(dependeceList[j]))
                 {
-                    //Debug.Log("此依赖已经被加载进来，存在于_assetBundleDic中:"+dependeceList[j]);
+                    Debug.Log("此依赖已经被加载进来，存在于_assetBundleDic中:"+dependeceList[j]);
                     continue;
                 }
                 else
@@ -82,11 +90,11 @@ namespace ResMgr
                     AssetBundle dep_Bundle = AssetBundle.LoadFromFile(bundleFile);
                     if (!dep_Bundle)
                     {
-                        //Debug.LogError("加载依赖失败:" + dep_Bundle.name);
+                        Debug.LogError("加载依赖失败:" + dep_Bundle.name);
                     }
                     else
                     {
-                        //Debug.Log("加载以来："+dep_Bundle.name);
+                        Debug.Log("加载以来："+dep_Bundle.name);
                         _assetBundleDic.Add(dep_Bundle.name, dep_Bundle);
                     }
                 }
@@ -97,18 +105,30 @@ namespace ResMgr
                 AssetBundle ori_Bundle = AssetBundle.LoadFromFile(ResUtil.GetStreamingAssetPathWithoutFile(realBundlePath));
                 if (ori_Bundle == null)
                 {
-                    //Debug.LogError("加载AssetBundle失败：" + ori_Bundle.name);
+                    Debug.LogError("加载AssetBundle失败：" + ori_Bundle.name);
                     return null;
                 }
                 else
                 {
+                    Debug.Log("加载AssetBundle成功:" + ori_Bundle);
                     _assetBundleDic.Add(ori_Bundle.name, ori_Bundle);
+                    Debug.Log("加入字典:" + ori_Bundle.name);
+                    Debug.Log(_assetBundleDic.Count);
+                    Debug.Log(_assetBundleDic.ContainsKey(ori_Bundle.name));
+                    if (completeCall!=null)
+                    {
+                        completeCall();
+                    }
                     return ori_Bundle;
                 }
             }
             else
             {
-                //Debug.Log("此AssetBundle已经被加载进来，存在于_assetBundleDic中:" + bundlePath);
+                Debug.Log("此AssetBundle已经被加载进来，存在于_assetBundleDic中:" + bundlePath);
+                if (completeCall != null)
+                {
+                    completeCall();
+                }
                 return _assetBundleDic[bundlePath];
             }
         }
@@ -118,10 +138,11 @@ namespace ResMgr
         /// <typeparam name="T"></typeparam>
         /// <param name="path">assetBundleName|assetName</param>
         /// <returns></returns>
-        private T Load<T>(string path) where T:Object
+        private T Load<T>(string path) where T : Object
         {
             string[] pathList = path.Split('|');
             string assetBundleName = string.Format(@"{0}{1}", pathList[0], ResConf.ASSET_BUNDLE_SUFFIX);
+            assetBundleName = assetBundleName.ToLower();
             Debug.Log("Load assetBundleName:" + assetBundleName);
             string assetName = pathList[1];
            //Debug.Log("Load assetName：" + assetName);
@@ -152,6 +173,7 @@ namespace ResMgr
                     Debug.LogError("该AssetBundle还没有被加载进来：" + assetBundleName);
                     LoadAssetBundle(pathList[0]);
                 }
+                Debug.Log(assetBundleName);
                 if (_assetBundleDic.ContainsKey(assetBundleName))
                 {
                     Debug.Log("该AssetBundle已经被加载过了：" + assetBundleName);
@@ -176,6 +198,11 @@ namespace ResMgr
                         Debug.LogError("ab不存在");
                     }
                 }
+                else
+                {
+                    Debug.Log("wu========");
+                }
+
             }
             return null;
         }
@@ -189,6 +216,20 @@ namespace ResMgr
         public Object LoadObject(string path)
         {
             return Load<Object>(path);
+        }
+
+        public AnimationClip LoadAnimationClip(string path)
+        {
+            return Load<AnimationClip>(path);
+        }
+
+        public AudioClip LoadAudioClip(string path)
+        {
+            return Load<AudioClip>(path);
+        }
+        public RuntimeAnimatorController LoadAnimationController(string path)
+        {
+            return Load<RuntimeAnimatorController>(path);
         }
     }
 }

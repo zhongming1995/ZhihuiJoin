@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 175540393
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e7f81ea8dad9c974656587ac2c550a4d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 51095fede8bd93866fd21ce118c56784
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/Guide/draw_reminder.anim
+- Assets/Res/Animator/Guide/drag_reminder.anim
+- Assets/Res/Animator/Guide/draw_reminder.controller
+- Assets/Res/Animator/Guide/drag_reminder.controller
+Dependencies:
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/guide_atlas/draw.ab

@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 476744245
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f47bcfa744549b8950bf76ee8ce07cf0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_pokerfront_pic.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_poker_round_bg.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_poker_time2_pic.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_poker_time_icon.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_poker_time1_pic.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_pokerback_pic.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_poker_star2_pic.png
+- Assets/Res/Atlas/ui_atlas/card_atlas/game_poker_star1_pic.png
+Dependencies: []

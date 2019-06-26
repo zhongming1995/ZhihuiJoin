@@ -43,7 +43,7 @@ public class ColorToggleCtrl : MonoBehaviour
             if (isFirstValueChange == false)
             {
                 joinGuide.DoOperation();
-                AudioManager.instance.PlayAudio(EffectAudioType.Option,"Audio/button_effect/color_effect|color_" + index);
+                AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/option_audio/color_option_audio|color_" + index);
             }
             if (isFirstValueChange)
             {

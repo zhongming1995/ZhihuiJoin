@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 3891799779
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e392c06058d01f76fa673f10f71b1f01
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 94b27d020f1db47fdadd7345bed91663
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/Piano_Ani/Ani_2/RabbitJump.anim
+- Assets/Res/Animator/Piano_Ani/Ani_2/RabbitDefault.anim
+- Assets/Res/Animator/Piano_Ani/Ani_2/song_ani_2.controller
+Dependencies:
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/rabbit_atlas/correct.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/rabbit_atlas/default.ab

@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Piano/PianoView.cs">
     <Files>
-      <File FileName="Assets/AssetBundles-Browser-master/Editor/AssetBundleModel/ABModel.cs" Line="327" Column="1" />
-      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="249" Column="21" />
-      <File FileName="Assets/Scripts/UI/Card/CardItem.cs" Line="64" Column="35" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoSpectrum.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoKey.cs" Line="48" Column="22" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="205" Column="17" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="204" Column="10" />
+      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="151" Column="65" />
+      <File FileName="Assets/Editor/PreImport/PreImporter.cs" Line="59" Column="56" />
+      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="301" Column="104" />
+      <File FileName="Assets/Scripts/UI/Transition/TransitionPrefabView.cs" Line="15" Column="17" />
+      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="123" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

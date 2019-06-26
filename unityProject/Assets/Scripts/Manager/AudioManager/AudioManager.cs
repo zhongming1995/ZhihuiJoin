@@ -298,7 +298,7 @@ namespace AudioMgr {
             Debug.Log("PlayOptionAudio--------");
             if (commonBtnClip == null)
             {
-                commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/button_effect|common_button");
+                commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/option_audio/common_option_audio|common_button");
             }
             //effectAudioSource.clip = commonBtnClip;
             effectAudioSource.PlayOneShot(commonBtnClip);

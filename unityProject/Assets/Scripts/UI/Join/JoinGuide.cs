@@ -368,13 +368,13 @@ public class JoinGuide : MonoBehaviour
     {
         if (joinMainView.step==4)
         {
-            string path = "Audio/reminder|guide_universal_02";
+            string path = "Audio/reminder/common_reminder_audio|guide_universal_02";
             DoScaleAni(joinMainView.BtnOk.transform);
             AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
         }
         else
         {
-            string path = "Audio/reminder|guide_universal_01";
+            string path = "Audio/reminder/common_reminder_audio|guide_universal_01";
             DoScaleAni(joinMainView.BtnNext.transform);
             AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
         }
@@ -382,14 +382,14 @@ public class JoinGuide : MonoBehaviour
 
     private void DoNextStepReminder()
     {
-        string path = "Audio/reminder|guide_universal_02";
+        string path = "Audio/reminder/common_reminder_audio|guide_universal_02";
         DoScaleAni(joinMainView.BtnNext.transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoCompleteReminder()
     {
-        string path = "Audio/reminder|guide_universal_02";
+        string path = "Audio/reminder/common_reminder_audio|guide_universal_02";
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
         DoScaleAni(joinMainView.BtnOk.transform);
     }

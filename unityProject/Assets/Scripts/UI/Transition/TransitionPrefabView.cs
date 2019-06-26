@@ -6,6 +6,7 @@ using Helper;
 using UnityEngine;
 using UnityEngine.UI;
 
+//这个暂时没用到，现在有过度页的只有列表页到拼接页，是用的跳转场景
 public class TransitionPrefabView : MonoBehaviour
 {
 

@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 642697728
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e0238a9f05b24bd8348f650f11b65883
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: fe397485c3cec1106b49e9ff95e8f8a2
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Material/ImageMask.mat
+- Assets/Res/Material/CanvasLockMask.mat
+- Assets/Res/Material/PianoEffect.mat
+- Assets/Res/Material/OutLine.mat
+Dependencies:
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/draw.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/small_fodder/eye.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/piano_atlas.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/shader.ab

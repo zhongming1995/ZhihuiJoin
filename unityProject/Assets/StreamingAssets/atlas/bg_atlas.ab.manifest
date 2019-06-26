@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 1457785362
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 07f5ee50e0b458718162d30c2038058f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/bg_atlas/finsh_lipao_right_pic@3x.png
+- Assets/Res/Atlas/bg_atlas/finsh_flat_right_pic@3x.png
+- Assets/Res/Atlas/bg_atlas/splice_draw_bg@3x.png
+- Assets/Res/Atlas/bg_atlas/game_poker_bg.png
+- Assets/Res/Atlas/bg_atlas/finsh_flat_left_pic@3x.png
+- Assets/Res/Atlas/bg_atlas/pinjie_cloud2_pic@3x.png
+- Assets/Res/Atlas/bg_atlas/pinjie_cloud1_pic@3x.png
+- Assets/Res/Atlas/bg_atlas/finsh_lipao_left_pic@3x.png
+- Assets/Res/Atlas/bg_atlas/game_music_bg@3x.png
+- Assets/Res/Atlas/bg_atlas/splice_draw_board_bg2@3x.png
+- Assets/Res/Atlas/bg_atlas/splice_finsh_display_item_bg@3x.png
+- Assets/Res/Atlas/bg_atlas/game_pausepop_pic.png
+- Assets/Res/Atlas/bg_atlas/home_bg@3x 1.png
+Dependencies: []

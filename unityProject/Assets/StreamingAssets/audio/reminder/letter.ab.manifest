@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 4139498264
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 04946321d045d51d335ba1c6dd6eca7d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Audio/reminder/letter/guide_letter_01.mp3
+- Assets/Res/Audio/reminder/letter/guide_letter_05.mp3
+- Assets/Res/Audio/reminder/letter/guide_letter_06.mp3
+- Assets/Res/Audio/reminder/letter/guide_letter_07.mp3
+- Assets/Res/Audio/reminder/letter/guide_letter_04.mp3
+- Assets/Res/Audio/reminder/letter/guide_letter_02.mp3
+- Assets/Res/Audio/reminder/letter/guide_letter_03.mp3
+Dependencies: []

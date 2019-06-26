@@ -53,7 +53,7 @@ namespace Editor.PreImport
                 }
 
                 //设置ab tag
-                if (str.Contains(@"Res/Models") || str.Contains(@"Res/Materials") || str.Contains(@"Res/Font") || str.Contains(@"Res/Prefabs") || str.Contains(@"Res/textures") || str.Contains(@"Res/Audio") || str.Contains(@"Res/Animator"))
+                if (str.Contains(@"Res/Shader") || str.Contains(@"Res/Material") || str.Contains(@"Res/Font") || str.Contains(@"Res/Prefabs")|| str.Contains(@"Res/Audio") || str.Contains(@"Res/Animator"))
                 {
                     AssetImporter assetImport = AssetImporter.GetAtPath(str);
                     if (str.Contains(@"Res/prefabs/download") || str.Contains(@"Res/prefabs/password"))//download ui不打包ab

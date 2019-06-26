@@ -127,7 +127,7 @@ public class PianoView : MonoBehaviour
 
     void SetSongName(int index)
     {
-        string path = "Sprite/ui/piano/song_name|game_music_" + index.ToString();
+        string path = "Sprite/ui_sp/piano_sp/song_name|game_music_" + index.ToString();
         UIHelper.instance.SetImage(path, ImgSongName, true);
     }
 
@@ -178,7 +178,7 @@ public class PianoView : MonoBehaviour
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //暂停游戏
-            string path = "Prefabs/game|window_pause";
+            string path = "Prefabs/game/window|window_pause";
             UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
@@ -239,7 +239,7 @@ public class PianoView : MonoBehaviour
         }
         int keyIndex = songSpectrums[curSpecturmIndex];
         int n = RandowSymbol();
-        string path = string.Format("Sprite/ui/piano_symbols|game_music_symbol{0}_pic@3x", n);
+        string path = string.Format("Sprite/ui_sp/piano_symbols|game_music_symbol{0}_pic@3x", n);
         UIHelper.instance.SetImage(path, reminders[keyIndex - 1], true);
         reminders[keyIndex-1].gameObject.SetActive(true);
         pianoKeyAnimations[keyIndex-1].Play();
@@ -247,7 +247,7 @@ public class PianoView : MonoBehaviour
 
     void ShowWindow()
     {
-        string path = "Prefabs/game|window_complete";
+        string path = "Prefabs/game/window|window_complete";
         completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 

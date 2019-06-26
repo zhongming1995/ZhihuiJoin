@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 3531799766
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fcde72fa7789dd5a1048f80f2b8e712e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Sprite/brushes/brush_55_text.png
+- Assets/Res/Sprite/brushes/brush_70_text.png
+- Assets/Res/Sprite/brushes/brush_65_text.png
+- Assets/Res/Sprite/brushes/brush_45_text.png
+- Assets/Res/Sprite/brushes/brush_50_text.png
+- Assets/Res/Sprite/brushes/brush_35_text.png
+- Assets/Res/Sprite/brushes/brush_60_text.png
+- Assets/Res/Sprite/brushes/brush_40_text.png
+- Assets/Res/Sprite/brushes/brush_30_text.png
+- Assets/Res/Sprite/brushes/brush_75_text.png
+Dependencies: []

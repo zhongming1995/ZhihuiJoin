@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 19512577
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0c3b655ab08219a3cef41f01025bf68d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 94b27d020f1db47fdadd7345bed91663
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/Piano_Ani/Ani_1/song_ani_1.controller
+- Assets/Res/Animator/Piano_Ani/Ani_1/DuckDefault.anim
+- Assets/Res/Animator/Piano_Ani/Ani_1/DuckJump.anim
+Dependencies:
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/duck_atlas/default.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/duck_atlas/correct.ab

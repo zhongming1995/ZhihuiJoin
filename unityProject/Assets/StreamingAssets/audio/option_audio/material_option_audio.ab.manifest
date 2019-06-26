@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2899821662
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 185e74aadfda1ce412eac3be5d71f4c0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Audio/option_audio/material_option_audio/material_head.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_4.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_5.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_2.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_6.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_0.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_7.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_1.mp3
+- Assets/Res/Audio/option_audio/material_option_audio/material_3.mp3
+Dependencies: []

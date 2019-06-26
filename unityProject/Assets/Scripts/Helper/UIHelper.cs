@@ -42,10 +42,11 @@ namespace Helper
 
         public Sprite LoadSprite(string path)
         {
-            path = PathToResourcePath(path);
-            //return ResManager.instance.LoadSprite(path);
-            Sprite s = Resources.Load(path,typeof(Sprite)) as Sprite;
-            return s;
+            Debug.Log(path);
+            //path = PathToResourcePath(path);
+            return ResManager.instance.LoadSprite(path);
+            //Sprite s = Resources.Load(path,typeof(Sprite)) as Sprite;
+            //return s;
         }
 
 
@@ -60,9 +61,9 @@ namespace Helper
         /// <param name="stretch">是否是四周拉伸.</param>
         public GameObject LoadPrefab(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false)
         {
-            path = PathToResourcePath(path);
-            //UnityEngine.Object obj = ResManager.instance.LoadObject(path);
-            UnityEngine.Object obj = Resources.Load(path);
+            //path = PathToResourcePath(path);
+            UnityEngine.Object obj = ResManager.instance.LoadObject(path);
+            //UnityEngine.Object obj = Resources.Load(path);
             GameObject go = Instantiate(obj) as GameObject;
             go.transform.SetParent(parent);
             go.transform.localPosition = pos;
@@ -100,6 +101,25 @@ namespace Helper
 
                 yield return null;
             }
+            /*
+            float progress;
+            yield return new WaitForEndOfFrame();
+            AssetBundleCreateRequest abcr = AssetBundle.LoadFromFileAsync(path);
+            while (!abcr.isDone)
+            {
+                if (abcr.progress < 0.9f)
+                {
+                    progress = abcr.progress;
+                }
+                else
+                {
+                    progress = 1.0f;
+                }
+                progressCall?.Invoke(progress);
+
+                yield return null;
+            }
+            */
             GameObject go = Instantiate(request.asset) as GameObject;
             go.transform.SetParent(parent);
             go.transform.localPosition = pos;
@@ -115,23 +135,24 @@ namespace Helper
 
         public AnimationClip LoadAnimationClip(string path)
         {
-            path = PathToResourcePath(path);
-            AnimationClip clip = Resources.Load<AnimationClip>(path) as AnimationClip;
+            //path = PathToResourcePath(path);
+            //AnimationClip clip = Resources.Load<AnimationClip>(path) as AnimationClip;
+            AnimationClip clip = ResManager.instance.LoadAnimationClip(path);
             return clip;
         }
 
         public AudioClip LoadAudioClip(string path)
         {
-            path = PathToResourcePath(path);
-            AudioClip clip = Resources.Load<AudioClip>(path) as AudioClip;
-            return clip;
+            //path = PathToResourcePath(path);
+            //AudioClip clip = Resources.Load<AudioClip>(path) as AudioClip;
+            return ResManager.instance.LoadAudioClip(path);
         }
 
         public RuntimeAnimatorController LoadAnimationController(string path)
         {
-            path = PathToResourcePath(path);
-            RuntimeAnimatorController aniController = Resources.Load<RuntimeAnimatorController>(path) as RuntimeAnimatorController;
-            return aniController;
+            //path = PathToResourcePath(path);
+            //RuntimeAnimatorController aniController = Resources.Load<RuntimeAnimatorController>(path) as RuntimeAnimatorController;
+            return ResManager.instance.LoadAnimationController(path);
         }
 
 
