@@ -246,7 +246,7 @@ namespace AudioMgr {
             }
         }
 
-        public void PlayPiano(string path)
+        public void PlayOneShotAudio(string path)
         {
             AudioClip clip = SetAudioClip(path);
             if (clip!=null)

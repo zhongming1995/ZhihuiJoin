@@ -61,7 +61,7 @@ public class CardItem : MonoBehaviour
         {
             BtnBack.interactable = false;
             FlipToForward(CompareCard);
-            AudioManager.instance.PlayPiano(GameManager.instance.drawAudioPathList[ID]);
+            AudioManager.instance.PlayOneShotAudio(GameManager.instance.drawAudioPathList[ID]);
         });
     }
 
