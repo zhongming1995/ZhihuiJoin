@@ -51,6 +51,34 @@ namespace ResMgr
             }
         }
 
+        /// <summary>
+        /// 同步加载MainAssetBundle(弃用)
+        /// </summary>
+        /// <returns><c>true</c>, if main asset bundle was loaded, <c>false</c> otherwise.</returns>
+        /// <param name="completeCall">Complete call.</param>
+        /*
+        public bool LoadMainAssetBundle(Action<Object> completeCall = null)
+        {
+#if UNITY_EDITOR && EditorDebug
+                    Debug.Log("==========测试模式，不加载ab");
+#else
+            Debug.Log("UnityTest====================平台：" + ResConf.resPlatForm);
+            string path = ResUtil.GetStreamingAssetPathWithoutFile(ResConf.BUNDLE_NAME);//用LoadFromFile方法不能加file://
+                                                                                        //Debug.Log("UnityTest====================path:" + path);
+            AssetBundle bundle = AssetBundle.LoadFromFile(path);
+            mainManifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+            bundle.Unload(false);
+            bundle = null;
+#endif
+            return true;
+        }
+        */
+
+        /// <summary>
+        /// 异步加载MainAssetBundle
+        /// </summary>
+        /// <returns><c>true</c>, if main asset bundle was loaded, <c>false</c> otherwise.</returns>
+        /// <param name="completeCall">Complete call.</param>
         public bool LoadMainAssetBundle(Action<Object> completeCall = null)
         {
 #if UNITY_EDITOR&&EditorDebug
@@ -58,11 +86,16 @@ namespace ResMgr
 #else
             Debug.Log("UnityTest====================平台：" + ResConf.resPlatForm);
             string path = ResUtil.GetStreamingAssetPathWithoutFile(ResConf.BUNDLE_NAME);//用LoadFromFile方法不能加file://
-            //Debug.Log("UnityTest====================path:" + path);
-            AssetBundle bundle = AssetBundle.LoadFromFile(path);
-            mainManifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-            bundle.Unload(false);
-            bundle = null;
+            Debug.Log("UnityTest====================path:" + path);
+            StartCoroutine(Cor_LoadAssetBundle(path,(resultBundle) =>
+            {
+                StartCoroutine(Cor_LoadAsset<AssetBundleManifest>(resultBundle,"AssetBundleManifest", (resultAsset) =>
+                {
+                    mainManifest = resultAsset as AssetBundleManifest;
+                    resultBundle.Unload(false);
+                    resultBundle = null;
+                }));
+            }));
 #endif
             return true;
         }
@@ -126,20 +159,20 @@ namespace ResMgr
             }
         }
 
-        private IEnumerator Cor_LoadAssetBundle(string path,Action<AssetBundle> completeCall)
+        private IEnumerator Cor_LoadAssetBundle(string path,Action<AssetBundle> completeCall = null)
         {
             AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
-            yield return request;
+            yield return request.assetBundle;
             if (completeCall!=null)
             {
                 completeCall(request.assetBundle);
             }
         }
 
-        private IEnumerator Cor_LoadAsset<T>(AssetBundle bundle,string name,Action<Object> completeCall)
+        private IEnumerator Cor_LoadAsset<T>(AssetBundle bundle,string assetName,Action<Object> completeCall = null)
         {
-            AssetBundleRequest request = bundle.LoadAssetAsync<T>(name);
-            yield return request;
+            AssetBundleRequest request = bundle.LoadAssetAsync<T>(assetName);
+            yield return request.asset;
             if (completeCall!=null)
             {
                 completeCall(request.asset);
