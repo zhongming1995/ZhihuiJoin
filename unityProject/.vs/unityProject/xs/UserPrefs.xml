@@ -1,12 +1,14 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Piano/PianoView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AppEntry.cs">
     <Files>
-      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="204" Column="10" />
-      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="151" Column="65" />
-      <File FileName="Assets/Editor/PreImport/PreImporter.cs" Line="59" Column="56" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="141" Column="48" />
+      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="25" Column="28" />
+      <File FileName="Assets/Editor/PreImport/PreImporter.cs" Line="47" Column="38" />
       <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="301" Column="104" />
       <File FileName="Assets/Scripts/UI/Transition/TransitionPrefabView.cs" Line="15" Column="17" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="123" Column="42" />
+      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="123" Column="62" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResUtil.cs" Line="21" Column="62" />
+      <File FileName="Assets/Scripts/AppEntry.cs" Line="32" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

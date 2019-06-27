@@ -140,9 +140,9 @@ namespace ResMgr
         /// <returns></returns>
         private T Load<T>(string path) where T : Object
         {
+            path = path.ToLower();
             string[] pathList = path.Split('|');
             string assetBundleName = string.Format(@"{0}{1}", pathList[0], ResConf.ASSET_BUNDLE_SUFFIX);
-            assetBundleName = assetBundleName.ToLower();
             Debug.Log("Load assetBundleName:" + assetBundleName);
             string assetName = pathList[1];
            //Debug.Log("Load assetName：" + assetName);
