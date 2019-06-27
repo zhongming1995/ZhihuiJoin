@@ -51,7 +51,7 @@ namespace ResMgr
             }
         }
 
-        public bool LoadMainAssetBundle(Action completeCall = null)
+        public bool LoadMainAssetBundle(Action<Object> completeCall = null)
         {
 #if UNITY_EDITOR&&EditorDebug
             Debug.Log("==========测试模式，不加载ab");
@@ -125,7 +125,27 @@ namespace ResMgr
                 return _assetBundleDic[bundlePath];
             }
         }
-        
+
+        private IEnumerator Cor_LoadAssetBundle(string path,Action<AssetBundle> completeCall)
+        {
+            AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
+            yield return request;
+            if (completeCall!=null)
+            {
+                completeCall(request.assetBundle);
+            }
+        }
+
+        private IEnumerator Cor_LoadAsset<T>(AssetBundle bundle,string name,Action<Object> completeCall)
+        {
+            AssetBundleRequest request = bundle.LoadAssetAsync<T>(name);
+            yield return request;
+            if (completeCall!=null)
+            {
+                completeCall(request.asset);
+            }
+        }
+
         /// <summary>
         /// </summary>
         /// <typeparam name="T"></typeparam>
