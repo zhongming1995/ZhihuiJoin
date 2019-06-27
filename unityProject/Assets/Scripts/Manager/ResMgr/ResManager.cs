@@ -62,6 +62,7 @@ namespace ResMgr
             AssetBundle bundle = AssetBundle.LoadFromFile(path);
             mainManifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
             bundle.Unload(false);
+            bundle = null;
 #endif
             return true;
         }

@@ -57,8 +57,6 @@ public class HomeView : MonoBehaviour
         }
     }
 
-
-
     private void JumpToJoin()
     {
         GameManager.instance.SetNextSceneName("join");

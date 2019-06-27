@@ -1,9 +1,13 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/ResMgr/ResUtil.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Helper/UIHelper.cs">
     <Files>
-      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="137" Column="20" />
-      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="26" Column="10" />
-      <File FileName="Assets/Scripts/Manager/ResMgr/ResUtil.cs" Line="32" Column="48" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="109" Column="38" />
+      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="58" Column="29" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResUtil.cs" Line="36" Column="48" />
+      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="58" Column="6" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="609" Column="47" />
+      <File FileName="Assets/Scripts/UI/Game/ChooseGameWindow.cs" Line="60" Column="6" />
+      <File FileName="Assets/Scripts/UI/Game/CompleteWindow.cs" Line="91" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

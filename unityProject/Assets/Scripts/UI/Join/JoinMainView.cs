@@ -379,33 +379,9 @@ public class JoinMainView : MonoBehaviour
         seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.2f));
         seq.InsertCallback(0.2f, () =>
         {
-            /*
-            SetCurSelectType(type);
-            for (int i = 0; i < GameManager.instance.resTypeCount; i++)
-            {
-                if (i == (int)type)
-                {
-                    typeTransList[i].GetChild(0).gameObject.SetActive(true);
-                    typeTransList[i].GetChild(1).gameObject.SetActive(false);
-                    if (loadResult[(int)type] == false)
-                    {
-                        LoadResListByType((int)type);
-                    }
-                    ResScrollViewList[i].gameObject.SetActive(true);
-                    
-                }
-                else
-                {
-                    typeTransList[i].GetChild(0).gameObject.SetActive(false);
-                    typeTransList[i].GetChild(1).gameObject.SetActive(true);
-                    ResScrollViewList[i].gameObject.SetActive(false);
-                }
-            }
-            */
             ShowResListByType(type);
         });
         seq.Append(ResListTrans.DOLocalMoveX(desPos_ResContentList, 0.2f));
-
     }
 
     private void ShowResListByType(TemplateResType type)
@@ -632,5 +608,12 @@ public class JoinMainView : MonoBehaviour
     {
         yield return new WaitForSeconds(1.4f);
         PlayGuideAudio(path,step);
+    }
+
+    private void OnDestroy()
+    {
+        Resources.UnloadAsset(gameObject);
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }
