@@ -285,9 +285,9 @@ public class PianoView : MonoBehaviour
     {
         Destroy(completeWindow);
         Destroy(gameObject);
-        //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
-        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //GameManager.instance.SetNextViewPath("Prefabs/game/card|card_view");
+        //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void OnDestroy()

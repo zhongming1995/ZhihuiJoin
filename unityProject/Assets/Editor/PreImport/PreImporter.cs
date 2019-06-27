@@ -56,7 +56,7 @@ namespace Editor.PreImport
                 if (str.Contains(@"Res/Shader") || str.Contains(@"Res/Material") || str.Contains(@"Res/Font") || str.Contains(@"Res/Prefabs")|| str.Contains(@"Res/Audio") || str.Contains(@"Res/Animator"))
                 {
                     AssetImporter assetImport = AssetImporter.GetAtPath(str);
-                    if (str.Contains(@"Res/prefabs/download") || str.Contains(@"Res/prefabs/password"))//download ui不打包ab
+                    if (str.Contains(@"Res/Prefabs/download") || str.Contains(@"Res/Prefabs/password"))//download ui不打包ab
                     {
                         assetImport.assetBundleName = string.Empty;
                     }

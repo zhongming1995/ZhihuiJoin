@@ -48,7 +48,7 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
         {
             genParent = GameObject.Find("img_draw_bg/draw_panel/group_hatheadwear").transform;
         }
-        GameObject obj = UIHelper.instance.LoadPrefab("prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
+        GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
         obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex());
         eventData.pointerDrag = obj;
     }

@@ -75,9 +75,9 @@ public class DisplayView : MonoBehaviour
 
     private void PlayPiano()
     {
-        //GameManager.instance.SetNextViewPath("prefabs/game/piano|piano_view");
-        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //GameManager.instance.SetNextViewPath("Prefabs/game/piano|piano_view");
+        //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
     }
 
@@ -85,7 +85,7 @@ public class DisplayView : MonoBehaviour
     {
         //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
         //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
     }
 
@@ -120,7 +120,7 @@ public class DisplayView : MonoBehaviour
         BtnGame.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            UIHelper.instance.LoadPrefab("prefabs/game/window|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefab("Prefabs/game/window|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
 

@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
+    //用来控制资源加载方式，isEditorDebug=true时用编辑器下的方法，isEditorDebug=false 正式时用AssetBundle
+    public bool isEditorDebug;
+
     private void Awake()
     {
         instance = this;
@@ -15,24 +18,20 @@ public class AppEntry : SingletonMono<AppEntry>
 
     void Start()
     {
-        //第一步资源加载
-        //if (ResManager.instance.LoadMainAssetBundle())
-        //{
-        //    //加载第一个页面
-        //    UIHelper.instance.LoadPrefab("prefabs/home|select_item_view", GameManager.instance.Root , Vector3.zero, Vector3.one,true);
-        //}
-
         //屏蔽多点触摸
         Input.multiTouchEnabled = false;
 
         //帧率
         Application.targetFrameRate = 60;
 
-        //打印
-        Debug.unityLogger.logEnabled = false;
+        //打印开关
+        Debug.unityLogger.logEnabled = true;
 
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
+
+        //加载方式，isEditorDebug=true时用编辑器下的方法，isEditorDebug=false 正式时用AssetBundle
+        isEditorDebug = true;
 
         //跳转到首页
         if (ResManager.instance.LoadMainAssetBundle())
@@ -41,6 +40,7 @@ public class AppEntry : SingletonMono<AppEntry>
         }
     }
 
+    //供外部调用，弹钢琴页面允许多指，其他时候不允许
     public void SetMultiTouchEnable(bool enable)
     {
         Input.multiTouchEnabled = enable;

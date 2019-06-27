@@ -29,6 +29,15 @@ namespace ResMgr
             return path;
         }
 
+        /// <summary>
+        /// 加载AB使用的是xx/xx|a 这样的路径，用Resources加载要转换成xx/xx/a
+        /// </summary>
+        /// <param name="path"></param>
+        public static string PathToResourcePath(string path)
+        {
+            string[] strLst = path.Split('|');
+            return strLst[0] + "/" + strLst[1];
+        }
     }
 }
 

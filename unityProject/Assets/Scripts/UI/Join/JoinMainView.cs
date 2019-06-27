@@ -153,7 +153,7 @@ public class JoinMainView : MonoBehaviour
     {
         //绘画素材
         //BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        //GameObject draw = UIHelper.instance.LoadPrefab("prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
+        //GameObject draw = UIHelper.instance.LoadPrefab("Prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
         Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
@@ -229,9 +229,9 @@ public class JoinMainView : MonoBehaviour
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.TransformToPartsList(DrawPanel);
-            UIHelper.instance.LoadPrefab("prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //GameManager.instance.SetNextViewPath("prefabs/display|display_view");
-            //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefab("Prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath("Prefabs/display|display_view");
+            //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate

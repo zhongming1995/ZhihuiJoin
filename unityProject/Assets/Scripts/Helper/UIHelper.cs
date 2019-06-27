@@ -14,10 +14,7 @@ namespace Helper
             instance = this;
         }
 
-        /// <summary>
-        /// 加载AB使用的是xx/xx|a 这样的路径，现在用Resources加载要转换成xx/xx/a
-        /// </summary>
-        /// <param name="path"></param>
+
         private string PathToResourcePath(string path)
         {
             string[] strLst = path.Split('|');
@@ -42,7 +39,6 @@ namespace Helper
 
         public Sprite LoadSprite(string path)
         {
-            Debug.Log(path);
             //path = PathToResourcePath(path);
             return ResManager.instance.LoadSprite(path);
             //Sprite s = Resources.Load(path,typeof(Sprite)) as Sprite;

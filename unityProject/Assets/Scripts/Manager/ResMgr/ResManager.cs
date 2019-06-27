@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using UnityEditor;
 
 namespace ResMgr
 {
     public class ResManager : SingletonMono<ResManager>
     {
-        //字典存放加载过的AssetBundle，ex: "sprite/homeitems.ab":ab
+        //字典存放加载过的AssetBundle，ex: "Sprite/homeitems.ab":ab
         private Dictionary<string, AssetBundle> _assetBundleDic = new Dictionary<string, AssetBundle>();
-        //字段存放加载过的res，ex: "prefabs/home|home_item":res
+        //字段存放加载过的res，ex: "Prefabs/home|home_item":res
         private Dictionary<string, Object> _resDic = new Dictionary<string, Object>();
 
         //加载AssetBundleManifest的超时时间
@@ -21,7 +22,6 @@ namespace ResMgr
         void Awake()
         {
             instance = this;
-            LoadMainAssetBundle();
             Debug.Log("Awake=====");
         }
 
@@ -53,35 +53,29 @@ namespace ResMgr
 
         public bool LoadMainAssetBundle(Action completeCall = null)
         {
-            //Debug.Log("UnityTest====================平台：" + ResConf.resPlatForm);
+#if UNITY_EDITOR&&EditorDebug
+            Debug.Log("==========测试模式，不加载ab");
+#else
+            Debug.Log("UnityTest====================平台：" + ResConf.resPlatForm);
             string path = ResUtil.GetStreamingAssetPathWithoutFile(ResConf.BUNDLE_NAME);//用LoadFromFile方法不能加file://
             //Debug.Log("UnityTest====================path:" + path);
             AssetBundle bundle = AssetBundle.LoadFromFile(path);
             mainManifest = bundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
             bundle.Unload(false);
+#endif
             return true;
-        }
-
-        IEnumerator Cor_LoadAssetBundle(string path,Action<AssetBundle> completeCall = null)
-        {
-            AssetBundleCreateRequest request = AssetBundle.LoadFromFileAsync(path);
-            yield return request;
         }
 
         private AssetBundle LoadAssetBundle(string bundlePath,Action completeCall = null)
         {
-            Debug.LogError(bundlePath);
             string realBundlePath = string.Format(@"{0}{1}", bundlePath, ResConf.ASSET_BUNDLE_SUFFIX);
-            Debug.LogError(realBundlePath);
             string[] dependeceList = mainManifest.GetAllDependencies(realBundlePath);
-            Debug.LogError(dependeceList.Length);
             //先加载依赖AssetBundle
             for (int j = 0; j < dependeceList.Length; j++)
             {
-                Debug.LogError("依赖：" + dependeceList[j]);
                 if (_assetBundleDic.ContainsKey(dependeceList[j]))
                 {
-                    Debug.Log("此依赖已经被加载进来，存在于_assetBundleDic中:"+dependeceList[j]);
+                    //此依赖已经被加载进来，存在于_assetBundleDic中
                     continue;
                 }
                 else
@@ -90,11 +84,11 @@ namespace ResMgr
                     AssetBundle dep_Bundle = AssetBundle.LoadFromFile(bundleFile);
                     if (!dep_Bundle)
                     {
-                        Debug.LogError("加载依赖失败:" + dep_Bundle.name);
+                        //加载依赖失败
                     }
                     else
                     {
-                        Debug.Log("加载以来："+dep_Bundle.name);
+                        //加载依赖成功
                         _assetBundleDic.Add(dep_Bundle.name, dep_Bundle);
                     }
                 }
@@ -105,16 +99,14 @@ namespace ResMgr
                 AssetBundle ori_Bundle = AssetBundle.LoadFromFile(ResUtil.GetStreamingAssetPathWithoutFile(realBundlePath));
                 if (ori_Bundle == null)
                 {
+                    //加载AssetBundle失败
                     Debug.LogError("加载AssetBundle失败：" + ori_Bundle.name);
                     return null;
                 }
                 else
                 {
-                    Debug.Log("加载AssetBundle成功:" + ori_Bundle);
+                    //加载AssetBundle成功
                     _assetBundleDic.Add(ori_Bundle.name, ori_Bundle);
-                    Debug.Log("加入字典:" + ori_Bundle.name);
-                    Debug.Log(_assetBundleDic.Count);
-                    Debug.Log(_assetBundleDic.ContainsKey(ori_Bundle.name));
                     if (completeCall!=null)
                     {
                         completeCall();
@@ -124,7 +116,7 @@ namespace ResMgr
             }
             else
             {
-                Debug.Log("此AssetBundle已经被加载进来，存在于_assetBundleDic中:" + bundlePath);
+                //此AssetBundle已经被加载进来，存在于_assetBundleDic中
                 if (completeCall != null)
                 {
                     completeCall();
@@ -140,43 +132,48 @@ namespace ResMgr
         /// <returns></returns>
         private T Load<T>(string path) where T : Object
         {
+            T result = null;
+#if UNITY_EDITOR && EditorDebug
+            path = ResUtil.PathToResourcePath(path);
+            Debug.Log("=========Resoure加载：" + path);
+            result = Resources.Load<T>(path);
+            if (result == null)
+            {
+                Debug.Log("null");
+            }
+#else
             path = path.ToLower();
             string[] pathList = path.Split('|');
             string assetBundleName = string.Format(@"{0}{1}", pathList[0], ResConf.ASSET_BUNDLE_SUFFIX);
-            Debug.Log("Load assetBundleName:" + assetBundleName);
+            //Debug.Log("Load assetBundleName:" + assetBundleName);
             string assetName = pathList[1];
            //Debug.Log("Load assetName：" + assetName);
-//#if UNITY_EDITOR
-            //string[] str = AssetDatabase.GetAssetPathsFromAssetBundleAndAssetName(assetBundleName, assetName);
-            //T t = AssetDatabase.LoadAssetAtPath<T>(str[0]);
-            //return t;
-//#endif
             if (_resDic.ContainsKey(path))
             {
-                Debug.Log("该资源已经被加载过了：" + path);
+                //Debug.Log("该资源已经被加载过了：" + path);
                 UnityEngine.Object asset;
                 _resDic.TryGetValue(path, out asset);
                 if (asset)
                 {
-                    Debug.Log("找到该资源1");
+                    //Debug.Log("找到该资源1");
                     return asset as T;
                 }
                 else
                 {
-                    Debug.LogError("找不到该资源1");
+                    //Debug.LogError("找不到该资源1");
                 }
             }
             else
             {
                 if (!_assetBundleDic.ContainsKey(assetBundleName))
                 {
-                    Debug.LogError("该AssetBundle还没有被加载进来：" + assetBundleName);
+                    //Debug.LogError("该AssetBundle还没有被加载进来：" + assetBundleName);
                     LoadAssetBundle(pathList[0]);
                 }
                 Debug.Log(assetBundleName);
                 if (_assetBundleDic.ContainsKey(assetBundleName))
                 {
-                    Debug.Log("该AssetBundle已经被加载过了：" + assetBundleName);
+                    //Debug.Log("该AssetBundle已经被加载过了：" + assetBundleName);
                     AssetBundle ab;
                     _assetBundleDic.TryGetValue(assetBundleName, out ab);
                     if (ab)
@@ -184,18 +181,18 @@ namespace ResMgr
                         T asset = ab.LoadAsset<T>(assetName);
                         if (asset)
                         {
-                            Debug.Log("asset被加载：" + assetName);
+                            //Debug.Log("asset被加载：" + assetName);
                             _resDic.Add(path, asset);
                             return asset;
                         }
                         else
                         {
-                            Debug.LogError("asset加载失败：" + assetName);
+                            //Debug.LogError("asset加载失败：" + assetName);
                         }
                     }
                     else
                     {
-                        Debug.LogError("ab不存在");
+                        //Debug.LogError("ab不存在");
                     }
                 }
                 else
@@ -204,7 +201,8 @@ namespace ResMgr
                 }
 
             }
-            return null;
+#endif
+            return result;
         }
 
         public Sprite LoadSprite(string path)
