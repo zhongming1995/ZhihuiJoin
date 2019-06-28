@@ -54,9 +54,7 @@ public class DisplayView : MonoBehaviour
 
     private void ShowMask(bool show)
     {
-        Debug.Log("show1");
         ImgMask.gameObject.SetActive(show);
-        Debug.Log("show2");
     }
 
     private void OnEnable()
@@ -112,7 +110,9 @@ public class DisplayView : MonoBehaviour
             GC.Collect();
         });
         BtnSave.onClick.AddListener(delegate {
+#if !UNITY_EDITOR
             ShowMask(true);
+#endif
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SavePic();
         });
@@ -193,14 +193,9 @@ public class DisplayView : MonoBehaviour
         fileStream.EndWrite(result);
         fileStream.Close();
         Debug.Log("异步保存图片完成------------");
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            UnityToIOS_SavePhotoToAlbum(savePath);
-        }
-        else
-        {
-            SavePhotoCallBack("test");
-        }
+      
+        UnityToIOS_SavePhotoToAlbum(savePath);
+      
     }
 
     private void SavePhotoCallBack(string result)
