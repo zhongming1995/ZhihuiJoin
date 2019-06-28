@@ -612,7 +612,6 @@ public class JoinMainView : MonoBehaviour
 
     private void OnDestroy()
     {
-        Resources.UnloadAsset(gameObject);
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }

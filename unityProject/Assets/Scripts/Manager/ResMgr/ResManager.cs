@@ -52,12 +52,12 @@ namespace ResMgr
         }
 
         /// <summary>
-        /// 同步加载MainAssetBundle(弃用)
+        /// 同步加载MainAssetBundle
         /// </summary>
         /// <returns><c>true</c>, if main asset bundle was loaded, <c>false</c> otherwise.</returns>
         /// <param name="completeCall">Complete call.</param>
-        /*
-        public bool LoadMainAssetBundle(Action<Object> completeCall = null)
+
+        public bool LoadMainAssetBundle()
         {
 #if UNITY_EDITOR && EditorDebug
                     Debug.Log("==========测试模式，不加载ab");
@@ -72,14 +72,15 @@ namespace ResMgr
 #endif
             return true;
         }
-        */
+
 
         /// <summary>
         /// 异步加载MainAssetBundle
         /// </summary>
         /// <returns><c>true</c>, if main asset bundle was loaded, <c>false</c> otherwise.</returns>
         /// <param name="completeCall">Complete call.</param>
-        public bool LoadMainAssetBundle(Action<Object> completeCall = null)
+        /*
+        public void LoadMainAssetBundle(Action completeCall = null)
         {
 #if UNITY_EDITOR&&EditorDebug
             Debug.Log("==========测试模式，不加载ab");
@@ -94,12 +95,16 @@ namespace ResMgr
                     mainManifest = resultAsset as AssetBundleManifest;
                     resultBundle.Unload(false);
                     resultBundle = null;
+                    if (completeCall!=null)
+                    {
+                        Debug.Log("=============CopleteClal");
+                        completeCall();
+                    }
                 }));
             }));
 #endif
-            return true;
         }
-
+        */
         private AssetBundle LoadAssetBundle(string bundlePath,Action completeCall = null)
         {
             string realBundlePath = string.Format(@"{0}{1}", bundlePath, ResConf.ASSET_BUNDLE_SUFFIX);
@@ -158,6 +163,7 @@ namespace ResMgr
                 return _assetBundleDic[bundlePath];
             }
         }
+
 
         private IEnumerator Cor_LoadAssetBundle(string path,Action<AssetBundle> completeCall = null)
         {
@@ -224,7 +230,7 @@ namespace ResMgr
                     //Debug.LogError("该AssetBundle还没有被加载进来：" + assetBundleName);
                     LoadAssetBundle(pathList[0]);
                 }
-                Debug.Log(assetBundleName);
+                //Debug.Log(assetBundleName);
                 if (_assetBundleDic.ContainsKey(assetBundleName))
                 {
                     //Debug.Log("该AssetBundle已经被加载过了：" + assetBundleName);
@@ -285,114 +291,3 @@ namespace ResMgr
         }
     }
 }
-
-
-/*
-            if (mainManifest)
-            {
-                //将所有的assetBundle都先加载存到字典
-                string[] allAssetList = mainManifest.GetAllAssetBundles();
-                
-                for (int i = 0; i < allAssetList.Length; i++)
-                {
-                    string[] dependeceList = mainManifest.GetAllDependencies(allAssetList[i]);
-                    //先加载依赖AssetBundle
-                    for (int j = 0; j < dependeceList.Length; j++)
-                    {
-                        if (!_assetBundleDic.ContainsKey(dependeceList[j]))
-                        {
-                            string bundleFile = ResUtil.GetStreamingAssetPathWithoutFile(dependeceList[j]);
-                            AssetBundle dep_Bundle = AssetBundle.LoadFromFile(bundleFile);
-                            if (dep_Bundle)
-                            {
-                                _assetBundleDic.Add(dep_Bundle.name, dep_Bundle);
-                            }
-                        }
-                    }
-                    //再加载自己本身AssetBundle
-                    if (!_assetBundleDic.ContainsKey(allAssetList[i]))
-                    {
-                        AssetBundle ori_Bundle = AssetBundle.LoadFromFile(ResUtil.GetStreamingAssetPathWithoutFile(allAssetList[i]));
-                        if (ori_Bundle)
-                        {
-                            _assetBundleDic.Add(ori_Bundle.name, ori_Bundle);
-                        }
-                    }
-                }
-                */
-
-//StartCoroutine(LoadAssetBundleManifest(LoadAssetBundleManifestHandler));
-//LoadAssetBundleManifest();
-/*
-IEnumerator LoadAssetBundleManifest(System.Action<bool> loadManifestAction)
-{
-    string localWWWPath = ResUtil.GetStreamingAssetPath(ResConf.BUNDLE_NAME);
-    Debug.Log("streaminPath:" + localWWWPath);
-    WWW www = new WWW(localWWWPath);
-    float time = Time.realtimeSinceStartup;
-    while (!www.isDone)
-    {
-        if (Time.realtimeSinceStartup - time > TIMEOUT)
-        {
-            www.Dispose();
-            www = null;
-            if (loadManifestAction != null)
-            {
-                loadManifestAction(false);
-            }
-            yield break;
-        }
-        yield return null;
-    }
-    if (!string.IsNullOrEmpty(www.error))
-    {
-        www.Dispose();
-        www = null;
-        if (loadManifestAction != null)
-        {
-            loadManifestAction(false);
-        }
-        yield break;
-    }
-    AssetBundle mainfestBundle = www.assetBundle;
-    if (mainfestBundle == null)
-    {
-        www.Dispose();
-        www = null;
-        if (loadManifestAction != null)
-        {
-            loadManifestAction(false);
-        }
-        yield break;
-    }
-    mainManifest = (AssetBundleManifest)mainfestBundle.LoadAsset("AssetBundleManifest");
-    mainfestBundle.Unload(false);
-    www.Dispose();
-    www = null;
-    if (mainManifest == null)
-    {
-        if (loadManifestAction != null)
-        {
-            loadManifestAction(false);
-        }
-        yield return null;
-    }
-    if (loadManifestAction != null)
-    {
-        loadManifestAction(true);
-    }
-}
-
-private void LoadAssetBundleManifestHandler(bool flag)
-{
-    if (!flag)
-    {
-        Debug.Log("Load AssetBundleManifest Fail");
-    }
-    else
-    {
-        Debug.Log("Load AssetBundleManifest Success");
-
-    }
-}
-    */

@@ -34,6 +34,8 @@ public class AppEntry : SingletonMono<AppEntry>
         isEditorDebug = true;
 
         //跳转到首页
+        //ResManager.instance.LoadMainAssetBundle(()=> { SceneManager.LoadScene("index"); });
+
         if (ResManager.instance.LoadMainAssetBundle())
         {
             SceneManager.LoadScene("index");
