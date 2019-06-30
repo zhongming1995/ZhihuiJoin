@@ -133,7 +133,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
-        //transform.position = globalMousePos;
         transform.position = globalMousePos + offset;
         bool r = InCorrectArea();
         if (r)
@@ -205,10 +204,15 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     {
         if (enable)
         {
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 1);
+            if (isSelected)
+            {
+                ShowOutLine(true);
+            }
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1);//使用描边shader之后就没用了
         }
         else
         {
+            ShowOutLine(false);
             image.color = new Color(image.color.r, image.color.g, image.color.b, 0.5f);
         }
     }
