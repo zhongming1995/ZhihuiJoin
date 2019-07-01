@@ -30,10 +30,6 @@ public class CardController : SingletonMono<CardController>
     {
         instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     //产生牌
     public List<int> GenCard(int c)

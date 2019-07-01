@@ -59,32 +59,41 @@ public class DisplayView : MonoBehaviour
 
     private void OnEnable()
     {
-        GameOperDelegate.pianoBegin += PlayPiano;
-        GameOperDelegate.cardBegin += PlayCard;
+        GameOperDelegate.pianoBegin += JumpToGameCB;
+        GameOperDelegate.cardBegin += JumpToGameCB;
+        GameOperDelegate.fruitBegin += JumpToGameCB;
         CallManager.savePhotoCallBack += SavePhotoCallBack;
     }
 
     private void OnDisable()
     {
-        GameOperDelegate.pianoBegin -= PlayPiano;
-        GameOperDelegate.cardBegin -= PlayCard;
+        GameOperDelegate.pianoBegin -= JumpToGameCB;
+        GameOperDelegate.cardBegin -= JumpToGameCB;
+        GameOperDelegate.fruitBegin -= JumpToGameCB;
         CallManager.savePhotoCallBack -= SavePhotoCallBack;
     }
 
+    //弃用
     private void PlayPiano()
     {
         //GameManager.instance.SetNextViewPath("Prefabs/game/piano|piano_view");
         //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
     }
 
+    //弃用
     private void PlayCard()
     {
         //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
         //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
+    }
+
+    private void JumpToGameCB()
+    {
+        HideDisplayView();//可以销毁的，为什么只是隐藏？
     }
 
     public void HideDisplayView()

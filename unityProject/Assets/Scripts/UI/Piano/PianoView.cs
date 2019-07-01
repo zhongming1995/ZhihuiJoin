@@ -49,6 +49,7 @@ public class PianoView : MonoBehaviour
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += Replay;
         GameOperDelegate.cardBegin += PlayCard;
+        GameOperDelegate.fruitBegin += PlayCard;
         GameOperDelegate.gameReplay += Replay;
     }
 
@@ -58,6 +59,7 @@ public class PianoView : MonoBehaviour
 
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= Replay;
+        GameOperDelegate.fruitBegin -= PlayCard;
         GameOperDelegate.cardBegin -= PlayCard;
         GameOperDelegate.gameReplay -= Replay;
     }
@@ -287,7 +289,7 @@ public class PianoView : MonoBehaviour
         Destroy(gameObject);
         //GameManager.instance.SetNextViewPath("Prefabs/game/card|card_view");
         //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void OnDestroy()

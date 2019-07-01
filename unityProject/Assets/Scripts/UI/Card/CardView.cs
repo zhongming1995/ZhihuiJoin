@@ -31,6 +31,7 @@ public class CardView : MonoBehaviour
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += PlayPiano;
         GameOperDelegate.cardBegin += PlayCard;
+        GameOperDelegate.fruitBegin += PlayPiano;
         GameOperDelegate.gameReplay += PlayCard;
         CardController.shieldOper += ShowMask;//屏蔽翻牌
         CardController.cardDismiss += CardDismiss;
@@ -43,6 +44,7 @@ public class CardView : MonoBehaviour
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= PlayPiano;
         GameOperDelegate.cardBegin -= PlayCard;
+        GameOperDelegate.fruitBegin -= PlayPiano;
         GameOperDelegate.gameReplay -= PlayCard;
         CardController.shieldOper -= ShowMask;
         CardController.cardDismiss -= CardDismiss;
@@ -247,10 +249,9 @@ public class CardView : MonoBehaviour
     {
         Destroy(completeWindow);
         Destroy(gameObject);
-
         //GameManager.instance.SetNextViewPath("Prefabs/game/piano|piano_view");
         //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void PlayCard()

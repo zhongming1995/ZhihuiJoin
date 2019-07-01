@@ -295,7 +295,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
-            Debug.Log("PlayOptionAudio--------");
+            //Debug.Log("PlayOptionAudio--------");
             if (commonBtnClip == null)
             {
                 commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/option_audio/common_option_audio|common_button");
@@ -304,12 +304,12 @@ namespace AudioMgr {
             effectAudioSource.PlayOneShot(commonBtnClip);
             if (path == null)
             {
-                Debug.Log("return1----------------11");
+                //Debug.Log("return1----------------11");
                 return;
             }
             if (curAudioType == EffectAudioType.Guide&&effectAudioSource.isPlaying)
             {
-                Debug.Log("Return===============22");
+                //Debug.Log("Return===============22");
                 return;
             }
             curAudioType = EffectAudioType.Option;

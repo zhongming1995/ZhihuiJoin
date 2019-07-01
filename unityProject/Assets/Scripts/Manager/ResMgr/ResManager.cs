@@ -195,7 +195,7 @@ namespace ResMgr
             T result = null;
 #if UNITY_EDITOR && EditorDebug
             path = ResUtil.PathToResourcePath(path);
-            Debug.Log("=========Resoure加载：" + path);
+            //Debug.Log("=========Resoure加载：" + path);
             result = Resources.Load<T>(path);
             if (result == null)
             {
@@ -267,7 +267,6 @@ namespace ResMgr
 
         public Sprite LoadSprite(string path)
         {
-            Sprite t = Load<Sprite>(path);
             return Load<Sprite>(path);
         }
 
