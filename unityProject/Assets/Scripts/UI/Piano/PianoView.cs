@@ -241,7 +241,7 @@ public class PianoView : MonoBehaviour
         }
         int keyIndex = songSpectrums[curSpecturmIndex];
         int n = RandowSymbol();
-        string path = string.Format("Sprite/ui_sp/piano_symbols|game_music_symbol{0}_pic@3x", n);
+        string path = string.Format("Sprite/ui_sp/piano_sp/piano_symbols|game_music_symbol{0}_pic@3x", n);
         UIHelper.instance.SetImage(path, reminders[keyIndex - 1], true);
         reminders[keyIndex-1].gameObject.SetActive(true);
         pianoKeyAnimations[keyIndex-1].Play();

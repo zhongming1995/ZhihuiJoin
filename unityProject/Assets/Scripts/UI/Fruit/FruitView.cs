@@ -17,6 +17,8 @@ public class FruitView :MonoBehaviour
     public CanvasGroup BubbleCanvaGroup;
     public Transform PersonParent;
     public RectTransform Basket;
+    public GameObject Mask;
+    public Image ImgNumber;
 
     private GameObject completeWindow;
     private int fruitType;
@@ -27,10 +29,11 @@ public class FruitView :MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ShowMask(false);
         AddClickEvent();
         AddListener();
         fruitType = FruitController.instance.GenFruitType();
-        basketRect = new Rect(basketRect.x, basketRect.y, basketRect.width, basketRect.height);
+        FruitController.instance.SetBasketRect(Basket);
         InitGame(1);
         Invoke("LoadPerson",0.5f);
     }
@@ -66,6 +69,7 @@ public class FruitView :MonoBehaviour
         GameOperDelegate.cardBegin += JumpCB;
         GameOperDelegate.fruitBegin += PlayFruit;
         GameOperDelegate.gameReplay += PlayFruit;
+        FruitController.comeToBasket += ComeToBasket;
     }
 
     private void RemoveListener()
@@ -75,6 +79,7 @@ public class FruitView :MonoBehaviour
         GameOperDelegate.cardBegin -= JumpCB;
         GameOperDelegate.fruitBegin -= PlayFruit;
         GameOperDelegate.gameReplay -= PlayFruit;
+        FruitController.comeToBasket -= ComeToBasket;
     }
 
     private void PlayFruit()
@@ -89,6 +94,7 @@ public class FruitView :MonoBehaviour
     {
         Debug.Log("========fruitType:" + fruitType);
         BubbleCanvaGroup.alpha = 0;
+        ImgNumber.gameObject.SetActive(false);
         FruitController.instance.SetChapter(c);
 
         //delete old
@@ -146,6 +152,27 @@ public class FruitView :MonoBehaviour
         DataManager.instance.PersonGreeting(lstDisplayItem);
     }
 
+    private void ComeToBasket(FruitItem item)
+    {
+        ShowMask(true);
+        Sequence s = DOTween.Sequence();
+        s.Append(item.transform.DOMove(Basket.position,0.5f).OnComplete(()=> {
+            SetFruitNumber();
+          }));
+        s.Append(ImgNumber.transform.DOScale(Vector3.one,0.3f));
+        s.AppendCallback(() => {
+            ShowMask(false);
+          });
+    }
+
+    void SetFruitNumber()
+    {
+        ImgNumber.gameObject.SetActive(true);
+        string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + FruitController.instance.getFruitCount;
+        UIHelper.instance.SetImage(path, ImgNumber, true);
+        ImgNumber.transform.localScale = new Vector3(3, 3, 3);
+    }
+
     void BackToEditFunc()
     {
         Destroy(gameObject);
@@ -157,6 +184,11 @@ public class FruitView :MonoBehaviour
     {
         Destroy(completeWindow);
         Destroy(gameObject);
+    }
+
+    void ShowMask(bool show)
+    {
+        Mask.gameObject.SetActive(show);
     }
 
     void OnDestroy()

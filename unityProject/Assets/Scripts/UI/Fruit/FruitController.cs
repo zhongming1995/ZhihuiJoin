@@ -7,9 +7,11 @@ public class FruitController : SingletonMono<FruitController>
 {
     [HideInInspector]
     public int chapter = 1;//第几关，123关对应果树上4,6,10个水果
+    public int getFruitCount = 0;//已经取得的水果
 
     private int startIndex;
     private int endIndex;
+    private RectTransform basketRectTransform;
 
     public delegate void ComeToBasket(FruitItem item);
     public static event ComeToBasket comeToBasket;
@@ -80,10 +82,32 @@ public class FruitController : SingletonMono<FruitController>
     public void SetChapter(int c)
     {
         chapter = c;
+        getFruitCount = 0;
+    }
+
+    public void SetBasketRect(RectTransform rectTransform)
+    {
+        basketRectTransform = rectTransform;
+    }
+
+    public bool isFruitInBasketRect(RectTransform rect2)
+    {
+        Vector3[] corners1 = new Vector3[4];
+        basketRectTransform.GetWorldCorners(corners1);
+        corners1[2].x = Mathf.Abs(corners1[2].x - corners1[0].x);
+        corners1[2].y = Mathf.Abs(corners1[2].y - corners1[0].y);
+        Rect b1 = new Rect(corners1[0].x, corners1[0].y, corners1[2].x, corners1[2].y);
+
+        rect2.GetWorldCorners(corners1);
+        corners1[2].x = Mathf.Abs(corners1[2].x - corners1[0].x);
+        corners1[2].y = Mathf.Abs(corners1[2].y - corners1[0].y);
+        Rect b2 = new Rect(corners1[0].x, corners1[0].y, corners1[2].x, corners1[2].y);
+        return b1.Overlaps(b2);
     }
 
     public void FruitToBasket(FruitItem item)
     {
+        getFruitCount += 1;
         if (comeToBasket != null)
         {
             comeToBasket(item);
