@@ -69,7 +69,8 @@ public class FruitView :MonoBehaviour
         GameOperDelegate.cardBegin += JumpCB;
         GameOperDelegate.fruitBegin += PlayFruit;
         GameOperDelegate.gameReplay += PlayFruit;
-        FruitController.comeToBasket += ComeToBasket;
+        FruitController.comeToBasketBegin += ComeToBasketBegin;
+        FruitController.comeToBasketEnd += ComeToBasketEnd;
     }
 
     private void RemoveListener()
@@ -79,7 +80,8 @@ public class FruitView :MonoBehaviour
         GameOperDelegate.cardBegin -= JumpCB;
         GameOperDelegate.fruitBegin -= PlayFruit;
         GameOperDelegate.gameReplay -= PlayFruit;
-        FruitController.comeToBasket -= ComeToBasket;
+        FruitController.comeToBasketBegin -= ComeToBasketBegin;
+        FruitController.comeToBasketEnd -= ComeToBasketEnd;
     }
 
     private void PlayFruit()
@@ -152,17 +154,17 @@ public class FruitView :MonoBehaviour
         DataManager.instance.PersonGreeting(lstDisplayItem);
     }
 
-    private void ComeToBasket(FruitItem item)
+    private void ComeToBasketBegin(FruitItem item)
     {
         ShowMask(true);
-        Sequence s = DOTween.Sequence();
-        s.Append(item.transform.DOMove(Basket.position,0.5f).OnComplete(()=> {
-            SetFruitNumber();
-          }));
-        s.Append(ImgNumber.transform.DOScale(Vector3.one,0.3f));
-        s.AppendCallback(() => {
-            ShowMask(false);
-          });
+    }
+
+    private void ComeToBasketEnd(FruitItem item)
+    {
+        SetFruitNumber();
+        ImgNumber.transform.DOScale(Vector3.one, 0.3f).OnComplete(()=> { 
+            ShowMask(false); 
+            });
     }
 
     void SetFruitNumber()
@@ -193,6 +195,7 @@ public class FruitView :MonoBehaviour
 
     void OnDestroy()
     {
+        Debug.Log("destroy");
         RemoveListener();
         AppEntry.instance.SetMultiTouchEnable(false);
         Resources.UnloadUnusedAssets();

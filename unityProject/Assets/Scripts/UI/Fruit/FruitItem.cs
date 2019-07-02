@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Helper;
+using DG.Tweening;
 
 public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
 {
@@ -42,7 +43,11 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             {
                 Debug.Log("======接触到热区");
                 canDrag = false;
-                FruitController.instance.FruitToBasket(this);
+                FruitController.instance.FruitToBasketBegin(this);
+                Vector3 desPos = FruitController.instance.GetFruitDesPos();
+                transform.DOMove(desPos, 0.3f).OnComplete(()=> {
+                    FruitController.instance.FruitToBasketEnd(this);
+                });
             }
         }
     }
@@ -58,5 +63,15 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("----------click");
+        FruitController.instance.FruitToBasketBegin(this);
+        DoLinerPathMove();
+    }
+
+    private void DoLinerPathMove()
+    {
+        Vector3 desPos = FruitController.instance.GetFruitDesPos();
+        transform.DOPath(new Vector3 []{transform.position,new Vector3(transform.position.x-1f,transform.position.y+0.1f,0),desPos},1f,PathType.CatmullRom).OnComplete(()=> {
+            FruitController.instance.FruitToBasketEnd(this);
+        });
     }
 }

@@ -13,8 +13,9 @@ public class FruitController : SingletonMono<FruitController>
     private int endIndex;
     private RectTransform basketRectTransform;
 
-    public delegate void ComeToBasket(FruitItem item);
-    public static event ComeToBasket comeToBasket;
+    public delegate void ComeToBasketBegin(FruitItem item);
+    public static event ComeToBasketBegin comeToBasketBegin;//入蓝开始
+    public static event ComeToBasketBegin comeToBasketEnd;//入篮结束
 
     void Awake()
     {
@@ -105,13 +106,30 @@ public class FruitController : SingletonMono<FruitController>
         return b1.Overlaps(b2);
     }
 
-    public void FruitToBasket(FruitItem item)
+    public void FruitToBasketBegin(FruitItem item)
     {
         getFruitCount += 1;
-        if (comeToBasket != null)
+        if (comeToBasketBegin != null)
         {
-            comeToBasket(item);
+            comeToBasketBegin(item);
         }
+    }
+
+    public void FruitToBasketEnd(FruitItem item)
+    {
+        if (comeToBasketEnd != null)
+        {
+            comeToBasketEnd(item);
+        }
+    }
+
+    public Vector3 GetFruitDesPos()
+    {
+        Random rd = new Random();
+        float offsetX = UnityEngine.Random.Range(-0.9f, 0.9f);
+        float offsetY = UnityEngine.Random.Range(-0.2f, 0.2f);
+        Vector3 desPos = new Vector3(basketRectTransform.transform.position.x+offsetX, basketRectTransform.transform.position.y+offsetY,0);
+        return desPos;
     }
 
 }
