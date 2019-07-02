@@ -12,8 +12,9 @@ public class FruitController : SingletonMono<FruitController>
     private int startIndex;
     private int endIndex;
     private RectTransform basketRectTransform;
+    private int needFruitCount; //需要的水果数
 
-    public delegate void ComeToBasketBegin(FruitItem item);
+    public delegate void ComeToBasketBegin(bool chapterEnd);
     public static event ComeToBasketBegin comeToBasketBegin;//入蓝开始
     public static event ComeToBasketBegin comeToBasketEnd;//入篮结束
 
@@ -56,6 +57,7 @@ public class FruitController : SingletonMono<FruitController>
         }
         Random rd = new Random();
         int n = rd.Next(startIndex, endIndex);
+        needFruitCount = n;
         return n;
     }
 
@@ -84,6 +86,7 @@ public class FruitController : SingletonMono<FruitController>
     {
         chapter = c;
         getFruitCount = 0;
+        needFruitCount = 0;
     }
 
     public void SetBasketRect(RectTransform rectTransform)
@@ -111,7 +114,7 @@ public class FruitController : SingletonMono<FruitController>
         getFruitCount += 1;
         if (comeToBasketBegin != null)
         {
-            comeToBasketBegin(item);
+            comeToBasketBegin(false);
         }
     }
 
@@ -119,7 +122,12 @@ public class FruitController : SingletonMono<FruitController>
     {
         if (comeToBasketEnd != null)
         {
-            comeToBasketEnd(item);
+            bool chapterEnd = false;
+            if (getFruitCount>=needFruitCount)
+            {
+                chapterEnd = true;
+            }
+            comeToBasketEnd(chapterEnd);
         }
     }
 

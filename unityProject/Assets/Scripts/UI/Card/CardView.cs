@@ -30,7 +30,7 @@ public class CardView : MonoBehaviour
     {
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += PlayPiano;
-        GameOperDelegate.cardBegin += PlayCard;
+        GameOperDelegate.cardBegin += PlayPiano;
         GameOperDelegate.fruitBegin += PlayPiano;
         GameOperDelegate.gameReplay += PlayCard;
         CardController.shieldOper += ShowMask;//屏蔽翻牌
@@ -43,7 +43,7 @@ public class CardView : MonoBehaviour
     {
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= PlayPiano;
-        GameOperDelegate.cardBegin -= PlayCard;
+        GameOperDelegate.cardBegin -= PlayPiano;
         GameOperDelegate.fruitBegin -= PlayPiano;
         GameOperDelegate.gameReplay -= PlayCard;
         CardController.shieldOper -= ShowMask;

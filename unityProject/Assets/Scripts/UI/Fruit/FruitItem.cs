@@ -9,13 +9,16 @@ using DG.Tweening;
 public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
 {
     Vector3 offset;
+    private Vector3 oriPos;
     private RectTransform rt;
     private Image img_fruit;
     private bool canDrag = true;
+    private bool isDragging = false;
 
     //初始化一个水果对象
     public void InitItem(int type)
     {
+        oriPos = transform.position;
         rt = transform.GetComponent<RectTransform>();
         img_fruit = transform.GetComponent<Image>();
         string path = "Sprite/ui_sp/fruit_sp|fruit_icon_" + type.ToString();
@@ -26,6 +29,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     {
         if (canDrag)
         {
+            isDragging = true;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, screenPos.z));
         }
@@ -43,6 +47,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             {
                 Debug.Log("======接触到热区");
                 canDrag = false;
+                isDragging = false;
                 FruitController.instance.FruitToBasketBegin(this);
                 Vector3 desPos = FruitController.instance.GetFruitDesPos();
                 transform.DOMove(desPos, 0.3f).OnComplete(()=> {
@@ -57,14 +62,19 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
         if (canDrag)
         {
             Debug.Log("======endDrag");
+            isDragging = false;
+            transform.DOMove(oriPos, 0.3f);
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("----------click");
-        FruitController.instance.FruitToBasketBegin(this);
-        DoLinerPathMove();
+        if (isDragging==false)
+        {
+            Debug.Log("----------click");
+            FruitController.instance.FruitToBasketBegin(this);
+            DoLinerPathMove();
+        }
     }
 
     private void DoLinerPathMove()

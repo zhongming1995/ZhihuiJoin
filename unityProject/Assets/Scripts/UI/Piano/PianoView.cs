@@ -47,7 +47,7 @@ public class PianoView : MonoBehaviour
         AudioManager.instance.BgmPause();
 
         GameOperDelegate.backToEdit += BackToEditFunc;
-        GameOperDelegate.pianoBegin += Replay;
+        GameOperDelegate.pianoBegin += PlayCard;
         GameOperDelegate.cardBegin += PlayCard;
         GameOperDelegate.fruitBegin += PlayCard;
         GameOperDelegate.gameReplay += Replay;
@@ -58,7 +58,7 @@ public class PianoView : MonoBehaviour
         AudioManager.instance.BgmUnPause();
 
         GameOperDelegate.backToEdit -= BackToEditFunc;
-        GameOperDelegate.pianoBegin -= Replay;
+        GameOperDelegate.pianoBegin -= PlayCard;
         GameOperDelegate.fruitBegin -= PlayCard;
         GameOperDelegate.cardBegin -= PlayCard;
         GameOperDelegate.gameReplay -= Replay;
