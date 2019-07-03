@@ -158,17 +158,22 @@ namespace DataMgr
             return lstDisplayItem;
         }
 
-        public void PersonGreeting(DisplayPartItem[] itemList)
+        public float PersonGreeting(DisplayPartItem[] itemList)
         {
+            float aniTime = 0;
             if (itemList == null)
             {
                 Debug.Log("itemList is null-----");
-                return;
             }
             for (int i = 0; i < itemList.Length; i++)
             {
-                itemList[i].PlayGreeting();
+                float tmpAniTime = itemList[i].PlayGreeting();
+                if (aniTime<tmpAniTime)
+                {
+                    aniTime = tmpAniTime;
+                }
             }
+            return aniTime;
         }
 
         public void PersonDance(DisplayPartItem[] itemList,int n)
@@ -203,5 +208,20 @@ namespace DataMgr
                 itemList[i].PlayDefault();
             }
         }
+
+        public void PersonBreathe(DisplayPartItem[] itemList)
+        {
+            if (itemList == null)
+            {
+                Debug.Log("itemList is null-----");
+                return;
+            }
+            for (int i = 0; i < itemList.Length; i++)
+            {
+                itemList[i].PlayBreathe();
+            }
+        }
+
+
     }
 }

@@ -93,7 +93,6 @@ public class DisplayView : MonoBehaviour
 
     private void JumpToGameCB()
     {
-        Debug.Log("display callback");
         HideDisplayView();//可以销毁的，为什么只是隐藏？
     }
 

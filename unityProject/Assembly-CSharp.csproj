@@ -94,7 +94,6 @@
     <Compile Include="Assets\Scripts\UI\Fruit\FruitController.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitItem.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitView.cs" />
-    <Compile Include="Assets\Scripts\UI\Fruit\TestSpeed.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
     <Compile Include="Assets\Scripts\UI\Index\IndexView.cs" />
     <Compile Include="Assets\Scripts\UI\Join\AniEvent.cs" />
@@ -115,9 +114,9 @@
     <Compile Include="Assets\Scripts\UI\Window\PauseWindow.cs" />
     <Compile Include="Assets\Scripts\UI\Window\WindowParent.cs" />
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
-    <None Include="Assets\Resources\Shader\ImageMask.shader" />
+    <None Include="Assets\Res\Shader\ImageMask.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
-    <None Include="Assets\Resources\Shader\ImageOutline.shader" />
+    <None Include="Assets\Res\Shader\ImageOutline.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />

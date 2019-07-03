@@ -15,7 +15,6 @@ public class PauseWindow : WindowParent
 
     private void OnEnable()
     {
-        Debug.Log("111111");
         InAni();
     }
 

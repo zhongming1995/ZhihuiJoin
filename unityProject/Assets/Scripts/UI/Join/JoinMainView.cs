@@ -541,7 +541,6 @@ public class JoinMainView : MonoBehaviour
         string resPrefabPath = GameManager.instance.resPrefabPathList[type];
         List<string> resPath = GameManager.instance.resPathList[type];
         float width = ResContentList[type].GetComponent<RectTransform>().rect.size.x;
-        Debug.Log("width========"+width);
         if (resPath.Count <= 0)
         {
             return;

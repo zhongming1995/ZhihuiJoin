@@ -13,6 +13,7 @@ public class DisplayPartItem : MonoBehaviour
     public string Greeting = "Greeting";
     public string Dance = "Dance_";
     public string Default = "Default";
+    public string Breathe = "Breathe";
 
     private void OnEnable()
     {
@@ -33,14 +34,17 @@ public class DisplayPartItem : MonoBehaviour
     }
 
 
-    public void PlayGreeting()
+    public float PlayGreeting()
     {
+        float aniTime = 0;
         string aniName = Greeting + "_" + partType.ToString();
-        Debug.Log("aniName:" + aniName);
-        if (item_animation.GetClip(aniName) != null)
+        AnimationClip clip = item_animation.GetClip(aniName);
+        if ( clip != null)
         {
+            aniTime = clip.length;
             item_animation.Play(aniName);
         }
+        return aniTime;
     }
 
     public void PlayDefault()
@@ -52,7 +56,7 @@ public class DisplayPartItem : MonoBehaviour
         }
     }
 
-    //跳舞动作 1左抬腿 2翻跟斗 3右抬腿 
+    //跳舞动作 1跳起来双手挥舞双脚打开 2翻跟斗 3右抬腿 4左抬腿
     public void PlayDance(int index)
     {
         string aniName = Dance + index.ToString() + "_" + partType.ToString();
@@ -66,6 +70,16 @@ public class DisplayPartItem : MonoBehaviour
             {
                 item_animation.Play(aniName);
             }
+        }
+    }
+
+    //呼吸动作
+    public void PlayBreathe()
+    {
+        string aniName = Breathe + "_" + partType.ToString();
+        if (item_animation.GetClip(aniName) != null)
+        {
+            item_animation.Play(aniName);
         }
     }
 }

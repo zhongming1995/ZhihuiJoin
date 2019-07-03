@@ -61,7 +61,7 @@ public class CompleteWindow : WindowParent
         Button btn = person.gameObject.AddComponent<Button>();
         btn.onClick.AddListener(Greeting);
         //默认打招呼一次
-        Greeting();
+        //Greeting();
     }
 
     void AddClickEvent()
@@ -99,7 +99,6 @@ public class CompleteWindow : WindowParent
 
     public void Greeting()
     {
-        Debug.Log("Greeting==============");
         DataManager.instance.PersonGreeting(windowlstDisplayItem);
     }
 

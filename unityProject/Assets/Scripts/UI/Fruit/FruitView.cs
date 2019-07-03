@@ -19,23 +19,26 @@ public class FruitView :MonoBehaviour
     public RectTransform Basket;
     public GameObject Mask;
     public Image ImgNumber;
+    public Image ImgNeedNum;
+    public Image ImgNeedFruit;
 
     private GameObject completeWindow;
     private int fruitType;
     private DisplayPartItem[] lstDisplayItem;
     private  List<FruitItem> fruitList = new List<FruitItem>();
     private Rect basketRect;
+    private bool haveGreeting = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        ShowMask(false);
+        //ShowMask(false);
         AddClickEvent();
         AddListener();
         fruitType = FruitController.instance.GenFruitType();
         FruitController.instance.SetBasketRect(Basket);
         ImgNumber.gameObject.SetActive(false);
-        InitGame(1,false);
+        InitGame(1);
         Invoke("LoadPerson",0.5f);
     }
 
@@ -69,7 +72,7 @@ public class FruitView :MonoBehaviour
         GameOperDelegate.pianoBegin += JumpCB;
         GameOperDelegate.cardBegin += JumpCB;
         GameOperDelegate.fruitBegin += JumpCB;
-        GameOperDelegate.gameReplay += PlayFruit;
+        GameOperDelegate.gameReplay += RePlay;
         FruitController.comeToBasketBegin += ComeToBasketBegin;
         FruitController.comeToBasketEnd += ComeToBasketEnd;
     }
@@ -80,39 +83,43 @@ public class FruitView :MonoBehaviour
         GameOperDelegate.pianoBegin -= JumpCB;
         GameOperDelegate.cardBegin -= JumpCB;
         GameOperDelegate.fruitBegin -= JumpCB;
-        GameOperDelegate.gameReplay -= PlayFruit;
+        GameOperDelegate.gameReplay -= RePlay;
         FruitController.comeToBasketBegin -= ComeToBasketBegin;
         FruitController.comeToBasketEnd -= ComeToBasketEnd;
     }
 
-    private void PlayFruit()
+    private void RePlay()
     {
-        gameObject.SetActive(false);
-        gameObject.SetActive(true);
-        Destroy(completeWindow);
-        InitGame(1,false);
-    }
-
-    private void InitGame(int c,bool delay)
-    {
-        Debug.Log("========fruitType:" + fruitType);
-        FruitController.instance.SetChapter(c);
-
-        //delete old
+        fruitType = FruitController.instance.GenFruitType();
+        ImgNumber.gameObject.SetActive(false);
         for (int i = 0; i < fruitList.Count; i++)
         {
             Destroy(fruitList[i].gameObject);
         }
         fruitList.Clear();
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        Destroy(completeWindow);
+        InitGame(1);
+    }
 
-        BubbleCanvaGroup.DOFade(0, 0.5f).OnComplete(()=> { ImgNumber.gameObject.SetActive(false); });
+    private void InitGamePre()
+    {
+        int c = FruitController.instance.chapter + 1;
+        InitGame(c);
+    }
+
+    private void InitGame(int c)
+    {
+        FruitController.instance.SetChapter(c);
 
         int fruitNum = FruitController.instance.GenFruitNumber(c);
+        SetNeedFruitNumber(fruitType, fruitNum);
+
         List<int> indexList = FruitController.instance.GenFruitIndex(fruitNum);
 
         for (int i = 0; i < indexList.Count; i++)
         {
-            Debug.Log(indexList[i]);
             GameObject item = UIHelper.instance.LoadPrefab("Prefabs/game/fruit|fruit_item", FruitTrans[indexList[i]], Vector3.zero, Vector3.zero, false);
             FruitItem fruitItem = item.GetComponent<FruitItem>();
             fruitItem.InitItem(fruitType);
@@ -120,19 +127,19 @@ public class FruitView :MonoBehaviour
         }
         //出场动画
         Sequence s = DOTween.Sequence();
-        if (delay)
-        {
-            s.AppendInterval(0.5f);
-        }
         for (int i = 0; i < fruitList.Count; i++)
         {
             s.Append(fruitList[i].transform.DOScale(Vector3.one, 0.25f));
         }
         s.AppendCallback(() =>
         {
-            if (PersonParent.childCount != 0)
+            if (PersonParent.childCount != 0 && haveGreeting == false)
             {
-                Greeting();
+                haveGreeting = true;
+                float aniTime = Greeting();
+                Invoke("HideMask", aniTime);
+                Invoke("PlayBreathe", aniTime);
+
             }
         });
         s.Append(BubbleCanvaGroup.DOFade(1, 0.5f));
@@ -150,34 +157,63 @@ public class FruitView :MonoBehaviour
         person.transform.localPosition = Vector3.zero;
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-        Greeting();
-    }
-
-    public void Greeting()
-    {
-        DataManager.instance.PersonGreeting(lstDisplayItem);
+        if (haveGreeting == false)
+        {
+            haveGreeting = true;
+            float aniTime = Greeting();
+            Invoke("HideMask", aniTime);
+            Invoke("PlayBreathe", aniTime);
+        }
     }
 
     private void ComeToBasketBegin(bool chapterEnd)
     {
-        ShowMask(true);
+        ShowMask();
     }
 
     private void ComeToBasketEnd(bool chapterEnd)
     {
         SetFruitNumber();
-        ImgNumber.transform.DOScale(Vector3.one, 0.3f).OnComplete(()=> { 
-            ShowMask(false);
+        string audioPath = "Audio/num_template|template_num_" + (FruitController.instance.getFruitCount - 1);
+        AudioManager.instance.PlayOneShotAudio(audioPath);
+        ImgNumber.transform.DOScale(Vector3.one, 0.3f).OnComplete(()=> {         
             if (chapterEnd)
             {
                 if (FruitController.instance.chapter<3)
                 {
-                    InitGame(FruitController.instance.chapter + 1,true);
+                    ChapterEndFunc(false);
                 }
                 else
                 {
-                    ShowCompleteWindow();
+                    ChapterEndFunc(true);
                 }
+            }
+            else
+            {
+                HideMask();
+            }
+        });
+    }
+
+    private void ChapterEndFunc(bool complete)
+    {
+        //delete old
+        for (int i = 0; i < fruitList.Count; i++)
+        {
+            Destroy(fruitList[i].gameObject);
+        }
+        fruitList.Clear();
+        BubbleCanvaGroup.DOFade(0, 0.5f).OnComplete(() => { 
+            ImgNumber.gameObject.SetActive(false);
+            JumpAndWaveHand();
+            //彩带掉落
+            if (complete)
+            {
+                ShowCompleteWindow();
+            }
+            else
+            {
+                Invoke("InitGamePre", 1.0f);//1s后，播放完小人动画以及彩带飘落的动画以后，再进入下一关或者弹窗
             }
         });
     }
@@ -196,6 +232,15 @@ public class FruitView :MonoBehaviour
         ImgNumber.transform.localScale = new Vector3(3, 3, 3);
     }
 
+    void SetNeedFruitNumber(int type,int number)
+    {
+        string path = "Sprite/ui_sp/fruit_sp|fruit_icon_" + type.ToString();
+        UIHelper.instance.SetImage(path, ImgNeedFruit, true);
+
+        string numPath = "Sprite/ui_sp/fruit_sp|fruit_number_" + number;
+        UIHelper.instance.SetImage(numPath, ImgNeedNum, true);
+    }
+
     void BackToEditFunc()
     {
         Destroy(gameObject);
@@ -209,9 +254,30 @@ public class FruitView :MonoBehaviour
         Destroy(gameObject);
     }
 
-    void ShowMask(bool show)
+    void ShowMask()
     {
-        Mask.gameObject.SetActive(show);
+        Mask.gameObject.SetActive(true);
+    }
+
+    void HideMask()
+    {
+        Mask.gameObject.SetActive(false);
+        haveGreeting = false;
+    }
+
+    public float Greeting()
+    {
+        return DataManager.instance.PersonGreeting(lstDisplayItem);
+    }
+
+    public void JumpAndWaveHand()
+    {
+        DataManager.instance.PersonDance(lstDisplayItem,1);
+    }
+
+    public void PlayBreathe()
+    {
+        DataManager.instance.PersonBreathe(lstDisplayItem);
     }
 
     void OnDestroy()

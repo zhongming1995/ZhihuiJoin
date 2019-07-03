@@ -13,6 +13,7 @@ public class FruitController : SingletonMono<FruitController>
     private int endIndex;
     private RectTransform basketRectTransform;
     private int needFruitCount; //需要的水果数
+    private int lastFruitType = -1;//上一次的水果类型
 
     public delegate void ComeToBasketBegin(bool chapterEnd);
     public static event ComeToBasketBegin comeToBasketBegin;//入蓝开始
@@ -30,7 +31,12 @@ public class FruitController : SingletonMono<FruitController>
     public int GenFruitType()
     {
         Random rd = new Random();
-        int n = rd.Next(1, 3);//右边的不包括
+        int n = rd.Next(1, 4);//右边的不包括
+        while (lastFruitType == n)
+        {
+            n = rd.Next(1, 4);
+        }
+        lastFruitType = n;
         return n;
     }
 
@@ -53,10 +59,10 @@ public class FruitController : SingletonMono<FruitController>
         else
         {
             startIndex = 7;
-            endIndex = 10;//产生随机数时，右侧不包含
+            endIndex = 9;//产生随机数时，右侧不包含
         }
         Random rd = new Random();
-        int n = rd.Next(startIndex, endIndex);
+        int n = rd.Next(startIndex, endIndex+1);
         needFruitCount = n;
         return n;
     }

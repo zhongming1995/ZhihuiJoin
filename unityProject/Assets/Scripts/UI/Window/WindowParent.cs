@@ -21,7 +21,6 @@ public class WindowParent : MonoBehaviour
 
     public void InAni(Action callBack = null)
     {
-        Debug.Log("InAni-------");
         if (mask == null)
         {
             mask = transform.Find("window_mask").GetComponent<Image>();

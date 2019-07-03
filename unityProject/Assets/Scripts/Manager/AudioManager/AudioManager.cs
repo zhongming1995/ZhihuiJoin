@@ -339,7 +339,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayGuideAudio(string path,Action cb = null)
         {
-            Debug.Log("PlayGuideAudio------------");
+            //Debug.Log("PlayGuideAudio------------");
             if (cor_playOptionAfterBtn!=null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);
@@ -355,7 +355,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayReminderAudio(string path, Action cb = null)
         {
-            Debug.Log("PlayReminderAudio------------");
+            //Debug.Log("PlayReminderAudio------------");
             if (cor_playOptionAfterBtn != null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);
