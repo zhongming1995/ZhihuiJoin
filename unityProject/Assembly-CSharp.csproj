@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\UI\Draw\MyPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Draw\ZhihuiPaint.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitController.cs" />
+    <Compile Include="Assets\Scripts\UI\Fruit\FruitGuide.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitItem.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitView.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />

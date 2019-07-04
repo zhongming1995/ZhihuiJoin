@@ -1,18 +1,12 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Fruit/FruitView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Card/CardView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Fruit/FruitView.cs" Line="183" Column="35" />
-      <File FileName="Assets/Scripts/UI/Fruit/FruitItem.cs" Line="24" Column="77" />
-      <File FileName="Assets/Scripts/UI/Fruit/FruitController.cs" Line="64" Column="34" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="265" Column="35" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="221" Column="34" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="79" Column="33" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="95" Column="6" />
-      <File FileName="Assets/Scripts/UI/Window/WindowParent.cs" Line="23" Column="6" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="543" Column="86" />
-      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="358" Column="58" />
-      <File FileName="Assets/Scripts/UI/Window/CompleteWindow.cs" Line="43" Column="25" />
-      <File FileName="Assets/Scripts/UI/Window/PauseWindow.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/UI/Fruit/FruitGuide.cs" Line="14" Column="5" />
+      <File FileName="Assets/Scripts/UI/Join/JoinGuide.cs" Line="13" Column="36" />
+      <File FileName="Assets/Scripts/UI/Fruit/FruitView.cs" Line="299" Column="6" />
+      <File FileName="Assets/Scripts/UI/Fruit/FruitItem.cs" Line="50" Column="57" />
+      <File FileName="Assets/Scripts/UI/Fruit/FruitController.cs" Line="164" Column="41" />
+      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="309" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

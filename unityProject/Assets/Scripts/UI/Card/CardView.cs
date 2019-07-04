@@ -248,7 +248,7 @@ public class CardView : MonoBehaviour
     void PlayPiano()
     {
         Destroy(completeWindow);
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
         //GameManager.instance.SetNextViewPath("Prefabs/game/piano|piano_view");
         //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         //UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);

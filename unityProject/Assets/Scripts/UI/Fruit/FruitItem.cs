@@ -32,7 +32,8 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             isDragging = true;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, screenPos.z));
-        }
+            FruitController.instance.OperationStart();
+          }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -46,6 +47,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             if (FruitController.instance.isFruitInBasketRect(rt))
             {
                 Debug.Log("======接触到热区");
+                FruitController.instance.OperationEnd();
                 canDrag = false;
                 isDragging = false;
                 FruitController.instance.FruitToBasketBegin(this);
@@ -61,6 +63,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     {
         if (canDrag)
         {
+            FruitController.instance.OperationEnd();
             Debug.Log("======endDrag");
             isDragging = false;
             transform.DOMove(oriPos, 0.3f);
@@ -72,6 +75,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
         if (isDragging==false)
         {
             Debug.Log("----------click");
+            FruitController.instance.OperationEnd();
             FruitController.instance.FruitToBasketBegin(this);
             DoLinerPathMove();
         }

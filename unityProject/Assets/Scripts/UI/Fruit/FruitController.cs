@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
@@ -19,9 +20,31 @@ public class FruitController : SingletonMono<FruitController>
     public static event ComeToBasketBegin comeToBasketBegin;//入蓝开始
     public static event ComeToBasketBegin comeToBasketEnd;//入篮结束
 
+    public delegate void Operation();
+    public static event Operation operationStart;
+    public static event Operation operationEnd;
+
+
     void Awake()
     {
         instance = this;
+    }
+  
+
+    public void OperationEnd()
+    {
+        if (operationEnd!=null)
+        {
+            operationEnd();
+        }
+    }
+
+    public void OperationStart()
+    {
+        if (operationStart!= null)
+        {
+            operationStart();
+        }
     }
 
     /// <summary>
@@ -118,21 +141,26 @@ public class FruitController : SingletonMono<FruitController>
     public void FruitToBasketBegin(FruitItem item)
     {
         getFruitCount += 1;
+        bool chapterEnd = false;
+        if (getFruitCount >= needFruitCount)
+        {
+            chapterEnd = true;
+        }
         if (comeToBasketBegin != null)
         {
-            comeToBasketBegin(false);
+            comeToBasketBegin(chapterEnd);
         }
     }
 
     public void FruitToBasketEnd(FruitItem item)
     {
+        bool chapterEnd = false;
+        if (getFruitCount >= needFruitCount)
+        {
+            chapterEnd = true;
+        }
         if (comeToBasketEnd != null)
         {
-            bool chapterEnd = false;
-            if (getFruitCount>=needFruitCount)
-            {
-                chapterEnd = true;
-            }
             comeToBasketEnd(chapterEnd);
         }
     }

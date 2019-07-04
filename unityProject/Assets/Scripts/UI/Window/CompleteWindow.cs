@@ -30,8 +30,6 @@ public class CompleteWindow : WindowParent
 
     void Show()
     {
-        //window.gameObject.SetActive(true);
-        //mask.gameObject.SetActive(true);
         window.localScale = Vector3.zero;
         mask.transform.localScale = Vector3.one;
         InAni(Greeting);
@@ -60,8 +58,6 @@ public class CompleteWindow : WindowParent
         //加上按钮
         Button btn = person.gameObject.AddComponent<Button>();
         btn.onClick.AddListener(Greeting);
-        //默认打招呼一次
-        //Greeting();
     }
 
     void AddClickEvent()

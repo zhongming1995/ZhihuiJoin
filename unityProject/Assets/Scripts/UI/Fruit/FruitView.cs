@@ -59,6 +59,7 @@ public class FruitView :MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            FruitController.instance.OperationEnd();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //暂停游戏
             string path = "Prefabs/game/window|window_pause";
@@ -169,34 +170,50 @@ public class FruitView :MonoBehaviour
     private void ComeToBasketBegin(bool chapterEnd)
     {
         ShowMask();
-    }
-
-    private void ComeToBasketEnd(bool chapterEnd)
-    {
         SetFruitNumber();
         string audioPath = "Audio/num_template|template_num_" + (FruitController.instance.getFruitCount - 1);
         AudioManager.instance.PlayOneShotAudio(audioPath);
-        ImgNumber.transform.DOScale(Vector3.one, 0.3f).OnComplete(()=> {         
-            if (chapterEnd)
-            {
-                if (FruitController.instance.chapter<3)
-                {
-                    ChapterEndFunc(false);
-                }
-                else
-                {
-                    ChapterEndFunc(true);
-                }
-            }
-            else
+        ImgNumber.transform.DOScale(Vector3.one, 0.3f).OnComplete(() => {
+
+            if (!chapterEnd)
             {
                 HideMask();
             }
         });
     }
 
+    private void ComeToBasketEnd(bool chapterEnd)
+    {
+        //冒星星的动画
+        if (chapterEnd)
+        {
+            //切换关卡
+            StartCoroutine(NextChapter(chapterEnd));
+        }
+    }
+
+    private IEnumerator NextChapter(bool chapterEnd)
+    {
+        yield return new WaitForSeconds(2);
+        if (chapterEnd)
+        {
+            if (FruitController.instance.chapter < 3)
+            {
+                ChapterEndFunc(false);
+            }
+            else
+            {
+                ChapterEndFunc(true);
+            }
+        }
+        else
+        {
+            HideMask();
+        }
+    }
     private void ChapterEndFunc(bool complete)
     {
+        Debug.Log("ChapterEndFunc========");
         //delete old
         for (int i = 0; i < fruitList.Count; i++)
         {
@@ -244,14 +261,12 @@ public class FruitView :MonoBehaviour
     void BackToEditFunc()
     {
         Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
     }
 
     void JumpCB()
     {
         Destroy(completeWindow);
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
     }
 
     void ShowMask()
@@ -282,7 +297,6 @@ public class FruitView :MonoBehaviour
 
     void OnDestroy()
     {
-        Debug.Log("destroy");
         RemoveListener();
         AppEntry.instance.SetMultiTouchEnable(false);
         Resources.UnloadUnusedAssets();

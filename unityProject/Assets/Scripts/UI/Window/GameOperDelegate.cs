@@ -16,6 +16,9 @@ public class GameOperDelegate:MonoBehaviour
     public delegate void PianoBegin();
     public static event PianoBegin pianoBegin;
 
+    public delegate void CardBeginBefore();
+    public static event CardBeginBefore cardBeginBefore;
+
     public delegate void CardBegin();
     public static event CardBegin cardBegin;
 
