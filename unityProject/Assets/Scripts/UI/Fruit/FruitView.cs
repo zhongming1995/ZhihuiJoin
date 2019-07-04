@@ -32,7 +32,7 @@ public class FruitView :MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ShowMask(false);
+        ShowBackBtn(false);
         AddClickEvent();
         AddListener();
         fruitType = FruitController.instance.GenFruitType();
@@ -112,9 +112,11 @@ public class FruitView :MonoBehaviour
 
     private void InitGame(int c)
     {
+        Debug.Log("InitGame========");
         FruitController.instance.SetChapter(c);
 
         int fruitNum = FruitController.instance.GenFruitNumber(c);
+        Debug.Log(fruitNum);
         SetNeedFruitNumber(fruitType, fruitNum);
 
         List<int> indexList = FruitController.instance.GenFruitIndex(fruitNum);
@@ -137,9 +139,10 @@ public class FruitView :MonoBehaviour
             if (PersonParent.childCount != 0 && haveGreeting == false)
             {
                 haveGreeting = true;
-                float aniTime = Greeting();
-                Invoke("HideMask", aniTime);
-                Invoke("PlayBreathe", aniTime);
+                Greeting();
+                //float aniTime = Greeting();
+                //Invoke("HideMask", aniTime);
+                //Invoke("PlayBreathe", aniTime);
 
             }
         });
@@ -161,20 +164,20 @@ public class FruitView :MonoBehaviour
         if (haveGreeting == false)
         {
             haveGreeting = true;
-            float aniTime = Greeting();
-            Invoke("HideMask", aniTime);
-            Invoke("PlayBreathe", aniTime);
+            Greeting();
+            //float aniTime = Greeting();
+            //Invoke("HideMask", aniTime);
+            //Invoke("PlayBreathe", aniTime);
         }
     }
 
-    private void ComeToBasketBegin(bool chapterEnd)
+    private void ComeToBasketBegin(bool chapterEnd,int number)
     {
         ShowMask();
-        SetFruitNumber();
-        string audioPath = "Audio/num_template|template_num_" + (FruitController.instance.getFruitCount - 1);
+        SetFruitNumber(number);
+        string audioPath = "Audio/num_template|template_num_" + (number-1);
         AudioManager.instance.PlayOneShotAudio(audioPath);
-        ImgNumber.transform.DOScale(Vector3.one, 0.3f).OnComplete(() => {
-
+        ImgNumber.transform.DOScale(Vector3.one,0.3f).OnComplete(() => {
             if (!chapterEnd)
             {
                 HideMask();
@@ -182,38 +185,32 @@ public class FruitView :MonoBehaviour
         });
     }
 
-    private void ComeToBasketEnd(bool chapterEnd)
+    private void ComeToBasketEnd(bool chapterEnd,int number)
     {
         //冒星星的动画
         if (chapterEnd)
         {
             //切换关卡
-            StartCoroutine(NextChapter(chapterEnd));
+            StartCoroutine(NextChapter(number));
         }
     }
 
-    private IEnumerator NextChapter(bool chapterEnd)
+    private IEnumerator NextChapter(int number)
     {
         yield return new WaitForSeconds(2);
-        if (chapterEnd)
+
+        if (FruitController.instance.chapter < 3)
         {
-            if (FruitController.instance.chapter < 3)
-            {
-                ChapterEndFunc(false);
-            }
-            else
-            {
-                ChapterEndFunc(true);
-            }
+            ChapterEndFunc(false);
         }
         else
         {
-            HideMask();
+            ChapterEndFunc(true);
         }
     }
     private void ChapterEndFunc(bool complete)
     {
-        Debug.Log("ChapterEndFunc========");
+        FruitController.instance.OperationStart();
         //delete old
         for (int i = 0; i < fruitList.Count; i++)
         {
@@ -241,10 +238,10 @@ public class FruitView :MonoBehaviour
         completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
-    void SetFruitNumber()
+    void SetFruitNumber(int number)
     {
         ImgNumber.gameObject.SetActive(true);
-        string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + FruitController.instance.getFruitCount;
+        string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + number;
         UIHelper.instance.SetImage(path, ImgNumber, true);
         ImgNumber.transform.localScale = new Vector3(3, 3, 3);
     }
@@ -278,11 +275,18 @@ public class FruitView :MonoBehaviour
     {
         Mask.gameObject.SetActive(false);
         haveGreeting = false;
+        FruitController.instance.OperationEnd();
     }
 
-    public float Greeting()
+    public float Greeting(bool reminder=false)
     {
-        return DataManager.instance.PersonGreeting(lstDisplayItem);
+        float aniTime = DataManager.instance.PersonGreeting(lstDisplayItem);
+        if (reminder == false)
+        {
+            Invoke("HideMask", aniTime);
+        }
+        Invoke("PlayBreathe", aniTime);
+        return aniTime;
     }
 
     public void JumpAndWaveHand()

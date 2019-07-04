@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using AudioMgr;
 using UnityEngine;
+using DG.Tweening;
 
 public class FruitGuide : MonoBehaviour
 {
@@ -9,13 +10,17 @@ public class FruitGuide : MonoBehaviour
     private float operationStartTime;//用于判断无操作的时间
     private bool isOperating;//是否正在操作
 
-  
+    private FruitView fruitView;
+
     private Coroutine cor_Reminder;
+
+    public Transform tranFruitNumber;
 
     void Start()
     {
         AddListener();
         cor_Reminder = StartCoroutine("CorReminder");
+        fruitView = GetComponent<FruitView>();
     }
 
     private void OnDestroy()
@@ -56,7 +61,6 @@ public class FruitGuide : MonoBehaviour
 
     public void OperationStart()
     {
-        Debug.Log("OperationStart=========");
         isOperating = true;
         if (cor_Reminder != null)
         {
@@ -67,7 +71,6 @@ public class FruitGuide : MonoBehaviour
 
     public void OperationEnd()
     {
-        Debug.Log("OperationEnd=========");
         if (cor_Reminder != null)
         {
             StopCoroutine("CorReminder");
@@ -79,6 +82,11 @@ public class FruitGuide : MonoBehaviour
 
     private void DoReminder()
     {
+        Sequence s = DOTween.Sequence();
+        s.Append(tranFruitNumber.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.25f));
+        s.Append(tranFruitNumber.DOScale(new Vector3(1f, 1f, 1f), 0.25f));
+        s.SetLoops(3);
 
+        fruitView.Greeting(true);
     }
 }

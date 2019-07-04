@@ -606,6 +606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e398f59f5c7104a75887dddcf171d152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tranFruitNumber: {fileID: 3370346996903135542}
 --- !u!1 &5322811976794463534
 GameObject:
   m_ObjectHideFlags: 0

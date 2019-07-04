@@ -12,7 +12,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     private Vector3 oriPos;
     private RectTransform rt;
     private Image img_fruit;
-    private bool canDrag = true;
+    private bool canTouch = true;
     private bool isDragging = false;
 
     //初始化一个水果对象
@@ -27,7 +27,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (canDrag)
+        if (canTouch)
         {
             isDragging = true;
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
@@ -38,7 +38,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (canDrag)
+        if (canTouch)
         {
             Vector3 globalMousePos;
             RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera, out globalMousePos);
@@ -48,7 +48,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             {
                 Debug.Log("======接触到热区");
                 FruitController.instance.OperationEnd();
-                canDrag = false;
+                canTouch = false;
                 isDragging = false;
                 FruitController.instance.FruitToBasketBegin(this);
                 Vector3 desPos = FruitController.instance.GetFruitDesPos();
@@ -61,10 +61,9 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (canDrag)
+        if (canTouch)
         {
             FruitController.instance.OperationEnd();
-            Debug.Log("======endDrag");
             isDragging = false;
             transform.DOMove(oriPos, 0.3f);
         }
@@ -72,9 +71,9 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isDragging==false)
+        if (isDragging==false && canTouch)
         {
-            Debug.Log("----------click");
+            canTouch = false;
             FruitController.instance.OperationEnd();
             FruitController.instance.FruitToBasketBegin(this);
             DoLinerPathMove();
