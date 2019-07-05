@@ -7,11 +7,13 @@ using Helper;
 using DG.Tweening;
 
 public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
-{
+{ 
     Vector3 offset;
     private Vector3 oriPos;
     private RectTransform rt;
     private Image img_fruit;
+    private ParticleSystem ps_Number;
+    private Material material;
     private bool canTouch = true;
     private bool isDragging = false;
 
@@ -23,6 +25,8 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
         img_fruit = transform.GetComponent<Image>();
         string path = "Sprite/ui_sp/fruit_sp|fruit_icon_" + type.ToString();
         UIHelper.instance.SetImage(path, img_fruit, true);
+        ps_Number = transform.Find("particle_number").GetComponent<ParticleSystem>();
+        material = ps_Number.transform.GetComponent<Renderer>().material;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -83,8 +87,15 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     private void DoLinerPathMove()
     {
         Vector3 desPos = FruitController.instance.GetFruitDesPos();
-        transform.DOPath(new Vector3 []{transform.position,new Vector3(transform.position.x-1f,transform.position.y+0.1f,0),desPos},1f,PathType.CatmullRom).OnComplete(()=> {
+        transform.DOPath(new Vector3 []{new Vector3(transform.position.x-1f,transform.position.y+0.1f,0),desPos},1.5f,PathType.CatmullRom).SetEase(Ease.OutQuint).OnComplete(()=> {
             FruitController.instance.FruitToBasketEnd(this);
         });
+    }
+
+    public void PlayParticle(int number)
+    {
+        string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + number.ToString();
+        material.mainTexture = UIHelper.instance.LoadSprite(path).texture;
+        ps_Number.Play();
     }
 }

@@ -19,7 +19,8 @@ public class FruitController : SingletonMono<FruitController>
 
     public delegate void ComeToBasketBegin(bool chapterEnd,int num);
     public static event ComeToBasketBegin comeToBasketBegin;//入蓝开始
-    public static event ComeToBasketBegin comeToBasketEnd;//入篮结束
+    public delegate void ComeToBasketEnd(FruitItem item,bool chapterEnd, int num);
+    public static event ComeToBasketEnd comeToBasketEnd;//入篮结束
 
     public delegate void Operation();
     public static event Operation operationStart;
@@ -156,7 +157,6 @@ public class FruitController : SingletonMono<FruitController>
 
     public void FruitToBasketEnd(FruitItem item)
     {
-        Debug.Log("FruitToBasketEnd========");
         bool chapterEnd = false;
         getFruitCount += 1;
         if (getFruitCount >= needFruitCount)
@@ -165,7 +165,7 @@ public class FruitController : SingletonMono<FruitController>
         }
         if (comeToBasketEnd != null)
         {
-            comeToBasketEnd(chapterEnd,getFruitCount);
+            comeToBasketEnd(item,chapterEnd,getFruitCount);
         }
     }
 

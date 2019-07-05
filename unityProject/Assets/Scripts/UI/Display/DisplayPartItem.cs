@@ -73,6 +73,16 @@ public class DisplayPartItem : MonoBehaviour
         }
     }
 
+    //就是跳舞动作 1跳起来双手挥舞双脚打开
+    public void PlayJumpAndWave()
+    {
+        string aniName = Dance + "1_" + partType.ToString();
+        if (item_animation.GetClip(aniName) != null)
+        {
+            item_animation.Play(aniName);
+        }
+    }
+
     //呼吸动作
     public void PlayBreathe()
     {

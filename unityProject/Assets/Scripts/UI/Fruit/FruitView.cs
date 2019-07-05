@@ -21,6 +21,7 @@ public class FruitView :MonoBehaviour
     public Image ImgNumber;
     public Image ImgNeedNum;
     public Image ImgNeedFruit;
+    public ParticleSystem ps_Ribbon;
 
     private GameObject completeWindow;
     private int fruitType;
@@ -116,7 +117,6 @@ public class FruitView :MonoBehaviour
         FruitController.instance.SetChapter(c);
 
         int fruitNum = FruitController.instance.GenFruitNumber(c);
-        Debug.Log(fruitNum);
         SetNeedFruitNumber(fruitType, fruitNum);
 
         List<int> indexList = FruitController.instance.GenFruitIndex(fruitNum);
@@ -185,9 +185,10 @@ public class FruitView :MonoBehaviour
         });
     }
 
-    private void ComeToBasketEnd(bool chapterEnd,int number)
+    private void ComeToBasketEnd(FruitItem item,bool chapterEnd,int number)
     {
         //冒星星的动画
+        item.PlayParticle(number);
         if (chapterEnd)
         {
             //切换关卡
@@ -197,7 +198,7 @@ public class FruitView :MonoBehaviour
 
     private IEnumerator NextChapter(int number)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0);
 
         if (FruitController.instance.chapter < 3)
         {
@@ -211,23 +212,25 @@ public class FruitView :MonoBehaviour
     private void ChapterEndFunc(bool complete)
     {
         FruitController.instance.OperationStart();
-        //delete old
-        for (int i = 0; i < fruitList.Count; i++)
-        {
-            Destroy(fruitList[i].gameObject);
-        }
-        fruitList.Clear();
-        BubbleCanvaGroup.DOFade(0, 0.5f).OnComplete(() => { 
+       
+        BubbleCanvaGroup.DOFade(0, 0.5f).OnComplete(() => {
+            //delete old
+            for (int i = 0; i < fruitList.Count; i++)
+            {
+                DestroyImmediate(fruitList[i].gameObject);
+            }
+            fruitList.Clear();
             ImgNumber.gameObject.SetActive(false);
             JumpAndWaveHand();
+            ps_Ribbon.Play();
             //彩带掉落
             if (complete)
             {
-                ShowCompleteWindow();
+                Invoke("ShowCompleteWindow", 2);
             }
             else
             {
-                Invoke("InitGamePre", 1.0f);//1s后，播放完小人动画以及彩带飘落的动画以后，再进入下一关或者弹窗
+                Invoke("InitGamePre", 2);//1s后，播放完小人动画以及彩带飘落的动画以后，再进入下一关或者弹窗
             }
         });
     }
@@ -291,7 +294,8 @@ public class FruitView :MonoBehaviour
 
     public void JumpAndWaveHand()
     {
-        DataManager.instance.PersonDance(lstDisplayItem,1);
+        Debug.Log("JumpAndWAve");
+        DataManager.instance.PersonJumpAndWave(lstDisplayItem);
     }
 
     public void PlayBreathe()

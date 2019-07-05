@@ -178,6 +178,7 @@ namespace DataMgr
 
         public void PersonDance(DisplayPartItem[] itemList,int n)
         {
+            Debug.Log("personDAnce");
             if (itemList == null)
             {
                 Debug.Log("itemList is null-----");
@@ -219,6 +220,19 @@ namespace DataMgr
             for (int i = 0; i < itemList.Length; i++)
             {
                 itemList[i].PlayBreathe();
+            }
+        }
+
+        public void PersonJumpAndWave(DisplayPartItem[] itemList)
+        {
+            if (itemList == null)
+            {
+                Debug.Log("itemList is null-----");
+                return;
+            }
+            for (int i = 0; i < itemList.Length; i++)
+            {
+                itemList[i].PlayJumpAndWave();
             }
         }
 

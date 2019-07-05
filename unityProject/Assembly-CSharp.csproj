@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Effect\WheelRotate.cs" />
     <Compile Include="Assets\Scripts\Helper\UIDepth.cs" />
     <Compile Include="Assets\Scripts\Helper\UIHelper.cs" />
+    <Compile Include="Assets\Scripts\Helper\Utils.cs" />
     <Compile Include="Assets\Scripts\Manager\AudioManager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager\DataManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager\GameManager.cs" />
