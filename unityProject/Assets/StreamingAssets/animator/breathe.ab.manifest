@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1146536574
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fc835dfb2c60d9bd18b12d2f0fac90dd
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: af57576da81d5d3ce45807ac11234de6
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/Breathe/Breathe_LeftHand.anim
+- Assets/Res/Animator/Breathe/Breathe_RightHand.anim
+- Assets/Res/Animator/Breathe/Breathe_Body.anim
+Dependencies: []

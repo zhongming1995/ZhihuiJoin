@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2804089171
+CRC: 2703503628
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -42,6 +42,6 @@ Assets:
 - Assets/Res/Prefabs/home/select_item_view.prefab
 Dependencies:
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/homeitems.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/bg_atlas.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/common_atlas.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/bg_atlas.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/home_atlas.ab

@@ -1,20 +1,7 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayPartItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Fruit/FruitGuide.cs" Line="76" Column="1" />
-      <File FileName="Assets/Scripts/UI/Join/JoinGuide.cs" Line="28" Column="53" />
-      <File FileName="Assets/Scripts/UI/Fruit/FruitView.cs" Line="298" Column="41" />
-      <File FileName="Assets/Scripts/UI/Fruit/FruitItem.cs" Line="91" Column="54" />
-      <File FileName="Assets/Scripts/UI/Fruit/FruitController.cs" Line="17" Column="45" />
-      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="62" Column="9" />
-      <File FileName="Assets/Scripts/Common/Singleton.cs" Line="31" Column="10" />
-      <File FileName="Assets/Scripts/UI/Draw/MyPaint.cs" Line="113" Column="1" />
-      <File FileName="Assets/Scripts/Helper/Utils.cs" Line="6" Column="11" />
-      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="342" Column="9" />
-      <File FileName="Assets/Scripts/Helper/UIHelper.cs" Line="16" Column="9" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="156" Column="57" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="235" Column="35" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="60" Column="17" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="17" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

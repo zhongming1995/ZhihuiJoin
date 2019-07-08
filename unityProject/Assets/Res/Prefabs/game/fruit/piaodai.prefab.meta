@@ -1,8 +1,7 @@
 fileFormatVersion: 2
 guid: 51d0e43b3895ca74fa720de0ab0b4466
-timeCreated: 1481095438
-licenseType: Free
-NativeFormatImporter:
+PrefabImporter:
+  externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: prefabs/game/fruit
+  assetBundleVariant: ab

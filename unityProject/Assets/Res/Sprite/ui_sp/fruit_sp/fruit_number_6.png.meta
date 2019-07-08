@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: draw
+  spritePackingTag: fruit_sp
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: sprite/draw
+  assetBundleName: sprite/ui_sp/fruit_sp
   assetBundleVariant: ab

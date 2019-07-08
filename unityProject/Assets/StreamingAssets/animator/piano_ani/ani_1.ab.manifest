@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 19512577
+CRC: 3902847023
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -20,5 +20,5 @@ Assets:
 - Assets/Res/Animator/Piano_Ani/Ani_1/DuckDefault.anim
 - Assets/Res/Animator/Piano_Ani/Ani_1/DuckJump.anim
 Dependencies:
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/duck_atlas/default.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/duck_atlas/correct.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/duck_atlas/default.ab

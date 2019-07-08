@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3491340649
+CRC: 1566702063
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c610f65d7c77f3a3937fa8b44b95e81
+    Hash: 62528be30e8fea7f38d539debc842738
   TypeTreeHash:
     serializedVersion: 2
     Hash: 55a34fe75ec2c4add16b7b3ec4a2e77e
@@ -50,13 +50,14 @@ Assets:
 - Assets/Res/Prefabs/display/display_item_hat.prefab
 Dependencies:
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/draw.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/common_atlas.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/bg_atlas.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/fodder/hand.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/fodder/leg.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance3.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/greeting.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance2.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance4.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/greeting.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance3.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/default.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/bg_atlas.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/common_atlas.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/dance2.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/breathe.ab

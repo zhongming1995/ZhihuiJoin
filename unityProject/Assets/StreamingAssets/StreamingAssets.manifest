@@ -1,287 +1,309 @@
 ManifestFileVersion: 0
-CRC: 2571896509
+CRC: 2143475219
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: sprite/small_fodder/hair.ab
       Dependencies: {}
     Info_1:
-      Name: sprite/fodder/hat.ab
-      Dependencies: {}
-    Info_2:
-      Name: sprite/fodder/mouth.ab
-      Dependencies: {}
-    Info_3:
-      Name: sprite/draw.ab
-      Dependencies: {}
-    Info_4:
-      Name: sprite/fodder/eye.ab
-      Dependencies: {}
-    Info_5:
-      Name: sprite/small_fodder/eye.ab
-      Dependencies: {}
-    Info_6:
       Name: sprite/homeitems.ab
       Dependencies: {}
+    Info_2:
+      Name: sprite/fodder/hat.ab
+      Dependencies: {}
+    Info_3:
+      Name: sprite/fodder/mouth.ab
+      Dependencies: {}
+    Info_4:
+      Name: sprite/draw.ab
+      Dependencies: {}
+    Info_5:
+      Name: sprite/fodder/eye.ab
+      Dependencies: {}
+    Info_6:
+      Name: atlas/guide_atlas/draw.ab
+      Dependencies: {}
     Info_7:
-      Name: sprite/small_fodder/color.ab
+      Name: atlas/ui_atlas/common_atlas.ab
       Dependencies: {}
     Info_8:
-      Name: sprite/small_fodder/hand.ab
+      Name: sprite/small_fodder/eye.ab
       Dependencies: {}
     Info_9:
-      Name: sprite/fodder/hand.ab
+      Name: atlas/bg_atlas.ab
       Dependencies: {}
     Info_10:
-      Name: sprite/small_fodder/hat.ab
+      Name: sprite/small_fodder/color.ab
       Dependencies: {}
     Info_11:
-      Name: sprite/fodder/leg.ab
+      Name: sprite/small_fodder/hand.ab
       Dependencies: {}
     Info_12:
-      Name: sprite/small_fodder/leg.ab
+      Name: atlas/ui_atlas/card_atlas.ab
       Dependencies: {}
     Info_13:
-      Name: sprite/small_fodder/mouth.ab
+      Name: atlas/ui_atlas/rabbit_atlas/correct.ab
       Dependencies: {}
     Info_14:
-      Name: sprite/small_fodder/headwear.ab
+      Name: sprite/fodder/hand.ab
       Dependencies: {}
     Info_15:
-      Name: sprite/fodder/headwear.ab
+      Name: sprite/small_fodder/hat.ab
       Dependencies: {}
     Info_16:
-      Name: sprite/fodder/hair.ab
+      Name: sprite/fodder/leg.ab
       Dependencies: {}
     Info_17:
-      Name: prefabs/join.ab
-      Dependencies:
-        Dependency_0: sprite/draw.ab
-        Dependency_1: sprite/fodder/eye.ab
-        Dependency_2: sprite/small_fodder/eye.ab
-        Dependency_3: sprite/homeitems.ab
-        Dependency_4: sprite/small_fodder/color.ab
-        Dependency_5: sprite/small_fodder/hand.ab
-        Dependency_6: sprite/small_fodder/leg.ab
-        Dependency_7: animator/guide.ab
-        Dependency_8: sprite/ui_sp/join_sp.ab
-        Dependency_9: prefabs/guide.ab
-        Dependency_10: atlas/guide_atlas/drag.ab
-        Dependency_11: atlas/guide_atlas/draw.ab
-        Dependency_12: atlas/bg_atlas.ab
-        Dependency_13: atlas/ui_atlas/common_atlas.ab
-        Dependency_14: atlas/ui_atlas/join_atlas.ab
-        Dependency_15: material.ab
+      Name: atlas/ui_atlas/star_atlas/correct.ab
+      Dependencies: {}
     Info_18:
-      Name: prefabs/draw.ab
-      Dependencies:
-        Dependency_0: sprite/brushes.ab
-        Dependency_1: material.ab
+      Name: sprite/small_fodder/leg.ab
+      Dependencies: {}
     Info_19:
-      Name: prefabs/home.ab
-      Dependencies:
-        Dependency_0: sprite/homeitems.ab
-        Dependency_1: atlas/bg_atlas.ab
-        Dependency_2: atlas/ui_atlas/common_atlas.ab
-        Dependency_3: atlas/ui_atlas/home_atlas.ab
+      Name: atlas/ui_atlas/duck_atlas/correct.ab
+      Dependencies: {}
     Info_20:
-      Name: prefabs/display.ab
-      Dependencies:
-        Dependency_0: sprite/draw.ab
-        Dependency_1: sprite/fodder/hand.ab
-        Dependency_2: sprite/fodder/leg.ab
-        Dependency_3: animator/dance3.ab
-        Dependency_4: animator/dance.ab
-        Dependency_5: animator/greeting.ab
-        Dependency_6: animator/dance2.ab
-        Dependency_7: animator/dance4.ab
-        Dependency_8: animator/default.ab
-        Dependency_9: atlas/bg_atlas.ab
-        Dependency_10: atlas/ui_atlas/common_atlas.ab
+      Name: sprite/small_fodder/mouth.ab
+      Dependencies: {}
     Info_21:
-      Name: animator/dance3.ab
+      Name: sprite/small_fodder/headwear.ab
       Dependencies: {}
     Info_22:
-      Name: animator/dance.ab
+      Name: atlas/ui_atlas/piano_atlas.ab
       Dependencies: {}
     Info_23:
-      Name: animator/greeting.ab
+      Name: sprite/fodder/headwear.ab
       Dependencies: {}
     Info_24:
+      Name: atlas/ui_atlas/window_atlas.ab
+      Dependencies: {}
+    Info_25:
+      Name: atlas/ui_atlas/join_atlas.ab
+      Dependencies: {}
+    Info_26:
+      Name: sprite/ui_sp/join_sp.ab
+      Dependencies: {}
+    Info_27:
+      Name: sprite/brushes.ab
+      Dependencies: {}
+    Info_28:
+      Name: atlas/ui_atlas/index_atlas.ab
+      Dependencies: {}
+    Info_29:
+      Name: atlas/ui_atlas/rabbit_atlas/default.ab
+      Dependencies: {}
+    Info_30:
+      Name: atlas/ui_atlas/star_atlas/default.ab
+      Dependencies: {}
+    Info_31:
+      Name: sprite/ui_sp/piano_sp/song_name.ab
+      Dependencies: {}
+    Info_32:
+      Name: sprite/fodder/hair.ab
+      Dependencies: {}
+    Info_33:
+      Name: atlas/ui_atlas/duck_atlas/default.ab
+      Dependencies: {}
+    Info_34:
+      Name: atlas/ui_atlas/home_atlas.ab
+      Dependencies: {}
+    Info_35:
+      Name: atlas/guide_atlas/drag.ab
+      Dependencies: {}
+    Info_36:
+      Name: shader.ab
+      Dependencies: {}
+    Info_37:
+      Name: animator/dance4.ab
+      Dependencies: {}
+    Info_38:
+      Name: animator/greeting.ab
+      Dependencies: {}
+    Info_39:
+      Name: animator/dance3.ab
+      Dependencies: {}
+    Info_40:
+      Name: animator/default.ab
+      Dependencies: {}
+    Info_41:
       Name: animator/guide.ab
       Dependencies:
         Dependency_0: atlas/guide_atlas/draw.ab
-    Info_25:
-      Name: animator/piano_ani/ani_2.ab
-      Dependencies:
-        Dependency_0: atlas/ui_atlas/rabbit_atlas/correct.ab
-        Dependency_1: atlas/ui_atlas/rabbit_atlas/default.ab
-    Info_26:
-      Name: animator/dance2.ab
-      Dependencies: {}
-    Info_27:
-      Name: animator/dance4.ab
-      Dependencies: {}
-    Info_28:
-      Name: animator/piano_ani/ani_1.ab
-      Dependencies:
-        Dependency_0: atlas/ui_atlas/duck_atlas/default.ab
-        Dependency_1: atlas/ui_atlas/duck_atlas/correct.ab
-    Info_29:
-      Name: animator/default.ab
-      Dependencies: {}
-    Info_30:
-      Name: animator/ui_ani.ab
-      Dependencies: {}
-    Info_31:
-      Name: animator/piano_ani/ani_0.ab
-      Dependencies:
-        Dependency_0: atlas/ui_atlas/star_atlas/correct.ab
-        Dependency_1: atlas/ui_atlas/star_atlas/default.ab
-    Info_32:
-      Name: sprite/ui_sp/join_sp.ab
-      Dependencies: {}
-    Info_33:
-      Name: sprite/ui_sp/piano_symbols.ab
-      Dependencies: {}
-    Info_34:
-      Name: sprite/ui_sp/piano_sp/song_name.ab
-      Dependencies: {}
-    Info_35:
-      Name: sprite/brushes.ab
-      Dependencies: {}
-    Info_36:
-      Name: prefabs/index.ab
-      Dependencies:
-        Dependency_0: atlas/bg_atlas.ab
-        Dependency_1: atlas/ui_atlas/index_atlas.ab
-    Info_37:
-      Name: prefabs/guide.ab
-      Dependencies:
-        Dependency_0: animator/guide.ab
-        Dependency_1: atlas/guide_atlas/drag.ab
-        Dependency_2: atlas/guide_atlas/draw.ab
-    Info_38:
-      Name: prefabs/game/piano.ab
-      Dependencies:
-        Dependency_0: animator/piano_ani/ani_2.ab
-        Dependency_1: animator/piano_ani/ani_1.ab
-        Dependency_2: animator/ui_ani.ab
-        Dependency_3: animator/piano_ani/ani_0.ab
-        Dependency_4: sprite/ui_sp/piano_symbols.ab
-        Dependency_5: sprite/ui_sp/piano_sp/song_name.ab
-        Dependency_6: audio/piano_key.ab
-        Dependency_7: atlas/bg_atlas.ab
-        Dependency_8: atlas/ui_atlas/piano_atlas.ab
-        Dependency_9: atlas/ui_atlas/common_atlas.ab
-        Dependency_10: material.ab
-    Info_39:
-      Name: prefabs/game/card.ab
-      Dependencies:
-        Dependency_0: sprite/homeitems.ab
-        Dependency_1: atlas/bg_atlas.ab
-        Dependency_2: atlas/ui_atlas/card_atlas.ab
-        Dependency_3: atlas/ui_atlas/common_atlas.ab
-        Dependency_4: material.ab
-    Info_40:
-      Name: prefabs/common.ab
-      Dependencies:
-        Dependency_0: atlas/bg_atlas.ab
-    Info_41:
-      Name: audio/letter_tmplate.ab
-      Dependencies: {}
     Info_42:
-      Name: audio/num_template.ab
+      Name: animator/dance.ab
       Dependencies: {}
     Info_43:
-      Name: audio/reminder/num.ab
-      Dependencies: {}
-    Info_44:
-      Name: audio/reminder/letter.ab
-      Dependencies: {}
-    Info_45:
-      Name: audio/piano_key.ab
-      Dependencies: {}
-    Info_46:
-      Name: audio/guide_effect.ab
-      Dependencies: {}
-    Info_47:
-      Name: audio/bgm.ab
-      Dependencies: {}
-    Info_48:
-      Name: atlas/ui_atlas/rabbit_atlas/correct.ab
-      Dependencies: {}
-    Info_49:
-      Name: atlas/guide_atlas/drag.ab
-      Dependencies: {}
-    Info_50:
-      Name: atlas/guide_atlas/draw.ab
-      Dependencies: {}
-    Info_51:
-      Name: atlas/bg_atlas.ab
-      Dependencies: {}
-    Info_52:
-      Name: atlas/ui_atlas/card_atlas.ab
-      Dependencies: {}
-    Info_53:
-      Name: atlas/ui_atlas/star_atlas/correct.ab
-      Dependencies: {}
-    Info_54:
-      Name: atlas/ui_atlas/index_atlas.ab
-      Dependencies: {}
-    Info_55:
-      Name: atlas/ui_atlas/piano_atlas.ab
-      Dependencies: {}
-    Info_56:
-      Name: atlas/ui_atlas/star_atlas/default.ab
-      Dependencies: {}
-    Info_57:
-      Name: atlas/ui_atlas/rabbit_atlas/default.ab
-      Dependencies: {}
-    Info_58:
-      Name: atlas/ui_atlas/common_atlas.ab
-      Dependencies: {}
-    Info_59:
-      Name: atlas/ui_atlas/home_atlas.ab
-      Dependencies: {}
-    Info_60:
-      Name: atlas/ui_atlas/window_atlas.ab
-      Dependencies: {}
-    Info_61:
-      Name: atlas/ui_atlas/duck_atlas/default.ab
-      Dependencies: {}
-    Info_62:
-      Name: atlas/ui_atlas/duck_atlas/correct.ab
-      Dependencies: {}
-    Info_63:
-      Name: atlas/ui_atlas/join_atlas.ab
-      Dependencies: {}
-    Info_64:
-      Name: audio/option_audio/material_option_audio.ab
-      Dependencies: {}
-    Info_65:
-      Name: audio/option_audio/color_option_audio.ab
-      Dependencies: {}
-    Info_66:
-      Name: audio/option_audio/common_option_audio.ab
-      Dependencies: {}
-    Info_67:
-      Name: audio/reminder/common_reminder_audio.ab
-      Dependencies: {}
-    Info_68:
-      Name: prefabs/game/window.ab
-      Dependencies:
-        Dependency_0: atlas/bg_atlas.ab
-        Dependency_1: atlas/ui_atlas/piano_atlas.ab
-        Dependency_2: atlas/ui_atlas/common_atlas.ab
-        Dependency_3: atlas/ui_atlas/window_atlas.ab
-    Info_69:
       Name: material.ab
       Dependencies:
         Dependency_0: sprite/draw.ab
         Dependency_1: sprite/small_fodder/eye.ab
         Dependency_2: atlas/ui_atlas/piano_atlas.ab
         Dependency_3: shader.ab
+        Dependency_4: atlas/ui_atlas/ui_effect/lipao.ab
+    Info_44:
+      Name: animator/ui_ani.ab
+      Dependencies: {}
+    Info_45:
+      Name: animator/dance2.ab
+      Dependencies: {}
+    Info_46:
+      Name: animator/piano_ani/ani_1.ab
+      Dependencies:
+        Dependency_0: atlas/ui_atlas/duck_atlas/correct.ab
+        Dependency_1: atlas/ui_atlas/duck_atlas/default.ab
+    Info_47:
+      Name: animator/piano_ani/ani_0.ab
+      Dependencies:
+        Dependency_0: atlas/ui_atlas/star_atlas/correct.ab
+        Dependency_1: atlas/ui_atlas/star_atlas/default.ab
+    Info_48:
+      Name: animator/piano_ani/ani_2.ab
+      Dependencies:
+        Dependency_0: atlas/ui_atlas/rabbit_atlas/correct.ab
+        Dependency_1: atlas/ui_atlas/rabbit_atlas/default.ab
+    Info_49:
+      Name: audio/letter_tmplate.ab
+      Dependencies: {}
+    Info_50:
+      Name: audio/num_template.ab
+      Dependencies: {}
+    Info_51:
+      Name: audio/reminder/common_reminder_audio.ab
+      Dependencies: {}
+    Info_52:
+      Name: audio/option_audio/color_option_audio.ab
+      Dependencies: {}
+    Info_53:
+      Name: audio/piano_key.ab
+      Dependencies: {}
+    Info_54:
+      Name: audio/reminder/num.ab
+      Dependencies: {}
+    Info_55:
+      Name: audio/option_audio/material_option_audio.ab
+      Dependencies: {}
+    Info_56:
+      Name: audio/guide_effect.ab
+      Dependencies: {}
+    Info_57:
+      Name: audio/option_audio/common_option_audio.ab
+      Dependencies: {}
+    Info_58:
+      Name: audio/reminder/letter.ab
+      Dependencies: {}
+    Info_59:
+      Name: audio/bgm.ab
+      Dependencies: {}
+    Info_60:
+      Name: prefabs/join.ab
+      Dependencies:
+        Dependency_0: sprite/homeitems.ab
+        Dependency_1: sprite/draw.ab
+        Dependency_2: sprite/fodder/eye.ab
+        Dependency_3: atlas/guide_atlas/draw.ab
+        Dependency_4: atlas/ui_atlas/common_atlas.ab
+        Dependency_5: sprite/small_fodder/eye.ab
+        Dependency_6: atlas/bg_atlas.ab
+        Dependency_7: sprite/small_fodder/color.ab
+        Dependency_8: sprite/small_fodder/hand.ab
+        Dependency_9: sprite/small_fodder/leg.ab
+        Dependency_10: atlas/ui_atlas/join_atlas.ab
+        Dependency_11: sprite/ui_sp/join_sp.ab
+        Dependency_12: atlas/guide_atlas/drag.ab
+        Dependency_13: animator/guide.ab
+        Dependency_14: material.ab
+        Dependency_15: prefabs/guide.ab
+    Info_61:
+      Name: prefabs/index.ab
+      Dependencies:
+        Dependency_0: atlas/bg_atlas.ab
+        Dependency_1: atlas/ui_atlas/index_atlas.ab
+    Info_62:
+      Name: prefabs/game/piano.ab
+      Dependencies:
+        Dependency_0: atlas/ui_atlas/common_atlas.ab
+        Dependency_1: atlas/bg_atlas.ab
+        Dependency_2: atlas/ui_atlas/piano_atlas.ab
+        Dependency_3: sprite/ui_sp/piano_sp/song_name.ab
+        Dependency_4: material.ab
+        Dependency_5: animator/ui_ani.ab
+        Dependency_6: animator/piano_ani/ani_1.ab
+        Dependency_7: animator/piano_ani/ani_0.ab
+        Dependency_8: animator/piano_ani/ani_2.ab
+        Dependency_9: audio/piano_key.ab
+        Dependency_10: sprite/ui_sp/piano_sp/piano_symbols.ab
+    Info_63:
+      Name: prefabs/display.ab
+      Dependencies:
+        Dependency_0: sprite/draw.ab
+        Dependency_1: atlas/ui_atlas/common_atlas.ab
+        Dependency_2: atlas/bg_atlas.ab
+        Dependency_3: sprite/fodder/hand.ab
+        Dependency_4: sprite/fodder/leg.ab
+        Dependency_5: animator/dance4.ab
+        Dependency_6: animator/greeting.ab
+        Dependency_7: animator/dance3.ab
+        Dependency_8: animator/default.ab
+        Dependency_9: animator/dance.ab
+        Dependency_10: animator/dance2.ab
+        Dependency_11: animator/breathe.ab
+    Info_64:
+      Name: prefabs/draw.ab
+      Dependencies:
+        Dependency_0: sprite/brushes.ab
+        Dependency_1: material.ab
+    Info_65:
+      Name: prefabs/home.ab
+      Dependencies:
+        Dependency_0: sprite/homeitems.ab
+        Dependency_1: atlas/ui_atlas/common_atlas.ab
+        Dependency_2: atlas/bg_atlas.ab
+        Dependency_3: atlas/ui_atlas/home_atlas.ab
+    Info_66:
+      Name: prefabs/guide.ab
+      Dependencies:
+        Dependency_0: atlas/guide_atlas/draw.ab
+        Dependency_1: atlas/guide_atlas/drag.ab
+        Dependency_2: animator/guide.ab
+    Info_67:
+      Name: prefabs/game/card.ab
+      Dependencies:
+        Dependency_0: sprite/homeitems.ab
+        Dependency_1: atlas/ui_atlas/common_atlas.ab
+        Dependency_2: atlas/bg_atlas.ab
+        Dependency_3: atlas/ui_atlas/card_atlas.ab
+        Dependency_4: material.ab
+    Info_68:
+      Name: prefabs/game/window.ab
+      Dependencies:
+        Dependency_0: atlas/ui_atlas/common_atlas.ab
+        Dependency_1: atlas/bg_atlas.ab
+        Dependency_2: atlas/ui_atlas/piano_atlas.ab
+        Dependency_3: atlas/ui_atlas/window_atlas.ab
+    Info_69:
+      Name: prefabs/common.ab
+      Dependencies:
+        Dependency_0: atlas/bg_atlas.ab
     Info_70:
-      Name: shader.ab
+      Name: atlas/ui_atlas/ui_effect/lipao.ab
+      Dependencies: {}
+    Info_71:
+      Name: prefabs/game/fruit.ab
+      Dependencies:
+        Dependency_0: sprite/fodder/mouth.ab
+        Dependency_1: sprite/fodder/eye.ab
+        Dependency_2: atlas/ui_atlas/common_atlas.ab
+        Dependency_3: atlas/bg_atlas.ab
+        Dependency_4: sprite/small_fodder/hat.ab
+        Dependency_5: atlas/ui_atlas/piano_atlas.ab
+        Dependency_6: material.ab
+        Dependency_7: sprite/ui_sp/fruit_sp.ab
+    Info_72:
+      Name: animator/breathe.ab
+      Dependencies: {}
+    Info_73:
+      Name: sprite/ui_sp/fruit_sp.ab
+      Dependencies: {}
+    Info_74:
+      Name: sprite/ui_sp/piano_sp/piano_symbols.ab
       Dependencies: {}

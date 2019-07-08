@@ -177,7 +177,7 @@ public class FruitView :MonoBehaviour
         SetFruitNumber(number);
         string audioPath = "Audio/num_template|template_num_" + (number-1);
         AudioManager.instance.PlayOneShotAudio(audioPath);
-        ImgNumber.transform.DOScale(Vector3.one,0.3f).OnComplete(() => {
+        ImgNumber.transform.DOScale(Vector3.one,0.5f).OnComplete(() => {
             if (!chapterEnd)
             {
                 HideMask();
@@ -294,7 +294,6 @@ public class FruitView :MonoBehaviour
 
     public void JumpAndWaveHand()
     {
-        Debug.Log("JumpAndWAve");
         DataManager.instance.PersonJumpAndWave(lstDisplayItem);
     }
 

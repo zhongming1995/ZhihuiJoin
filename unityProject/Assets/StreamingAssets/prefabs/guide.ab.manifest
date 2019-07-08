@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2854788434
+CRC: 2926264408
 Hashes:
   AssetFileHash:
     serializedVersion: 2
@@ -37,6 +37,6 @@ Assets:
 - Assets/Res/Prefabs/guide/draw_reminder.prefab
 - Assets/Res/Prefabs/guide/drag_reminder.prefab
 Dependencies:
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/guide.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/guide_atlas/drag.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/guide_atlas/draw.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/guide_atlas/drag.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/guide.ab

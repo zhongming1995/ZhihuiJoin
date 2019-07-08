@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1282763203
+CRC: 2434521498
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fec097a538dad6df56febffe95b6e360
+    Hash: f6fec889678fb29aa07d92b454f80696
   TypeTreeHash:
     serializedVersion: 2
     Hash: cd773c2efef033e41a3dbbf6e0121a6b
@@ -64,14 +64,14 @@ Assets:
 - Assets/Res/Prefabs/game/piano/song_ani_1.prefab
 - Assets/Res/Prefabs/game/piano/song_ani_2.prefab
 Dependencies:
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/piano_ani/ani_2.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/piano_ani/ani_1.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/ui_ani.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/piano_ani/ani_0.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/ui_sp/piano_symbols.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/ui_sp/piano_sp/song_name.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/audio/piano_key.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/common_atlas.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/bg_atlas.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/piano_atlas.ab
-- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/common_atlas.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/ui_sp/piano_sp/song_name.ab
 - /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/material.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/ui_ani.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/piano_ani/ani_1.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/piano_ani/ani_0.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/animator/piano_ani/ani_2.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/audio/piano_key.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/ui_sp/piano_sp/piano_symbols.ab
