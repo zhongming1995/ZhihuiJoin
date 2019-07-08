@@ -337,16 +337,18 @@ namespace Draw_MobilePaint
 
 
         } // StartupValidation()
-    
+
         //bool firstRun = false; // TODO: this could be used to check if InitializeEverything() was called after first run
 
         // rebuilds everything and reloads masks,textures..
         //外部调用，参数为材质的贴图（即绘画背景）
+        private Texture bgTexture;
         public void InitializeEverything(Texture texture)
         {
             if (texture!=null)
             {
-               myRenderer.material.mainTexture = texture;
+                bgTexture = texture;
+                myRenderer.material.mainTexture = texture;
             }
 
             resolutionScaler = Screen.width * 1.0f / overrideWidth;
@@ -472,13 +474,7 @@ namespace Draw_MobilePaint
         {
             drawTexture.LoadRawTextureData(drawPixels);//通过读取文件数据来加载纹理数据
             drawTexture.Apply(false);
-
-            //byte[] byt = drawTexture.EncodeToPNG();
-            //string photoName = "MyDrawPhoto.png";
-            //string savePath = Application.persistentDataPath + "/" + photoName;
-            //System.IO.File.WriteAllBytes(savePath, byt);
-            //Debug.Log("保存的沙河地址：------------" + savePath);
-
+             
             return drawTexture;
         }
 

@@ -223,11 +223,11 @@ public class JoinMainView : MonoBehaviour
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             gameObject.SetActive(false);
-            Texture2D t = GetDrawTexture();
-            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-            ImgDraw.sprite = s;
-            ImgDraw.SetNativeSize();
-            ImgDraw.transform.localScale = Vector3.one;
+            //Texture2D t = GetDrawTexture();
+            //Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+            //ImgDraw.sprite = s;
+            //ImgDraw.SetNativeSize();
+            //ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.TransformToPartsList(DrawPanel);
             UIHelper.instance.LoadPrefab("Prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             //GameManager.instance.SetNextViewPath("Prefabs/display|display_view");
@@ -374,7 +374,21 @@ public class JoinMainView : MonoBehaviour
             return;
         }
         ShowBackBtn(false);
-
+        if (type==TemplateResType.Body)
+        {
+            mobilePaint.gameObject.SetActive(true);
+            ImgDraw.gameObject.SetActive(false);
+        }
+        else
+        {
+            Texture2D t = GetDrawTexture();
+            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+            ImgDraw.sprite = s;
+            ImgDraw.SetNativeSize();
+            ImgDraw.transform.localScale = Vector3.one;
+            mobilePaint.gameObject.SetActive(false);
+            ImgDraw.gameObject.SetActive(true);
+        }
         Sequence seq = DOTween.Sequence();
         seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.2f));
         seq.InsertCallback(0.2f, () =>
