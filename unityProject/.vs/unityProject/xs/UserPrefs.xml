@@ -2,8 +2,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="162" Column="44" />
-      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="468" Column="35" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="27" Column="29" />
+      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="747" Column="41" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="34" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

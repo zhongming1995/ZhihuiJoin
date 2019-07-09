@@ -21,6 +21,7 @@ public class JoinMainView : MonoBehaviour
     public Button BtnOk;
     public Image ImgReference;
     public Image ImgDraw;
+    public Image ImgDrawBg;
     public Transform DrawPanel;//画布
     public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
@@ -106,7 +107,7 @@ public class JoinMainView : MonoBehaviour
 
     private void Init()
     {
-        //ResListTrans.localPosition = new Vector3(oriPos_ResContentList, ResListTrans.localPosition.y, ResListTrans.localPosition.z);
+        mobilePaint.gameObject.SetActive(false);
         //引导脚本
         joinGuide = GetComponent<JoinGuide>();
         if (joinGuide==null)
@@ -117,6 +118,8 @@ public class JoinMainView : MonoBehaviour
         AddClickEvent();
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
+        //涂色背景（只做淡入展示）
+        UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
         {
@@ -147,6 +150,8 @@ public class JoinMainView : MonoBehaviour
     void ShowDrawPanel()
     {
         mobilePaint.gameObject.SetActive(true);
+        //ImgDrawBg.gameObject.SetActive(false);
+        //ImgDrawBg.DOFade(0, 0.1f);
     }
 
     void SetDrawMessage()
@@ -162,8 +167,8 @@ public class JoinMainView : MonoBehaviour
         AdjustBurshSize(PenScaleSlider.value);
         joinGuide.AddMobileDrawDelagate();
 
-        mobilePaint.gameObject.SetActive(false);
-        Invoke("ShowDrawPanel",0.2f);
+        //mobilePaint.gameObject.SetActive(false);
+        Invoke("ShowDrawPanel",0.4f);
     }
 
     /// <summary>
@@ -376,18 +381,24 @@ public class JoinMainView : MonoBehaviour
         ShowBackBtn(false);
         if (type==TemplateResType.Body)
         {
-            mobilePaint.gameObject.SetActive(true);
-            ImgDraw.gameObject.SetActive(false);
+            //mobilePaint.gameObject.SetActive(true);
+            //ImgDraw.gameObject.SetActive(false);
+            ImgDrawBg.DOFade(1, 0.5f).OnComplete(()=> {
+                ImgDraw.gameObject.SetActive(false);
+                mobilePaint.gameObject.SetActive(true);
+            });
         }
         else
         {
+            Debug.Log("TypeButtonClick=========");
             Texture2D t = GetDrawTexture();
+            ImgDraw.gameObject.SetActive(true);
             Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
             ImgDraw.sprite = s;
             ImgDraw.SetNativeSize();
             ImgDraw.transform.localScale = Vector3.one;
             mobilePaint.gameObject.SetActive(false);
-            ImgDraw.gameObject.SetActive(true);
+            ImgDrawBg.DOFade(0, 0.5f);
         }
         Sequence seq = DOTween.Sequence();
         seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.2f));
