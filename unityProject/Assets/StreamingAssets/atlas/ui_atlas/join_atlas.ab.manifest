@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 686033403
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ebda60829cdf4c6c2760fe5acf3e2370
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_official_bg@3x.png
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_toolbar_yellowcontrol1_slider@3x.png
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_toolbar_bg@3x.png
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_toolbar_bluecontrol2_slider@3x.png
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_toolbar_yellowcontrol2_slider@3x.png
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_toolbar2_bg@3x.png
+- Assets/Res/Atlas/ui_atlas/join_atlas/splice_board_toolbar_yellowcontrol3_slider@3x.png
+Dependencies: []

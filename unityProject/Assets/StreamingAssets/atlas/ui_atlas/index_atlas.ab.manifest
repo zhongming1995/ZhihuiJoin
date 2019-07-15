@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 4050448092
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a4cee11bb2f68267a46dab6f73423a3b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_start_icon@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train2_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_logo@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train_wheel2_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train3_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train4_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train1_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train_wheel1_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_train0_pic@3x.png
+- Assets/Res/Atlas/ui_atlas/index_atlas/home_c1_pic@3x.png
+Dependencies: []

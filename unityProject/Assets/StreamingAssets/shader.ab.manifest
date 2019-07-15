@@ -1,0 +1,17 @@
+ManifestFileVersion: 0
+CRC: 1485118218
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e5799b5223e22c91ca361e046a1cabaa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7e9ee104d6bb707fb2602b751e6f78b1
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Shader/ImageMask.shader
+- Assets/Res/Shader/ImageOutline.shader
+Dependencies: []

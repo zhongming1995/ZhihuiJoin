@@ -40,7 +40,7 @@ namespace ResMgr
             _assetBundleDic.TryGetValue(bundleName,out bundle);
              if (bundle)
             {
-                //Debug.Log("cunzai ");
+                //Debug.Log("存在该bundle");
                 return bundle.GetAllAssetNames();
 
             }
@@ -79,8 +79,7 @@ namespace ResMgr
         /// </summary>
         /// <returns><c>true</c>, if main asset bundle was loaded, <c>false</c> otherwise.</returns>
         /// <param name="completeCall">Complete call.</param>
-        /*
-        public void LoadMainAssetBundle(Action completeCall = null)
+        public void LoadMainAssetBundleAsync(Action completeCall = null)
         {
 #if UNITY_EDITOR&&EditorDebug
             Debug.Log("==========测试模式，不加载ab");
@@ -90,8 +89,10 @@ namespace ResMgr
             Debug.Log("UnityTest====================path:" + path);
             StartCoroutine(Cor_LoadAssetBundle(path,(resultBundle) =>
             {
+                Debug.Log("Cor_LoadAssetBundle CallBack===========");
                 StartCoroutine(Cor_LoadAsset<AssetBundleManifest>(resultBundle,"AssetBundleManifest", (resultAsset) =>
                 {
+                    Debug.Log("Cor_LoadAsset CallBack");
                     mainManifest = resultAsset as AssetBundleManifest;
                     resultBundle.Unload(false);
                     resultBundle = null;
@@ -104,7 +105,13 @@ namespace ResMgr
             }));
 #endif
         }
-        */
+     
+        /// <summary>
+        /// 同步加载AssetBundle
+        /// </summary>
+        /// <param name="bundlePath"></param>
+        /// <param name="completeCall"></param>
+        /// <returns></returns>
         private AssetBundle LoadAssetBundle(string bundlePath,Action completeCall = null)
         {
             string realBundlePath = string.Format(@"{0}{1}", bundlePath, ResConf.ASSET_BUNDLE_SUFFIX);
@@ -162,6 +169,170 @@ namespace ResMgr
                 }
                 return _assetBundleDic[bundlePath];
             }
+        }
+
+        /// <summary>
+        /// 异步加载AssetBundle
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="completeCall"></param>
+        /// <returns></returns>
+        private void LoadAssetBundleAsync(string bundlePath, Action<AssetBundle> completeCall = null)
+        {
+            string realBundlePath = string.Format(@"{0}{1}", bundlePath, ResConf.ASSET_BUNDLE_SUFFIX);
+            string[] dependeceList = mainManifest.GetAllDependencies(realBundlePath);
+            //先加载依赖AssetBundle
+            LoadDependenceListAsync(dependeceList, () => {
+                Debug.Log("依赖加载完毕=======");
+                //再加载自己本身AssetBundle
+                if (!_assetBundleDic.ContainsKey(bundlePath))
+                {
+                    //AssetBundle ori_Bundle = AssetBundle.LoadFromFile(ResUtil.GetStreamingAssetPathWithoutFile(realBundlePath));
+                    StartCoroutine(Cor_LoadAssetBundle(ResUtil.GetStreamingAssetPathWithoutFile(realBundlePath), (resultBundle) => {
+                        if (resultBundle == null)
+                        {
+                            //加载AssetBundle失败
+                            Debug.LogError("加载AssetBundle失败：" + resultBundle.name);
+                        }
+                        else
+                        {
+                            //加载AssetBundle成功
+                            _assetBundleDic.Add(resultBundle.name, resultBundle);
+                            if (completeCall != null)
+                            {
+                                //加载完成
+                                completeCall(resultBundle);
+                            }
+                        }
+                    }));
+                }
+                else
+                {
+                    //此AssetBundle已经被加载进来，存在于_assetBundleDic中
+                    if (completeCall != null)
+                    {
+                        completeCall(_assetBundleDic[bundlePath]);
+                    }
+                }
+            });
+        }
+
+        /// <summary>
+        /// 异步加载依赖列表
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="completeCall"></param>
+        /// <returns></returns>
+        private void LoadDependenceListAsync(string[] dependeceList,Action completeCall = null)
+        {
+            //先加载依赖AssetBundle
+            for (int j = 0; j < dependeceList.Length; j++)
+            {
+                if (_assetBundleDic.ContainsKey(dependeceList[j]))
+                {
+                    //此依赖已经被加载进来，存在于_assetBundleDic中
+                    continue;
+                }
+                else
+                {
+                    string bundleFile = ResUtil.GetStreamingAssetPathWithoutFile(dependeceList[j]);
+                    //AssetBundle dep_Bundle = AssetBundle.LoadFromFile(bundleFile);
+                    StartCoroutine(Cor_LoadAssetBundle(bundleFile, (resultBundle) => {
+                        if (!resultBundle)
+                        {
+                            //加载依赖失败
+                        }
+                        else
+                        {
+                            //加载依赖成功
+                            _assetBundleDic.Add(resultBundle.name, resultBundle);
+                        }
+                        //加载到最后一个了
+                        if (j == dependeceList.Length - 1)
+                        {
+                            if (completeCall!=null)
+                            {
+                                //依赖加载完毕
+                                completeCall();
+                            }
+                        }
+                    }));
+                }
+            }
+        }
+
+        /// <summary>
+        /// 异步加载一个物体
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="completeCall"></param>
+        private void LoadAssetAsync<T>(string path,Action<Object> completeCall)
+        {
+#if UNITY_EDITOR && EditorDebug
+            path = ResUtil.PathToResourcePath(path);
+            //Debug.Log("=========Resoure加载：" + path);
+            result = Resources.Load<T>(path);
+            if (result == null)
+            {
+                Debug.Log("null");
+            }
+#else
+            path = path.ToLower();
+            Debug.Log("LoadAssetAsync path=================" + path);
+            string[] pathList = path.Split('|');
+            string assetBundleName = string.Format(@"{0}{1}", pathList[0], ResConf.ASSET_BUNDLE_SUFFIX);
+            //Debug.Log("Load assetBundleName:" + assetBundleName);
+            string assetName = pathList[1];
+            //Debug.Log("Load assetName：" + assetName);
+            if (_resDic.ContainsKey(path))
+            {
+                //Debug.Log("该资源已经被加载过了：" + path);
+                UnityEngine.Object asset;
+                _resDic.TryGetValue(path, out asset);
+                if (asset)
+                {
+                    //Debug.Log("找到该资源1");
+                    if (completeCall!=null)
+                    {
+                        completeCall(asset);
+                    }
+                }
+                else
+                {
+                    Debug.LogError("找不到该资源:"+assetName);
+                }
+            }
+            else
+            {
+                if (!_assetBundleDic.ContainsKey(assetBundleName))
+                {
+                    //Debug.LogError("该AssetBundle还没有被加载进来：" + assetBundleName);
+                    //LoadAssetBundle(pathList[0]);
+                    LoadAssetBundleAsync(pathList[0], (resultBundle) => {
+                        if (resultBundle)
+                        {
+                            //T asset = resultBundle.LoadAsset<T>(assetName);
+                            LoadAssetAsync<T>(assetName, (resultObj) => {
+                                if (resultObj)
+                                {
+                                    Debug.Log("asset被加载：" + assetName + ",path:"+path);
+                                    _resDic.Add(path, resultObj);
+                                }
+                                else
+                                {
+                                    //Debug.LogError("asset加载失败：" + assetName);
+                                }
+                            });
+                           
+                        }
+                        else
+                        {
+                            //Debug.LogError("ab不存在");
+                        }
+                    });
+                }
+            }
+#endif
         }
 
 
