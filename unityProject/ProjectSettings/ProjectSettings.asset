@@ -589,7 +589,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: EditorDebug
+    1: 
     4: EditorDebug
   platformArchitecture: {}
   scriptingBackend: {}

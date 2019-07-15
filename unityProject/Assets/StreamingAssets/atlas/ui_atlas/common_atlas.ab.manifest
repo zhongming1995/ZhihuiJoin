@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 3764411239
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3d1182860a7772e52e313b95cc146482
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_finsh_back_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_last_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_finsh_download_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_back_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_finsh_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_finsh_game_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_finsh_home_botton_big@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_finsh_restart_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_pause_botton.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_home_botton@3x.png
+- Assets/Res/Atlas/ui_atlas/common_atlas/splice_next_botton@3x.png
+Dependencies: []

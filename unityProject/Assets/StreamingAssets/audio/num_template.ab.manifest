@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 2616481400
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c1ef556161fc4d1a0e30c0909ca9c8a9
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Audio/num_template/template_num_0.mp3
+- Assets/Res/Audio/num_template/template_num_8.mp3
+- Assets/Res/Audio/num_template/template_num_5.mp3
+- Assets/Res/Audio/num_template/template_num_4.mp3
+- Assets/Res/Audio/num_template/template_num_2.mp3
+- Assets/Res/Audio/num_template/template_num_9.mp3
+- Assets/Res/Audio/num_template/template_num_3.mp3
+- Assets/Res/Audio/num_template/template_num_7.mp3
+- Assets/Res/Audio/num_template/template_num_1.mp3
+- Assets/Res/Audio/num_template/template_num_6.mp3
+Dependencies: []

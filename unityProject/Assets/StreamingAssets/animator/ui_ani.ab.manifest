@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3056703841
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d770be489ece09de8aa9ff13d4a1b75a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 31a8e35008e8aab720d0136425be6fad
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/UI_Ani/ButtonScale.controller
+- Assets/Res/Animator/UI_Ani/KeyReminder.anim
+Dependencies: []

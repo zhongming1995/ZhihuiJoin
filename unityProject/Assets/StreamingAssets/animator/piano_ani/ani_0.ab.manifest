@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 446798148
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: bd31c2180f3644b9a8fb4f3425a6e2e7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 94b27d020f1db47fdadd7345bed91663
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/Piano_Ani/Ani_0/StarDefault.anim
+- Assets/Res/Animator/Piano_Ani/Ani_0/song_ani_0.controller
+- Assets/Res/Animator/Piano_Ani/Ani_0/StarJump.anim
+Dependencies:
+- D:/GitProject/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/star_atlas/correct.ab
+- D:/GitProject/ZhihuiJoin/unityProject/Assets/StreamingAssets/atlas/ui_atlas/star_atlas/default.ab

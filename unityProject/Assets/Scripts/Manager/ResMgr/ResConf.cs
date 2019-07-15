@@ -14,12 +14,13 @@ namespace ResMgr
     public static class ResConf
     {
         //平台
-#if UNITY_EDITOR
-        public static ResPlatForm resPlatForm = ResPlatForm.unknow;
-#elif UNITY_ANDROID
+
+#if UNITY_ANDROID
         public static ResPlatForm resPlatForm = ResPlatForm.andorid;
 #elif UNITY_IPHONE
         public static ResPlatForm resPlatForm = ResPlatForm.iOS;
+#else 
+        public static ResPlatForm resPlatForm = ResPlatForm.unknow;
 #endif
 
         //bundle后缀名

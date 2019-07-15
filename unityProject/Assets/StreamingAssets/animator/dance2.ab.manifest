@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 301194071
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8d073bf440cd275088e2b20e932d2bd8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: af57576da81d5d3ce45807ac11234de6
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Animator/Dance2/Dance_2_LeftHand.anim
+- Assets/Res/Animator/Dance2/Dance_2_LeftLeg.anim
+- Assets/Res/Animator/Dance2/Dance_2_Body.anim
+- Assets/Res/Animator/Dance2/Dance_2_RightLeg.anim
+- Assets/Res/Animator/Dance2/Dance_2_RightHand.anim
+Dependencies: []
