@@ -40,7 +40,7 @@ public class FruitView :MonoBehaviour
         FruitController.instance.SetBasketRect(Basket);
         ImgNumber.gameObject.SetActive(false);
         InitGame(1);
-        Invoke("LoadPerson",0.5f);
+        Invoke("LoadPerson",0f);
     }
 
     //显示返回按钮，否则是半透明状态
