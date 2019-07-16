@@ -110,6 +110,7 @@ public class FruitController : SingletonMono<FruitController>
             }
             posIndexList.Add(n);
         }
+        posIndexList.Sort();
         return posIndexList;
     }
 

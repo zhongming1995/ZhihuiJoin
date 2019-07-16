@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb70b455e79d34a7eb1c2c70e6ce4d4a
+guid: 4e7e024623d42402dbf8f03e9ac69432
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -75,7 +75,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 89b9d2850f95c4095a9a7c7f6d99306f
+    spriteID: 1ffd3aa552ed1466bba41f7892a7b244
     vertices: []
     indices: 
     edges: []
@@ -84,5 +84,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: atlas/ui_atlas/fruit_atlas
+  assetBundleVariant: ab

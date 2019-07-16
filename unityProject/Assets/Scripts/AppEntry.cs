@@ -25,7 +25,7 @@ public class AppEntry : SingletonMono<AppEntry>
         Application.targetFrameRate = 60;
 
         //打印开关
-        Debug.unityLogger.logEnabled = true;
+        Debug.unityLogger.logEnabled = false;
 
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
@@ -33,15 +33,15 @@ public class AppEntry : SingletonMono<AppEntry>
         //加载方式，isEditorDebug=true时用编辑器下的方法，isEditorDebug=false 正式时用AssetBundle
         isEditorDebug = true;
 
-        /*同步加载方式
+        /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())
         {
             SceneManager.LoadScene("index");
         }
-        */
+
 
         //异步加载方式
-        ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
+        //ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
     }
 
     //供外部调用，弹钢琴页面允许多指，其他时候不允许

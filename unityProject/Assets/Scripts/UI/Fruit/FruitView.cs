@@ -123,6 +123,7 @@ public class FruitView :MonoBehaviour
 
         for (int i = 0; i < indexList.Count; i++)
         {
+            Debug.Log("index:" + indexList[i]);
             GameObject item = UIHelper.instance.LoadPrefab("Prefabs/game/fruit|fruit_item", FruitTrans[indexList[i]], Vector3.zero, Vector3.zero, false);
             FruitItem fruitItem = item.GetComponent<FruitItem>();
             fruitItem.InitItem(fruitType);
@@ -157,7 +158,7 @@ public class FruitView :MonoBehaviour
             person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
         }
         person.transform.SetParent(PersonParent);
-        person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
+        person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         person.transform.localPosition = Vector3.zero;
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);

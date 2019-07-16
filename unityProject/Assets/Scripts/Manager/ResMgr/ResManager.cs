@@ -266,15 +266,19 @@ namespace ResMgr
         /// </summary>
         /// <param name="path"></param>
         /// <param name="completeCall"></param>
-        private void LoadAssetAsync<T>(string path,Action<Object> completeCall)
+        private void LoadAssetAsync<T>(string path,Action<Object> completeCall) where T : Object
         {
 #if UNITY_EDITOR && EditorDebug
             path = ResUtil.PathToResourcePath(path);
             //Debug.Log("=========Resoure加载：" + path);
-            result = Resources.Load<T>(path);
-            if (result == null)
+            UnityEngine.Object result = Resources.Load<T>(path);
+            if (result != null)
             {
-                Debug.Log("null");
+                completeCall(result);
+            }
+            else
+            {
+                Debug.LogError("resource result is null======");
             }
 #else
             path = path.ToLower();
