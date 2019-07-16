@@ -26,6 +26,9 @@ public class FruitController : SingletonMono<FruitController>
     public static event Operation operationStart;
     public static event Operation operationEnd;
 
+    public delegate void DepthChange(FruitItem item);
+    public static event DepthChange depthChangeStart;
+    public static event DepthChange depthChangeEnd;
 
     void Awake()
     {
@@ -46,6 +49,22 @@ public class FruitController : SingletonMono<FruitController>
         if (operationStart!= null)
         {
             operationStart();
+        }
+    }
+
+    public void DepthChangeStart(FruitItem item)
+    {
+        if (depthChangeStart!=null)
+        {
+            depthChangeStart(item);
+        }
+    }
+
+    public void DepthChangeEnd(FruitItem item)
+    {
+        if (depthChangeEnd != null)
+        {
+            depthChangeEnd(item);
         }
     }
 

@@ -7,7 +7,8 @@ using Helper;
 using DG.Tweening;
 
 public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
-{ 
+{
+    public int depthIndex;
     Vector3 offset;
     private Vector3 oriPos;
     private RectTransform rt;
@@ -18,7 +19,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     private bool isDragging = false;
 
     //初始化一个水果对象
-    public void InitItem(int type)
+    public void InitItem(int type,int index)
     {
         oriPos = transform.position;
         rt = transform.GetComponent<RectTransform>();
@@ -27,6 +28,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
         UIHelper.instance.SetImage(path, img_fruit, true);
         ps_Number = transform.Find("particle_number").GetComponent<ParticleSystem>();
         material = ps_Number.transform.GetComponent<Renderer>().material;
+        depthIndex = index;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -37,6 +39,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, screenPos.z));
             FruitController.instance.OperationStart();
+            FruitController.instance.DepthChangeStart(this);
           }
     }
 
@@ -68,6 +71,7 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
         if (canTouch)
         {
             FruitController.instance.OperationEnd();
+            FruitController.instance.DepthChangeEnd(this);
             isDragging = false;
             transform.DOMove(oriPos, 0.3f);
         }
@@ -80,16 +84,25 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
             canTouch = false;
             FruitController.instance.OperationEnd();
             FruitController.instance.FruitToBasketBegin(this);
+            FruitController.instance.DepthChangeStart(this);
             DoLinerPathMove();
         }
     }
 
     private void DoLinerPathMove()
     {
-        Vector3 desPos = FruitController.instance.GetFruitDesPos();
-        transform.DOPath(new Vector3 []{new Vector3(transform.position.x-1f,transform.position.y+0.1f,0),desPos},1.5f,PathType.CatmullRom).SetEase(Ease.OutQuint).OnComplete(()=> {
-            FruitController.instance.FruitToBasketEnd(this);
+        Vector3 desPos = FruitController.instance.GetFruitDesPos();//OutQuint
+        //transform.DOPath(new Vector3[] { new Vector3(transform.position.x - 1f, transform.position.y + 0.1f, 0), desPos }, 1f, PathType.CatmullRom).SetEase(Ease.OutQuint);
+        transform.DOPath(new Vector3 []{new Vector3(transform.position.x-1f,transform.position.y+0.1f,0),desPos},1f,PathType.CatmullRom).SetEase(Ease.OutQuint).OnComplete(()=> {
+            //FruitController.instance.FruitToBasketEnd(this);
+            FruitController.instance.DepthChangeEnd(this);
         });
+        Invoke("InvokeFruitToBasketEnd", 0.7f);
+    }
+
+    private void InvokeFruitToBasketEnd()
+    {
+        FruitController.instance.FruitToBasketEnd(this);
     }
 
     public void PlayParticle(int number)

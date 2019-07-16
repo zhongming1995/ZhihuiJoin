@@ -80,9 +80,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-  spritePackingTag: fruit_atlas
+  spritePackingTag: xiaoguo
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: atlas/ui_atlas/fruit_atlas
+  assetBundleName: atlas/xiaoguo
   assetBundleVariant: ab
