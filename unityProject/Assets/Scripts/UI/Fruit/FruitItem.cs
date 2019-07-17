@@ -8,6 +8,7 @@ using DG.Tweening;
 
 public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerClickHandler
 {
+    [HideInInspector]
     public int depthIndex;
     Vector3 offset;
     private Vector3 oriPos;
@@ -18,16 +19,24 @@ public class FruitItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHa
     private bool canTouch = true;
     private bool isDragging = false;
 
+    private void Awake()
+    {
+        rt = transform.GetComponent<RectTransform>();
+        img_fruit = transform.GetComponent<Image>();
+        ps_Number = transform.Find("particle_number").GetComponent<ParticleSystem>();
+        material = ps_Number.transform.GetComponent<Renderer>().material;
+    }
+
     //初始化一个水果对象
     public void InitItem(int type,int index)
     {
         oriPos = transform.position;
-        rt = transform.GetComponent<RectTransform>();
-        img_fruit = transform.GetComponent<Image>();
+        //rt = transform.GetComponent<RectTransform>();
+        //img_fruit = transform.GetComponent<Image>();
         string path = "Sprite/ui_sp/fruit_sp|fruit_icon_" + type.ToString();
         UIHelper.instance.SetImage(path, img_fruit, true);
-        ps_Number = transform.Find("particle_number").GetComponent<ParticleSystem>();
-        material = ps_Number.transform.GetComponent<Renderer>().material;
+        //ps_Number = transform.Find("particle_number").GetComponent<ParticleSystem>();
+        //material = ps_Number.transform.GetComponent<Renderer>().material;
         depthIndex = index;
     }
 

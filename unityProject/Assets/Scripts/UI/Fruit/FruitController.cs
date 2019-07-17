@@ -16,6 +16,7 @@ public class FruitController : SingletonMono<FruitController>
     private int needFruitCount; //需要的水果数
     private int lastFruitType = -1;//上一次的水果类型
     private int tempGetFruitCount = 0;
+    private Vector3 oriBaksetPos;
 
     public delegate void ComeToBasketBegin(bool chapterEnd,int num);
     public static event ComeToBasketBegin comeToBasketBegin;//入蓝开始
@@ -144,6 +145,7 @@ public class FruitController : SingletonMono<FruitController>
     public void SetBasketRect(RectTransform rectTransform)
     {
         basketRectTransform = rectTransform;
+        oriBaksetPos = basketRectTransform.transform.position;
     }
 
     public bool isFruitInBasketRect(RectTransform rect2)
@@ -192,9 +194,9 @@ public class FruitController : SingletonMono<FruitController>
     public Vector3 GetFruitDesPos()
     {
         Random rd = new Random();
-        float offsetX = UnityEngine.Random.Range(-0.9f, 0.9f);
-        float offsetY = UnityEngine.Random.Range(-0.2f, 0.2f);
-        Vector3 desPos = new Vector3(basketRectTransform.transform.position.x+offsetX, basketRectTransform.transform.position.y+offsetY,0);
+        float offsetX = UnityEngine.Random.Range(-0.8f, 0.8f);
+        float offsetY = UnityEngine.Random.Range(-0.3f, -0.2f);
+        Vector3 desPos = new Vector3(oriBaksetPos.x+offsetX, oriBaksetPos.y+offsetY,0);
         return desPos;
     }
 

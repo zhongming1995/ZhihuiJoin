@@ -32,4 +32,45 @@ public class Utils
         }
         return maxDuration;
     }
+
+    public static float GetPicHeightRate(Texture2D t)
+    {
+        int texWidth = t.width;
+        int texHeight = t.height;
+        byte[] maskPixels = new byte[texWidth * texHeight * 4];
+        int pixel = 0;
+        Color32[] tempPixels = t.GetPixels32();//获取mask纹理
+        int tempCount = tempPixels.Length;
+
+        for (int i = 0; i < tempCount; i++)
+        {
+            maskPixels[pixel] = tempPixels[i].r;
+            maskPixels[pixel + 1] = tempPixels[i].g;
+            maskPixels[pixel + 2] = tempPixels[i].b;
+            maskPixels[pixel + 3] = tempPixels[i].a;
+            pixel += 4;
+        }
+
+        float resultJ = 0;
+        for (float i = 1.0f; i < 0f; i = i - 0.1f)
+        {
+            for (float j = 1.0f; j < 0f; j = j - 0.1f)
+            {
+                int x = (int)i * texWidth;
+                int y = (int)j * texHeight;
+                byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
+                byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
+                byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];
+                byte hitColorA = maskPixels[(texWidth * y + x) * 4 + 3];
+
+                //int alreadyFilled = 0;
+
+                if (hitColorA != 0)//透明部分不可绘画
+                {
+                    resultJ = j;
+                }
+            }
+        }
+        return resultJ;
+    }
 }

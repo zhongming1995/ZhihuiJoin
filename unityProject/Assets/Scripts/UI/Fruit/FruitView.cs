@@ -22,7 +22,7 @@ public class FruitView :MonoBehaviour
     public Image ImgNeedNum;
     public Image ImgNeedFruit;
     public ParticleSystem ps_Ribbon;
-    public Transform ImgLeaf;
+    public Transform ImgBasket;
 
     private GameObject completeWindow;
     private int fruitType;
@@ -30,6 +30,8 @@ public class FruitView :MonoBehaviour
     private  List<FruitItem> fruitList = new List<FruitItem>();
     private Rect basketRect;
     private bool haveGreeting = false;
+    private Vector3 oriBasketPos;
+    private Vector3 oriImgBasketPos;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,8 @@ public class FruitView :MonoBehaviour
         FruitController.instance.SetBasketRect(Basket);
         InitGame(1);
         Invoke("LoadPerson",0f);
+        oriBasketPos = Basket.transform.localPosition;
+        oriImgBasketPos = ImgBasket.localPosition;
     }
 
     //显示返回按钮，否则是半透明状态
@@ -100,11 +104,6 @@ public class FruitView :MonoBehaviour
             DestroyImmediate(fruitList[i].gameObject);
         }
         fruitList.Clear();
-        //清空篮子
-        //foreach (Transform child in Basket.transform)
-        //{
-        //    Destroy(child.gameObject);
-        //}
         gameObject.SetActive(false);
         gameObject.SetActive(true);
         Destroy(completeWindow);
@@ -136,6 +135,25 @@ public class FruitView :MonoBehaviour
             fruitItem.InitItem(fruitType,indexList[i]);
             fruitList.Add(fruitItem);
         }
+        //篮子动画
+        if (c!=1)
+        {
+            Sequence basketSequence = DOTween.Sequence();
+            basketSequence.Append(Basket.transform.DOLocalMoveY(oriBasketPos.y - 500, 0.7f).OnComplete(() => {
+                //清空篮子
+                foreach (Transform child in Basket.transform)
+                {
+                    if (child.GetSiblingIndex()!=0)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }));
+            basketSequence.Join(ImgBasket.DOLocalMoveY(oriImgBasketPos.y - 500, 0.7f));
+            basketSequence.Append(Basket.transform.DOLocalMoveY(oriBasketPos.y, 0.7f));
+            basketSequence.Join(ImgBasket.DOLocalMoveY(oriImgBasketPos.y, 0.7f));
+        }
+       
         //出场动画
         Sequence s = DOTween.Sequence();
         for (int i = 0; i < fruitList.Count; i++)
@@ -188,13 +206,15 @@ public class FruitView :MonoBehaviour
 
     private void ComeToBasketEnd(FruitItem item,bool chapterEnd,int number)
     {
-        ////复制一个水果到篮子里
-        //GameObject cloneFruit = Instantiate(item.gameObject);
-        //cloneFruit.transform.SetParent(Basket.transform,false);
-        
+        //复制一个水果到篮子里
+        GameObject cloneFruit = Instantiate(item.gameObject);
+        cloneFruit.transform.SetParent(Basket.transform, false);
+        cloneFruit.transform.position = item.transform.position;
+        item.gameObject.SetActive(false);
+        cloneFruit.GetComponent<FruitItem>().PlayParticle(number);
 
         //冒星星的动画
-        item.PlayParticle(number);
+        //item.PlayParticle(number);
         if (chapterEnd)
         {
             //切换关卡
@@ -205,14 +225,11 @@ public class FruitView :MonoBehaviour
     private void DepthChangeStart(FruitItem item)
     {
         Debug.Log(item.depthIndex);
-        ImgLeaf.SetAsFirstSibling();
     }
 
     private void DepthChangeEnd(FruitItem item)
     {
         Debug.Log(item.depthIndex);
-        ImgLeaf.SetAsLastSibling();
-        //ImgLeaf.SetSiblingIndex(ImgLeaf.GetSiblingIndex() + 1);
     }
 
     private IEnumerator NextChapter(int number)
@@ -260,15 +277,20 @@ public class FruitView :MonoBehaviour
 
     void SetFruitNumber(int number)
     {
-        ImgNumber.gameObject.SetActive(true);
-        string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + number;
-        UIHelper.instance.SetImage(path, ImgNumber, true);
         if (number==0)
-        {
+        { 
+            Sequence s = DOTween.Sequence();
+            s.Append(ImgNumber.DOFade(0, 0.5f).OnComplete(() => {
+                string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + number;
+                UIHelper.instance.SetImage(path, ImgNumber, true);
+            }));
+            s.Append(ImgNumber.DOFade(1, 0.5f));
             ImgNumber.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
+            string path = "Sprite/ui_sp/fruit_sp|fruit_number_" + number;
+            UIHelper.instance.SetImage(path, ImgNumber, true);
             ImgNumber.transform.localScale = new Vector3(3, 3, 3);
         }
     }

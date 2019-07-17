@@ -138,6 +138,12 @@ namespace DataMgr
                 img.SetNativeSize();
                 obj.transform.localScale = scale;
 
+                if (partType == PartType.Body)
+                {
+                    float j = Utils.GetPicHeightRate(t);
+                    Debug.Log("resultj================" + j);
+                }
+
                 //调整父节点的大小
                 float w = img.GetComponent<RectTransform>().sizeDelta.x;
                 float h = img.GetComponent<RectTransform>().sizeDelta.y;
@@ -146,6 +152,8 @@ namespace DataMgr
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
                 item.partType = part[i].Type;
                 item.Init();
+                Debug.Log(obj.transform.name);
+                Debug.Log(obj.transform.localPosition.y - h / 2);
             }
             curPerson = person;
             GetListDiaplayItem(person.transform);
