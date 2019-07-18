@@ -37,6 +37,7 @@ public class Utils
     {
         int texWidth = t.width;
         int texHeight = t.height;
+        Debug.Log(texWidth + "," + texHeight);
         byte[] maskPixels = new byte[texWidth * texHeight * 4];
         int pixel = 0;
         Color32[] tempPixels = t.GetPixels32();//获取mask纹理
@@ -51,23 +52,24 @@ public class Utils
             pixel += 4;
         }
 
-        float resultJ = 0;
-        for (float i = 1.0f; i < 0f; i = i - 0.1f)
+        float resultJ = 1;
+        for (float i = 0f; i <= 1f; i = i + 0.1f)
         {
-            for (float j = 1.0f; j < 0f; j = j - 0.1f)
+            for (float j = 0f; j <= 1f; j = j + 0.1f)
             {
-                int x = (int)i * texWidth;
-                int y = (int)j * texHeight;
+                //Debug.Log("i,j:================" + i + "," + j);
+                int x = (int)(i * texWidth);
+                int y = (int)(j * texHeight);
                 byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
                 byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
                 byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];
                 byte hitColorA = maskPixels[(texWidth * y + x) * 4 + 3];
-
-                //int alreadyFilled = 0;
+                //Debug.Log("hitA=============" + hitColorA);
 
                 if (hitColorA != 0)//透明部分不可绘画
                 {
                     resultJ = j;
+                    return resultJ;
                 }
             }
         }

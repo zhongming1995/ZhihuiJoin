@@ -174,13 +174,15 @@ public class FruitView :MonoBehaviour
     private void LoadPerson()
     {
         GameObject person = null;
+        float minPosY = 0;
         if (DataManager.instance.partDataList != null)
         {
-            person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
+            person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList,out minPosY);
         }
         person.transform.SetParent(PersonParent);
         person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         person.transform.localPosition = Vector3.zero;
+        PersonParent.localPosition = new Vector3(PersonParent.localPosition.x, minPosY, 0);
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
         if (haveGreeting == false)

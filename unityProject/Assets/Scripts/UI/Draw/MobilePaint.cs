@@ -496,6 +496,7 @@ namespace Draw_MobilePaint
         //读取画画背景图
         void ReadBgImage()
         {
+            Debug.Log("ReadBgImage=============");
             //read bg image
             maskPixels = new byte[texWidth * texHeight * 4];
             int pixel = 0;
@@ -2527,7 +2528,7 @@ namespace Draw_MobilePaint
             drawingTexture.Apply(false);
         } // clear image
 
-
+        //未调用？
         public void ReadMaskImage()
         {
             Debug.Log("ReadMaskImage========");

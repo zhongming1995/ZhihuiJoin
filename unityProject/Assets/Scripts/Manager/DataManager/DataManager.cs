@@ -108,6 +108,7 @@ namespace DataMgr
         {
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
+            float minY = float.MaxValue;
             for (int i = 0; i < part.Count; i++)
             {
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
@@ -137,12 +138,76 @@ namespace DataMgr
                 img.sprite = s;
                 img.SetNativeSize();
                 obj.transform.localScale = scale;
+               
+                //调整父节点的大小
+                float w = img.GetComponent<RectTransform>().sizeDelta.x;
+                float h = img.GetComponent<RectTransform>().sizeDelta.y;
+                obj.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(w, h);
 
+                DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
+                item.partType = part[i].Type;
+                item.Init();
+                Debug.Log(obj.transform.name);
+                Debug.Log(h);
+                float bottom = obj.transform.localPosition.y - h / 2;
+               
                 if (partType == PartType.Body)
                 {
                     float j = Utils.GetPicHeightRate(t);
                     Debug.Log("resultj================" + j);
+                    bottom = h / 2 - h * (1-j);
                 }
+                if (minY > bottom)
+                {
+                    minY = bottom;
+                }
+                Debug.Log(bottom);
+            }
+            curPerson = person;
+            GetListDiaplayItem(person.transform);
+            return person;
+        }
+
+        /// <summary>
+        /// Gets the person object by List.
+        /// </summary>
+        /// <returns>The person object.</returns>
+        /// <param name="part">Part.</param>
+        public GameObject GetPersonObj(List<PartData> part,out float minPosY)
+        {
+            GameObject person = new GameObject("person");
+            Transform transBody = person.transform;
+            float minY = float.MaxValue;
+            float maxY = float.MinValue;
+            for (int i = 0; i < part.Count; i++)
+            {
+                Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
+                Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
+                PartType partType = part[i].Type;
+                GameObject obj;
+                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
+                obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
+                if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
+                {
+                    if (partType == PartType.Body)
+                    {
+                        transBody = obj.transform.Find("img_item").transform;
+                    }
+                }
+                else
+                {
+                    obj.transform.SetParent(transBody);
+                }
+
+                Image img = obj.transform.Find("img_item").GetComponent<Image>();
+                Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+                t.filterMode = FilterMode.Point;
+                t.LoadImage(part[i].ImgBytes);
+                t.Apply(false);
+                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+                img.sprite = s;
+                img.SetNativeSize();
+                obj.transform.localScale = scale;
 
                 //调整父节点的大小
                 float w = img.GetComponent<RectTransform>().sizeDelta.x;
@@ -153,10 +218,25 @@ namespace DataMgr
                 item.partType = part[i].Type;
                 item.Init();
                 Debug.Log(obj.transform.name);
-                Debug.Log(obj.transform.localPosition.y - h / 2);
+                Debug.Log(h);
+                float bottom = obj.transform.localPosition.y - h / 2;
+                float top = obj.transform.localPosition.y + h / 2;
+
+                if (partType == PartType.Body)
+                {
+                    float j = Utils.GetPicHeightRate(t);
+                    Debug.Log("resultj================" + j);
+                    bottom = h / 2 - h * (1 - j);
+                }
+                if (minY > bottom)
+                {
+                    minY = bottom;
+                }
+                Debug.Log(bottom);
             }
             curPerson = person;
             GetListDiaplayItem(person.transform);
+            minPosY = minY;
             return person;
         }
 
