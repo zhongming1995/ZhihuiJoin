@@ -173,7 +173,7 @@ namespace DataMgr
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
-        public GameObject GetPersonObj(List<PartData> part,out float minPosY)
+        public GameObject GetPersonObjWithFlag(List<PartData> part,out float minPosY)
         {
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
@@ -218,9 +218,9 @@ namespace DataMgr
                 item.partType = part[i].Type;
                 item.Init();
                 Debug.Log(obj.transform.name);
-                Debug.Log(h);
-                float bottom = obj.transform.localPosition.y - h / 2;
-                float top = obj.transform.localPosition.y + h / 2;
+                Debug.Log("height:"+h);
+                Debug.Log("y:"+obj.GetComponent<RectTransform>().anchoredPosition.y);
+                float bottom = obj.GetComponent<RectTransform>().anchoredPosition.y - h / 2;
 
                 if (partType == PartType.Body)
                 {
@@ -232,8 +232,13 @@ namespace DataMgr
                 {
                     minY = bottom;
                 }
-                Debug.Log(bottom);
+                Debug.Log("bottom:"+bottom);
             }
+
+            GameObject flagObj = new GameObject("flag_bottom");
+            flagObj.transform.SetParent(person.transform);
+            flagObj.transform.localPosition = new Vector3(0, minY, 0);
+
             curPerson = person;
             GetListDiaplayItem(person.transform);
             minPosY = minY;

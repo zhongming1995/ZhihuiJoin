@@ -53,18 +53,18 @@ public class Utils
         }
 
         float resultJ = 1;
-        for (float i = 0f; i <= 1f; i = i + 0.1f)
+        for (float i = 0f; i <= 1f; i = i + 0.03f)
         {
-            for (float j = 0f; j <= 1f; j = j + 0.1f)
+            for (float j = 0f; j <= 1f; j = j + 0.03f)
             {
-                //Debug.Log("i,j:================" + i + "," + j);
+                Debug.Log("i,j:================" + i + "," + j);
                 int x = (int)(i * texWidth);
                 int y = (int)(j * texHeight);
                 byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
                 byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
                 byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];
                 byte hitColorA = maskPixels[(texWidth * y + x) * 4 + 3];
-                //Debug.Log("hitA=============" + hitColorA);
+                Debug.Log("hitA=============" + hitColorA);
 
                 if (hitColorA != 0)//透明部分不可绘画
                 {

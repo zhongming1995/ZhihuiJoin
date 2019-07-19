@@ -50,7 +50,6 @@ public class FruitGuide : MonoBehaviour
                 operationStartTime += 0.1f;
                 if (operationStartTime > noOperatipnTimeLimit)
                 {
-                    Debug.Log("做一次提示11111-----------");
                     DoReminder();
                     operationStartTime = 0;
                 }

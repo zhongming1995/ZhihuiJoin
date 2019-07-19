@@ -16,6 +16,7 @@ public class FruitView :MonoBehaviour
     public List<Transform> FruitTrans;
     public CanvasGroup BubbleCanvaGroup;
     public Transform PersonParent;
+    public Transform PersonCorrect;
     public RectTransform Basket;
     public GameObject Mask;
     public Image ImgNumber;
@@ -177,12 +178,17 @@ public class FruitView :MonoBehaviour
         float minPosY = 0;
         if (DataManager.instance.partDataList != null)
         {
-            person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList,out minPosY);
+            person = DataManager.instance.GetPersonObjWithFlag(DataManager.instance.partDataList,out minPosY);
         }
         person.transform.SetParent(PersonParent);
         person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         person.transform.localPosition = Vector3.zero;
-        PersonParent.localPosition = new Vector3(PersonParent.localPosition.x, minPosY, 0);
+
+        Transform flagbottom = person.transform.Find("flag_bottom").transform;
+        flagbottom.SetParent(PersonParent, true);
+        float offsety = flagbottom.localPosition.y - PersonCorrect.localPosition.y;
+        Debug.Log("offsety:" + offsety);
+        person.transform.localPosition = new Vector3(0, -offsety, 0);
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
         if (haveGreeting == false)

@@ -1430,7 +1430,7 @@ ParticleSystem:
     tilesY: 4
     animationType: 0
     rowIndex: 0
-    cycles: 5
+    cycles: 1
     uvChannelMask: -1
     randomRow: 0
     sprites:
@@ -4557,7 +4557,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 1
   m_MinParticleSize: 0
