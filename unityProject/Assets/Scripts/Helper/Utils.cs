@@ -59,7 +59,7 @@ public class Utils
             {
                 Debug.Log("i,j:================" + i + "," + j);
                 int x = (int)(i * texWidth);
-                int y = (int)(j * texHeight);
+                int y = (int)(j * texHeight); 
                 byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
                 byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
                 byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];

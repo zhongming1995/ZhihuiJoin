@@ -22,7 +22,7 @@ public class FruitView :MonoBehaviour
     public Image ImgNumber;
     public Image ImgNeedNum;
     public Image ImgNeedFruit;
-    public ParticleSystem ps_Ribbon;
+    public ParticleSystem[] ps_Ribbon;
     public Transform ImgBasket;
 
     private GameObject completeWindow;
@@ -264,7 +264,11 @@ public class FruitView :MonoBehaviour
             }
             fruitList.Clear();
             JumpAndWaveHand();
-            ps_Ribbon.Play();
+            //ps_Ribbon.Play();
+            for (int i = 0; i < ps_Ribbon.Length; i++)
+            {
+                ps_Ribbon[i].Play();
+            }
             //彩带掉落
             if (complete)
             {
