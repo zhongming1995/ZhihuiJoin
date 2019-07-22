@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 3712409992
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 821767bd48a3c91e234cc96a2568a7f2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_15.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_12.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_18.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_9.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_24.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_0.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_3.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_6.png
+- Assets/Res/Atlas/ui_atlas/star_atlas/correct/correct_21.png
+Dependencies: []

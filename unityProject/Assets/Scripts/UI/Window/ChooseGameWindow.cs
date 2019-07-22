@@ -35,7 +35,8 @@ public class ChooseGameWindow :WindowParent
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayPiano();
-            UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnCard.onClick.AddListener(delegate
@@ -43,7 +44,8 @@ public class ChooseGameWindow :WindowParent
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayCard();
-            UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnFruit.onClick.AddListener(delegate
@@ -51,7 +53,8 @@ public class ChooseGameWindow :WindowParent
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayFruit();
-            UIHelper.instance.LoadPrefab("Prefabs/game/fruit|fruit_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //UIHelper.instance.LoadPrefab("Prefabs/game/fruit|fruit_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/game/fruit|fruit_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
 

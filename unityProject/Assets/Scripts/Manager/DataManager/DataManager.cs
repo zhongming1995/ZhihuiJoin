@@ -147,21 +147,6 @@ namespace DataMgr
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
                 item.partType = part[i].Type;
                 item.Init();
-                Debug.Log(obj.transform.name);
-                Debug.Log(h);
-                float bottom = obj.transform.localPosition.y - h / 2;
-               
-                if (partType == PartType.Body)
-                {
-                    float j = Utils.GetPicHeightRate(t);
-                    Debug.Log("resultj================" + j);
-                    bottom = h / 2 - h * (1-j);
-                }
-                if (minY > bottom)
-                {
-                    minY = bottom;
-                }
-                Debug.Log(bottom);
             }
             curPerson = person;
             GetListDiaplayItem(person.transform);
@@ -217,22 +202,22 @@ namespace DataMgr
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
                 item.partType = part[i].Type;
                 item.Init();
-                Debug.Log(obj.transform.name);
-                Debug.Log("height:"+h);
-                Debug.Log("y:"+obj.GetComponent<RectTransform>().anchoredPosition.y);
+                //Debug.Log(obj.transform.name);
+                //Debug.Log("height:"+h);
+                //Debug.Log("y:"+obj.GetComponent<RectTransform>().anchoredPosition.y);
                 float bottom = obj.GetComponent<RectTransform>().anchoredPosition.y - h / 2;
 
                 if (partType == PartType.Body)
                 {
                     float j = Utils.GetPicHeightRate(t);
-                    Debug.Log("resultj================" + j);
+                    //Debug.Log("resultj================" + j);
                     bottom = h / 2 - h * (1 - j);
                 }
                 if (minY > bottom)
                 {
                     minY = bottom;
                 }
-                Debug.Log("bottom:"+bottom);
+                //Debug.Log("bottom:"+bottom);
             }
 
             GameObject flagObj = new GameObject("flag_bottom");

@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 3932997454
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a47b41afdf15053b5e7b0324a76fefdb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Sprite/fodder/hair/hair_4.png
+- Assets/Res/Sprite/fodder/hair/hair_2.png
+- Assets/Res/Sprite/fodder/hair/hair_7.png
+- Assets/Res/Sprite/fodder/hair/hair_9.png
+- Assets/Res/Sprite/fodder/hair/hair_6.png
+- Assets/Res/Sprite/fodder/hair/hair_3.png
+- Assets/Res/Sprite/fodder/hair/hair_5.png
+- Assets/Res/Sprite/fodder/hair/hair_8.png
+- Assets/Res/Sprite/fodder/hair/hair_0.png
+- Assets/Res/Sprite/fodder/hair/hair_1.png
+Dependencies: []

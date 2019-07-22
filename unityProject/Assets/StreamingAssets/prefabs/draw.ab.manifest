@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 1711778586
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c3c39eccf0ae0e1200ac7b118f172367
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b441c6765500ce8974b339cdf875afe8
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9d4dac94e56ab4ea587f70a00a405385, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 35810376f11f6c0409fa585488cd795c, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Prefabs/draw/draw_item.prefab
+Dependencies:
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/sprite/brushes.ab
+- /Users/apple/Desktop/GitHubProj/ZhihuiJoin/unityProject/Assets/StreamingAssets/material.ab

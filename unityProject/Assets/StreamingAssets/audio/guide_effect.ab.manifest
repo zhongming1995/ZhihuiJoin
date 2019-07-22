@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 864180502
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e8d20f18b2c80068782b5c1604e367b8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Audio/guide_effect/guide_num_4.mp3
+- Assets/Res/Audio/guide_effect/guide_num_2.mp3
+- Assets/Res/Audio/guide_effect/guide_letter_3.mp3
+- Assets/Res/Audio/guide_effect/guide_letter_4.mp3
+- Assets/Res/Audio/guide_effect/guide_num_1.mp3
+- Assets/Res/Audio/guide_effect/guide_letter_1.mp3
+- Assets/Res/Audio/guide_effect/guide_num_3.mp3
+- Assets/Res/Audio/guide_effect/guide_letter_2.mp3
+Dependencies: []

@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 1815967327
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 464f924c5cb0aa806c966666b0ee21ab
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Atlas/guide_atlas/draw/draw_45.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_35.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_55.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_40.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_10.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_5.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_74.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_70.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_15.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_50.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_60.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_25.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_20.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_30.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_0.png
+- Assets/Res/Atlas/guide_atlas/draw/draw_65.png
+Dependencies: []

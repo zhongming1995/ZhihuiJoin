@@ -232,12 +232,12 @@ public class FruitView :MonoBehaviour
 
     private void DepthChangeStart(FruitItem item)
     {
-        Debug.Log(item.depthIndex);
+        //Debug.Log(item.depthIndex);
     }
 
     private void DepthChangeEnd(FruitItem item)
     {
-        Debug.Log(item.depthIndex);
+        //Debug.Log(item.depthIndex);
     }
 
     private IEnumerator NextChapter(int number)
@@ -284,7 +284,10 @@ public class FruitView :MonoBehaviour
     void ShowCompleteWindow()
     {
         string path = "Prefabs/game/window|window_complete";
-        completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefabAsync(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (go) => {
+            completeWindow = go;
+        });
     }
 
     void SetFruitNumber(int number)

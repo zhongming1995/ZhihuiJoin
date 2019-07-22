@@ -249,9 +249,13 @@ public class PianoView : MonoBehaviour
 
     void ShowWindow()
     {
+        Debug.Log("Piano showWindow");
         string path = "Prefabs/game/window|window_complete";
-        completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-    }
+        //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefabAsync(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (go) => {
+            completeWindow = go;
+          });
+     }
 
     public void Dance()
     {

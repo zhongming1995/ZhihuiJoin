@@ -1,0 +1,45 @@
+ManifestFileVersion: 0
+CRC: 4244842118
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 44d0a357a2ba6180d58eba09a0c36e26
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Sprite/fodder/mouth/mouse_21.png
+- Assets/Res/Sprite/fodder/mouth/mouse_2.png
+- Assets/Res/Sprite/fodder/mouth/mouse_5.png
+- Assets/Res/Sprite/fodder/mouth/mouse_20.png
+- Assets/Res/Sprite/fodder/mouth/mouse_1.png
+- Assets/Res/Sprite/fodder/mouth/animal_mouse_1.png
+- Assets/Res/Sprite/fodder/mouth/mouse_7.png
+- Assets/Res/Sprite/fodder/mouth/number_mouse_0.png
+- Assets/Res/Sprite/fodder/mouth/mouse_22.png
+- Assets/Res/Sprite/fodder/mouth/mouse_14.png
+- Assets/Res/Sprite/fodder/mouth/mouse_6.png
+- Assets/Res/Sprite/fodder/mouth/number_mouse_1.png
+- Assets/Res/Sprite/fodder/mouth/mouse_4.png
+- Assets/Res/Sprite/fodder/mouth/mouse_19.png
+- Assets/Res/Sprite/fodder/mouth/animal_mouse_0.png
+- Assets/Res/Sprite/fodder/mouth/mouse_10.png
+- Assets/Res/Sprite/fodder/mouth/mouse_0.png
+- Assets/Res/Sprite/fodder/mouth/mouse_8.png
+- Assets/Res/Sprite/fodder/mouth/mouse_15.png
+- Assets/Res/Sprite/fodder/mouth/mouse_11.png
+- Assets/Res/Sprite/fodder/mouth/mouse_13.png
+- Assets/Res/Sprite/fodder/mouth/mouse_17.png
+- Assets/Res/Sprite/fodder/mouth/mouse_3.png
+- Assets/Res/Sprite/fodder/mouth/mouse_12.png
+- Assets/Res/Sprite/fodder/mouth/mouse_9.png
+- Assets/Res/Sprite/fodder/mouth/mouse_18.png
+- Assets/Res/Sprite/fodder/mouth/mouse_16.png
+- Assets/Res/Sprite/fodder/mouth/animal_mouse_2.png
+Dependencies: []

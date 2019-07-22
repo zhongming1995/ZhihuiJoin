@@ -230,7 +230,10 @@ public class CardView : MonoBehaviour
     void ShowCompleteWindow()
     {
         string path = "Prefabs/game/window|window_complete";
-        completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        UIHelper.instance.LoadPrefabAsync(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (go) => {
+            completeWindow = go;
+        });
     }
 
     void SetChapterNum()

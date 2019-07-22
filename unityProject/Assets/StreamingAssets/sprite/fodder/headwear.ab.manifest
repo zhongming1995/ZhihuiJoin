@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 4093159070
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8f13cf4c523dc66804a46f59105da9c8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea5a42e0fd8ea905efa7aa926a3b8944
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Res/Sprite/fodder/headwear/headwear_15.png
+- Assets/Res/Sprite/fodder/headwear/headwear_13.png
+- Assets/Res/Sprite/fodder/headwear/headwear_0.png
+- Assets/Res/Sprite/fodder/headwear/headwear_14.png
+- Assets/Res/Sprite/fodder/headwear/headwear_2.png
+- Assets/Res/Sprite/fodder/headwear/headwear_11.png
+- Assets/Res/Sprite/fodder/headwear/headwear_7.png
+- Assets/Res/Sprite/fodder/headwear/headwear_3.png
+- Assets/Res/Sprite/fodder/headwear/number_headwear_0.png
+- Assets/Res/Sprite/fodder/headwear/headwear_12.png
+- Assets/Res/Sprite/fodder/headwear/headwear_10.png
+- Assets/Res/Sprite/fodder/headwear/headwear_6.png
+- Assets/Res/Sprite/fodder/headwear/headwear_8.png
+- Assets/Res/Sprite/fodder/headwear/number_headwear_1.png
+- Assets/Res/Sprite/fodder/headwear/headwear_1.png
+- Assets/Res/Sprite/fodder/headwear/headwear_4.png
+- Assets/Res/Sprite/fodder/headwear/headwear_9.png
+- Assets/Res/Sprite/fodder/headwear/headwear_5.png
+Dependencies: []
