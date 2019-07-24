@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Helper;
+using GameMgr;
 
 namespace DataMgr
 {
@@ -30,7 +31,7 @@ namespace DataMgr
         /// trans下的节点分为：group_handleg,group_body,group_ryrmouthhair,group_hatheadwear
         /// </summary>
         /// <param name="trans">Trans.</param>
-        public List<PartData> TransformToPartsList(Transform trans)
+        public List<PartData> TransformToPartsList(Transform trans,int selctIndex,byte[] pixels,byte[] drawPixel)
         {
             List<PartData> parts = new List<PartData>();
             for (int i = 0; i < trans.childCount; i++)
@@ -51,9 +52,10 @@ namespace DataMgr
                     parts.Add(p);
                 }
             }
+            PartDataWhole partDataWhole = new PartDataWhole(selctIndex, pixels, drawPixel, parts);
             partDataList = parts;
+            SerializePerson(partDataWhole);
             return parts;
-            //SerializePersonData(parts);
         }
 
         /// <summary>
@@ -80,12 +82,33 @@ namespace DataMgr
             stream.Close();
         }
 
+        public void SerializePerson(PartDataWhole whole)
+        {
+            IFormatter formatter = new BinaryFormatter();
+            string folderPath = Application.persistentDataPath + "/join_person";
+            if (!File.Exists(folderPath))
+            {
+                Debug.Log("文件夹不存在:" + folderPath);
+                Directory.CreateDirectory(folderPath);
+            }
+            //按创建时间命名
+            //string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
+            //string personName = "MyPhoto_" + date + ".bin";
+            //string savePath = folderPath + "/" + personName;
+            //先给一个固定名字
+            string savePath = folderPath + "/" + "Person.bin";
+            Stream stream = new FileStream(savePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, whole);
+            stream.Close();
+        }
+
         /// <summary>
         /// Deserializes the person data.
         /// </summary>
         /// <returns>The person data.</returns>
         public List<PartData> DeserializePersonData()
         {
+            Debug.Log("DeserializePersonData");
             IFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath + "/join_person/Person.bin";
             if (!File.Exists(path))
@@ -95,8 +118,24 @@ namespace DataMgr
             Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
             List<PartData> part = (List<PartData>)formatter.Deserialize(stream);
             stream.Close();
-
+            Debug.Log("partcount:" + part.Count);
             return part;
+        }
+
+        public PartDataWhole DeserializePerson()
+        {
+            Debug.Log("DeserializePerson------");
+            IFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/join_person/Person.bin";
+            if (!File.Exists(path))
+            {
+                return null;
+            }
+            Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
+            PartDataWhole whole = (PartDataWhole)formatter.Deserialize(stream);
+            GameManager.instance.homeSelectIndex = whole.ModelIndex;
+            stream.Close();
+            return whole;
         }
 
         /// <summary>
@@ -111,9 +150,14 @@ namespace DataMgr
             float minY = float.MaxValue;
             for (int i = 0; i < part.Count; i++)
             {
+                PartType partType = part[i].PType;
+                if (partType == PartType.Pixels || partType == PartType.drawPixels)
+                {
+                    continue;
+                }
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                PartType partType = part[i].Type;
+                
                 GameObject obj;
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();  
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
@@ -145,7 +189,7 @@ namespace DataMgr
                 obj.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(w, h);
 
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
-                item.partType = part[i].Type;
+                item.partType = part[i].PType;
                 item.Init();
             }
             curPerson = person;
@@ -168,7 +212,7 @@ namespace DataMgr
             {
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                PartType partType = part[i].Type;
+                PartType partType = part[i].PType;
                 GameObject obj;
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
@@ -200,7 +244,7 @@ namespace DataMgr
                 obj.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(w, h);
 
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
-                item.partType = part[i].Type;
+                item.partType = part[i].PType;
                 item.Init();
                 //Debug.Log(obj.transform.name);
                 //Debug.Log("height:"+h);

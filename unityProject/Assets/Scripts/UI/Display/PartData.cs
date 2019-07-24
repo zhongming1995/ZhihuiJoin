@@ -13,6 +13,8 @@ public enum TemplateResType {
 
 public enum PartType
 {
+    Pixels = -2,
+    drawPixels = -1,
     Body = 0,
     LeftEye = 1,
     RightEye = 2,
@@ -34,7 +36,7 @@ public class PartData
     private float[] pos;//在画布上的局部坐标
     private float[] scale;//缩放
 
-    public PartType Type
+    public PartType PType
     {
         get
         {

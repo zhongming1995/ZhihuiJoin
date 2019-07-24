@@ -30,15 +30,15 @@ public class AppEntry : SingletonMono<AppEntry>
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
 
-        /*同步加载方式
+        /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())
         {
             SceneManager.LoadScene("index");
         }
-        */
+        
 
         //异步加载方式
-        ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
+        //ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
     }
 
     //供外部调用，弹钢琴页面允许多指，其他时候不允许

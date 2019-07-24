@@ -7,6 +7,7 @@ using DG.Tweening;
 
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
+    [HideInInspector]
     public PartType partType;
     public Material selectMaterial;//选中状态，描边
     private Vector3 partScale = new Vector3(1,1,1);
@@ -43,6 +44,14 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         partType = GetPartTypeByResType(type, index);
         string path = GameManager.instance.resPathList[(int)type][index];
         UIHelper.instance.SetImage(path, image, true);
+    }
+
+    public void LoadInitItem(PartType type,Sprite s)
+    {
+        Init();
+        partType = type;
+        Debug.Log("set:"+partType);
+        image.sprite = s;
     }
 
     public void SetScale(Vector3 scale)
@@ -189,6 +198,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
         else
         {
+            Debug.Log("delete:"+partType);
             if (partType==PartType.Body)
             {
                 SetState(true);

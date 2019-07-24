@@ -57,6 +57,8 @@ public class JoinMainView : MonoBehaviour
     private float oriPos_ResContentList = 500;
     private float desPos_ResContentList = 69;
 
+    private JoinPlus joinPlus;
+
     private void OnEnable()
     {
         AppEntry.instance.SetMultiTouchEnable(false);
@@ -66,6 +68,7 @@ public class JoinMainView : MonoBehaviour
     {
         Init();
     }
+    
 
     void Update()
     {
@@ -107,6 +110,10 @@ public class JoinMainView : MonoBehaviour
 
     private void Init()
     {
+        //补充脚本
+        //joinPlus = GetComponent<JoinPlus>();
+        //PartDataWhole whole = DataManager.instance.DeserializePerson();
+
         mobilePaint.gameObject.SetActive(false);
         //引导脚本
         joinGuide = GetComponent<JoinGuide>();
@@ -145,13 +152,14 @@ public class JoinMainView : MonoBehaviour
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
+
+        //test
+        //joinPlus.LoadFikcle(whole);
     }
 
     void ShowDrawPanel()
     {
         mobilePaint.gameObject.SetActive(true);
-        //ImgDrawBg.gameObject.SetActive(false);
-        //ImgDrawBg.DOFade(0, 0.1f);
     }
 
     void SetDrawMessage()
@@ -233,7 +241,7 @@ public class JoinMainView : MonoBehaviour
             //ImgDraw.sprite = s;
             //ImgDraw.SetNativeSize();
             //ImgDraw.transform.localScale = Vector3.one;
-            DataManager.instance.TransformToPartsList(DrawPanel);
+            DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(),mobilePaint.GetDrawByte());
             UIHelper.instance.LoadPrefab("Prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             //GameManager.instance.SetNextViewPath("Prefabs/display|display_view");
             //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
@@ -381,8 +389,6 @@ public class JoinMainView : MonoBehaviour
         ShowBackBtn(false);
         if (type==TemplateResType.Body)
         {
-            //mobilePaint.gameObject.SetActive(true);
-            //ImgDraw.gameObject.SetActive(false);
             ImgDrawBg.DOFade(1, 0.5f).OnComplete(()=> {
                 ImgDraw.gameObject.SetActive(false);
                 mobilePaint.gameObject.SetActive(true);

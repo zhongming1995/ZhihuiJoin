@@ -483,6 +483,11 @@ namespace Draw_MobilePaint
             return drawPixels;
         }
 
+        public byte[] GetAllPixels()
+        {
+            return pixels;
+        }
+
         // *** MAINLOOP ***
         void Update()
         {
@@ -511,7 +516,6 @@ namespace Draw_MobilePaint
                 maskPixels[pixel + 3] = tempPixels[i].a;
                 pixel += 4;
             }
-
         }
 
         //读取可画画区域
@@ -532,6 +536,17 @@ namespace Draw_MobilePaint
             }
             Debug.Log("整张图都不可以画");
             return false;
+        }
+
+        public void SetPixels(byte[] imgPixel)
+        {
+            pixels = imgPixel;
+            UpdateTexture();
+        }
+
+        public void SetDrawPixels(byte[] imgPixel)
+        {
+            drawPixels = imgPixel;
         }
 
         // handle mouse events
