@@ -94,7 +94,7 @@ namespace Helper
             });
         }
 
-        public IEnumerator Cor_LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false, Action<float> progressCall = null,Action<GameObject> loadCall=null)
+        private IEnumerator Cor_LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false, Action<float> progressCall = null,Action<GameObject> loadCall=null)
         {
             path = PathToResourcePath(path);
             float progress;

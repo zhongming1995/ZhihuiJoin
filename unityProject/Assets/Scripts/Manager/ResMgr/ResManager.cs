@@ -274,7 +274,6 @@ namespace ResMgr
         private void LoadAssetAsync<T>(string path,Action<Object> completeCall) where T : Object
         {
 #if UNITY_EDITOR && EditorDebug
-            path = ResUtil.PathToResourcePath(path);
             //Debug.Log("=========Resoure加载：" + path);
             UnityEngine.Object result = Resources.Load<T>(path);
             if (result != null)

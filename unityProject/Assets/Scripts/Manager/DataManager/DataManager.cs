@@ -31,7 +31,7 @@ namespace DataMgr
         /// trans下的节点分为：group_handleg,group_body,group_ryrmouthhair,group_hatheadwear
         /// </summary>
         /// <param name="trans">Trans.</param>
-        public List<PartData> TransformToPartsList(Transform trans,int selctIndex,byte[] pixels,byte[] drawPixel)
+        public PartDataWhole TransformToPartsList(Transform trans,int selctIndex,byte[] pixels,byte[] drawPixel)
         {
             List<PartData> parts = new List<PartData>();
             for (int i = 0; i < trans.childCount; i++)
@@ -54,8 +54,9 @@ namespace DataMgr
             }
             PartDataWhole partDataWhole = new PartDataWhole(selctIndex, pixels, drawPixel, parts);
             partDataList = parts;
-            SerializePerson(partDataWhole);
-            return parts;
+            //序列化
+            PersonManager.instance.SerializePerson(partDataWhole);
+            return partDataWhole;
         }
 
         /// <summary>
@@ -66,7 +67,8 @@ namespace DataMgr
         {
             IFormatter formatter = new BinaryFormatter();
             string folderPath = Application.persistentDataPath + "/join_person";
-            if (!File.Exists(folderPath))
+            DirectoryInfo info = new DirectoryInfo(folderPath);
+            if (info.Exists)
             {
                 Debug.Log("文件夹不存在:" + folderPath);
                 Directory.CreateDirectory(folderPath);
@@ -81,32 +83,35 @@ namespace DataMgr
             formatter.Serialize(stream, partsList);
             stream.Close();
         }
-
+        /*
         public void SerializePerson(PartDataWhole whole)
         {
             IFormatter formatter = new BinaryFormatter();
-            string folderPath = Application.persistentDataPath + "/join_person";
-            if (!File.Exists(folderPath))
+            //string folderPath = Application.persistentDataPath + "/join_person";
+            DirectoryInfo info = new DirectoryInfo(PersonManager.instance.PersonDataPath);
+            if (info.Exists)
             {
-                Debug.Log("文件夹不存在:" + folderPath);
-                Directory.CreateDirectory(folderPath);
+                Debug.Log("文件夹存在:" + PersonManager.instance.PersonDataPath);
+                Directory.CreateDirectory(PersonManager.instance.PersonDataPath);
             }
             //按创建时间命名
             //string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
             //string personName = "MyPhoto_" + date + ".bin";
             //string savePath = folderPath + "/" + personName;
             //先给一个固定名字
-            string savePath = folderPath + "/" + "Person.bin";
+            //string savePath = folderPath + "/" + "Person.bin";
+            string savePath = PersonManager.instance.SavePath;
             Stream stream = new FileStream(savePath, FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, whole);
             stream.Close();
         }
+        */
 
         /// <summary>
         /// Deserializes the person data.
         /// </summary>
         /// <returns>The person data.</returns>
-        public List<PartData> DeserializePersonData()
+        public List<PartData> DeserializePersonData(string personPath)
         {
             Debug.Log("DeserializePersonData");
             IFormatter formatter = new BinaryFormatter();
@@ -122,6 +127,7 @@ namespace DataMgr
             return part;
         }
 
+        /*
         public PartDataWhole DeserializePerson()
         {
             Debug.Log("DeserializePerson------");
@@ -137,6 +143,7 @@ namespace DataMgr
             stream.Close();
             return whole;
         }
+        */
 
         /// <summary>
         /// Gets the person object by List.
