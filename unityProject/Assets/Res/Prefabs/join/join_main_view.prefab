@@ -176,7 +176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: 0.0000008342956}
+  m_AnchoredPosition: {x: 0.000004703916, y: 0.0000244728}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3055618096385034350
@@ -835,7 +835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: -0.000002421317}
+  m_AnchoredPosition: {x: 0.000004703916, y: 0.000021217158}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4581352655544232859
@@ -1519,6 +1519,9 @@ MonoBehaviour:
   PenScaleSlider: {fileID: 1476045270724868702}
   ResListTrans: {fileID: 4068600688154031208}
   ContentColor: {fileID: 1583021847126349882}
+  HandLegCG: {fileID: 706040700}
+  EyeMouthHairCG: {fileID: 706040699}
+  HatHeadwearCG: {fileID: 706040698}
   mobilePaint: {fileID: 7588746924424362337}
   hasPainted: 0
   hasDraged: 0
@@ -2367,7 +2370,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000008718058, y: 0.0000016788305}
+  m_AnchoredPosition: {x: 0.000008718058, y: 0.000025317335}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &3306610695800414357
@@ -4186,7 +4189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000004703916, y: 0.000011596273}
+  m_AnchoredPosition: {x: 0.000004703916, y: -0.0000066627595}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4277362230080289415
@@ -5067,7 +5070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000052311847, y: -0.000053223106}
+  m_AnchoredPosition: {x: -0.000052311847, y: -0.000042421663}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &5546164616445476161

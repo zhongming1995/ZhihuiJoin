@@ -34,6 +34,10 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
 
+    public CanvasGroup HandLegCG;
+    public CanvasGroup EyeMouthHairCG;
+    public CanvasGroup HatHeadwearCG;
+
     public MobilePaint mobilePaint;
     private Transform BodyGroup;
     [HideInInspector]
@@ -423,6 +427,7 @@ public class JoinMainView : MonoBehaviour
         ShowBackBtn(false);
         if (type==TemplateResType.Body)
         {
+            SetPartOccupy(true);
             ImgDrawBg.DOFade(1, 0.5f).OnComplete(()=> {
                 ImgDraw.gameObject.SetActive(false);
                 mobilePaint.gameObject.SetActive(true);
@@ -431,6 +436,7 @@ public class JoinMainView : MonoBehaviour
         else
         {
             Debug.Log("TypeButtonClick=========");
+            SetPartOccupy(false);
             Texture2D t = GetDrawTexture();
             ImgDraw.gameObject.SetActive(true);
             Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
@@ -597,6 +603,23 @@ public class JoinMainView : MonoBehaviour
                     UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
                 }
             }
+        }
+    }
+
+    //设置身体之外的部位的透明度
+    void SetPartOccupy(bool isOccupy)
+    {
+        if (isOccupy)
+        {
+            HatHeadwearCG.alpha = 0.2f;
+            EyeMouthHairCG.alpha = 0.2f;
+            HandLegCG.alpha = 0.2f;
+        }
+        else
+        {
+            HatHeadwearCG.alpha =1;
+            EyeMouthHairCG.alpha = 1;
+            HandLegCG.alpha = 1;
         }
     }
 
