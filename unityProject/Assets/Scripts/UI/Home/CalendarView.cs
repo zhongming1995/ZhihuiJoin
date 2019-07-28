@@ -32,7 +32,6 @@ public class CalendarView : MonoBehaviour
         int index = 0;
         while (index < pathList.Count)
         {
-            index += 1;
             UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_item", ListContent, Vector3.zero, Vector3.one, false, null, (item) => {
                 Debug.Log(pathList[index]);
                 PartDataWhole whole = PersonManager.instance.DeserializePerson(pathList[index]);
@@ -40,9 +39,17 @@ public class CalendarView : MonoBehaviour
                 CalenderItem calenderItem = item.GetComponent<CalenderItem>();
                 calenderItem.Init(whole);
                 personList.Add(calenderItem);
-            
+                index += 1;
             });
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    public void ShowDeleteBtn(bool show)
+    {
+        for (int i = 0; i < personList.Count; i++)
+        {
+            personList[i].ShowDelete(show);
         }
     }
 }

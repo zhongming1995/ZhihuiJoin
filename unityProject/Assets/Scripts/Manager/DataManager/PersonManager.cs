@@ -65,6 +65,7 @@ public class PersonManager : SingletonMono<PersonManager>
 
     public List<string> GetPersonsList()
     {
+        Debug.Log("GetPersonsList");
         DirectoryInfo info = new DirectoryInfo(PersonDataPath);
         List<string> pathList = new List<string>();
         if (info.Exists)
@@ -110,11 +111,11 @@ public class PersonManager : SingletonMono<PersonManager>
     }
 
     //反序列化
-    public PartDataWhole DeserializePerson(string path)
+    public PartDataWhole DeserializePerson(string fileName)
     {
         Debug.Log("DeserializePerson------");
         IFormatter formatter = new BinaryFormatter();
-        //string path = Application.persistentDataPath + "/join_person/Person.bin";
+        string path = PersonDataPath + fileName;
         if (!File.Exists(path))
         {
             return null;

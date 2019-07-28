@@ -1,11 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 namespace GameMgr
 {
     public enum JoinType
     {
         Letter,
         Num
+    }
+
+    //打开拼接页面的方式
+    public enum OpenType
+    {
+        FirstEdit,//从字母列表页点击
+        ReEdit//从画册重新编辑
     }
     public class GameManager : SingletonMono<GameManager>
     {
@@ -47,7 +56,7 @@ namespace GameMgr
         public List<List<string>> resPathList = new List<List<string>>();//全部资源路径
         [HideInInspector]
         public List<string> resPrefabPathList = new List<string>();//素材资源prefab路径
-
+    
         //画笔颜色
         [HideInInspector]
         public Color[] ColorList;
@@ -71,6 +80,10 @@ namespace GameMgr
         public string nextSceneName;//接下来要跳转的场景名
         [HideInInspector]
         public string nextViewPath;//接下来要打开的view的路径
+        [HideInInspector]
+        public OpenType openType;//拼接页面的打开方式
+        [HideInInspector]
+        public PartDataWhole curWhole;//当前打开的本地人物数据
 
         void Awake()
         {
@@ -429,6 +442,22 @@ namespace GameMgr
         public void SetNextViewPath(string path)
         {
             nextViewPath = path;
+        }
+
+        public void SetOpenType(OpenType _openType)
+        {
+            openType = _openType;
+        }
+
+        public void SetCurPartDataWhole(PartDataWhole whole)
+        {
+            curWhole = whole;
+        }
+
+        public void JumpToJoin()
+        {
+            GameManager.instance.SetNextSceneName("join");
+            SceneManager.LoadScene("transition");
         }
     }
    

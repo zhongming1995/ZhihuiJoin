@@ -35,6 +35,7 @@ public class HomeView : MonoBehaviour
             UIHelper.instance.SetImage(GameManager.instance.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标
+                GameManager.instance.SetOpenType(OpenType.FirstEdit);
                 GameManager.instance.homeSelectIndex = j;
                 PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.GetPersonsNum();
                 //GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/join|join_main_view", GameManager.instance.Root, Vector3.zero, Vector3.one,true);

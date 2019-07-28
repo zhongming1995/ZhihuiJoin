@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6616417387382065437}
   - component: {fileID: 7708149659973460278}
   m_Layer: 5
-  m_Name: calender_view
+  m_Name: calendar_view
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +240,6 @@ GameObject:
   - component: {fileID: 5575246189257569129}
   - component: {fileID: 7988546015448554486}
   - component: {fileID: 1531970225651730551}
-  - component: {fileID: 3483348962001736855}
   m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
@@ -337,20 +336,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &3483348962001736855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2460555861073679038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd66c549de3dec4b80a597cce4cd0b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BtnBack: {fileID: 574184164140838866}
-  ListContent: {fileID: 6800994770101933309}
 --- !u!1 &3070482361574710210
 GameObject:
   m_ObjectHideFlags: 0

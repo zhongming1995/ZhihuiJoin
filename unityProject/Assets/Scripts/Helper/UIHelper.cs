@@ -81,6 +81,7 @@ namespace Helper
                 go.transform.SetParent(parent);
                 go.transform.localPosition = pos;
                 go.transform.localScale = scale;
+                Debug.Log(go.transform.localScale);
                 if (stretch == true)
                 {
                     go.transform.GetComponent<RectTransform>().offsetMin = Vector2.zero;

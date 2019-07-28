@@ -274,16 +274,8 @@ namespace ResMgr
         private void LoadAssetAsync<T>(string path,Action<Object> completeCall) where T : Object
         {
 #if UNITY_EDITOR && EditorDebug
-            //Debug.Log("=========Resoure加载：" + path);
-            UnityEngine.Object result = Resources.Load<T>(path);
-            if (result != null)
-            {
-                completeCall(result);
-            }
-            else
-            {
-                Debug.LogError("resource result is null======");
-            }
+            path = ResUtil.PathToResourcePath(path);
+            StartCoroutine(Cor_ResourceLoadAsync<T>(path, completeCall));
 #else
             path = path.ToLower();
             Debug.Log("LoadAssetAsync path=================" + path);
@@ -382,6 +374,25 @@ namespace ResMgr
                 }
             }
 #endif
+        }
+
+        private IEnumerator Cor_ResourceLoadAsync<T>(string path, Action<Object> completeCall = null) where T:Object
+        {
+            yield return new WaitForEndOfFrame();
+            ResourceRequest request = Resources.LoadAsync<T>(path);
+            while (!request.isDone)
+            {
+                yield return null;
+            }
+
+            if (request.asset != null)
+            {
+                completeCall(request.asset);
+            }
+            else
+            {
+                Debug.LogError("resource result is null======");
+            }
         }
 
 

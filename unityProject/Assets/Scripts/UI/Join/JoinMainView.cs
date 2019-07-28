@@ -111,8 +111,7 @@ public class JoinMainView : MonoBehaviour
     private void Init()
     {
         //补充脚本
-        //joinPlus = GetComponent<JoinPlus>();
-        //PartDataWhole whole = DataManager.instance.DeserializePerson();
+        joinPlus = GetComponent<JoinPlus>();
 
         mobilePaint.gameObject.SetActive(false);
         //引导脚本
@@ -154,7 +153,10 @@ public class JoinMainView : MonoBehaviour
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
 
         //test
-        //joinPlus.LoadFikcle(whole);
+        if (GameManager.instance.openType==OpenType.ReEdit && GameManager.instance.curWhole!=null)
+        {
+            joinPlus.LoadFile(GameManager.instance.curWhole);
+        }
     }
 
     void ShowDrawPanel()

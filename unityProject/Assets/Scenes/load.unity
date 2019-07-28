@@ -532,6 +532,9 @@ MonoBehaviour:
   gameCanvas: {fileID: 0}
   nextSceneName: 
   nextViewPath: 
+  openType: 0
+  curWhole:
+    partDataList: []
 --- !u!114 &992738288
 MonoBehaviour:
   m_ObjectHideFlags: 0
