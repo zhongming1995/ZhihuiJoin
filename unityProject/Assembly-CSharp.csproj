@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\UI\Fruit\FruitItem.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitView.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalendarView.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalenderController.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalenderItem.cs" />
     <Compile Include="Assets\Scripts\UI\Home\HomeView.cs" />
     <Compile Include="Assets\Scripts\UI\Index\IndexView.cs" />

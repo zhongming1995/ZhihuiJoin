@@ -127,10 +127,17 @@ public class PersonManager : SingletonMono<PersonManager>
         return whole;
     }
 
-    // Use this for initialization
-    void Start()
+    //删除文件
+    public bool DeletePerson(string fileName)
     {
-        
+        bool isDelete = false;
+        string path = PersonDataPath + fileName;
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            isDelete = true;
+        }
+        return isDelete;
     }
 
 

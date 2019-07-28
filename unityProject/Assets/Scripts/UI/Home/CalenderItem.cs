@@ -13,9 +13,11 @@ public class CalenderItem : MonoBehaviour
     public GameObject MaskDelete;
 
     private PartDataWhole curWhole;
+    private string fileName;
 
-    public void Init(PartDataWhole whole)
+    public void Init(string _fileName, PartDataWhole whole)
     {
+        fileName = _fileName;
         if (whole==null)
         {
             Debug.Log("null===");
@@ -34,7 +36,6 @@ public class CalenderItem : MonoBehaviour
 
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
-            Debug.Log("Detail");
             GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
@@ -42,8 +43,11 @@ public class CalenderItem : MonoBehaviour
         });
 
         BtnDelete.onClick.AddListener(delegate {
-            Debug.Log("Delete");
-            
+            bool isDelete = PersonManager.instance.DeletePerson(fileName);
+            if (isDelete)
+            {
+                CalenderController.instance.DeleteComplete(this);
+            }
         });
     }
 

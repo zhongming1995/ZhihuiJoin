@@ -57,7 +57,7 @@ public class JoinGuide : MonoBehaviour
                 if (operationStartTime > noOperatipnTimeLimit)
                 {
                     reminderCount++;
-                    Debug.Log("做一次提示11111-----------"+ reminderCount);
+                    //Debug.Log("做一次提示11111-----------"+ reminderCount);
                     DoReminder(reminderCount);
                     operationStartTime = 0;
                 }
@@ -100,12 +100,12 @@ public class JoinGuide : MonoBehaviour
             //是否画过一笔
             if (joinMainView.hasPainted)
             {
-                Debug.Log("提示语音并提示下一步");
+                //Debug.Log("提示语音并提示下一步");
                 DoDrawNextStepReminder();
             }
             else
             {
-                Debug.Log("提示动画：画画");
+                //Debug.Log("提示动画：画画");
                 OperationStart();
                 DrawReminder.gameObject.SetActive(true);
             }
@@ -115,7 +115,7 @@ public class JoinGuide : MonoBehaviour
             //是否拖拽过物体
             if (joinMainView.hasDraged==false)
             {
-                Debug.Log("提示动画：拖动");
+                //Debug.Log("提示动画：拖动");
                 OperationStart();
                 DragReminder.gameObject.SetActive(true);
             }
@@ -132,74 +132,74 @@ public class JoinGuide : MonoBehaviour
         {
             if (rCount%4==1)
             {
-                Debug.Log("嘴巴=====");
+                //Debug.Log("嘴巴=====");
                 DoMouthReminder();
             }else if(rCount%4==2){
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoNextStepReminder();
             }else if (rCount % 4 == 3)
             {
-                Debug.Log("头发=====");
+                //Debug.Log("头发=====");
                 DoHairReminder();
             }else if (rCount%4==0)
             {
-                Debug.Log("下一步=====");
+                //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
         }else if (GameManager.instance.curSelectResType==TemplateResType.Mouth)
         {
             if (rCount % 4 == 1)
             {
-                Debug.Log("头发=====");
+                //Debug.Log("头发=====");
                 DoHairReminder();
             }
             else if (rCount % 4 == 2)
             {
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoNextStepReminder();
             }
             else if (rCount % 4 == 3)
             {
-                Debug.Log("眼睛=====");
+                //Debug.Log("眼睛=====");
                 DoEyeReminder();
             }
             else if (rCount % 4 == 0)
             {
-                Debug.Log("下一步=====");
+                //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
         }else if (GameManager.instance.curSelectResType==TemplateResType.Hair)
         {
             if (rCount % 4 == 1)
             {
-                Debug.Log("眼睛=====");
+                //Debug.Log("眼睛=====");
                 DoEyeReminder();
             }
             else if (rCount % 4 == 2)
             {
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoNextStepReminder();
             }
             else if (rCount % 4 == 3)
             {
-                Debug.Log("嘴巴=====");
+                //Debug.Log("嘴巴=====");
                 DoMouthReminder();
             }
             else if (rCount % 4 == 0)
             {
-                Debug.Log("下一步=====");
+                //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
         }else if (GameManager.instance.curSelectResType==TemplateResType.Hat)
         {
             if (rCount % 2 == 1)
             {
-                Debug.Log("饰品=====");
+                //Debug.Log("饰品=====");
                 DoHeadWearReminder();
             }
             else if (rCount % 2 == 0)
             {
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoNextStepReminder();
             }
         }
@@ -207,12 +207,12 @@ public class JoinGuide : MonoBehaviour
         {
             if (rCount % 2 == 1)
             {
-                Debug.Log("帽子=====");
+                //Debug.Log("帽子=====");
                 DoHatReminder();
             }
             else if (rCount % 2 == 0)
             {
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoNextStepReminder();
             }
         }
@@ -220,12 +220,12 @@ public class JoinGuide : MonoBehaviour
         {
             if (rCount % 2 == 1)
             {
-                Debug.Log("脚=====");
+                //Debug.Log("脚=====");
                 DoLegReminder();
             }
             else if (rCount % 2 == 0)
             {
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoCompleteReminder();
             }
         }
@@ -233,12 +233,12 @@ public class JoinGuide : MonoBehaviour
         {
             if (rCount % 2 == 1)
             {
-                Debug.Log("手=====");
+                //Debug.Log("手=====");
                 DoHandReminder();
             }
             else if (rCount % 2 == 0)
             {
-                Debug.Log("下一步====");
+                //Debug.Log("下一步====");
                 DoCompleteReminder();
             }
         }
@@ -401,7 +401,7 @@ public class JoinGuide : MonoBehaviour
         //停止提示动画
         if (sequence!=null)
         {
-            Debug.Log("kill reminder ani===");
+            //Debug.Log("kill reminder ani===");
             sequence.Kill();
             sequence = null;
 

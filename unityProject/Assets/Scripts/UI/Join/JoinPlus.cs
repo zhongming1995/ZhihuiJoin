@@ -65,27 +65,12 @@ public class JoinPlus : MonoBehaviour
                 {
                     item = obj.AddComponent<ResDragItem>();
                 }
-                Debug.Log("part:" + partType);
                 item.partType = partType;
                 item.LoadInitItem(partType, s);
             }
             else
             {
-                //if (partType == PartType.Pixels)
-                //{
-                //    if (joinMainView.mobilePaint != null)
-                //    {
-                //        joinMainView.mobilePaint.SetPixels(part[i].ImgBytes);
-                //    }
-                //}
-                //if (partType == PartType.drawPixels)
-                //{
-                //    if (joinMainView.mobilePaint != null)
-                //    {
-                //        joinMainView.mobilePaint.SetDrawPixels(part[i].ImgBytes);
-                //    }
-                //}
-
+                //不管
             }
         }
         if (joinMainView.mobilePaint!=null)

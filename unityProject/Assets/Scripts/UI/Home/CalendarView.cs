@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class CalendarView : MonoBehaviour
 {
     public Button BtnBack;
+    public Button BtnDelete;
+    public Button BtnDefault;
     public Transform ListContent;
 
     private List<CalenderItem> personList = new List<CalenderItem>();
@@ -15,15 +17,40 @@ public class CalendarView : MonoBehaviour
     void Start()
     {
         AddBtnListener();
-        List<string> pathList = PersonManager.instance.GetPersonsList();
+        AddEventListener();
+        RefreshList();
+        SwitchDelBtn(true);
+    }
 
-        StartCoroutine(LoadPersonList(pathList));
+    private void AddEventListener()
+    {
+        CalenderController.deleteItemComplete += DeleteItemComplete;
+    }
+
+    private void RemoveEventListener()
+    {
+        CalenderController.deleteItemComplete -= DeleteItemComplete;
+    }
+
+    public void RefreshList()
+    {
+        StartCoroutine(LoadPersonList(CalenderController.instance.GetPersonList()));
     }
 
     private void AddBtnListener()
     {
         BtnBack.onClick.AddListener(delegate {
             Destroy(gameObject);
+        });
+
+        BtnDelete.onClick.AddListener(delegate {
+            ShowDeleteBtn(true);
+            SwitchDelBtn(false);
+        });
+
+        BtnDefault.onClick.AddListener(delegate {
+            ShowDeleteBtn(false);
+            SwitchDelBtn(true);
         });
     }
     
@@ -37,7 +64,7 @@ public class CalendarView : MonoBehaviour
                 PartDataWhole whole = PersonManager.instance.DeserializePerson(pathList[index]);
                 item.name = pathList[index];
                 CalenderItem calenderItem = item.GetComponent<CalenderItem>();
-                calenderItem.Init(whole);
+                calenderItem.Init(pathList[index],whole);
                 personList.Add(calenderItem);
                 index += 1;
             });
@@ -47,9 +74,30 @@ public class CalendarView : MonoBehaviour
 
     public void ShowDeleteBtn(bool show)
     {
+        Debug.Log(personList.Count);
         for (int i = 0; i < personList.Count; i++)
         {
             personList[i].ShowDelete(show);
         }
+    }
+
+    public void SwitchDelBtn(bool isDelete)
+    {
+        BtnDelete.gameObject.SetActive(isDelete);
+        BtnDefault.gameObject.SetActive(!isDelete);
+    }
+
+    public void DeleteItemComplete(CalenderItem deleteItem)
+    {
+        if (deleteItem != null)
+        {
+            personList.Remove(deleteItem);
+            DestroyImmediate(deleteItem.gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        RemoveEventListener();
     }
 }

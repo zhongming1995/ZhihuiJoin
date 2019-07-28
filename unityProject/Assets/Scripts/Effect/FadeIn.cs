@@ -8,11 +8,12 @@ public class FadeIn : MonoBehaviour
     public delegate void FadeInComplete();
     public static FadeInComplete fadeInComplete;
 
-    float alpha;
-    CanvasGroup canvasGroup;
+    //float alpha;
+    //CanvasGroup canvasGroup;
 
     private void OnEnable()
     {
+        /*
         if (canvasGroup == null)
         {
             GetCanvasGroup();
@@ -20,7 +21,13 @@ public class FadeIn : MonoBehaviour
         if (canvasGroup != null)
         {
             alpha = 0;
-            StartCoroutine("Cor_FadeIn");
+            StartCoroutine(Cor_FadeIn(canvasGroup));
+        }
+        */
+        CanvasGroup[] groups = transform.GetComponentsInChildren<CanvasGroup>();
+        foreach (var cg in groups)
+        {
+            StartCoroutine(Cor_FadeIn(cg));
         }
     }
 
@@ -29,6 +36,7 @@ public class FadeIn : MonoBehaviour
 
     }
 
+    /*
     void GetCanvasGroup()
     {
         if (canvasGroup !=null)
@@ -41,10 +49,12 @@ public class FadeIn : MonoBehaviour
             gameObject.AddComponent<CanvasGroup>();
         }
     }
+    */
 
-    IEnumerator Cor_FadeIn()
+    IEnumerator Cor_FadeIn(CanvasGroup canvasGroup)
     {
-        while(alpha<=1.1f)
+        float alpha = 0;
+        while(alpha <= 1.1f)
         {
             canvasGroup.alpha = alpha;
             alpha += 0.05f;

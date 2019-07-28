@@ -50,7 +50,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     {
         Init();
         partType = type;
-        Debug.Log("set:"+partType);
         image.sprite = s;
     }
 
