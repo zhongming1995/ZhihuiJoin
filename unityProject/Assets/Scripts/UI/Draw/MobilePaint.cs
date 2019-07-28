@@ -114,6 +114,7 @@ namespace Draw_MobilePaint
         [Header("Custom Brushes")]
         public bool useCustomBrushes = false;
         public Texture2D[] customBrushes;
+        public Texture2D[] brushList;
         public bool overrideCustomBrushColor = false; // uses paint color instead of brush texture color
         public bool useCustomBrushAlpha = true; // true = use alpha from brush, false = use alpha from current paint color
         public int selectedBrush = 0; // currently selected brush index
@@ -962,15 +963,32 @@ namespace Draw_MobilePaint
         } // DrawPatternCircle()
 
         // actual custom brush painting function
+        int currentBrushDirectionIndex = 0;
         void DrawCustomBrush(int px, int py)
         {
             havePainted = true;
             timeCount++;
             //限制笔触的密度
-            if (timeCount % 10!=0)
+            //brush test
+            //if (timeCount % 10!=0)
+            //{
+            //    return;
+            //}
+
+            if (timeCount %200 != 0)
             {
                 return;
             }
+            if (currentBrushDirectionIndex==3)
+            {
+                currentBrushDirectionIndex = 0;
+            }
+            else
+            {
+                currentBrushDirectionIndex += 1;
+            }
+            ChangeBrush(currentBrushDirectionIndex);
+
             //修改彩色笔，这里用到了GameManager
             if (MultiColor && timeCount%100==0)
             {
@@ -2106,15 +2124,19 @@ namespace Draw_MobilePaint
         }
 
         // get custom brush texture into custombrushpixels array, this needs to be called if custom brush is changed
-        public void ReadCurrentCustomBrush()
+        public void ReadCurrentCustomBrush(int index = 0)
         {
             // NOTE: this works only for square brushes
-            customBrushWidth = customBrushes[selectedBrush].width;
-            customBrushHeight = customBrushes[selectedBrush].height;
+            //brushes test
+            //customBrushWidth = customBrushes[selectedBrush].width;
+            //customBrushHeight = customBrushes[selectedBrush].height;
+            customBrushWidth = brushList[selectedBrush].width;
+            customBrushHeight = brushList[selectedBrush].height;
             customBrushBytes = new byte[customBrushWidth * customBrushHeight * 4];
 
             int pixel = 0;
-            Color32[] brushPixel = customBrushes[selectedBrush].GetPixels32();
+            //Color32[] brushPixel = customBrushes[selectedBrush].GetPixels32();
+            Color32[] brushPixel = brushList[selectedBrush].GetPixels32();
             for (int y = 0; y < customBrushHeight; y++)
             {
                 for (int x = 0; x < customBrushWidth; x++)

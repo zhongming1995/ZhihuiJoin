@@ -280,7 +280,7 @@ public class JoinMainView : MonoBehaviour
             //因为蜡笔笔刷调整是通过不同尺寸的笔刷图来实现的，所以统一尺寸的图不重新设置
             if (penSize != brushSize)
             {
-                mobilePaint.ChangeBrush(brushSize);
+                //mobilePaint.ChangeBrush(brushSize);
             }
         }
         penSize = brushSize;
@@ -294,7 +294,7 @@ public class JoinMainView : MonoBehaviour
         {
             MultiColorMode = true;
             mobilePaint.SetDrawModeBrush();
-            mobilePaint.ChangeBrush(penSize);
+            //mobilePaint.ChangeBrush(penSize);
             mobilePaint.SetBrushSize(1);
             //mobilePaint.SetPaintColor(color);
             mobilePaint.SetMultiColor(true);
@@ -309,7 +309,8 @@ public class JoinMainView : MonoBehaviour
         {
             mobilePaint.SetMultiColor(false);
             mobilePaint.SetDrawModeBrush();
-            mobilePaint.ChangeBrush(penSize);
+            //mobilePaint.ChangeBrush(penSize);
+            mobilePaint.ChangeBrush(0);
             mobilePaint.SetBrushSize(1);
             mobilePaint.SetPaintColor(color);
         }
