@@ -19,6 +19,7 @@ public class JoinMainView : MonoBehaviour
     public Button BtnPre;
     public Button BtnNext;
     public Button BtnOk;
+    public Button BtnRefrenceBg;
     public Image ImgReference;
     public Image ImgDraw;
     public Image ImgDrawBg;
@@ -56,6 +57,7 @@ public class JoinMainView : MonoBehaviour
     private int penIndex = 2;//0七彩 1橡皮 2以后单色（修改初始颜色需要到mobilepaint里修改）
     private float oriPos_ResContentList = 500;
     private float desPos_ResContentList = 69;
+    private bool isRefrenceZoomIning = false;//缩略图正在放大
 
     private JoinPlus joinPlus;
 
@@ -249,6 +251,20 @@ public class JoinMainView : MonoBehaviour
             //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
+        //缩略图点击事件
+        BtnRefrenceBg.onClick.AddListener(delegate {
+            if (isRefrenceZoomIning == false)
+            {
+                BtnRefrenceBg.transform.DOKill();
+                RefrenceZoomIn();
+            }
+            else
+            {
+                BtnRefrenceBg.transform.DOKill();
+                ReferenceZoomOut();
+            }
+        });
+
         ImageScaleSlider.onValueChanged.AddListener(delegate
         {
             joinGuide.DoOperation();
@@ -262,6 +278,22 @@ public class JoinMainView : MonoBehaviour
             joinGuide.DoOperation();
             ShowBackBtn(false);
             AdjustBurshSize(PenScaleSlider.value);
+        });
+    }
+
+    //缩小
+    private void ReferenceZoomOut()
+    {
+        isRefrenceZoomIning = false;
+        BtnRefrenceBg.transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f);
+    }
+
+    //放大
+    private void RefrenceZoomIn()
+    {
+        isRefrenceZoomIning = true;
+        BtnRefrenceBg.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.5f).OnComplete(() => {
+            Invoke("ReferenceZoomOut", 3.0f);
         });
     }
 
