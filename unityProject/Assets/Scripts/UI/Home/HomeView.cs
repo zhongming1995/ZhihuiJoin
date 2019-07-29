@@ -10,7 +10,6 @@ using AudioMgr;
 public class HomeView : MonoBehaviour
 {
     public Button btnHome;
-    public Button btnCalendar;
     private List<GameObject> itemObjList = new List<GameObject>();
     private Transform ListViewContent;
     private Transform Root;
@@ -70,10 +69,6 @@ public class HomeView : MonoBehaviour
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             SceneManager.LoadScene("index");
-        });
-
-        btnCalendar.onClick.AddListener(delegate {
-            UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_view",GameManager.instance.GetCanvas().transform,Vector3.zero,Vector3.one,true);
         });
     }
 }

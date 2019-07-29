@@ -56,6 +56,7 @@ public class CalendarView : MonoBehaviour
     
     IEnumerator LoadPersonList(List<string> pathList)
     {
+        Debug.Log(pathList.Count);
         int index = 0;
         while (index < pathList.Count)
         {

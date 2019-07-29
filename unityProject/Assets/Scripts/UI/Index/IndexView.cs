@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 using Common.ObjectPool;
 using GameMgr;
 using AudioMgr;
+using Helper;
 
 public class IndexView : MonoBehaviour
 {
     public Button BtnPlay;
+    public Button BtnCalendar;
     public GameObjectPool gamePool;
     public Transform TrainHead;
     public Transform Cloud;
@@ -24,7 +26,9 @@ public class IndexView : MonoBehaviour
             //GameManager.instance.SetNextSceneName("home");
             SceneManager.LoadScene("home");
         });
-
+        BtnCalendar.onClick.AddListener(delegate {
+            UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        });
         StartCoroutine(CorGenerateCloud());
     }
 

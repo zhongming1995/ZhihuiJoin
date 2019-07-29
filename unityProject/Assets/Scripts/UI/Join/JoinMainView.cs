@@ -447,12 +447,13 @@ public class JoinMainView : MonoBehaviour
             ImgDrawBg.DOFade(0, 0.5f);
         }
         Sequence seq = DOTween.Sequence();
-        seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.2f));
+        seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.3f));
         seq.InsertCallback(0.2f, () =>
         {
             ShowResListByType(type);
         });
-        seq.Append(ResListTrans.DOLocalMoveX(desPos_ResContentList, 0.2f));
+        seq.Append(ResListTrans.DOLocalMoveX(desPos_ResContentList - 50, 0.3f));
+        seq.Append(ResListTrans.DOLocalMoveX(desPos_ResContentList , 0.2f));
     }
 
     private void ShowResListByType(TemplateResType type)
