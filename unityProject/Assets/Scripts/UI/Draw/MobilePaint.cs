@@ -216,9 +216,14 @@ namespace Draw_MobilePaint
         private int fullArea;// 总面积
         private int alreadyFillArea;// 已涂色面积
         public float PaintPercent;//涂色面积占比
+        float ReadX = 0;
+        float ReadY = 0;
         public delegate void MouseDrawDelegate();
         public MouseDrawDelegate drawStart;
         public MouseDrawDelegate drawEnd;
+
+        public delegate void DrawAreaDelegate(float percent);
+        public DrawAreaDelegate getDrawArea;
 
         void Awake()
         {
@@ -519,6 +524,7 @@ namespace Draw_MobilePaint
         }
 
         //读取可画画区域
+       
         bool ReadDrawArea()
         {
             for (float i = 0; i < 1.0f; i = i + 0.1f)
@@ -530,6 +536,8 @@ namespace Draw_MobilePaint
                     if (createResult)
                     {
                         Debug.Log("取样点：(" + i + "," + j + ")");
+                        ReadX = i;
+                        ReadY = j;
                         return true;
                     }
                 }
@@ -702,6 +710,13 @@ namespace Draw_MobilePaint
                 {
                     drawEnd();
                 }
+                
+                LockAreaFillWithThresholdMaskOnly((int)(ReadX*texWidth), (int)(ReadY*texHeight));
+                if (getDrawArea!=null)
+                {
+                    getDrawArea(PaintPercent);
+                }
+
                 // calculate area size
                 timeCount = -1;
                 colorIndex = 0;
@@ -740,9 +755,11 @@ namespace Draw_MobilePaint
                 }
 
                 if (hideUIWhilePainting && !isUIVisible) ShowUI(); // show UI since we stopped drawing
+                
             }
 
         }
+        
 
         public virtual void HideUI()
         {
@@ -964,7 +981,7 @@ namespace Draw_MobilePaint
         // actual custom brush painting function
         void DrawCustomBrush(int px, int py)
         {
-            havePainted = true;
+            //havePainted = true;
             timeCount++;
             //限制笔触的密度
             if (timeCount % 10!=0)
@@ -1091,6 +1108,7 @@ namespace Draw_MobilePaint
                                 }
                                 pixels[pixel + 3] = customBrushBytes[brushPixel + 3];
                                 drawPixels[pixel + 3] = pixels[pixel + 3];
+                                
                                 //if (pixels[pixel+3]>0 && pixels[pixel+3]<255)
                                 //{
                                 //    drawPixels[pixel + 3] = 0;
@@ -1715,14 +1733,14 @@ namespace Draw_MobilePaint
         // create locking mask floodfill, using threshold, checking pixels from mask only
         bool LockAreaFillWithThresholdMaskOnly(int x, int y)
         {
-            //Debug.Log("LockAreaFillWithThresholdMaskOnly-------:("+x+","+y+")");
+            Debug.Log("LockAreaFillWithThresholdMaskOnly-------:(" + x + "," + y + ")");
             // get canvas color from this point
             byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
             byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];
             byte hitColorB = maskPixels[(texWidth * y + x) * 4 + 2];
             byte hitColorA = maskPixels[(texWidth * y + x) * 4 + 3];
 
-            //int alreadyFilled = 0;
+            int alreadyFilled = 0;
 
             if (hitColorA == 0)//透明部分不可绘画
             {
@@ -1764,14 +1782,14 @@ namespace Draw_MobilePaint
                         fillPointY.Enqueue(ptsy - 1);
                         lockMaskPixels[pixel] = 1;
 
-                        //if (bottom==false)
-                        //{
-                        //    fullArea++;
-                        //}
-                        //if (drawPixels[pixel+3]!=0)
-                        //{
-                        //    alreadyFilled++;
-                        //}
+                        if (bottom == false)
+                        {
+                            fullArea++;
+                        }
+                        if (drawPixels[pixel + 3] != 0)
+                        {
+                            alreadyFilled++;
+                        }
 
                     }
                 }
@@ -1789,14 +1807,14 @@ namespace Draw_MobilePaint
                         fillPointY.Enqueue(ptsy);
                         lockMaskPixels[pixel] = 1;
 
-                        //if (right==false)
-                        //{
-                        //    fullArea++;
-                        //}
-                        //if (drawPixels[pixel + 3] != 0)
-                        //{
-                        //    alreadyFilled++;
-                        //}
+                        if (right == false)
+                        {
+                            fullArea++;
+                        }
+                        if (drawPixels[pixel + 3] != 0)
+                        {
+                            alreadyFilled++;
+                        }
                     }
                 }
 
@@ -1813,15 +1831,15 @@ namespace Draw_MobilePaint
                         fillPointY.Enqueue(ptsy);
                         lockMaskPixels[pixel] = 1;
 
-                        //if (left==false)
-                        //{
-                        //    fullArea++;
+                        if (left == false)
+                        {
+                            fullArea++;
 
-                        //}
-                        //if (drawPixels[pixel + 3] != 0)
-                        //{
-                        //    alreadyFilled++;
-                        //}
+                        }
+                        if (drawPixels[pixel + 3] != 0)
+                        {
+                            alreadyFilled++;
+                        }
                     }
                 }
 
@@ -1838,30 +1856,30 @@ namespace Draw_MobilePaint
                         fillPointY.Enqueue(ptsy + 1);
                         lockMaskPixels[pixel] = 1;
 
-                        //if (top==false)
-                        //{
-                        //    fullArea++;
-                        //}
-                        //if (drawPixels[pixel + 3] != 0)
-                        //{
-                        //    alreadyFilled++;
-                        //}
+                        if (top == false)
+                        {
+                            fullArea++;
+                        }
+                        if (drawPixels[pixel + 3] != 0)
+                        {
+                            alreadyFilled++;
+                        }
                     }
                 }
             }
-            //top = true;
-            //bottom = true;
-            //left = true;
-            //right = true;
-            //if (fullArea!=0)
-            //{
-            //    PaintPercent = alreadyFilled / (float)fullArea * 100;
-            //}
-            //else
-            //{
-            //    PaintPercent = 0;
-            //}
-            //Debug.Log("涂色面积占比：" + PaintPercent);
+            top = true;
+            bottom = true;
+            left = true;
+            right = true;
+            if (fullArea != 0)
+            {
+                PaintPercent = alreadyFilled / (float)fullArea * 100;
+            }
+            else
+            {
+                PaintPercent = 0;
+            }
+            Debug.Log("涂色面积占比：" + PaintPercent);
             return true;
         } // LockAreaFillWithThresholdMaskOnly
 

@@ -64,6 +64,8 @@ public class JoinMainView : MonoBehaviour
     private float oriPos_ResContentList = 500;
     private float desPos_ResContentList = 69;
     private bool isRefrenceZoomIning = false;//缩略图正在放大
+    Vector3 PosDesBtnNext;
+    Vector3 PosOriBtnNext;
 
     private JoinPlus joinPlus;
 
@@ -81,22 +83,22 @@ public class JoinMainView : MonoBehaviour
     {
         if (mobilePaint != null)
         {
-            if (mobilePaint.havePainted)
-            {
-                //只要有大于0过就ok
-                hasPainted = true;
-            }
-            if (step==1)
-            {
-                if (hasPainted == true && guideResult[0] == true)
-                {
-                    BtnNext.interactable = true;
-                }
-                else
-                {
-                    BtnNext.interactable = false;
-                }
-            }
+            //if (mobilePaint.havePainted)
+            //{
+            //    //只要有大于0过就ok
+            //    hasPainted = true;
+            //}
+            //if (step==1)
+            //{
+                //if (hasPainted == true && guideResult[0] == true)
+                //{
+                //    BtnNext.interactable = true;
+                //}
+                //else
+                //{
+                //    BtnNext.interactable = false;
+                //}
+            //}
             if (step==4)
             {
                 if (guideResult[3]==true)
@@ -156,7 +158,9 @@ public class JoinMainView : MonoBehaviour
                 TypeButtonClick((TemplateResType)clickType, true);
             });
         }
-        step = 1;//初始是第一步
+        PosOriBtnNext = BtnNext.transform.localPosition;
+        PosDesBtnNext = new Vector3(BtnNext.transform.localPosition.x, BtnNext.transform.localPosition.y + 200, BtnNext.transform.localPosition.z);
+        BtnNext.transform.localPosition = PosDesBtnNext;
         ShowTypeByStep(step,true);
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
@@ -211,6 +215,7 @@ public class JoinMainView : MonoBehaviour
     //按钮点击事件
     private void AddClickEvent()
     {
+        mobilePaint.getDrawArea += GetDrawArea;
         BtnBackCheck.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -709,7 +714,21 @@ public class JoinMainView : MonoBehaviour
 
     private void OnDestroy()
     {
+        mobilePaint.getDrawArea -= GetDrawArea;
         Resources.UnloadUnusedAssets();
         GC.Collect();
+    }
+
+    private void GetDrawArea(float percent)
+    {
+        Debug.Log("percent:"+percent);
+        if (step == 1 && percent< 80)
+        {
+            BtnNext.transform.DOLocalMove(PosDesBtnNext, 0.2f);
+        }
+        else
+        {
+            BtnNext.transform.DOLocalMove(PosOriBtnNext, 0.2f);
+        }
     }
 }
