@@ -33,6 +33,7 @@ public class JoinMainView : MonoBehaviour
     public Slider PenScaleSlider;//控制画笔大小的slider
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
+    public RectTransform ImgResTypeSelect;
 
     public CanvasGroup HandLegCG;
     public CanvasGroup EyeMouthHairCG;
@@ -458,13 +459,16 @@ public class JoinMainView : MonoBehaviour
 
     private void ShowResListByType(TemplateResType type)
     {
+        LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());;
         SetCurSelectType(type);
+       
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
             if (i == (int)type)
             {
-                typeTransList[i].GetChild(0).gameObject.SetActive(true);
-                typeTransList[i].GetChild(1).gameObject.SetActive(false);
+                //typeTransList[i].GetChild(0).gameObject.SetActive(true);
+                //typeTransList[i].GetChild(1).gameObject.SetActive(false);
+                
                 if (loadResult[(int)type] == false)
                 {
                     LoadResListByType((int)type);
@@ -474,11 +478,15 @@ public class JoinMainView : MonoBehaviour
             }
             else
             {
-                typeTransList[i].GetChild(0).gameObject.SetActive(false);
-                typeTransList[i].GetChild(1).gameObject.SetActive(true);
+                //typeTransList[i].GetChild(0).gameObject.SetActive(false);
+                //typeTransList[i].GetChild(1).gameObject.SetActive(true);
                 ResScrollViewList[i].gameObject.SetActive(false);
             }
         }
+        
+        Vector2 desPos = typeTransList[(int)type].GetComponent<RectTransform>().anchoredPosition;
+        ImgResTypeSelect.DOAnchorPos(desPos, 0.2f);
+        //ImgResTypeSelect.anchoredPosition = typeTransList[(int)type].GetComponent<RectTransform>().anchoredPosition;
     }
 
     //根据步骤决定显示哪个类型的素材
@@ -500,16 +508,12 @@ public class JoinMainView : MonoBehaviour
             typeTransList[5].gameObject.SetActive(false);
             typeTransList[6].gameObject.SetActive(false);
             typeTransList[7].gameObject.SetActive(false);
-            for (int i = 1; i < GameManager.instance.resTypeCount; i++)
-            {
-                typeTransList[i].gameObject.SetActive(false);
-            }
         }
         //第二步：眼嘴手脚
         else if (step==2)
         {
             SetCurSelectType(TemplateResType.Eye);
-            BtnPre.gameObject.SetActive(false);
+            BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
             typeTransList[0].gameObject.SetActive(false);
