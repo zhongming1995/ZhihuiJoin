@@ -12,7 +12,6 @@ using DataMgr;
 public class FruitView :MonoBehaviour
 {
     public Button BtnBack;
-    public Button BtnBackCheck;
     public List<Transform> FruitTrans;
     public CanvasGroup BubbleCanvaGroup;
     public Transform PersonParent;
@@ -37,7 +36,6 @@ public class FruitView :MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowBackBtn(false);
         AddClickEvent();
         AddListener();
         fruitType = FruitController.instance.GenFruitType();
@@ -48,21 +46,8 @@ public class FruitView :MonoBehaviour
         oriImgBasketPos = ImgBasket.localPosition;
     }
 
-    //显示返回按钮，否则是半透明状态
-    public void ShowBackBtn(bool show)
-    {
-        BtnBack.gameObject.SetActive(show);
-        BtnBackCheck.gameObject.SetActive(!show);
-    }
-
     void AddClickEvent()
     {
-        BtnBackCheck.onClick.AddListener(delegate
-        {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            ShowBackBtn(true);
-        });
-
         BtnBack.onClick.AddListener(delegate
         {
             FruitController.instance.OperationEnd();

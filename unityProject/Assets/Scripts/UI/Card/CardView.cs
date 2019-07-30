@@ -12,7 +12,6 @@ using AudioMgr;
 public class CardView : MonoBehaviour
 {
     public Button BtnBack;
-    public Button BtnBackCheck;
     public GridLayoutGroup cardContent;
     public Image ImgMask;
     public Image ImgProgress;
@@ -58,25 +57,12 @@ public class CardView : MonoBehaviour
         //ShowMask(true);
         AddClickEvent();
         AddListener();
-        //隐藏返回按钮
-        ShowBackBtn(false);
         InitGame(1);
     }
-
-    //显示返回按钮，否则是半透明状态
-    public void ShowBackBtn(bool show)
-    {
-        BtnBack.gameObject.SetActive(show);
-        BtnBackCheck.gameObject.SetActive(!show);
-    }
+    
 
     void AddClickEvent()
     {
-        BtnBackCheck.onClick.AddListener(delegate
-        {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            ShowBackBtn(true);
-        });
 
         BtnBack.onClick.AddListener(delegate
         {

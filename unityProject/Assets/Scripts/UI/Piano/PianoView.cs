@@ -14,7 +14,6 @@ public class PianoView : MonoBehaviour
     public Transform Keys;
     public Transform PersonParent;
     public Button BtnBack;
-    public Button BtnBackCheck;
     public Transform SongAniLeft;
     public Transform SongAniRight;
     public Image ImgSongName;
@@ -91,8 +90,6 @@ public class PianoView : MonoBehaviour
             ParticleSystem ps = key.GetComponentInChildren<ParticleSystem>();
             particles.Add(ps);
         }
-        //隐藏返回按钮
-        ShowBackBtn(false);
         //按钮点击
         AddClickEvent();
     }
@@ -158,24 +155,11 @@ public class PianoView : MonoBehaviour
         lastSymbolNum = n;
         return n;
     }
-
-
-    //显示返回按钮，否则是半透明状态
-    public void ShowBackBtn(bool show)
-    {
-        BtnBack.gameObject.SetActive(show);
-        BtnBackCheck.gameObject.SetActive(!show);
-    }
+    
 
     //按钮点击事件
     private void AddClickEvent()
     {
-        BtnBackCheck.onClick.AddListener(delegate
-        {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            ShowBackBtn(true);
-        });
-
         BtnBack.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -206,7 +190,6 @@ public class PianoView : MonoBehaviour
 
     public void PlayPiano(int index)
     {
-        ShowBackBtn(false);
         reminders[index].gameObject.SetActive(false);
         audioSources[index].Play();
         particles[index].Play();
