@@ -51,7 +51,7 @@ public class JoinMainView : MonoBehaviour
     private int typeCount = 8;//资源类型数量
     [HideInInspector]
     public int step = 1;//步骤1-4
-    public List<Transform> typeTransList = new List<Transform>();//类型列表
+    public List<Transform> typeTransList = new List<Transform>();//类型列表，0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
     private bool[] guideResult = {false,false,false,false };//用来标示每一步的引导语音是否已经播放
 
@@ -485,6 +485,7 @@ public class JoinMainView : MonoBehaviour
     private void ShowTypeByStep(int step,bool isDefault = false)
     {
         this.step = step;
+        //第一步：画笔
         if (step==1)
         {
             SetCurSelectType(TemplateResType.Body);
@@ -492,44 +493,49 @@ public class JoinMainView : MonoBehaviour
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
             typeTransList[0].gameObject.SetActive(true);
+            typeTransList[1].gameObject.SetActive(false);
+            typeTransList[2].gameObject.SetActive(false);
+            typeTransList[3].gameObject.SetActive(false);
+            typeTransList[4].gameObject.SetActive(false);
+            typeTransList[5].gameObject.SetActive(false);
+            typeTransList[6].gameObject.SetActive(false);
+            typeTransList[7].gameObject.SetActive(false);
             for (int i = 1; i < GameManager.instance.resTypeCount; i++)
             {
                 typeTransList[i].gameObject.SetActive(false);
             }
-        }else if (step==2)
+        }
+        //第二步：眼嘴手脚
+        else if (step==2)
         {
             SetCurSelectType(TemplateResType.Eye);
             BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
-            for (int i = 0; i < 4; i++)
-            {
-                typeTransList[i].gameObject.SetActive(true);
-            }
-            for (int i = 4; i < GameManager.instance.resTypeCount; i++)
-            {
-                typeTransList[i].gameObject.SetActive(false);
-            }
+            typeTransList[0].gameObject.SetActive(false);
+            typeTransList[1].gameObject.SetActive(true);
+            typeTransList[2].gameObject.SetActive(true);
+            typeTransList[3].gameObject.SetActive(false);
+            typeTransList[4].gameObject.SetActive(false);
+            typeTransList[5].gameObject.SetActive(false);
+            typeTransList[6].gameObject.SetActive(true);
+            typeTransList[7].gameObject.SetActive(true);
         }else if (step == 3)
         {
-            SetCurSelectType(TemplateResType.Hat);
+            SetCurSelectType(TemplateResType.Hair);
             BtnPre.gameObject.SetActive(true);
-            BtnNext.gameObject.SetActive(true);
-            BtnOk.gameObject.SetActive(false);
-            typeTransList[0].gameObject.SetActive(true);
-            for (int i = 1; i < 4; i++)
-            {
-                typeTransList[i].gameObject.SetActive(false);
-            }
-            for (int i = 4; i < 6; i++)
-            {
-                typeTransList[i].gameObject.SetActive(true);
-            }
-            for (int i = 6; i < 8; i++)
-            {
-                typeTransList[i].gameObject.SetActive(false);
-            }
+            BtnNext.gameObject.SetActive(false);
+            BtnOk.gameObject.SetActive(true);
+            typeTransList[0].gameObject.SetActive(false);
+            typeTransList[1].gameObject.SetActive(false);
+            typeTransList[2].gameObject.SetActive(false);
+            typeTransList[3].gameObject.SetActive(true);
+            typeTransList[4].gameObject.SetActive(true);
+            typeTransList[5].gameObject.SetActive(true);
+            typeTransList[6].gameObject.SetActive(false);
+            typeTransList[7].gameObject.SetActive(false);
         }
+        /*
         else if (step == 4)
         {
             SetCurSelectType(TemplateResType.Hand);
@@ -546,6 +552,7 @@ public class JoinMainView : MonoBehaviour
                 typeTransList[i].gameObject.SetActive(true);
             }
         }
+        */
         if (isDefault == false)
         {
             TypeButtonClick(GameManager.instance.curSelectResType);
