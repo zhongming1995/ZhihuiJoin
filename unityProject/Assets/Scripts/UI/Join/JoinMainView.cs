@@ -24,7 +24,6 @@ public class JoinMainView : MonoBehaviour
     public Image ImgDraw;
     public Image ImgDrawBg;
     public Transform DrawPanel;//画布
-    public List<GameObject> ResScrollViewList;//各类素材列表
     public List<Transform> ResContentList;//各类素材容器-父节点
     public Transform PosLeftTop;
     public Transform PosRightBottom;
@@ -34,6 +33,7 @@ public class JoinMainView : MonoBehaviour
     public Transform ResListTrans;//抽屉动画的节点
     public Transform ContentColor;
     public RectTransform ImgResTypeSelect;
+    public List<Transform> TypeBtnConList;//各类素材按钮父节点布局器的数组
 
     public CanvasGroup HandLegCG;
     public CanvasGroup EyeMouthHairCG;
@@ -51,7 +51,8 @@ public class JoinMainView : MonoBehaviour
     private ResDragItem curResDragItem;//选中部位身上挂的脚本
     private int typeCount = 8;//资源类型数量
     [HideInInspector]
-    public int step = 1;//步骤1-4
+    public int step = 1;//步骤1-3
+    public int preStep = -1;//上一步
     public List<Transform> typeTransList = new List<Transform>();//类型列表，0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
     private bool[] guideResult = {false,false,false,false };//用来标示每一步的引导语音是否已经播放
@@ -75,7 +76,6 @@ public class JoinMainView : MonoBehaviour
     {
         Init();
     }
-    
 
     void Update()
     {
@@ -119,7 +119,6 @@ public class JoinMainView : MonoBehaviour
     {
         //补充脚本
         joinPlus = GetComponent<JoinPlus>();
-
         mobilePaint.gameObject.SetActive(false);
         //引导脚本
         joinGuide = GetComponent<JoinGuide>();
@@ -140,7 +139,11 @@ public class JoinMainView : MonoBehaviour
         }
         //返回按钮显示半透明
         ShowBackBtn(false);
-
+        //Rebuild
+        for (int i = 0; i < TypeBtnConList.Count; i++)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(TypeBtnConList[i].GetComponent<RectTransform>());
+        }
         //右边素材切换按钮
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
@@ -159,11 +162,12 @@ public class JoinMainView : MonoBehaviour
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
         LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
 
-        //test
+        //打开保存的文件
         if (GameManager.instance.openType==OpenType.ReEdit && GameManager.instance.curWhole!=null)
         {
             joinPlus.LoadFile(GameManager.instance.curWhole);
         }
+
     }
 
     void ShowDrawPanel()
@@ -225,6 +229,7 @@ public class JoinMainView : MonoBehaviour
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
+            preStep = step;
             step = Mathf.Max(1, step - 1);
             ShowTypeByStep(step);
             ShowBackBtn(false);
@@ -235,6 +240,7 @@ public class JoinMainView : MonoBehaviour
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
+            preStep = step;
             step = Mathf.Min(4, step + 1);
             ShowTypeByStep(step);
             ShowBackBtn(false);
@@ -459,28 +465,21 @@ public class JoinMainView : MonoBehaviour
 
     private void ShowResListByType(TemplateResType type)
     {
-        LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());;
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
         SetCurSelectType(type);
-       
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
             if (i == (int)type)
             {
-                //typeTransList[i].GetChild(0).gameObject.SetActive(true);
-                //typeTransList[i].GetChild(1).gameObject.SetActive(false);
-                
                 if (loadResult[(int)type] == false)
                 {
                     LoadResListByType((int)type);
                 }
-                ResScrollViewList[i].gameObject.SetActive(true);
-
+                ResContentList[i].parent.parent.gameObject.SetActive(true);
             }
             else
             {
-                //typeTransList[i].GetChild(0).gameObject.SetActive(false);
-                //typeTransList[i].GetChild(1).gameObject.SetActive(true);
-                ResScrollViewList[i].gameObject.SetActive(false);
+                ResContentList[i].parent.parent.gameObject.SetActive(false);
             }
         }
         
@@ -493,70 +492,30 @@ public class JoinMainView : MonoBehaviour
     private void ShowTypeByStep(int step,bool isDefault = false)
     {
         this.step = step;
-        //第一步：画笔
+       
+        //切换步骤的动画
+        SwitchStep(step,preStep);
+        
         if (step==1)
         {
             SetCurSelectType(TemplateResType.Body);
             BtnPre.gameObject.SetActive(false);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
-            typeTransList[0].gameObject.SetActive(true);
-            typeTransList[1].gameObject.SetActive(false);
-            typeTransList[2].gameObject.SetActive(false);
-            typeTransList[3].gameObject.SetActive(false);
-            typeTransList[4].gameObject.SetActive(false);
-            typeTransList[5].gameObject.SetActive(false);
-            typeTransList[6].gameObject.SetActive(false);
-            typeTransList[7].gameObject.SetActive(false);
         }
-        //第二步：眼嘴手脚
         else if (step==2)
         {
             SetCurSelectType(TemplateResType.Eye);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
             BtnOk.gameObject.SetActive(false);
-            typeTransList[0].gameObject.SetActive(false);
-            typeTransList[1].gameObject.SetActive(true);
-            typeTransList[2].gameObject.SetActive(true);
-            typeTransList[3].gameObject.SetActive(false);
-            typeTransList[4].gameObject.SetActive(false);
-            typeTransList[5].gameObject.SetActive(false);
-            typeTransList[6].gameObject.SetActive(true);
-            typeTransList[7].gameObject.SetActive(true);
         }else if (step == 3)
         {
             SetCurSelectType(TemplateResType.Hair);
             BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(false);
             BtnOk.gameObject.SetActive(true);
-            typeTransList[0].gameObject.SetActive(false);
-            typeTransList[1].gameObject.SetActive(false);
-            typeTransList[2].gameObject.SetActive(false);
-            typeTransList[3].gameObject.SetActive(true);
-            typeTransList[4].gameObject.SetActive(true);
-            typeTransList[5].gameObject.SetActive(true);
-            typeTransList[6].gameObject.SetActive(false);
-            typeTransList[7].gameObject.SetActive(false);
         }
-        /*
-        else if (step == 4)
-        {
-            SetCurSelectType(TemplateResType.Hand);
-            BtnPre.gameObject.SetActive(true);
-            BtnNext.gameObject.SetActive(false);
-            BtnOk.gameObject.SetActive(true);
-            typeTransList[0].gameObject.SetActive(true);
-            for (int i = 1; i < 6; i++)
-            {
-                typeTransList[i].gameObject.SetActive(false);
-            }
-            for (int i = 6; i < GameManager.instance.resTypeCount; i++)
-            {
-                typeTransList[i].gameObject.SetActive(true);
-            }
-        }
-        */
         if (isDefault == false)
         {
             TypeButtonClick(GameManager.instance.curSelectResType);
@@ -579,6 +538,45 @@ public class JoinMainView : MonoBehaviour
                 PlayGuideAudio(audioPath, step);
             }
         }
+    }
+    
+    void SwitchStep(int _curStep,int _preStep)
+    {
+        ImgResTypeSelect = TypeBtnConList[_curStep-1].GetChild(0).transform.GetComponent<RectTransform>();
+        //第一个子节点是选中图
+        Sequence seq = DOTween.Sequence();
+        Debug.Log(preStep);
+        if (_preStep != -1)
+        {
+            foreach (Transform item in TypeBtnConList[_preStep-1])
+            {
+                seq.Join(item.DOScale(Vector3.zero, 0.2f));
+            }
+        }
+        seq.AppendCallback(() => {
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == step - 1)
+                {
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(TypeBtnConList[i].GetComponent<RectTransform>());
+                    TypeBtnConList[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    TypeBtnConList[i].gameObject.SetActive(false);
+                }
+            }
+        });
+        foreach (Transform item in TypeBtnConList[_curStep-1])
+        {
+            item.localScale = Vector3.zero;
+            seq.Append(item.DOScale(Vector3.one, 0.2f));
+            if (item.GetSiblingIndex()==1)
+            {
+                ImgResTypeSelect.anchoredPosition = item.GetComponent<RectTransform>().anchoredPosition;
+            }
+        }
+        
     }
 
     //加载所有类型素材
