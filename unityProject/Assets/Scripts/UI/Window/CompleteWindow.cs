@@ -14,6 +14,8 @@ public class CompleteWindow : WindowParent
     public Button BtnHome;
     public Button BtnEdit;
     public Button BtnGame;
+    public Button BtnDisplay;
+    public Button BtnReplay;
     public Transform WindowPersonParent;
 
     private DisplayPartItem[] windowlstDisplayItem;
@@ -85,6 +87,20 @@ public class CompleteWindow : WindowParent
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             UIHelper.instance.LoadPrefab("Prefabs/game/window|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        });
+
+        BtnDisplay.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            CloseWindow();
+            DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
+            displayView.gameObject.SetActive(true);
+            GameOperDelegate.GotoDisplay();
+        });
+
+        BtnReplay.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            CloseWindow();
+            GameOperDelegate.Replay();
         });
     }
 
