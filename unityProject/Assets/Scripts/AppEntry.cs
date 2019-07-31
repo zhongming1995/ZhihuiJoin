@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Helper;
 using ResMgr;
-using GameMgr;
 using UnityEngine.SceneManagement;
 
 public class AppEntry : SingletonMono<AppEntry>
@@ -36,7 +34,6 @@ public class AppEntry : SingletonMono<AppEntry>
             SceneManager.LoadScene("index");
         }
         
-
         //异步加载方式
         //ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
     }

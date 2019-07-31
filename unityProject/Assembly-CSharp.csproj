@@ -125,6 +125,7 @@
     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
     <None Include="Assets\Res\Shader\ImageMask.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+    <None Include="Assets\Res\Shader\Outline3.shader" />
     <None Include="Assets\Res\Shader\ImageOutline.shader" />
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
