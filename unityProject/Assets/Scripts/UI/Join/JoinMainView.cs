@@ -42,7 +42,7 @@ public class JoinMainView : MonoBehaviour
     public MobilePaint mobilePaint;
     private Transform BodyGroup;
     [HideInInspector]
-    public bool hasPainted;//涂色过，即涂色面积>0过
+    public bool hasPainted;//涂色过，即涂色面积>0过，现在没用了
     [HideInInspector]
     public bool hasDraged;//是否拖入过素材（附着过）
 
@@ -64,10 +64,9 @@ public class JoinMainView : MonoBehaviour
     private float oriPos_ResContentList = 500;
     private float desPos_ResContentList = 69;
     private bool isRefrenceZoomIning = false;//缩略图正在放大
-    Vector3 PosDesBtnNext;
-    Vector3 PosOriBtnNext;
 
     private JoinPlus joinPlus;
+    private float drawPercent = 0;
 
     private void OnEnable()
     {
@@ -158,9 +157,7 @@ public class JoinMainView : MonoBehaviour
                 TypeButtonClick((TemplateResType)clickType, true);
             });
         }
-        PosOriBtnNext = BtnNext.transform.localPosition;
-        PosDesBtnNext = new Vector3(BtnNext.transform.localPosition.x, BtnNext.transform.localPosition.y + 200, BtnNext.transform.localPosition.z);
-        BtnNext.transform.localPosition = PosDesBtnNext;
+        BtnNext.gameObject.SetActive(false);
         ShowTypeByStep(step,true);
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
@@ -504,22 +501,30 @@ public class JoinMainView : MonoBehaviour
         if (step==1)
         {
             SetCurSelectType(TemplateResType.Body);
-            BtnPre.gameObject.SetActive(false);
-            BtnNext.gameObject.SetActive(true);
+            BtnPre.GetComponent<UIMove>().MoveHide();
+            GetDrawArea(drawPercent);//这里是控制BtnNext的
             BtnOk.gameObject.SetActive(false);
         }
         else if (step==2)
         {
             SetCurSelectType(TemplateResType.Eye);
-            BtnPre.gameObject.SetActive(true);
-            BtnNext.gameObject.SetActive(true);
-            BtnOk.gameObject.SetActive(false);
-        }else if (step == 3)
+            BtnPre.GetComponent<UIMove>().MoveShow();
+            BtnNext.GetComponent<UIMove>().MoveShow();
+            if (preStep==3)
+            {
+                BtnOk.GetComponent<UIScale>().ScaleHide();
+            }
+            else
+            {
+                BtnOk.gameObject.SetActive(false);
+            }
+        }
+        else if (step == 3)
         {
             SetCurSelectType(TemplateResType.Hair);
             BtnPre.gameObject.SetActive(true);
-            BtnNext.gameObject.SetActive(false);
-            BtnOk.gameObject.SetActive(true);
+            BtnNext.GetComponent<UIMove>().MoveHide();
+            BtnOk.GetComponent<UIScale>().ScaleShow();
         }
         if (isDefault == false)
         {
@@ -722,13 +727,22 @@ public class JoinMainView : MonoBehaviour
     private void GetDrawArea(float percent)
     {
         Debug.Log("percent:"+percent);
-        if (step == 1 && percent< 80)
+        drawPercent = percent;
+        if (percent>80)
         {
-            BtnNext.transform.DOLocalMove(PosDesBtnNext, 0.2f);
+            hasPainted = true;
         }
         else
         {
-            BtnNext.transform.DOLocalMove(PosOriBtnNext, 0.2f);
+            hasPainted = false;
+        }
+        if (step == 1 && percent< 80)
+        {
+            BtnNext.GetComponent<UIMove>().MoveHide();
+        }
+        else
+        {
+            BtnNext.GetComponent<UIMove>().MoveShow();
         }
     }
 }
