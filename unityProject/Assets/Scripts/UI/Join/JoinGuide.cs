@@ -130,116 +130,269 @@ public class JoinGuide : MonoBehaviour
     {
         if (GameManager.instance.curSelectResType==TemplateResType.Eye)
         {
-            if (rCount%4==1)
+            if (rCount%8==1)
             {
                 //Debug.Log("嘴巴=====");
                 DoMouthReminder();
-            }else if(rCount%4==2){
+            }else if(rCount%8==2){
                 //Debug.Log("下一步====");
                 DoNextStepReminder();
-            }else if (rCount % 4 == 3)
+            }else if (rCount % 8 == 3)
             {
-                //Debug.Log("头发=====");
-                DoHairReminder();
-            }else if (rCount%4==0)
+                //Debug.Log("手=====");
+                DoHandReminder();
+            }else if (rCount%8==4)
             {
                 //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
-        }else if (GameManager.instance.curSelectResType==TemplateResType.Mouth)
-        {
-            if (rCount % 4 == 1)
-            {
-                //Debug.Log("头发=====");
-                DoHairReminder();
-            }
-            else if (rCount % 4 == 2)
-            {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 4 == 3)
-            {
-                //Debug.Log("眼睛=====");
-                DoEyeReminder();
-            }
-            else if (rCount % 4 == 0)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-        }else if (GameManager.instance.curSelectResType==TemplateResType.Hair)
-        {
-            if (rCount % 4 == 1)
-            {
-                //Debug.Log("眼睛=====");
-                DoEyeReminder();
-            }
-            else if (rCount % 4 == 2)
-            {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 4 == 3)
-            {
-                //Debug.Log("嘴巴=====");
-                DoMouthReminder();
-            }
-            else if (rCount % 4 == 0)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-        }else if (GameManager.instance.curSelectResType==TemplateResType.Hat)
-        {
-            if (rCount % 2 == 1)
-            {
-                //Debug.Log("饰品=====");
-                DoHeadWearReminder();
-            }
-            else if (rCount % 2 == 0)
-            {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }
-        }
-        else if (GameManager.instance.curSelectResType == TemplateResType.HeadWear)
-        {
-            if (rCount % 2 == 1)
-            {
-                //Debug.Log("帽子=====");
-                DoHatReminder();
-            }
-            else if (rCount % 2 == 0)
-            {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }
-        }
-        else if (GameManager.instance.curSelectResType == TemplateResType.Hand)
-        {
-            if (rCount % 2 == 1)
+            else if (rCount % 8 == 5)
             {
                 //Debug.Log("脚=====");
                 DoLegReminder();
             }
-            else if (rCount % 2 == 0)
+            else if (rCount % 8 == 6)
             {
-                //Debug.Log("下一步====");
-                DoCompleteReminder();
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 7)
+            {
+                //Debug.Log("眼睛=====");
+                DoEyeReminder();
+            }
+            else if (rCount % 8 == 0)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
             }
         }
-        else if (GameManager.instance.curSelectResType == TemplateResType.Leg)
+        else if (GameManager.instance.curSelectResType==TemplateResType.Mouth)
         {
-            if (rCount % 2 == 1)
+            if (rCount % 8 == 1)
             {
                 //Debug.Log("手=====");
                 DoHandReminder();
             }
-            else if (rCount % 2 == 0)
+            else if (rCount % 8 == 2)
             {
                 //Debug.Log("下一步====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 3)
+            {
+                //Debug.Log("脚=====");
+                DoLegReminder();
+            }
+            else if (rCount % 8 == 4)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 5)
+            {
+                //Debug.Log("眼睛=====");
+                DoEyeReminder();
+            }
+            else if (rCount % 8 == 6)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 7)
+            {
+                //Debug.Log("嘴=====");
+                DoMouthReminder();
+            }
+            else if (rCount % 8 == 0)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+        }
+        else if (GameManager.instance.curSelectResType==TemplateResType.Hair)
+        {
+            if (rCount % 6 == 1)
+            {
+                //Debug.Log("帽子=====");
+                DoHatReminder();
+            }
+            else if (rCount % 6 == 2)
+            {
+                //Debug.Log("完成====");
                 DoCompleteReminder();
+            }
+            else if (rCount % 6 == 3)
+            {
+                //Debug.Log("装饰品=====");
+                DoHeadWearReminder();
+            }
+            else if (rCount % 6 == 4)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+            else if (rCount % 6 == 5)
+            {
+                //Debug.Log("头发=====");
+                DoHairReminder();
+            }
+            else if (rCount % 6 == 0)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+        }
+        else if (GameManager.instance.curSelectResType==TemplateResType.Hat)
+        {
+            if (rCount % 6 == 1)
+            {
+                //Debug.Log("饰品=====");
+                DoHeadWearReminder();
+            }
+            else if (rCount % 6 == 2)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+            else if (rCount % 6 == 3)
+            {
+                //Debug.Log("头发=====");
+                DoHairReminder();
+            }
+            else if (rCount % 6 == 4)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+            else if (rCount % 6 == 5)
+            {
+                //Debug.Log("帽子=====");
+                DoHatReminder();
+            }
+            else if (rCount % 6 == 0)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+        }
+        else if (GameManager.instance.curSelectResType == TemplateResType.HeadWear)
+        {
+            if (rCount % 6 == 1)
+            {
+                //Debug.Log("头发=====");
+                DoHairReminder();
+            }
+            else if (rCount % 6 == 2)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+            else if (rCount % 6 == 3)
+            {
+                //Debug.Log("帽子=====");
+                DoHatReminder();
+            }
+            else if (rCount % 6 == 4)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+            else if (rCount % 6 == 5)
+            {
+                //Debug.Log("装饰品=====");
+                DoHeadWearReminder();
+            }
+            else if (rCount % 6 == 0)
+            {
+                //Debug.Log("完成====");
+                DoCompleteReminder();
+            }
+        }
+        else if (GameManager.instance.curSelectResType == TemplateResType.Hand)
+        {
+            if (rCount % 8 == 1)
+            {
+                //Debug.Log("脚=====");
+                DoLegReminder();
+            }
+            else if (rCount % 8 == 2)
+            {
+                //Debug.Log("下一步====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 3)
+            {
+                //Debug.Log("眼睛=====");
+                DoEyeReminder();
+            }
+            else if (rCount % 8 == 4)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 5)
+            {
+                //Debug.Log("嘴巴=====");
+                DoMouthReminder();
+            }
+            else if (rCount % 8 == 6)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 7)
+            {
+                //Debug.Log("手=====");
+                DoHandReminder();
+            }
+            else if (rCount % 8 == 0)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+        }
+        else if (GameManager.instance.curSelectResType == TemplateResType.Leg)
+        {
+            if (rCount % 8 == 1)
+            {
+                //Debug.Log("眼睛=====");
+                DoEyeReminder();
+            }
+            else if (rCount % 8 == 2)
+            {
+                //Debug.Log("下一步====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 3)
+            {
+                //Debug.Log("嘴巴=====");
+                DoMouthReminder();
+            }
+            else if (rCount % 8 == 4)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 5)
+            {
+                //Debug.Log("手=====");
+                DoHandReminder();
+            }
+            else if (rCount % 8 == 6)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
+            }
+            else if (rCount % 8 == 7)
+            {
+                //Debug.Log("脚=====");
+                DoLegReminder();
+            }
+            else if (rCount % 8 == 0)
+            {
+                //Debug.Log("下一步=====");
+                DoNextStepReminder();
             }
         }
     }
