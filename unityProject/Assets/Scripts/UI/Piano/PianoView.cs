@@ -44,7 +44,7 @@ public class PianoView : MonoBehaviour
     private void OnEnable()
     {
         AudioManager.instance.BgmPause();
-
+        GameOperDelegate.backTodisplay += BackToDisplay;
         GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += PlayCard;
         GameOperDelegate.cardBegin += PlayCard;
@@ -55,7 +55,7 @@ public class PianoView : MonoBehaviour
     private void OnDisable()
     {
         AudioManager.instance.BgmUnPause();
-
+        GameOperDelegate.backTodisplay -= BackToDisplay;
         GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= PlayCard;
         GameOperDelegate.fruitBegin -= PlayCard;
@@ -270,6 +270,12 @@ public class PianoView : MonoBehaviour
         GC.Collect();
     }
 
+    public void BackToDisplay()
+    {
+        Destroy(gameObject);
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
+    }
     void PlayCard()
     {
         Destroy(completeWindow);

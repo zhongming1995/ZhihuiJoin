@@ -38,10 +38,12 @@ public class WindowParent : MonoBehaviour
         //window
         window.localScale = oriWindowScale;
         Tweener tweener = window.DOScale(desWindowScale, windowDuration);
-        if (callBack!=null)
-        {
-            tweener.OnComplete(() => { callBack(); });
-        }
+        tweener.OnComplete(() => {
+            if (callBack != null)
+            {
+                callBack();
+            }
+        });
     }
 
     public void OutAni(Action callBack = null)

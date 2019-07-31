@@ -10,6 +10,9 @@ public class GameOperDelegate:MonoBehaviour
     public delegate void BackToEdit();
     public static event BackToEdit backToEdit;
 
+    public delegate void BackTodisplay();
+    public static event BackTodisplay backTodisplay;
+
     public delegate void GameReplay();
     public static event GameReplay gameReplay;
 
@@ -33,6 +36,11 @@ public class GameOperDelegate:MonoBehaviour
     public static void GotoEdit()
     {
         backToEdit?.Invoke();
+    }
+
+    public static void GotoDisplay()
+    {
+        backTodisplay?.Invoke();
     }
 
     public static void Replay()

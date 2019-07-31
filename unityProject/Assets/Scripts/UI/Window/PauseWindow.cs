@@ -11,11 +11,13 @@ public class PauseWindow : WindowParent
     public Button BtnHome;
     public Button BtnEdit;
     public Button BtnReplay;
+    public Button BtnDisplay;
+    public Button BtnContinue;
     public Button BtnClose;
 
     private void OnEnable()
     {
-        InAni();
+        InAni(()=> { Time.timeScale = 0; });
     }
 
     // Start is called before the first frame update
@@ -52,6 +54,19 @@ public class PauseWindow : WindowParent
             GameOperDelegate.Replay();
         });
 
+        BtnDisplay.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            CloseWindow();
+            DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
+            displayView.gameObject.SetActive(true);
+            GameOperDelegate.GotoDisplay();
+        });
+
+        BtnContinue.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            CloseWindow();
+        });
+
         BtnClose.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
@@ -60,6 +75,7 @@ public class PauseWindow : WindowParent
 
     void CloseWindow()
     {
+        Time.timeScale = 1;
         OutAni();
     }
 

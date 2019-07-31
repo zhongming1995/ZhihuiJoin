@@ -28,6 +28,7 @@ public class CardView : MonoBehaviour
     private void AddListener()
     {
         GameOperDelegate.backToEdit += BackToEditFunc;
+        GameOperDelegate.backTodisplay += BackToDisplay;
         GameOperDelegate.pianoBegin += PlayPiano;
         GameOperDelegate.cardBegin += PlayPiano;
         GameOperDelegate.fruitBegin += PlayPiano;
@@ -41,6 +42,7 @@ public class CardView : MonoBehaviour
     private void RemoveListener()
     {
         GameOperDelegate.backToEdit -= BackToEditFunc;
+        GameOperDelegate.backTodisplay -= BackToDisplay;
         GameOperDelegate.pianoBegin -= PlayPiano;
         GameOperDelegate.cardBegin -= PlayPiano;
         GameOperDelegate.fruitBegin -= PlayPiano;
@@ -72,8 +74,14 @@ public class CardView : MonoBehaviour
             UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
-
+    
     public void BackToEditFunc()
+    {
+        Destroy(gameObject);
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
+    }
+    public void BackToDisplay()
     {
         Destroy(gameObject);
         Resources.UnloadUnusedAssets();
