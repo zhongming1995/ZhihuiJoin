@@ -699,13 +699,13 @@ public class JoinMainView : MonoBehaviour
 
     public void PlayGuideAudio(string path,int step)
     {
-        BtnNext.interactable = false;
-        BtnOk.interactable = false;
+        //BtnNext.interactable = false;
+        //BtnOk.interactable = false;
         AudioManager.instance.PlayAudio(EffectAudioType.Guide, path,()=>
         {
             guideResult[step - 1] = true;
-            BtnNext.interactable = true;
-            BtnOk.interactable = true;
+            //BtnNext.interactable = true;
+            //BtnOk.interactable = true;
             if (joinGuide.isOperating == false)
             {
                 joinGuide.DoOperation();
