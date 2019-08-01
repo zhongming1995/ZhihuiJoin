@@ -73,6 +73,11 @@ public class JoinMainView : MonoBehaviour
         AppEntry.instance.SetMultiTouchEnable(false);
     }
 
+    private void OnDisable()
+    {
+        AudioManager.instance.StopEffect();
+    }
+
     void Start()
     {
         Init();
@@ -685,7 +690,6 @@ public class JoinMainView : MonoBehaviour
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width+20, y+45);
             }
         }
-
         loadResult[type] = true;
     }
 
@@ -707,15 +711,15 @@ public class JoinMainView : MonoBehaviour
         {
             //BtnNext.interactable = true;
             //BtnOk.interactable = true;
-            if (gameObject.activeSelf == true)
-            {
+            //if (gameObject.activeSelf == true)
+            //{
                 if (joinGuide.isOperating == false)
                 {
                     joinGuide.DoOperation();
                 }
-            }
+            //}
         });   
- }
+    }
 
     IEnumerator CorPlayGuideStep1(string path,int step)
     {
@@ -725,6 +729,7 @@ public class JoinMainView : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioManager.instance.StopEffect();
         mobilePaint.getDrawArea -= GetDrawArea;
         Resources.UnloadUnusedAssets();
         GC.Collect();

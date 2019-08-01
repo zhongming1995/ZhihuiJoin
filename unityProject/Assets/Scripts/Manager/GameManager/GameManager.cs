@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AudioMgr;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -456,6 +457,7 @@ namespace GameMgr
 
         public void JumpToJoin()
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
             GameManager.instance.SetNextSceneName("join");
             SceneManager.LoadScene("transition");
         }

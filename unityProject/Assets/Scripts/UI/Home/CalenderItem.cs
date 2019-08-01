@@ -36,9 +36,11 @@ public class CalenderItem : MonoBehaviour
 
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
+            Debug.Log("fileName:" + fileName);
             GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
+            PersonManager.instance.PersonFileName = fileName;
             GameManager.instance.JumpToJoin();
         });
 

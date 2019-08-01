@@ -555,6 +555,7 @@ namespace Draw_MobilePaint
         public void SetDrawPixels(byte[] imgPixel)
         {
             drawPixels = imgPixel;
+            LockAreaFillWithThresholdMaskOnly((int)(ReadX * texWidth), (int)(ReadY * texHeight));
         }
 
         // handle mouse events
@@ -712,10 +713,10 @@ namespace Draw_MobilePaint
                 }
                 
                 LockAreaFillWithThresholdMaskOnly((int)(ReadX*texWidth), (int)(ReadY*texHeight));
-                if (getDrawArea!=null)
-                {
-                    getDrawArea(PaintPercent);
-                }
+                //if (getDrawArea!=null)
+                //{
+                //    getDrawArea(PaintPercent);
+                //}
 
                 // calculate area size
                 timeCount = -1;
@@ -1879,7 +1880,13 @@ namespace Draw_MobilePaint
             {
                 PaintPercent = 0;
             }
+
+            if (getDrawArea != null)
+            {
+                getDrawArea(PaintPercent);
+            }
             Debug.Log("涂色面积占比：" + PaintPercent);
+
             return true;
         } // LockAreaFillWithThresholdMaskOnly
 

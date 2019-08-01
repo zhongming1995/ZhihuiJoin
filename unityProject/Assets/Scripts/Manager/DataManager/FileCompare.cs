@@ -11,6 +11,6 @@ public class FileCompare : IComparer
     {
         FileInfo fi1 = x as FileInfo;
         FileInfo fi2 = y as FileInfo;
-        return -fi1.CreationTime.CompareTo(fi2.CreationTime);//文件或目录的创建日期
+        return -fi1.LastWriteTime.CompareTo(fi2.LastWriteTime);//文件或目录的创建日期
     }
 }
