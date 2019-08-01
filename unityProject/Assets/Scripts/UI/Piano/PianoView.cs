@@ -111,7 +111,7 @@ public class PianoView : MonoBehaviour
         int n = songIndex;
         while (n == songIndex)
         {
-            n = rd.Next(0, 3);
+            n = rd.Next(0, 4);
         }
         return n;
     }

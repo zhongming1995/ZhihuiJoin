@@ -98,17 +98,17 @@ public class JoinMainView : MonoBehaviour
                 //    BtnNext.interactable = false;
                 //}
             //}
-            if (step==4)
-            {
-                if (guideResult[3]==true)
-                {
-                    BtnOk.interactable = true;
-                }
-                else
-                {
-                    BtnOk.interactable = false;
-                }
-            }
+            //if (step==4)
+            //{
+            //    if (guideResult[3]==true)
+            //    {
+            //        BtnOk.interactable = true;
+            //    }
+            //    else
+            //    {
+            //        BtnOk.interactable = false;
+            //    }
+            //}
             if (GameManager.instance.curSelectResType == 0)
             {
                 mobilePaint.MousePaint();
@@ -199,7 +199,7 @@ public class JoinMainView : MonoBehaviour
     /// <param name="show">If set to <c>true</c> show.</param>
     public void BackToJoinEdit()
     {
-        ShowTypeByStep(2);
+        ShowTypeByStep(1);
     }
 
     //显示返回按钮，否则是半透明状态
@@ -250,6 +250,7 @@ public class JoinMainView : MonoBehaviour
 
         BtnOk.onClick.AddListener(delegate
         {
+            AudioManager.instance.StopEffect();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             gameObject.SetActive(false);
@@ -701,17 +702,20 @@ public class JoinMainView : MonoBehaviour
     {
         //BtnNext.interactable = false;
         //BtnOk.interactable = false;
+        guideResult[step - 1] = true;
         AudioManager.instance.PlayAudio(EffectAudioType.Guide, path,()=>
         {
-            guideResult[step - 1] = true;
             //BtnNext.interactable = true;
             //BtnOk.interactable = true;
-            if (joinGuide.isOperating == false)
+            if (gameObject.activeSelf == true)
             {
-                joinGuide.DoOperation();
+                if (joinGuide.isOperating == false)
+                {
+                    joinGuide.DoOperation();
+                }
             }
-        });
-    }
+        });   
+ }
 
     IEnumerator CorPlayGuideStep1(string path,int step)
     {
