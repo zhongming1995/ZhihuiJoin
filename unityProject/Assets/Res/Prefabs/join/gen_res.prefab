@@ -88,4 +88,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partType: 0
-  selectMaterial: {fileID: 2100000, guid: a48ccf6d3086ec3408172c82e0c257f5, type: 2}
+  selectMaterial: {fileID: 2100000, guid: 6af5e7ef98a38404a9dfb392f915c01f, type: 2}

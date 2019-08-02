@@ -156,7 +156,7 @@ public class JoinMainView : MonoBehaviour
             int clickType = i;
             typeTransList[i].GetComponent<Button>().onClick.AddListener(delegate
             {
-                SetSelectResObj(null);
+                //SetSelectResObj(null);
                 joinGuide.DoOperation();
                 AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/option_audio/material_option_audio|material_" + clickType);
                 TypeButtonClick((TemplateResType)clickType, true);
@@ -435,6 +435,8 @@ public class JoinMainView : MonoBehaviour
     //右侧类型图标点击事件
     private void TypeButtonClick(TemplateResType type,bool isClick = false)
     {
+        SetSelectResObj(null);
+
         if (isClick && type == GameManager.instance.curSelectResType)
         {
             return;
@@ -442,7 +444,7 @@ public class JoinMainView : MonoBehaviour
         ShowBackBtn(false);
         if (type==TemplateResType.Body)
         {
-            SetPartOccupy(true);
+            //SetPartOccupy(true);
             ImgDrawBg.DOFade(1, 0.5f).OnComplete(()=> {
                 ImgDraw.gameObject.SetActive(false);
                 mobilePaint.gameObject.SetActive(true);
@@ -450,8 +452,7 @@ public class JoinMainView : MonoBehaviour
         }
         else
         {
-            Debug.Log("TypeButtonClick=========");
-            SetPartOccupy(false);
+            //SetPartOccupy(false);
             Texture2D t = GetDrawTexture();
             ImgDraw.gameObject.SetActive(true);
             Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
@@ -490,7 +491,14 @@ public class JoinMainView : MonoBehaviour
                 ResContentList[i].parent.parent.gameObject.SetActive(false);
             }
         }
-        
+        if (type==TemplateResType.Body)
+        {
+            SetPartOccupy(true);
+        }
+        else
+        {
+            SetPartOccupy(false);
+        }
         Vector2 desPos = typeTransList[(int)type].GetComponent<RectTransform>().anchoredPosition;
         ImgResTypeSelect.DOAnchorPos(desPos, 0.2f);
         //ImgResTypeSelect.anchoredPosition = typeTransList[(int)type].GetComponent<RectTransform>().anchoredPosition;

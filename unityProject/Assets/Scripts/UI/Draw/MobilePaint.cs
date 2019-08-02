@@ -1734,7 +1734,6 @@ namespace Draw_MobilePaint
         // create locking mask floodfill, using threshold, checking pixels from mask only
         bool LockAreaFillWithThresholdMaskOnly(int x, int y)
         {
-            Debug.Log("LockAreaFillWithThresholdMaskOnly-------:(" + x + "," + y + ")");
             // get canvas color from this point
             byte hitColorR = maskPixels[(texWidth * y + x) * 4 + 0];
             byte hitColorG = maskPixels[(texWidth * y + x) * 4 + 1];

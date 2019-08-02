@@ -237,7 +237,6 @@ namespace AudioMgr {
                 instance.effectAudioSource.Play();
                 if (cb != null)
                 {
-                    Debug.Log("start");
                     cor_play = StartCoroutine("Cor_PlayEffect",cb);
                 }
             }
@@ -260,7 +259,6 @@ namespace AudioMgr {
         {
             yield return new WaitForSeconds(instance.effectAudioSource.clip.length);
             curAudioType = EffectAudioType.None;
-            Debug.Log("cb");
             cb?.Invoke();
         }
 
@@ -274,7 +272,6 @@ namespace AudioMgr {
             }
             if (cor_play!=null)
             {
-                Debug.Log("tinghzi ");
                 StopCoroutine("Cor_PlayEffect");
             }
         }
@@ -369,7 +366,6 @@ namespace AudioMgr {
 
         public void PlayAudio(EffectAudioType type, string path, Action cb = null)
         {
-            Debug.Log("play");
             if (type == EffectAudioType.Option)
             {
                 PlayOptionAudio(path, cb);

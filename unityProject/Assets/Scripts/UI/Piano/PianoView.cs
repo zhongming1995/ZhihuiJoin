@@ -13,6 +13,7 @@ public class PianoView : MonoBehaviour
 {
     public Transform Keys;
     public Transform PersonParent;
+    public Transform PersonCorrect;
     public Button BtnBack;
     public Transform SongAniLeft;
     public Transform SongAniRight;
@@ -66,7 +67,7 @@ public class PianoView : MonoBehaviour
     void Init()
     {
         //加载小人
-        LoadPerson();
+        LoadPersonSetPos();
         SelectSong();
         //8个琴键脚本,8个琴键提示动画
         for (int i = 0; i < Keys.childCount; i++)
@@ -140,6 +141,27 @@ public class PianoView : MonoBehaviour
         person.transform.SetParent(PersonParent);
         person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
+
+        lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+    }
+
+    private void LoadPersonSetPos()
+    {
+        GameObject person = null;
+        float minPosY = 0;
+        if (DataManager.instance.partDataList != null)
+        {
+            person = DataManager.instance.GetPersonObjWithFlag(DataManager.instance.partDataList, out minPosY);
+        }
+        person.transform.SetParent(PersonParent);
+        person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        person.transform.localPosition = Vector3.zero;
+
+        Transform flagbottom = person.transform.Find("flag_bottom").transform;
+        flagbottom.SetParent(PersonParent, true);
+        float offsety = flagbottom.localPosition.y - PersonCorrect.localPosition.y;
+        Debug.Log("offsety:" + offsety);
+        person.transform.localPosition = new Vector3(0, -offsety, 0);
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
     }
