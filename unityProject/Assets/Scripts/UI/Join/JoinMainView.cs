@@ -558,18 +558,27 @@ public class JoinMainView : MonoBehaviour
     
     void SwitchStep(int _curStep,int _preStep)
     {
-        ImgResTypeSelect = TypeBtnConList[_curStep-1].GetChild(0).transform.GetComponent<RectTransform>();
+       
         //第一个子节点是选中图
         Sequence seq = DOTween.Sequence();
-        Debug.Log(preStep);
         if (_preStep != -1)
         {
             foreach (Transform item in TypeBtnConList[_preStep-1])
             {
-                seq.Join(item.DOScale(Vector3.zero, 0.2f));
+                if (item.GetSiblingIndex()!= 0)
+                {
+                    seq.Join(item.DOScale(Vector3.zero, 0.3f));
+                }
             }
         }
         seq.AppendCallback(() => {
+            //保存上一个选中底图的位置
+            Vector3 lastSelectPos = ImgResTypeSelect.anchoredPosition;
+            ImgResTypeSelect.gameObject.SetActive(false);
+            //切换选中图
+            ImgResTypeSelect = TypeBtnConList[_curStep - 1].GetChild(0).transform.GetComponent<RectTransform>();
+            ImgResTypeSelect.gameObject.SetActive(true);
+            ImgResTypeSelect.anchoredPosition = lastSelectPos;
             for (int i = 0; i < 3; i++)
             {
                 if (i == step - 1)
@@ -582,16 +591,23 @@ public class JoinMainView : MonoBehaviour
                     TypeBtnConList[i].gameObject.SetActive(false);
                 }
             }
-        });
-        foreach (Transform item in TypeBtnConList[_curStep-1])
-        {
-            item.localScale = Vector3.zero;
-            seq.Append(item.DOScale(Vector3.one, 0.2f));
-            if (item.GetSiblingIndex()==1)
+
+            foreach (Transform item in TypeBtnConList[_curStep - 1])
             {
-                ImgResTypeSelect.anchoredPosition = item.GetComponent<RectTransform>().anchoredPosition;
+                if (item.GetSiblingIndex()!=0)
+                {
+                    item.localScale = Vector3.zero;
+                    seq.Append(item.DOScale(Vector3.one, 0.2f));
+                }
+                if (item.GetSiblingIndex() == 1)
+                {
+                    Vector2 desPos = item.GetComponent<RectTransform>().anchoredPosition;
+                    ImgResTypeSelect.DOAnchorPos(desPos, 0.2f);
+                }
             }
-        }
+
+        });
+       
         
     }
 
