@@ -65,7 +65,7 @@ public class CalendarView : MonoBehaviour
                 PartDataWhole whole = PersonManager.instance.DeserializePerson(pathList[index]);
                 item.name = pathList[index];
                 CalenderItem calenderItem = item.GetComponent<CalenderItem>();
-                calenderItem.Init(pathList[index],whole);
+                calenderItem.Init(index,pathList[index],whole);
                 personList.Add(calenderItem);
                 index += 1;
             });

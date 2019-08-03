@@ -34,7 +34,20 @@ public class PersonManager : SingletonMono<PersonManager>
             return PersonDataPath + personFileName;
         }
     }
-    
+
+    private int personCount;
+    public int PersonCount
+    {
+        get
+        {
+            return personCount;
+        }
+    }
+
+    public int CurPersonIndex { get; set; }
+
+    public List<string> pathList = new List<string>();
+
     void Awake()
     {
         instance = this;
@@ -60,14 +73,15 @@ public class PersonManager : SingletonMono<PersonManager>
             }
         }
         Debug.Log("num:" + num);
+        personCount = num;
         return num;
     }
 
     public List<string> GetPersonsList()
     {
         Debug.Log("GetPersonsList");
+        pathList.Clear();
         DirectoryInfo info = new DirectoryInfo(PersonDataPath);
-        List<string> pathList = new List<string>();
         if (info.Exists)
         {
             FileInfo[] files = info.GetFiles("*", SearchOption.AllDirectories);

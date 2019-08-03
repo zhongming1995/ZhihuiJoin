@@ -1,5 +1,6 @@
 ﻿using DataMgr;
 using GameMgr;
+using Helper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +15,11 @@ public class CalenderItem : MonoBehaviour
 
     private PartDataWhole curWhole;
     private string fileName;
+    private int index;
 
-    public void Init(string _fileName, PartDataWhole whole)
+    public void Init(int _index,string _fileName, PartDataWhole whole)
     {
+        index = _index;
         fileName = _fileName;
         if (whole==null)
         {
@@ -36,12 +39,16 @@ public class CalenderItem : MonoBehaviour
 
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
+            /*
             Debug.Log("fileName:" + fileName);
             GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
             PersonManager.instance.PersonFileName = fileName;
             GameManager.instance.JumpToJoin();
+            */
+            PersonManager.instance.CurPersonIndex = index;
+            UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_detail_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnDelete.onClick.AddListener(delegate {

@@ -101,6 +101,10 @@
     <Compile Include="Assets\Scripts\UI\Fruit\FruitGuide.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitItem.cs" />
     <Compile Include="Assets\Scripts\UI\Fruit\FruitView.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalendarDetailController.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalendarDetailItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalendarDetailView.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalendarListDrag.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalendarView.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalenderController.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalenderItem.cs" />

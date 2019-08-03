@@ -304,14 +304,14 @@ public class JoinMainView : MonoBehaviour
     private void ReferenceZoomOut()
     {
         isRefrenceZoomIning = false;
-        BtnRefrenceBg.transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f);
+        BtnRefrenceBg.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 0.5f);
     }
 
     //放大
     private void RefrenceZoomIn()
     {
         isRefrenceZoomIning = true;
-        BtnRefrenceBg.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 0.5f).OnComplete(() => {
+        BtnRefrenceBg.transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f).OnComplete(() => {
             Invoke("ReferenceZoomOut", 3.0f);
         });
     }

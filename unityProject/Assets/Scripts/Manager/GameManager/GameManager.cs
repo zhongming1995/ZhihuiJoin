@@ -97,8 +97,6 @@ namespace GameMgr
             InitResPrefabList();//素材中的预制体路径
             InitResList();//素材资源
             InitColor();
-            //游戏画布
-            gameCanvas = GameObject.Find("Canvas").GetComponent<Canvas>();
         }
 
         public Canvas GetCanvas()
