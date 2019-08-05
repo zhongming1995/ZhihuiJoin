@@ -86,9 +86,16 @@ namespace GameMgr
         [HideInInspector]
         public PartDataWhole curWhole;//当前打开的本地人物数据
 
+        [HideInInspector]
+        public float ScreenWidth;
+        [HideInInspector]
+        public float ScreenHeight;
+
         void Awake()
         {
             instance = this;
+            ScreenWidth = Screen.width;
+            ScreenHeight = Screen.height;
         }
 
         void Start()

@@ -105,6 +105,8 @@
     <Compile Include="Assets\Scripts\UI\Home\CalendarDetailItem.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalendarDetailView.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalendarListDrag.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalendarPage.cs" />
+    <Compile Include="Assets\Scripts\UI\Home\CalendarPageScroll.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalendarView.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalenderController.cs" />
     <Compile Include="Assets\Scripts\UI\Home\CalenderItem.cs" />

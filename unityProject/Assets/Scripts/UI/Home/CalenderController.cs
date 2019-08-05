@@ -7,7 +7,13 @@ public class CalenderController : SingletonMono<CalenderController>
     public delegate void DeleteItemComplete(CalenderItem item);
     public static event DeleteItemComplete deleteItemComplete;
 
+    public List<CalendarPage> PageList = new List<CalendarPage>();
     public List<string> pathList;//保存的人物的路径列表
+    public float PerPageWidth
+    {
+        get;
+        set;
+    }
 
     private void Awake()
     {

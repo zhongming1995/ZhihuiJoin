@@ -1,4 +1,5 @@
 ﻿using DataMgr;
+using GameMgr;
 using Helper;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,16 +11,46 @@ public class CalendarView : MonoBehaviour
     public Button BtnBack;
     public Button BtnDelete;
     public Button BtnDefault;
-    public Transform ListContent;
+    public RectTransform ListContent;
 
-    private List<CalenderItem> personList = new List<CalenderItem>();
+    //当前页面的人物列表
+    //private List<CalenderItem> personList = new List<CalenderItem>();
+
+    private List<CalendarPage> pageList = new List<CalendarPage>();
+    private float PageWidth;
+    private float PageHeight;
 
     void Start()
     {
         AddBtnListener();
         AddEventListener();
-        RefreshList();
-        SwitchDelBtn(true);
+        InitPageContent();
+        //RefreshList();
+        //SwitchDelBtn(true);
+    }
+
+    private void InitPageContent()
+    {
+        CanvasScaler canvas = GameManager.instance.GetCanvas().GetComponent<CanvasScaler>();
+        float canvasScaler = canvas.matchWidthOrHeight;
+        Vector2 referenceResolution = canvas.referenceResolution;
+        if (canvasScaler == 1)//高适配
+        {
+            PageHeight = referenceResolution.y;
+            PageWidth = 1.0f * Screen.width / Screen.height * referenceResolution.y;
+        }
+        else
+        {
+            PageWidth = referenceResolution.x;
+            PageHeight = 1.0f * 2048 / (Screen.width / Screen.height);
+        }
+
+        CalenderController.instance.PerPageWidth = PageWidth;
+
+        ListContent.sizeDelta = new Vector2(3 * PageWidth, PageHeight);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(ListContent);
+
+        pageList.Clear();
     }
 
     private void AddEventListener()
@@ -34,7 +65,7 @@ public class CalendarView : MonoBehaviour
 
     public void RefreshList()
     {
-        StartCoroutine(LoadPersonList(CalenderController.instance.GetPersonList()));
+        //StartCoroutine(LoadPersonList(CalenderController.instance.GetPersonList()));
     }
 
     private void AddBtnListener()
@@ -44,16 +75,20 @@ public class CalendarView : MonoBehaviour
         });
 
         BtnDelete.onClick.AddListener(delegate {
+            /*
             ShowDeleteBtn(true);
             SwitchDelBtn(false);
+            */
         });
 
         BtnDefault.onClick.AddListener(delegate {
+            /*
             ShowDeleteBtn(false);
             SwitchDelBtn(true);
+            */
         });
     }
-    
+    /*
     IEnumerator LoadPersonList(List<string> pathList)
     {
         Debug.Log(pathList.Count);
@@ -72,29 +107,33 @@ public class CalendarView : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
     }
+    */
 
+    /*
     public void ShowDeleteBtn(bool show)
     {
-        Debug.Log(personList.Count);
         for (int i = 0; i < personList.Count; i++)
         {
             personList[i].ShowDelete(show);
         }
     }
+    */
 
+    /*
     public void SwitchDelBtn(bool isDelete)
     {
         BtnDelete.gameObject.SetActive(isDelete);
         BtnDefault.gameObject.SetActive(!isDelete);
     }
+    */
 
     public void DeleteItemComplete(CalenderItem deleteItem)
-    {
+    {/*
         if (deleteItem != null)
         {
             personList.Remove(deleteItem);
             DestroyImmediate(deleteItem.gameObject);
-        }
+        }*/
     }
 
     private void OnDestroy()
