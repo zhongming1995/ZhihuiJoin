@@ -7,60 +7,111 @@ public class CalendarPageScroll : MonoBehaviour,IBeginDragHandler,IDragHandler,I
     public delegate void PageScrollEnd(int index);
     public static event PageScrollEnd pageScrollEnd;
 
-    private int curIndex;
-
+    int curIndx;
+    float beginPosX;
     void Start()
     {
        
     }
-
-    private void GetPageList()
-    {
-        CalenderController.instance.PageList.Clear();
-        foreach (Transform item in transform)
-        {
-            CalendarPage page = item.GetComponent<CalendarPage>();
-            CalenderController.instance.PageList.Add(page);
-        }
-    }
+    
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        beginPosX = transform.localPosition.x;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         transform.localPosition = new Vector3(transform.localPosition.x + eventData.delta.x, transform.localPosition.y, 0);
-        Debug.Log("pos:" + transform.localPosition);
+        /*
         int perItemX = (int)CalenderController.instance.PerPageWidth;
-        if (transform.localPosition.x > 0.3f* perItemX - perItemX/2)
+        if (transform.localPosition.x > 0.3f * perItemX - perItemX / 2)
         {
             transform.localPosition = new Vector3(0.3f * perItemX - perItemX / 2, transform.localPosition.y, 0);
         }
-        if (transform.localPosition.x<-(2*perItemX+0.3f*perItemX) - perItemX / 2)
+        if (transform.localPosition.x < -(2 * perItemX + 0.3f * perItemX) - perItemX / 2)
         {
             transform.localPosition = new Vector3(-(2 * perItemX + 0.3f * perItemX) - perItemX / 2, transform.localPosition.y, 0);
         }
+        */
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         int perItemX = (int)CalenderController.instance.PerPageWidth;
-        curIndex = -((int)transform.localPosition.x - perItemX) / perItemX - 1;
-        Debug.Log("curIndx:" + curIndex);
-        //页面接续
-        if (curIndex==0)
+        float offset = transform.localPosition.x - beginPosX;
+        Debug.Log(transform.localPosition.x + "-" + beginPosX + "= " + offset);
+        //右
+        if (transform.localPosition.x-beginPosX < -0.25f*perItemX)
         {
-            transform.GetChild(2).transform.SetAsFirstSibling();
-            transform.localPosition = new Vector3(transform.localPosition.x - perItemX, transform.localPosition.y, 0);
+            CalenderController.instance.CurPageIndex = Mathf.Min( CalenderController.instance.CurPageIndex + 1,CalenderController.instance.PageNum-1);
         }
-        if (curIndex == 2)
+        //左
+        else if (transform.localPosition.x - beginPosX > 0.25*perItemX)
         {
-            transform.GetChild(0).transform.SetAsLastSibling();
-            transform.localPosition = new Vector3(transform.localPosition.x + perItemX, transform.localPosition.y, 0);
+            CalenderController.instance.CurPageIndex = Mathf.Max(0, CalenderController.instance.CurPageIndex - 1);
         }
-        transform.DOLocalMoveX(-perItemX - perItemX / 2.0f,0.5f);
+        if (pageScrollEnd != null)
+        {
+            pageScrollEnd(CalenderController.instance.CurPageIndex);
+        }
+        /*
+        int perItemX = (int)CalenderController.instance.PerPageWidth;
+        
+        int tempIndex = -((int)transform.localPosition.x - perItemX) / perItemX - 1;
+        Debug.Log("curIndx:" + curIndx);
+        Debug.Log("tempIndeX:" + tempIndex);
+        if (tempIndex != curIndx && CalenderController.instance.PageNum > 3)
+        {
+            float endPosX = -perItemX - perItemX / 2.0f;
+            curIndx = tempIndex;
+            //页面接续
+            if (curIndx == 0 )
+            {
+                CalenderController.instance.CurPageIndex = Mathf.Max(0, CalenderController.instance.CurPageIndex - 1);
+                if (CalenderController.instance.CurPageIndex != 0)
+                {
+                    Transform t = transform.GetChild(2);
+                    t.transform.SetAsFirstSibling();
+                    transform.localPosition = new Vector3(transform.localPosition.x - perItemX, transform.localPosition.y, 0);
+                    t.GetComponent<CalendarPage>().LoadItems(CalenderController.instance.CurPageIndex - 1);
+                }
+                else
+                {
+                    endPosX = - perItemX / 2.0f;
+                }
+            }
+            else if (curIndx == 2)
+            {
+                CalenderController.instance.CurPageIndex = Mathf.Min(CalenderController.instance.PageNum - 1, CalenderController.instance.CurPageIndex + 1);
+                if (CalenderController.instance.CurPageIndex != CalenderController.instance.PageNum - 1)
+                {
+                    Transform t = transform.GetChild(0);
+                    t.SetAsLastSibling();
+                    transform.localPosition = new Vector3(transform.localPosition.x + perItemX, transform.localPosition.y, 0);
+                    t.GetComponent<CalendarPage>().LoadItems(CalenderController.instance.CurPageIndex + 1);
+                }
+            }
+            else if (curIndx == 1)
+            { 
+                if (CalenderController.instance.CurPageIndex == 0)
+                {
+                    CalenderController.instance.CurPageIndex = CalenderController.instance.CurPageIndex + 1;
+                    endPosX = -perItemX / 2.0f;
+                }
+            }
+            Debug.Log("页面索引：" + curIndx);
+            Debug.Log("真实页面:" + CalenderController.instance.CurPageIndex);
+            if (pageScrollEnd != null)
+            {
+                pageScrollEnd(CalenderController.instance.CurPageIndex);
+            }
+            transform.DOLocalMoveX(endPosX, 0.5f);
+        }
+        else
+        {
+            transform.DOLocalMoveX(-perItemX * CalenderController.instance.CurPageIndex - perItemX / 2.0f, 0.5f);
+        }
+     */
     }
-  
 }

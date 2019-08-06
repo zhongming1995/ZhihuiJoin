@@ -17,6 +17,12 @@ public class CalenderItem : MonoBehaviour
     private string fileName;
     private int index;
 
+    public void Init()
+    {
+        //默认隐藏删除按钮
+        MaskDelete.SetActive(false);
+    }
+
     public void Init(int _index,string _fileName, PartDataWhole whole)
     {
         index = _index;

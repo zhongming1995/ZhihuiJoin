@@ -107,9 +107,9 @@ public class PersonManager : SingletonMono<PersonManager>
         IFormatter formatter = new BinaryFormatter();
         //string folderPath = Application.persistentDataPath + "/join_person";
         DirectoryInfo info = new DirectoryInfo(PersonManager.instance.PersonDataPath);
-        if (info.Exists)
+        if (!info.Exists)
         {
-            Debug.Log("文件夹存在:" + PersonManager.instance.PersonDataPath);
+            Debug.Log("文件夹不存在:" + PersonManager.instance.PersonDataPath);
             Directory.CreateDirectory(PersonManager.instance.PersonDataPath);
         }
         //按创建时间命名
@@ -127,7 +127,7 @@ public class PersonManager : SingletonMono<PersonManager>
     //反序列化
     public PartDataWhole DeserializePerson(string fileName)
     {
-        Debug.Log("DeserializePerson------");
+        //Debug.Log("DeserializePerson------");
         IFormatter formatter = new BinaryFormatter();
         string path = PersonDataPath + fileName;
         if (!File.Exists(path))

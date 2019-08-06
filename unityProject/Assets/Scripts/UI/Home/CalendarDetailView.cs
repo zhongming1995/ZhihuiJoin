@@ -15,6 +15,7 @@ public class CalendarDetailView : MonoBehaviour
     public Button BtnDownload;
     public Button BtnEdit;
     public Button BtnGame;
+    public Button BtnBack;
 
     private CalendarListDrag calendarListDrag;
 
@@ -46,6 +47,10 @@ public class CalendarDetailView : MonoBehaviour
 
     void AddBtnEvent()
     {
+        BtnBack.onClick.AddListener(delegate {
+            Destroy(gameObject);
+        });
+
         BtnPre.onClick.AddListener(delegate {
             int curIndex = CalendarDetailController.instance.PreDetail();
             calendarListDrag.AniResetPosition(curIndex);
@@ -100,7 +105,6 @@ public class CalendarDetailView : MonoBehaviour
 
     IEnumerator LoadPersonList(List<string> pathList,int curIndex)
     {
-        Debug.Log(pathList.Count);
         int index = 0;
         SetBtnActive(curIndex);
         calendarListDrag.ResetPosition(curIndex);
@@ -138,5 +142,11 @@ public class CalendarDetailView : MonoBehaviour
     private void JumpToGameCB()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }

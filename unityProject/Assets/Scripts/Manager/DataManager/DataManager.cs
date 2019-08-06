@@ -68,7 +68,7 @@ namespace DataMgr
             IFormatter formatter = new BinaryFormatter();
             string folderPath = Application.persistentDataPath + "/join_person";
             DirectoryInfo info = new DirectoryInfo(folderPath);
-            if (info.Exists)
+            if (!info.Exists)
             {
                 Debug.Log("文件夹不存在:" + folderPath);
                 Directory.CreateDirectory(folderPath);

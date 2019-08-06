@@ -522,7 +522,6 @@ namespace ResMgr
 
         public void LoadObjectAsync(string path,Action<Object> completeCall = null,Action<Object> progressCall = null)
         {
-            Debug.Log("LoadObjectAsync==");
             LoadAssetAsync<Object>(path, completeCall);
         }
     }

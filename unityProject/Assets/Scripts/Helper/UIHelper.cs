@@ -74,14 +74,12 @@ namespace Helper
 
         public void LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false,Action<float> progressCall = null, Action<GameObject> loadCall = null)
         {
-            Debug.Log("LoadPrefabAsync");
             //StartCoroutine(Cor_LoadPrefabAsync(path, parent, pos, scale, stretch, progressCall,loadCall));
             ResManager.instance.LoadObjectAsync(path, (resultObj) => {
                 GameObject go = Instantiate(resultObj) as GameObject;
                 go.transform.SetParent(parent);
                 go.transform.localPosition = pos;
                 go.transform.localScale = scale;
-                Debug.Log(go.transform.localScale);
                 if (stretch == true)
                 {
                     go.transform.GetComponent<RectTransform>().offsetMin = Vector2.zero;
