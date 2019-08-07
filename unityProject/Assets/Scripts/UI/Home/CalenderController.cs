@@ -7,6 +7,9 @@ public class CalenderController : SingletonMono<CalenderController>
     public delegate void DeleteItemComplete(CalenderItem item);
     public static event DeleteItemComplete deleteItemComplete;
 
+    public delegate void DeletePageComplete(CalendarPage page);
+    public static event DeletePageComplete deletePageComplete;
+
     [HideInInspector]
     public List<CalendarPage> PageList = new List<CalendarPage>();
     [HideInInspector]
@@ -16,6 +19,8 @@ public class CalenderController : SingletonMono<CalenderController>
     public int PageNum{ get; set; }//总页数
     public float PerPageWidth{get;set; }
     public float PerPageHeight{get; set; }
+    public bool IsDelete = false;//处于删除状态
+    public bool HasDelete = false;//删除过元素
 
     private void Awake()
     {
@@ -26,8 +31,14 @@ public class CalenderController : SingletonMono<CalenderController>
     public List<string> GetPersonList()
     {
         pathList = PersonManager.instance.GetPersonsList();
+        PersonNum = pathList.Count;
+        GetPageNum(PersonNum);
+        return pathList;
+    }
+
+    public void GetPageNum(int personNum)
+    {
         int lastNumber = pathList.Count % 6;
-        Debug.Log("num:" + pathList.Count);
         if (lastNumber == 0)
         {
             PageNum = pathList.Count / 6;
@@ -36,18 +47,26 @@ public class CalenderController : SingletonMono<CalenderController>
         {
             PageNum = pathList.Count / 6 + 1;
         }
-        PersonNum = pathList.Count;
         Debug.Log("pageNum:" + PageNum);
-        return pathList;
     }
 
     public void DeleteComplete(CalenderItem item)
     {
-        pathList.Remove(item.name);
+        bool isDelete = PersonManager.instance.DeletePerson(item.fileName);
+        pathList.Remove(item.fileName);
         PersonNum--;
+        GetPageNum(PersonNum);
         if (deleteItemComplete != null)
         {
             deleteItemComplete(item);
+        }
+    }
+
+    public void DeletePageFunc(CalendarPage page)
+    {
+        if (deletePageComplete!=null)
+        {
+            deletePageComplete(page);
         }
     }
 }

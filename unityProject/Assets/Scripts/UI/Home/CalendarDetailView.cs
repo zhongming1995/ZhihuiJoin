@@ -126,11 +126,16 @@ public class CalendarDetailView : MonoBehaviour
                 }
                 detailList.Add(detailItem);
                 index += 1;
+                Debug.Log("index:"+index);
+                if (index == pathList.Count-1)
+                {
+                    CalendarDetailController.instance.SetDetailList(detailList);
+                    CalendarDetailController.instance.curDetailIndex = curIndex;
+                }
             });
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
-        CalendarDetailController.instance.SetDetailList(detailList);
-        CalendarDetailController.instance.curDetailIndex = curIndex;
+        
         //calendarListDrag.ResetScaleAndAlpha(curIndex);
     }
 

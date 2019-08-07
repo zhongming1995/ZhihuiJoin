@@ -26,6 +26,16 @@ public class IndexView : MonoBehaviour
             //GameManager.instance.SetNextSceneName("home");
             SceneManager.LoadScene("home");
         });
+        int personNum = PersonManager.instance.GetPersonsNum();
+        if (personNum > 0)
+        {
+            BtnCalendar.gameObject.SetActive(true);
+        }
+        else
+        {
+            BtnCalendar.gameObject.SetActive(false);
+        }
+
         BtnCalendar.onClick.AddListener(delegate {
             UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });

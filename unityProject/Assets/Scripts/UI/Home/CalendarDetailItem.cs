@@ -19,25 +19,25 @@ public class CalendarDetailItem : MonoBehaviour
     {
         CGDetail = TransDetail.GetComponent<CanvasGroup>();
         //初始化显示
-        GameObject person = DataManager.instance.GetPersonObj(whole.partDataList);
         if (PersonParent == null)
         {
             PersonParent = transform.Find("detail/mask/parent").transform;
         }
-        person.transform.SetParent(PersonParent);
-        person.transform.localPosition = Vector3.zero;
-        person.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-        if (isCurIndex)
-        {
-            SetSelectScale();
-            SetSelectAlpha();
-        }
-        else
-        {
-            SetUnSelectScale();
-            SetUnSelectAlpha();
-        }
-        
+        DataManager.instance.GetPersonObjAsync(whole.partDataList,(person)=> {
+            person.transform.SetParent(PersonParent);
+            person.transform.localPosition = Vector3.zero;
+            person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            if (isCurIndex)
+            {
+                SetSelectScale();
+                SetSelectAlpha();
+            }
+            else
+            {
+                SetUnSelectScale();
+                SetUnSelectAlpha();
+            }
+        });
     }
 
     //直接设置缩放

@@ -40,7 +40,7 @@ public class CalendarPageScroll : MonoBehaviour,IBeginDragHandler,IDragHandler,I
     {
         int perItemX = (int)CalenderController.instance.PerPageWidth;
         float offset = transform.localPosition.x - beginPosX;
-        Debug.Log(transform.localPosition.x + "-" + beginPosX + "= " + offset);
+
         //右
         if (transform.localPosition.x-beginPosX < -0.25f*perItemX)
         {

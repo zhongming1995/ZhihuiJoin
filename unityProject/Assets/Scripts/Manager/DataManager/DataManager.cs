@@ -127,6 +127,8 @@ namespace DataMgr
             return part;
         }
 
+
+
         /*
         public PartDataWhole DeserializePerson()
         {
@@ -144,6 +146,89 @@ namespace DataMgr
             return whole;
         }
         */
+
+
+        /// <summary>
+        /// 异步获取人物
+        /// </summary>
+        /// <returns>The person object.</returns>
+        /// <param name="part">Part.</param>
+        public void GetPersonObjAsync(List<PartData> part,Action<GameObject> cb = null)
+        {
+            GameObject person = new GameObject("person");
+            //Transform transBody = person.transform;
+            float minY = float.MaxValue;
+            for (int i = 0; i < part.Count; i++)
+            {
+                PartType partType = part[i].PType;
+                if (partType == PartType.Pixels || partType == PartType.drawPixels)
+                {
+                    continue;
+                }
+                Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
+                Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
+
+                //GameObject obj;
+                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
+                //obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
+                if (i == part.Count - 1)
+                {
+                    GetOnePersonAsync(path, person, pos, scale, part[i], cb);
+                }
+                else
+                {
+                    GetOnePersonAsync(path, person, pos, scale, part[i], null);
+                }
+            }
+        }
+
+        private void GetOnePersonAsync(string path,GameObject person,Vector3 pos,Vector3 scale,PartData part,Action<GameObject> cb = null)
+        {
+            Transform transBody = person.transform;
+            PartType partType = part.PType;
+            UIHelper.instance.LoadPrefabAsync(path, person.transform, pos, scale, false, null, (obj) => {
+                if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
+                {
+                    if (partType == PartType.Body)
+                    {
+                        transBody = obj.transform.Find("img_item").transform;
+                    }
+                }
+                else
+                {
+                    obj.transform.SetParent(transBody);
+                }
+
+                RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
+                Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+                t.filterMode = FilterMode.Point;
+                t.LoadImage(part.ImgBytes);
+                t.Apply(false);
+                //Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+                //img.sprite = s;
+                img.texture = t;
+                img.SetNativeSize();
+                obj.transform.localScale = scale;
+
+                //调整父节点的大小
+                float w = img.GetComponent<RectTransform>().sizeDelta.x;
+                float h = img.GetComponent<RectTransform>().sizeDelta.y;
+                obj.transform.GetComponent<RectTransform>().sizeDelta = new Vector2(w, h);
+
+                DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
+                item.partType = part.PType;
+                item.Init();
+
+                if (cb != null)
+                {
+                    curPerson = person;
+                    GetListDiaplayItem(person.transform);
+                    
+                    cb(person);
+                 
+                }
+            });
+        }
 
         /// <summary>
         /// Gets the person object by List.
@@ -166,7 +251,7 @@ namespace DataMgr
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 
                 GameObject obj;
-                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();  
+                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower() + " 1";  
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                 if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
                 {

@@ -98,6 +98,7 @@ public class PersonManager : SingletonMono<PersonManager>
                 pathList.Add(files[i].Name);
             }
         }
+        personCount = pathList.Count;
         return pathList;
     }
 

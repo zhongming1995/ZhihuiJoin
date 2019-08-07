@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class CalendarView : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class CalendarView : MonoBehaviour
         SetPageText();
         SetPageSwitchBtn();
         //RefreshList();
-        //SwitchDelBtn(true);
+        SwitchDelBtn(true);
     }
 
     private void InitPageContent()
@@ -81,11 +82,13 @@ public class CalendarView : MonoBehaviour
     /// <param name="_index">真实页面索引</param>
     private void AddOnePage(int _index)
     {
+        Debug.Log("AddOnePage");
         UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_page", ListContent, Vector3.zero, Vector3.one, false,null,(page)=> {
             page.name = _index.ToString();
             page.GetComponent<RectTransform>().sizeDelta = new Vector2(CalenderController.instance.PerPageWidth, CalenderController.instance.PerPageHeight);
             CalendarPage calendarPage = page.GetComponent<CalendarPage>();
-            calendarPage.LoadItems(_index);
+            calendarPage.LoadItems(_index,true);
+            pageList.Add(calendarPage);
         });
     }
 
@@ -160,12 +163,14 @@ public class CalendarView : MonoBehaviour
     {
         CalenderController.deleteItemComplete += DeleteItemComplete;
         CalendarPageScroll.pageScrollEnd += PageScrollEndFunc;
+        CalenderController.deletePageComplete += DeletePageComplete;
     }
 
     private void RemoveEventListener()
     {
         CalenderController.deleteItemComplete -= DeleteItemComplete;
         CalendarPageScroll.pageScrollEnd -= PageScrollEndFunc;
+        CalenderController.deletePageComplete -= DeletePageComplete;
     }
 
     public void RefreshList()
@@ -181,9 +186,19 @@ public class CalendarView : MonoBehaviour
         ListContent.DOLocalMoveX(endPos, 0.3f).OnComplete(SetPageText);
         for (int i = _curIndex + 1; i < _curIndex + 2; i++)
         {
-            if (i > ListContent.childCount -1)
+            if (i <= CalenderController.instance.PageNum - 1)
             {
-                AddOnePage(i);
+                if (i > ListContent.childCount - 1)
+                {
+                    AddOnePage(i);
+                }
+                else
+                {
+                    if (pageList[i].ShouldRefresh)
+                    {
+                        pageList[i].LoadItems(i, false);
+                    }
+                }
             }
         }
     }
@@ -194,18 +209,15 @@ public class CalendarView : MonoBehaviour
             Destroy(gameObject);
         });
 
-        BtnDelete.onClick.AddListener(delegate {
-            /*
+        BtnDelete.onClick.AddListener(delegate
+        {
             ShowDeleteBtn(true);
             SwitchDelBtn(false);
-            */
         });
 
-        BtnDefault.onClick.AddListener(delegate {
-            /*
+        BtnDefault.onClick.AddListener(delegate { 
             ShowDeleteBtn(false);
-            SwitchDelBtn(true);
-            */
+            SwitchDelBtn(true); 
         });
 
         BtnPre.onClick.AddListener(delegate {
@@ -238,36 +250,70 @@ public class CalendarView : MonoBehaviour
         }
     }
     */
-
-    /*
+    
     public void ShowDeleteBtn(bool show)
     {
-        for (int i = 0; i < personList.Count; i++)
+        for (int i = 0; i < pageList.Count; i++)
         {
-            personList[i].ShowDelete(show);
+            pageList[i].SetDeleteStatus(show);
         }
     }
-    */
-
-    /*
-    public void SwitchDelBtn(bool isDelete)
+    
+   
+    public void SwitchDelBtn(bool show)
     {
-        BtnDelete.gameObject.SetActive(isDelete);
-        BtnDefault.gameObject.SetActive(!isDelete);
+        CalenderController.instance.IsDelete = !show;
+        BtnDelete.gameObject.SetActive(show);
+        BtnDefault.gameObject.SetActive(!show);
     }
-    */
-
-    public void DeleteItemComplete(CalenderItem deleteItem)
-    {/*
+    
+    private void DeleteItemComplete(CalenderItem deleteItem)
+    {
         if (deleteItem != null)
         {
-            personList.Remove(deleteItem);
             DestroyImmediate(deleteItem.gameObject);
-        }*/
+            pageList[deleteItem.PageIndex].RefreshList(deleteItem.PageIndex,deleteItem);
+
+            for (int i = deleteItem.PageIndex + 1; i < pageList.Count; i++)
+            {
+                pageList[i].ShouldRefresh = true;
+            }
+
+            //后两页
+            for (int i = deleteItem.PageIndex + 1; i <= deleteItem.PageIndex + 2; i++)
+            {
+                Debug.Log(i);
+                if (i >= pageList.Count)
+                {
+                    return;
+                }
+                pageList[i].LoadItems(i,false);
+            }
+
+            SetPageText();
+        }
+    }
+
+    private void DeletePageComplete(CalendarPage deletePage)
+    {
+        if (deletePage)
+        {
+            pageList.Remove(deletePage);
+            DestroyImmediate(deletePage.gameObject);
+            CalenderController.instance.CurPageIndex -= 1;
+            PageScrollEndFunc(CalenderController.instance.CurPageIndex);
+            Debug.Log(CalenderController.instance.PersonNum);
+            if (CalenderController.instance.PersonNum<=0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnDestroy()
     {
         RemoveEventListener();
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }
