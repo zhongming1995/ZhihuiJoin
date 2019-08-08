@@ -46,6 +46,7 @@ public class CardItem : MonoBehaviour
         if (ID==GameManager.instance.homeSelectIndex)
         {
             ImgCard.gameObject.SetActive(false);
+            /*
             GameObject person = null;
             if (DataManager.instance.partDataList != null)
             {
@@ -55,6 +56,16 @@ public class CardItem : MonoBehaviour
             person.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             person.transform.localPosition = Vector3.zero;
             person.transform.localRotation = new Quaternion(0, 0, 0, 0);
+            */
+            if (DataManager.instance.partDataList != null)
+            {
+                DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
+                    person.transform.SetParent(ImgCardMask.transform);
+                    person.transform.localScale = new Vector3(0.28f, 0.28f, 0.28f);
+                    person.transform.localPosition = Vector3.zero;
+                    person.transform.localRotation = new Quaternion(0, 0, 0, 0);
+                });
+            }
         }
 
         BtnBack.onClick.AddListener(delegate
@@ -104,7 +115,7 @@ public class CardItem : MonoBehaviour
         {
             t2.OnComplete(() =>
             {
-                action();
+                action(); 
             });
         }
        

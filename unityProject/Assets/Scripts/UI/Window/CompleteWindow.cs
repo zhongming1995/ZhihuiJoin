@@ -46,6 +46,7 @@ public class CompleteWindow : WindowParent
 
     void LoadPerson()
     {
+        /*同步
         GameObject person = null;
         if (DataManager.instance.partDataList != null)
         {
@@ -54,12 +55,22 @@ public class CompleteWindow : WindowParent
         person.transform.SetParent(WindowPersonParent);
         person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
         person.transform.localPosition = Vector3.zero;
-
         windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+        */
+        if (DataManager.instance.partDataList != null)
+        {
+            DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
+                person.transform.SetParent(WindowPersonParent);
+                person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
+                person.transform.localPosition = Vector3.zero;
 
-        //加上按钮
-        Button btn = person.gameObject.AddComponent<Button>();
-        btn.onClick.AddListener(Greeting);
+                windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+
+                //加上按钮
+                Button btn = person.gameObject.AddComponent<Button>();
+                btn.onClick.AddListener(Greeting);
+            });
+        }
     }
 
     void AddClickEvent()

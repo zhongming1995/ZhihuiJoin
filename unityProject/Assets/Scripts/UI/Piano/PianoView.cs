@@ -131,20 +131,6 @@ public class PianoView : MonoBehaviour
         UIHelper.instance.SetImage(path, ImgSongName, true);
     }
 
-    private void LoadPerson()
-    {
-        GameObject person = null;
-        if (DataManager.instance.partDataList != null)
-        {
-            person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
-        }
-        person.transform.SetParent(PersonParent);
-        person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
-        person.transform.localPosition = Vector3.zero;
-
-        lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-    }
-
     private void LoadPersonSetPos()
     {
         GameObject person = null;

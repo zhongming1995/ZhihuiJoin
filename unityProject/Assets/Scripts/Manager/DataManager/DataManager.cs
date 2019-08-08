@@ -23,7 +23,6 @@ namespace DataMgr
         void Awake()
         {
             instance = this;
-            //DeserializePersonData();
         }
 
         /// <summary>
@@ -60,104 +59,13 @@ namespace DataMgr
         }
 
         /// <summary>
-        /// Serializes the person data.
-        /// </summary>
-        /// <param name="partsList">Parts list.</param>
-        public void SerializePersonData(List<PartData> partsList)
-        {
-            IFormatter formatter = new BinaryFormatter();
-            string folderPath = Application.persistentDataPath + "/join_person";
-            DirectoryInfo info = new DirectoryInfo(folderPath);
-            if (!info.Exists)
-            {
-                Debug.Log("文件夹不存在:" + folderPath);
-                Directory.CreateDirectory(folderPath);
-            }
-            //按创建时间命名
-            //string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
-            //string personName = "MyPhoto_" + date + ".bin";
-            //string savePath = folderPath + "/" + personName;
-            //先给一个固定名字
-            string savePath = folderPath +"/" + "Person.bin";
-            Stream stream = new FileStream(savePath, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, partsList);
-            stream.Close();
-        }
-        /*
-        public void SerializePerson(PartDataWhole whole)
-        {
-            IFormatter formatter = new BinaryFormatter();
-            //string folderPath = Application.persistentDataPath + "/join_person";
-            DirectoryInfo info = new DirectoryInfo(PersonManager.instance.PersonDataPath);
-            if (info.Exists)
-            {
-                Debug.Log("文件夹存在:" + PersonManager.instance.PersonDataPath);
-                Directory.CreateDirectory(PersonManager.instance.PersonDataPath);
-            }
-            //按创建时间命名
-            //string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
-            //string personName = "MyPhoto_" + date + ".bin";
-            //string savePath = folderPath + "/" + personName;
-            //先给一个固定名字
-            //string savePath = folderPath + "/" + "Person.bin";
-            string savePath = PersonManager.instance.SavePath;
-            Stream stream = new FileStream(savePath, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, whole);
-            stream.Close();
-        }
-        */
-
-        /// <summary>
-        /// Deserializes the person data.
-        /// </summary>
-        /// <returns>The person data.</returns>
-        public List<PartData> DeserializePersonData(string personPath)
-        {
-            Debug.Log("DeserializePersonData");
-            IFormatter formatter = new BinaryFormatter();
-            string path = Application.persistentDataPath + "/join_person/Person.bin";
-            if (!File.Exists(path))
-            {
-                return null;
-            }
-            Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-            List<PartData> part = (List<PartData>)formatter.Deserialize(stream);
-            stream.Close();
-            Debug.Log("partcount:" + part.Count);
-            return part;
-        }
-
-
-
-        /*
-        public PartDataWhole DeserializePerson()
-        {
-            Debug.Log("DeserializePerson------");
-            IFormatter formatter = new BinaryFormatter();
-            string path = Application.persistentDataPath + "/join_person/Person.bin";
-            if (!File.Exists(path))
-            {
-                return null;
-            }
-            Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-            PartDataWhole whole = (PartDataWhole)formatter.Deserialize(stream);
-            GameManager.instance.homeSelectIndex = whole.ModelIndex;
-            stream.Close();
-            return whole;
-        }
-        */
-
-
-        /// <summary>
-        /// 异步获取人物
+        /// 异步加载一个人物
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
         public void GetPersonObjAsync(List<PartData> part,Action<GameObject> cb = null)
         {
             GameObject person = new GameObject("person");
-            //Transform transBody = person.transform;
-            float minY = float.MaxValue;
             for (int i = 0; i < part.Count; i++)
             {
                 PartType partType = part[i].PType;
@@ -168,44 +76,61 @@ namespace DataMgr
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
 
-                //GameObject obj;
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
-                //obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
+
                 if (i == part.Count - 1)
                 {
-                    GetOnePersonAsync(path, person, pos, scale, part[i], cb);
+                    //最后一个部位加载完
+                    GetOnePartAsync(path, person, pos, scale, part[i], (tmpPerson)=> {
+                        Transform partParent = tmpPerson.transform;
+                        for (int j = 0; j < tmpPerson.transform.childCount; j++)
+                        {
+                            Transform t = tmpPerson.transform.GetChild(j);
+                            PartType type = t.GetComponent<DisplayPartItem>().partType;
+                            if (type == PartType.Body)
+                            {
+                                partParent = t.Find("img_item").transform;
+                            }
+                            else if (type == PartType.LeftEye || type == PartType.RightEye || type == PartType.Mouth || type == PartType.Hat || type == PartType.Hair || type == PartType.HeadWear)
+                            {
+                                t.SetParent(partParent);
+                                j--;
+                            }
+                        }
+                        curPerson = tmpPerson;
+                        GetListDiaplayItem(tmpPerson.transform);
+                        if (cb!=null)
+                        {
+                            cb(tmpPerson);
+                        }
+                    });
                 }
                 else
                 {
-                    GetOnePersonAsync(path, person, pos, scale, part[i], null);
+                    GetOnePartAsync(path, person, pos, scale, part[i], null);
                 }
             }
         }
 
-        private void GetOnePersonAsync(string path,GameObject person,Vector3 pos,Vector3 scale,PartData part,Action<GameObject> cb = null)
+        /// <summary>
+        /// 异步加载一个部位
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="person"></param>
+        /// <param name="pos"></param>
+        /// <param name="scale"></param>
+        /// <param name="part"></param>
+        /// <param name="cb"></param>
+        private void GetOnePartAsync(string path,GameObject person,Vector3 pos,Vector3 scale,PartData part,Action<GameObject> cb = null)
         {
-            Transform transBody = person.transform;
             PartType partType = part.PType;
             UIHelper.instance.LoadPrefabAsync(path, person.transform, pos, scale, false, null, (obj) => {
-                if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
-                {
-                    if (partType == PartType.Body)
-                    {
-                        transBody = obj.transform.Find("img_item").transform;
-                    }
-                }
-                else
-                {
-                    obj.transform.SetParent(transBody);
-                }
-
+                obj.transform.SetParent(person.transform);
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
                 t.filterMode = FilterMode.Point;
                 t.LoadImage(part.ImgBytes);
                 t.Apply(false);
-                //Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-                //img.sprite = s;
                 img.texture = t;
                 img.SetNativeSize();
                 obj.transform.localScale = scale;
@@ -221,17 +146,13 @@ namespace DataMgr
 
                 if (cb != null)
                 {
-                    curPerson = person;
-                    GetListDiaplayItem(person.transform);
-                    
                     cb(person);
-                 
                 }
             });
         }
 
         /// <summary>
-        /// Gets the person object by List.
+        /// 同步获取一个人物
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
@@ -239,7 +160,6 @@ namespace DataMgr
         {
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
-            float minY = float.MaxValue;
             for (int i = 0; i < part.Count; i++)
             {
                 PartType partType = part[i].PType;
@@ -290,7 +210,7 @@ namespace DataMgr
         }
 
         /// <summary>
-        /// Gets the person object by List.
+        /// 同步获取一个人物并计算出最低点
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
@@ -320,13 +240,12 @@ namespace DataMgr
                     obj.transform.SetParent(transBody);
                 }
 
-                Image img = obj.transform.Find("img_item").GetComponent<Image>();
+                RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
                 t.filterMode = FilterMode.Point;
                 t.LoadImage(part[i].ImgBytes);
                 t.Apply(false);
-                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-                img.sprite = s;
+                img.texture = t;
                 img.SetNativeSize();
                 obj.transform.localScale = scale;
 

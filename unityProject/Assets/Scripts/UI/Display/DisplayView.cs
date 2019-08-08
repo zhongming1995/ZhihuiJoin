@@ -135,6 +135,7 @@ public class DisplayView : MonoBehaviour
 
     public void Display()
     {
+        /*同步
         GameObject person = null;
         if (DataManager.instance.partDataList!=null)
         {
@@ -149,12 +150,35 @@ public class DisplayView : MonoBehaviour
         btn.onClick.AddListener(Greeting);
 
         lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+        
 
         //生成静态展示图片
         StartCoroutine(CutScreen());
 
         //播放打招呼的动画
         Invoke("Greeting", 0.8f);
+        */
+        if (DataManager.instance.partDataList != null)
+        {
+            DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
+                person.transform.SetParent(ImgDisplay);
+                person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
+                person.transform.localPosition = Vector3.zero;
+
+                //加上按钮
+                Button btn = person.gameObject.AddComponent<Button>();
+                btn.onClick.AddListener(Greeting);
+
+                lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+
+
+                //生成静态展示图片
+                StartCoroutine(CutScreen());
+
+                //播放打招呼的动画
+                Invoke("Greeting", 0.8f);
+            });
+        }
     }
 
     IEnumerator CutScreen()

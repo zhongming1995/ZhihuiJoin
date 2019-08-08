@@ -17,7 +17,6 @@ public class CalendarListDrag : MonoBehaviour
 
     public void AniResetScaleAndAlpha(int curIndex)
     {
-        Debug.Log("curIndex:" + curIndex);
         if (curIndex-1>=0)
         {
             CalendarDetailController.instance.detailList[curIndex - 1].AniUnSelectScale();

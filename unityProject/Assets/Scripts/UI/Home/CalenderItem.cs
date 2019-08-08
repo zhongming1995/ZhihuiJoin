@@ -52,7 +52,7 @@ public class CalenderItem : MonoBehaviour
             Transform personParent = transform.Find("item_mask/person_parent").transform;
             person.transform.SetParent(personParent);
             person.transform.localPosition = Vector3.zero;
-            person.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            person.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         });
 
         //默认隐藏删除按钮

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using AudioMgr;
+using DataMgr;
 
 public class CalendarDetailView : MonoBehaviour
 {
@@ -81,6 +82,9 @@ public class CalendarDetailView : MonoBehaviour
         });
 
         BtnGame.onClick.AddListener(delegate {
+            string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
+            PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);
+            DataManager.instance.partDataList = whole.partDataList;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             UIHelper.instance.LoadPrefab("Prefabs/game/window|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
@@ -103,10 +107,17 @@ public class CalendarDetailView : MonoBehaviour
         }
     }
 
+    private void EnableBtn(bool enable)
+    {
+        BtnPre.interactable = enable;
+        BtnNext.interactable = enable;
+    }
+
     IEnumerator LoadPersonList(List<string> pathList,int curIndex)
     {
         int index = 0;
         SetBtnActive(curIndex);
+        EnableBtn(false);
         calendarListDrag.ResetPosition(curIndex);
 
         while (index < pathList.Count)
@@ -126,7 +137,6 @@ public class CalendarDetailView : MonoBehaviour
                 }
                 detailList.Add(detailItem);
                 index += 1;
-                Debug.Log("index:"+index);
                 if (index == pathList.Count-1)
                 {
                     CalendarDetailController.instance.SetDetailList(detailList);
@@ -135,8 +145,8 @@ public class CalendarDetailView : MonoBehaviour
             });
             yield return new WaitForSeconds(0.01f);
         }
-        
-        //calendarListDrag.ResetScaleAndAlpha(curIndex);
+        EnableBtn(true);
+        SetBtnActive(curIndex);
     }
 
     private void SavePhotoCallBack(string result)
