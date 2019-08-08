@@ -273,16 +273,18 @@ public class PianoView : MonoBehaviour
 
     public void BackToEditFunc()
     {
-        Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
+        //Destroy(gameObject);
+        //Resources.UnloadUnusedAssets();
+        //GC.Collect();
+
     }
 
     public void BackToDisplay()
     {
-        Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
+        //PanelManager.instance.CloseTopPanel();
+        //Destroy(gameObject);
+        //Resources.UnloadUnusedAssets();
+        //GC.Collect();
     }
     void PlayCard()
     {

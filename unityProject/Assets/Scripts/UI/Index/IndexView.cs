@@ -19,12 +19,17 @@ public class IndexView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PanelManager.instance.PushPanel(PanelName.IndexView,gameObject);
         PlayButtonAni();
         BtnPlay.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //GameManager.instance.SetNextSceneName("home");
-            SceneManager.LoadScene("home");
+            //SceneManager.LoadScene("home");
+            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
+            {
+                PanelManager.instance.PushPanel(PanelName.HomeView,panel);
+            });
         });
         int personNum = PersonManager.instance.GetPersonsNum();
         if (personNum > 0)
@@ -37,7 +42,9 @@ public class IndexView : MonoBehaviour
         }
 
         BtnCalendar.onClick.AddListener(delegate {
-            UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
+                PanelManager.instance.PushPanel(PanelName.CalendarView,panel);
+            });
         });
         StartCoroutine(CorGenerateCloud());
     }

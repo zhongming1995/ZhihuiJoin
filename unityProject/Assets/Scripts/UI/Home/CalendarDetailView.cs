@@ -49,10 +49,13 @@ public class CalendarDetailView : MonoBehaviour
     void AddBtnEvent()
     {
         BtnBack.onClick.AddListener(delegate {
-            Destroy(gameObject);
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            Debug.Log("back");
+            PanelManager.instance.CloseTopPanel();
         });
 
         BtnPre.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             int curIndex = CalendarDetailController.instance.PreDetail();
             calendarListDrag.AniResetPosition(curIndex);
             calendarListDrag.AniResetScaleAndAlpha(curIndex);
@@ -60,6 +63,7 @@ public class CalendarDetailView : MonoBehaviour
         });
 
         BtnNext.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             int curIndex = CalendarDetailController.instance.NextDetail();
             calendarListDrag.AniResetPosition(curIndex);
             calendarListDrag.AniResetScaleAndAlpha(curIndex);
@@ -79,7 +83,9 @@ public class CalendarDetailView : MonoBehaviour
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
             PersonManager.instance.PersonFileName = fileName;
-            GameManager.instance.JumpToJoin();
+            UIHelper.instance.LoadPrefabAsync("Prefabs/join|join_main_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) => {
+                PanelManager.instance.PushPanel(PanelName.JoiMainView,panel);
+            });
         });
          
         BtnGame.onClick.AddListener(delegate {

@@ -39,13 +39,6 @@ public class CalenderItem : MonoBehaviour
         }
         curWhole = whole;
 
-        //初始化显示
-        //GameObject person = DataManager.instance.GetPersonObj(whole.partDataList);
-        //Transform personParent = transform.Find("item_mask/person_parent").transform;
-        //person.transform.SetParent(personParent);
-        //person.transform.localPosition = Vector3.zero;
-        //person.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-
         //异步加载人物
         DataManager.instance.GetPersonObjAsync(whole.partDataList, (person) =>
         {
@@ -60,16 +53,10 @@ public class CalenderItem : MonoBehaviour
 
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
-            /*
-            Debug.Log("fileName:" + fileName);
-            GameManager.instance.homeSelectIndex = whole.ModelIndex;
-            GameManager.instance.SetOpenType(OpenType.ReEdit);
-            GameManager.instance.SetCurPartDataWhole(whole);
-            PersonManager.instance.PersonFileName = fileName;
-            GameManager.instance.JumpToJoin();
-            */
             PersonManager.instance.CurPersonIndex = Index;
-            UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_detail_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_detail_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
+                PanelManager.instance.PushPanel(PanelName.CalendarDetailView,panel);
+            });
         });
 
         BtnDelete.onClick.AddListener(delegate {

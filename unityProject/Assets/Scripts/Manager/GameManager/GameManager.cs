@@ -108,13 +108,11 @@ namespace GameMgr
 
         public Canvas GetCanvas()
         {
+            if (gameCanvas!=null)
+            {
+                return gameCanvas;
+            }
             return GameObject.Find("Canvas").GetComponent<Canvas>();
-        }
-
-        public void ReInit()
-        {
-            homeSelectIndex = -1;
-            curSelectResType = TemplateResType.Body;
         }
 
         //初始化颜色列表
@@ -460,12 +458,12 @@ namespace GameMgr
             curWhole = whole;
         }
 
-        public void JumpToJoin()
-        {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
-            GameManager.instance.SetNextSceneName("join");
-            SceneManager.LoadScene("transition");
-        }
+        //public void JumpToJoin()
+        //{
+        //    AudioManager.instance.PlayAudio(EffectAudioType.Option, GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
+        //    GameManager.instance.SetNextSceneName("join");
+        //    SceneManager.LoadScene("transition");
+        //}
     }
    
 }

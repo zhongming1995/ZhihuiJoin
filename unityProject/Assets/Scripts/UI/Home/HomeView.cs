@@ -59,8 +59,11 @@ public class HomeView : MonoBehaviour
 
     private void JumpToJoin()
     {
-        GameManager.instance.SetNextSceneName("join");
-        SceneManager.LoadScene("transition");
+        //GameManager.instance.SetNextSceneName("join");
+        //SceneManager.LoadScene("transition");
+        UIHelper.instance.LoadPrefabAsync("Prefabs/join|join_main_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) => {
+            PanelManager.instance.PushPanel(PanelName.JoiMainView,panel);
+        });
     }
 
     private void BtnClickEvent()
@@ -68,7 +71,7 @@ public class HomeView : MonoBehaviour
         btnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            SceneManager.LoadScene("index");
+            PanelManager.instance.CloseTopPanel();
         });
     }
 }

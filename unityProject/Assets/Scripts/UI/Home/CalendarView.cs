@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using AudioMgr;
 
 public class CalendarView : MonoBehaviour
 {
@@ -206,26 +207,31 @@ public class CalendarView : MonoBehaviour
     private void AddBtnListener()
     {
         BtnBack.onClick.AddListener(delegate {
-            Destroy(gameObject);
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            PanelManager.instance.CloseTopPanel();
         });
 
         BtnDelete.onClick.AddListener(delegate
         {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             ShowDeleteBtn(true);
             SwitchDelBtn(false);
         });
 
-        BtnDefault.onClick.AddListener(delegate { 
+        BtnDefault.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             ShowDeleteBtn(false);
             SwitchDelBtn(true); 
         });
 
         BtnPre.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.CurPageIndex = Mathf.Max(0, CalenderController.instance.CurPageIndex - 1);
             PageScrollEndFunc(CalenderController.instance.CurPageIndex);
         });
 
         BtnNext.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.CurPageIndex = Mathf.Min(CalenderController.instance.CurPageIndex + 1,CalenderController.instance.PageNum-1);
             PageScrollEndFunc(CalenderController.instance.CurPageIndex);
         });

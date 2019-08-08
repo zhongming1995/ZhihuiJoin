@@ -65,7 +65,6 @@ public class CardView : MonoBehaviour
 
     void AddClickEvent()
     {
-
         BtnBack.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -77,15 +76,16 @@ public class CardView : MonoBehaviour
     
     public void BackToEditFunc()
     {
-        Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
+        //Destroy(gameObject);
+        //Resources.UnloadUnusedAssets();
+        //GC.Collect();
     }
     public void BackToDisplay()
     {
-        Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
+        //PanelManager.instance.CloseTopPanel();
+        //Destroy(gameObject);
+        //Resources.UnloadUnusedAssets();
+        //GC.Collect();
     }
 
     void InitGame(int chapter)

@@ -106,17 +106,14 @@ public class DisplayView : MonoBehaviour
         BtnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            SceneManager.LoadScene("home");
+            PanelManager.instance.BackToView(PanelName.HomeView);
         });
 
         BtnBack.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            joinMainView.gameObject.SetActive(true);
+            PanelManager.instance.CloseTopPanel();
             joinMainView.BackToJoinEdit();
-            Destroy(gameObject);
-            Resources.UnloadUnusedAssets();
-            GC.Collect();
         });
         BtnSave.onClick.AddListener(delegate {
 #if !UNITY_EDITOR
@@ -242,4 +239,10 @@ public class DisplayView : MonoBehaviour
         DataManager.instance.PersonGreeting(lstDisplayItem);
     }
 
+    private void OnDestroy()
+    {
+        Destroy(gameObject);
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
+    }
 }

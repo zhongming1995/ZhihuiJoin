@@ -228,7 +228,15 @@ public class JoinMainView : MonoBehaviour
         {
             AudioManager.instance.StopEffect();
             joinGuide.DoOperation();
-            SceneManager.LoadScene("home");
+            //SceneManager.LoadScene("home");
+            if (GameManager.instance.openType==OpenType.FirstEdit)
+            {
+                PanelManager.instance.CloseTopPanel();
+            }
+            else
+            {
+                PanelManager.instance.BackToView(PanelName.CalendarView);
+            }
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         });
 
@@ -259,15 +267,10 @@ public class JoinMainView : MonoBehaviour
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             gameObject.SetActive(false);
-            //Texture2D t = GetDrawTexture();
-            //Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-            //ImgDraw.sprite = s;
-            //ImgDraw.SetNativeSize();
-            //ImgDraw.transform.localScale = Vector3.one;
             DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(),mobilePaint.GetDrawByte());
-            UIHelper.instance.LoadPrefab("Prefabs/display|display_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //GameManager.instance.SetNextViewPath("Prefabs/display|display_view");
-            //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/display|display_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
+                PanelManager.instance.PushPanel(PanelName.DisplayView,panel);
+            });
         });
 
         //缩略图点击事件

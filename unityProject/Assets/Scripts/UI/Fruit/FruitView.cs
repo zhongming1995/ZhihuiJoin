@@ -75,7 +75,7 @@ public class FruitView :MonoBehaviour
     private void RemoveListener()
     {
         GameOperDelegate.backToEdit -= BackToEditFunc;
-        GameOperDelegate.backTodisplay += BackToDisplay;
+        GameOperDelegate.backTodisplay -= BackToDisplay;
         GameOperDelegate.pianoBegin -= JumpCB;
         GameOperDelegate.cardBegin -= JumpCB;
         GameOperDelegate.fruitBegin -= JumpCB;
@@ -308,22 +308,23 @@ public class FruitView :MonoBehaviour
 
     void BackToEditFunc()
     {
-        Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
+        Debug.Log("edit");
+        //Destroy(gameObject);
+        //Resources.UnloadUnusedAssets();
+        //GC.Collect();
     }
 
     void BackToDisplay()
     {
-        Destroy(gameObject);
-        Resources.UnloadUnusedAssets();
-        GC.Collect();
+        //PanelManager.instance.CloseTopPanel();
+        //Destroy(gameObject);
+        //Resources.UnloadUnusedAssets();
+        //GC.Collect();
     }
 
     void JumpCB()
     {
-        Destroy(completeWindow);
-        DestroyImmediate(gameObject);
+        
     }
 
     void ShowMask()
