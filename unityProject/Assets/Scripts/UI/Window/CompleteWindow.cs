@@ -103,8 +103,11 @@ public class CompleteWindow : WindowParent
         BtnDisplay.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
-            DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
-            displayView.gameObject.SetActive(true);
+            if (GameManager.instance.openType == OpenType.FirstEdit)
+            {
+                DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
+                displayView.gameObject.SetActive(true);
+            }
             GameOperDelegate.GotoDisplay();
         });
 

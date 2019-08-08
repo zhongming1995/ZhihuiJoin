@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using AudioMgr;
+using GameMgr;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,9 +11,9 @@ public class PauseWindow : WindowParent
 {
     public Button BtnHome;
     public Button BtnEdit;
-    public Button BtnReplay;
-    public Button BtnDisplay;
-    public Button BtnContinue;
+    public Button BtnReplay;//在用
+    public Button BtnDisplay;//在用
+    public Button BtnContinue;//在用
     public Button BtnClose;
 
     private void OnEnable()
@@ -57,8 +58,11 @@ public class PauseWindow : WindowParent
         BtnDisplay.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
-            DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
-            displayView.gameObject.SetActive(true);
+            if (GameManager.instance.openType == OpenType.FirstEdit)
+            {
+                DisplayView displayView = transform.parent.GetComponentInChildren<DisplayView>(true);
+                displayView.gameObject.SetActive(true);
+            }            
             GameOperDelegate.GotoDisplay();
         });
 

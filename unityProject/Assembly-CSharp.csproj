@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\Manager\DataManager\FileCompare.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager\PersonManager.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\PanelManager\PanelManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResConf.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResUtil.cs" />

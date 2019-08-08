@@ -71,6 +71,7 @@ public class CalendarDetailView : MonoBehaviour
         });
 
         BtnEdit.onClick.AddListener(delegate {
+            GameManager.instance.openType = OpenType.ReEdit;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
             PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);
@@ -80,8 +81,9 @@ public class CalendarDetailView : MonoBehaviour
             PersonManager.instance.PersonFileName = fileName;
             GameManager.instance.JumpToJoin();
         });
-
+         
         BtnGame.onClick.AddListener(delegate {
+            GameManager.instance.openType = OpenType.ReEdit;
             string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
             PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);
             DataManager.instance.partDataList = whole.partDataList;
@@ -156,7 +158,7 @@ public class CalendarDetailView : MonoBehaviour
 
     private void JumpToGameCB()
     {
-        Destroy(gameObject);
+        
     }
 
     private void OnDestroy()
