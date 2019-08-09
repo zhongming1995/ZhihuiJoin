@@ -22,6 +22,8 @@ public class DisplayView : MonoBehaviour
     public Transform PosFlag2;//右下角截屏定位点
     public Transform ImgMask;//保存图片时的mask
 
+    public ParticleSystem PSDisplay;//展示彩带
+
     private JoinMainView joinMainView;
     private Transform displayItem;//展示界面的物体
     private Vector2 rectImgDisplay;
@@ -106,7 +108,14 @@ public class DisplayView : MonoBehaviour
         BtnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PanelManager.instance.BackToView(PanelName.HomeView);
+            if (GameManager.instance.openType==OpenType.FirstEdit)
+            {
+                PanelManager.instance.BackToView(PanelName.HomeView);
+            }
+            else
+            {
+                PanelManager.instance.BackToView(PanelName.CalendarView);
+            }
         });
 
         BtnBack.onClick.AddListener(delegate
@@ -155,6 +164,7 @@ public class DisplayView : MonoBehaviour
         //播放打招呼的动画
         Invoke("Greeting", 0.8f);
         */
+        PSDisplay.Play();
         if (DataManager.instance.partDataList != null)
         {
             DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
