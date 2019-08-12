@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameData 
 {
@@ -363,5 +364,46 @@ public class GameData
             resPrefabPathList.Add(string.Format(path, i.ToString()));
         }
     }
+
+    public static List<List<string>> ModulePathList = new List<List<string>>()
+    {
+        new List<string>(){ "eye_L_0_icon","eye_R_0_icon", "mouse_0_icon", "hand_L_0_icon", "hand_R_0_icon", "leg_L_0_icon", "leg_R_0_icon" ,"", "" },
+        new List<string>(){ "eye_L_1_icon","eye_R_1_icon", "", "hand_L_1_icon", "hand_R_1_icon", "leg_L_1_icon", "leg_R_1_icon" , "hat_1_icon", "" },
+        new List<string>(){ "eye_L_2_icon","eye_R_2_icon", "mouse_1_icon", "hand_L_2_icon", "hand_R_2_icon", "leg_L_2_icon", "leg_R_2_icon" , "hat_2_icon", "" },
+        new List<string>(){ "eye_L_3_icon","eye_R_3_icon", "mouse_2_icon", "hand_L_3_icon", "hand_R_3_icon", "leg_L_3_icon", "leg_R_3_icon" , "hat_5_icon", "headwear_1_icon" },
+        new List<string>(){ "eye_L_4_icon","eye_R_4_icon", "mouse_3_icon", "hand_L_4_icon", "hand_R_4_icon", "leg_L_4_icon", "leg_R_4_icon" ,"", "headwear_0_icon" },
+        new List<string>(){ "eye_L_5_icon","eye_R_5_icon", "mouse_4_icon", "hand_L_5_icon", "hand_R_5_icon", "leg_L_5_icon", "leg_R_5_icon" , "hat_3_icon", "" },
+        new List<string>(){ "eye_L_6_icon","eye_R_6_icon", "mouse_5_icon", "hand_L_6_icon", "hand_R_6_icon", "leg_L_6_icon", "leg_R_6_icon" ,"", "headwear_2_icon" },
+        new List<string>(){ "eye_L_7_icon","eye_R_7_icon","mouse_6_icon", "hand_L_7_icon", "hand_R_7_icon", "leg_L_7_icon", "leg_R_7_icon" ,"", "headwear_3_icon" },
+        new List<string>(){ "eye_L_8_icon","eye_R_8_icon", "mouse_7_icon", "hand_L_8_icon", "hand_R_8_icon", "leg_L_8_icon", "leg_R_8_icon" , "hat_4_icon", "" },
+        new List<string>(){ "eye_L_9_icon","eye_R_9_icon","mouse_8_icon", "", "", "leg_L_9_icon", "leg_R_9_icon" ,"", "headwear_4_icon" },
+        new List<string>(){ "eye_L_10_icon","eye_R_10_icon","mouse_10_icon", "hand_L_10_icon", "hand_R_10_icon", "leg_L_10_icon", "leg_R_10_icon" , "hat_10_icon", "" },
+        new List<string>(){ "eye_L_11_icon","eye_R_11_icon","mouse_11_icon", "", "", "leg_L_11_icon", "leg_R_11_icon" , "hat_11_icon", "headwear_13_icon" },
+        new List<string>(){ "eye_L_12_icon","eye_R_12_icon","mouse_12_icon", "hand_L_12_icon", "hand_R_12_icon", "leg_L_12_icon", "leg_R_12_icon" , "hat_12_icon", "" },
+        new List<string>(){ "eye_L_13_icon","eye_R_13_icon","mouse_13_icon", "hand_L_13_icon", "hand_R_13_icon", "leg_L_13_icon", "leg_R_13_icon" ,"", "headwear_10_icon" },
+        new List<string>(){ "eye_L_14_icon","eye_R_14_icon","mouse_14_icon", "hand_L_14_icon", "hand_R_14_icon", "leg_L_14_icon", "leg_R_14_icon" , "hat_0_icon", "" },
+        new List<string>(){ "eye_L_15_icon","eye_R_15_icon","mouse_15_icon", "hand_L_15_icon", "hand_R_15_icon", "leg_L_15_icon", "leg_R_15_icon" , "hat_9_icon", "" },
+        new List<string>(){ "eye_L_16_icon","eye_R_16_icon","mouse_16_icon", "hand_L_16_icon", "hand_R_16_icon", "leg_L_16_icon", "leg_R_16_icon" ,"", "headwear_11_icon" },
+        new List<string>(){ "eye_L_17_icon","eye_R_17_icon","mouse_17_icon", "hand_L_17_icon", "hand_R_17_icon", "leg_L_17_icon", "leg_R_17_icon" ,"", "headwear_7_icon" },
+        new List<string>(){ "eye_L_18_icon","eye_R_18_icon","", "hand_L_18_icon", "hand_R_18_icon", "leg_L_18_icon", "leg_R_18_icon" , "hat_8_icon", "" },
+        new List<string>(){ "eye_L_6_icon","eye_R_6_icon", "mouse_18_icon", "hand_L_19_icon", "hand_R_19_icon", "leg_L_19_icon", "leg_R_19_icon" ,"", "headwear_12_icon" },
+        new List<string>(){ "eye_L_20_icon","eye_R_20_icon","mouse_19_icon", "hand_L_20_icon", "hand_R_20_icon", "leg_L_20_icon", "leg_R_20_icon" ,"", "" },
+        new List<string>(){ "eye_L_21_icon", "eye_R_21_icon","", "hand_L_21_icon", "hand_R_21_icon", "leg_L_21_icon", "leg_R_21_icon" , "hat_6_icon", "" },
+        new List<string>(){ "eye_L_22_icon","eye_R_22_icon", "mouse_20_icon", "hand_L_22_icon", "hand_R_22_icon", "leg_L_22_icon", "leg_R_22_icon" , "hat_7_icon", "" },
+        new List<string>(){ "eye_L_23_icon","eye_R_23_icon", "mouse_21_icon", "hand_L_23_icon", "hand_R_23_icon", "leg_L_23_icon", "leg_R_23_icon" , "hat_13_icon", "" },
+        new List<string>(){ "eye_L_24_icon","eye_R_24_icon","mouse_22_icon", "hand_L_24_icon", "hand_R_24_icon", "leg_L_24_icon", "leg_R_24_icon" ,"", "headwear_14_icon" },
+        new List<string>(){ "eye_L_19_icon","eye_R_19_icon","", "", "", "leg_L_25_icon", "leg_R_25_icon" ,"", "headwear_15_icon" },
+        new List<string>(){ "eye_L_4_icon","eye_R_4_icon","", "number_hand_L_0_icon", "number_hand_R_0_icon", "number_leg_L_0_icon", "number_leg_R_0_icon", "number_hat_0_icon", "number_headwear_0_icon" },
+        new List<string>(){ "number_eye_L_0_icon", "number_eye_R_0_icon", "number_mouse_0_icon", "number_hand_L_1_icon", "number_hand_R_1_icon", "number_leg_L_1_icon", "number_leg_R_1_icon", "", "" },
+        new List<string>(){ "number_eye_L_1_icon", "number_eye_R_1_icon", "", "number_hand_L_2_icon", "number_hand_R_2_icon", "number_leg_L_2_icon", "number_leg_R_2_icon", "", "number_headwear_1_icon" },
+        new List<string>(){ "eye_L_17_icon|eye_L_16_icon", "eye_R_17_icon|eye_R_16_icon", "mouse_22_icon", "hand_L_5_icon", "hand_R_5_icon", "number_leg_L_5_icon", "number_leg_R_5_icon", "", "headwear_8_icon" },
+        new List<string>(){ "eye_L_6_icon", "eye_R_6_icon", "mouse_19_icon", "hand_L_20_icon", "hand_R_20_icon", "leg_L_21_icon", "leg_R_21_icon" ,"", "headwear_6_icon" },
+        new List<string>(){ "eye_L_18_icon", "eye_R_18_icon", "mouse_20_icon", "hand_L_13_icon", "hand_R_13_icon", "leg_L_13_icon", "leg_R_13_icon" ,"", "" },
+        new List<string>(){ "", "", "mouse_4_icon", "hand_L_24_icon", "hand_R_24_icon", "leg_L_24_icon", "leg_R_24_icon" , "hat_7_icon", "headwear_5_icon" },
+        new List<string>(){ "eye_L_7_icon", "eye_R_7_icon", "mouse_10_icon", "number_hand_L_3_icon", "number_hand_R_3_icon", "number_leg_L_3_icon", "number_leg_R_2_icon", "hat_9_icon", "headwear_9_icon" },
+        new List<string>(){ "number_eye_L_1_icon", "number_eye_R_1_icon", "mouse_15_icon", "hand_L_11_icon", "hand_R_11_icon", "leg_L_11_icon", "leg_R_11_icon" , "hat_11_icon", "" },
+        new List<string>(){ "eye_L_10_icon", "eye_R_10_icon", "mouse_13_icon", "number_hand_L_4_icon", "number_hand_R_4_icon", "number_leg_L_4_icon", "number_leg_R_4_icon", "", "" },
+       
+    };
 }
 
