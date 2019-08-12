@@ -168,7 +168,7 @@ public class JoinMainView : MonoBehaviour
         ShowTypeByStep(step,true);
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
-        LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
+        //LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
 
         //打开保存的文件
         if (GameManager.instance.openType==OpenType.ReEdit && GameManager.instance.curWhole!=null)
@@ -206,6 +206,11 @@ public class JoinMainView : MonoBehaviour
     /// <param name="show">If set to <c>true</c> show.</param>
     public void BackToJoinEdit()
     {
+        GameManager.instance.SetJoinShowAll(true);
+        for (int i = 0; i < loadResult.Length; i++)
+        {
+            loadResult[i] = false;
+        }
         ShowTypeByStep(1);
     }
 
@@ -683,10 +688,27 @@ public class JoinMainView : MonoBehaviour
     //加载某种类型的素材
     private void LoadResListByType(int type)
     {
-        //string resPrefabPath = GameManager.instance.resPrefabPathList[type];
         string resPrefabPath = GameData.resPrefabPathList[type];
-        //List<string> resPath = GameManager.instance.resPathList[type];
-        List<string> resPath = GameData.resPathList[type];
+        List<string> resPath;
+        if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body)
+        {
+            resPath = GameData.GetPathList(GameManager.instance.homeSelectIndex, (TemplateResType)type);
+        }
+        else
+        {
+            resPath = GameData.resPathList[type];
+            if (type!=(int)TemplateResType.Body)
+            {
+                if (ResContentList[type].childCount != 0)
+                {
+                    for (int i = ResContentList[type].childCount - 1; i >= 0; i--)
+                    {
+                        DestroyImmediate(ResContentList[type].GetChild(i).gameObject);
+                    }
+                }
+            }
+           
+        }
         float width = ResContentList[type].GetComponent<RectTransform>().rect.size.x;
         if (resPath.Count <= 0)
         {
@@ -706,7 +728,6 @@ public class JoinMainView : MonoBehaviour
                 UIHelper.instance.SetImage(imgPath, resImg, true);
                 float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, y + 40);
-                //UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
                 if (type == 0)
                 {
                     string selectPath = imgPath + "_select";
@@ -716,7 +737,6 @@ public class JoinMainView : MonoBehaviour
             else
             {
                 string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                //UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
                 Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
                 UIHelper.instance.SetImage(imgPath, resImg, true);
                 float y = resImg.GetComponent<RectTransform>().sizeDelta.y;

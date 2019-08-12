@@ -2,6 +2,8 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.Collections;
+using System;
+using Random = System.Random;
 
 public class GameData 
 {
@@ -367,43 +369,227 @@ public class GameData
 
     public static List<List<string>> ModulePathList = new List<List<string>>()
     {
-        new List<string>(){ "eye_L_0_icon","eye_R_0_icon", "mouse_0_icon", "hand_L_0_icon", "hand_R_0_icon", "leg_L_0_icon", "leg_R_0_icon" ,"", "" },
-        new List<string>(){ "eye_L_1_icon","eye_R_1_icon", "", "hand_L_1_icon", "hand_R_1_icon", "leg_L_1_icon", "leg_R_1_icon" , "hat_1_icon", "" },
-        new List<string>(){ "eye_L_2_icon","eye_R_2_icon", "mouse_1_icon", "hand_L_2_icon", "hand_R_2_icon", "leg_L_2_icon", "leg_R_2_icon" , "hat_2_icon", "" },
-        new List<string>(){ "eye_L_3_icon","eye_R_3_icon", "mouse_2_icon", "hand_L_3_icon", "hand_R_3_icon", "leg_L_3_icon", "leg_R_3_icon" , "hat_5_icon", "headwear_1_icon" },
-        new List<string>(){ "eye_L_4_icon","eye_R_4_icon", "mouse_3_icon", "hand_L_4_icon", "hand_R_4_icon", "leg_L_4_icon", "leg_R_4_icon" ,"", "headwear_0_icon" },
-        new List<string>(){ "eye_L_5_icon","eye_R_5_icon", "mouse_4_icon", "hand_L_5_icon", "hand_R_5_icon", "leg_L_5_icon", "leg_R_5_icon" , "hat_3_icon", "" },
-        new List<string>(){ "eye_L_6_icon","eye_R_6_icon", "mouse_5_icon", "hand_L_6_icon", "hand_R_6_icon", "leg_L_6_icon", "leg_R_6_icon" ,"", "headwear_2_icon" },
-        new List<string>(){ "eye_L_7_icon","eye_R_7_icon","mouse_6_icon", "hand_L_7_icon", "hand_R_7_icon", "leg_L_7_icon", "leg_R_7_icon" ,"", "headwear_3_icon" },
-        new List<string>(){ "eye_L_8_icon","eye_R_8_icon", "mouse_7_icon", "hand_L_8_icon", "hand_R_8_icon", "leg_L_8_icon", "leg_R_8_icon" , "hat_4_icon", "" },
-        new List<string>(){ "eye_L_9_icon","eye_R_9_icon","mouse_8_icon", "", "", "leg_L_9_icon", "leg_R_9_icon" ,"", "headwear_4_icon" },
-        new List<string>(){ "eye_L_10_icon","eye_R_10_icon","mouse_10_icon", "hand_L_10_icon", "hand_R_10_icon", "leg_L_10_icon", "leg_R_10_icon" , "hat_10_icon", "" },
-        new List<string>(){ "eye_L_11_icon","eye_R_11_icon","mouse_11_icon", "", "", "leg_L_11_icon", "leg_R_11_icon" , "hat_11_icon", "headwear_13_icon" },
-        new List<string>(){ "eye_L_12_icon","eye_R_12_icon","mouse_12_icon", "hand_L_12_icon", "hand_R_12_icon", "leg_L_12_icon", "leg_R_12_icon" , "hat_12_icon", "" },
-        new List<string>(){ "eye_L_13_icon","eye_R_13_icon","mouse_13_icon", "hand_L_13_icon", "hand_R_13_icon", "leg_L_13_icon", "leg_R_13_icon" ,"", "headwear_10_icon" },
-        new List<string>(){ "eye_L_14_icon","eye_R_14_icon","mouse_14_icon", "hand_L_14_icon", "hand_R_14_icon", "leg_L_14_icon", "leg_R_14_icon" , "hat_0_icon", "" },
-        new List<string>(){ "eye_L_15_icon","eye_R_15_icon","mouse_15_icon", "hand_L_15_icon", "hand_R_15_icon", "leg_L_15_icon", "leg_R_15_icon" , "hat_9_icon", "" },
-        new List<string>(){ "eye_L_16_icon","eye_R_16_icon","mouse_16_icon", "hand_L_16_icon", "hand_R_16_icon", "leg_L_16_icon", "leg_R_16_icon" ,"", "headwear_11_icon" },
-        new List<string>(){ "eye_L_17_icon","eye_R_17_icon","mouse_17_icon", "hand_L_17_icon", "hand_R_17_icon", "leg_L_17_icon", "leg_R_17_icon" ,"", "headwear_7_icon" },
-        new List<string>(){ "eye_L_18_icon","eye_R_18_icon","", "hand_L_18_icon", "hand_R_18_icon", "leg_L_18_icon", "leg_R_18_icon" , "hat_8_icon", "" },
-        new List<string>(){ "eye_L_6_icon","eye_R_6_icon", "mouse_18_icon", "hand_L_19_icon", "hand_R_19_icon", "leg_L_19_icon", "leg_R_19_icon" ,"", "headwear_12_icon" },
-        new List<string>(){ "eye_L_20_icon","eye_R_20_icon","mouse_19_icon", "hand_L_20_icon", "hand_R_20_icon", "leg_L_20_icon", "leg_R_20_icon" ,"", "" },
-        new List<string>(){ "eye_L_21_icon", "eye_R_21_icon","", "hand_L_21_icon", "hand_R_21_icon", "leg_L_21_icon", "leg_R_21_icon" , "hat_6_icon", "" },
-        new List<string>(){ "eye_L_22_icon","eye_R_22_icon", "mouse_20_icon", "hand_L_22_icon", "hand_R_22_icon", "leg_L_22_icon", "leg_R_22_icon" , "hat_7_icon", "" },
-        new List<string>(){ "eye_L_23_icon","eye_R_23_icon", "mouse_21_icon", "hand_L_23_icon", "hand_R_23_icon", "leg_L_23_icon", "leg_R_23_icon" , "hat_13_icon", "" },
-        new List<string>(){ "eye_L_24_icon","eye_R_24_icon","mouse_22_icon", "hand_L_24_icon", "hand_R_24_icon", "leg_L_24_icon", "leg_R_24_icon" ,"", "headwear_14_icon" },
-        new List<string>(){ "eye_L_19_icon","eye_R_19_icon","", "", "", "leg_L_25_icon", "leg_R_25_icon" ,"", "headwear_15_icon" },
-        new List<string>(){ "eye_L_4_icon","eye_R_4_icon","", "number_hand_L_0_icon", "number_hand_R_0_icon", "number_leg_L_0_icon", "number_leg_R_0_icon", "number_hat_0_icon", "number_headwear_0_icon" },
-        new List<string>(){ "number_eye_L_0_icon", "number_eye_R_0_icon", "number_mouse_0_icon", "number_hand_L_1_icon", "number_hand_R_1_icon", "number_leg_L_1_icon", "number_leg_R_1_icon", "", "" },
-        new List<string>(){ "number_eye_L_1_icon", "number_eye_R_1_icon", "", "number_hand_L_2_icon", "number_hand_R_2_icon", "number_leg_L_2_icon", "number_leg_R_2_icon", "", "number_headwear_1_icon" },
-        new List<string>(){ "eye_L_17_icon|eye_L_16_icon", "eye_R_17_icon|eye_R_16_icon", "mouse_22_icon", "hand_L_5_icon", "hand_R_5_icon", "number_leg_L_5_icon", "number_leg_R_5_icon", "", "headwear_8_icon" },
-        new List<string>(){ "eye_L_6_icon", "eye_R_6_icon", "mouse_19_icon", "hand_L_20_icon", "hand_R_20_icon", "leg_L_21_icon", "leg_R_21_icon" ,"", "headwear_6_icon" },
-        new List<string>(){ "eye_L_18_icon", "eye_R_18_icon", "mouse_20_icon", "hand_L_13_icon", "hand_R_13_icon", "leg_L_13_icon", "leg_R_13_icon" ,"", "" },
-        new List<string>(){ "", "", "mouse_4_icon", "hand_L_24_icon", "hand_R_24_icon", "leg_L_24_icon", "leg_R_24_icon" , "hat_7_icon", "headwear_5_icon" },
-        new List<string>(){ "eye_L_7_icon", "eye_R_7_icon", "mouse_10_icon", "number_hand_L_3_icon", "number_hand_R_3_icon", "number_leg_L_3_icon", "number_leg_R_2_icon", "hat_9_icon", "headwear_9_icon" },
-        new List<string>(){ "number_eye_L_1_icon", "number_eye_R_1_icon", "mouse_15_icon", "hand_L_11_icon", "hand_R_11_icon", "leg_L_11_icon", "leg_R_11_icon" , "hat_11_icon", "" },
-        new List<string>(){ "eye_L_10_icon", "eye_R_10_icon", "mouse_13_icon", "number_hand_L_4_icon", "number_hand_R_4_icon", "number_leg_L_4_icon", "number_leg_R_4_icon", "", "" },
+        new List<string>(){ "eye_L_0","eye_R_0", "mouse_0", "hand_L_0", "hand_R_0", "leg_L_0", "leg_R_0" ,"", "" },
+        new List<string>(){ "eye_L_1","eye_R_1", "", "hand_L_1", "hand_R_1", "leg_L_1", "leg_R_1" , "hat_1", "" },
+        new List<string>(){ "eye_L_2","eye_R_2", "mouse_1", "hand_L_2", "hand_R_2", "leg_L_2_", "leg_R_2" , "hat_2", "" },
+        new List<string>(){ "eye_L_3","eye_R_3", "mouse_2", "hand_L_3", "hand_R_3", "leg_L_3", "leg_R_3" , "hat_5", "headwear_1" },
+        new List<string>(){ "eye_L_4","eye_R_4", "mouse_3", "hand_L_4", "hand_R_4", "leg_L_4", "leg_R_4" ,"", "headwear_0" },
+        new List<string>(){ "eye_L_5","eye_R_5", "mouse_4", "hand_L_5", "hand_R_5", "leg_L_5", "leg_R_5" , "hat_3", "" },
+        new List<string>(){ "eye_L_6","eye_R_6", "mouse_5", "hand_L_6", "hand_R_6", "leg_L_6", "leg_R_6" ,"", "headwear_2" },
+        new List<string>(){ "eye_L_7","eye_R_7","mouse_6", "hand_L_7", "hand_R_7", "leg_L_7", "leg_R_7" ,"", "headwear_3" },
+        new List<string>(){ "eye_L_8","eye_R_8", "mouse_7", "hand_L_8", "hand_R_8", "leg_L_8", "leg_R_8" , "hat_4", "" },
+        new List<string>(){ "eye_L_9_","eye_R_9","mouse_8", "", "", "leg_L_9", "leg_R_9" ,"", "headwear_4" },
+        new List<string>(){ "eye_L_10","eye_R_10","mouse_10", "hand_L_10", "hand_R_10", "leg_L_10", "leg_R_10" , "hat_10", "" },
+        new List<string>(){ "eye_L_11","eye_R_11","mouse_11", "", "", "leg_L_11", "leg_R_11" , "hat_11", "headwear_13" },
+        new List<string>(){ "eye_L_12","eye_R_12","mouse_12", "hand_L_12", "hand_R_12", "leg_L_12", "leg_R_12" , "hat_12", "" },
+        new List<string>(){ "eye_L_13","eye_R_13","mouse_13", "hand_L_13", "hand_R_13", "leg_L_13", "leg_R_13" ,"", "headwear_10" },
+        new List<string>(){ "eye_L_14","eye_R_14","mouse_14", "hand_L_14", "hand_R_14", "leg_L_14", "leg_R_14" , "hat_0", "" },
+        new List<string>(){ "eye_L_15","eye_R_15","mouse_15", "hand_L_15", "hand_R_15", "leg_L_15", "leg_R_15" , "hat_9", "" },
+        new List<string>(){ "eye_L_16","eye_R_16","mouse_16", "hand_L_16", "hand_R_16", "leg_L_16", "leg_R_16" ,"", "headwear_11" },
+        new List<string>(){ "eye_L_17","eye_R_17","mouse_17", "hand_L_17", "hand_R_17", "leg_L_17", "leg_R_17" ,"", "headwear_7" },
+        new List<string>(){ "eye_L_18","eye_R_18","", "hand_L_18", "hand_R_18", "leg_L_18", "leg_R_18" , "hat_8", "" },
+        new List<string>(){ "eye_L_6","eye_R_6", "mouse_18", "hand_L_19", "hand_R_19", "leg_L_19", "leg_R_19" ,"", "headwear_12" },
+        new List<string>(){ "eye_L_20","eye_R_20","mouse_19", "hand_L_20", "hand_R_20", "leg_L_20", "leg_R_20" ,"", "" },
+        new List<string>(){ "eye_L_21", "eye_R_21","", "hand_L_21", "hand_R_21", "leg_L_21", "leg_R_21" , "hat_6", "" },
+        new List<string>(){ "eye_L_22","eye_R_22", "mouse_20", "hand_L_22", "hand_R_22", "leg_L_22", "leg_R_22" , "hat_7", "" },
+        new List<string>(){ "eye_L_23","eye_R_23", "mouse_21", "hand_L_23", "hand_R_23", "leg_L_23", "leg_R_23" , "hat_13", "" },
+        new List<string>(){ "eye_L_24","eye_R_24","mouse_22", "hand_L_24", "hand_R_24", "leg_L_24", "leg_R_24" ,"", "headwear_14" },
+        new List<string>(){ "eye_L_19","eye_R_19","", "", "", "leg_L_25", "leg_R_25" ,"", "headwear_15" },
+        new List<string>(){ "eye_L_4","eye_R_4","", "number_hand_L_0", "number_hand_R_0", "number_leg_L_0", "number_leg_R_0", "number_hat_0", "number_headwear_0" },
+        new List<string>(){ "number_eye_L_0", "number_eye_R_0", "number_mouse_0", "number_hand_L_1", "number_hand_R_1", "number_leg_L_1", "number_leg_R_1", "", "" },
+        new List<string>(){ "number_eye_L_1", "number_eye_R_1", "", "number_hand_L_2", "number_hand_R_2", "number_leg_L_2", "number_leg_R_2", "", "number_headwear_1" },
+        new List<string>(){ "eye_L_17|eye_L_16", "eye_R_17|eye_R_16", "mouse_22", "hand_L_5", "hand_R_5", "number_leg_L_5", "number_leg_R_5", "", "headwear_8" },
+        new List<string>(){ "eye_L_6", "eye_R_6", "mouse_19", "hand_L_20", "hand_R_20", "leg_L_21", "leg_R_21" ,"", "headwear_6" },
+        new List<string>(){ "eye_L_18", "eye_R_18", "mouse_20", "hand_L_13", "hand_R_13", "leg_L_13", "leg_R_13" ,"", "" },
+        new List<string>(){ "", "", "mouse_4", "hand_L_24", "hand_R_24", "leg_L_24", "leg_R_24" , "hat_7", "headwear_5" },
+        new List<string>(){ "eye_L_7", "eye_R_7", "mouse_10", "number_hand_L_3", "number_hand_R_3", "number_leg_L_3", "number_leg_R_2", "hat_9", "headwear_9" },
+        new List<string>(){ "number_eye_L_1", "number_eye_R_1", "mouse_15", "hand_L_11", "hand_R_11", "leg_L_11", "leg_R_11" , "hat_11", "" },
+        new List<string>(){ "eye_L_10", "eye_R_10", "mouse_13", "number_hand_L_4", "number_hand_R_4", "number_leg_L_4", "number_leg_R_4", "", "" },
        
     };
+
+    //根据字母或数字，返回包含模板在内的5/6个素材
+    public static List<string> GetPathList(int index,TemplateResType type)
+    {
+        List<string> pathList = new List<string>();
+        string path = string.Empty;
+
+        //眼睛
+        if (type == TemplateResType.Eye)
+        {
+            int num = 0;
+            string mpath = ModulePathList[index][0];
+            if (mpath.Contains("|"))
+            {
+                string[] leftst = ModulePathList[index][0].Split('|');
+                string[] rightst = ModulePathList[index][1].Split('|');
+                for (int i = 0; i < leftst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/eye|" + leftst[i]);
+                    pathList.Add("sprite/fodder/eye|" + rightst[i]);
+                }
+                num = 4;
+            }
+            else if(mpath != "")
+            {
+                pathList.Add("sprite/fodder/eye|" + ModulePathList[index][0]);
+                pathList.Add("sprite/fodder/eye|" + ModulePathList[index][1]);
+                num = 5;
+            }
+            else
+            {
+                num = 6;
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[1].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex,eIndex);
+                while (pathList.Contains(resPathList[1][n]) || n%2!=0)
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[1][n]);
+                pathList.Add(resPathList[1][n + 1]);
+            }
+        }
+        else if (type == TemplateResType.Mouth)
+        {
+            string mpath = ModulePathList[index][2];
+            int num = 0;
+            if (mpath=="")
+            {
+                num = 6;
+            }
+            else
+            {
+                num = 5;
+                pathList.Add("sprite/fodder/mouth|" + mpath);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[2].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[2][n]))
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[2][n]);
+            }
+        }
+        else if (type == TemplateResType.Hand)
+        {
+            string mpath = ModulePathList[index][3];
+            int num = 0;
+            if (mpath == "")
+            {
+                num = 6;
+            }
+            else
+            {
+                num = 5;
+                pathList.Add("sprite/fodder/hand|" + mpath);
+                pathList.Add("sprite/fodder/hand|" + ModulePathList[index][4]);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[6].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[6][n])||n%2!=0)
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[6][n]);
+                pathList.Add(resPathList[6][n + 1]);
+            }
+        }
+        else if (type == TemplateResType.Leg)
+        {
+            string mpath = ModulePathList[index][5];
+            int num = 0;
+            if (mpath == "")
+            {
+                num = 5;
+            }
+            else
+            {
+                num = 4;
+                pathList.Add("sprite/fodder/leg|" + mpath);
+                pathList.Add("sprite/fodder/leg|" + ModulePathList[index][6]);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[7].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[7][n]) || n % 2 != 0)
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[7][n]);
+                pathList.Add(resPathList[7][n + 1]);
+            }
+        }
+        else if (type == TemplateResType.Hat)
+        {
+            string mpath = ModulePathList[index][7];
+            int num = 0;
+            if (mpath == "")
+            {
+                num = 5;
+            }
+            else
+            {
+                num = 4;
+                pathList.Add("sprite/fodder/hat|" + mpath);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[4].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[4][n]) || n % 2 != 0)
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[4][n]);
+            }
+        }
+        else if (type == TemplateResType.HeadWear)
+        {
+            string mpath = ModulePathList[index][8];
+            int num = 0;
+            if (mpath == "")
+            {
+                num = 6;
+            }
+            else
+            {
+                num = 5;
+                pathList.Add("sprite/fodder/headwear|" + mpath);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[5].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[5][n]) || n % 2 != 0)
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[5][n]);
+            }
+        }
+
+        return pathList;
+    }
 }
 

@@ -8,7 +8,6 @@ public class AniEvent : MonoBehaviour
     public AnimationEndDelegate animationEndDelegate;
     public void AnimationEnd()
     {
-        Debug.Log("AnimationEnd");
         if (animationEndDelegate!=null)
         {
             animationEndDelegate();

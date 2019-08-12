@@ -75,7 +75,8 @@ public class CalendarDetailView : MonoBehaviour
         });
 
         BtnEdit.onClick.AddListener(delegate {
-            GameManager.instance.openType = OpenType.ReEdit;
+            GameManager.instance.SetOpenType(OpenType.ReEdit);
+            GameManager.instance.SetJoinShowAll(true);
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
             PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);

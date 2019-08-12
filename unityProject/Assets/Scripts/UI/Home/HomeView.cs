@@ -52,6 +52,7 @@ public class HomeView : MonoBehaviour
             UIHelper.instance.SetImage(GameData.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标
+                GameManager.instance.SetJoinShowAll(false);
                 GameManager.instance.SetOpenType(OpenType.FirstEdit);
                 GameManager.instance.homeSelectIndex = j;
                 PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.GetPersonsNum();
@@ -61,6 +62,7 @@ public class HomeView : MonoBehaviour
                 //AudioManager.instance.PlayAudio(EffectAudioType.Option,GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
                 AudioManager.instance.PlayAudio(EffectAudioType.Option, GameData.drawAudioPathList[GameManager.instance.homeSelectIndex]);
                 JumpToJoin();
+
             });
         }
     }

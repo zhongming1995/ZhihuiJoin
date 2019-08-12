@@ -94,6 +94,9 @@ namespace GameMgr
         [HideInInspector]
         public float ScreenHeight;
 
+        [HideInInspector]
+        public bool joinShowAll = false;
+
         void Awake()
         {
             instance = this;
@@ -471,6 +474,11 @@ namespace GameMgr
         public void SetCurPartDataWhole(PartDataWhole whole)
         {
             curWhole = whole;
+        }
+
+        public void SetJoinShowAll(bool show)
+        {
+            joinShowAll = show;
         }
     }
    

@@ -79,7 +79,6 @@ public class PersonManager : SingletonMono<PersonManager>
 
     public List<string> GetPersonsList()
     {
-        Debug.Log("GetPersonsList");
         pathList.Clear();
         DirectoryInfo info = new DirectoryInfo(PersonDataPath);
         if (info.Exists)
