@@ -11,6 +11,9 @@ using Helper;
 
 public class IndexView : MonoBehaviour
 {
+    public Button BtnLetter;
+    public Button BtnNumber;
+    public Button BtnAnimal;
     public Button BtnPlay;
     public Button BtnCalendar;
     public GameObjectPool gamePool;
@@ -20,17 +23,8 @@ public class IndexView : MonoBehaviour
     void Start()
     {
         PanelManager.instance.PushPanel(PanelName.IndexView,gameObject);
-        PlayButtonAni();
-        BtnPlay.onClick.AddListener(delegate
-        {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //GameManager.instance.SetNextSceneName("home");
-            //SceneManager.LoadScene("home");
-            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
-            {
-                PanelManager.instance.PushPanel(PanelName.HomeView,panel);
-            });
-        });
+        //PlayButtonAni();
+        AddBtnListener();
         int personNum = PersonManager.instance.GetPersonsNum();
         if (personNum > 0)
         {
@@ -41,14 +35,60 @@ public class IndexView : MonoBehaviour
             BtnCalendar.gameObject.SetActive(false);
         }
 
-        BtnCalendar.onClick.AddListener(delegate {
-            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
-                PanelManager.instance.PushPanel(PanelName.CalendarView,panel);
-            });
-        });
-        StartCoroutine(CorGenerateCloud());
+        
+       // StartCoroutine(CorGenerateCloud());
     }
 
+    private void AddBtnListener()
+    {
+        BtnCalendar.onClick.AddListener(delegate {
+            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) => {
+                PanelManager.instance.PushPanel(PanelName.CalendarView, panel);
+            });
+        });
+
+        BtnLetter.onClick.AddListener(delegate {
+            GameManager.instance.curJoinType = JoinType.Letter;
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
+            {
+                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
+            });
+        });
+
+        BtnNumber.onClick.AddListener(delegate {
+            GameManager.instance.curJoinType = JoinType.Num;
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
+            {
+                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
+            });
+        });
+
+        BtnAnimal.onClick.AddListener(delegate {
+            GameManager.instance.curJoinType = JoinType.Animal;
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
+            {
+                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
+            });
+        });
+    }
+
+    /*
+    BtnPlay.onClick.AddListener(delegate
+        {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            //GameManager.instance.SetNextSceneName("home");
+            //SceneManager.LoadScene("home");
+            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
+            {
+                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
+            });
+        });
+    */
+
+    /*
     void PlayButtonAni()
     {
         Sequence s = DOTween.Sequence();
@@ -62,23 +102,21 @@ public class IndexView : MonoBehaviour
         s.AppendInterval(0.5f);
         s.SetLoops(-1);
     }
+    */
 
+    /*
     IEnumerator CorGenerateCloud()
     {
         while (true)
         {
             Transform cloud = gamePool.ExitPool().transform;
             InitCloud(cloud);
-           
-
-            //Transform cloud = Instantiate(Cloud,Cloud.parent);
-            //cloud.gameObject.SetActive(true);
-            //cloud.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-            //cloud.SetAsFirstSibling();
             yield return new WaitForSeconds(0.7f);
         }
     }
+    */
 
+        /*
     private void InitCloud(Transform cloud)
     {
         cloud.localPosition = Cloud.localPosition;
@@ -88,12 +126,14 @@ public class IndexView : MonoBehaviour
         img.color = new Color(img.color.r, img.color.g, img.color.b, 255);
         cloud.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         cloud.name = "cloud";
-
     }
+    */
 
+        /*
     public void CloudEnterPool(GameObject cloud)
     {
         cloud.gameObject.SetActive(false);
         gamePool.EnterPool(cloud);
     }
+    */
 }

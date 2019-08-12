@@ -8,7 +8,8 @@ namespace GameMgr
     public enum JoinType
     {
         Letter,
-        Num
+        Num,
+        Animal,
     }
 
     //打开拼接页面的方式
@@ -19,6 +20,7 @@ namespace GameMgr
     }
     public class GameManager : SingletonMono<GameManager>
     {
+        /*
         [HideInInspector]
         public List<string> homePathList = new List<string>();//选择界面的资源路径
         [HideInInspector]
@@ -63,6 +65,7 @@ namespace GameMgr
         public Color[] ColorList;
         [HideInInspector]
         public Color[] MultiColorList;
+        */
 
         //创建出来的画布
         [HideInInspector]
@@ -100,10 +103,14 @@ namespace GameMgr
 
         void Start()
         {
-            InitItemList();//首页选字母，数字
-            InitResPrefabList();//素材中的预制体路径
-            InitResList();//素材资源
-            InitColor();
+            GameData.InitItemList();
+            GameData.InitResPrefabList();
+            GameData.InitResList();
+            GameData.InitColor();
+            //InitItemList();//首页选字母，数字
+            //InitResPrefabList();//素材中的预制体路径
+            //InitResList();//素材资源
+            //InitColor();
         }
 
         public Canvas GetCanvas()
@@ -115,6 +122,7 @@ namespace GameMgr
             return GameObject.Find("Canvas").GetComponent<Canvas>();
         }
 
+        /*
         //初始化颜色列表
         void InitColor()
         {
@@ -148,7 +156,9 @@ namespace GameMgr
                 new Color32(255, 127, 190, 255),//玫粉
             };
         }
+        */
 
+            /*
         //初始化item列表,首页选字母的
         void InitItemList()
         {
@@ -175,7 +185,9 @@ namespace GameMgr
                 drawAudioPathList.Add(string.Format(drawNumAudioPath, i.ToString()));
             }
         }
+        */
 
+            /*
         //初始化素材列表
         void InitResList()
         {
@@ -417,7 +429,9 @@ namespace GameMgr
             }
             resPathList.Add(legPathList);
         }
+        */
 
+            /*
         void InitResPrefabList()
         {
             string path = "prefabs/join|res_obj_{0}";
@@ -426,6 +440,7 @@ namespace GameMgr
                 resPrefabPathList.Add(string.Format(path, i.ToString()));
             }
         }
+        */
 
         public string FodderToSamllFodderPath(string path)
         {
@@ -457,13 +472,6 @@ namespace GameMgr
         {
             curWhole = whole;
         }
-
-        //public void JumpToJoin()
-        //{
-        //    AudioManager.instance.PlayAudio(EffectAudioType.Option, GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
-        //    GameManager.instance.SetNextSceneName("join");
-        //    SceneManager.LoadScene("transition");
-        //}
     }
    
 }

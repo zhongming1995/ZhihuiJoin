@@ -1,4 +1,5 @@
-﻿using DataMgr;
+﻿using AudioMgr;
+using DataMgr;
 using GameMgr;
 using Helper;
 using System.Collections;
@@ -53,6 +54,7 @@ public class CalenderItem : MonoBehaviour
 
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PersonManager.instance.CurPersonIndex = Index;
             UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_detail_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
                 PanelManager.instance.PushPanel(PanelName.CalendarDetailView,panel);
@@ -60,7 +62,8 @@ public class CalenderItem : MonoBehaviour
         });
 
         BtnDelete.onClick.AddListener(delegate {
-             CalenderController.instance.DeleteComplete(this);
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            CalenderController.instance.DeleteComplete(this);
         });
     }
 

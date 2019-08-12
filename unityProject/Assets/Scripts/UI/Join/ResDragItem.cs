@@ -42,7 +42,8 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         Init();
         TemplateResType type = GameManager.instance.curSelectResType;
         partType = GetPartTypeByResType(type, index);
-        string path = GameManager.instance.resPathList[(int)type][index];
+        string path = GameData.resPathList[(int)type][index];
+        //string path = GameManager.instance.resPathList[(int)type][index];
         UIHelper.instance.SetImage(path, image, true);
     }
 

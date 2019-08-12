@@ -40,7 +40,8 @@ public class CardItem : MonoBehaviour
         ps = transform.Find("particle_dismiss").GetComponent<ParticleSystem>();
 
         //设置图片
-        string path = GameManager.instance.homePathList[ID];
+        //string path = GameManager.instance.homePathList[ID];
+        string path = GameData.homePathList[ID];
         UIHelper.instance.SetImage(path, ImgCard, true);
 
         if (ID==GameManager.instance.homeSelectIndex)
@@ -72,7 +73,8 @@ public class CardItem : MonoBehaviour
         {
             BtnBack.interactable = false;
             FlipToForward(CompareCard);
-            AudioManager.instance.PlayOneShotAudio(GameManager.instance.drawAudioPathList[ID]);
+            //AudioManager.instance.PlayOneShotAudio(GameManager.instance.drawAudioPathList[ID]);
+            AudioManager.instance.PlayOneShotAudio(GameData.drawAudioPathList[ID]);
         });
     }
 

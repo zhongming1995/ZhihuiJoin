@@ -135,9 +135,11 @@ public class JoinMainView : MonoBehaviour
         //按钮点击
         AddClickEvent();
         //左下角参考缩略图
-        UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
+        //UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
+        UIHelper.instance.SetImage(GameData.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
         //涂色背景（只做淡入展示）
-        UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
+        //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
+        UIHelper.instance.SetImage(GameData.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
         {
@@ -186,7 +188,8 @@ public class JoinMainView : MonoBehaviour
         //绘画素材
         //BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
         //GameObject draw = UIHelper.instance.LoadPrefab("Prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
-        Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
+        //Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);        
+        Sprite s = UIHelper.instance.LoadSprite(GameData.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
         PenScaleSlider.value = 0.5f;
@@ -619,7 +622,6 @@ public class JoinMainView : MonoBehaviour
 
         });
        
-        
     }
 
     //加载所有类型素材
@@ -627,8 +629,10 @@ public class JoinMainView : MonoBehaviour
     {
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
-            string resPrefabPath = GameManager.instance.resPrefabPathList[i];
-            List<string> resPath = GameManager.instance.resPathList[i];
+            //string resPrefabPath = GameManager.instance.resPrefabPathList[i];
+            string resPrefabPath = GameData.resPrefabPathList[i];
+            //List<string> resPath = GameManager.instance.resPathList[i];
+            List<string> resPath =GameData.resPathList[i];
             if (resPath.Count <= 0)
             {
                 continue;
@@ -679,8 +683,10 @@ public class JoinMainView : MonoBehaviour
     //加载某种类型的素材
     private void LoadResListByType(int type)
     {
-        string resPrefabPath = GameManager.instance.resPrefabPathList[type];
-        List<string> resPath = GameManager.instance.resPathList[type];
+        //string resPrefabPath = GameManager.instance.resPrefabPathList[type];
+        string resPrefabPath = GameData.resPrefabPathList[type];
+        //List<string> resPath = GameManager.instance.resPathList[type];
+        List<string> resPath = GameData.resPathList[type];
         float width = ResContentList[type].GetComponent<RectTransform>().rect.size.x;
         if (resPath.Count <= 0)
         {

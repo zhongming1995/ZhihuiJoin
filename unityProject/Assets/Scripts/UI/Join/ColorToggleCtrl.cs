@@ -33,7 +33,8 @@ public class ColorToggleCtrl : MonoBehaviour
         toggleLst[2].isOn = true;
 
         //初始选中红色单色蜡笔
-        joinMainView.SelectColor(2, GameManager.instance.ColorList[2]);
+        //joinMainView.SelectColor(2, GameManager.instance.ColorList[2]);
+        joinMainView.SelectColor(2, GameData.ColorList[2]);
     }
 
     private void SelectOneColor(bool isOn,int index) {
@@ -50,7 +51,8 @@ public class ColorToggleCtrl : MonoBehaviour
                 isFirstValueChange = false;
             }
             //index：0为七彩笔 1为橡皮擦 2以后为颜色
-            joinMainView.SelectColor(index,GameManager.instance.ColorList[index]);
+            //joinMainView.SelectColor(index,GameManager.instance.ColorList[index]);
+            joinMainView.SelectColor(index, GameData.ColorList[index]);
             joinMainView.ShowBackBtn(false);
         }
     }

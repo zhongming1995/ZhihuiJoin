@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
+/*
 public class CloudAni : MonoBehaviour
 {
     private IndexView indexView;
@@ -46,3 +47,4 @@ public class CloudAni : MonoBehaviour
     }
 
 }
+*/

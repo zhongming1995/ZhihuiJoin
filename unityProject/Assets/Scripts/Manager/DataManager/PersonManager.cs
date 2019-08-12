@@ -94,7 +94,6 @@ public class PersonManager : SingletonMono<PersonManager>
                 {
                     continue;
                 }
-                Debug.Log("Name:" + files[i].Name);
                 pathList.Add(files[i].Name);
             }
         }

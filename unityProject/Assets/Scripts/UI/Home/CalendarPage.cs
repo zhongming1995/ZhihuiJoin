@@ -38,7 +38,6 @@ public class CalendarPage:MonoBehaviour
     IEnumerator Cor_LoadItems(int _index,bool first)
     {
         ShouldRefresh = false;
-        Debug.Log("Cor_LoadItems===========================" + ItemContent.childCount);
         PageIndex = _index;
         trueItemCount = 0;
         
@@ -54,6 +53,7 @@ public class CalendarPage:MonoBehaviour
         int i = startItemIndex;
         while (i < endItemIndex)
         {
+            Debug.Log("i:" + i);
             UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_item", ItemContent, Vector3.zero, Vector3.one, false, null, (item) => {
                 if (i<CalenderController.instance.PersonNum)
                 {
