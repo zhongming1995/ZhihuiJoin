@@ -175,7 +175,6 @@ public class JoinMainView : MonoBehaviour
         {
             joinPlus.LoadFile(GameManager.instance.curWhole);
         }
-
     }
 
     void ShowDrawPanel()
@@ -541,7 +540,7 @@ public class JoinMainView : MonoBehaviour
         }
         else if (step == 3)
         {
-            SetCurSelectType(TemplateResType.Hair);
+            SetCurSelectType(TemplateResType.Hat);
             BtnPre.gameObject.SetActive(true);
             BtnNext.GetComponent<UIMove>().MoveHide();
             BtnOk.GetComponent<UIScale>().ScaleShow();
@@ -632,9 +631,10 @@ public class JoinMainView : MonoBehaviour
             //string resPrefabPath = GameManager.instance.resPrefabPathList[i];
             string resPrefabPath = GameData.resPrefabPathList[i];
             //List<string> resPath = GameManager.instance.resPathList[i];
-            List<string> resPath =GameData.resPathList[i];
+            List<string> resPath = GameData.resPathList[i];
             if (resPath.Count <= 0)
             {
+
                 continue;
             }
             for (int j = 0; j < resPath.Count; j++)
