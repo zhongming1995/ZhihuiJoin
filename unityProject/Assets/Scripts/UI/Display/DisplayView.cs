@@ -64,7 +64,7 @@ public class DisplayView : MonoBehaviour
         GameOperDelegate.pianoBegin += JumpToGameCB;
         GameOperDelegate.cardBegin += JumpToGameCB;
         GameOperDelegate.fruitBegin += JumpToGameCB;
-        CallManager.savePhotoCallBack += SavePhotoCallBack;
+        //CallManager.savePhotoCallBack += SavePhotoCallBack;
     }
 
     private void OnDisable()
@@ -72,7 +72,7 @@ public class DisplayView : MonoBehaviour
         GameOperDelegate.pianoBegin -= JumpToGameCB;
         GameOperDelegate.cardBegin -= JumpToGameCB;
         GameOperDelegate.fruitBegin -= JumpToGameCB;
-        CallManager.savePhotoCallBack -= SavePhotoCallBack;
+        //CallManager.savePhotoCallBack -= SavePhotoCallBack;
     }
 
     //弃用
@@ -125,11 +125,11 @@ public class DisplayView : MonoBehaviour
             joinMainView.BackToJoinEdit();
         });
         BtnSave.onClick.AddListener(delegate {
-#if !UNITY_EDITOR
-            ShowMask(true);
-#endif
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            SavePic();
+//#if !UNITY_EDITOR
+//            ShowMask(true);
+//#endif
+//            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+//            SavePic();
         });
 
         BtnGame.onClick.AddListener(delegate
@@ -180,14 +180,14 @@ public class DisplayView : MonoBehaviour
 
 
                 //生成静态展示图片
-                StartCoroutine(CutScreen());
+                //StartCoroutine(CutScreen());
 
                 //播放打招呼的动画
                 Invoke("Greeting", 0.8f);
             });
         }
     }
-
+    /*
     IEnumerator CutScreen()
     {
         yield return new WaitForSeconds(0.8f);
@@ -243,6 +243,7 @@ public class DisplayView : MonoBehaviour
         Debug.Log("Display SavePhotoCallBack===========");
         ShowMask(false);
     }
+    */
 
     public void Greeting()
     {

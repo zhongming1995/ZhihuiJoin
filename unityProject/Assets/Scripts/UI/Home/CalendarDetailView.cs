@@ -7,6 +7,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using AudioMgr;
 using DataMgr;
+using System.IO;
+using System.Runtime.InteropServices;
 
 public class CalendarDetailView : MonoBehaviour
 {
@@ -18,9 +20,25 @@ public class CalendarDetailView : MonoBehaviour
     public Button BtnGame;
     public Button BtnBack;
 
-    private CalendarListDrag calendarListDrag;
+    public Transform PosFlag1;//左上角截屏定位点
+    public Transform PosFlag2;//右下角截屏定位点
+    public Transform ImgMask;//保存图片时的mask
 
+    private CalendarListDrag calendarListDrag;
     private List<CalendarDetailItem> detailList = new List<CalendarDetailItem>();
+
+    //保存相册
+    private Vector2 screenPosFlag1;
+    private Vector2 screenPosFlag2;
+    private int radius = 80;//参考半径 和texWidth有点关系
+    private int referenceWidth = 1206;//参考的图片宽
+    private int texWidth = 0;
+    private int texHeight = 0;
+    private Texture2D staticTexture;//静态展示图片
+    private string savePath = String.Empty;
+
+    [DllImport("__Internal")]
+    private static extern void UnityToIOS_SavePhotoToAlbum(string path);
 
     private void OnEnable()
     {
@@ -37,13 +55,15 @@ public class CalendarDetailView : MonoBehaviour
         GameOperDelegate.fruitBegin -= JumpToGameCB;
         CallManager.savePhotoCallBack -= SavePhotoCallBack;
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         calendarListDrag = ListContent.GetComponent<CalendarListDrag>();
         StartCoroutine(LoadPersonList(PersonManager.instance.pathList, PersonManager.instance.CurPersonIndex));
         AddBtnEvent();
+        ShowMask(false);
+        screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
+        screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
     }
 
     void AddBtnEvent()
@@ -72,6 +92,10 @@ public class CalendarDetailView : MonoBehaviour
 
         BtnDownload.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+#if !UNITY_EDITOR
+            ShowMask(true);
+#endif
+            StartCoroutine(CutScreen());
         });
 
         BtnEdit.onClick.AddListener(delegate {
@@ -158,9 +182,65 @@ public class CalendarDetailView : MonoBehaviour
         SetBtnActive(curIndex);
     }
 
+    IEnumerator CutScreen()
+    {
+        yield return new WaitForSeconds(0.8f);
+        //图片大小
+        texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
+        texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
+        staticTexture = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, true);
+        //计算四个角要裁切的圆半径
+        radius = (int)((decimal)radius / referenceWidth * texWidth);
+        //左下角是0，0
+        Rect rect = new Rect((int)screenPosFlag1.x, Screen.height - (int)(Screen.height - screenPosFlag2.y), texWidth, texHeight);
+        yield return new WaitForEndOfFrame();
+        //截屏
+        staticTexture.ReadPixels(rect, 0, 0, true);
+        Color32 color = new Color32(0, 0, 0, 0);
+        staticTexture.Apply();
+        BtnDownload.interactable = true;//保存按钮才可以用
+        yield return staticTexture;
+        SavePic();
+    }
+    void SavePic()
+    {
+       
+        byte[] b = staticTexture.EncodeToPNG();
+        string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
+        string photoName = "MyPhoto_" + date + ".png";
+        string folderPath = Application.persistentDataPath + "/image_shot";
+        //File.WriteAllBytes(path +"/"+ photoName, byt);//同步方法
+        DirectoryInfo info = new DirectoryInfo(folderPath);
+        if (!info.Exists) { 
+            Debug.Log("文件夹不存在:" + folderPath);
+            Directory.CreateDirectory(folderPath);
+        }
+        savePath = folderPath + "/" + photoName;
+        Debug.Log("图片保存的沙河地址：------------" + savePath);
+        FileStream fileStream = File.Open(savePath, FileMode.Create);
+        fileStream.BeginWrite(b, 0, b.Length, new AsyncCallback(EndWrite), fileStream);//异步方法
+    }
+
+    public void EndWrite(IAsyncResult result)
+    {
+        FileStream fileStream = (FileStream)result.AsyncState;
+        fileStream.EndWrite(result);
+        fileStream.Close();
+        Debug.Log("异步保存图片完成------------");
+
+        UnityToIOS_SavePhotoToAlbum(savePath);
+
+    }
+
     private void SavePhotoCallBack(string result)
     {
-        
+        Debug.Log("Display SavePhotoCallBack===========");
+        ShowMask(false);
+    }
+
+    private void ShowMask(bool show)
+    {
+        ImgMask.gameObject.SetActive(show);
     }
 
     private void JumpToGameCB()
