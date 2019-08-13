@@ -24,6 +24,8 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     bool isSelected = false;//是否被选中高亮
     Vector3 offset;
 
+    private string resPath;
+
     void Init()
     {
         joinMainView = GetComponentInParent<JoinMainView>();
@@ -37,13 +39,25 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         isInit = true;
     }
 
-    public void InitItem(int index)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="index">siblingIndex</param>
+    /// <param name="index">图片路径</param>
+    public void InitItem(int index,string paramPath = null)
     {
         Init();
         TemplateResType type = GameManager.instance.curSelectResType;
         partType = GetPartTypeByResType(type, index);
-        string path = GameData.resPathList[(int)type][index];
-        //string path = GameManager.instance.resPathList[(int)type][index];
+        string path = string.Empty;
+        if (paramPath==null)
+        {
+            path = GameData.resPathList[(int)type][index];
+        }
+        else
+        {
+            path = paramPath;
+        }
         UIHelper.instance.SetImage(path, image, true);
     }
 

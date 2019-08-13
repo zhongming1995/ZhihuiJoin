@@ -733,6 +733,10 @@ public class JoinMainView : MonoBehaviour
                     string selectPath = imgPath + "_select";
                     UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
                 }
+                else
+                {
+                    resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
+                }
             }
             else
             {
@@ -741,6 +745,7 @@ public class JoinMainView : MonoBehaviour
                 UIHelper.instance.SetImage(imgPath, resImg, true);
                 float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width+20, y+45);
+                resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
             }
         }
         loadResult[type] = true;

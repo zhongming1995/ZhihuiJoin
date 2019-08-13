@@ -16,6 +16,7 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     private Transform HandLegGroup;
     private Transform EyeMouthHairGroup;
     private Transform HatHeadwearGroup;
+    private string resPath;
 
     void Start()
     {
@@ -49,7 +50,7 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
             genParent = GameObject.Find("img_draw_bg/draw_panel/group_hatheadwear").transform;
         }
         GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
-        obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex());
+        obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex(),resPath);
         eventData.pointerDrag = obj;
     }
 
@@ -67,5 +68,10 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
         {
             scrollRect.OnEndDrag(eventData);
         }
+    }
+
+    public void SetPath(string paramPath)
+    {
+        resPath = paramPath;
     }
 }

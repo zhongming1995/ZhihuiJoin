@@ -212,32 +212,22 @@ public class JoinGuide : MonoBehaviour
         }
         else if (GameManager.instance.curSelectResType==TemplateResType.Hair)
         {
-            if (rCount % 6 == 1)
+            if (rCount % 4 == 1)
             {
                 //Debug.Log("帽子=====");
                 DoHatReminder();
             }
-            else if (rCount % 6 == 2)
+            else if (rCount % 4 == 2)
             {
                 //Debug.Log("完成====");
                 DoCompleteReminder();
             }
-            else if (rCount % 6 == 3)
+            else if (rCount % 4 == 3)
             {
                 //Debug.Log("装饰品=====");
                 DoHeadWearReminder();
             }
-            else if (rCount % 6 == 4)
-            {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
-            }
-            else if (rCount % 6 == 5)
-            {
-                //Debug.Log("头发=====");
-                DoHairReminder();
-            }
-            else if (rCount % 6 == 0)
+            else if (rCount % 4 == 0)
             {
                 //Debug.Log("完成====");
                 DoCompleteReminder();
@@ -245,32 +235,22 @@ public class JoinGuide : MonoBehaviour
         }
         else if (GameManager.instance.curSelectResType==TemplateResType.Hat)
         {
-            if (rCount % 6 == 1)
+            if (rCount % 4 == 1)
             {
                 //Debug.Log("饰品=====");
                 DoHeadWearReminder();
             }
-            else if (rCount % 6 == 2)
+            else if (rCount % 4 == 2)
             {
                 //Debug.Log("完成====");
                 DoCompleteReminder();
             }
-            else if (rCount % 6 == 3)
-            {
-                //Debug.Log("头发=====");
-                DoHairReminder();
-            }
-            else if (rCount % 6 == 4)
-            {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
-            }
-            else if (rCount % 6 == 5)
+            else if (rCount % 4 == 3)
             {
                 //Debug.Log("帽子=====");
                 DoHatReminder();
             }
-            else if (rCount % 6 == 0)
+            else if (rCount % 4 == 0)
             {
                 //Debug.Log("完成====");
                 DoCompleteReminder();
@@ -278,32 +258,23 @@ public class JoinGuide : MonoBehaviour
         }
         else if (GameManager.instance.curSelectResType == TemplateResType.HeadWear)
         {
-            if (rCount % 6 == 1)
-            {
-                //Debug.Log("头发=====");
-                DoHairReminder();
-            }
-            else if (rCount % 6 == 2)
-            {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
-            }
-            else if (rCount % 6 == 3)
+            
+            if (rCount % 4 == 1)
             {
                 //Debug.Log("帽子=====");
                 DoHatReminder();
             }
-            else if (rCount % 6 == 4)
+            else if (rCount % 4 == 2)
             {
                 //Debug.Log("完成====");
                 DoCompleteReminder();
             }
-            else if (rCount % 6 == 5)
+            else if (rCount % 4 == 3)
             {
                 //Debug.Log("装饰品=====");
                 DoHeadWearReminder();
             }
-            else if (rCount % 6 == 0)
+            else if (rCount % 4 == 0)
             {
                 //Debug.Log("完成====");
                 DoCompleteReminder();
