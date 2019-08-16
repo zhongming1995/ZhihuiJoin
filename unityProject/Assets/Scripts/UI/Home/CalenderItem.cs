@@ -43,8 +43,7 @@ public class CalenderItem : MonoBehaviour
         //异步加载人物
         DataManager.instance.GetPersonObjAsync(whole.partDataList, (person) =>
         {
-            Transform personParent = transform.Find("item_mask/person_parent").transform;
-            person.transform.SetParent(personParent);
+            person.transform.SetParent(PersonParent);
             person.transform.localPosition = Vector3.zero;
             person.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         });
@@ -65,6 +64,13 @@ public class CalenderItem : MonoBehaviour
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.DeleteComplete(this);
         });
+    }
+
+    public void Refresh(int _pageIndex, int _index, string _fileName, PartDataWhole whole)
+    {
+        DestroyImmediate(PersonParent.GetChild(0).gameObject);
+        //加载新的人物
+        Init(_pageIndex, _index, _fileName, whole);
     }
 
     public void ShowDelete(bool show)

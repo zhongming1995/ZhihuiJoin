@@ -38,6 +38,9 @@ public class DisplayView : MonoBehaviour
     private Texture2D staticTexture;//静态展示图片
     private DisplayPartItem[] lstDisplayItem;
 
+    public delegate void RefreshCalendar(int index);
+    public static event RefreshCalendar refreshCalendar;
+
     [DllImport("__Internal")]
     private static extern void UnityToIOS_SavePhotoToAlbum(string path);
 
@@ -115,6 +118,11 @@ public class DisplayView : MonoBehaviour
             else
             {
                 PanelManager.instance.BackToView(PanelName.CalendarView);
+                //刷新修改的人物
+                if (refreshCalendar!=null)
+                {
+                    refreshCalendar(CalendarDetailController.instance.curDetailIndex);
+                }
             }
         });
 
@@ -183,7 +191,8 @@ public class DisplayView : MonoBehaviour
                 //StartCoroutine(CutScreen());
 
                 //播放打招呼的动画
-                Invoke("Greeting", 0.8f);
+                Invoke("Greeting", 0.1f);
+                Invoke("Greeting", 2.1f);
             });
         }
     }
@@ -247,7 +256,8 @@ public class DisplayView : MonoBehaviour
 
     public void Greeting()
     {
-        DataManager.instance.PersonGreeting(lstDisplayItem);
+        //DataManager.instance.PersonGreeting(lstDisplayItem);
+        DataManager.instance.PersonJumpAndWave(lstDisplayItem);
     }
 
     private void OnDestroy()

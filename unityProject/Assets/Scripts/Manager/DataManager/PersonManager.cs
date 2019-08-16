@@ -69,10 +69,8 @@ public class PersonManager : SingletonMono<PersonManager>
                 {
                     continue;
                 }
-                Debug.Log("Name:" + files[i].Name);
             }
         }
-        Debug.Log("num:" + num);
         personCount = num;
         return num;
     }

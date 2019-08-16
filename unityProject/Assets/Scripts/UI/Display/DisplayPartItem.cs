@@ -9,7 +9,6 @@ public class DisplayPartItem : MonoBehaviour
     //private Animator animator;
     public Animation item_animation;
     private RectTransform rectTransform;
-    private string actionName = "Greeting_LeftEye";
     public string Greeting = "Greeting";
     public string Dance = "Dance_";
     public string Default = "Default";

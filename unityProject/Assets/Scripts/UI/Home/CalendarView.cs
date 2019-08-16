@@ -18,10 +18,6 @@ public class CalendarView : MonoBehaviour
     public Text TxtPage;
     public Button BtnPre;
     public Button BtnNext;
-
-    //当前页面的人物列表
-    //private List<CalenderItem> personList = new List<CalenderItem>();
-
     private List<CalendarPage> pageList = new List<CalendarPage>();
     private float PageWidth;
     private float PageHeight;
@@ -34,7 +30,6 @@ public class CalendarView : MonoBehaviour
         InitPageList();
         SetPageText();
         SetPageSwitchBtn();
-        //RefreshList();
         SwitchDelBtn(true);
     }
 
@@ -81,7 +76,7 @@ public class CalendarView : MonoBehaviour
     /// 增加一个页面
     /// </summary>
     /// <param name="_index">真实页面索引</param>
-    private void AddOnePage(int _index)
+    private void AddOnePage(int _index,Action cb = null)
     {
         Debug.Log("AddOnePage");
         UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_page", ListContent, Vector3.zero, Vector3.one, false,null,(page)=> {
@@ -90,6 +85,10 @@ public class CalendarView : MonoBehaviour
             CalendarPage calendarPage = page.GetComponent<CalendarPage>();
             calendarPage.LoadItems(_index,true);
             pageList.Add(calendarPage);
+            if (cb!=null)
+            {
+                cb();
+            }
         });
     }
 
@@ -165,6 +164,7 @@ public class CalendarView : MonoBehaviour
         CalenderController.deleteItemComplete += DeleteItemComplete;
         CalendarPageScroll.pageScrollEnd += PageScrollEndFunc;
         CalenderController.deletePageComplete += DeletePageComplete;
+        DisplayView.refreshCalendar += RefreshList;
     }
 
     private void RemoveEventListener()
@@ -172,11 +172,55 @@ public class CalendarView : MonoBehaviour
         CalenderController.deleteItemComplete -= DeleteItemComplete;
         CalendarPageScroll.pageScrollEnd -= PageScrollEndFunc;
         CalenderController.deletePageComplete -= DeletePageComplete;
+        DisplayView.refreshCalendar -= RefreshList;
     }
 
-    public void RefreshList()
+    public void RefreshList(int index)
     {
-        //StartCoroutine(LoadPersonList(CalenderController.instance.GetPersonList()));
+        pageList.Clear();
+        CalenderController.instance.GetPersonList();
+        CalenderController.instance.CurPageIndex = 0;
+        for (int i = ListContent.childCount-1; i >= 0; i--)
+        {
+            DestroyImmediate(ListContent.GetChild(i).gameObject);
+        }
+        InitPageList();
+        SetPageText();
+        SetPageSwitchBtn();
+        PageScrollEndFunc(0);
+        /*
+        //根据总索引得到页面索引和当前页面下的人物索引
+        int pageIndex = index / 6;
+        int curIndex = index % 6;
+        //判断这个页面是否已加载了
+        if (pageIndex >= pageList.Count)
+        {
+            int endIndex = pageIndex - pageList.Count + 1;
+            for (int i = 0; i < endIndex; i++)
+            {
+                if (i==endIndex-1)
+                {
+                    AddOnePage(pageList.Count + i,()=> {
+                        PageScrollEndFunc(pageIndex);
+                        RefreshPerson(pageIndex, curIndex);
+                    });
+                }
+                else
+                {
+                    AddOnePage(pageList.Count + i);
+                }
+            }
+        }
+        else
+        {
+            RefreshPerson(pageIndex, curIndex);
+        }
+        */
+    }
+
+    public void RefreshPerson(int pageIndex,int itemIndex)
+    {
+        pageList[pageIndex].RefreshOneItem(pageIndex, itemIndex);
     }
 
     private void PageScrollEndFunc(int _curIndex)
@@ -278,7 +322,7 @@ public class CalendarView : MonoBehaviour
         if (deleteItem != null)
         {
             DestroyImmediate(deleteItem.gameObject);
-            pageList[deleteItem.PageIndex].RefreshList(deleteItem.PageIndex,deleteItem);
+            pageList[deleteItem.PageIndex].DeleteOneItem(deleteItem.PageIndex,deleteItem);
 
             for (int i = deleteItem.PageIndex + 1; i < pageList.Count; i++)
             {

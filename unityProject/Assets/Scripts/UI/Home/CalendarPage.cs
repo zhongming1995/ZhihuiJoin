@@ -84,9 +84,9 @@ public class CalendarPage:MonoBehaviour
         }
     }
 
-    public void RefreshList(int _index,CalenderItem deleteItem)
+    public void DeleteOneItem(int _index,CalenderItem deleteItem)
     {
-        Debug.Log("RefreshList========================");
+        Debug.Log("DeleteOne========================");
         PageIndex = _index;
         int index = endItemIndex - 1;
         personList.Remove(deleteItem);
@@ -105,7 +105,7 @@ public class CalendarPage:MonoBehaviour
             }
             else
             {
-                trueItemCount -= 1; ;
+                trueItemCount -= 1;
                 Debug.Log("load null:" + index + " count:" + trueItemCount);
                 CalenderItem calenderItem = item.GetComponent<CalenderItem>();
                 calenderItem.Init();
@@ -115,7 +115,13 @@ public class CalendarPage:MonoBehaviour
                 CalenderController.instance.DeletePageFunc(this);
             }
         });
-        
+    }
+
+    public void RefreshOneItem(int _pageIndex,int _itemIndex)
+    {
+        string path = CalenderController.instance.pathList[_itemIndex];
+        PartDataWhole whole = PersonManager.instance.DeserializePerson(path);
+        personList[_pageIndex].Refresh(_pageIndex, _itemIndex, path, whole);
     }
 
     public void SetDeleteStatus(bool isDelete)
