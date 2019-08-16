@@ -724,7 +724,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 19c81b3b8b08d42dfa2e7bb090c3a2a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91ea35095265a4b4a8ba73cff0a33fdb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1352,16 +1352,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaiDai02
       objectReference: {fileID: 0}
-    - target: {fileID: 8588666898695214223, guid: 8005c0aa81908324cb959aeeeef0902b,
-        type: 3}
-      propertyPath: simulationSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8588666898695214223, guid: 8005c0aa81908324cb959aeeeef0902b,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5453727721171062927, guid: 8005c0aa81908324cb959aeeeef0902b,
         type: 3}
       propertyPath: simulationSpeed
@@ -1425,6 +1415,16 @@ PrefabInstance:
     - target: {fileID: 6526820116281165753, guid: 8005c0aa81908324cb959aeeeef0902b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588666898695214223, guid: 8005c0aa81908324cb959aeeeef0902b,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588666898695214223, guid: 8005c0aa81908324cb959aeeeef0902b,
+        type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
