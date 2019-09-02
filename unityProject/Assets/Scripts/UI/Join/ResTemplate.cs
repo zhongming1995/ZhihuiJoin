@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using Helper;
 using GameMgr;
 using UnityEngine.UI;
+using AudioMgr;
 
 public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
@@ -35,7 +36,7 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
             scrollRect.OnBeginDrag(eventData);
             return;
         }
-        
+        AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
         TemplateResType type = GameManager.instance.curSelectResType;
         if (type == TemplateResType.Hand || type == TemplateResType.Leg)//手脚
         {

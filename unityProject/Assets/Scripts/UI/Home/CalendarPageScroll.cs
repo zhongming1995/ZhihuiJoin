@@ -53,6 +53,7 @@ public class CalendarPageScroll : MonoBehaviour,IBeginDragHandler,IDragHandler,I
         }
         if (pageScrollEnd != null)
         {
+            Debug.Log("EndDrag");
             pageScrollEnd(CalenderController.instance.CurPageIndex);
         }
         /*

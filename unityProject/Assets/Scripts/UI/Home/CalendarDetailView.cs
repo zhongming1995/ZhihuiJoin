@@ -42,24 +42,20 @@ public class CalendarDetailView : MonoBehaviour
 
     private void OnEnable()
     {
-        GameOperDelegate.pianoBegin += JumpToGameCB;
-        GameOperDelegate.cardBegin += JumpToGameCB;
-        GameOperDelegate.fruitBegin += JumpToGameCB;
         CallManager.savePhotoCallBack += SavePhotoCallBack;
     }
     
     private void OnDisable()
     {
-        GameOperDelegate.pianoBegin -= JumpToGameCB;
-        GameOperDelegate.cardBegin -= JumpToGameCB;
-        GameOperDelegate.fruitBegin -= JumpToGameCB;
         CallManager.savePhotoCallBack -= SavePhotoCallBack;
     }
     
     void Start()
     {
-        calendarListDrag = ListContent.GetComponent<CalendarListDrag>();
+        GameManager.instance.displayType = DisplayType.NoDisplay;
+        calendarListDrag = transform.GetComponentInChildren<CalendarListDrag>();
         StartCoroutine(LoadPersonList(PersonManager.instance.pathList, PersonManager.instance.CurPersonIndex));
+        AddEventListener();
         AddBtnEvent();
         ShowMask(false);
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
@@ -70,24 +66,28 @@ public class CalendarDetailView : MonoBehaviour
     {
         BtnBack.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            Debug.Log("back");
-            PanelManager.instance.CloseTopPanel();
+            GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //PanelManager.instance.CloseTopPanel();
+            //Destroy(gameObject);
         });
 
         BtnPre.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             int curIndex = CalendarDetailController.instance.PreDetail();
+            PersonManager.instance.CurPersonIndex = curIndex;
             calendarListDrag.AniResetPosition(curIndex);
             calendarListDrag.AniResetScaleAndAlpha(curIndex);
-            SetBtnActive(curIndex);
+            SetBtnActive(curIndex,CalenderController.instance.PersonNum);
         });
 
         BtnNext.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             int curIndex = CalendarDetailController.instance.NextDetail();
+            PersonManager.instance.CurPersonIndex = curIndex;
             calendarListDrag.AniResetPosition(curIndex);
             calendarListDrag.AniResetScaleAndAlpha(curIndex);
-            SetBtnActive(curIndex);
+            SetBtnActive(curIndex, CalenderController.instance.PersonNum);
         });
 
         BtnDownload.onClick.AddListener(delegate {
@@ -95,7 +95,9 @@ public class CalendarDetailView : MonoBehaviour
 #if !UNITY_EDITOR
             ShowMask(true);
 #endif
-            StartCoroutine(CutScreen());
+            //StartCoroutine(CutScreen());
+            string path = PersonManager.instance.PersonImgPath + "/" + PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex] + ".png";
+            UnityToIOS_SavePhotoToAlbum(path);
         });
 
         BtnEdit.onClick.AddListener(delegate {
@@ -108,9 +110,9 @@ public class CalendarDetailView : MonoBehaviour
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
             PersonManager.instance.PersonFileName = fileName;
-            UIHelper.instance.LoadPrefabAsync("Prefabs/join|join_main_view",GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) => {
-                PanelManager.instance.PushPanel(PanelName.JoiMainView,panel);
-            });
+            PanelManager.instance.CloseTopPanel();
+            GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
          
         BtnGame.onClick.AddListener(delegate {
@@ -123,19 +125,39 @@ public class CalendarDetailView : MonoBehaviour
         });
     }
 
-    private void SetBtnActive(int _curIndex)
+    void AddEventListener()
     {
+        calendarListDrag.detailSwitchIndex += SwitchIndexFunc;
+    }
+
+    void RemoveEventListener()
+    {
+        calendarListDrag.detailSwitchIndex -= SwitchIndexFunc;
+    }
+
+    private void SwitchIndexFunc(int _curIndex)
+    {
+        CalendarDetailController.instance.curDetailIndex = _curIndex;
+        SetBtnActive(_curIndex, CalenderController.instance.PersonNum);
+    }
+
+    private void SetBtnActive(int _curIndex,int total)
+    {
+        Debug.Log("curindex:------" + _curIndex + "  :"+detailList.Count);
         if (_curIndex == 0)
         {
             BtnPre.gameObject.SetActive(false);
         }
-        else if (_curIndex == detailList.Count - 1)
+        else
+        {
+            BtnPre.gameObject.SetActive(true);
+        }
+        if (_curIndex == total - 1)
         {
             BtnNext.gameObject.SetActive(false);
         }
         else
         {
-            BtnPre.gameObject.SetActive(true);
             BtnNext.gameObject.SetActive(true);
         }
     }
@@ -149,37 +171,38 @@ public class CalendarDetailView : MonoBehaviour
     IEnumerator LoadPersonList(List<string> pathList,int curIndex)
     {
         int index = 0;
-        SetBtnActive(curIndex);
+        SetBtnActive(curIndex, CalenderController.instance.PersonNum);
         EnableBtn(false);
+        Vector2 realScreen = UIHelper.instance.GetRealScreen();
+        ListContent.GetComponent<RectTransform>().sizeDelta = new Vector2(650 * pathList.Count, realScreen.y);
         calendarListDrag.ResetPosition(curIndex);
-
+        WaitForSeconds delay = new WaitForSeconds(0.01f);
         while (index < pathList.Count)
         {
-            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_detail_item", ListContent, Vector3.zero, Vector3.one, false, null, (item) => {
-                PartDataWhole whole = PersonManager.instance.DeserializePerson(pathList[index]);
-                item.name = pathList[index];
-                item.transform.localPosition = new Vector3(index * 650, 0, 0);
-                CalendarDetailItem detailItem = item.GetComponent<CalendarDetailItem>();
-                if (curIndex == index)
-                {
-                    detailItem.Init(whole, true);
-                }
-                else
-                {
-                    detailItem.Init(whole, false);
-                }
-                detailList.Add(detailItem);
-                index += 1;
-                if (index == pathList.Count-1)
-                {
-                    CalendarDetailController.instance.SetDetailList(detailList);
-                    CalendarDetailController.instance.curDetailIndex = curIndex;
-                }
-            });
-            yield return new WaitForSeconds(0.01f);
+            int curI = index;
+            GameObject item = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_detail_item", ListContent, Vector3.zero, Vector3.one, false);
+            item.name = pathList[curI];
+            item.transform.localPosition = new Vector3(curI * 650, 0, 0);
+            CalendarDetailItem detailItem = item.GetComponent<CalendarDetailItem>();
+            if (curIndex == curI)
+            {
+                detailItem.Init(pathList[curI], true);
+            }
+            else
+            {
+                detailItem.Init(pathList[curI], false);
+            }
+            detailList.Add(detailItem);
+
+            if (curI == pathList.Count - 1)
+            {
+                CalendarDetailController.instance.SetDetailList(detailList);
+                CalendarDetailController.instance.curDetailIndex = curIndex;
+            }
+            index += 1;
+            yield return delay;
         }
         EnableBtn(true);
-        SetBtnActive(curIndex);
     }
 
     IEnumerator CutScreen()
@@ -204,8 +227,8 @@ public class CalendarDetailView : MonoBehaviour
     }
     void SavePic()
     {
-       
-        byte[] b = staticTexture.EncodeToPNG();
+        Texture2D t = detailList[CalendarDetailController.instance.curDetailIndex].rawImage.texture as Texture2D;
+        byte[] b = t.EncodeToPNG();
         string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
         string photoName = "MyPhoto_" + date + ".png";
         string folderPath = Application.persistentDataPath + "/image_shot";
@@ -225,6 +248,7 @@ public class CalendarDetailView : MonoBehaviour
     {
         FileStream fileStream = (FileStream)result.AsyncState;
         fileStream.EndWrite(result);
+        fileStream.Flush();
         fileStream.Close();
         Debug.Log("异步保存图片完成------------");
 
@@ -243,13 +267,9 @@ public class CalendarDetailView : MonoBehaviour
         ImgMask.gameObject.SetActive(show);
     }
 
-    private void JumpToGameCB()
-    {
-        
-    }
-
     private void OnDestroy()
     {
+        RemoveEventListener();
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }

@@ -24,6 +24,7 @@ public class CardView : MonoBehaviour
 
     private GameObject completeWindow;
 
+    private WaitForSeconds timeDelay = new WaitForSeconds(1.0f);
 
     private void AddListener()
     {
@@ -184,12 +185,13 @@ public class CardView : MonoBehaviour
         ImgProgress.transform.localPosition = new Vector3(oriProgressPosx, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
 
         //倒计时
+        WaitForSeconds delay = new WaitForSeconds(0.1f);
         float perX = ImgProgress.GetComponent<RectTransform>().sizeDelta.x / (countMaxTime / 0.1f);
         while (countTime<countMaxTime)
         {
             countTime += 0.1f;
             ImgProgress.transform.localPosition = new Vector3(ImgProgress.transform.localPosition.x + perX, ImgProgress.transform.localPosition.y, ImgProgress.transform.localPosition.z);
-            yield return new WaitForSeconds(0.1f);
+            yield return delay;
         }
 
         //时间消失
@@ -210,7 +212,7 @@ public class CardView : MonoBehaviour
 
     void ChapterEndFuncReal()
     {
-        if (CardController.instance.chapter < 4)
+        if (CardController.instance.chapter < 3)
         {
             //generate new
             InitGame(CardController.instance.chapter + 1);
@@ -225,9 +227,8 @@ public class CardView : MonoBehaviour
     {
         string path = "Prefabs/game/window|window_complete";
         //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefabAsync(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (go) => {
-            completeWindow = go;
-        });
+        GameObject go = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        completeWindow = go;
     }
 
     void SetChapterNum()
@@ -278,7 +279,7 @@ public class CardView : MonoBehaviour
 
     IEnumerator Cor_CardDismissReal(CardItem item1, CardItem item2)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return timeDelay;
         item1.Dismiss();
         item2.Dismiss(()=> {
             ShowMask(false);
@@ -295,7 +296,7 @@ public class CardView : MonoBehaviour
 
     IEnumerator Cor_CardFlipBack(CardItem item1,CardItem item2)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return timeDelay;
         item1.FlipToBackward();
         item2.FlipToBackward(() =>
         {

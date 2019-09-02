@@ -6,6 +6,7 @@ using Helper;
 using GameMgr;
 using UnityEngine.SceneManagement;
 using AudioMgr;
+using System;
 
 public class HomeView : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class HomeView : MonoBehaviour
     void Start()
     {
         //初始化位置
-        GameManager.instance.homeContentPosx = 0;
+        //GameManager.instance.homeContentPosx = 0;
         //按钮点击事件
         BtnClickEvent();
        
@@ -49,29 +50,32 @@ public class HomeView : MonoBehaviour
             item.name = i.ToString();
             itemObjList.Add(item);
             //UIHelper.instance.SetImage(GameManager.instance.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
-            UIHelper.instance.SetImage(GameData.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
+            //UIHelper.instance.SetImage(GameData.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
+            RawImage image = item.transform.Find("img_bg/img_item").GetComponent<RawImage>();
+            image.texture = UIHelper.instance.LoadSprite(GameData.homePathList[i]).texture;
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标
+                AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
                 GameManager.instance.SetJoinShowAll(false);
                 GameManager.instance.SetOpenType(OpenType.FirstEdit);
                 GameManager.instance.homeSelectIndex = j;
-                PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.GetPersonsNum();
+                PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.PersonCount;
                 GameManager.instance.homeContentPosx = ListViewContent.localPosition.x;
                 //记录列表的位置
                 //跳转后再播放素材模版音效
-                //AudioManager.instance.PlayAudio(EffectAudioType.Option,GameManager.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
-                AudioManager.instance.PlayAudio(EffectAudioType.Option, GameData.drawAudioPathList[GameManager.instance.homeSelectIndex]);
+                //AudioManager.instance.PlayAudio(EffectAudioType.Option, GameData.drawAudioPathList[GameManager.instance.homeSelectIndex]);
                 JumpToJoin();
-
             });
         }
     }
 
     private void JumpToJoin()
     {
-        UIHelper.instance.LoadPrefabAsync("Prefabs/join|join_main_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) => {
-            PanelManager.instance.PushPanel(PanelName.JoiMainView,panel);
-        });
+        //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/join|join_main_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //PanelManager.instance.PushPanel(PanelName.JoiMainView,panel);
+        //PanelManager.instance.CloseTopPanel();
+        GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
+        UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     private void BtnClickEvent()
@@ -79,7 +83,15 @@ public class HomeView : MonoBehaviour
         btnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PanelManager.instance.CloseTopPanel();
+            //PanelManager.instance.CloseTopPanel();
+            GameManager.instance.SetNextViewPath(PanelName.IndexView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
+    }
+
+    private void OnDestroy()
+    {
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }

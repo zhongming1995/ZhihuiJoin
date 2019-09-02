@@ -23,7 +23,7 @@ public class UIScale : MonoBehaviour
         }
         else
         {
-            if (enableCount != 0)
+            if (enableCount == 0)
             {
                 ScaleShow();
             }

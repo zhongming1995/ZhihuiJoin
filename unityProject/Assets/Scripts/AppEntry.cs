@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using ResMgr;
 using UnityEngine.SceneManagement;
+using UnityEngine.Profiling;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
-    //用来控制资源加载方式，isEditorDebug=true时用编辑器下的方法，isEditorDebug=false 正式时用AssetBundle
-    public bool isEditorDebug;
-
+    public bool IsDebugging;
     private void Awake()
     {
         instance = this;
@@ -27,6 +26,8 @@ public class AppEntry : SingletonMono<AppEntry>
 
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
+
+        IsDebugging = true;
 
         /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())

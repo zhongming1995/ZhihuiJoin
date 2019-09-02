@@ -14,6 +14,7 @@ public class CalenderController : SingletonMono<CalenderController>
     public List<CalendarPage> PageList = new List<CalendarPage>();
     [HideInInspector]
     public List<string> pathList;//保存的人物的路径列表
+    //public List<string> ImgPathList;//保存的人物的图片路径列表
     public int PersonNum { get; set; }//人物总数
     public int CurPageIndex { get; set; }//真实页面索引，根据这个索引加载对应的人物列表
     public int PageNum{ get; set; }//总页数
@@ -31,6 +32,7 @@ public class CalenderController : SingletonMono<CalenderController>
     public List<string> GetPersonList()
     {
         pathList = PersonManager.instance.GetPersonsList();
+        //ImgPathList = PersonManager.instance.GetPersonsImageList();
         PersonNum = pathList.Count;
         GetPageNum(PersonNum);
         return pathList;
@@ -52,7 +54,7 @@ public class CalenderController : SingletonMono<CalenderController>
 
     public void DeleteComplete(CalenderItem item)
     {
-        bool isDelete = PersonManager.instance.DeletePerson(item.fileName);
+        PersonManager.instance.DeletePerson(item.fileName);
         pathList.Remove(item.fileName);
         PersonNum--;
         GetPageNum(PersonNum);

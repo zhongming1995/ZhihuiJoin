@@ -229,7 +229,7 @@ public class FruitView :MonoBehaviour
 
     private IEnumerator NextChapter(int number)
     {
-        yield return new WaitForSeconds(0);
+        yield return null;
         if (FruitController.instance.chapter < 3)
         {
             ChapterEndFunc(false);
@@ -272,9 +272,8 @@ public class FruitView :MonoBehaviour
     {
         string path = "Prefabs/game/window|window_complete";
         //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefabAsync(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (go) => {
-            completeWindow = go;
-        });
+        GameObject go = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        completeWindow = go;
     }
 
     void SetFruitNumber(int number)

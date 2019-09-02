@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AudioMgr;
 using GameMgr;
+using Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,6 +30,7 @@ public class PauseWindow : WindowParent
 
     void AddClickEvent()
     {
+        //暂时无用
         BtnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -36,6 +38,7 @@ public class PauseWindow : WindowParent
             GameOperDelegate.GoToHome();
         });
 
+        //暂时无用
         BtnEdit.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -58,7 +61,18 @@ public class PauseWindow : WindowParent
         BtnDisplay.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
-            PanelManager.instance.CloseTopPanel();
+            if (GameManager.instance.displayType == DisplayType.NoDisplay)
+            {
+                GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+            else
+            {
+                GameManager.instance.displayType = DisplayType.BackDisplay;
+                GameManager.instance.SetNextViewPath(PanelName.DisplayView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+
             GameOperDelegate.GotoDisplay();
         });
 

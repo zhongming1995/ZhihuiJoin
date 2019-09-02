@@ -8,7 +8,8 @@ public class ButtonScaleAni : MonoBehaviour,IPointerDownHandler,IPointerUpHandle
 {
     public float duration = 0.1f;
     public Vector3 originValue = new Vector3(1.0f, 1.0f, 1.0f);
-    public Vector3 endValue = new Vector3(0.85f, 0.85f, 0.85f);
+    public Vector3 endValue = new Vector3(0.95f, 0.95f, 0.95f);
+    public Transform targetTrans;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -16,12 +17,26 @@ public class ButtonScaleAni : MonoBehaviour,IPointerDownHandler,IPointerUpHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        transform.DOScale(endValue, duration);
+        if (targetTrans != null)
+        {
+            targetTrans.DOScale(endValue, duration);
+        }
+        else
+        {
+            transform.DOScale(endValue, duration);
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        transform.DOScale(originValue, duration);
+        if (targetTrans != null)
+        {
+            targetTrans.DOScale(originValue, duration);
+        }
+        else
+        {
+            transform.DOScale(originValue, duration);
+        }
     }
 
 }

@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using Helper;
+﻿using System;
+using System.Collections;
+using System.Runtime.InteropServices;
+using AudioMgr;
 using DataMgr;
 using GameMgr;
-using System.IO;
-using System.Runtime.InteropServices;
-using System;
-using UnityEngine.SceneManagement;
-using AudioMgr;
+using Helper;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayView : MonoBehaviour
 {
@@ -29,7 +26,6 @@ public class DisplayView : MonoBehaviour
     private Vector2 rectImgDisplay;
     private Vector2 screenPosFlag1;
     private Vector2 screenPosFlag2;
-    private string savePath = String.Empty;
 
     private int radius = 80;//参考半径 和texWidth有点关系
     private int referenceWidth = 1206;//参考的图片宽
@@ -67,7 +63,13 @@ public class DisplayView : MonoBehaviour
         GameOperDelegate.pianoBegin += JumpToGameCB;
         GameOperDelegate.cardBegin += JumpToGameCB;
         GameOperDelegate.fruitBegin += JumpToGameCB;
-        //CallManager.savePhotoCallBack += SavePhotoCallBack;
+        CallManager.savePhotoCallBack += SavePhotoCallBack;
+    }
+
+    private void SavePhotoCallBack(string result)
+    {
+        Debug.Log("Display SavePhotoCallBack===========");
+        ShowMask(false);
     }
 
     private void OnDisable()
@@ -75,7 +77,7 @@ public class DisplayView : MonoBehaviour
         GameOperDelegate.pianoBegin -= JumpToGameCB;
         GameOperDelegate.cardBegin -= JumpToGameCB;
         GameOperDelegate.fruitBegin -= JumpToGameCB;
-        //CallManager.savePhotoCallBack -= SavePhotoCallBack;
+        CallManager.savePhotoCallBack -= SavePhotoCallBack;
     }
 
     //弃用
@@ -111,13 +113,17 @@ public class DisplayView : MonoBehaviour
         BtnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            if (GameManager.instance.openType==OpenType.FirstEdit)
+            if (GameManager.instance.openType == OpenType.FirstEdit || GameManager.instance.openType == OpenType.BackEdit)
             {
-                PanelManager.instance.BackToView(PanelName.HomeView);
+                //PanelManager.instance.BackToView(PanelName.HomeView);
+                GameManager.instance.SetNextViewPath(PanelName.HomeView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             }
             else
             {
-                PanelManager.instance.BackToView(PanelName.CalendarView);
+                //PanelManager.instance.BackToView(PanelName.CalendarView);
+                GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 //刷新修改的人物
                 if (refreshCalendar!=null)
                 {
@@ -128,18 +134,25 @@ public class DisplayView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            Debug.Log("nac");
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PanelManager.instance.CloseTopPanel();
-            joinMainView.BackToJoinEdit();
+            //AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            PartDataWhole whole = GameManager.instance.curWhole;
+            //GameManager.instance.homeSelectIndex = whole.ModelIndex;
+            GameManager.instance.SetOpenType(OpenType.BackEdit);
+            GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //joinMainView.BackToJoinEdit();
         });
+        /*目前没有此按钮
         BtnSave.onClick.AddListener(delegate {
-//#if !UNITY_EDITOR
-//            ShowMask(true);
-//#endif
-//            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-//            SavePic();
+#if !UNITY_EDITOR
+            ShowMask(false);
+#endif
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            SavePic();
         });
-
+        */
         BtnGame.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -149,54 +162,24 @@ public class DisplayView : MonoBehaviour
 
     public void Display()
     {
-        /*同步
-        GameObject person = null;
-        if (DataManager.instance.partDataList!=null)
+        if (GameManager.instance.curWhole!=null)
         {
-            person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
-        }
-        person.transform.SetParent(ImgDisplay);
-        person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
-        person.transform.localPosition = Vector3.zero;
+            GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole.partDataList);
+            person.transform.SetParent(ImgDisplay);
+            person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
+            person.transform.localPosition = Vector3.zero;
 
-        //加上按钮
-        Button btn = person.gameObject.AddComponent<Button>();
-        btn.onClick.AddListener(Greeting);
+            //加上按钮
+            Button btn = person.gameObject.AddComponent<Button>();
+            btn.onClick.AddListener(Greeting);
 
-        lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-        
+            lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
 
-        //生成静态展示图片
-        StartCoroutine(CutScreen());
-
-        //播放打招呼的动画
-        Invoke("Greeting", 0.8f);
-        */
-        PSDisplay.Play();
-        if (DataManager.instance.partDataList != null)
-        {
-            DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
-                person.transform.SetParent(ImgDisplay);
-                person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
-                person.transform.localPosition = Vector3.zero;
-
-                //加上按钮
-                Button btn = person.gameObject.AddComponent<Button>();
-                btn.onClick.AddListener(Greeting);
-
-                lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-
-
-                //生成静态展示图片
-                //StartCoroutine(CutScreen());
-
-                //播放打招呼的动画
-                Invoke("Greeting", 0.1f);
-                Invoke("Greeting", 2.1f);
-            });
+            //生成静态展示图片
+            StartCoroutine(CutScreen());
         }
     }
-    /*
+
     IEnumerator CutScreen()
     {
         yield return new WaitForSeconds(0.8f);
@@ -215,48 +198,35 @@ public class DisplayView : MonoBehaviour
         staticTexture.Apply();
         BtnSave.interactable = true;//保存按钮才可以用
         yield return staticTexture;
+        SavePic();
+
+        if (GameManager.instance.displayType==DisplayType.FirstDisplay)
+        {
+            PSDisplay.Play();
+            AudioManager.instance.PlayOneShotAudio("Audio/bgm|show");
+            Invoke("Greeting", 0f);
+            Invoke("Greeting", 1.5f);
+        }
     }
 
     void SavePic()
     {
-        byte[] b = staticTexture.EncodeToPNG();
-        string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
-        string photoName = "MyPhoto_" + date + ".png";
-        string folderPath = Application.persistentDataPath + "/image_shot";
-        //File.WriteAllBytes(path +"/"+ photoName, byt);//同步方法
-        if (!File.Exists(folderPath))
-        {
-            Debug.Log("文件夹不存在:" + folderPath);
-            Directory.CreateDirectory(folderPath);
-        }
-        savePath = folderPath + "/" + photoName;
-
-        FileStream fileStream = File.Open(savePath, FileMode.Create);
-        fileStream.BeginWrite(b, 0, b.Length, new AsyncCallback(EndWrite), fileStream);//异步方法
+        string savePath = PersonManager.instance.SaveImgPath+".png";
+        FileHelper.ByteToFile(staticTexture.EncodeToPNG(), savePath);
         Debug.Log("图片保存的沙河地址：------------" + savePath);
+        //UnityToIOS_SavePhotoToAlbum(savePath);//保存到相册
     }
 
-    public void EndWrite(IAsyncResult result)
-    {
-        FileStream fileStream = (FileStream)result.AsyncState;
-        fileStream.EndWrite(result);
-        fileStream.Close();
-        Debug.Log("异步保存图片完成------------");
-      
-        UnityToIOS_SavePhotoToAlbum(savePath);
-      
-    }
-
-    private void SavePhotoCallBack(string result)
-    {
-        Debug.Log("Display SavePhotoCallBack===========");
-        ShowMask(false);
-    }
-    */
+    //public void EndWrite(IAsyncResult result)
+    //{
+    //    FileStream fileStream = (FileStream)result.AsyncState;
+    //    fileStream.EndWrite(result);
+    //    fileStream.Close();
+    //    Debug.Log("异步保存图片字节完成------------");
+    //}
 
     public void Greeting()
     {
-        //DataManager.instance.PersonGreeting(lstDisplayItem);
         DataManager.instance.PersonJumpAndWave(lstDisplayItem);
     }
 

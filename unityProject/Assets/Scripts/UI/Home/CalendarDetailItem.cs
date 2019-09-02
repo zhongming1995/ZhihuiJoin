@@ -1,11 +1,14 @@
 ﻿using DataMgr;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
+using System;
 
 public class CalendarDetailItem : MonoBehaviour
 {
     public Transform PersonParent;
     public Transform TransDetail;
+    public RawImage rawImage;
 
     private CanvasGroup CGDetail;
 
@@ -13,32 +16,65 @@ public class CalendarDetailItem : MonoBehaviour
     Vector3 SelectScale = Vector3.one;
     Vector3 UnSelectScale = new Vector3(0.55f, 0.55f, 0.55f);
     float SelectAlpha = 1;
-    float UnSelectAlpha = 0.5f;
+    float UnSelectAlpha = 1f;
 
-    public void Init( PartDataWhole whole,bool isCurIndex)
+    public void Init(string fileName,bool isCurIndex)
     {
         CGDetail = TransDetail.GetComponent<CanvasGroup>();
+        if (isCurIndex)
+        {
+            SetSelectAlpha();
+            Sequence s = DOTween.Sequence();
+            s.Append(transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f));
+            s.Append(transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.1f));
+            s.AppendCallback(() => {
+                SetSelectScale();
+            });
+        }
+        else
+        {
+            SetUnSelectScale();
+            SetUnSelectAlpha();
+        }
+         
+        Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+        t.filterMode = FilterMode.Point;
+        byte[] b = FileHelper.FileToByte(PersonManager.instance.PersonImgPath + "/" + fileName+".png");
+        t.LoadImage(b);
+        t.Apply(false);
+        rawImage.texture = t;
+
+    }
+    /*
+    public void Init(PartDataWhole whole, bool isCurIndex)
+    {
+        CGDetail = TransDetail.GetComponent<CanvasGroup>();
+        if (isCurIndex)
+        {
+            SetSelectAlpha();
+            Sequence s = DOTween.Sequence();
+            s.Append(transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f));
+            s.Append(transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.1f));
+            s.AppendCallback(() => {
+                SetSelectScale();
+            });
+        }
+        else
+        {
+            SetUnSelectScale();
+            SetUnSelectAlpha();
+        }
         //初始化显示
         if (PersonParent == null)
         {
             PersonParent = transform.Find("detail/mask/parent").transform;
         }
-        DataManager.instance.GetPersonObjAsync(whole.partDataList,(person)=> {
-            person.transform.SetParent(PersonParent);
-            person.transform.localPosition = Vector3.zero;
-            person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            if (isCurIndex)
-            {
-                SetSelectScale();
-                SetSelectAlpha();
-            }
-            else
-            {
-                SetUnSelectScale();
-                SetUnSelectAlpha();
-            }
-        });
+        GameObject person = DataManager.instance.GetPersonObj(whole.partDataList);
+        person.transform.SetParent(PersonParent);
+        person.transform.localPosition = Vector3.zero;
+        person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
     }
+    */
 
     //直接设置缩放
     public void SetSelectScale()
@@ -104,5 +140,11 @@ public class CalendarDetailItem : MonoBehaviour
         t.OnUpdate(() => {
             CGDetail.alpha = number;
         });
+    }
+
+    private void OnDestroy()
+    {
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
     }
 }

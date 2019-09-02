@@ -4,6 +4,7 @@ using GameMgr;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using AudioMgr;
 
 public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
 {
@@ -143,6 +144,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             //ShowOutLine(false);
         }
+        AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragbegin");
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
     }
@@ -183,6 +185,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         joinMainView.ShowBackBtn(false);
         if (InCorrectArea())
         {
+            AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
             joinMainView.SetSelectResObj(transform);
             joinMainView.hasDraged = true;
             float posx = rt.anchoredPosition.x;

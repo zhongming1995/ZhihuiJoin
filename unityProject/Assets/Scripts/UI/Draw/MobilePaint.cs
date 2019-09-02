@@ -461,6 +461,7 @@ namespace Draw_MobilePaint
 
 
             drawPixels = new byte[texWidth * texHeight * 4];
+            Debug.Log("admin:"+drawPixels.Length);
             drawTexture = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, false);
             drawTexture.filterMode = filterMode;
             drawTexture.wrapMode = TextureWrapMode.Clamp;
@@ -473,6 +474,11 @@ namespace Draw_MobilePaint
         public void SetMultiColor(bool multi)
         {
             MultiColor = multi;
+        }
+
+        public byte[] GetDrawingTotal()
+        {
+            return drawingTexture.EncodeToPNG();
         }
 
         public Texture2D GetDrawTexture()
@@ -552,9 +558,46 @@ namespace Draw_MobilePaint
             UpdateTexture();
         }
 
+        public void SetPixelsTest(Texture2D texture,Texture2D drawTexture)
+        {
+            int pixel = 0;
+            Color32[] tempPixels = texture.GetPixels32();
+            int tempCount = tempPixels.Length;
+
+            for (int i = 0; i < tempCount; i++)
+            {
+                pixels[pixel] = tempPixels[i].r;
+                pixels[pixel + 1] = tempPixels[i].g;
+                pixels[pixel + 2] = tempPixels[i].b;
+                pixels[pixel + 3] = tempPixels[i].a;
+                pixel += 4;
+            }
+            SetDrawPixelsTest(drawTexture);
+            //UpdateTexture();
+        }
+
         public void SetDrawPixels(byte[] imgPixel)
         {
             drawPixels = imgPixel;
+            LockAreaFillWithThresholdMaskOnly((int)(ReadX * texWidth), (int)(ReadY * texHeight));
+        }
+
+        public void SetDrawPixelsTest(Texture2D t)
+        {
+            //drawPixels = imgPixel;
+            int pixel = 0;
+            Color32[] tempPixels = t.GetPixels32();
+            int tempCount = tempPixels.Length;
+
+            for (int i = 0; i < tempCount; i++)
+            {
+                drawPixels[pixel] = tempPixels[i].r;
+                drawPixels[pixel + 1] = tempPixels[i].g;
+                drawPixels[pixel + 2] = tempPixels[i].b;
+                drawPixels[pixel + 3] = tempPixels[i].a;
+                pixel += 4;
+            }
+            UpdateTexture();
             LockAreaFillWithThresholdMaskOnly((int)(ReadX * texWidth), (int)(ReadY * texHeight));
         }
 
@@ -567,27 +610,29 @@ namespace Draw_MobilePaint
             // mouse is over UI element? then dont paint
             if (eventSystem.IsPointerOverGameObject())
             {
-                //Debug.Log("~~~1");
+                //Debug.Log("~~~IsPointerOverGameObject");
                 //return;
             }
             if (eventSystem.currentSelectedGameObject != null)
             {
-                //Debug.Log("~~~2");
+                //Debug.Log("~~~currentSelectedGameObject");
                 //return;
             }
-            // catch first mousedown
+            //落笔
             if (Input.GetMouseButtonDown(0))
             {
+                havePainted = false;
                 // if lock area is used, we need to take full area before painting starts
                 if (useLockArea)
                 {
-                    if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) return;
+                    if (!Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, paintLayerMask)) 
+                        return;
                     //Debug.Log(hit.textureCoord);
                     //原本这里有CreateLockArea方法，但是在真机上会造成第一笔延迟很久，所以改到了初始化方法中，识别第一个透明度不为0的点，获得lockArea
                 }
             }
 
-            // left button is held down, draw
+            //移动
             if (Input.GetMouseButton(0))
             {
                 // Only if we hit something, then we continue
@@ -652,7 +697,7 @@ namespace Draw_MobilePaint
                 textureNeedsUpdate = true;
             }
 
-
+            //落笔
             if (Input.GetMouseButtonDown(0))
             {
                 if (drawStart!=null)
@@ -668,9 +713,7 @@ namespace Draw_MobilePaint
                 pixelUVOld = pixelUV;
             }
 
-
-            // check distance from previous drawing point and connect them with DrawLine
-            //			if (connectBrushStokes && Vector2.Distance(pixelUV,pixelUVOld)>brushSize)
+            //这个是必须的，连接两次画的轨迹，如果不勾选connectBrushStokes会断掉
             if (connectBrushStokes && textureNeedsUpdate)
             {
                 switch (drawMode)
@@ -704,19 +747,17 @@ namespace Draw_MobilePaint
                 textureNeedsUpdate = true;
             }
 
-            // left mouse button released
+            //提笔
             if (Input.GetMouseButtonUp(0))
             {
                 if (drawEnd!=null)
                 {
                     drawEnd();
                 }
-                
-                LockAreaFillWithThresholdMaskOnly((int)(ReadX*texWidth), (int)(ReadY*texHeight));
-                //if (getDrawArea!=null)
-                //{
-                //    getDrawArea(PaintPercent);
-                //}
+                if (havePainted)
+                {
+                    LockAreaFillWithThresholdMaskOnly((int)(ReadX * texWidth), (int)(ReadY * texHeight));
+                }
 
                 // calculate area size
                 timeCount = -1;
@@ -897,6 +938,7 @@ namespace Draw_MobilePaint
 
         public void EraseWithImage(int x, int y)
         {
+            havePainted = true;
             int pixel = 0;
             for (int i = 0; i < brushSizeX4; i++)
             {
@@ -982,7 +1024,7 @@ namespace Draw_MobilePaint
         // actual custom brush painting function
         void DrawCustomBrush(int px, int py)
         {
-            //havePainted = true;
+            havePainted = true;
             timeCount++;
             //限制笔触的密度
             if (timeCount % 10!=0)
@@ -2666,7 +2708,7 @@ namespace Draw_MobilePaint
                 var referenceTexture = myRenderer.material.mainTexture;
                 var screenPoint = cam.WorldToScreenPoint(transform.position);
                 var localPoint = transform.position * 100f * resolutionScaler;
-                referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width*resolutionScaler / 2 - localPoint.x, screenPoint.y - referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // bottom left
+                referenceCorners[0] = new Vector3(screenPoint.x - referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y - referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // bottom left
                 referenceCorners[1] = new Vector3(screenPoint.x - referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y + referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // top left
                 referenceCorners[2] = new Vector3(screenPoint.x + referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y + referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // top right
                 referenceCorners[3] = new Vector3(screenPoint.x + referenceTexture.width * resolutionScaler / 2 - localPoint.x, screenPoint.y - referenceTexture.height * resolutionScaler / 2 - localPoint.y, cam.nearClipPlane); // bottom right

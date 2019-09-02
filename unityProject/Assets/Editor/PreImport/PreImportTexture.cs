@@ -26,23 +26,23 @@ namespace Common.PreImprot.Editor
                     textureImporter.mipmapEnabled = false;
                     textureImporter.spriteImportMode = SpriteImportMode.Single;
                     textureImporter.filterMode = FilterMode.Bilinear;
-                    textureImporter.maxTextureSize = 2048;
+                    //textureImporter.maxTextureSize = 2048;
                     //textureImporter.isReadable = false;
 
-                    textureImporter.ClearPlatformTextureSettings("android");
-                    textureImporter.ClearPlatformTextureSettings("iPhone");
-                    textureImporter.ClearPlatformTextureSettings("Standalone");
+                    //textureImporter.ClearPlatformTextureSettings("android");
+                    //textureImporter.ClearPlatformTextureSettings("iPhone");
+                    //textureImporter.ClearPlatformTextureSettings("Standalone");
 
 #if UNITY_ANDROID
-                    TextureImporterPlatformSettings androidTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
-                    androidTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
-                    androidTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
-                    androidTextureImporterPlatformSettings.overridden = true;
-                    textureImporter.SetPlatformTextureSettings(androidTextureImporterPlatformSettings);
+                    //TextureImporterPlatformSettings androidTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
+                    //androidTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
+                    //androidTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
+                    //androidTextureImporterPlatformSettings.overridden = true;
+                    //textureImporter.SetPlatformTextureSettings(androidTextureImporterPlatformSettings);
 #endif
 #if UNITY_IOS
                     TextureImporterPlatformSettings iOSTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
-                    iOSTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
+                    iOSTextureImporterPlatformSettings.format = TextureImporterFormat.PVRTC_RGBA4;
                     iOSTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
                     iOSTextureImporterPlatformSettings.overridden = true;
                     textureImporter.SetPlatformTextureSettings(iOSTextureImporterPlatformSettings);
@@ -93,18 +93,18 @@ namespace Common.PreImprot.Editor
                     textureImporter.ClearPlatformTextureSettings("Standalone");
 
 #if UNITY_ANDROID
-                    TextureImporterPlatformSettings androidTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
-                    androidTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
-                    androidTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
-                    androidTextureImporterPlatformSettings.overridden = true;
-                    textureImporter.SetPlatformTextureSettings(androidTextureImporterPlatformSettings);
+                    //TextureImporterPlatformSettings androidTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
+                    //androidTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
+                    //androidTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
+                    //androidTextureImporterPlatformSettings.overridden = true;
+                    //textureImporter.SetPlatformTextureSettings(androidTextureImporterPlatformSettings);
 #endif
 #if UNITY_IOS
-                    TextureImporterPlatformSettings iOSTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
-                    iOSTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
-                    iOSTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
-                    iOSTextureImporterPlatformSettings.overridden = true;
-                    textureImporter.SetPlatformTextureSettings(iOSTextureImporterPlatformSettings);
+                    //TextureImporterPlatformSettings iOSTextureImporterPlatformSettings = new TextureImporterPlatformSettings();
+                    //iOSTextureImporterPlatformSettings.format = TextureImporterFormat.RGBA32;
+                    //iOSTextureImporterPlatformSettings.textureCompression = TextureImporterCompression.Uncompressed;
+                    //iOSTextureImporterPlatformSettings.overridden = true;
+                    //textureImporter.SetPlatformTextureSettings(iOSTextureImporterPlatformSettings);
 #endif
                 }
             }

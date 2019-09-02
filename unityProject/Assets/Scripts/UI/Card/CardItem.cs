@@ -60,12 +60,11 @@ public class CardItem : MonoBehaviour
             */
             if (DataManager.instance.partDataList != null)
             {
-                DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
-                    person.transform.SetParent(ImgCardMask.transform);
-                    person.transform.localScale = new Vector3(0.28f, 0.28f, 0.28f);
-                    person.transform.localPosition = Vector3.zero;
-                    person.transform.localRotation = new Quaternion(0, 0, 0, 0);
-                });
+                GameObject person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
+                person.transform.SetParent(ImgCardMask.transform);
+                person.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                person.transform.localPosition = Vector3.zero;
+                person.transform.localRotation = new Quaternion(0, 0, 0, 0);
             }
         }
 

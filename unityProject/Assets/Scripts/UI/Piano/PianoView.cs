@@ -100,10 +100,12 @@ public class PianoView : MonoBehaviour
         //给琴谱赋值
         songIndex = RandomSongNum();
         songSpectrums = PianoSpectrum.SongsList[songIndex];
+        Debug.Log("歌曲：" + songIndex);
         //根据歌曲不同加载不同的动画
         LoadSongAni(songIndex);
         //显示歌曲名称
         SetSongName(songIndex);
+
     }
 
     int RandomSongNum()
@@ -112,7 +114,7 @@ public class PianoView : MonoBehaviour
         int n = songIndex;
         while (n == songIndex)
         {
-            n = rd.Next(0, 4);
+            n = rd.Next(0, PianoSpectrum.SongsList.Count);
         }
         return n;
     }
@@ -129,6 +131,9 @@ public class PianoView : MonoBehaviour
     {
         string path = "Sprite/ui_sp/piano_sp/song_name|game_music_" + index.ToString();
         UIHelper.instance.SetImage(path, ImgSongName, true);
+
+        string audioPath = "Audio/piano_key|piano_name_audio_" + index.ToString();
+        AudioManager.instance.PlayOneShotAudio(audioPath);
     }
 
     private void LoadPersonSetPos()
@@ -140,7 +145,7 @@ public class PianoView : MonoBehaviour
             person = DataManager.instance.GetPersonObjWithFlag(DataManager.instance.partDataList, out minPosY);
         }
         person.transform.SetParent(PersonParent);
-        person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        person.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         person.transform.localPosition = Vector3.zero;
 
         Transform flagbottom = person.transform.Find("flag_bottom").transform;
@@ -243,9 +248,8 @@ public class PianoView : MonoBehaviour
         Debug.Log("Piano showWindow");
         string path = "Prefabs/game/window|window_complete";
         //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        UIHelper.instance.LoadPrefabAsync(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (go) => {
-            completeWindow = go;
-          });
+        GameObject go = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        completeWindow = go;
      }
 
     public void Dance()

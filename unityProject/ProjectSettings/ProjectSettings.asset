@@ -590,7 +590,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
     1: EditorDebug
-    4: 
+    4: EditorDebug
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

@@ -32,9 +32,54 @@ public class CalendarPage:MonoBehaviour
             CalenderController.instance.DeletePageFunc(this);
             return;
         }
-        StartCoroutine(Cor_LoadItems(_index,first));
+        //StartCoroutine(Cor_LoadItems(_index,first));
+        LoadItemsFunc(_index, first);
     }
 
+    void LoadItemsFunc(int _index, bool first)
+    {
+        ShouldRefresh = false;
+        PageIndex = _index;
+        trueItemCount = 0;
+
+        for (int j = ItemContent.childCount - 1; j >= 0; j--)
+        {
+            DestroyImmediate(ItemContent.GetChild(j).gameObject);
+        }
+
+        personList.Clear();
+        startItemIndex = 6 * _index;
+        endItemIndex = 6 * _index + 6;
+        Debug.Log("star:" + startItemIndex + " end:" + endItemIndex);
+        for (int i = startItemIndex; i < endItemIndex; i++)
+        {
+            GameObject item = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_item",ItemContent, Vector3.zero, Vector3.one, false);
+            if (i < CalenderController.instance.PersonNum)
+            {
+                trueItemCount++;
+                string path = CalenderController.instance.pathList[i];
+                CalenderItem calenderItem = item.GetComponent<CalenderItem>();
+                calenderItem.Init(PageIndex, i, path);
+                personList.Add(calenderItem);
+            }
+            else
+            {
+                CalenderItem calenderItem = item.GetComponent<CalenderItem>();
+                calenderItem.Init();
+            }
+        }
+        if (CalenderController.instance.IsDelete)
+        {
+            SetDeleteStatus(true);
+        }
+
+        if (trueItemCount == 0)
+        {
+            Debug.Log("trueItemCount==0");
+            CalenderController.instance.DeletePageFunc(this);
+        }
+    }
+    /*
     IEnumerator Cor_LoadItems(int _index,bool first)
     {
         ShouldRefresh = false;
@@ -59,9 +104,8 @@ public class CalendarPage:MonoBehaviour
                 {
                     trueItemCount++;
                     string path = CalenderController.instance.pathList[i];
-                    PartDataWhole whole = PersonManager.instance.DeserializePerson(path);
                     CalenderItem calenderItem = item.GetComponent<CalenderItem>();
-                    calenderItem.Init(PageIndex,i, path, whole);
+                    calenderItem.Init(PageIndex, i, path);
                     personList.Add(calenderItem);
                 }
                 else
@@ -69,8 +113,8 @@ public class CalendarPage:MonoBehaviour
                     CalenderItem calenderItem = item.GetComponent<CalenderItem>();
                     calenderItem.Init();
                 }
-                i++;
             });
+            i++;
             yield return new WaitForSeconds(0.01f); 
         }
         if (CalenderController.instance.IsDelete)
@@ -83,6 +127,7 @@ public class CalendarPage:MonoBehaviour
             CalenderController.instance.DeletePageFunc(this);
         }
     }
+    */
 
     public void DeleteOneItem(int _index,CalenderItem deleteItem)
     {
@@ -90,6 +135,7 @@ public class CalendarPage:MonoBehaviour
         PageIndex = _index;
         int index = endItemIndex - 1;
         personList.Remove(deleteItem);
+        /*
         UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_item", ItemContent, Vector3.zero, Vector3.one, false, null, (item) => {
             if (index < CalenderController.instance.PersonNum)
             {
@@ -115,13 +161,36 @@ public class CalendarPage:MonoBehaviour
                 CalenderController.instance.DeletePageFunc(this);
             }
         });
+        */
+        GameObject item = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_item", ItemContent, Vector3.zero, Vector3.one, false);
+        if (index < CalenderController.instance.PersonNum)
+        {
+            string path = CalenderController.instance.pathList[index];
+            CalenderItem calenderItem = item.GetComponent<CalenderItem>();
+            calenderItem.Init(PageIndex, index, path);
+            personList.Add(calenderItem);
+            if (CalenderController.instance.IsDelete)
+            {
+                calenderItem.ShowDelete(true);
+            }
+        }
+        else
+        {
+            trueItemCount -= 1;
+            Debug.Log("load null:" + index + " count:" + trueItemCount);
+            CalenderItem calenderItem = item.GetComponent<CalenderItem>();
+            calenderItem.Init();
+        }
+        if (trueItemCount <= 0)
+        {
+            CalenderController.instance.DeletePageFunc(this);
+        }
     }
 
     public void RefreshOneItem(int _pageIndex,int _itemIndex)
     {
         string path = CalenderController.instance.pathList[_itemIndex];
-        PartDataWhole whole = PersonManager.instance.DeserializePerson(path);
-        personList[_pageIndex].Refresh(_pageIndex, _itemIndex, path, whole);
+        personList[_pageIndex].Refresh(_pageIndex, _itemIndex, path);
     }
 
     public void SetDeleteStatus(bool isDelete)

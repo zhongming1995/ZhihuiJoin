@@ -21,7 +21,7 @@ public class UIMove : MonoBehaviour
         }
         else
         {
-            if (enableCount != 0)
+            if (enableCount == 0)
             {
                 DoAction();
             }

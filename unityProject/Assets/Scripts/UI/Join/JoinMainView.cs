@@ -6,7 +6,6 @@ using Helper;
 using UnityEngine;
 using UnityEngine.UI;
 using DataMgr;
-using UnityEngine.SceneManagement;
 using AudioMgr;
 using System.Collections;
 using System;
@@ -40,7 +39,6 @@ public class JoinMainView : MonoBehaviour
     public CanvasGroup HatHeadwearCG;
 
     public MobilePaint mobilePaint;
-    private Transform BodyGroup;
     [HideInInspector]
     public bool hasPainted;//涂色过，即涂色面积>0过，现在没用了
     [HideInInspector]
@@ -67,15 +65,11 @@ public class JoinMainView : MonoBehaviour
 
     private JoinPlus joinPlus;
     private float drawPercent = 0;
+    private float curTime;//控制示意图缩放的时间
 
     private void OnEnable()
     {
         AppEntry.instance.SetMultiTouchEnable(false);
-    }
-
-    private void OnDisable()
-    {
-        AudioManager.instance.StopEffect();
     }
 
     void Start()
@@ -87,42 +81,34 @@ public class JoinMainView : MonoBehaviour
     {
         if (mobilePaint != null)
         {
-            //if (mobilePaint.havePainted)
-            //{
-            //    //只要有大于0过就ok
-            //    hasPainted = true;
-            //}
-            //if (step==1)
-            //{
-                //if (hasPainted == true && guideResult[0] == true)
-                //{
-                //    BtnNext.interactable = true;
-                //}
-                //else
-                //{
-                //    BtnNext.interactable = false;
-                //}
-            //}
-            //if (step==4)
-            //{
-            //    if (guideResult[3]==true)
-            //    {
-            //        BtnOk.interactable = true;
-            //    }
-            //    else
-            //    {
-            //        BtnOk.interactable = false;
-            //    }
-            //}
             if (GameManager.instance.curSelectResType == 0)
             {
                 mobilePaint.MousePaint();
+            }
+        }
+
+        //示意图缩放
+        if (isRefrenceZoomIning)
+        {
+            if (Time.realtimeSinceStartup-curTime >= 3)
+            {
+                ReferenceZoomOut();
             }
         }
     }
 
     private void Init()
     {
+        //暂时处理适配
+        if (Screen.width==2388&&Screen.height==1688)
+        {
+            Debug.Log("2388*1688");
+            ImgDraw.transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
+            ImgDraw.transform.localPosition = new Vector3(8, -6, 0);
+            ImgDrawBg.transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
+            ImgDrawBg.transform.localPosition = new Vector3(7, -5, 0);
+        }
+        AudioManager.instance.PlayAudio(EffectAudioType.Guide, GameData.drawAudioPathList[GameManager.instance.homeSelectIndex]);
         //补充脚本
         joinPlus = GetComponent<JoinPlus>();
         mobilePaint.gameObject.SetActive(false);
@@ -135,10 +121,8 @@ public class JoinMainView : MonoBehaviour
         //按钮点击
         AddClickEvent();
         //左下角参考缩略图
-        //UIHelper.instance.SetImage(GameManager.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
-        UIHelper.instance.SetImage(GameData.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
+         UIHelper.instance.SetImage(GameData.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
         //涂色背景（只做淡入展示）
-        //UIHelper.instance.SetImage(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
         UIHelper.instance.SetImage(GameData.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
@@ -147,7 +131,7 @@ public class JoinMainView : MonoBehaviour
         }
         //返回按钮显示半透明
         ShowBackBtn(false);
-        //Rebuild
+       
         for (int i = 0; i < TypeBtnConList.Count; i++)
         {
             LayoutRebuilder.ForceRebuildLayoutImmediate(TypeBtnConList[i].GetComponent<RectTransform>());
@@ -165,16 +149,24 @@ public class JoinMainView : MonoBehaviour
             });
         }
         BtnNext.gameObject.SetActive(false);
-        ShowTypeByStep(step,true);
         SetDrawMessage();
         ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
-        //LoadResListByType((int)PartType.Body);//初始加载颜色列表,Body是0
 
         //打开保存的文件
-        if (GameManager.instance.openType==OpenType.ReEdit && GameManager.instance.curWhole!=null)
+        if ((GameManager.instance.openType == OpenType.ReEdit ||   GameManager.instance.openType == OpenType.BackEdit) && GameManager.instance.curWhole!=null)
         {
             joinPlus.LoadFile(GameManager.instance.curWhole);
+            GameManager.instance.SetJoinShowAll(true);
+            for (int i = 0; i < guideResult.Length; i++)
+            {
+                guideResult[i] = true;
+            }
+            for (int i = 0; i < loadResult.Length; i++)
+            {
+                loadResult[i] = false;
+            }
         }
+        ShowTypeByStep(step, true);
     }
 
     void ShowDrawPanel()
@@ -185,9 +177,6 @@ public class JoinMainView : MonoBehaviour
     void SetDrawMessage()
     {
         //绘画素材
-        //BodyGroup = transform.Find("img_draw_bg/draw_panel/group_body").transform;
-        //GameObject draw = UIHelper.instance.LoadPrefab("Prefabs/draw|draw_item", BodyGroup, new Vector3(71, -38, 0), new Vector3(150,150,150));
-        //Sprite s = UIHelper.instance.LoadSprite(GameManager.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);        
         Sprite s = UIHelper.instance.LoadSprite(GameData.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
@@ -212,6 +201,7 @@ public class JoinMainView : MonoBehaviour
             loadResult[i] = false;
         }
         ShowTypeByStep(1);
+
     }
 
     //显示返回按钮，否则是半透明状态
@@ -225,6 +215,8 @@ public class JoinMainView : MonoBehaviour
     private void AddClickEvent()
     {
         mobilePaint.getDrawArea += GetDrawArea;
+        //FadeIn.fadeInComplete += ViewFadeComplete;
+
         BtnBackCheck.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -233,9 +225,10 @@ public class JoinMainView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
+            HideHighLevelCanvas();
             AudioManager.instance.StopEffect();
             joinGuide.DoOperation();
-            //SceneManager.LoadScene("home");
+            /*
             if (GameManager.instance.openType==OpenType.FirstEdit)
             {
                 PanelManager.instance.CloseTopPanel();
@@ -243,6 +236,17 @@ public class JoinMainView : MonoBehaviour
             else
             {
                 PanelManager.instance.BackToView(PanelName.CalendarView);
+            }
+            */
+            if (GameManager.instance.openType == OpenType.FirstEdit || GameManager.instance.openType == OpenType.BackEdit)
+            {
+                GameManager.instance.SetNextViewPath(PanelName.HomeView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+            else
+            {
+                GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             }
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         });
@@ -270,26 +274,29 @@ public class JoinMainView : MonoBehaviour
 
         BtnOk.onClick.AddListener(delegate
         {
+            HideHighLevelCanvas();
             AudioManager.instance.StopEffect();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
-            gameObject.SetActive(false);
-            DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(),mobilePaint.GetDrawByte());
-            UIHelper.instance.LoadPrefabAsync("Prefabs/display|display_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
-                PanelManager.instance.PushPanel(PanelName.DisplayView,panel);
-            });
+            //DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(), mobilePaint.GetDrawByte(), mobilePaint.GetDrawingTotal());
+            DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null,null,mobilePaint.GetDrawingTotal());
+            //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/display|display_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //PanelManager.instance.PushPanel(PanelName.DisplayView,panel);
+            GameManager.instance.displayType = DisplayType.FirstDisplay;
+            GameManager.instance.SetNextViewPath(PanelName.DisplayView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         //缩略图点击事件
         BtnRefrenceBg.onClick.AddListener(delegate {
             if (isRefrenceZoomIning == false)
             {
-                BtnRefrenceBg.transform.DOKill();
+                BtnRefrenceBg.transform.DOKill(true);
                 RefrenceZoomIn();
             }
             else
             {
-                BtnRefrenceBg.transform.DOKill();
+                BtnRefrenceBg.transform.DOKill(true);
                 ReferenceZoomOut();
             }
         });
@@ -310,6 +317,15 @@ public class JoinMainView : MonoBehaviour
         });
     }
 
+    private void HideHighLevelCanvas()
+    {
+        ImgDrawBg.gameObject.SetActive(false);
+        //ImgDraw.gameObject.SetActive(false);
+        //mobilePaint.gameObject.SetActive(false);
+        DrawPanel.gameObject.SetActive(false);
+        BtnRefrenceBg.gameObject.SetActive(false);
+    }
+
     //缩小
     private void ReferenceZoomOut()
     {
@@ -321,9 +337,8 @@ public class JoinMainView : MonoBehaviour
     private void RefrenceZoomIn()
     {
         isRefrenceZoomIning = true;
-        BtnRefrenceBg.transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f).OnComplete(() => {
-            Invoke("ReferenceZoomOut", 3.0f);
-        });
+        curTime = Time.realtimeSinceStartup;
+        BtnRefrenceBg.transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f);
     }
 
     private void AdjustBurshSize(float sliderValue)
@@ -468,7 +483,7 @@ public class JoinMainView : MonoBehaviour
             Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
             ImgDraw.sprite = s;
             ImgDraw.SetNativeSize();
-            ImgDraw.transform.localScale = Vector3.one;
+            //ImgDraw.transform.localScale = Vector3.one;
             mobilePaint.gameObject.SetActive(false);
             ImgDrawBg.DOFade(0, 0.5f);
         }
@@ -485,6 +500,7 @@ public class JoinMainView : MonoBehaviour
     private void ShowResListByType(TemplateResType type)
     {
         //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
+        Debug.Log("showREsLitByType");
         SetCurSelectType(type);
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
@@ -501,8 +517,9 @@ public class JoinMainView : MonoBehaviour
                 ResContentList[i].parent.parent.gameObject.SetActive(false);
             }
         }
-        if (type==TemplateResType.Body)
+        if (type == TemplateResType.Body)
         {
+            Debug.Log("body");
             SetPartOccupy(true);
         }
         else
@@ -576,7 +593,6 @@ public class JoinMainView : MonoBehaviour
     
     void SwitchStep(int _curStep,int _preStep)
     {
-       
         //第一个子节点是选中图
         Sequence seq = DOTween.Sequence();
         if (_preStep != -1)
@@ -685,6 +701,14 @@ public class JoinMainView : MonoBehaviour
         }
     }
 
+    void DelaySetOccupy()
+    {
+        Debug.Log("透明");
+        HatHeadwearCG.alpha = 0.2f;
+        EyeMouthHairCG.alpha = 0.2f;
+        HandLegCG.alpha = 0.2f;
+    }
+
     //加载某种类型的素材
     private void LoadResListByType(int type)
     {
@@ -767,15 +791,10 @@ public class JoinMainView : MonoBehaviour
         guideResult[step - 1] = true;
         AudioManager.instance.PlayAudio(EffectAudioType.Guide, path,()=>
         {
-            //BtnNext.interactable = true;
-            //BtnOk.interactable = true;
-            //if (gameObject.activeSelf == true)
-            //{
-                if (joinGuide.isOperating == false)
-                {
-                    joinGuide.DoOperation();
-                }
-            //}
+            if (joinGuide.isOperating == false)
+            {
+                joinGuide.DoOperation();
+            }
         });   
     }
 
@@ -787,10 +806,22 @@ public class JoinMainView : MonoBehaviour
 
     private void OnDestroy()
     {
-        AudioManager.instance.StopEffect();
+        if (AudioManager.instance!=null)
+        {
+            AudioManager.instance.StopEffect();
+        }
         mobilePaint.getDrawArea -= GetDrawArea;
+        //FadeIn.fadeInComplete -= ViewFadeComplete;
         Resources.UnloadUnusedAssets();
         GC.Collect();
+    }
+
+    private void ViewFadeComplete()
+    {
+        if (GameManager.instance.openType == OpenType.ReEdit || GameManager.instance.joinShowAll)
+        {
+            SetPartOccupy(true);
+        }
     }
 
     private void GetDrawArea(float percent)

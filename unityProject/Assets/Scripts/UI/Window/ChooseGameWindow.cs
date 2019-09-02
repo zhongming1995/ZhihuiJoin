@@ -35,9 +35,11 @@ public class ChooseGameWindow :WindowParent
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayPiano();
-            UIHelper.instance.LoadPrefabAsync("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel)=> {
-                PanelManager.instance.PushPanel(PanelName.PianoView,panel);
-            });
+            //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //PanelManager.instance.PushPanel(PanelName.PianoView,panel);
+            PanelManager.instance.ClearPanelList();
+            GameManager.instance.SetNextViewPath(PanelName.PianoView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnCard.onClick.AddListener(delegate
@@ -45,9 +47,11 @@ public class ChooseGameWindow :WindowParent
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayCard();
-            UIHelper.instance.LoadPrefabAsync("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
-                PanelManager.instance.PushPanel(PanelName.CardView,panel);
-            });
+            //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //PanelManager.instance.PushPanel(PanelName.CardView,panel);
+            PanelManager.instance.ClearPanelList();
+            GameManager.instance.SetNextViewPath(PanelName.CardView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnFruit.onClick.AddListener(delegate
@@ -55,9 +59,11 @@ public class ChooseGameWindow :WindowParent
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             DestroyWindow();
             GameOperDelegate.PlayFruit();
-            UIHelper.instance.LoadPrefabAsync("Prefabs/game/fruit|fruit_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true,null,(panel)=> {
-                PanelManager.instance.PushPanel(PanelName.FruitView,panel);
-            });
+            //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/game/fruit|fruit_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //PanelManager.instance.PushPanel(PanelName.FruitView,panel);
+            PanelManager.instance.ClearPanelList();
+            GameManager.instance.SetNextViewPath(PanelName.FruitView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
 

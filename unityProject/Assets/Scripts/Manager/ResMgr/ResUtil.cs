@@ -36,6 +36,7 @@ namespace ResMgr
         public static string PathToResourcePath(string path)
         {
             string[] strLst = path.Split('|');
+            //Debug.Log(path);
             return strLst[0] + "/" + strLst[1];
         }
     }

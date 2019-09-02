@@ -49,11 +49,13 @@ public class JoinGuide : MonoBehaviour
     IEnumerator CorReminder()
     {
         operationStartTime = 0;
+        WaitForSeconds delay = new WaitForSeconds(0.1f);
         while (true)
         {
             if (AudioManager.instance.effectAudioSource.isPlaying == false && isOperating == false)
             {
                 operationStartTime += 0.1f;
+                //Debug.Log(operationStartTime);
                 if (operationStartTime > noOperatipnTimeLimit)
                 {
                     reminderCount++;
@@ -62,7 +64,7 @@ public class JoinGuide : MonoBehaviour
                     operationStartTime = 0;
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return delay;
         }
     }
 

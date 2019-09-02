@@ -43,6 +43,7 @@ public class FruitGuide : MonoBehaviour
     IEnumerator CorReminder()
     {
         operationStartTime = 0;
+        WaitForSeconds delay = new WaitForSeconds(0.1f);
         while (true)
         {
             if (isOperating == false)
@@ -54,7 +55,7 @@ public class FruitGuide : MonoBehaviour
                     operationStartTime = 0;
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return delay;
         }
     }
 

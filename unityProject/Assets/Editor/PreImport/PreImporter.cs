@@ -27,8 +27,8 @@ namespace Editor.PreImport
                         string assetBundleName = str.Replace(@"Assets/Res/", string.Empty);
                         assetBundleName = assetBundleName.Replace(fileName, string.Empty);
                         assetBundleName = assetBundleName.Replace("Atlas", "atlas");
-                        assetImport.assetBundleName = assetBundleName;
-                        assetImport.assetBundleVariant = ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
+                        assetImport.assetBundleName = null; //assetBundleName;
+                        assetImport.assetBundleVariant = null; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
                         Debug.Log("assetBundleName:" + assetBundleName);
                         Debug.Log("prefix:" + assetImport.assetBundleVariant);
                     }
@@ -47,8 +47,8 @@ namespace Editor.PreImport
                         assetBundleName = assetBundleName.Replace(".png", string.Empty);
                         assetBundleName = assetBundleName.Replace("Texture", "texture");
                         //Debugger.Log(assetBundleName+"   "+ fileName);
-                        assetImport.assetBundleName = assetBundleName;
-                        assetImport.assetBundleVariant = ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
+                        assetImport.assetBundleName = null; //assetBundleName;
+                        assetImport.assetBundleVariant = null; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
                     }
                 }
 
@@ -69,8 +69,8 @@ namespace Editor.PreImport
                         assetBundleName = assetBundleName.Replace(fileName, string.Empty);
                         assetBundleName = assetBundleName.Replace(extension, string.Empty);
                         assetBundleName = assetBundleName.Replace(@"Resources/", string.Empty);
-                        assetImport.assetBundleName = assetBundleName;
-                        assetImport.assetBundleVariant = ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
+                        assetImport.assetBundleName = null; //assetBundleName;
+                        assetImport.assetBundleVariant = null; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
                         Debug.Log("assetBundleName:" + assetBundleName);
                     }
                 }

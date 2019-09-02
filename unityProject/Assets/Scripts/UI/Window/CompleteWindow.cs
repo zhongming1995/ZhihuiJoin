@@ -59,22 +59,23 @@ public class CompleteWindow : WindowParent
         */
         if (DataManager.instance.partDataList != null)
         {
-            DataManager.instance.GetPersonObjAsync(DataManager.instance.partDataList,(person)=> {
-                person.transform.SetParent(WindowPersonParent);
-                person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
-                person.transform.localPosition = Vector3.zero;
+            GameObject person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
+            person.transform.SetParent(WindowPersonParent);
+            person.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            person.transform.localPosition = Vector3.zero;
 
-                windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+            windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
 
-                //加上按钮
-                Button btn = person.gameObject.AddComponent<Button>();
-                btn.onClick.AddListener(Greeting);
-            });
+            //加上按钮
+            Button btn = person.gameObject.AddComponent<Button>();
+            btn.onClick.AddListener(Greeting);
+            
         }
     }
 
     void AddClickEvent()
     {
+        //暂时无用
         BtnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -82,6 +83,7 @@ public class CompleteWindow : WindowParent
             GameOperDelegate.GoToHome();
         });
 
+        //暂时无用
         BtnEdit.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -103,7 +105,31 @@ public class CompleteWindow : WindowParent
         BtnDisplay.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
-            PanelManager.instance.CloseTopPanel();
+            /*
+            GameManager.instance.displayType = DisplayType.BackDisplay;
+            if (GameManager.instance.openType==OpenType.FirstEdit||GameManager.instance.openType==OpenType.BackEdit)
+            {
+                GameManager.instance.SetNextViewPath(PanelName.DisplayView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+            else
+            {
+                GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+            */
+            if (GameManager.instance.displayType==DisplayType.NoDisplay)
+            {
+                GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+            else
+            {
+                GameManager.instance.displayType = DisplayType.BackDisplay;
+                GameManager.instance.SetNextViewPath(PanelName.DisplayView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            }
+
             GameOperDelegate.GotoDisplay();
         });
 
@@ -121,7 +147,13 @@ public class CompleteWindow : WindowParent
 
     public void Greeting()
     {
-        DataManager.instance.PersonGreeting(windowlstDisplayItem);
+        DoubleGreeting();
+        Invoke("DoubleGreeting", 1.5f);
+    }
+
+    private void DoubleGreeting()
+    {
+        DataManager.instance.PersonJumpAndWave(windowlstDisplayItem);
     }
 
     void OnDestroy()

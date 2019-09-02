@@ -16,8 +16,18 @@ namespace GameMgr
     public enum OpenType
     {
         FirstEdit,//从字母列表页点击
-        ReEdit//从画册重新编辑
+        ReEdit,//从画册重新编辑
+        BackEdit,//从展示页返回
     }
+
+    //打开展示页面的方式
+    public enum DisplayType
+    {
+        FirstDisplay,//首次打开，需要播放音效，彩带，人物动作
+        BackDisplay,
+        NoDisplay,//没有展示，从画册进入游戏
+    }
+
     public class GameManager : SingletonMono<GameManager>
     {
         /*
@@ -86,6 +96,8 @@ namespace GameMgr
         public string nextViewPath;//接下来要打开的view的路径
         [HideInInspector]
         public OpenType openType;//拼接页面的打开方式
+        [HideInInspector]
+        public DisplayType displayType;//展示页面的打开方式
         [HideInInspector]
         public PartDataWhole curWhole;//当前打开的本地人物数据
 

@@ -22,7 +22,7 @@ public class TransitionView : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(GameManager.instance.nextSceneName);
-        async.allowSceneActivation = false;
+        async.allowSceneActivation = true;
         while (!async.isDone)
         {
             if (async.progress < 0.9f)

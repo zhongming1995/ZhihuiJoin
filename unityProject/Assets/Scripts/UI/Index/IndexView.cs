@@ -19,12 +19,23 @@ public class IndexView : MonoBehaviour
     public GameObjectPool gamePool;
     public Transform TrainHead;
     public Transform Cloud;
-    // Start is called before the first frame update
+
     void Start()
     {
-        PanelManager.instance.PushPanel(PanelName.IndexView,gameObject);
-        //PlayButtonAni();
+        if (PanelManager.instance.isEmpty())
+        {
+            PanelManager.instance.PushPanel(PanelName.IndexView, gameObject);
+        }
         AddBtnListener();
+    }
+
+    private void OnEnable()
+    {
+        SetCalendarButton();
+    }
+
+    private void SetCalendarButton()
+    {
         int personNum = PersonManager.instance.GetPersonsNum();
         if (personNum > 0)
         {
@@ -34,44 +45,37 @@ public class IndexView : MonoBehaviour
         {
             BtnCalendar.gameObject.SetActive(false);
         }
-
-        
-       // StartCoroutine(CorGenerateCloud());
     }
 
     private void AddBtnListener()
     {
-        BtnCalendar.onClick.AddListener(delegate {
-            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) => {
-                PanelManager.instance.PushPanel(PanelName.CalendarView, panel);
-            });
+        BtnCalendar.onClick.AddListener(delegate
+        {
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+            GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnLetter.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Letter;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
-            {
-                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
-            });
+            GameManager.instance.SetNextViewPath(PanelName.HomeView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnNumber.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Num;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
-            {
-                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
-            });
+            GameManager.instance.SetNextViewPath(PanelName.HomeView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+
         });
 
         BtnAnimal.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Animal;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            UIHelper.instance.LoadPrefabAsync("Prefabs/home|home_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true, null, (panel) =>
-            {
-                PanelManager.instance.PushPanel(PanelName.HomeView, panel);
-            });
+            GameManager.instance.SetNextViewPath(PanelName.HomeView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
     }
 

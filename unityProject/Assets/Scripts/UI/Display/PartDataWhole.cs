@@ -7,6 +7,7 @@ public class PartDataWhole
     private int modelIndex;
     private byte[] pixels;
     private byte[] drawPixels;
+    private byte[] drawTexture;
     public List<PartData> partDataList = new List<PartData>();
 
     public int ModelIndex
@@ -45,6 +46,18 @@ public class PartDataWhole
         }
     }
 
+    public byte[] DrawTexture
+    {
+        get
+        {
+            return drawTexture;
+        }
+        set
+        {
+            drawTexture = value;
+        }
+    }
+
     public List<PartData> PartDataList
     {
         get
@@ -57,11 +70,14 @@ public class PartDataWhole
         }
     }
 
-    public PartDataWhole(int _index,byte[] _pixels,byte[] _drawPixels,List<PartData> _list)
+
+
+    public PartDataWhole(int _index,byte[] _pixels,byte[] _drawPixels,List<PartData> _list,byte[] _drawTexture)
     {
         this.modelIndex = _index;
         this.pixels = _pixels;
         this.drawPixels = _drawPixels;
         this.partDataList = _list;
+        this.drawTexture = _drawTexture;
     }
 }

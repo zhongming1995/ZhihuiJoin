@@ -35,19 +35,22 @@ public class CalendarView : MonoBehaviour
 
     private void InitPageContent()
     {
-        CanvasScaler canvas = GameManager.instance.GetCanvas().GetComponent<CanvasScaler>();
-        float canvasScaler = canvas.matchWidthOrHeight;
-        Vector2 referenceResolution = canvas.referenceResolution;
-        if (canvasScaler == 1)//高适配
-        {
-            PageHeight = referenceResolution.y;
-            PageWidth = 1.0f * Screen.width / Screen.height * referenceResolution.y;
-        }
-        else
-        {
-            PageWidth = referenceResolution.x;
-            PageHeight = 1.0f * 2048 / (Screen.width / Screen.height);
-        }
+        //CanvasScaler canvas = GameManager.instance.GetCanvas().GetComponent<CanvasScaler>();
+        //float canvasScaler = canvas.matchWidthOrHeight;
+        //Vector2 referenceResolution = canvas.referenceResolution;
+        //if (canvasScaler == 1)//高适配
+        //{
+        //    PageHeight = referenceResolution.y;
+        //    PageWidth = 1.0f * Screen.width / Screen.height * referenceResolution.y;
+        //}
+        //else
+        //{
+        //    PageWidth = referenceResolution.x;
+        //    PageHeight = 1.0f * 2048 / (Screen.width / Screen.height);
+        //}
+        Vector2 realScreen = UIHelper.instance.GetRealScreen();
+        PageWidth = realScreen.x;
+        PageHeight = realScreen.y;
 
         CalenderController.instance.PerPageWidth = PageWidth;
         CalenderController.instance.PerPageHeight = PageHeight;
@@ -61,6 +64,7 @@ public class CalendarView : MonoBehaviour
     }
 
     //初始化页面列表，最多3个
+    /*
     private void InitPageList()
     {
         int endPage = Mathf.Min(CalenderController.instance.PageNum, 3);
@@ -71,6 +75,25 @@ public class CalendarView : MonoBehaviour
             AddOnePage(i);
         }
     }
+    */
+
+    private void InitPageList()
+    {
+        StartCoroutine(Cor_InitPageList());
+    }
+
+    IEnumerator Cor_InitPageList()
+    {
+        int endPage = Mathf.Min(CalenderController.instance.PageNum, 3);
+        int i = 0;
+        WaitForSeconds delay = new WaitForSeconds(0.1f);
+        while (i < endPage)
+        {
+            AddOnePage(i);
+            i++;
+            yield return delay;
+        }
+    }
 
     /// <summary>
     /// 增加一个页面
@@ -78,18 +101,16 @@ public class CalendarView : MonoBehaviour
     /// <param name="_index">真实页面索引</param>
     private void AddOnePage(int _index,Action cb = null)
     {
-        Debug.Log("AddOnePage");
-        UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_page", ListContent, Vector3.zero, Vector3.one, false,null,(page)=> {
-            page.name = _index.ToString();
-            page.GetComponent<RectTransform>().sizeDelta = new Vector2(CalenderController.instance.PerPageWidth, CalenderController.instance.PerPageHeight);
-            CalendarPage calendarPage = page.GetComponent<CalendarPage>();
-            calendarPage.LoadItems(_index,true);
-            pageList.Add(calendarPage);
-            if (cb!=null)
-            {
-                cb();
-            }
-        });
+        GameObject page = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_page", ListContent, Vector3.zero, Vector3.one, false);
+        page.name = _index.ToString();
+        page.GetComponent<RectTransform>().sizeDelta = new Vector2(CalenderController.instance.PerPageWidth, CalenderController.instance.PerPageHeight);
+        CalendarPage calendarPage = page.GetComponent<CalendarPage>();
+        calendarPage.LoadItems(_index,true);
+        pageList.Add(calendarPage);
+        if (cb!=null)
+        {
+            cb();
+        }
     }
 
     /*
@@ -252,7 +273,8 @@ public class CalendarView : MonoBehaviour
     {
         BtnBack.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PanelManager.instance.CloseTopPanel();
+            GameManager.instance.SetNextViewPath(PanelName.IndexView);
+            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });
 
         BtnDelete.onClick.AddListener(delegate
@@ -332,33 +354,42 @@ public class CalendarView : MonoBehaviour
             //后两页
             for (int i = deleteItem.PageIndex + 1; i <= deleteItem.PageIndex + 2; i++)
             {
-                Debug.Log(i);
                 if (i >= pageList.Count)
                 {
                     return;
                 }
                 pageList[i].LoadItems(i,false);
             }
-
+            deleteItem = null;
             SetPageText();
         }
     }
 
     private void DeletePageComplete(CalendarPage deletePage)
     {
+        Debug.Log("pre:" + CalenderController.instance.CurPageIndex);
         if (deletePage)
         {
+            Debug.Log("deletePage");
             pageList.Remove(deletePage);
             DestroyImmediate(deletePage.gameObject);
-            CalenderController.instance.CurPageIndex -= 1;
+            deletePage = null;
+            if (CalenderController.instance.CurPageIndex == CalenderController.instance.PageNum)
+            {
+                Debug.Log("pageNum:" + CalenderController.instance.PageNum);
+                CalenderController.instance.CurPageIndex -= 1;
+            }
+            Debug.Log("curPageIndex:" + CalenderController.instance.CurPageIndex);
             PageScrollEndFunc(CalenderController.instance.CurPageIndex);
             Debug.Log(CalenderController.instance.PersonNum);
             if (CalenderController.instance.PersonNum<=0)
             {
-                Destroy(gameObject);
+                GameManager.instance.SetNextViewPath(PanelName.IndexView);
+                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             }
         }
     }
+
 
     private void OnDestroy()
     {

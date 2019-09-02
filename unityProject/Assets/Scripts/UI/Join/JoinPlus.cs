@@ -22,6 +22,7 @@ public class JoinPlus : MonoBehaviour
 
     public void LoadFile(PartDataWhole whole)
     {
+        Texture2D drawTexture = null;
         List<PartData> part = whole.partDataList;
         for (int i = 0; i < part.Count; i++)
         {
@@ -71,12 +72,27 @@ public class JoinPlus : MonoBehaviour
             else
             {
                 //不管
+                if (partType == PartType.Body)
+                {
+                    Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+                    t.filterMode = FilterMode.Point;
+                    t.LoadImage(part[i].ImgBytes);
+                    t.Apply(false);
+                    drawTexture = t;
+                }
             }
         }
         if (joinMainView.mobilePaint!=null)
         {
-            joinMainView.mobilePaint.SetPixels(whole.Pixels);
-            joinMainView.mobilePaint.SetDrawPixels(whole.DrawPixels);
+            //joinMainView.mobilePaint.SetPixels(whole.Pixels);
+            //joinMainView.mobilePaint.SetDrawPixels(whole.DrawPixels);
+
+            Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
+            t.filterMode = FilterMode.Point;
+            t.LoadImage(whole.DrawTexture);
+            t.Apply(false);
+            joinMainView.mobilePaint.SetPixelsTest(t,drawTexture);//zong
+            //joinMainView.mobilePaint.SetDrawPixelsTest(drawTexture);//draw
         }
     }
 }

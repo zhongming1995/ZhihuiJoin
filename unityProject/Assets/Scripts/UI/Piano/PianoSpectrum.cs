@@ -60,8 +60,9 @@ public class PianoSpectrum
     {
         LittleStarSpecturms,
         FindFriendSpecturms,
-        ILoveSchoolSpecturms,
-        PainterSpecturms,
+        CountDuckSpecturms,
+        //ILoveSchoolSpecturms,
+        //PainterSpecturms,
     };
 
   
