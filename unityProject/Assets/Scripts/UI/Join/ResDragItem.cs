@@ -144,7 +144,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             //ShowOutLine(false);
         }
-        AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragbegin");
+        //AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragbegin");
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
     }
@@ -227,6 +227,22 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         }
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (isInit == false)
+        {
+            Init();
+        }
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curSelectResType == 0)
+        {
+            return;
+        }
+        AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
+        joinMainView.SetSelectResObj(transform);
+        joinMainView.ShowBackBtn(false);
+    }
+
     public void SetState(bool enable)
     {
         if (enable)
@@ -254,21 +270,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             return true;
         }
         return false;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (isInit == false)
-        {
-            Init();
-        }
-        //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curSelectResType == 0)
-        {
-            return;
-        }
-        joinMainView.SetSelectResObj(transform);
-        joinMainView.ShowBackBtn(false);
     }
 
     public void SetOutline(bool isSelect)

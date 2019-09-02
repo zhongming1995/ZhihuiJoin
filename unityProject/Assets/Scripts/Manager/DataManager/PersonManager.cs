@@ -86,6 +86,7 @@ public class PersonManager : SingletonMono<PersonManager>
     public int GetPersonsNum()
     {
         personCount = GetPersonsList().Count;
+        Debug.Log("person num" + personCount);
         return personCount;
     }
 
@@ -94,12 +95,16 @@ public class PersonManager : SingletonMono<PersonManager>
         pathList.Clear();
         FileInfo[] infos = FileHelper.GetFileList(PersonDataPath, "*.bin");
         FileCompare fileCompare = new FileCompare();
-        Array.Sort(infos, fileCompare);
-        for (int i = 0; i < infos.Length; i++)
+        if (infos!=null)
         {
-            string[] lst = infos[i].Name.Split('.');
-            pathList.Add(lst[0]);
+            Array.Sort(infos, fileCompare);
+            for (int i = 0; i < infos.Length; i++)
+            {
+                string[] lst = infos[i].Name.Split('.');
+                pathList.Add(lst[0]);
+            }
         }
+
         return pathList;
     }
 

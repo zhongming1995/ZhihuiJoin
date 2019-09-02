@@ -1,10 +1,17 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/ResMgr/ResManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Effect/FadeIn.cs">
     <Files>
       <File FileName="Assets/Scripts/UI/Window/PauseWindow.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/Window/ChooseGameWindow.cs" Line="61" Column="24" />
-      <File FileName="Assets/Scripts/UI/Fruit/FruitView.cs" Line="290" Column="12" />
-      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="313" Column="25" />
+      <File FileName="Assets/Scripts/UI/Fruit/FruitView.cs" Line="290" Column="10" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="313" Column="23" />
+      <File FileName="Assets/Scripts/Helper/FileHelper.cs" Line="84" Column="41" />
+      <File FileName="Assets/Scripts/Manager/DataManager/PersonManager.cs" Line="88" Column="33" />
+      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="62" Column="116" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="337" Column="6" />
+      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="230" Column="30" />
+      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="40" Column="70" />
+      <File FileName="Assets/Scripts/Effect/FadeIn.cs" Line="78" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

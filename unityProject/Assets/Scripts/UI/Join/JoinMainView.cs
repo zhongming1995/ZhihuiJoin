@@ -227,6 +227,7 @@ public class JoinMainView : MonoBehaviour
         {
             HideHighLevelCanvas();
             AudioManager.instance.StopEffect();
+            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             /*
             if (GameManager.instance.openType==OpenType.FirstEdit)
@@ -291,12 +292,10 @@ public class JoinMainView : MonoBehaviour
         BtnRefrenceBg.onClick.AddListener(delegate {
             if (isRefrenceZoomIning == false)
             {
-                BtnRefrenceBg.transform.DOKill(true);
                 RefrenceZoomIn();
             }
             else
             {
-                BtnRefrenceBg.transform.DOKill(true);
                 ReferenceZoomOut();
             }
         });

@@ -76,7 +76,6 @@ public class FadeIn : MonoBehaviour
         canvasGroup.interactable = true;
         if (cb!=null)
         {
-            Debug.Log("cn");
             cb();
         }
     }

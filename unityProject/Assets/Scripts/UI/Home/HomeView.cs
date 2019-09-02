@@ -59,7 +59,7 @@ public class HomeView : MonoBehaviour
                 GameManager.instance.SetJoinShowAll(false);
                 GameManager.instance.SetOpenType(OpenType.FirstEdit);
                 GameManager.instance.homeSelectIndex = j;
-                PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.PersonCount;
+                PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.GetPersonsNum();
                 GameManager.instance.homeContentPosx = ListViewContent.localPosition.x;
                 //记录列表的位置
                 //跳转后再播放素材模版音效
@@ -71,9 +71,6 @@ public class HomeView : MonoBehaviour
 
     private void JumpToJoin()
     {
-        //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/join|join_main_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        //PanelManager.instance.PushPanel(PanelName.JoiMainView,panel);
-        //PanelManager.instance.CloseTopPanel();
         GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
         UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
