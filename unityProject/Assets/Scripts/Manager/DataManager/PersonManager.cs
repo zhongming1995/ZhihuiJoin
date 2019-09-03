@@ -61,6 +61,7 @@ public class PersonManager : SingletonMono<PersonManager>
 
     void Awake()
     {
+        Debug.Log("PersonManager Awake" + Time.realtimeSinceStartup);
         instance = this;
         PersonDataPath = Application.persistentDataPath + "/persons_1.1.1/";
         PersonImgPath = Application.persistentDataPath + "/person_images_1.1.1/";

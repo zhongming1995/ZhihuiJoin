@@ -22,7 +22,7 @@ namespace ResMgr
         void Awake()
         {
             instance = this;
-            Debug.Log("Awake=====");
+            Debug.Log("ResManager Awake" + Time.realtimeSinceStartup);
         }
 
         void Start()

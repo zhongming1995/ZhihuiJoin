@@ -111,6 +111,7 @@ namespace GameMgr
 
         void Awake()
         {
+            Debug.Log("GameManager Awake" + Time.realtimeSinceStartup);
             instance = this;
             ScreenWidth = Screen.width;
             ScreenHeight = Screen.height;

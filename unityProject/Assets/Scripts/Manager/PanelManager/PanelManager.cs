@@ -99,6 +99,7 @@ public class PanelManager :SingletonMono<PanelManager>
 {
     private void Awake()
     {
+        Debug.Log("PanelManager Awake" + Time.realtimeSinceStartup);
         instance = this;
     }
 

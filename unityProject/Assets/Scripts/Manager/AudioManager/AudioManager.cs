@@ -22,6 +22,7 @@ namespace AudioMgr {
     {
         void Awake()
         {
+            Debug.Log("AudioManager Awake" + Time.realtimeSinceStartup);
             instance = this;
         }
 

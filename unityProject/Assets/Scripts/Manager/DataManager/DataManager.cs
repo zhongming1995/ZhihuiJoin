@@ -22,6 +22,7 @@ namespace DataMgr
 
         void Awake()
         {
+            Debug.Log("DataManager Awake" + Time.realtimeSinceStartup);
             instance = this;
         }
 

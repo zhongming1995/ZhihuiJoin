@@ -10,6 +10,7 @@ public class AppEntry : SingletonMono<AppEntry>
     public bool IsDebugging;
     private void Awake()
     {
+        Debug.Log("AppEntry Awake" + Time.realtimeSinceStartup);
         instance = this;
     }
 

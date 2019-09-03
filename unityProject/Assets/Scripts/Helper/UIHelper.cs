@@ -12,6 +12,7 @@ namespace Helper
     {
         void Awake()
         {
+            Debug.Log("UIHelper Awake" + Time.realtimeSinceStartup);
             instance = this;
         }
 

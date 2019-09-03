@@ -9,6 +9,7 @@ public class CallManager : SingletonMono<CallManager>
 
     void Awake()
     {
+        Debug.Log("CallManager Awake" + Time.realtimeSinceStartup);
         instance = this;
     }
 
