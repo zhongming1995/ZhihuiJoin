@@ -52,30 +52,38 @@ public class IndexView : MonoBehaviour
         BtnCalendar.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            PersonManager.instance.CurPersonPageIndex = 0;
+            //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Calendar);
+            TransitionView.instance.OpenTransition();
         });
 
         BtnLetter.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Letter;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextViewPath(PanelName.HomeView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath(PanelName.HomeView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Home);
+            TransitionView.instance.OpenTransition();
         });
 
         BtnNumber.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Num;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextViewPath(PanelName.HomeView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-
+            //GameManager.instance.SetNextViewPath(PanelName.HomeView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Home);
+            TransitionView.instance.OpenTransition();
         });
 
         BtnAnimal.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Animal;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextViewPath(PanelName.HomeView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath(PanelName.HomeView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Home);
+            TransitionView.instance.OpenTransition();
         });
     }
 

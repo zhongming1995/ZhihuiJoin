@@ -39,14 +39,6 @@ public class CalenderItem : MonoBehaviour
         Index = _index;
         fileName = _fileName;
 
-        /*
-        Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
-        t.filterMode = FilterMode.Point;
-        byte[] b = FileHelper.FileToByte(PersonManager.instance.PersonImgPath + "/" +fileName);
-        t.LoadImage(b);
-        t.Apply(false);
-        rawImage.texture = t;
-        */
         StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName+".png"));
 
         //默认隐藏删除按钮
@@ -56,10 +48,10 @@ public class CalenderItem : MonoBehaviour
         BtnDetail.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PersonManager.instance.CurPersonIndex = Index;
-            GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_detail_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //PanelManager.instance.PushPanel(PanelName.CalendarDetailView, panel);
+            //GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
+            TransitionView.instance.OpenTransition();
         });
 
         BtnDelete.onClick.AddListener(delegate {

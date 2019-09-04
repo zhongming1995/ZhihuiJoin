@@ -16,7 +16,19 @@ public class CalenderController : SingletonMono<CalenderController>
     public List<string> pathList;//保存的人物的路径列表
     //public List<string> ImgPathList;//保存的人物的图片路径列表
     public int PersonNum { get; set; }//人物总数
-    public int CurPageIndex { get; set; }//真实页面索引，根据这个索引加载对应的人物列表
+
+    private int curPgeIndex;
+    public int CurPageIndex {
+        get 
+        {
+            return curPgeIndex;
+        }
+        set 
+        {
+            curPgeIndex = value;
+            PersonManager.instance.CurPersonPageIndex = value;
+        }
+    }//真实页面索引，根据这个索引加载对应的人物列表
     public int PageNum{ get; set; }//总页数
     public float PerPageWidth{get;set; }
     public float PerPageHeight{get; set; }

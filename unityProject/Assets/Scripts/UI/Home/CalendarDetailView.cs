@@ -66,10 +66,10 @@ public class CalendarDetailView : MonoBehaviour
     {
         BtnBack.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //PanelManager.instance.CloseTopPanel();
-            //Destroy(gameObject);
+            //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Calendar);
+            TransitionView.instance.OpenTransition();
         });
 
         BtnPre.onClick.AddListener(delegate {
@@ -110,9 +110,11 @@ public class CalendarDetailView : MonoBehaviour
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
             PersonManager.instance.PersonFileName = fileName;
-            PanelManager.instance.CloseTopPanel();
-            GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //PanelManager.instance.CloseTopPanel();
+            //GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Join);
+            TransitionView.instance.OpenTransition();
         });
          
         BtnGame.onClick.AddListener(delegate {

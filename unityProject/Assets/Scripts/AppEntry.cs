@@ -2,6 +2,7 @@
 using ResMgr;
 using Helper;
 using UnityEngine.SceneManagement;
+using GameMgr;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
@@ -31,7 +32,8 @@ public class AppEntry : SingletonMono<AppEntry>
         /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())
         {
-            SceneManager.LoadScene("index");
+            GameManager.instance.SetNextSceneName(SceneName.Index);
+            StartCoroutine(TransitionView.instance.LoadSceneAsync());
         }
         
         //异步加载方式

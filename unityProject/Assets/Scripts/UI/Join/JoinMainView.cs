@@ -241,13 +241,17 @@ public class JoinMainView : MonoBehaviour
             */
             if (GameManager.instance.openType == OpenType.FirstEdit || GameManager.instance.openType == OpenType.BackEdit)
             {
-                GameManager.instance.SetNextViewPath(PanelName.HomeView);
-                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                //GameManager.instance.SetNextViewPath(PanelName.HomeView);
+                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                GameManager.instance.SetNextSceneName(SceneName.Home);
+                TransitionView.instance.OpenTransition();
             }
             else
             {
-                GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                GameManager.instance.SetNextSceneName(SceneName.Calendar);
+                TransitionView.instance.OpenTransition();
             }
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         });
@@ -281,11 +285,11 @@ public class JoinMainView : MonoBehaviour
             joinGuide.DoOperation();
             //DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(), mobilePaint.GetDrawByte(), mobilePaint.GetDrawingTotal());
             DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null,null,mobilePaint.GetDrawingTotal());
-            //GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/display|display_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //PanelManager.instance.PushPanel(PanelName.DisplayView,panel);
             GameManager.instance.displayType = DisplayType.FirstDisplay;
-            GameManager.instance.SetNextViewPath(PanelName.DisplayView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath(PanelName.DisplayView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Display);
+            TransitionView.instance.OpenTransition();
         });
 
         //缩略图点击事件
@@ -499,7 +503,7 @@ public class JoinMainView : MonoBehaviour
     private void ShowResListByType(TemplateResType type)
     {
         //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
-        Debug.Log("showREsLitByType");
+        Debug.Log("showREsLitByType:"+type);
         SetCurSelectType(type);
         for (int i = 0; i < GameManager.instance.resTypeCount; i++)
         {
@@ -527,7 +531,6 @@ public class JoinMainView : MonoBehaviour
         }
         Vector2 desPos = typeTransList[(int)type].GetComponent<RectTransform>().anchoredPosition;
         ImgResTypeSelect.DOAnchorPos(desPos, 0.2f);
-        //ImgResTypeSelect.anchoredPosition = typeTransList[(int)type].GetComponent<RectTransform>().anchoredPosition;
     }
 
     //根据步骤决定显示哪个类型的素材

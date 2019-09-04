@@ -1,25 +1,60 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using GameMgr;
 using Helper;
+using ResMgr;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class TransitionView : MonoBehaviour
+//用的跳转场景
+public class TransitionView : SingletonMono<TransitionView>
 {
-    public Text TxtProgress;
-    private float progress;
-    // Start is called before the first frame update
-    void Start()
+    private float MinTime = 0.5f;
+    private float time;
+    private FadeIn fadeIn;
+
+    private void Awake()
     {
-        StartCoroutine("LoadScene");
+        instance = this;
     }
 
-
-    IEnumerator LoadScene()
+    void Start()
     {
+        Debug.Log("start transition");
+        fadeIn = GetComponent<FadeIn>();
+        FadeIn.fadeInComplete += FadeInComplete; 
+        FadeIn.fadeOutComplete += FadeOutComplete;
+        DontDestroyOnLoad(this);
+    }
+
+    public void OpenTransition()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void FadeInComplete(PanelEnum panelEnum)
+    {
+        Debug.Log("FadeInComplete:"+panelEnum.ToString());
+        if (panelEnum == PanelEnum.TransitionView)
+        {
+            StartCoroutine(LoadSceneAsync());
+        }
+        else
+        {
+
+        }
+    }
+
+    private void FadeOutComplete(PanelEnum panelEnum)
+    {
+        gameObject.SetActive(false);
+    }
+
+    public IEnumerator LoadSceneAsync(Action cb = null)
+    {
+        time = Time.realtimeSinceStartup;
+        Debug.Log("LoadScene=======");
+        bool LoadComplete = false;
         yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(GameManager.instance.nextSceneName);
         async.allowSceneActivation = true;
@@ -27,20 +62,40 @@ public class TransitionView : MonoBehaviour
         {
             if (async.progress < 0.9f)
             {
-                progress = async.progress;
+
             }
             else
             {
-                progress = 1.0f;
-            }
-            TxtProgress.text = (progress*100).ToString()+"%";
-
-            if (progress >= 0.9f)
-            {
                 async.allowSceneActivation = true;
+                if (LoadComplete==false)
+                {
+                    LoadComplete = true;
+                    float offsetTime = MinTime - (Time.realtimeSinceStartup - time);
+                    if (offsetTime > 0)
+                    {
+                        Invoke("LoadSceneComplete", offsetTime);
+                    }
+                    else
+                    {
+                        LoadSceneComplete();
+                    }
+                }
+              
             }
             yield return null;
         }
     }
 
+    void LoadSceneComplete()
+    {
+        fadeIn.FadeOutFunc();
+    }
+
+    void OnDestroy()
+    {
+        FadeIn.fadeInComplete -= FadeInComplete;
+        FadeIn.fadeOutComplete -= FadeOutComplete;
+        Resources.UnloadUnusedAssets();
+        GC.Collect();
+    }
 }

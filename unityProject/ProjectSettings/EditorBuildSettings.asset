@@ -14,4 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/join.unity
     guid: 8f4ee0c4cb73c482898a257c1b5755b4
+  - enabled: 1
+    path: Assets/Scenes/home.unity
+    guid: 0bfff434eefea446e8067aae61e7bb88
+  - enabled: 1
+    path: Assets/Scenes/display.unity
+    guid: ceda977ba84b24aba950c136f6960f75
+  - enabled: 1
+    path: Assets/Scenes/piano.unity
+    guid: 517b90f1927bd4506876ccdd00b1b297
+  - enabled: 1
+    path: Assets/Scenes/card.unity
+    guid: ea2da802a0dcd43f89a849bef4a26e0c
+  - enabled: 1
+    path: Assets/Scenes/calendar.unity
+    guid: 43fce40fe873e4b7bb4fa247152ac31f
+  - enabled: 1
+    path: Assets/Scenes/calendar_detail.unity
+    guid: b026a8844b6934b3085f37e2d3b7c0f8
   m_configObjects: {}

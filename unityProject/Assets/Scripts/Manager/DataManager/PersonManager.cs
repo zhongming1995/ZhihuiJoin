@@ -21,7 +21,7 @@ public class PersonManager : SingletonMono<PersonManager>
     {
         get
         {
-            return PersonFileName;
+            return personFileName;
         }
         set
         {
@@ -55,6 +55,8 @@ public class PersonManager : SingletonMono<PersonManager>
     }
 
     public int CurPersonIndex { get; set; }
+
+    public int CurPersonPageIndex { get; set; }
 
     public List<string> pathList = new List<string>();
     public List<string> imagePathList = new List<string>();

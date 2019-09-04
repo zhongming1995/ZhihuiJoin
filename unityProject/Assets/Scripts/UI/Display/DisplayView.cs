@@ -60,10 +60,11 @@ public class DisplayView : MonoBehaviour
 
     private void OnEnable()
     {
-        GameOperDelegate.pianoBegin += JumpToGameCB;
-        GameOperDelegate.cardBegin += JumpToGameCB;
-        GameOperDelegate.fruitBegin += JumpToGameCB;
+        //GameOperDelegate.pianoBegin += JumpToGameCB;
+        //GameOperDelegate.cardBegin += JumpToGameCB;
+        //GameOperDelegate.fruitBegin += JumpToGameCB;
         CallManager.savePhotoCallBack += SavePhotoCallBack;
+        FadeIn.fadeOutComplete += TransitionFadeOutComplete;
     }
 
     private void SavePhotoCallBack(string result)
@@ -74,33 +75,28 @@ public class DisplayView : MonoBehaviour
 
     private void OnDisable()
     {
-        GameOperDelegate.pianoBegin -= JumpToGameCB;
-        GameOperDelegate.cardBegin -= JumpToGameCB;
-        GameOperDelegate.fruitBegin -= JumpToGameCB;
+        //GameOperDelegate.pianoBegin -= JumpToGameCB;
+        //GameOperDelegate.cardBegin -= JumpToGameCB;
+        //GameOperDelegate.fruitBegin -= JumpToGameCB;
         CallManager.savePhotoCallBack -= SavePhotoCallBack;
+        FadeIn.fadeOutComplete -= TransitionFadeOutComplete;
+    }
+
+    private void TransitionFadeOutComplete(PanelEnum panelEnum)
+    {
+        StartCoroutine(CutScreen());
     }
 
     //弃用
     private void PlayPiano()
     {
-        //GameManager.instance.SetNextViewPath("Prefabs/game/piano|piano_view");
-        //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        //UIHelper.instance.LoadPrefab("Prefabs/game/piano|piano_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
     }
 
     //弃用
     private void PlayCard()
     {
-        //GameManager.instance.SetNextViewPath("prefabs/game/card|card_view");
-        //UIHelper.instance.LoadPrefab("prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        //UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         HideDisplayView();
-    }
-
-    private void JumpToGameCB()
-    {
-        HideDisplayView();//可以销毁的，为什么只是隐藏？
     }
 
     public void HideDisplayView()
@@ -116,14 +112,17 @@ public class DisplayView : MonoBehaviour
             if (GameManager.instance.openType == OpenType.FirstEdit || GameManager.instance.openType == OpenType.BackEdit)
             {
                 //PanelManager.instance.BackToView(PanelName.HomeView);
-                GameManager.instance.SetNextViewPath(PanelName.HomeView);
-                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                //GameManager.instance.SetNextViewPath(PanelName.HomeView);
+                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                GameManager.instance.SetNextSceneName(SceneName.Home);
+                TransitionView.instance.OpenTransition();
             }
             else
             {
-                //PanelManager.instance.BackToView(PanelName.CalendarView);
-                GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
+                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                GameManager.instance.SetNextSceneName(SceneName.Calendar);
+                TransitionView.instance.OpenTransition();
                 //刷新修改的人物
                 if (refreshCalendar!=null)
                 {
@@ -140,9 +139,10 @@ public class DisplayView : MonoBehaviour
             PartDataWhole whole = GameManager.instance.curWhole;
             //GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.BackEdit);
-            GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            //joinMainView.BackToJoinEdit();
+            //GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Join);
+            TransitionView.instance.OpenTransition();
         });
         /*目前没有此按钮
         BtnSave.onClick.AddListener(delegate {
@@ -176,7 +176,7 @@ public class DisplayView : MonoBehaviour
             lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
 
             //生成静态展示图片
-            StartCoroutine(CutScreen());
+            //StartCoroutine(CutScreen());
         }
     }
 

@@ -35,32 +35,12 @@ public class CalendarView : MonoBehaviour
 
     private void InitPageContent()
     {
-        //CanvasScaler canvas = GameManager.instance.GetCanvas().GetComponent<CanvasScaler>();
-        //float canvasScaler = canvas.matchWidthOrHeight;
-        //Vector2 referenceResolution = canvas.referenceResolution;
-        //if (canvasScaler == 1)//高适配
-        //{
-        //    PageHeight = referenceResolution.y;
-        //    PageWidth = 1.0f * Screen.width / Screen.height * referenceResolution.y;
-        //}
-        //else
-        //{
-        //    PageWidth = referenceResolution.x;
-        //    PageHeight = 1.0f * 2048 / (Screen.width / Screen.height);
-        //}
         Vector2 realScreen = UIHelper.instance.GetRealScreen();
         PageWidth = realScreen.x;
         PageHeight = realScreen.y;
 
         CalenderController.instance.PerPageWidth = PageWidth;
         CalenderController.instance.PerPageHeight = PageHeight;
-
-        /*
-        int pageCount = Mathf.Min(CalenderController.instance.PageNum, 3);
-        ListContent.sizeDelta = new Vector2(pageCount * PageWidth, PageHeight);
-        
-        LayoutRebuilder.ForceRebuildLayoutImmediate(ListContent);
-        */
     }
 
     //初始化页面列表，最多3个
@@ -85,7 +65,8 @@ public class CalendarView : MonoBehaviour
     IEnumerator Cor_InitPageList()
     {
         int endPage = Mathf.Min(CalenderController.instance.PageNum, 3);
-        int i = 0;
+        int i = 0; //PersonManager.instance.CurPersonPageIndex;
+        //CalenderController.instance.CurPageIndex = PersonManager.instance.CurPersonPageIndex;
         WaitForSeconds delay = new WaitForSeconds(0.1f);
         while (i < endPage)
         {
@@ -185,7 +166,7 @@ public class CalendarView : MonoBehaviour
         CalenderController.deleteItemComplete += DeleteItemComplete;
         CalendarPageScroll.pageScrollEnd += PageScrollEndFunc;
         CalenderController.deletePageComplete += DeletePageComplete;
-        DisplayView.refreshCalendar += RefreshList;
+        //DisplayView.refreshCalendar += RefreshList;
     }
 
     private void RemoveEventListener()
@@ -193,7 +174,7 @@ public class CalendarView : MonoBehaviour
         CalenderController.deleteItemComplete -= DeleteItemComplete;
         CalendarPageScroll.pageScrollEnd -= PageScrollEndFunc;
         CalenderController.deletePageComplete -= DeletePageComplete;
-        DisplayView.refreshCalendar -= RefreshList;
+        //DisplayView.refreshCalendar -= RefreshList;
     }
 
     public void RefreshList(int index)
@@ -273,8 +254,10 @@ public class CalendarView : MonoBehaviour
     {
         BtnBack.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            GameManager.instance.SetNextViewPath(PanelName.IndexView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath(PanelName.IndexView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Index);
+            TransitionView.instance.OpenTransition();
         });
 
         BtnDelete.onClick.AddListener(delegate
@@ -299,6 +282,7 @@ public class CalendarView : MonoBehaviour
         BtnNext.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.CurPageIndex = Mathf.Min(CalenderController.instance.CurPageIndex + 1,CalenderController.instance.PageNum-1);
+            Debug.Log("计算出来的：" + CalenderController.instance.CurPageIndex);
             PageScrollEndFunc(CalenderController.instance.CurPageIndex);
         });
     }
@@ -384,12 +368,13 @@ public class CalendarView : MonoBehaviour
             Debug.Log(CalenderController.instance.PersonNum);
             if (CalenderController.instance.PersonNum<=0)
             {
-                GameManager.instance.SetNextViewPath(PanelName.IndexView);
-                UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                //GameManager.instance.SetNextViewPath(PanelName.IndexView);
+                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                GameManager.instance.SetNextSceneName(SceneName.Index);
+                TransitionView.instance.OpenTransition();
             }
         }
     }
-
 
     private void OnDestroy()
     {

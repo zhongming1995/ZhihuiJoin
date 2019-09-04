@@ -42,15 +42,12 @@ public class HomeView : MonoBehaviour
             EndIndex = 35;
         }
 
-        //for (int i = 0; i < GameManager.instance.homePathList.Count; i++)
         for (int i = StartIndex; i <= EndIndex; i++)
         {
             int j = i;
             GameObject item = UIHelper.instance.LoadPrefab("Prefabs/home|home_item",ListViewContent,Vector3.zero,Vector3.one);
             item.name = i.ToString();
             itemObjList.Add(item);
-            //UIHelper.instance.SetImage(GameManager.instance.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
-            //UIHelper.instance.SetImage(GameData.homePathList[i], item.transform.Find("img_bg/img_item").GetComponent<Image>());
             RawImage image = item.transform.Find("img_bg/img_item").GetComponent<RawImage>();
             image.texture = UIHelper.instance.LoadSprite(GameData.homePathList[i]).texture;
             item.GetComponent<Button>().onClick.AddListener(delegate {
@@ -61,9 +58,6 @@ public class HomeView : MonoBehaviour
                 GameManager.instance.homeSelectIndex = j;
                 PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.GetPersonsNum();
                 GameManager.instance.homeContentPosx = ListViewContent.localPosition.x;
-                //记录列表的位置
-                //跳转后再播放素材模版音效
-                //AudioManager.instance.PlayAudio(EffectAudioType.Option, GameData.drawAudioPathList[GameManager.instance.homeSelectIndex]);
                 JumpToJoin();
             });
         }
@@ -71,8 +65,10 @@ public class HomeView : MonoBehaviour
 
     private void JumpToJoin()
     {
-        GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
-        UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        //GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
+        //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+        GameManager.instance.SetNextSceneName(SceneName.Join);
+        TransitionView.instance.OpenTransition();
     }
 
     private void BtnClickEvent()
@@ -80,9 +76,10 @@ public class HomeView : MonoBehaviour
         btnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //PanelManager.instance.CloseTopPanel();
-            GameManager.instance.SetNextViewPath(PanelName.IndexView);
-            UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.SetNextViewPath(PanelName.IndexView);
+            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            GameManager.instance.SetNextSceneName(SceneName.Index);
+            TransitionView.instance.OpenTransition();
         });
     }
 
