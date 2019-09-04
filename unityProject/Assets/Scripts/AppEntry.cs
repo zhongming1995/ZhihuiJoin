@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using ResMgr;
+using Helper;
 using UnityEngine.SceneManagement;
-using UnityEngine.Profiling;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
