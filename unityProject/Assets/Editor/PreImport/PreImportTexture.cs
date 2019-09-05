@@ -22,7 +22,7 @@ namespace Common.PreImprot.Editor
                 //if (atlasName == "Atlas")
                 {
                     textureImporter.textureType = TextureImporterType.Sprite;
-                    textureImporter.spritePackingTag = atlasName;
+                    textureImporter.spritePackingTag = null; //atlasName;
                     textureImporter.mipmapEnabled = false;
                     textureImporter.spriteImportMode = SpriteImportMode.Single;
                     textureImporter.filterMode = FilterMode.Bilinear;
@@ -82,7 +82,7 @@ namespace Common.PreImprot.Editor
                     s.Close();
 
                     textureImporter.textureType = TextureImporterType.Default;
-                    textureImporter.spritePackingTag = atlasName;
+                    textureImporter.spritePackingTag = null; //atlasName;
                     textureImporter.mipmapEnabled = false;
                     textureImporter.npotScale = TextureImporterNPOTScale.None;
                     textureImporter.filterMode = FilterMode.Bilinear;

@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 
 public class CalendarDetailItem : MonoBehaviour
 {
@@ -36,14 +37,27 @@ public class CalendarDetailItem : MonoBehaviour
             SetUnSelectScale();
             SetUnSelectAlpha();
         }
-         
-        Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
-        t.filterMode = FilterMode.Point;
-        byte[] b = FileHelper.FileToByte(PersonManager.instance.PersonImgPath + "/" + fileName+".png");
-        t.LoadImage(b);
-        t.Apply(false);
-        rawImage.texture = t;
+        StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName + ".png"));
 
+    }
+
+    IEnumerator Cor_LoadImage(string path)
+    {
+        WWW www = new WWW(path);
+        while (!www.isDone)
+        {
+            yield return null;
+        }
+        yield return www;
+        if (www.bytes == null)
+        {
+            Debug.Log("读图片失败");
+        }
+        if (string.IsNullOrEmpty(www.error))
+        {
+            rawImage.texture = www.texture;
+        }
+        www.Dispose();
     }
     /*
     public void Init(PartDataWhole whole, bool isCurIndex)

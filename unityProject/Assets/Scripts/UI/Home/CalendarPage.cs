@@ -8,7 +8,7 @@ using UnityEngine;
 public class CalendarPage:MonoBehaviour
 {
     public Transform ItemContent;
-
+    public GameObject calendarItemTemplate;
     //本页面的人物列表
     [HideInInspector]
     public List<CalenderItem> personList = new List<CalenderItem>();
@@ -32,10 +32,10 @@ public class CalendarPage:MonoBehaviour
             CalenderController.instance.DeletePageFunc(this);
             return;
         }
-        //StartCoroutine(Cor_LoadItems(_index,first));
-        LoadItemsFunc(_index, first);
+        StartCoroutine(Cor_LoadItems(_index,first));
+        //LoadItemsFunc(_index, first);
     }
-
+    /*
     void LoadItemsFunc(int _index, bool first)
     {
         ShouldRefresh = false;
@@ -79,7 +79,8 @@ public class CalendarPage:MonoBehaviour
             CalenderController.instance.DeletePageFunc(this);
         }
     }
-    /*
+    */
+
     IEnumerator Cor_LoadItems(int _index,bool first)
     {
         ShouldRefresh = false;
@@ -99,21 +100,21 @@ public class CalendarPage:MonoBehaviour
         while (i < endItemIndex)
         {
             Debug.Log("i:" + i);
-            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_item", ItemContent, Vector3.zero, Vector3.one, false, null, (item) => {
-                if (i<CalenderController.instance.PersonNum)
-                {
-                    trueItemCount++;
-                    string path = CalenderController.instance.pathList[i];
-                    CalenderItem calenderItem = item.GetComponent<CalenderItem>();
-                    calenderItem.Init(PageIndex, i, path);
-                    personList.Add(calenderItem);
-                }
-                else
-                {
-                    CalenderItem calenderItem = item.GetComponent<CalenderItem>();
-                    calenderItem.Init();
-                }
-            });
+            //GameObject item = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_item", ItemContent, Vector3.zero, Vector3.one, false);
+            GameObject item = UIHelper.instance.ClonePrefab(calendarItemTemplate, ItemContent, Vector3.zero, Vector3.one, false);
+            if (i < CalenderController.instance.PersonNum)
+            {
+                trueItemCount++;
+                string path = CalenderController.instance.pathList[i];
+                CalenderItem calenderItem = item.GetComponent<CalenderItem>();
+                calenderItem.Init(PageIndex, i, path);
+                personList.Add(calenderItem);
+            }
+            else
+            {
+                CalenderItem calenderItem = item.GetComponent<CalenderItem>();
+                calenderItem.Init();
+            }
             i++;
             yield return new WaitForSeconds(0.01f); 
         }
@@ -127,7 +128,6 @@ public class CalendarPage:MonoBehaviour
             CalenderController.instance.DeletePageFunc(this);
         }
     }
-    */
 
     public void DeleteOneItem(int _index,CalenderItem deleteItem)
     {

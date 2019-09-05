@@ -49,7 +49,10 @@ public class DisplayView : MonoBehaviour
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
         Display();
-        BtnSave.interactable = false;
+        //BtnSave.interactable = false;
+        BtnGame.interactable = false;//保存按钮才可以用
+        BtnBack.interactable = false;//保存按钮才可以用
+        BtnHome.interactable = false;//保存按钮才可以用
         ShowMask(false);
     }
 
@@ -84,6 +87,7 @@ public class DisplayView : MonoBehaviour
 
     private void TransitionFadeOutComplete(PanelEnum panelEnum)
     {
+        Debug.Log("fadeOut开始截图=============");
         StartCoroutine(CutScreen());
     }
 
@@ -196,7 +200,6 @@ public class DisplayView : MonoBehaviour
         staticTexture.ReadPixels(rect, 0, 0, true);
         Color32 color = new Color32(0,0,0,0);
         staticTexture.Apply();
-        BtnSave.interactable = true;//保存按钮才可以用
         yield return staticTexture;
         SavePic();
 
@@ -214,6 +217,9 @@ public class DisplayView : MonoBehaviour
         string savePath = PersonManager.instance.SaveImgPath+".png";
         FileHelper.ByteToFile(staticTexture.EncodeToPNG(), savePath);
         Debug.Log("图片保存的沙河地址：------------" + savePath);
+        BtnGame.interactable = true;//保存按钮才可以用
+        BtnBack.interactable = true;//保存按钮才可以用
+        BtnHome.interactable = true;//保存按钮才可以用
         //UnityToIOS_SavePhotoToAlbum(savePath);//保存到相册
     }
 

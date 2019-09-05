@@ -315,8 +315,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0b9b97b4416e04fea90f4805b4c592d9, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 39eef56112ab94c76b702981786b83be, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2136,8 +2136,6 @@ GameObject:
   - component: {fileID: 8614127845457370522}
   - component: {fileID: 1453958731624886551}
   - component: {fileID: 6137133811617924408}
-  - component: {fileID: 1462561339}
-  - component: {fileID: 1462561338}
   m_Layer: 5
   m_Name: card_view
   m_TagString: Untagged
@@ -2200,32 +2198,6 @@ MonoBehaviour:
   ImgMask: {fileID: 9113519698015696228}
   ImgProgress: {fileID: 4897479387201310578}
   ChapterObj: {fileID: 682099368692085288}
---- !u!225 &1462561339
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8614127845457370525}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!114 &1462561338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8614127845457370525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07223db3db6f0440c88ed027bdea407e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnable: 1
-  panelEnum: 5
 --- !u!1 &8634930719283442683
 GameObject:
   m_ObjectHideFlags: 0

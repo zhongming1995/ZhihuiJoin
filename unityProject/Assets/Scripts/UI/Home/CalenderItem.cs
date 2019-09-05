@@ -39,7 +39,7 @@ public class CalenderItem : MonoBehaviour
         Index = _index;
         fileName = _fileName;
 
-        StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName+".png"));
+        //StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName+".png"));
 
         //默认隐藏删除按钮
         MaskDelete.SetActive(false);
@@ -74,12 +74,7 @@ public class CalenderItem : MonoBehaviour
         }
         if (string.IsNullOrEmpty(www.error))
         {
-            Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
-            t.filterMode = FilterMode.Point;
-            byte[] b = www.bytes;
-            t.LoadImage(b);
-            t.Apply(false);
-            rawImage.texture = t;
+            rawImage.texture = www.texture;
         }
         www.Dispose();
     }

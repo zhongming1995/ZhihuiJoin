@@ -66,6 +66,8 @@ public class CalendarListDrag : MonoBehaviour,IBeginDragHandler,IDragHandler,IEn
         }
         content.localPosition += new Vector3(eventData.delta.x,0,0);
         curIndex = -((int)content.transform.localPosition.x - perItemX / 2) / perItemX;
+        curIndex = Mathf.Min(0, curIndex);
+        curIndex = Mathf.Max(curIndex, CalendarDetailController.instance.detailList.Count - 1);
         Debug.Log("curIndex:" + curIndex);
         AniResetScale(curIndex);
     }

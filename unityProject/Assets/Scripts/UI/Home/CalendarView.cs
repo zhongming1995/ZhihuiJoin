@@ -1,5 +1,4 @@
-﻿using DataMgr;
-using GameMgr;
+﻿using GameMgr;
 using Helper;
 using System.Collections;
 using System.Collections.Generic;
@@ -67,7 +66,7 @@ public class CalendarView : MonoBehaviour
         int endPage = Mathf.Min(CalenderController.instance.PageNum, 3);
         int i = 0; //PersonManager.instance.CurPersonPageIndex;
         //CalenderController.instance.CurPageIndex = PersonManager.instance.CurPersonPageIndex;
-        WaitForSeconds delay = new WaitForSeconds(0.1f);
+        WaitForSeconds delay = new WaitForSeconds(1.0f);
         while (i < endPage)
         {
             AddOnePage(i);

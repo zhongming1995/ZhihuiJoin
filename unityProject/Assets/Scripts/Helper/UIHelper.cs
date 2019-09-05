@@ -74,6 +74,21 @@ namespace Helper
             return go;
         }
 
+        public GameObject ClonePrefab(GameObject template, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false)
+        {
+            GameObject go = Instantiate(template);
+            go.transform.SetParent(parent);
+            go.transform.localPosition = pos;
+            go.transform.localScale = scale;
+            go.SetActive(true);
+            if (stretch == true)
+            {
+                go.transform.GetComponent<RectTransform>().offsetMin = Vector2.zero;
+                go.transform.GetComponent<RectTransform>().offsetMax = Vector2.zero;
+            }
+            return go;
+        }
+
         public void LoadPrefabAsync(string path, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false,Action<float> progressCall = null, Action<GameObject> loadCall = null)
         {
             //StartCoroutine(Cor_LoadPrefabAsync(path, parent, pos, scale, stretch, progressCall,loadCall));
