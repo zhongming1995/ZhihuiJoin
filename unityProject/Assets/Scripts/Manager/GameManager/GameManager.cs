@@ -1,4 +1,5 @@
 ﻿using AudioMgr;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -108,6 +109,9 @@ namespace GameMgr
 
         [HideInInspector]
         public bool joinShowAll = false;
+
+        [HideInInspector]
+        public Texture2D[] personTextureList;
 
         void Awake()
         {
@@ -492,6 +496,26 @@ namespace GameMgr
         public void SetJoinShowAll(bool show)
         {
             joinShowAll = show;
+        }
+
+        public void SetPersonTexture(int index,Texture2D t)
+        {
+            personTextureList[index] = t;
+        }
+
+        public void ClearPersonTextureList()
+        {
+            if (personTextureList!=null)
+            {
+                Array.Clear(personTextureList, 0, personTextureList.Length);
+                personTextureList = null;
+            }
+        }
+
+        public void CreatePersonTextureList(int count)
+        {
+            ClearPersonTextureList();
+            personTextureList = new Texture2D[count];
         }
     }
    

@@ -203,6 +203,7 @@ public class CalendarPage:MonoBehaviour
 
     private void OnDestroy()
     {
+        personList = null;
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }

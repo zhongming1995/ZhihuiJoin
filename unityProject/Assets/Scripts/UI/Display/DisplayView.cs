@@ -63,31 +63,16 @@ public class DisplayView : MonoBehaviour
 
     private void OnEnable()
     {
-        //GameOperDelegate.pianoBegin += JumpToGameCB;
-        //GameOperDelegate.cardBegin += JumpToGameCB;
-        //GameOperDelegate.fruitBegin += JumpToGameCB;
-        CallManager.savePhotoCallBack += SavePhotoCallBack;
         FadeIn.fadeOutComplete += TransitionFadeOutComplete;
-    }
-
-    private void SavePhotoCallBack(string result)
-    {
-        Debug.Log("Display SavePhotoCallBack===========");
-        ShowMask(false);
     }
 
     private void OnDisable()
     {
-        //GameOperDelegate.pianoBegin -= JumpToGameCB;
-        //GameOperDelegate.cardBegin -= JumpToGameCB;
-        //GameOperDelegate.fruitBegin -= JumpToGameCB;
-        CallManager.savePhotoCallBack -= SavePhotoCallBack;
         FadeIn.fadeOutComplete -= TransitionFadeOutComplete;
     }
 
     private void TransitionFadeOutComplete(PanelEnum panelEnum)
     {
-        Debug.Log("fadeOut开始截图=============");
         StartCoroutine(CutScreen());
     }
 
@@ -186,7 +171,7 @@ public class DisplayView : MonoBehaviour
 
     IEnumerator CutScreen()
     {
-        yield return new WaitForSeconds(0.8f);
+        //yield return new WaitForSeconds(0.8f);
         //图片大小
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);

@@ -93,48 +93,6 @@ public class CalendarView : MonoBehaviour
         }
     }
 
-    /*
-    private void GetPageList()
-    {
-        CalenderController.instance.PageList.Clear();
-        if (CalenderController.instance.CurPageIndex == 0)
-        {
-            for (int i = 0; i < ListContent.childCount; i++)
-            {
-                Transform item = ListContent.GetChild(i);
-                CalendarPage page = item.GetComponent<CalendarPage>();
-                //当前是第一页
-                page.LoadItems(i);
-                CalenderController.instance.PageList.Add(page);
-            }
-        }
-        else if (CalenderController.instance.CurPageIndex == CalenderController.instance.PageNum - 1)
-        {
-            int j = 0;
-            for (int i = ListContent.childCount-1; i >= 0; i--)
-            {
-                Transform item = ListContent.GetChild(i);
-                CalendarPage page = item.GetComponent<CalendarPage>();
-                //当前是第一页
-                page.LoadItems(CalenderController.instance.CurPageIndex-j);
-                CalenderController.instance.PageList.Add(page);
-                j++;
-            }
-        }
-        else
-        {
-            for (int i = 0; i < ListContent.childCount; i++)
-            {
-                Transform item = ListContent.GetChild(i);
-                CalendarPage page = item.GetComponent<CalendarPage>();
-                //当前是第一页
-                page.LoadItems(i);
-                CalenderController.instance.PageList.Add(page);
-            }
-        }
-    }
-    */
-
     private void SetPageText()
     {
         TxtPage.text = (CalenderController.instance.CurPageIndex + 1).ToString() + " / " + CalenderController.instance.PageNum.ToString();
@@ -189,34 +147,6 @@ public class CalendarView : MonoBehaviour
         SetPageText();
         SetPageSwitchBtn();
         PageScrollEndFunc(0);
-        /*
-        //根据总索引得到页面索引和当前页面下的人物索引
-        int pageIndex = index / 6;
-        int curIndex = index % 6;
-        //判断这个页面是否已加载了
-        if (pageIndex >= pageList.Count)
-        {
-            int endIndex = pageIndex - pageList.Count + 1;
-            for (int i = 0; i < endIndex; i++)
-            {
-                if (i==endIndex-1)
-                {
-                    AddOnePage(pageList.Count + i,()=> {
-                        PageScrollEndFunc(pageIndex);
-                        RefreshPerson(pageIndex, curIndex);
-                    });
-                }
-                else
-                {
-                    AddOnePage(pageList.Count + i);
-                }
-            }
-        }
-        else
-        {
-            RefreshPerson(pageIndex, curIndex);
-        }
-        */
     }
 
     public void RefreshPerson(int pageIndex,int itemIndex)
@@ -255,6 +185,7 @@ public class CalendarView : MonoBehaviour
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //GameManager.instance.SetNextViewPath(PanelName.IndexView);
             //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            //GameManager.instance.ClearPersonTextureList();
             GameManager.instance.SetNextSceneName(SceneName.Index);
             TransitionView.instance.OpenTransition();
         });
@@ -285,26 +216,6 @@ public class CalendarView : MonoBehaviour
             PageScrollEndFunc(CalenderController.instance.CurPageIndex);
         });
     }
-    /*
-    IEnumerator LoadPersonList(List<string> pathList)
-    {
-        Debug.Log(pathList.Count);
-        int index = 0;
-        while (index < pathList.Count)
-        {
-            UIHelper.instance.LoadPrefabAsync("Prefabs/calendar|calendar_item", ListContent, Vector3.zero, Vector3.one, false, null, (item) => {
-                Debug.Log(pathList[index]);
-                PartDataWhole whole = PersonManager.instance.DeserializePerson(pathList[index]);
-                item.name = pathList[index];
-                CalenderItem calenderItem = item.GetComponent<CalenderItem>();
-                calenderItem.Init(index,pathList[index],whole);
-                personList.Add(calenderItem);
-                index += 1;
-            });
-            yield return new WaitForSeconds(0.05f);
-        }
-    }
-    */
     
     public void ShowDeleteBtn(bool show)
     {
@@ -377,6 +288,7 @@ public class CalendarView : MonoBehaviour
 
     private void OnDestroy()
     {
+        pageList = null;
         RemoveEventListener();
         Resources.UnloadUnusedAssets();
         GC.Collect();

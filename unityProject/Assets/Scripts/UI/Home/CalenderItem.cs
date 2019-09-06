@@ -1,10 +1,6 @@
 ﻿using AudioMgr;
-using DataMgr;
 using GameMgr;
-using Helper;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +16,6 @@ public class CalenderItem : MonoBehaviour
     public int Index;
     public int PageIndex;
 
-    private PartDataWhole curWhole;
     public string fileName;
 
     public void Init()
@@ -38,9 +33,9 @@ public class CalenderItem : MonoBehaviour
         IsItem = true;
         Index = _index;
         fileName = _fileName;
-
+        string path = PersonManager.instance.PersonImgPath + "/" + fileName + ".png";
         //StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName+".png"));
-
+        LoadByIO(path);
         //默认隐藏删除按钮
         MaskDelete.SetActive(false);
 
@@ -60,6 +55,19 @@ public class CalenderItem : MonoBehaviour
         });
     }
 
+    void LoadByIO(string path)
+    {
+        byte[] bytes = FileHelper.FileToByte(path);
+
+        Texture2D t = new Texture2D(450, 450);
+        t.LoadImage(bytes);
+        bytes = null;
+        //GameManager.instance.SetPersonTexture(Index, t);
+        rawImage.texture = t;
+        t = null;
+    }
+
+    /*
     IEnumerator Cor_LoadImage(string path)
     {
         WWW www = new WWW(path);
@@ -77,46 +85,10 @@ public class CalenderItem : MonoBehaviour
             rawImage.texture = www.texture;
         }
         www.Dispose();
+        www = null;
     }
-
-    /*
-    public void Init(int _pageIndex,int _index,string _fileName, PartDataWhole whole)
-    {
-        PageIndex = _pageIndex;
-        IsItem = true;
-        Index = _index;
-        fileName = _fileName;
-        if (whole==null)
-        {
-            Debug.Log("null whole===");
-        }
-        curWhole = whole;
-
-        //异步加载人物
-        GameObject person = DataManager.instance.GetPersonObj(whole.partDataList);
-        
-        person.transform.SetParent(PersonParent);
-        person.transform.localPosition = Vector3.zero;
-        person.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-
-
-        //默认隐藏删除按钮
-        MaskDelete.SetActive(false);
-
-        //按钮点击
-        BtnDetail.onClick.AddListener(delegate {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PersonManager.instance.CurPersonIndex = Index;
-            GameObject panel = UIHelper.instance.LoadPrefab("Prefabs/calendar|calendar_detail_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            PanelManager.instance.PushPanel(PanelName.CalendarDetailView,panel);
-        });
-
-        BtnDelete.onClick.AddListener(delegate {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            CalenderController.instance.DeleteComplete(this);
-        });
-    }*/
-
+    */
+  
     public void Refresh(int _pageIndex, int _index, string _fileName)
     {
         DestroyImmediate(PersonParent.GetChild(0).gameObject);

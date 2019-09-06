@@ -37,6 +37,7 @@ public static class FileHelper
                 fs.Read(byteArray, 0, byteArray.Length);
                 fs.Flush();
                 fs.Close();
+                fs.Dispose();
                 return byteArray;
             }
         }

@@ -24,13 +24,13 @@ public class CalendarListDrag : MonoBehaviour,IBeginDragHandler,IDragHandler,IEn
         if (curIndex-1>=0)
         {
             CalendarDetailController.instance.detailList[curIndex - 1].AniUnSelectScale();
-            CalendarDetailController.instance.detailList[curIndex - 1].AniUnSelectAlpha();
+            //CalendarDetailController.instance.detailList[curIndex - 1].AniUnSelectAlpha();
         }
         CalendarDetailController.instance.detailList[curIndex].AniSelectScale();
-        CalendarDetailController.instance.detailList[curIndex].AniSelectAlpha();
+        //CalendarDetailController.instance.detailList[curIndex].AniSelectAlpha();
         if (curIndex+1 < CalendarDetailController.instance.detailList.Count)
         {
-            CalendarDetailController.instance.detailList[curIndex + 1].AniUnSelectAlpha();
+            //CalendarDetailController.instance.detailList[curIndex + 1].AniUnSelectAlpha();
             CalendarDetailController.instance.detailList[curIndex + 1].AniUnSelectScale();
         }
     }
@@ -66,8 +66,8 @@ public class CalendarListDrag : MonoBehaviour,IBeginDragHandler,IDragHandler,IEn
         }
         content.localPosition += new Vector3(eventData.delta.x,0,0);
         curIndex = -((int)content.transform.localPosition.x - perItemX / 2) / perItemX;
-        curIndex = Mathf.Min(0, curIndex);
-        curIndex = Mathf.Max(curIndex, CalendarDetailController.instance.detailList.Count - 1);
+        curIndex = Mathf.Max(0, curIndex);
+        curIndex = Mathf.Min(curIndex, CalendarDetailController.instance.detailList.Count - 1);
         Debug.Log("curIndex:" + curIndex);
         AniResetScale(curIndex);
     }

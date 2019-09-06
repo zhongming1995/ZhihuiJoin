@@ -18,7 +18,7 @@ public class CardView : MonoBehaviour
     public Transform ChapterObj;
 
     private float oriProgressPosx;//初始时间进度条的位置
-    private float countMaxTime = 5;
+    private float countMaxTime = 3;
     private float countTime = 0;//用于计时
     private List<CardItem> randomCardList = new List<CardItem>(); 
 

@@ -30,4 +30,6 @@ public class CalendarDetailController : SingletonMono<CalendarDetailController>
         curDetailIndex = Mathf.Max(0, curDetailIndex - 1);
         return curDetailIndex;
     }
+
+
 }

@@ -261,6 +261,7 @@ MonoBehaviour:
   ScreenWidth: 0
   ScreenHeight: 0
   joinShowAll: 0
+  personTextureList: []
 --- !u!114 &992738288
 MonoBehaviour:
   m_ObjectHideFlags: 0

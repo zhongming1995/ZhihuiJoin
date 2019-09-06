@@ -22,7 +22,7 @@ public class AppEntry : SingletonMono<AppEntry>
         Application.targetFrameRate = 60;
 
         //打印开关
-        Debug.unityLogger.logEnabled = true;
+        Debug.unityLogger.logEnabled = false;
 
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);

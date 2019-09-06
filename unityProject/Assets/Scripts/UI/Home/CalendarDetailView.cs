@@ -95,7 +95,6 @@ public class CalendarDetailView : MonoBehaviour
 #if !UNITY_EDITOR
             ShowMask(true);
 #endif
-            //StartCoroutine(CutScreen());
             string path = PersonManager.instance.PersonImgPath + "/" + PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex] + ".png";
             UnityToIOS_SavePhotoToAlbum(path);
         });
@@ -178,7 +177,7 @@ public class CalendarDetailView : MonoBehaviour
         Vector2 realScreen = UIHelper.instance.GetRealScreen();
         ListContent.GetComponent<RectTransform>().sizeDelta = new Vector2(650 * pathList.Count, realScreen.y);
         calendarListDrag.ResetPosition(curIndex);
-        WaitForSeconds delay = new WaitForSeconds(0.01f);
+        WaitForSeconds delay = new WaitForSeconds(0.02f);
         while (index < pathList.Count)
         {
             int curI = index;
@@ -188,11 +187,11 @@ public class CalendarDetailView : MonoBehaviour
             CalendarDetailItem detailItem = item.GetComponent<CalendarDetailItem>();
             if (curIndex == curI)
             {
-                detailItem.Init(pathList[curI], true);
+                detailItem.Init(pathList[curI], true,index);
             }
             else
             {
-                detailItem.Init(pathList[curI], false);
+                detailItem.Init(pathList[curI], false,index);
             }
             detailList.Add(detailItem);
 
@@ -205,57 +204,6 @@ public class CalendarDetailView : MonoBehaviour
             yield return delay;
         }
         EnableBtn(true);
-    }
-
-    IEnumerator CutScreen()
-    {
-        yield return new WaitForSeconds(0.8f);
-        //图片大小
-        texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
-        texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
-        staticTexture = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, true);
-        //计算四个角要裁切的圆半径
-        radius = (int)((decimal)radius / referenceWidth * texWidth);
-        //左下角是0，0
-        Rect rect = new Rect((int)screenPosFlag1.x, Screen.height - (int)(Screen.height - screenPosFlag2.y), texWidth, texHeight);
-        yield return new WaitForEndOfFrame();
-        //截屏
-        staticTexture.ReadPixels(rect, 0, 0, true);
-        Color32 color = new Color32(0, 0, 0, 0);
-        staticTexture.Apply();
-        BtnDownload.interactable = true;//保存按钮才可以用
-        yield return staticTexture;
-        SavePic();
-    }
-    void SavePic()
-    {
-        Texture2D t = detailList[CalendarDetailController.instance.curDetailIndex].rawImage.texture as Texture2D;
-        byte[] b = t.EncodeToPNG();
-        string date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff").Replace(":", "-");
-        string photoName = "MyPhoto_" + date + ".png";
-        string folderPath = Application.persistentDataPath + "/image_shot";
-        //File.WriteAllBytes(path +"/"+ photoName, byt);//同步方法
-        DirectoryInfo info = new DirectoryInfo(folderPath);
-        if (!info.Exists) { 
-            Debug.Log("文件夹不存在:" + folderPath);
-            Directory.CreateDirectory(folderPath);
-        }
-        savePath = folderPath + "/" + photoName;
-        Debug.Log("图片保存的沙河地址：------------" + savePath);
-        FileStream fileStream = File.Open(savePath, FileMode.Create);
-        fileStream.BeginWrite(b, 0, b.Length, new AsyncCallback(EndWrite), fileStream);//异步方法
-    }
-
-    public void EndWrite(IAsyncResult result)
-    {
-        FileStream fileStream = (FileStream)result.AsyncState;
-        fileStream.EndWrite(result);
-        fileStream.Flush();
-        fileStream.Close();
-        Debug.Log("异步保存图片完成------------");
-
-        UnityToIOS_SavePhotoToAlbum(savePath);
-
     }
 
     private void SavePhotoCallBack(string result)
@@ -271,6 +219,11 @@ public class CalendarDetailView : MonoBehaviour
 
     private void OnDestroy()
     {
+        for (int i = 0; i < detailList.Count; i++)
+        {
+            Destroy(detailList[i]);
+            detailList[i] = null;
+        }
         RemoveEventListener();
         Resources.UnloadUnusedAssets();
         GC.Collect();

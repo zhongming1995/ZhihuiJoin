@@ -1040,8 +1040,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d78c2021034c8467496ebb87eb229dd8, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: a68db143f76ef4d36abf7af56de66a44, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1114,7 +1114,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a68db143f76ef4d36abf7af56de66a44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d78c2021034c8467496ebb87eb229dd8, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2462,11 +2462,11 @@ MonoBehaviour:
   desWindowScale: {x: 1, y: 1, z: 1}
   windowDuration: 0.2
   windowDelayTime: 0.5
-  BtnHome: {fileID: 0}
-  BtnEdit: {fileID: 0}
-  BtnGame: {fileID: 0}
-  BtnDisplay: {fileID: 0}
-  BtnReplay: {fileID: 0}
+  BtnHome: {fileID: 845265112}
+  BtnEdit: {fileID: 89028875}
+  BtnGame: {fileID: 162661051}
+  BtnDisplay: {fileID: 1687769069}
+  BtnReplay: {fileID: 558667496}
   WindowPersonParent: {fileID: 1541718817}
 --- !u!1 &2879808412111536008
 GameObject:

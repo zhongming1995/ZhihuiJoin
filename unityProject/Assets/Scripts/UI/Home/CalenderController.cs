@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using GameMgr;
 
 public class CalenderController : SingletonMono<CalenderController>
 {
@@ -44,7 +45,6 @@ public class CalenderController : SingletonMono<CalenderController>
     public List<string> GetPersonList()
     {
         pathList = PersonManager.instance.GetPersonsList();
-        //ImgPathList = PersonManager.instance.GetPersonsImageList();
         PersonNum = pathList.Count;
         GetPageNum(PersonNum);
         return pathList;

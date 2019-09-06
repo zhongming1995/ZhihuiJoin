@@ -50,6 +50,7 @@ public class HomeView : MonoBehaviour
             itemObjList.Add(item);
             RawImage image = item.transform.Find("img_bg/img_item").GetComponent<RawImage>();
             image.texture = UIHelper.instance.LoadSprite(GameData.homePathList[i]).texture;
+            image.SetNativeSize();
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标
                 AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
