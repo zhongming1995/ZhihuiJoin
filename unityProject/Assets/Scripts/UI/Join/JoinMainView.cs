@@ -714,6 +714,11 @@ public class JoinMainView : MonoBehaviour
     //加载某种类型的素材
     private void LoadResListByType(int type)
     {
+        if (type==0)
+        {
+            loadResult[type] = true;
+            return;
+        }
         string resPrefabPath = GameData.resPrefabPathList[type];
         List<string> resPath;
         if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body)
@@ -743,7 +748,7 @@ public class JoinMainView : MonoBehaviour
         for (int j = 0; j < resPath.Count; j++)
         {
             GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, Vector3.one, false);
-            if (type == 0 || type == 1 || type == 6 || type == 7)
+            if (type == 1 || type == 6 || type == 7)
             {
                 string imgPath = resPath[j];
                 if (type != 0)
@@ -754,15 +759,15 @@ public class JoinMainView : MonoBehaviour
                 UIHelper.instance.SetImage(imgPath, resImg, true);
                 float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, y + 40);
-                if (type == 0)
-                {
-                    string selectPath = imgPath + "_select";
-                    UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
-                }
-                else
-                {
+                //if (type == 0)
+                //{
+                //    string selectPath = imgPath + "_select";
+                //    UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
+                //}
+                //else
+                //{
                     resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
-                }
+                //}
             }
             else
             {
