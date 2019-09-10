@@ -100,6 +100,10 @@ public class GameData
         string homeNumPath = "sprite/homeitems|splice_home_number_{0}_pic";
         string drawBgNumPath = "sprite/draw|draw_num_{0}_pic";
         string drawNumAudioPath = "Audio/num_template|template_num_{0}";
+        //10个数字
+        string homeAnimalPath = "sprite/homeitems|splice_home_animal_{0}_pic";
+        //string drawBgAnimalPath = "sprite/draw|draw_num_{0}_pic";
+        string drawAnimalAudioPath = "Audio/num_template|template_animal_{0}";
 
         for (int i = 0; i < 26; i++)
         {
@@ -113,6 +117,12 @@ public class GameData
             homePathList.Add(string.Format(homeNumPath, i.ToString()));
             drawBgPathList.Add(string.Format(drawBgNumPath, i.ToString()));
             drawAudioPathList.Add(string.Format(drawNumAudioPath, i.ToString()));
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            homePathList.Add(string.Format(homeAnimalPath, i.ToString()));
+            drawAudioPathList.Add(string.Format(drawAnimalAudioPath, i.ToString()));
         }
     }
 
@@ -427,17 +437,17 @@ public class GameData
                     pathList.Add("sprite/fodder/eye|" + leftst[i]);
                     pathList.Add("sprite/fodder/eye|" + rightst[i]);
                 }
-                num = 4;
+                num = Math.Min(4, resPathList[1].Count);
             }
             else if(mpath != "")
             {
                 pathList.Add("sprite/fodder/eye|" + ModulePathList[index][0]);
                 pathList.Add("sprite/fodder/eye|" + ModulePathList[index][1]);
-                num = 5;
+                num = Math.Min(5, resPathList[1].Count);
             }
             else
             {
-                num = 6;
+                num = Math.Min(6, resPathList[1].Count);
             }
             int sIndex = 0;
             int eIndex = resPathList[1].Count;
@@ -459,11 +469,11 @@ public class GameData
             int num = 0;
             if (mpath=="")
             {
-                num = 6;
+                num = Math.Min(6, resPathList[2].Count);
             }
             else
             {
-                num = 5;
+                num = Math.Min(5, resPathList[2].Count);
                 pathList.Add("sprite/fodder/mouth|" + mpath);
             }
             int sIndex = 0;
@@ -485,11 +495,11 @@ public class GameData
             int num = 0;
             if (mpath == "")
             {
-                num = 6;
+                num = Math.Min(6, resPathList[6].Count);
             }
             else
             {
-                num = 5;
+                num = Math.Min(5, resPathList[6].Count);
                 pathList.Add("sprite/fodder/hand|" + mpath);
                 pathList.Add("sprite/fodder/hand|" + ModulePathList[index][4]);
             }
@@ -513,11 +523,11 @@ public class GameData
             int num = 0;
             if (mpath == "")
             {
-                num = 5;
+                num = Math.Min(5, resPathList[7].Count);
             }
             else
             {
-                num = 4;
+                num = Math.Min(4, resPathList[7].Count);
                 pathList.Add("sprite/fodder/leg|" + mpath);
                 pathList.Add("sprite/fodder/leg|" + ModulePathList[index][6]);
             }
@@ -541,11 +551,11 @@ public class GameData
             int num = 0;
             if (mpath == "")
             {
-                num = 5;
+                num = Math.Min(5, resPathList[4].Count);
             }
             else
             {
-                num = 4;
+                num = Math.Min(4, resPathList[4].Count);
                 pathList.Add("sprite/fodder/hat|" + mpath);
             }
             int sIndex = 0;
@@ -567,11 +577,11 @@ public class GameData
             int num = 0;
             if (mpath == "")
             {
-                num = 6;
+                num = Math.Min(6, resPathList[5].Count);
             }
             else
             {
-                num = 5;
+                num = Math.Min(5, resPathList[5].Count);
                 pathList.Add("sprite/fodder/headwear|" + mpath);
             }
             int sIndex = 0;
@@ -587,7 +597,6 @@ public class GameData
                 pathList.Add(resPathList[5][n]);
             }
         }
-
         return pathList;
     }
 }

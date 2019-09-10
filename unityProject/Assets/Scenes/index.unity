@@ -229,15 +229,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1974193678, guid: a55a46b71ab64477b9a790a450633d8b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7709687321847980526, guid: a55a46b71ab64477b9a790a450633d8b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55a46b71ab64477b9a790a450633d8b, type: 3}
 --- !u!224 &749524168 stripped

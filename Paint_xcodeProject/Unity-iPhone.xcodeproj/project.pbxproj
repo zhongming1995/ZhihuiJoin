@@ -1734,7 +1734,7 @@
 				);
 				PRODUCT_NAME = ZhihuiJoin;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = dev_new;
+				PROVISIONING_PROFILE_SPECIFIER = hoc_new;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/ParentContro/Unity-iPhone-Bridging-Header.h";
@@ -2081,7 +2081,7 @@
 				);
 				PRODUCT_NAME = ZhihuiJoin;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = dev_new;
+				PROVISIONING_PROFILE_SPECIFIER = hoc_new;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Classes/ParentContro/Unity-iPhone-Bridging-Header.h";

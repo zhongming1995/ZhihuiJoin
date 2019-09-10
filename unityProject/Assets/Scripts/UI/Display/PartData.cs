@@ -1,14 +1,16 @@
 ﻿using System;
 
 public enum TemplateResType {
-    Body = 0,
+    Body = 0,//字母
     Eye = 1,
     Mouth = 2,
     Hair = 3,
     Hat = 4,
     HeadWear = 5,
     Hand = 6,
-    Leg = 7
+    Leg = 7,
+    Head = 8,
+    TrueBody = 9,//真实身体
 }
 
 public enum PartType
@@ -25,71 +27,28 @@ public enum PartType
     LeftHand = 7,
     RightHand = 8,
     LeftLeg = 9,
-    RightLeg = 10
+    RightLeg = 10,
+    Head = 11,
+    TrueBody = 12,
 }
 
 [Serializable]
 public class PartData
 {
-    private PartType type;//部位类型
-    private byte[] imgBytes;//图片转byte数组
-    private float[] pos;//在画布上的局部坐标
-    private float[] scale;//缩放
+    public PartType PType { get; set; }
 
-    public PartType PType
-    {
-        get
-        {
-            return type;
-        }
-        set
-        {
-            type = value;
-        }
-    }
+    public byte[] ImgBytes { get; set; }
 
-    public byte[] ImgBytes
-    {
-        get
-        {
-            return imgBytes;
-        }
-        set
-        {
-            imgBytes = value;
-        }
-    }
+    public float[] Pos { get; set; }
 
-    public float[] Pos
-    {
-        get
-        {
-            return pos;
-        }
-        set
-        {
-            pos = value;
-        }
-    }
-
-    public float[] Scale
-    {
-        get
-        {
-            return scale;
-        }
-        set
-        {
-            scale = value;
-        }
-    }
+    public float[] Scale { get; set; }
 
     public PartData(PartType _type, byte[] _imgBytes, float[] _pos, float[] _scale)
     {
-        this.type = _type;
-        this.imgBytes = _imgBytes;
-        this.pos = _pos;
-        this.scale = _scale;
+        PType = _type;
+        ImgBytes = _imgBytes;
+        Pos = _pos;
+        Scale = _scale;
     }
 
 }

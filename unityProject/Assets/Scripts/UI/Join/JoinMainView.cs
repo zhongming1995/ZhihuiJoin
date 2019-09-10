@@ -51,7 +51,7 @@ public class JoinMainView : MonoBehaviour
     [HideInInspector]
     public int step = 1;//步骤1-3
     public int preStep = -1;//上一步
-    public List<Transform> typeTransList = new List<Transform>();//类型列表，0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
+    public List<Transform> typeTransList = new List<Transform>();//类型列表，0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品 6手 7脚 8头 9身体
     private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
     private bool[] guideResult = {false,false,false,false };//用来标示每一步的引导语音是否已经播放
 
@@ -553,7 +553,13 @@ public class JoinMainView : MonoBehaviour
             SetCurSelectType(TemplateResType.Eye);
             BtnPre.GetComponent<UIMove>().MoveShow();
             BtnNext.GetComponent<UIMove>().MoveShow();
-            if (preStep==3)
+        }
+        else if (step == 3)
+        {
+            SetCurSelectType(TemplateResType.Hand);
+            BtnPre.GetComponent<UIMove>().MoveShow();
+            BtnNext.GetComponent<UIMove>().MoveShow();
+            if (preStep == 3)
             {
                 BtnOk.GetComponent<UIScale>().ScaleHide();
             }
@@ -562,7 +568,7 @@ public class JoinMainView : MonoBehaviour
                 BtnOk.gameObject.SetActive(false);
             }
         }
-        else if (step == 3)
+        else if (step == 4)
         {
             SetCurSelectType(TemplateResType.Hat);
             BtnPre.gameObject.SetActive(true);
@@ -595,6 +601,30 @@ public class JoinMainView : MonoBehaviour
     
     void SwitchStep(int _curStep,int _preStep)
     {
+        if (_curStep == 1)
+        {
+            if (GameManager.instance.curJoinType == JoinType.Animal)
+            {
+                typeTransList[0].gameObject.SetActive(false);
+                typeTransList[8].gameObject.SetActive(true);
+            }
+            else
+            {
+                typeTransList[0].gameObject.SetActive(true);
+                typeTransList[8].gameObject.SetActive(false);
+            }
+        }
+        if (_curStep==3)
+        {
+            if (GameManager.instance.curJoinType == JoinType.Animal)
+            {
+                typeTransList[9].gameObject.SetActive(true);
+            }
+            else
+            {
+                typeTransList[9].gameObject.SetActive(false);
+            }
+        }
         //第一个子节点是选中图
         Sequence seq = DOTween.Sequence();
         if (_preStep != -1)
@@ -615,7 +645,7 @@ public class JoinMainView : MonoBehaviour
             ImgResTypeSelect = TypeBtnConList[_curStep - 1].GetChild(0).transform.GetComponent<RectTransform>();
             ImgResTypeSelect.gameObject.SetActive(true);
             ImgResTypeSelect.anchoredPosition = lastSelectPos;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i == step - 1)
                 {

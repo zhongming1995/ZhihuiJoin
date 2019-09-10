@@ -99,17 +99,24 @@ public class JoinGuide : MonoBehaviour
     {
         if (GameManager.instance.curSelectResType==TemplateResType.Body)//第一步
         {
-            //是否画过一笔
-            if (joinMainView.hasPainted)
+            if (GameManager.instance.curJoinType == JoinType.Animal)
             {
-                //Debug.Log("提示语音并提示下一步");
                 DoDrawNextStepReminder();
             }
             else
             {
-                //Debug.Log("提示动画：画画");
-                OperationStart();
-                DrawReminder.gameObject.SetActive(true);
+                //是否画过一笔
+                if (joinMainView.hasPainted)
+                {
+                    //Debug.Log("提示语音并提示下一步");
+                    DoDrawNextStepReminder();
+                }
+                else
+                {
+                    //Debug.Log("提示动画：画画");
+                    OperationStart();
+                    DrawReminder.gameObject.SetActive(true);
+                }
             }
         }
         else
@@ -130,241 +137,137 @@ public class JoinGuide : MonoBehaviour
 
     private void DoCircleReminder(int rCount)
     {
-        if (GameManager.instance.curSelectResType==TemplateResType.Eye)
+        if (GameManager.instance.curSelectResType == TemplateResType.Eye)
         {
-            if (rCount%8==1)
+            if (rCount % 2 == 1)
             {
-                //Debug.Log("嘴巴=====");
-                DoMouthReminder();
-            }else if(rCount%8==2){
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }else if (rCount % 8 == 3)
-            {
-                //Debug.Log("手=====");
-                DoHandReminder();
-            }else if (rCount%8==4)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 5)
-            {
-                //Debug.Log("脚=====");
-                DoLegReminder();
-            }
-            else if (rCount % 8 == 6)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 7)
-            {
-                //Debug.Log("眼睛=====");
-                DoEyeReminder();
-            }
-            else if (rCount % 8 == 0)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-        }
-        else if (GameManager.instance.curSelectResType==TemplateResType.Mouth)
-        {
-            if (rCount % 8 == 1)
-            {
-                //Debug.Log("手=====");
-                DoHandReminder();
-            }
-            else if (rCount % 8 == 2)
-            {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 3)
-            {
-                //Debug.Log("脚=====");
-                DoLegReminder();
-            }
-            else if (rCount % 8 == 4)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 5)
-            {
-                //Debug.Log("眼睛=====");
-                DoEyeReminder();
-            }
-            else if (rCount % 8 == 6)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 7)
-            {
-                //Debug.Log("嘴=====");
                 DoMouthReminder();
             }
-            else if (rCount % 8 == 0)
+            else if (rCount % 2 == 0)
             {
-                //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
         }
-        else if (GameManager.instance.curSelectResType==TemplateResType.Hair)
+        else if (GameManager.instance.curSelectResType == TemplateResType.Mouth)
         {
-            if (rCount % 4 == 1)
+            if (rCount % 2 == 1)
             {
-                //Debug.Log("帽子=====");
-                DoHatReminder();
+                DoEyeReminder();
             }
-            else if (rCount % 4 == 2)
+            else if (rCount % 2 == 0)
             {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
-            }
-            else if (rCount % 4 == 3)
-            {
-                //Debug.Log("装饰品=====");
-                DoHeadWearReminder();
-            }
-            else if (rCount % 4 == 0)
-            {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
+                DoNextStepReminder();
             }
         }
-        else if (GameManager.instance.curSelectResType==TemplateResType.Hat)
+        else if (GameManager.instance.curSelectResType == TemplateResType.Hair)
         {
-            if (rCount % 4 == 1)
+            //没有头发了现在
+        }
+        else if (GameManager.instance.curSelectResType == TemplateResType.Hat)
+        {
+            if (rCount % 2 == 1)
             {
-                //Debug.Log("饰品=====");
                 DoHeadWearReminder();
             }
-            else if (rCount % 4 == 2)
+            else if (rCount % 2 == 0)
             {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
-            }
-            else if (rCount % 4 == 3)
-            {
-                //Debug.Log("帽子=====");
-                DoHatReminder();
-            }
-            else if (rCount % 4 == 0)
-            {
-                //Debug.Log("完成====");
                 DoCompleteReminder();
             }
         }
         else if (GameManager.instance.curSelectResType == TemplateResType.HeadWear)
         {
-            
-            if (rCount % 4 == 1)
+
+            if (rCount % 2 == 1)
             {
-                //Debug.Log("帽子=====");
                 DoHatReminder();
             }
-            else if (rCount % 4 == 2)
+            else if (rCount % 2 == 0)
             {
-                //Debug.Log("完成====");
-                DoCompleteReminder();
-            }
-            else if (rCount % 4 == 3)
-            {
-                //Debug.Log("装饰品=====");
-                DoHeadWearReminder();
-            }
-            else if (rCount % 4 == 0)
-            {
-                //Debug.Log("完成====");
                 DoCompleteReminder();
             }
         }
         else if (GameManager.instance.curSelectResType == TemplateResType.Hand)
         {
-            if (rCount % 8 == 1)
+            if (GameManager.instance.curJoinType == JoinType.Animal)
             {
-                //Debug.Log("脚=====");
-                DoLegReminder();
+                if (rCount % 4 == 1)
+                {
+                    DoLegReminder();
+                }
+                else if (rCount % 4 == 2)
+                {
+                    DoNextStepReminder();
+                }
+                else if (rCount % 4 == 3)
+                {
+                    DoTrueBodyReminder();
+                }
+                else if (rCount % 4 == 0)
+                {
+                    DoNextStepReminder();
+                }
             }
-            else if (rCount % 8 == 2)
+            else
             {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 3)
-            {
-                //Debug.Log("眼睛=====");
-                DoEyeReminder();
-            }
-            else if (rCount % 8 == 4)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 5)
-            {
-                //Debug.Log("嘴巴=====");
-                DoMouthReminder();
-            }
-            else if (rCount % 8 == 6)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 7)
-            {
-                //Debug.Log("手=====");
-                DoHandReminder();
-            }
-            else if (rCount % 8 == 0)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
+                if (rCount % 2 == 1)
+                {
+                    DoLegReminder();
+                }
+                else if (rCount % 2 == 0)
+                {
+                    DoNextStepReminder();
+                }
             }
         }
         else if (GameManager.instance.curSelectResType == TemplateResType.Leg)
         {
-            if (rCount % 8 == 1)
+            if (GameManager.instance.curJoinType == JoinType.Animal)
             {
-                //Debug.Log("眼睛=====");
-                DoEyeReminder();
+                if (rCount % 4 == 1)
+                {
+                    DoHandReminder();
+                }
+                else if (rCount % 4 == 2)
+                {
+                    DoNextStepReminder();
+                }
+                else if (rCount % 4 == 3)
+                {
+                    DoTrueBodyReminder();
+                }
+                else if (rCount % 4 == 0)
+                {
+                    DoNextStepReminder();
+                }
             }
-            else if (rCount % 8 == 2)
+            else
             {
-                //Debug.Log("下一步====");
-                DoNextStepReminder();
+                if (rCount % 2 == 1)
+                {
+                    DoHandReminder();
+                }
+                else if (rCount % 2 == 0)
+                {
+                    DoNextStepReminder();
+                }
             }
-            else if (rCount % 8 == 3)
+        }
+        else if (GameManager.instance.curSelectResType == TemplateResType.TrueBody)
+        {
+            if (rCount % 4 == 1)
             {
-                //Debug.Log("嘴巴=====");
-                DoMouthReminder();
-            }
-            else if (rCount % 8 == 4)
-            {
-                //Debug.Log("下一步=====");
-                DoNextStepReminder();
-            }
-            else if (rCount % 8 == 5)
-            {
-                //Debug.Log("手=====");
                 DoHandReminder();
             }
-            else if (rCount % 8 == 6)
+            else if (rCount % 4 == 2)
             {
-                //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
-            else if (rCount % 8 == 7)
+            else if (rCount % 4 == 3)
             {
-                //Debug.Log("脚=====");
                 DoLegReminder();
             }
-            else if (rCount % 8 == 0)
+            else if (rCount % 4 == 0)
             {
-                //Debug.Log("下一步=====");
                 DoNextStepReminder();
             }
         }
@@ -373,7 +276,7 @@ public class JoinGuide : MonoBehaviour
     private void DoEyeReminder()
     {
         string path = string.Empty;
-        if (GameManager.instance.curJoinType==JoinType.Letter)
+        if (GameManager.instance.curJoinType == JoinType.Letter)
         {
             path = "Audio/reminder/letter|guide_letter_01";
         }
@@ -472,6 +375,21 @@ public class JoinGuide : MonoBehaviour
             path = "Audio/reminder/num|guide_num_07";
         }
         DoScaleAni(joinMainView.typeTransList[7].transform);
+        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
+    }
+
+    private void DoTrueBodyReminder()
+    {
+        string path = string.Empty;
+        if (GameManager.instance.curJoinType == JoinType.Letter)
+        {
+            path = "Audio/reminder/letter|guide_letter_09";
+        }
+        else
+        {
+            path = "Audio/reminder/num|guide_num_09";
+        }
+        DoScaleAni(joinMainView.typeTransList[9].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 

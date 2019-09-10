@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Helper;
@@ -40,6 +39,11 @@ public class HomeView : MonoBehaviour
         {
             StartIndex = 26;
             EndIndex = 35;
+        }
+        else if (GameManager.instance.curJoinType == JoinType.Animal)
+        {
+            StartIndex = 36;
+            EndIndex = 38;
         }
 
         for (int i = StartIndex; i <= EndIndex; i++)
