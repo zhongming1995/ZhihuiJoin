@@ -39,10 +39,6 @@ public class TransitionView : SingletonMono<TransitionView>
         {
             StartCoroutine(LoadSceneAsync());
         }
-        else
-        {
-
-        }
     }
 
     private void FadeOutComplete(PanelEnum panelEnum)

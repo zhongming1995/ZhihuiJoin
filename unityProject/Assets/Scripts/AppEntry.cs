@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using ResMgr;
-using Helper;
-using UnityEngine.SceneManagement;
 using GameMgr;
 
 public class AppEntry : SingletonMono<AppEntry>
