@@ -5,4 +5,6 @@ unityProject/Library
 unityProject/Logs
 unityProject/obj
 unityProject/Temp
-
+Paint_xcodeProject/Libraries/libiPhone-lib.a
+Paint_xcodeProject/Data/resources.assets
+Paint_xcodeProject/Data/resources.assets.resS
