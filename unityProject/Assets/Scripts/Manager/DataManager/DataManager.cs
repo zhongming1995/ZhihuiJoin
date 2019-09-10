@@ -57,14 +57,6 @@ namespace DataMgr
             GameManager.instance.SetCurPartDataWhole(partDataWhole);
             partDataList = parts;
 
-            //test 
-            //PartDataWhole partDataWhole2 = new PartDataWhole(selctIndex, pixels, null, parts);
-            //IFormatter formatter = new BinaryFormatter();
-            //string savePath = PersonManager.instance.SavePath + "test.bin";
-            //Stream stream = new FileStream(savePath, FileMode.Create, FileAccess.Write, FileShare.None);
-            //formatter.Serialize(stream, partDataWhole2);
-            //stream.Close();
-
             //序列化
             PersonManager.instance.SerializePerson(partDataWhole);
             return partDataWhole;

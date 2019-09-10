@@ -20,7 +20,6 @@ public class TransitionView : SingletonMono<TransitionView>
 
     void Start()
     {
-        Debug.Log("start transition");
         fadeIn = GetComponent<FadeIn>();
         FadeIn.fadeInComplete += FadeInComplete; 
         FadeIn.fadeOutComplete += FadeOutComplete;

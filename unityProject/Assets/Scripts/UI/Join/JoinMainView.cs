@@ -646,46 +646,6 @@ public class JoinMainView : MonoBehaviour
        
     }
 
-    //加载所有类型素材
-    private void LoadAllResList()
-    {
-        for (int i = 0; i < GameManager.instance.resTypeCount; i++)
-        {
-            //string resPrefabPath = GameManager.instance.resPrefabPathList[i];
-            string resPrefabPath = GameData.resPrefabPathList[i];
-            //List<string> resPath = GameManager.instance.resPathList[i];
-            List<string> resPath = GameData.resPathList[i];
-            if (resPath.Count <= 0)
-            {
-
-                continue;
-            }
-            for (int j = 0; j < resPath.Count; j++)
-            {
-                GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[i], Vector3.zero, Vector3.one, false);
-                if (i == 0 || i == 1 || i == 6 || i== 7)
-                {
-                    string imgPath = resPath[j];
-                    if (i != 0)
-                    {
-                        imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                    }
-                    UIHelper.instance.SetImage(imgPath, resObj.transform.Find("img_res").GetComponent<Image>(), true);
-                    if (i==0)
-                    {
-                        string selectPath = imgPath + "_select";
-                        UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
-                    }
-                }
-                else
-                {
-                    string imgPath  = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                    UIHelper.instance.SetImage(imgPath, resObj.transform.GetComponent<Image>(), true);
-                }
-            }
-        }
-    }
-
     //设置身体之外的部位的透明度
     void SetPartOccupy(bool isOccupy)
     {
@@ -711,7 +671,7 @@ public class JoinMainView : MonoBehaviour
         HandLegCG.alpha = 0.2f;
     }
 
-    //加载某种类型的素材
+    //加载某种类型的素材 0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
     private void LoadResListByType(int type)
     {
         if (type==0)
@@ -746,32 +706,44 @@ public class JoinMainView : MonoBehaviour
             return;
         }
         for (int j = 0; j < resPath.Count; j++)
-        {
-            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, Vector3.one, false);
+        {//0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
+            float scale = 1;
+            if (type == (int)TemplateResType.HeadWear)
+            {
+                scale = 0.7f;
+            }else if (type == (int)TemplateResType.Mouth)
+            {
+                scale = 0.9f;
+            }else if (type==(int)TemplateResType.Hand)
+            {
+                scale = 0.4f;
+            }else if (type == (int)TemplateResType.Hat||type == (int)TemplateResType.Eye)
+            {
+                scale = 0.65f;
+            }
+            else
+            {
+                scale = 0.6f;
+            }
+            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, new Vector3(scale,scale,scale), false);
+            //GameObject resObj = UIHelper.instance.LoadPrefabNoScale(resPrefabPath, ResContentList[type],Vector3.zero);
             if (type == 1 || type == 6 || type == 7)
             {
                 string imgPath = resPath[j];
                 if (type != 0)
                 {
-                    imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
+                    //imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
                 }
                 Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
                 UIHelper.instance.SetImage(imgPath, resImg, true);
                 float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, y + 40);
-                //if (type == 0)
-                //{
-                //    string selectPath = imgPath + "_select";
-                //    UIHelper.instance.SetImage(selectPath, resObj.transform.Find("img_res/img_res_select").GetComponent<Image>(), true);
-                //}
-                //else
-                //{
-                    resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
-                //}
+                resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
             }
             else
             {
-                string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
+                //string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
+                string imgPath = resPath[j];
                 Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
                 UIHelper.instance.SetImage(imgPath, resImg, true);
                 float y = resImg.GetComponent<RectTransform>().sizeDelta.y;

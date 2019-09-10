@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//一个公共的帮助类
 public class Utils 
 {
     public static float ParticleSystemLength(Transform transform)
@@ -74,5 +75,26 @@ public class Utils
             }
         }
         return resultJ;
+    }
+
+    //判断两个矩形是否相交
+    public static bool IsRectTransformOverlap(RectTransform rect1, RectTransform rect2)
+    {
+        float rect1MinX = rect1.position.x - rect1.rect.width / 2;
+        float rect1MaxX = rect1.position.x + rect1.rect.width / 2;
+        float rect1MinY = rect1.position.y - rect1.rect.height / 2;
+        float rect1MaxY = rect1.position.y + rect1.rect.height / 2;
+
+        float rect2MinX = rect2.position.x - rect2.rect.width / 2;
+        float rect2MaxX = rect2.position.x + rect2.rect.width / 2;
+        float rect2MinY = rect2.position.y - rect2.rect.height / 2;
+        float rect2MaxY = rect2.position.y + rect2.rect.height / 2;
+
+        bool xNotOverlap = rect1MaxX <= rect2MinX || rect2MaxX <= rect1MinX;
+        bool yNotOverlap = rect1MaxY <= rect2MinY || rect2MaxY <= rect1MinY;
+
+        bool notOverlap = xNotOverlap || yNotOverlap;
+
+        return !notOverlap;
     }
 }

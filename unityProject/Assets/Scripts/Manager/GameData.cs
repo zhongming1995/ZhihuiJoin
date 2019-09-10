@@ -119,7 +119,7 @@ public class GameData
     //初始化素材列表
     public static void InitResList()
     {
-        //颜色
+        //颜色,现在没用到了，但是不能删，因为影响索引
         string colorPath = "sprite/small_fodder/color|color_{0}_icon";
         for (int i = 0; i < 16; i++)
         {

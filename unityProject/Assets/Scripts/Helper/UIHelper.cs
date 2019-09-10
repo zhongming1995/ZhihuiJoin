@@ -74,6 +74,17 @@ namespace Helper
             return go;
         }
 
+        public GameObject LoadPrefabNoScale(string path, Transform parent, Vector3 pos)
+        {
+            //path = PathToResourcePath(path);
+            UnityEngine.Object obj = ResManager.instance.LoadObject(path);
+            //UnityEngine.Object obj = Resources.Load(path);
+            GameObject go = Instantiate(obj) as GameObject;
+            go.transform.SetParent(parent);
+            go.transform.localPosition = pos;
+            return go;
+        }
+
         public GameObject ClonePrefab(GameObject template, Transform parent, Vector3 pos, Vector3 scale, bool stretch = false)
         {
             GameObject go = Instantiate(template);
