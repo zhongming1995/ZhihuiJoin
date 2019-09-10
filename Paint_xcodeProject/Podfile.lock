@@ -1,0 +1,32 @@
+PODS:
+  - Masonry (1.1.0)
+  - Material (3.1.6):
+    - Material/Core (= 3.1.6)
+  - Material/Core (3.1.6):
+    - Motion (~> 3.1.1)
+  - Motion (3.1.1):
+    - Motion/Core (= 3.1.1)
+  - Motion/Core (3.1.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - Masonry
+  - Material
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - Material
+    - Motion
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  Material: 9b30613deb1b79487eeede5e4f90cbff084311ea
+  Motion: f115b33f36cc52472a25a965daa89b3859817de0
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 089ae57263036be7626a02941bfed12fcbc8c2f1
+
+COCOAPODS: 1.5.3

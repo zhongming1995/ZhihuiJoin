@@ -12,6 +12,64 @@
 		1859EA9B19214E7B0022C3D3 /* MetalHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1859EA9A19214E7B0022C3D3 /* MetalHelper.mm */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DC344548F11E16E965565C8 /* LaunchScreen-iPhonePortrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F094F9BAC0AE425327B2021 /* LaunchScreen-iPhonePortrait.png */; };
+		2640F07F232778F60015F7A6 /* UIButton+Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F07B232778F60015F7A6 /* UIButton+Sound.swift */; };
+		2640F082232778F60015F7A6 /* ZPSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F07E232778F60015F7A6 /* ZPSoundEffect.swift */; };
+		2640F0B0232778FE0015F7A6 /* camera.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F084232778FE0015F7A6 /* camera.mp3 */; };
+		2640F0B1232778FE0015F7A6 /* fill_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F086232778FE0015F7A6 /* fill_0.mp3 */; };
+		2640F0B2232778FE0015F7A6 /* fill_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F087232778FE0015F7A6 /* fill_1.mp3 */; };
+		2640F0B3232778FE0015F7A6 /* common_button.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F088232778FE0015F7A6 /* common_button.mp3 */; };
+		2640F0B4232778FE0015F7A6 /* color_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F08A232778FE0015F7A6 /* color_8.mp3 */; };
+		2640F0B5232778FE0015F7A6 /* color_9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F08B232778FE0015F7A6 /* color_9.mp3 */; };
+		2640F0B6232778FE0015F7A6 /* color_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F08C232778FE0015F7A6 /* color_1.mp3 */; };
+		2640F0B7232778FE0015F7A6 /* color_14.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F08D232778FE0015F7A6 /* color_14.mp3 */; };
+		2640F0B8232778FE0015F7A6 /* color_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F08E232778FE0015F7A6 /* color_0.mp3 */; };
+		2640F0B9232778FE0015F7A6 /* color_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F08F232778FE0015F7A6 /* color_2.mp3 */; };
+		2640F0BA232778FE0015F7A6 /* color_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F090232778FE0015F7A6 /* color_3.mp3 */; };
+		2640F0BB232778FE0015F7A6 /* color_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F091232778FE0015F7A6 /* color_7.mp3 */; };
+		2640F0BC232778FE0015F7A6 /* color_13.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F092232778FE0015F7A6 /* color_13.mp3 */; };
+		2640F0BD232778FE0015F7A6 /* color_12.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F093232778FE0015F7A6 /* color_12.mp3 */; };
+		2640F0BE232778FE0015F7A6 /* color_6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F094232778FE0015F7A6 /* color_6.mp3 */; };
+		2640F0BF232778FE0015F7A6 /* color_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F095232778FE0015F7A6 /* color_4.mp3 */; };
+		2640F0C0232778FE0015F7A6 /* color_10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F096232778FE0015F7A6 /* color_10.mp3 */; };
+		2640F0C1232778FE0015F7A6 /* color_11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F097232778FE0015F7A6 /* color_11.mp3 */; };
+		2640F0C2232778FE0015F7A6 /* color_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F098232778FE0015F7A6 /* color_5.mp3 */; };
+		2640F0C3232778FE0015F7A6 /* style_8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F09A232778FE0015F7A6 /* style_8.mp3 */; };
+		2640F0C4232778FE0015F7A6 /* style_9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F09B232778FE0015F7A6 /* style_9.mp3 */; };
+		2640F0C5232778FE0015F7A6 /* style_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F09C232778FE0015F7A6 /* style_2.mp3 */; };
+		2640F0C6232778FE0015F7A6 /* style_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F09D232778FE0015F7A6 /* style_3.mp3 */; };
+		2640F0C7232778FE0015F7A6 /* style_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F09E232778FE0015F7A6 /* style_1.mp3 */; };
+		2640F0C8232778FE0015F7A6 /* style_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F09F232778FE0015F7A6 /* style_0.mp3 */; };
+		2640F0C9232778FE0015F7A6 /* style_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A0232778FE0015F7A6 /* style_4.mp3 */; };
+		2640F0CA232778FE0015F7A6 /* style_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A1232778FE0015F7A6 /* style_5.mp3 */; };
+		2640F0CB232778FE0015F7A6 /* style_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A2232778FE0015F7A6 /* style_7.mp3 */; };
+		2640F0CC232778FE0015F7A6 /* style_6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A3232778FE0015F7A6 /* style_6.mp3 */; };
+		2640F0CD232778FE0015F7A6 /* material_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A5232778FE0015F7A6 /* material_1.mp3 */; };
+		2640F0CE232778FE0015F7A6 /* material_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A6232778FE0015F7A6 /* material_0.mp3 */; };
+		2640F0CF232778FE0015F7A6 /* material_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A7232778FE0015F7A6 /* material_2.mp3 */; };
+		2640F0D0232778FE0015F7A6 /* material_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A8232778FE0015F7A6 /* material_3.mp3 */; };
+		2640F0D1232778FE0015F7A6 /* material_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0A9232778FE0015F7A6 /* material_4.mp3 */; };
+		2640F0D2232778FE0015F7A6 /* material_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0AA232778FE0015F7A6 /* material_5.mp3 */; };
+		2640F0D3232778FE0015F7A6 /* rest_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0AC232778FE0015F7A6 /* rest_0.mp3 */; };
+		2640F0D4232778FE0015F7A6 /* rest_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0AD232778FE0015F7A6 /* rest_1.mp3 */; };
+		2640F0D5232778FE0015F7A6 /* rest_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0AE232778FE0015F7A6 /* rest_3.mp3 */; };
+		2640F0D6232778FE0015F7A6 /* rest_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0AF232778FE0015F7A6 /* rest_2.mp3 */; };
+		2640F0E7232779110015F7A6 /* ZPParentControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0D8232779110015F7A6 /* ZPParentControlViewController.swift */; };
+		2640F0E8232779110015F7A6 /* ZPRestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0D9232779110015F7A6 /* ZPRestViewController.swift */; };
+		2640F0E9232779110015F7A6 /* ZPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0DA232779110015F7A6 /* ZPVerificationView.swift */; };
+		2640F0EA232779110015F7A6 /* ZPRestTimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0DC232779110015F7A6 /* ZPRestTimeManager.swift */; };
+		2640F0EB232779110015F7A6 /* ZPParentAboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0DE232779110015F7A6 /* ZPParentAboutView.xib */; };
+		2640F0EC232779110015F7A6 /* ZPZParentContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0DF232779110015F7A6 /* ZPZParentContainerView.swift */; };
+		2640F0ED232779110015F7A6 /* MKCountDownLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0E0232779110015F7A6 /* MKCountDownLabel.swift */; };
+		2640F0EE232779110015F7A6 /* ZPParentAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0E1232779110015F7A6 /* ZPParentAboutView.swift */; };
+		2640F0EF232779110015F7A6 /* ZPParentRestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0E2232779110015F7A6 /* ZPParentRestView.swift */; };
+		2640F0F0232779110015F7A6 /* ZPParentContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0E3232779110015F7A6 /* ZPParentContactView.swift */; };
+		2640F0F1232779110015F7A6 /* ZPParentContactView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2640F0E4232779110015F7A6 /* ZPParentContactView.xib */; };
+		2640F0F2232779110015F7A6 /* ZPPopBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0E5232779110015F7A6 /* ZPPopBackgroundView.swift */; };
+		2640F0F3232779110015F7A6 /* MKProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0E6232779110015F7A6 /* MKProgressBarView.swift */; };
+		2640F0F623277B9A0015F7A6 /* MathTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0F423277B9A0015F7A6 /* MathTool.swift */; };
+		2640F0F723277B9A0015F7A6 /* ZPMusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2640F0F523277B9A0015F7A6 /* ZPMusicManager.swift */; };
+		2640F10423277E5F0015F7A6 /* ZPSwiftToObjcManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2640F10323277E5F0015F7A6 /* ZPSwiftToObjcManager.m */; };
+		348893BFA7BDDF87E5945ABA /* Pods_Unity_iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297835B4765695706BC8307D /* Pods_Unity_iPhone.framework */; };
 		4E090A341F27885B0077B28D /* StoreReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E090A331F27884B0077B28D /* StoreReview.m */; };
 		52794AC38A52ADA1700074BA /* LaunchScreen-iPhoneLandscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C61401BA0AFE818422BACFD /* LaunchScreen-iPhoneLandscape.png */; };
 		533EA7C32294F83800F18B88 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533EA7C22294F83800F18B88 /* Photos.framework */; };
@@ -231,11 +289,73 @@
 		023343FABD1F7484E8CDD78C /* IUnityGraphicsMetal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IUnityGraphicsMetal.h; path = Classes/Unity/IUnityGraphicsMetal.h; sourceTree = SOURCE_ROOT; };
 		03F528621B447098000F4FB8 /* Il2CppOptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppOptions.cpp; sourceTree = "<group>"; };
 		062F4411BAF0A04D00EF12D8 /* libil2cpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libil2cpp.a; path = Libraries/libil2cpp.a; sourceTree = SOURCE_ROOT; };
+		0812EA21D472AB3298006255 /* Pods-Unity-iPhone.releaseforrunning.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.releaseforrunning.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.releaseforrunning.xcconfig"; sourceTree = "<group>"; };
 		1859EA9A19214E7B0022C3D3 /* MetalHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalHelper.mm; sourceTree = "<group>"; };
 		1B3544B088E9BDA35BB75952 /* IUnityGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IUnityGraphics.h; path = Classes/Unity/IUnityGraphics.h; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* ZhihuiJoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhihuiJoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		205F7F0ED776595675944CAC /* Pods-Unity-iPhone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.release.xcconfig"; sourceTree = "<group>"; };
 		24AA4CD8A66ACCADE2B20F06 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		2640F077232778EA0015F7A6 /* Unity-iPhone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unity-iPhone-Bridging-Header.h"; sourceTree = "<group>"; };
+		2640F07B232778F60015F7A6 /* UIButton+Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Sound.swift"; sourceTree = "<group>"; };
+		2640F07E232778F60015F7A6 /* ZPSoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPSoundEffect.swift; sourceTree = "<group>"; };
+		2640F084232778FE0015F7A6 /* camera.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = camera.mp3; sourceTree = "<group>"; };
+		2640F086232778FE0015F7A6 /* fill_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fill_0.mp3; sourceTree = "<group>"; };
+		2640F087232778FE0015F7A6 /* fill_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fill_1.mp3; sourceTree = "<group>"; };
+		2640F088232778FE0015F7A6 /* common_button.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = common_button.mp3; sourceTree = "<group>"; };
+		2640F08A232778FE0015F7A6 /* color_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_8.mp3; sourceTree = "<group>"; };
+		2640F08B232778FE0015F7A6 /* color_9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_9.mp3; sourceTree = "<group>"; };
+		2640F08C232778FE0015F7A6 /* color_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_1.mp3; sourceTree = "<group>"; };
+		2640F08D232778FE0015F7A6 /* color_14.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_14.mp3; sourceTree = "<group>"; };
+		2640F08E232778FE0015F7A6 /* color_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_0.mp3; sourceTree = "<group>"; };
+		2640F08F232778FE0015F7A6 /* color_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_2.mp3; sourceTree = "<group>"; };
+		2640F090232778FE0015F7A6 /* color_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_3.mp3; sourceTree = "<group>"; };
+		2640F091232778FE0015F7A6 /* color_7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_7.mp3; sourceTree = "<group>"; };
+		2640F092232778FE0015F7A6 /* color_13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_13.mp3; sourceTree = "<group>"; };
+		2640F093232778FE0015F7A6 /* color_12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_12.mp3; sourceTree = "<group>"; };
+		2640F094232778FE0015F7A6 /* color_6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_6.mp3; sourceTree = "<group>"; };
+		2640F095232778FE0015F7A6 /* color_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_4.mp3; sourceTree = "<group>"; };
+		2640F096232778FE0015F7A6 /* color_10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_10.mp3; sourceTree = "<group>"; };
+		2640F097232778FE0015F7A6 /* color_11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_11.mp3; sourceTree = "<group>"; };
+		2640F098232778FE0015F7A6 /* color_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = color_5.mp3; sourceTree = "<group>"; };
+		2640F09A232778FE0015F7A6 /* style_8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_8.mp3; sourceTree = "<group>"; };
+		2640F09B232778FE0015F7A6 /* style_9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_9.mp3; sourceTree = "<group>"; };
+		2640F09C232778FE0015F7A6 /* style_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_2.mp3; sourceTree = "<group>"; };
+		2640F09D232778FE0015F7A6 /* style_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_3.mp3; sourceTree = "<group>"; };
+		2640F09E232778FE0015F7A6 /* style_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_1.mp3; sourceTree = "<group>"; };
+		2640F09F232778FE0015F7A6 /* style_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_0.mp3; sourceTree = "<group>"; };
+		2640F0A0232778FE0015F7A6 /* style_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_4.mp3; sourceTree = "<group>"; };
+		2640F0A1232778FE0015F7A6 /* style_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_5.mp3; sourceTree = "<group>"; };
+		2640F0A2232778FE0015F7A6 /* style_7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_7.mp3; sourceTree = "<group>"; };
+		2640F0A3232778FE0015F7A6 /* style_6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = style_6.mp3; sourceTree = "<group>"; };
+		2640F0A5232778FE0015F7A6 /* material_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = material_1.mp3; sourceTree = "<group>"; };
+		2640F0A6232778FE0015F7A6 /* material_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = material_0.mp3; sourceTree = "<group>"; };
+		2640F0A7232778FE0015F7A6 /* material_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = material_2.mp3; sourceTree = "<group>"; };
+		2640F0A8232778FE0015F7A6 /* material_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = material_3.mp3; sourceTree = "<group>"; };
+		2640F0A9232778FE0015F7A6 /* material_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = material_4.mp3; sourceTree = "<group>"; };
+		2640F0AA232778FE0015F7A6 /* material_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = material_5.mp3; sourceTree = "<group>"; };
+		2640F0AC232778FE0015F7A6 /* rest_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_0.mp3; sourceTree = "<group>"; };
+		2640F0AD232778FE0015F7A6 /* rest_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_1.mp3; sourceTree = "<group>"; };
+		2640F0AE232778FE0015F7A6 /* rest_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_3.mp3; sourceTree = "<group>"; };
+		2640F0AF232778FE0015F7A6 /* rest_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rest_2.mp3; sourceTree = "<group>"; };
+		2640F0D8232779110015F7A6 /* ZPParentControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPParentControlViewController.swift; sourceTree = "<group>"; };
+		2640F0D9232779110015F7A6 /* ZPRestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPRestViewController.swift; sourceTree = "<group>"; };
+		2640F0DA232779110015F7A6 /* ZPVerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPVerificationView.swift; sourceTree = "<group>"; };
+		2640F0DC232779110015F7A6 /* ZPRestTimeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPRestTimeManager.swift; sourceTree = "<group>"; };
+		2640F0DE232779110015F7A6 /* ZPParentAboutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPParentAboutView.xib; sourceTree = "<group>"; };
+		2640F0DF232779110015F7A6 /* ZPZParentContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPZParentContainerView.swift; sourceTree = "<group>"; };
+		2640F0E0232779110015F7A6 /* MKCountDownLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKCountDownLabel.swift; sourceTree = "<group>"; };
+		2640F0E1232779110015F7A6 /* ZPParentAboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPParentAboutView.swift; sourceTree = "<group>"; };
+		2640F0E2232779110015F7A6 /* ZPParentRestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPParentRestView.swift; sourceTree = "<group>"; };
+		2640F0E3232779110015F7A6 /* ZPParentContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPParentContactView.swift; sourceTree = "<group>"; };
+		2640F0E4232779110015F7A6 /* ZPParentContactView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZPParentContactView.xib; sourceTree = "<group>"; };
+		2640F0E5232779110015F7A6 /* ZPPopBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZPPopBackgroundView.swift; sourceTree = "<group>"; };
+		2640F0E6232779110015F7A6 /* MKProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKProgressBarView.swift; sourceTree = "<group>"; };
+		2640F0F423277B9A0015F7A6 /* MathTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MathTool.swift; path = ../../Tool/MathTool.swift; sourceTree = "<group>"; };
+		2640F0F523277B9A0015F7A6 /* ZPMusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZPMusicManager.swift; path = /Users/make/Desktop/SmartPaint/SmartPaint/Tool/../Home/Musci/ZPMusicManager.swift; sourceTree = "<absolute>"; };
+		2640F10223277E5F0015F7A6 /* ZPSwiftToObjcManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZPSwiftToObjcManager.h; sourceTree = "<group>"; };
+		2640F10323277E5F0015F7A6 /* ZPSwiftToObjcManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZPSwiftToObjcManager.m; sourceTree = "<group>"; };
+		297835B4765695706BC8307D /* Pods_Unity_iPhone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unity_iPhone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CB24E56B1864CA1064A466C /* LaunchScreen-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "LaunchScreen-iPad.xib"; sourceTree = SOURCE_ROOT; };
 		4E090A331F27884B0077B28D /* StoreReview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreReview.m; sourceTree = "<group>"; };
 		533EA7C22294F83800F18B88 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -363,7 +483,7 @@
 		536E66E32322490500DAC985 /* Bulk_UnityEngine.UI_2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bulk_UnityEngine.UI_2.cpp; sourceTree = "<group>"; };
 		536E66E42322490500DAC985 /* Il2CppCompilerCalculateTypeValues_13Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppCompilerCalculateTypeValues_13Table.cpp; sourceTree = "<group>"; };
 		536E66E52322490500DAC985 /* Il2CppCompilerCalculateTypeValues_12Table.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Il2CppCompilerCalculateTypeValues_12Table.cpp; sourceTree = "<group>"; };
-		5623C57317FDCB0800090B9E /* Unity-iPhone Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Unity-iPhone Tests.xctest"; path = ZhihuiJoin.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5623C57317FDCB0800090B9E /* ZhihuiJoin.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZhihuiJoin.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5623C57A17FDCB0900090B9E /* Unity-iPhone Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unity-iPhone Tests-Info.plist"; sourceTree = "<group>"; };
 		5623C57C17FDCB0900090B9E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5623C57E17FDCB0900090B9E /* Unity_iPhone_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unity_iPhone_Tests.m; sourceTree = "<group>"; };
@@ -377,6 +497,8 @@
 		56DBF99E15E3CE85007A4A8D /* iPhone_Sensors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iPhone_Sensors.h; sourceTree = "<group>"; };
 		56FD43950ED4745200FE3770 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5BAD78601F2B5A59006103DE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		716571E6260E726778F1AB87 /* Pods-Unity-iPhone.releaseforprofiling.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.releaseforprofiling.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.releaseforprofiling.xcconfig"; sourceTree = "<group>"; };
+		72602D6B3F0F9136A5AC57FC /* Pods-Unity-iPhone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unity-iPhone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone.debug.xcconfig"; sourceTree = "<group>"; };
 		7F36C10E13C5C673007FBDD9 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		7F36C10F13C5C673007FBDD9 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7F36C11013C5C673007FBDD9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -506,6 +628,7 @@
 				83B2574F0E63025400468741 /* libiconv.2.dylib in Frameworks */,
 				A3AA485C8F6C5F82C635332B /* libil2cpp.a in Frameworks */,
 				BB9D4B0A884D413D0298897E /* Metal.framework in Frameworks */,
+				348893BFA7BDDF87E5945ABA /* Pods_Unity_iPhone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,9 +648,158 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* ZhihuiJoin.app */,
-				5623C57317FDCB0800090B9E /* Unity-iPhone Tests.xctest */,
+				5623C57317FDCB0800090B9E /* ZhihuiJoin.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2640F06B2327789C0015F7A6 /* ParentContro */ = {
+			isa = PBXGroup;
+			children = (
+				2640F0D7232779110015F7A6 /* ViewControl */,
+				2640F0DB232779110015F7A6 /* Tool */,
+				2640F0DD232779110015F7A6 /* View */,
+				2640F083232778FE0015F7A6 /* music */,
+				2640F07A232778F60015F7A6 /* Tool */,
+				2640F077232778EA0015F7A6 /* Unity-iPhone-Bridging-Header.h */,
+				2640F10223277E5F0015F7A6 /* ZPSwiftToObjcManager.h */,
+				2640F10323277E5F0015F7A6 /* ZPSwiftToObjcManager.m */,
+			);
+			path = ParentContro;
+			sourceTree = "<group>";
+		};
+		2640F07A232778F60015F7A6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2640F07B232778F60015F7A6 /* UIButton+Sound.swift */,
+				2640F07E232778F60015F7A6 /* ZPSoundEffect.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		2640F083232778FE0015F7A6 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				2640F084232778FE0015F7A6 /* camera.mp3 */,
+				2640F085232778FE0015F7A6 /* fill */,
+				2640F088232778FE0015F7A6 /* common_button.mp3 */,
+				2640F089232778FE0015F7A6 /* color */,
+				2640F099232778FE0015F7A6 /* brush_style */,
+				2640F0A4232778FE0015F7A6 /* material */,
+				2640F0AB232778FE0015F7A6 /* rest */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
+		2640F085232778FE0015F7A6 /* fill */ = {
+			isa = PBXGroup;
+			children = (
+				2640F086232778FE0015F7A6 /* fill_0.mp3 */,
+				2640F087232778FE0015F7A6 /* fill_1.mp3 */,
+			);
+			path = fill;
+			sourceTree = "<group>";
+		};
+		2640F089232778FE0015F7A6 /* color */ = {
+			isa = PBXGroup;
+			children = (
+				2640F08A232778FE0015F7A6 /* color_8.mp3 */,
+				2640F08B232778FE0015F7A6 /* color_9.mp3 */,
+				2640F08C232778FE0015F7A6 /* color_1.mp3 */,
+				2640F08D232778FE0015F7A6 /* color_14.mp3 */,
+				2640F08E232778FE0015F7A6 /* color_0.mp3 */,
+				2640F08F232778FE0015F7A6 /* color_2.mp3 */,
+				2640F090232778FE0015F7A6 /* color_3.mp3 */,
+				2640F091232778FE0015F7A6 /* color_7.mp3 */,
+				2640F092232778FE0015F7A6 /* color_13.mp3 */,
+				2640F093232778FE0015F7A6 /* color_12.mp3 */,
+				2640F094232778FE0015F7A6 /* color_6.mp3 */,
+				2640F095232778FE0015F7A6 /* color_4.mp3 */,
+				2640F096232778FE0015F7A6 /* color_10.mp3 */,
+				2640F097232778FE0015F7A6 /* color_11.mp3 */,
+				2640F098232778FE0015F7A6 /* color_5.mp3 */,
+			);
+			path = color;
+			sourceTree = "<group>";
+		};
+		2640F099232778FE0015F7A6 /* brush_style */ = {
+			isa = PBXGroup;
+			children = (
+				2640F09A232778FE0015F7A6 /* style_8.mp3 */,
+				2640F09B232778FE0015F7A6 /* style_9.mp3 */,
+				2640F09C232778FE0015F7A6 /* style_2.mp3 */,
+				2640F09D232778FE0015F7A6 /* style_3.mp3 */,
+				2640F09E232778FE0015F7A6 /* style_1.mp3 */,
+				2640F09F232778FE0015F7A6 /* style_0.mp3 */,
+				2640F0A0232778FE0015F7A6 /* style_4.mp3 */,
+				2640F0A1232778FE0015F7A6 /* style_5.mp3 */,
+				2640F0A2232778FE0015F7A6 /* style_7.mp3 */,
+				2640F0A3232778FE0015F7A6 /* style_6.mp3 */,
+			);
+			path = brush_style;
+			sourceTree = "<group>";
+		};
+		2640F0A4232778FE0015F7A6 /* material */ = {
+			isa = PBXGroup;
+			children = (
+				2640F0A5232778FE0015F7A6 /* material_1.mp3 */,
+				2640F0A6232778FE0015F7A6 /* material_0.mp3 */,
+				2640F0A7232778FE0015F7A6 /* material_2.mp3 */,
+				2640F0A8232778FE0015F7A6 /* material_3.mp3 */,
+				2640F0A9232778FE0015F7A6 /* material_4.mp3 */,
+				2640F0AA232778FE0015F7A6 /* material_5.mp3 */,
+			);
+			path = material;
+			sourceTree = "<group>";
+		};
+		2640F0AB232778FE0015F7A6 /* rest */ = {
+			isa = PBXGroup;
+			children = (
+				2640F0AC232778FE0015F7A6 /* rest_0.mp3 */,
+				2640F0AD232778FE0015F7A6 /* rest_1.mp3 */,
+				2640F0AE232778FE0015F7A6 /* rest_3.mp3 */,
+				2640F0AF232778FE0015F7A6 /* rest_2.mp3 */,
+			);
+			path = rest;
+			sourceTree = "<group>";
+		};
+		2640F0D7232779110015F7A6 /* ViewControl */ = {
+			isa = PBXGroup;
+			children = (
+				2640F0D8232779110015F7A6 /* ZPParentControlViewController.swift */,
+				2640F0D9232779110015F7A6 /* ZPRestViewController.swift */,
+				2640F0DA232779110015F7A6 /* ZPVerificationView.swift */,
+			);
+			name = ViewControl;
+			path = ../../../../Desktop/SmartPaint/SmartPaint/ParentControl/ViewControl;
+			sourceTree = "<group>";
+		};
+		2640F0DB232779110015F7A6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				2640F0F523277B9A0015F7A6 /* ZPMusicManager.swift */,
+				2640F0F423277B9A0015F7A6 /* MathTool.swift */,
+				2640F0DC232779110015F7A6 /* ZPRestTimeManager.swift */,
+			);
+			name = Tool;
+			path = ../../../../Desktop/SmartPaint/SmartPaint/ParentControl/Tool;
+			sourceTree = "<group>";
+		};
+		2640F0DD232779110015F7A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2640F0DE232779110015F7A6 /* ZPParentAboutView.xib */,
+				2640F0DF232779110015F7A6 /* ZPZParentContainerView.swift */,
+				2640F0E0232779110015F7A6 /* MKCountDownLabel.swift */,
+				2640F0E1232779110015F7A6 /* ZPParentAboutView.swift */,
+				2640F0E2232779110015F7A6 /* ZPParentRestView.swift */,
+				2640F0E3232779110015F7A6 /* ZPParentContactView.swift */,
+				2640F0E4232779110015F7A6 /* ZPParentContactView.xib */,
+				2640F0E5232779110015F7A6 /* ZPPopBackgroundView.swift */,
+				2640F0E6232779110015F7A6 /* MKProgressBarView.swift */,
+			);
+			name = View;
+			path = ../../../../Desktop/SmartPaint/SmartPaint/ParentControl/View;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
@@ -546,6 +818,7 @@
 				9C61401BA0AFE818422BACFD /* LaunchScreen-iPhoneLandscape.png */,
 				4CB24E56B1864CA1064A466C /* LaunchScreen-iPad.xib */,
 				F2664F2E998B2192465AFA11 /* LaunchScreen-iPad.png */,
+				6E84704CCB8BE48D040F4D9D /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -573,6 +846,7 @@
 				56BCBA380FCF049A0030C3B2 /* SystemConfiguration.framework */,
 				830B5C100E5ED4C100C7819F /* UIKit.framework */,
 				24AA4CD8A66ACCADE2B20F06 /* Metal.framework */,
+				297835B4765695706BC8307D /* Pods_Unity_iPhone.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -729,6 +1003,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6E84704CCB8BE48D040F4D9D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				205F7F0ED776595675944CAC /* Pods-Unity-iPhone.release.xcconfig */,
+				716571E6260E726778F1AB87 /* Pods-Unity-iPhone.releaseforprofiling.xcconfig */,
+				0812EA21D472AB3298006255 /* Pods-Unity-iPhone.releaseforrunning.xcconfig */,
+				72602D6B3F0F9136A5AC57FC /* Pods-Unity-iPhone.debug.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8A3EDDC51615B7C1001839E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +1119,7 @@
 		D82DCFB50E8000A5005D6AD8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2640F06B2327789C0015F7A6 /* ParentContro */,
 				536E66702322490500DAC985 /* Native */,
 				999475211A7BC3B100178130 /* UnityAds */,
 				8A5C148F174E662D0006EB36 /* PluginBase */,
@@ -880,11 +1166,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Unity-iPhone" */;
 			buildPhases = (
+				603E9EBC222862711CB85865 /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				83D0C1FD0E6C8D7700EBCE5D /* CopyFiles */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				033966F41B18B03000ECD701 /* ShellScript */,
+				B5B9EEEC141240D4B12F71E9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -910,7 +1198,7 @@
 			);
 			name = "Unity-iPhone Tests";
 			productName = "Unity-iPhone Tests";
-			productReference = 5623C57317FDCB0800090B9E /* Unity-iPhone Tests.xctest */;
+			productReference = 5623C57317FDCB0800090B9E /* ZhihuiJoin.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -922,6 +1210,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = WTVS3VH7AZ;
+						LastSwiftMigration = 1030;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.GameControllers.appletvos = {
@@ -947,6 +1236,7 @@
 				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -961,12 +1251,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2640F0D0232778FE0015F7A6 /* material_3.mp3 in Resources */,
+				2640F0CF232778FE0015F7A6 /* material_2.mp3 in Resources */,
+				2640F0B8232778FE0015F7A6 /* color_0.mp3 in Resources */,
+				2640F0D3232778FE0015F7A6 /* rest_0.mp3 in Resources */,
+				2640F0C0232778FE0015F7A6 /* color_10.mp3 in Resources */,
+				2640F0C1232778FE0015F7A6 /* color_11.mp3 in Resources */,
+				2640F0B5232778FE0015F7A6 /* color_9.mp3 in Resources */,
+				2640F0C7232778FE0015F7A6 /* style_1.mp3 in Resources */,
+				2640F0BC232778FE0015F7A6 /* color_13.mp3 in Resources */,
+				2640F0C2232778FE0015F7A6 /* color_5.mp3 in Resources */,
+				2640F0BA232778FE0015F7A6 /* color_3.mp3 in Resources */,
+				2640F0C4232778FE0015F7A6 /* style_9.mp3 in Resources */,
+				2640F0D5232778FE0015F7A6 /* rest_3.mp3 in Resources */,
+				2640F0C3232778FE0015F7A6 /* style_8.mp3 in Resources */,
+				2640F0B0232778FE0015F7A6 /* camera.mp3 in Resources */,
 				56C56C9817D6015200616839 /* Images.xcassets in Resources */,
+				2640F0B4232778FE0015F7A6 /* color_8.mp3 in Resources */,
+				2640F0C9232778FE0015F7A6 /* style_4.mp3 in Resources */,
 				1DC344548F11E16E965565C8 /* LaunchScreen-iPhonePortrait.png in Resources */,
+				2640F0B3232778FE0015F7A6 /* common_button.mp3 in Resources */,
 				536E666F232248FE00DAC985 /* Data in Resources */,
+				2640F0C5232778FE0015F7A6 /* style_2.mp3 in Resources */,
 				52794AC38A52ADA1700074BA /* LaunchScreen-iPhoneLandscape.png in Resources */,
+				2640F0B9232778FE0015F7A6 /* color_2.mp3 in Resources */,
+				2640F0BE232778FE0015F7A6 /* color_6.mp3 in Resources */,
 				E1594C8CA4AFBE1709827596 /* LaunchScreen-iPad.xib in Resources */,
+				2640F0EB232779110015F7A6 /* ZPParentAboutView.xib in Resources */,
+				2640F0CA232778FE0015F7A6 /* style_5.mp3 in Resources */,
+				2640F0CD232778FE0015F7A6 /* material_1.mp3 in Resources */,
+				2640F0BB232778FE0015F7A6 /* color_7.mp3 in Resources */,
+				2640F0D4232778FE0015F7A6 /* rest_1.mp3 in Resources */,
+				2640F0D2232778FE0015F7A6 /* material_5.mp3 in Resources */,
+				2640F0B2232778FE0015F7A6 /* fill_1.mp3 in Resources */,
+				2640F0C6232778FE0015F7A6 /* style_3.mp3 in Resources */,
+				2640F0CB232778FE0015F7A6 /* style_7.mp3 in Resources */,
+				2640F0D6232778FE0015F7A6 /* rest_2.mp3 in Resources */,
+				2640F0D1232778FE0015F7A6 /* material_4.mp3 in Resources */,
+				2640F0BD232778FE0015F7A6 /* color_12.mp3 in Resources */,
+				2640F0B6232778FE0015F7A6 /* color_1.mp3 in Resources */,
+				2640F0B7232778FE0015F7A6 /* color_14.mp3 in Resources */,
+				2640F0C8232778FE0015F7A6 /* style_0.mp3 in Resources */,
+				2640F0B1232778FE0015F7A6 /* fill_0.mp3 in Resources */,
 				93D3436C8C9851D49F2647F3 /* LaunchScreen-iPad.png in Resources */,
+				2640F0BF232778FE0015F7A6 /* color_4.mp3 in Resources */,
+				2640F0CE232778FE0015F7A6 /* material_0.mp3 in Resources */,
+				2640F0CC232778FE0015F7A6 /* style_6.mp3 in Resources */,
+				2640F0F1232779110015F7A6 /* ZPParentContactView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1325,56 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PROJECT_DIR/MapFileParser.sh\"";
 		};
+		603E9EBC222862711CB85865 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Unity-iPhone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5B9EEEC141240D4B12F71E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unity-iPhone/Pods-Unity-iPhone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1009,9 +1390,12 @@
 				536E673D2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_6Table.cpp in Sources */,
 				536E672D2322490500DAC985 /* Bulk_Mono.Security_0.cpp in Sources */,
 				536E67582322490500DAC985 /* Bulk_UnityEngine.UI_2.cpp in Sources */,
+				2640F10423277E5F0015F7A6 /* ZPSwiftToObjcManager.m in Sources */,
 				536E670B2322490500DAC985 /* Bulk_mscorlib_7.cpp in Sources */,
 				536E671D2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_4Table.cpp in Sources */,
 				536E67182322490500DAC985 /* Bulk_mscorlib_3.cpp in Sources */,
+				2640F07F232778F60015F7A6 /* UIButton+Sound.swift in Sources */,
+				2640F0F2232779110015F7A6 /* ZPPopBackgroundView.swift in Sources */,
 				8AA568AE1827DD79004969C7 /* WWWConnection.mm in Sources */,
 				56DBF99D15E3CDC9007A4A8D /* iPhone_Sensors.mm in Sources */,
 				536E67192322490500DAC985 /* Il2CppGenericClassTable.cpp in Sources */,
@@ -1022,7 +1406,9 @@
 				85E5623820F4F4D1001DFEF6 /* UnityView+Keyboard.mm in Sources */,
 				536E67572322490500DAC985 /* Bulk_Assembly-CSharp_0.cpp in Sources */,
 				536E67532322490500DAC985 /* Il2CppGenericMethodDefinitions.cpp in Sources */,
+				2640F082232778F60015F7A6 /* ZPSoundEffect.swift in Sources */,
 				536E67402322490500DAC985 /* Bulk_UnityEngine.ImageConversionModule_0.cpp in Sources */,
+				2640F0EC232779110015F7A6 /* ZPZParentContainerView.swift in Sources */,
 				536E67552322490500DAC985 /* Bulk_mscorlib_14.cpp in Sources */,
 				536E67442322490500DAC985 /* Bulk_mscorlib_13.cpp in Sources */,
 				536E67502322490500DAC985 /* Bulk_Assembly-CSharp_3.cpp in Sources */,
@@ -1039,6 +1425,7 @@
 				536E67332322490500DAC985 /* Il2CppTypeDefinitions.cpp in Sources */,
 				536E67452322490500DAC985 /* Bulk_Generics_8.cpp in Sources */,
 				536E66E62322490500DAC985 /* Bulk_UnityEngine.UnityWebRequestModule_0.cpp in Sources */,
+				2640F0F0232779110015F7A6 /* ZPParentContactView.swift in Sources */,
 				536E671A2322490500DAC985 /* Il2CppMetadataUsage.cpp in Sources */,
 				536E673B2322490500DAC985 /* Bulk_mscorlib_11.cpp in Sources */,
 				8A142DC61636943E00DD87CA /* Keyboard.mm in Sources */,
@@ -1055,6 +1442,7 @@
 				536E67062322490500DAC985 /* GenericMethods3.cpp in Sources */,
 				536E67082322490500DAC985 /* Bulk_UnityEngine.PhysicsModule_0.cpp in Sources */,
 				536E67132322490500DAC985 /* Il2CppAttributes.cpp in Sources */,
+				2640F0F623277B9A0015F7A6 /* MathTool.swift in Sources */,
 				8A1FFFAD16512A9000DD0934 /* GlesHelper.mm in Sources */,
 				536E67002322490500DAC985 /* Il2CppGenericMethodPointerTable.cpp in Sources */,
 				536E67292322490500DAC985 /* Il2CppCompilerCalculateTypeValuesTable.cpp in Sources */,
@@ -1069,20 +1457,25 @@
 				536E67012322490500DAC985 /* Bulk_Generics_6.cpp in Sources */,
 				536E67122322490500DAC985 /* Bulk_System_2.cpp in Sources */,
 				8A367F5B16A6D36F0012ED11 /* CVTextureCache.mm in Sources */,
+				2640F0F3232779110015F7A6 /* MKProgressBarView.swift in Sources */,
 				1859EA9B19214E7B0022C3D3 /* MetalHelper.mm in Sources */,
 				536E67302322490500DAC985 /* Bulk_DOTweenPro_0.cpp in Sources */,
+				2640F0EE232779110015F7A6 /* ZPParentAboutView.swift in Sources */,
 				536E672E2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_0Table.cpp in Sources */,
 				536E66EB2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_9Table.cpp in Sources */,
 				536E670D2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_11Table.cpp in Sources */,
+				2640F0EF232779110015F7A6 /* ZPParentRestView.swift in Sources */,
 				8A16150C1A8E4362006FA788 /* FullScreenVideoPlayer.mm in Sources */,
 				FC85CCBB16C3ED8000BAF7C7 /* CrashReporter.mm in Sources */,
 				536E67472322490500DAC985 /* Il2CppCompilerCalculateTypeValues_27Table.cpp in Sources */,
+				2640F0F723277B9A0015F7A6 /* ZPMusicManager.swift in Sources */,
 				536E66F52322490500DAC985 /* Il2CppCompilerCalculateTypeValues_28Table.cpp in Sources */,
 				536E672B2322490500DAC985 /* Bulk_mscorlib_9.cpp in Sources */,
 				536E67172322490500DAC985 /* Bulk_System_1.cpp in Sources */,
 				536E67102322490500DAC985 /* Bulk_mscorlib_5.cpp in Sources */,
 				536E67152322490500DAC985 /* Bulk_mscorlib_1.cpp in Sources */,
 				536E673F2322490500DAC985 /* Bulk_System.Configuration_0.cpp in Sources */,
+				2640F0E7232779110015F7A6 /* ZPParentControlViewController.swift in Sources */,
 				8AB3CB3E16D390BB00697AD5 /* VideoPlayer.mm in Sources */,
 				536E67352322490500DAC985 /* Bulk_UnityEngine.UIModule_0.cpp in Sources */,
 				536E67562322490500DAC985 /* Bulk_mscorlib_15.cpp in Sources */,
@@ -1092,6 +1485,7 @@
 				8A851BA716FB2F6D00E911DB /* UnityView.mm in Sources */,
 				536E67372322490500DAC985 /* Bulk_UnityEngine.AssetBundleModule_0.cpp in Sources */,
 				8A851BAA16FB3AD000E911DB /* UnityAppController.mm in Sources */,
+				2640F0E9232779110015F7A6 /* ZPVerificationView.swift in Sources */,
 				536E672F2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_1Table.cpp in Sources */,
 				4E090A341F27885B0077B28D /* StoreReview.m in Sources */,
 				536E67072322490500DAC985 /* Bulk_System.Core_0.cpp in Sources */,
@@ -1110,6 +1504,7 @@
 				8A793A061ED43EE100B44EF1 /* UnityView+iOS.mm in Sources */,
 				536E671B2322490500DAC985 /* UnityClassRegistration.cpp in Sources */,
 				536E674F2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_18Table.cpp in Sources */,
+				2640F0ED232779110015F7A6 /* MKCountDownLabel.swift in Sources */,
 				8ADCE38B19C87177006F04F6 /* CameraCapture.mm in Sources */,
 				536E67032322490500DAC985 /* Il2CppCodeRegistration.cpp in Sources */,
 				536E67432322490500DAC985 /* Bulk_DOTween43_0.cpp in Sources */,
@@ -1146,6 +1541,7 @@
 				536E67252322490500DAC985 /* Bulk_UnityEngine.AudioModule_0.cpp in Sources */,
 				536E66ED2322490500DAC985 /* Il2CppInteropDataTable.cpp in Sources */,
 				536E670F2322490500DAC985 /* Il2CppCompilerCalculateTypeValues_25Table.cpp in Sources */,
+				2640F0E8232779110015F7A6 /* ZPRestViewController.swift in Sources */,
 				536E67112322490500DAC985 /* Bulk_mscorlib_4.cpp in Sources */,
 				536E67202322490500DAC985 /* Bulk_mscorlib_2.cpp in Sources */,
 				536E67322322490500DAC985 /* Bulk_DOTween_0.cpp in Sources */,
@@ -1162,6 +1558,7 @@
 				536E67542322490500DAC985 /* Bulk_Assembly-CSharp_1.cpp in Sources */,
 				8ACB801C177081D4005D0019 /* DeviceSettings.mm in Sources */,
 				536E67342322490500DAC985 /* Bulk_UnityEngine.CoreModule_1.cpp in Sources */,
+				2640F0EA232779110015F7A6 /* ZPRestTimeManager.swift in Sources */,
 				536E67092322490500DAC985 /* Bulk_mscorlib_6.cpp in Sources */,
 				03F528631B447098000F4FB8 /* Il2CppOptions.cpp in Sources */,
 				536E674B2322490500DAC985 /* Bulk_Assembly-CSharp_2.cpp in Sources */,
@@ -1200,6 +1597,7 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72602D6B3F0F9136A5AC57FC /* Pods-Unity-iPhone.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
@@ -1209,6 +1607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1235,6 +1634,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1263,6 +1663,9 @@
 				PROVISIONING_PROFILE_SPECIFIER = dev_new;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/ParentContro/Unity-iPhone-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				UNITY_RUNTIME_VERSION = 2018.3.2f1;
 				UNITY_SCRIPTING_BACKEND = il2cpp;
@@ -1271,6 +1674,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 205F7F0ED776595675944CAC /* Pods-Unity-iPhone.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
@@ -1280,9 +1684,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
@@ -1303,6 +1708,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1328,9 +1734,11 @@
 				);
 				PRODUCT_NAME = ZhihuiJoin;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = AppStore_new;
+				PROVISIONING_PROFILE_SPECIFIER = dev_new;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/ParentContro/Unity-iPhone-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				UNITY_RUNTIME_VERSION = 2018.3.2f1;
 				UNITY_SCRIPTING_BACKEND = il2cpp;
@@ -1340,6 +1748,7 @@
 		5623C58317FDCB0900090B9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
 					armv7,
@@ -1391,6 +1800,7 @@
 		5623C58417FDCB0900090B9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
 					armv7,
@@ -1466,6 +1876,7 @@
 		};
 		56E860811D6757FF00A1AB2B /* ReleaseForRunning */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0812EA21D472AB3298006255 /* Pods-Unity-iPhone.releaseforrunning.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
@@ -1475,6 +1886,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -1499,6 +1911,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1527,6 +1940,8 @@
 				PROVISIONING_PROFILE_SPECIFIER = dev_new;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/ParentContro/Unity-iPhone-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				UNITY_RUNTIME_VERSION = 2018.3.2f1;
 				UNITY_SCRIPTING_BACKEND = il2cpp;
@@ -1536,6 +1951,7 @@
 		56E860821D6757FF00A1AB2B /* ReleaseForRunning */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
 					armv7,
@@ -1605,6 +2021,7 @@
 		};
 		56E860841D67581C00A1AB2B /* ReleaseForProfiling */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 716571E6260E726778F1AB87 /* Pods-Unity-iPhone.releaseforprofiling.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
@@ -1614,9 +2031,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Ke Ma (V92H4UN4V5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
@@ -1637,6 +2055,7 @@
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1662,9 +2081,11 @@
 				);
 				PRODUCT_NAME = ZhihuiJoin;
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = AppStore_new;
+				PROVISIONING_PROFILE_SPECIFIER = dev_new;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Classes/ParentContro/Unity-iPhone-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				UNITY_RUNTIME_VERSION = 2018.3.2f1;
 				UNITY_SCRIPTING_BACKEND = il2cpp;
@@ -1674,6 +2095,7 @@
 		56E860851D67581C00A1AB2B /* ReleaseForProfiling */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
 					armv7,

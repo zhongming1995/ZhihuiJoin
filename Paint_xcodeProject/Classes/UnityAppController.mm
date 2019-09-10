@@ -41,6 +41,8 @@
 #include <unistd.h>
 #include <sys/sysctl.h>
 
+
+#import "ZhihuiJoin-Swift.h"
 //#import "MBProgressHUD+PX.h"
 
 // we assume that app delegate is never changed and we can cache it, instead of re-query UIApplication every time
@@ -350,6 +352,7 @@ extern "C" void UnityRequestQuit()
 - (void)applicationDidEnterBackground:(UIApplication*)application
 {
     ::printf("-> applicationDidEnterBackground()\n");
+    [[ZPRestTimeManager shareInstance] saveCurrentTime];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication*)application
@@ -391,6 +394,8 @@ extern "C" void UnityRequestQuit()
     }
 
     _didResignActive = false;
+    
+    [[ZPRestTimeManager shareInstance] comparisonTimeWithTime:[NSDate date].timeIntervalSince1970];
 }
 
 - (void)removeSnapshotView
