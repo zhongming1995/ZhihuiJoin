@@ -21,16 +21,25 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private Vector2 anchorLeftTop;
     private Vector2 anchorRightBottom;
     private RectTransform rt;
-    bool isInit = false;//是否获取了需要的控件
-    bool isSelected = false;//是否被选中高亮
-    Vector3 offset;
-
+    private bool isInit = false;//是否获取了需要的控件
+    private bool isSelected = false;//是否被选中高亮
+    private Vector3 offset;
     private string resPath;
+    private bool canDrag;
+    private int dragCount = 0;
 
     void Init()
     {
         joinMainView = GetComponentInParent<JoinMainView>();
         joinGuide = GetComponentInParent<JoinGuide>();
+        if (joinMainView==null)
+        {
+            Debug.Log("null1");
+        }
+        if (joinMainView.PosLeftTop==null)
+        {
+            Debug.Log("null2");
+        }
         leftTop = joinMainView.PosLeftTop.position;
         rightBottom = joinMainView.PosRightBottom.position;
         anchorLeftTop = joinMainView.PosLeftTop.GetComponent<RectTransform>().anchoredPosition;
@@ -125,6 +134,14 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             }
             return PartType.LeftLeg;
         }
+        if (resType==TemplateResType.Head)
+        {
+            return PartType.Head;
+        }
+        if (resType == TemplateResType.TrueBody)
+        {
+            return PartType.TrueBody;
+        }
         return PartType.Body;
     }
 
@@ -140,11 +157,14 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return;
         }
-        if (isSelected)
+        //动物拼接的第一步,第二步时，头不可以动
+        if (joinMainView.step == 1 || joinMainView.step == 2)
         {
-            //ShowOutLine(false);
+            if (partType == PartType.Head && dragCount != 0)
+            {
+                return;
+            }
         }
-        //AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragbegin");
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
     }
@@ -156,9 +176,21 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return;
         }
+        //动物拼接的第一步,第二步时，头不可以动
+        if (joinMainView.step == 1 || joinMainView.step == 2)
+        {
+            if (partType == PartType.Head && dragCount != 0)
+            {
+                return;
+            }
+        }
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         transform.position = globalMousePos + offset;
+        if (partType == PartType.Head)
+        {
+            return;
+        }
         bool r = InCorrectArea();
         if (r)
         {
@@ -178,11 +210,39 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return;
         }
-        if (isSelected)
+        //动物拼接的第一步,第二步时，头不可以动
+        if (joinMainView.step == 1 || joinMainView.step == 2) 
         {
-            //ShowOutLine(true);
+            if (partType == PartType.Head && dragCount != 0)
+            {
+                return;
+            }
+        }
+        if (partType == PartType.Head && dragCount == 0)
+        {
+            joinMainView.EyeMouthHairCG.transform.SetParent(transform);
+            joinMainView.EyeMouthHairCG.transform.localPosition = Vector3.zero;
+            if (transform.parent.childCount>1)
+            {
+                for (int i = 0; i < transform.parent.childCount-1; i++)
+                {
+                    Destroy(transform.parent.GetChild(i).gameObject);
+                }
+            }
         }
         joinMainView.ShowBackBtn(false);
+        dragCount++;
+        if (GameManager.instance.curJoinType==JoinType.Animal && joinMainView.step == 1)
+        {
+            if (partType == PartType.Head)
+            {
+                //头定位
+                transform.DOLocalMove(Vector3.zero, 0.5f);
+                //将眼鼻的父物体挂在头下面
+                return;
+            }
+        }
+
         if (InCorrectArea())
         {
             AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
@@ -192,22 +252,18 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             float posy = rt.anchoredPosition.y;
             if (rt.anchoredPosition.x > anchorLeftTop.x && rt.anchoredPosition.x < (anchorLeftTop.x + rt.sizeDelta.x*partScale.x / 2))
             {
-                Debug.Log("x左压线");
                 posx = anchorLeftTop.x + rt.sizeDelta.x * partScale.x / 2;
             }
             if (rt.anchoredPosition.x < anchorRightBottom.x && rt.anchoredPosition.x > (anchorRightBottom.x - rt.sizeDelta.x* partScale.x / 2))
             {
-                Debug.Log("x右压线");
                 posx = anchorRightBottom.x - rt.sizeDelta.x * partScale.x / 2;
             }
             if (rt.anchoredPosition.y > anchorRightBottom.y && rt.anchoredPosition.y < (anchorRightBottom.y + rt.sizeDelta.y * partScale.y / 2))
             {
-                Debug.Log("下压线");
                 posy = anchorRightBottom.y + rt.sizeDelta.y * partScale.y / 2;
             }
             if (rt.anchoredPosition.y < anchorLeftTop.y && rt.anchoredPosition.y > (anchorLeftTop.y - rt.sizeDelta.y * partScale.y / 2))
             {
-                Debug.Log("上压线");
                 posy = anchorLeftTop.y - rt.sizeDelta.y * partScale.y / 2;
             }
             rt.DOAnchorPos(new Vector2(posx, posy), 0.5f);
@@ -216,10 +272,10 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         else
         {
             Debug.Log("delete:"+partType);
-            if (partType==PartType.Body)
+            if (partType == PartType.Body || partType == PartType.Head)
             {
                 SetState(true);
-                transform.localPosition = Vector3.zero;
+                transform.DOLocalMove(joinMainView.targetHeadPos, 0.5f);
                 return;
             }
             joinMainView.SetSelectResObj(null);
@@ -233,10 +289,25 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             Init();
         }
+
         //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curSelectResType == 0)
+        if (GameManager.instance.curJoinType==JoinType.Animal)
         {
-            return;
+            //动物拼接的第一步,第二步时，头不可以动
+            if (joinMainView.step == 1 || joinMainView.step == 2)
+            {
+                if (partType == PartType.Head && dragCount != 0)
+                {
+                    return;
+                }
+            }
+        }
+        else
+        {
+            if (joinMainView.step == 1)
+            {
+                return;
+            }
         }
         AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
         joinMainView.SetSelectResObj(transform);
@@ -251,7 +322,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             {
                 ShowOutLine(true);
             }
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 1);//使用描边shader之后就没用了
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1);
         }
         else
         {
@@ -262,25 +333,30 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public bool InCorrectArea()
     {
-        if (transform.position.x>leftTop.x
-            &&transform.position.x<rightBottom.x
-            &&transform.position.y>rightBottom.y
-            &&transform.position.y<leftTop.y)
+        if (GameManager.instance.curJoinType == JoinType.Animal && (partType == PartType.LeftEye || partType == PartType.Mouth))
+        {
+            return Utils.IsRectTransformOverlap(transform.GetComponent<RectTransform>(), transform.parent.parent.GetComponent<RectTransform>());
+        }
+       
+        if (transform.position.x > leftTop.x
+            && transform.position.x < rightBottom.x
+            && transform.position.y > rightBottom.y
+            && transform.position.y < leftTop.y)
         {
             return true;
         }
         return false;
     }
 
-    public void SetOutline(bool isSelect)
+    public void SetOutline(bool _isSelect)
     {
-        isSelected = isSelect;
-        ShowOutLine(isSelect);
+        isSelected = _isSelect;
+        ShowOutLine(isSelected);
     }
 
-    private void ShowOutLine(bool isSelect)
+    private void ShowOutLine(bool _isSelect)
     {
-        if (isSelect)
+        if(_isSelect)
         {
             image.material = selectMaterial;
         }

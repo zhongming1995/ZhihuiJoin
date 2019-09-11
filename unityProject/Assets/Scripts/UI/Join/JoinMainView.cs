@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using AudioMgr;
+using DataMgr;
 using DG.Tweening;
 using Draw_MobilePaint;
 using GameMgr;
 using Helper;
 using UnityEngine;
 using UnityEngine.UI;
-using DataMgr;
-using AudioMgr;
-using System.Collections;
-using System;
 
 public class JoinMainView : MonoBehaviour
 {
@@ -37,12 +37,20 @@ public class JoinMainView : MonoBehaviour
     public CanvasGroup HandLegCG;
     public CanvasGroup EyeMouthHairCG;
     public CanvasGroup HatHeadwearCG;
+    public CanvasGroup HeadCG;
+    public CanvasGroup TrueBodyCG;
 
     public MobilePaint mobilePaint;
     [HideInInspector]
     public bool hasPainted;//涂色过，即涂色面积>0过，现在没用了
     [HideInInspector]
     public bool hasDraged;//是否拖入过素材（附着过）
+
+    [HideInInspector]
+    public float targetScale = 0.85f;
+
+    [HideInInspector]
+    public Vector3 targetHeadPos = new Vector3(0, 380, 0);
 
     //定义数据变量
     private Transform curSelectResObj;
@@ -52,7 +60,7 @@ public class JoinMainView : MonoBehaviour
     public int step = 1;//步骤1-3
     public int preStep = -1;//上一步
     public List<Transform> typeTransList = new List<Transform>();//类型列表，0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品 6手 7脚 8头 9身体
-    private bool[] loadResult = new bool[8] { false, false, false, false, false, false, false, false };//用来标示素材列表里的元素是否已被加载
+    private bool[] loadResult = { false, false, false, false, false, false, false, false,false,false };//用来标示素材列表里的元素是否已被加载
     private bool[] guideResult = {false,false,false,false };//用来标示每一步的引导语音是否已经播放
 
     private int penSize = -1;
@@ -99,6 +107,7 @@ public class JoinMainView : MonoBehaviour
 
     private void Init()
     {
+        step = 1;
         //暂时处理适配
         if (Screen.width==2388&&Screen.height==1688)
         {
@@ -121,9 +130,8 @@ public class JoinMainView : MonoBehaviour
         //按钮点击
         AddClickEvent();
         //左下角参考缩略图
-         UIHelper.instance.SetImage(GameData.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
-        //涂色背景（只做淡入展示）
-        UIHelper.instance.SetImage(GameData.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
+        UIHelper.instance.SetImage(GameData.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
+
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
         {
@@ -137,20 +145,26 @@ public class JoinMainView : MonoBehaviour
             LayoutRebuilder.ForceRebuildLayoutImmediate(TypeBtnConList[i].GetComponent<RectTransform>());
         }
         //右边素材切换按钮
-        for (int i = 0; i < GameManager.instance.resTypeCount; i++)
+        for (int i = 0; i < GameData.resTypeCount; i++)
         {
             int clickType = i;
             typeTransList[i].GetComponent<Button>().onClick.AddListener(delegate
             {
-                //SetSelectResObj(null);
                 joinGuide.DoOperation();
                 AudioManager.instance.PlayAudio(EffectAudioType.Option, "Audio/option_audio/material_option_audio|material_" + clickType);
                 TypeButtonClick((TemplateResType)clickType, true);
             });
         }
-        BtnNext.gameObject.SetActive(false);
-        SetDrawMessage();
-        ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
+        if (GameManager.instance.curJoinType == JoinType.Animal)
+        {
+            drawPercent = 100;
+        }
+        else
+        {
+            drawPercent = 0;
+            SetDrawMessage();
+            ContentColor.gameObject.AddComponent<ColorToggleCtrl>();
+        }
 
         //打开保存的文件
         if ((GameManager.instance.openType == OpenType.ReEdit ||   GameManager.instance.openType == OpenType.BackEdit) && GameManager.instance.curWhole!=null)
@@ -176,6 +190,8 @@ public class JoinMainView : MonoBehaviour
 
     void SetDrawMessage()
     {
+        //涂色背景（只做淡入展示）
+        UIHelper.instance.SetImage(GameData.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
         //绘画素材
         Sprite s = UIHelper.instance.LoadSprite(GameData.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint.InitializeEverything(s.texture);
@@ -184,8 +200,6 @@ public class JoinMainView : MonoBehaviour
         ImageScaleSlider.value = 0.5f;
         AdjustBurshSize(PenScaleSlider.value);
         joinGuide.AddMobileDrawDelagate();
-
-        //mobilePaint.gameObject.SetActive(false);
         Invoke("ShowDrawPanel",0.4f);
     }
 
@@ -214,8 +228,10 @@ public class JoinMainView : MonoBehaviour
     //按钮点击事件
     private void AddClickEvent()
     {
-        mobilePaint.getDrawArea += GetDrawArea;
-        //FadeIn.fadeInComplete += ViewFadeComplete;
+        if (GameManager.instance.curJoinType != JoinType.Animal)
+        {
+            mobilePaint.getDrawArea += GetDrawArea;
+        }
 
         BtnBackCheck.onClick.AddListener(delegate
         {
@@ -470,26 +486,33 @@ public class JoinMainView : MonoBehaviour
             return;
         }
         ShowBackBtn(false);
-        if (type==TemplateResType.Body)
+        if (GameManager.instance.curJoinType!=JoinType.Animal)
         {
-            //SetPartOccupy(true);
-            ImgDrawBg.DOFade(1, 0.5f).OnComplete(()=> {
-                ImgDraw.gameObject.SetActive(false);
-                mobilePaint.gameObject.SetActive(true);
-            });
+            if (type == TemplateResType.Body)
+            {
+                //SetPartOccupy(true);
+                ImgDrawBg.DOFade(1, 0.5f).OnComplete(() => {
+                    ImgDraw.gameObject.SetActive(false);
+                    mobilePaint.gameObject.SetActive(true);
+                });
+            }
+            else
+            {
+                Texture2D t = GetDrawTexture();
+                ImgDraw.gameObject.SetActive(true);
+                Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
+                ImgDraw.sprite = s;
+                ImgDraw.SetNativeSize();
+                //ImgDraw.transform.localScale = Vector3.one;
+                mobilePaint.gameObject.SetActive(false);
+                ImgDrawBg.DOFade(0, 0.5f);
+            }
         }
         else
         {
-            //SetPartOccupy(false);
-            Texture2D t = GetDrawTexture();
-            ImgDraw.gameObject.SetActive(true);
-            Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-            ImgDraw.sprite = s;
-            ImgDraw.SetNativeSize();
-            //ImgDraw.transform.localScale = Vector3.one;
-            mobilePaint.gameObject.SetActive(false);
-            ImgDrawBg.DOFade(0, 0.5f);
+
         }
+
         Sequence seq = DOTween.Sequence();
         seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.3f));
         seq.InsertCallback(0.2f, () =>
@@ -505,7 +528,7 @@ public class JoinMainView : MonoBehaviour
         //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
         Debug.Log("showREsLitByType:"+type);
         SetCurSelectType(type);
-        for (int i = 0; i < GameManager.instance.resTypeCount; i++)
+        for (int i = 0; i < GameData.resTypeCount; i++)
         {
             if (i == (int)type)
             {
@@ -522,7 +545,6 @@ public class JoinMainView : MonoBehaviour
         }
         if (type == TemplateResType.Body)
         {
-            Debug.Log("body");
             SetPartOccupy(true);
         }
         else
@@ -543,7 +565,14 @@ public class JoinMainView : MonoBehaviour
         
         if (step==1)
         {
-            SetCurSelectType(TemplateResType.Body);
+            if (GameManager.instance.curJoinType == JoinType.Animal)
+            {
+                SetCurSelectType(TemplateResType.Head);
+            }
+            else
+            {
+                SetCurSelectType(TemplateResType.Body);
+            }
             BtnPre.GetComponent<UIMove>().MoveHide();
             GetDrawArea(drawPercent);//这里是控制BtnNext的
             BtnOk.gameObject.SetActive(false);
@@ -556,7 +585,14 @@ public class JoinMainView : MonoBehaviour
         }
         else if (step == 3)
         {
-            SetCurSelectType(TemplateResType.Hand);
+            if (GameManager.instance.curJoinType == JoinType.Animal)
+            {
+                SetCurSelectType(TemplateResType.TrueBody);
+            }
+            else
+            {
+                SetCurSelectType(TemplateResType.Hand);
+            }
             BtnPre.GetComponent<UIMove>().MoveShow();
             BtnNext.GetComponent<UIMove>().MoveShow();
             if (preStep == 3)
@@ -673,7 +709,22 @@ public class JoinMainView : MonoBehaviour
             }
 
         });
-       
+        if (GameManager.instance.curJoinType==JoinType.Animal)
+        {
+            if (preStep == 2 && _curStep == 3 )
+            {
+                HeadCG.transform.GetChild(0).DOScale(targetScale, 0.5f);
+                HeadCG.transform.GetChild(0).DOLocalMove(targetHeadPos, 0.5f);
+                TrueBodyCG.gameObject.SetActive(true);
+                HandLegCG.gameObject.SetActive(true);
+            }else if (preStep == 3 && _curStep == 2)
+            {
+                HeadCG.transform.GetChild(0).DOScale(1, 0.5f);
+                HeadCG.transform.GetChild(0).DOLocalMove(Vector3.zero, 0.5f);
+                TrueBodyCG.gameObject.SetActive(false);
+                HandLegCG.gameObject.SetActive(false);
+            }
+        }
     }
 
     //设置身体之外的部位的透明度
@@ -701,7 +752,7 @@ public class JoinMainView : MonoBehaviour
         HandLegCG.alpha = 0.2f;
     }
 
-    //加载某种类型的素材 0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
+    //加载某种类型的素材 0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚 8头 9身体
     private void LoadResListByType(int type)
     {
         if (type==0)
@@ -710,8 +761,9 @@ public class JoinMainView : MonoBehaviour
             return;
         }
         string resPrefabPath = GameData.resPrefabPathList[type];
+        Debug.Log("prefabPath:" + resPrefabPath);
         List<string> resPath;
-        if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body)
+        if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body &&GameManager.instance.curJoinType!=JoinType.Animal)
         {
             resPath = GameData.GetPathList(GameManager.instance.homeSelectIndex, (TemplateResType)type);
         }
@@ -735,26 +787,34 @@ public class JoinMainView : MonoBehaviour
         {
             return;
         }
+        //0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
+        float scale = 1;
+        if (type == (int)TemplateResType.HeadWear|| type == (int)TemplateResType.TrueBody)
+        {
+            scale = 0.7f;
+        }
+        else if (type == (int)TemplateResType.Mouth)
+        {
+            scale = 0.9f;
+        }
+        else if (type == (int)TemplateResType.Hand)
+        {
+            scale = 0.4f;
+        }
+        else if (type == (int)TemplateResType.Hat || type == (int)TemplateResType.Eye)
+        {
+            scale = 0.65f;
+        }
+        else if (type == (int)TemplateResType.Head)
+        {
+            scale = 0.3f;
+        }
+        else
+        {
+            scale = 0.6f;
+        }
         for (int j = 0; j < resPath.Count; j++)
-        {//0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
-            float scale = 1;
-            if (type == (int)TemplateResType.HeadWear)
-            {
-                scale = 0.7f;
-            }else if (type == (int)TemplateResType.Mouth)
-            {
-                scale = 0.9f;
-            }else if (type==(int)TemplateResType.Hand)
-            {
-                scale = 0.4f;
-            }else if (type == (int)TemplateResType.Hat||type == (int)TemplateResType.Eye)
-            {
-                scale = 0.65f;
-            }
-            else
-            {
-                scale = 0.6f;
-            }
+        {
             GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, new Vector3(scale,scale,scale), false);
             //GameObject resObj = UIHelper.instance.LoadPrefabNoScale(resPrefabPath, ResContentList[type],Vector3.zero);
             if (type == 1 || type == 6 || type == 7)
@@ -795,8 +855,6 @@ public class JoinMainView : MonoBehaviour
 
     public void PlayGuideAudio(string path,int step)
     {
-        //BtnNext.interactable = false;
-        //BtnOk.interactable = false;
         guideResult[step - 1] = true;
         AudioManager.instance.PlayAudio(EffectAudioType.Guide, path,()=>
         {
@@ -819,8 +877,10 @@ public class JoinMainView : MonoBehaviour
         {
             AudioManager.instance.StopEffect();
         }
-        mobilePaint.getDrawArea -= GetDrawArea;
-        //FadeIn.fadeInComplete -= ViewFadeComplete;
+        if (GameManager.instance.curJoinType!=JoinType.Animal)
+        {
+            mobilePaint.getDrawArea -= GetDrawArea;
+        }
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }
@@ -835,7 +895,6 @@ public class JoinMainView : MonoBehaviour
 
     private void GetDrawArea(float percent)
     {
-        Debug.Log("percent:"+percent);
         drawPercent = percent;
         if (percent>80)
         {

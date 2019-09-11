@@ -73,7 +73,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _InnerGlowAccuracy: 64
-    - _InnerGlowAlphaSumThreshold: 0.999999
+    - _InnerGlowAlphaSumThreshold: 0.94
     - _InnerGlowLerpRate: 1
     - _InnerGlowWidth: 0.015
     - _Metallic: 0

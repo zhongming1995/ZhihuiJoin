@@ -249,7 +249,6 @@ namespace AudioMgr {
 
         public void PlayOneShotAudio(string path)
         {
-            Debug.Log("oneshot");
             AudioClip clip = SetAudioClip(path);
             if (clip!=null)
             {
@@ -297,7 +296,7 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
-            Debug.Log("PlayOptionAudio--------");
+            //Debug.Log("PlayOptionAudio--------");
             if (commonBtnClip == null)
             {
                 commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/option_audio/common_option_audio|common_button");

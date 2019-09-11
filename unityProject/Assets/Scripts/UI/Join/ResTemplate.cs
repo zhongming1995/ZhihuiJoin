@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using AudioMgr;
+using GameMgr;
+using Helper;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Helper;
-using GameMgr;
 using UnityEngine.UI;
-using AudioMgr;
 
 public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler
 {
@@ -14,9 +12,6 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     private JoinMainView joinMainView;
     private JoinGuide joinGuide;
     bool moveSelf = true;
-    private Transform HandLegGroup;
-    private Transform EyeMouthHairGroup;
-    private Transform HatHeadwearGroup;
     private string resPath;
 
     void Start()
@@ -40,15 +35,23 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
         TemplateResType type = GameManager.instance.curSelectResType;
         if (type == TemplateResType.Hand || type == TemplateResType.Leg)//手脚
         {
-            genParent = GameObject.Find("img_draw_bg/draw_panel/group_handleg").transform;
+            genParent = GameObject.Find("group_handleg").transform;
         }
         else if (type == TemplateResType.Eye || type ==  TemplateResType.Mouth || type == TemplateResType.Hair)
         {
-            genParent = GameObject.Find("img_draw_bg/draw_panel/group_eyemouthhair").transform;
+            genParent = GameObject.Find("group_eyemouthhair").transform;
         }
         else if (type == TemplateResType.Hat || type == TemplateResType.HeadWear)
         {
-            genParent = GameObject.Find("img_draw_bg/draw_panel/group_hatheadwear").transform;
+            genParent = GameObject.Find("group_hatheadwear").transform;
+        }
+        else if (type==TemplateResType.Head)
+        {
+            genParent = GameObject.Find("group_head").transform;
+        }
+        else if (type == TemplateResType.TrueBody)
+        {
+            genParent = GameObject.Find("group_truebody").transform;
         }
         GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
         obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex(),resPath);

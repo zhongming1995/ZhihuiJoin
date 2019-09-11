@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections.Generic;
-using System.Collections;
 using System;
 using Random = System.Random;
 
@@ -41,6 +39,9 @@ public class GameData
     private static List<string> numLegPathList = new List<string>();//数字脚资源路径
     private static List<string> aniLegPathList = new List<string>();//数字脚资源路径
 
+    private static List<string> aniHeadPathList = new List<string>();//动物头
+    private static List<string> aniBodyPathList = new List<string>();//动物身体
+
     [HideInInspector]
     public static List<List<string>> resPathList = new List<List<string>>();//全部资源路径
     [HideInInspector]
@@ -53,7 +54,7 @@ public class GameData
     public static Color[] MultiColorList;
 
     [HideInInspector]
-    public static int resTypeCount = 8;//素材资源种类，目前8种
+    public static int resTypeCount = 10;//素材资源种类，目前8种
 
     //初始化颜色列表
     public static void InitColor()
@@ -269,6 +270,20 @@ public class GameData
             aniLegPathList.Add(string.Format(aniLegPath_R, i.ToString()));
         }
 
+        //头
+        string animalHeadPath = "sprite/fodder/head|animal_head_{0}";
+        for (int i = 0; i < 3; i++)
+        {
+            aniHeadPathList.Add(string.Format(animalHeadPath, i.ToString()));
+        }
+
+        //身体
+        string animalBodyPath = "sprite/fodder/body|animal_body_{0}";
+        for (int i = 0; i < 3; i++)
+        {
+            aniBodyPathList.Add(string.Format(animalBodyPath, i.ToString()));
+        }
+
         //-------------组装-------------
 
         //颜色
@@ -366,6 +381,10 @@ public class GameData
             legPathList.Add(aniLegPathList[i]);
         }
         resPathList.Add(legPathList);
+        //头
+        resPathList.Add(aniHeadPathList);
+        //身体
+        resPathList.Add(aniBodyPathList);
     }
 
     public static void InitResPrefabList()
@@ -596,6 +615,13 @@ public class GameData
                 }
                 pathList.Add(resPathList[5][n]);
             }
+        }
+        else if (type == TemplateResType.Head)
+        {
+            pathList = resPathList[8];
+        }else if (type==TemplateResType.TrueBody)
+        {
+            pathList = resPathList[9];
         }
         return pathList;
     }

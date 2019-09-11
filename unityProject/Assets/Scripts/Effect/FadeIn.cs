@@ -19,7 +19,6 @@ public class FadeIn : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("enable");
         if (groupGets==false)
         {
             groups = transform.GetComponentsInChildren<CanvasGroup>();
@@ -38,7 +37,7 @@ public class FadeIn : MonoBehaviour
 
     void FadeInFunc()
     {
-        Debug.Log("-------------fadein");
+        //Debug.Log("-------------fadein");
         isCallBack = false;
         if (groups.Length == 0)
         {
@@ -65,13 +64,12 @@ public class FadeIn : MonoBehaviour
   
     IEnumerator Cor_FadeIn(CanvasGroup canvasGroup,Action cb = null)
     {
-        Debug.Log("-------------corfadein");
+        //Debug.Log("-------------corfadein");
         float alpha = 0f;
         canvasGroup.interactable = false;
         WaitForSeconds delay = new WaitForSeconds(0.01f);
         while(alpha <= 1.1f)
         {
-            Debug.Log(alpha);
             canvasGroup.alpha = alpha;
             alpha += 0.05f;
             yield return delay;//0.2s完成
@@ -85,7 +83,7 @@ public class FadeIn : MonoBehaviour
 
     public void FadeOutFunc()
     {
-        Debug.Log("-------------fadeout");
+        //Debug.Log("-------------fadeout");
         isCallBack = false;
         if (groups.Length == 0)
         {
@@ -113,12 +111,11 @@ public class FadeIn : MonoBehaviour
 
     IEnumerator Cor_FadeOut(CanvasGroup canvasGroup, Action cb = null)
     {
-        Debug.Log("-------------corfadeout");
+        //Debug.Log("-------------corfadeout");
         float alpha = 1f;
         WaitForSeconds delay = new WaitForSeconds(0.01f);
         while (alpha >= 0f)
         {
-            Debug.Log(alpha);
             canvasGroup.alpha = alpha;
             alpha -= 0.05f;
             yield return delay;//0.2s完成

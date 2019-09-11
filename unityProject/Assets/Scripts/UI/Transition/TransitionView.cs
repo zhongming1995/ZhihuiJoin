@@ -33,7 +33,7 @@ public class TransitionView : SingletonMono<TransitionView>
 
     private void FadeInComplete(PanelEnum panelEnum)
     {
-        Debug.Log("FadeInComplete:"+panelEnum.ToString());
+        //Debug.Log("FadeInComplete:"+panelEnum.ToString());
         if (panelEnum == PanelEnum.TransitionView)
         {
             StartCoroutine(LoadSceneAsync());
@@ -48,7 +48,6 @@ public class TransitionView : SingletonMono<TransitionView>
     public IEnumerator LoadSceneAsync(Action cb = null)
     {
         time = Time.realtimeSinceStartup;
-        Debug.Log("LoadScene=======");
         bool LoadComplete = false;
         yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(GameManager.instance.nextSceneName);

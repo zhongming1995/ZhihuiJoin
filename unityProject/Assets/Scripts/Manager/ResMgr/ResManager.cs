@@ -481,7 +481,7 @@ namespace ResMgr
                 result = Resources.Load<T>(path);
                 if (result == null)
                 {
-                    Debug.Log("null");
+                    Debug.Log("null:"+ path);
                 }
             }
             else

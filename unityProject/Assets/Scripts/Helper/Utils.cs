@@ -94,7 +94,7 @@ public class Utils
         bool yNotOverlap = rect1MaxY <= rect2MinY || rect2MaxY <= rect1MinY;
 
         bool notOverlap = xNotOverlap || yNotOverlap;
-
+        Debug.Log("rect1:" + rect1.name + " rect2:" + rect2.name + "  result:" + !notOverlap);
         return !notOverlap;
     }
 }
