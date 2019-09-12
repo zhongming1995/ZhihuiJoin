@@ -172,6 +172,8 @@ struct U3CU3Ec__DisplayClassb2_tDE677984DFFECB80EF616D9A6D4D2075C35028E6;
 struct U3CU3Ec__DisplayClassb6_t2BFB12249855A8FE2A74C4B29DDA349C49573ED2;
 // DG.Tweening.ShortcutExtensions/<>c__DisplayClassba
 struct U3CU3Ec__DisplayClassba_t0A65EB02F44732F72DA15E4767826F7318A5558E;
+// DG.Tweening.ShortcutExtensions/<>c__DisplayClassbe
+struct U3CU3Ec__DisplayClassbe_t1186133747C674242AF1F941435C43C73D9B2CD2;
 // DG.Tweening.ShortcutExtensions/<>c__DisplayClassd2
 struct U3CU3Ec__DisplayClassd2_t2E49EDC8ED935AAE089A256C17B0F4810A868E1E;
 // DG.Tweening.ShortcutExtensions/<>c__DisplayClassd6
@@ -1203,6 +1205,36 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // U3CU3EC__DISPLAYCLASSBA_T0A65EB02F44732F72DA15E4767826F7318A5558E_H
+#ifndef U3CU3EC__DISPLAYCLASSBE_T1186133747C674242AF1F941435C43C73D9B2CD2_H
+#define U3CU3EC__DISPLAYCLASSBE_T1186133747C674242AF1F941435C43C73D9B2CD2_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// DG.Tweening.ShortcutExtensions/<>c__DisplayClassbe
+struct  U3CU3Ec__DisplayClassbe_t1186133747C674242AF1F941435C43C73D9B2CD2  : public RuntimeObject
+{
+public:
+	// UnityEngine.Transform DG.Tweening.ShortcutExtensions/<>c__DisplayClassbe::target
+	Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * ___target_0;
+
+public:
+	inline static int32_t get_offset_of_target_0() { return static_cast<int32_t>(offsetof(U3CU3Ec__DisplayClassbe_t1186133747C674242AF1F941435C43C73D9B2CD2, ___target_0)); }
+	inline Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * get_target_0() const { return ___target_0; }
+	inline Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA ** get_address_of_target_0() { return &___target_0; }
+	inline void set_target_0(Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * value)
+	{
+		___target_0 = value;
+		Il2CppCodeGenWriteBarrier((&___target_0), value);
+	}
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // U3CU3EC__DISPLAYCLASSBE_T1186133747C674242AF1F941435C43C73D9B2CD2_H
 #ifndef U3CU3EC__DISPLAYCLASSD2_T2E49EDC8ED935AAE089A256C17B0F4810A868E1E_H
 #define U3CU3EC__DISPLAYCLASSD2_T2E49EDC8ED935AAE089A256C17B0F4810A868E1E_H
 #ifdef __clang__
@@ -6246,6 +6278,43 @@ extern "C" IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720 
 }
 // System.Void DG.Tweening.ShortcutExtensions/<>c__DisplayClassba::<DOScale>b__b9(UnityEngine.Vector3)
 extern "C" IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClassba_U3CDOScaleU3Eb__b9_mBCBC855A31DDFE0E1E182AC01B9F623328D5C3D3 (U3CU3Ec__DisplayClassba_t0A65EB02F44732F72DA15E4767826F7318A5558E * __this, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___x0, const RuntimeMethod* method)
+{
+	{
+		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_0 = __this->get_target_0();
+		Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  L_1 = ___x0;
+		NullCheck(L_0);
+		Transform_set_localScale_m7ED1A6E5A87CD1D483515B99D6D3121FB92B0556(L_0, L_1, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void DG.Tweening.ShortcutExtensions/<>c__DisplayClassbe::.ctor()
+extern "C" IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClassbe__ctor_m27E1A8B272D48B630D143ADF78486BEADABE9C89 (U3CU3Ec__DisplayClassbe_t1186133747C674242AF1F941435C43C73D9B2CD2 * __this, const RuntimeMethod* method)
+{
+	{
+		Object__ctor_m925ECA5E85CA100E3FB86A4F9E15C120E9A184C0(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+// UnityEngine.Vector3 DG.Tweening.ShortcutExtensions/<>c__DisplayClassbe::<DOScale>b__bc()
+extern "C" IL2CPP_METHOD_ATTR Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  U3CU3Ec__DisplayClassbe_U3CDOScaleU3Eb__bc_m02BF6B96C5F3C0526C142AF48BCF5E08B01F3DB4 (U3CU3Ec__DisplayClassbe_t1186133747C674242AF1F941435C43C73D9B2CD2 * __this, const RuntimeMethod* method)
+{
+	{
+		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_0 = __this->get_target_0();
+		NullCheck(L_0);
+		Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  L_1 = Transform_get_localScale_mD8F631021C2D62B7C341B1A17FA75491F64E13DA(L_0, /*hidden argument*/NULL);
+		return L_1;
+	}
+}
+// System.Void DG.Tweening.ShortcutExtensions/<>c__DisplayClassbe::<DOScale>b__bd(UnityEngine.Vector3)
+extern "C" IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClassbe_U3CDOScaleU3Eb__bd_m5FE40DCAEB18668C1CD2361FD6340E48FBA9CFA3 (U3CU3Ec__DisplayClassbe_t1186133747C674242AF1F941435C43C73D9B2CD2 * __this, Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720  ___x0, const RuntimeMethod* method)
 {
 	{
 		Transform_tBB9E78A2766C3C83599A8F66EDE7D1FCAFC66EDA * L_0 = __this->get_target_0();

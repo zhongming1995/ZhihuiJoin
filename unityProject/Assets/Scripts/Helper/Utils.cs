@@ -77,6 +77,31 @@ public class Utils
         return resultJ;
     }
 
+    //判断两个矩形是否包含
+    public static bool IsRectTransformInside(RectTransform rect1, RectTransform rect2)
+    {
+        Debug.Log(rect1.anchoredPosition);
+        Debug.Log(rect2.anchoredPosition);
+        float rect1MinX = rect1.anchoredPosition.x - rect1.rect.width / 2;
+        float rect1MaxX = rect1.anchoredPosition.x + rect1.rect.width / 2;
+        float rect1MinY = rect1.anchoredPosition.y - rect1.rect.height / 2;
+        float rect1MaxY = rect1.anchoredPosition.y + rect1.rect.height / 2;
+        Debug.Log("1:"+rect1MinX + ",  " + rect1MaxX + ",  " + rect1MinY + ",  " + rect1MaxY);
+
+        float rect2MinX = rect2.anchoredPosition.x - rect2.rect.width / 2;
+        float rect2MaxX = rect2.anchoredPosition.x + rect2.rect.width / 2;
+        float rect2MinY = rect2.anchoredPosition.y - rect2.rect.height / 2;
+        float rect2MaxY = rect2.anchoredPosition.y + rect2.rect.height / 2;
+        Debug.Log("2:"+rect2MinX + ",  " + rect2MaxX + ",  " + rect2MinY + ",  " + rect2MaxY);
+
+        bool IsInside1 = rect1MinX >= rect2MinX && rect1MaxX <= rect2MaxX && rect1MinY >= rect2MinY && rect1MaxY <= rect2MaxY;
+        bool IsInside2 = rect2MinX >= rect1MinX && rect2MaxX <= rect1MaxX && rect2MinY >= rect1MinY && rect2MaxY <= rect1MaxY;
+        Debug.Log(IsInside1 + "   " + IsInside2);
+        bool notOverlap = IsInside1 || IsInside2;
+        Debug.Log("rect1:" + rect1.name + " rect2:" + rect2.name + "  result:" + notOverlap);
+        return notOverlap;
+    }
+
     //判断两个矩形是否相交
     public static bool IsRectTransformOverlap(RectTransform rect1, RectTransform rect2)
     {
@@ -94,7 +119,6 @@ public class Utils
         bool yNotOverlap = rect1MaxY <= rect2MinY || rect2MaxY <= rect1MinY;
 
         bool notOverlap = xNotOverlap || yNotOverlap;
-        Debug.Log("rect1:" + rect1.name + " rect2:" + rect2.name + "  result:" + !notOverlap);
         return !notOverlap;
     }
 }

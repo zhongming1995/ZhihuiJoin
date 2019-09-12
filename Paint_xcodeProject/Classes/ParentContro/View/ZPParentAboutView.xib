@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad10_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZPParentAboutView" customModule="SmartPaint_Swift_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="844" height="586"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2t-eB-ZGZ">
+                    <rect key="frame" x="143" y="80" width="558" height="329"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">智绘星球是一款专注于儿童绘画的移动教育应用。
+
+我们以儿童的兴趣为出发点，基于STEAM教育的艺术教育内容并结合美国K-12视觉艺术教材，关注孩子在艺术方面的综合能力。
+
+根据儿童不同年龄的视觉和左右脑发育情况，我们采取进阶式的方式为孩子量身定制填色素材， 提供功能齐全的涂鸦画板， 打造—款寓教于乐的集美术教育、治愈抗压、能力培养于—体的绘画产品。
+
+我们保护孩子天性，开发孩子想象力， 陪伴孩子度过快乐童年。 同时我们也为家长提供专业、全面、丰富及个性化儿童教育产品及教养社区服务。</string>
+                            <attributes>
+                                <font key="NSFont" size="20" name="PingFangSC-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1B-yG-4hH">
+                    <rect key="frame" x="143" y="489" width="88" height="31"/>
+                    <attributedString key="attributedText">
+                        <fragment content="版本号：">
+                            <attributes>
+                                <font key="NSFont" size="22" name="PingFangSC-Semibold"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="a1B-yG-4hH" firstAttribute="leading" secondItem="t2t-eB-ZGZ" secondAttribute="leading" id="3bt-06-cuy"/>
+                <constraint firstItem="a1B-yG-4hH" firstAttribute="top" secondItem="t2t-eB-ZGZ" secondAttribute="bottom" constant="80" id="7ig-eG-snA"/>
+                <constraint firstItem="t2t-eB-ZGZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="K3j-ke-38i"/>
+                <constraint firstItem="t2t-eB-ZGZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="SnP-DY-zY6"/>
+                <constraint firstItem="t2t-eB-ZGZ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="351:625" id="iVb-th-ZIf"/>
+                <constraint firstItem="t2t-eB-ZGZ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="650:984" id="mKl-do-LXm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="textLabel" destination="t2t-eB-ZGZ" id="p3t-5s-x6j"/>
+                <outlet property="versionsLabel" destination="a1B-yG-4hH" id="YP2-D4-xfi"/>
+            </connections>
+            <point key="canvasLocation" x="32.913669064748206" y="3.5971223021582737"/>
+        </view>
+    </objects>
+</document>

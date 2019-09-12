@@ -1,24 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using DG.Tweening;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Common.ObjectPool;
 using GameMgr;
 using AudioMgr;
-using Helper;
+using System.Runtime.InteropServices;
 
 public class IndexView : MonoBehaviour
 {
     public Button BtnLetter;
     public Button BtnNumber;
     public Button BtnAnimal;
-    public Button BtnPlay;
     public Button BtnCalendar;
-    public GameObjectPool gamePool;
-    public Transform TrainHead;
-    public Transform Cloud;
+    public Button BtnPersonCenter;
+    [DllImport("__Internal")]
+    private static extern void UnityToIOS_GoToPersonalCenter();
 
     void Start()
     {
@@ -57,6 +52,11 @@ public class IndexView : MonoBehaviour
             //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Calendar);
             TransitionView.instance.OpenTransition();
+        });
+
+        BtnPersonCenter.onClick.AddListener(delegate {
+            Debug.Log("个人中心~~~~~~~~~~");
+            UnityToIOS_GoToPersonalCenter();
         });
 
         BtnLetter.onClick.AddListener(delegate {

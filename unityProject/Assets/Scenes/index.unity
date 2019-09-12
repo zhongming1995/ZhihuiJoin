@@ -229,6 +229,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6578394979482706155, guid: a55a46b71ab64477b9a790a450633d8b,
+        type: 3}
+      propertyPath: BtnPersonCenter
+      value: 
+      objectReference: {fileID: 1406205837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a55a46b71ab64477b9a790a450633d8b, type: 3}
 --- !u!224 &749524168 stripped
@@ -237,6 +242,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 749524167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1406205837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1406205837, guid: a55a46b71ab64477b9a790a450633d8b,
+    type: 3}
+  m_PrefabInstance: {fileID: 749524167}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1522800823
 GameObject:
   m_ObjectHideFlags: 0

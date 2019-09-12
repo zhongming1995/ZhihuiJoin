@@ -165,6 +165,14 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 return;
             }
         }
+        //动物拼接的第三步第四步，眼睛鼻子不可以动
+        if (joinMainView.step == 3 || joinMainView.step == 4)
+        {
+            if (partType==PartType.LeftEye||partType==PartType.RightEye||partType==PartType.Mouth)
+            {
+                return;
+            }
+        }
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
     }
@@ -172,14 +180,29 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curSelectResType == 0)
+        if (GameManager.instance.curJoinType == JoinType.Animal)
         {
-            return;
+            //动物拼接的第一步,第二步时，头不可以动
+            if (joinMainView.step == 1 || joinMainView.step == 2)
+            {
+                if (partType == PartType.Head && dragCount != 0)
+                {
+                    return;
+                }
+            }
+
+            //动物拼接的第三步第四步，眼睛鼻子不可以动
+            if (joinMainView.step == 3 || joinMainView.step == 4)
+            {
+                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
+                {
+                    return;
+                }
+            }
         }
-        //动物拼接的第一步,第二步时，头不可以动
-        if (joinMainView.step == 1 || joinMainView.step == 2)
+        else
         {
-            if (partType == PartType.Head && dragCount != 0)
+            if (joinMainView.step == 1)
             {
                 return;
             }
@@ -206,14 +229,29 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     {
         joinGuide.OperationEnd();
         //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curSelectResType == 0)
+        if (GameManager.instance.curJoinType == JoinType.Animal)
         {
-            return;
+            //动物拼接的第一步,第二步时，头不可以动
+            if (joinMainView.step == 1 || joinMainView.step == 2)
+            {
+                if (partType == PartType.Head && dragCount != 0)
+                {
+                    return;
+                }
+            }
+
+            //动物拼接的第三步第四步，眼睛鼻子不可以动
+            if (joinMainView.step == 3 || joinMainView.step == 4)
+            {
+                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
+                {
+                    return;
+                }
+            }
         }
-        //动物拼接的第一步,第二步时，头不可以动
-        if (joinMainView.step == 1 || joinMainView.step == 2) 
+        else
         {
-            if (partType == PartType.Head && dragCount != 0)
+            if (joinMainView.step == 1)
             {
                 return;
             }
@@ -301,6 +339,15 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                     return;
                 }
             }
+
+            //动物拼接的第三步第四步，眼睛鼻子不可以动
+            if (joinMainView.step == 3 || joinMainView.step == 4)
+            {
+                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
+                {
+                    return;
+                }
+            }
         }
         else
         {
@@ -333,9 +380,9 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public bool InCorrectArea()
     {
-        if (GameManager.instance.curJoinType == JoinType.Animal && (partType == PartType.LeftEye || partType == PartType.Mouth))
+        if (GameManager.instance.curJoinType == JoinType.Animal && (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth))
         {
-            return Utils.IsRectTransformOverlap(transform.GetComponent<RectTransform>(), transform.parent.parent.GetComponent<RectTransform>());
+            return Utils.IsRectTransformInside(transform.GetComponent<RectTransform>(), transform.parent.parent.GetComponent<RectTransform>());
         }
        
         if (transform.position.x > leftTop.x

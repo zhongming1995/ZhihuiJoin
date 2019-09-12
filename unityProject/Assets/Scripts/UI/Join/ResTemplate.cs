@@ -55,6 +55,7 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
         }
         GameObject obj = UIHelper.instance.LoadPrefab("Prefabs/join|gen_res", genParent, eventData.position, Vector3.one, false);
         obj.GetComponent<ResDragItem>().InitItem(transform.GetSiblingIndex(),resPath);
+        obj.transform.name = type.ToString();
         eventData.pointerDrag = obj;
     }
 

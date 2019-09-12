@@ -1,17 +1,8 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Helper/Utils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Index/IndexView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="725" Column="53" />
-      <File FileName="Assets/Scripts/UI/Display/PartData.cs" Line="16" Column="13" />
-      <File FileName="Assets/Scripts/Manager/GameData.cs" Line="440" Column="53" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="83" Column="35" />
-      <File FileName="Assets/Scripts/UI/Home/HomeView.cs" Line="63" Column="53" />
-      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="484" Column="29" />
-      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="337" Column="41" />
-      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="54" Column="1" />
-      <File FileName="Assets/Scripts/UI/Join/JoinPlus.cs" Line="23" Column="21" />
-      <File FileName="Assets/Scripts/Manager/AudioManager/AudioManager.cs" Line="251" Column="10" />
-      <File FileName="Assets/Scripts/Helper/Utils.cs" Line="83" Column="11" />
+      <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="65" Column="1" />
+      <File FileName="Assets/Scripts/UI/Home/CalendarDetailView.cs" Line="40" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

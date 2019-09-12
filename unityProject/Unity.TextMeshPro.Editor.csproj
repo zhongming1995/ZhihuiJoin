@@ -312,19 +312,19 @@
       <HintPath>Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
-      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>/Applications/Unity2018.3.1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -750,6 +750,7 @@
     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
     <None Include="Assets\Demigiant\DemiLib\Editor\DemiEditor.XML" />
     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\Res\Shader\CircleMask.shader" />
     <None Include="Assets\Res\Shader\ImageMask.shader" />
     <None Include="Assets\Res\Shader\ImageOutline.shader" />
     <None Include="Assets\Res\Shader\Outline3.shader" />
