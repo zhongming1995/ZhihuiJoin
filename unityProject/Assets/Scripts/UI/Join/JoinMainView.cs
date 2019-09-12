@@ -47,10 +47,10 @@ public class JoinMainView : MonoBehaviour
     public bool hasDraged;//是否拖入过素材（附着过）
 
     [HideInInspector]
-    public float targetScale = 0.85f;
+    public float targetScale = 0.7f;
 
     [HideInInspector]
-    public Vector3 targetHeadPos = new Vector3(0, 380, 0);
+    public Vector3 targetHeadPos = new Vector3(0, 300, 0);
 
     //定义数据变量
     private Transform curSelectResObj;
@@ -245,27 +245,13 @@ public class JoinMainView : MonoBehaviour
             AudioManager.instance.StopEffect();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
-            /*
-            if (GameManager.instance.openType==OpenType.FirstEdit)
-            {
-                PanelManager.instance.CloseTopPanel();
-            }
-            else
-            {
-                PanelManager.instance.BackToView(PanelName.CalendarView);
-            }
-            */
             if (GameManager.instance.openType == OpenType.FirstEdit || GameManager.instance.openType == OpenType.BackEdit)
             {
-                //GameManager.instance.SetNextViewPath(PanelName.HomeView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 GameManager.instance.SetNextSceneName(SceneName.Home);
                 TransitionView.instance.OpenTransition();
             }
             else
             {
-                //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 GameManager.instance.SetNextSceneName(SceneName.Calendar);
                 TransitionView.instance.OpenTransition();
             }
@@ -300,10 +286,15 @@ public class JoinMainView : MonoBehaviour
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
             //DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(), mobilePaint.GetDrawByte(), mobilePaint.GetDrawingTotal());
-            DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null,null,mobilePaint.GetDrawingTotal());
+            if (GameManager.instance.curJoinType==JoinType.Animal)
+            {
+                DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null, null, null);
+            }
+            else
+            {
+                DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null, null, mobilePaint.GetDrawingTotal());
+            }
             GameManager.instance.displayType = DisplayType.FirstDisplay;
-            //GameManager.instance.SetNextViewPath(PanelName.DisplayView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Display);
             TransitionView.instance.OpenTransition();
         });

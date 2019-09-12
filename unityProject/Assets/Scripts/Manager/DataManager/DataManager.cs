@@ -22,7 +22,6 @@ namespace DataMgr
 
         void Awake()
         {
-            Debug.Log("DataManager Awake" + Time.realtimeSinceStartup);
             instance = this;
         }
 
@@ -31,29 +30,65 @@ namespace DataMgr
         /// trans下的节点分为：group_handleg,group_body,group_ryrmouthhair,group_hatheadwear
         /// </summary>
         /// <param name="trans">Trans.</param>
-        public PartDataWhole TransformToPartsList(Transform trans,int selctIndex,byte[] pixels,byte[] drawPixel,byte[] drawTexture)
+        //public PartDataWhole TransformToPartsList(Transform trans,int selctIndex,byte[] pixels,byte[] drawPixel,byte[] drawTexture)
+        //{
+        //    List<PartData> parts = new List<PartData>();
+        //    for (int i = 0; i < trans.childCount; i++)
+        //    {
+        //        Transform t = trans.GetChild(i);
+        //        for (int j = 0; j < t.childCount; j++)
+        //        {
+        //            Transform img = t.GetChild(j);
+        //            if (img.GetComponent<ResDragItem>()==null || img.GetComponent<Image>().sprite == null)
+        //            {
+        //                continue;
+        //            }
+        //            Debug.Log(img.name);
+        //            PartType type = img.GetComponent<ResDragItem>().partType;
+        //            byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
+        //            float[] pos = { img.localPosition.x, img.localPosition.y, img.localPosition.z };
+        //            float[] scale =  { img.localScale.x, img.localScale.y, img.localScale.z };
+        //            PartData p = new PartData(type,b, pos, scale);
+        //            parts.Add(p);
+        //        }
+        //    }
+
+        //    PartDataWhole partDataWhole = new PartDataWhole(selctIndex, pixels, drawPixel, parts,drawTexture);
+        //    GameManager.instance.SetCurPartDataWhole(partDataWhole);
+        //    partDataList = parts;
+
+        //    //序列化
+        //    PersonManager.instance.SerializePerson(partDataWhole);
+        //    return partDataWhole;
+        //}
+
+        public PartDataWhole TransformToPartsList(Transform trans, int selctIndex, byte[] pixels, byte[] drawPixel, byte[] drawTexture)
         {
             List<PartData> parts = new List<PartData>();
-            for (int i = 0; i < trans.childCount; i++)
+            ResDragItem []transList = trans.GetComponentsInChildren<ResDragItem>();
+            for (int i = 0; i < transList.Length; i++)
             {
-                Transform t = trans.GetChild(i);
-                for (int j = 0; j < t.childCount; j++)
+                Transform img = transList[i].transform;
+                if (img.GetComponent<Image>().sprite==null)
                 {
-                    Transform img = t.GetChild(j);
-                    if (img.GetComponent<ResDragItem>()==null)
-                    {
-                        continue;
-                    }
-                    PartType type = img.GetComponent<ResDragItem>().partType;
-                    byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
-                    float[] pos = { img.localPosition.x, img.localPosition.y, img.localPosition.z };
-                    float[] scale =  { img.localScale.x, img.localScale.y, img.localScale.z };
-                    PartData p = new PartData(type,b, pos, scale);
-                    parts.Add(p);
+                    continue;
                 }
+                PartType type = transList[i].partType;
+                byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
+                Vector3 parentPos = Vector3.zero;
+                if (GameManager.instance.curJoinType==JoinType.Animal)
+                {
+                    if (type == PartType.LeftEye||type==PartType.RightEye||type==PartType.Mouth)
+                    {
+                        parentPos = img.parent.parent.localPosition;
+                    }
+                }
+                float[] pos = { img.localPosition.x+parentPos.x, img.localPosition.y+parentPos.y, img.localPosition.z+parentPos.z };
+                float[] scale = { img.localScale.x, img.localScale.y, img.localScale.z };
+                PartData p = new PartData(type, b, pos, scale);
+                parts.Add(p);
             }
-
-            PartDataWhole partDataWhole = new PartDataWhole(selctIndex, pixels, drawPixel, parts,drawTexture);
+            PartDataWhole partDataWhole = new PartDataWhole(selctIndex, pixels, drawPixel, parts, drawTexture);
             GameManager.instance.SetCurPartDataWhole(partDataWhole);
             partDataList = parts;
 
@@ -84,7 +119,7 @@ namespace DataMgr
 
                 if (i == part.Count - 1)
                 {
-                    //最后一个部位加载完
+                    //最后一个部位加载完,父节点要修改的！！！
                     GetOnePartAsync(path, person, pos, scale, part[i], (tmpPerson)=> {
                         Transform partParent = tmpPerson.transform;
                         for (int j = 0; j < tmpPerson.transform.childCount; j++)
@@ -177,17 +212,24 @@ namespace DataMgr
                 GameObject obj;
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();  
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
-                if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
+                //if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
+                //{
+                //    if (partType == PartType.Body)
+                //    {
+                //        transBody = obj.transform.Find("img_item").transform;
+                //    }
+                //}
+                //else
+                //{
+                //    obj.transform.SetParent(transBody);
+                //}
+                Debug.Log(obj.name);
+                obj.transform.SetParent(transBody);
+                if (partType == PartType.TrueBody || partType == PartType.Head || partType == PartType.Body)
                 {
-                    if (partType == PartType.Body)
-                    {
-                        transBody = obj.transform.Find("img_item").transform;
-                    }
+                    transBody = obj.transform.Find("img_item").transform;
                 }
-                else
-                {
-                    obj.transform.SetParent(transBody);
-                }
+                Debug.Log(transBody.name);
                 //使用RawImage
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
@@ -197,17 +239,6 @@ namespace DataMgr
                 img.texture = t;
                 img.SetNativeSize();
                 obj.transform.localScale = scale;
-                //使用image的
-                //Image img = obj.transform.Find("img_item").GetComponent<Image>();
-                //Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
-                //t.filterMode = FilterMode.Point;
-                //t.LoadImage(part[i].ImgBytes);
-                //t.Apply(false);
-                //Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
-                //img.sprite = s;
-                //img.SetNativeSize();
-                //obj.transform.localScale = scale;
-               
                 //调整父节点的大小
                 float w = img.GetComponent<RectTransform>().sizeDelta.x;
                 float h = img.GetComponent<RectTransform>().sizeDelta.y;
@@ -241,18 +272,24 @@ namespace DataMgr
                 GameObject obj;
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
                 obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
-                if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body)
+                //if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body||partType==PartType.Head||partType==PartType.TrueBody)
+                //{
+                //    if (partType == PartType.Body)
+                //    {
+                //        transBody = obj.transform.Find("img_item").transform;
+                //    }
+                //}
+                //else
+                //{
+                //    obj.transform.SetParent(transBody);
+                //}
+                Debug.Log(obj.name);
+                obj.transform.SetParent(transBody);
+                if (partType == PartType.TrueBody||partType == PartType.Head||partType == PartType.Body)
                 {
-                    if (partType == PartType.Body)
-                    {
-                        transBody = obj.transform.Find("img_item").transform;
-                    }
+                    transBody = obj.transform.Find("img_item").transform;
                 }
-                else
-                {
-                    obj.transform.SetParent(transBody);
-                }
-
+                Debug.Log(transBody.name);
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
                 t.filterMode = FilterMode.Point;
@@ -324,7 +361,6 @@ namespace DataMgr
 
         public void PersonDance(DisplayPartItem[] itemList,int n)
         {
-            Debug.Log("personDAnce");
             if (itemList == null)
             {
                 Debug.Log("itemList is null-----");

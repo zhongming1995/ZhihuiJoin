@@ -45,8 +45,6 @@ public class PianoView : MonoBehaviour
     private void OnEnable()
     {
         AudioManager.instance.BgmPause();
-        GameOperDelegate.backTodisplay += BackToDisplay;
-        GameOperDelegate.backToEdit += BackToEditFunc;
         GameOperDelegate.pianoBegin += PlayCard;
         GameOperDelegate.cardBegin += PlayCard;
         GameOperDelegate.fruitBegin += PlayCard;
@@ -56,8 +54,6 @@ public class PianoView : MonoBehaviour
     private void OnDisable()
     {
         AudioManager.instance.BgmUnPause();
-        GameOperDelegate.backTodisplay -= BackToDisplay;
-        GameOperDelegate.backToEdit -= BackToEditFunc;
         GameOperDelegate.pianoBegin -= PlayCard;
         GameOperDelegate.fruitBegin -= PlayCard;
         GameOperDelegate.cardBegin -= PlayCard;
@@ -247,7 +243,6 @@ public class PianoView : MonoBehaviour
     {
         Debug.Log("Piano showWindow");
         string path = "Prefabs/game/window|window_complete";
-        //completeWindow = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         GameObject go = UIHelper.instance.LoadPrefab(path, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         completeWindow = go;
      }
@@ -256,7 +251,7 @@ public class PianoView : MonoBehaviour
     {
         Random r = new Random();
         int n = r.Next(1, 5);
-        while(n==lastDanceNum)
+        while(n==lastDanceNum || n==2)
         {
             n = r.Next(1, 5);
         }
@@ -275,28 +270,10 @@ public class PianoView : MonoBehaviour
         AniRight.SetBool("isJump", false);
     }
 
-    public void BackToEditFunc()
-    {
-        //Destroy(gameObject);
-        //Resources.UnloadUnusedAssets();
-        //GC.Collect();
-
-    }
-
-    public void BackToDisplay()
-    {
-        //PanelManager.instance.CloseTopPanel();
-        //Destroy(gameObject);
-        //Resources.UnloadUnusedAssets();
-        //GC.Collect();
-    }
     void PlayCard()
     {
         Destroy(completeWindow);
         Destroy(gameObject);
-        //GameManager.instance.SetNextViewPath("Prefabs/game/card|card_view");
-        //UIHelper.instance.LoadPrefab("Prefabs/common|transition_prefab_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-        //UIHelper.instance.LoadPrefab("Prefabs/game/card|card_view", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
     }
 
     void OnDestroy()

@@ -6,7 +6,6 @@ public class DisplayPartItem : MonoBehaviour
 {
     //部位类型
     public PartType partType;
-    //private Animator animator;
     public Animation item_animation;
     private RectTransform rectTransform;
     public string Greeting = "Greeting";
