@@ -247,6 +247,10 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 {
                     return;
                 }
+                if (partType==PartType.Head)
+                {
+                    joinMainView.targetHeadPos = transform.localPosition;
+                }
             }
         }
         else

@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinPlus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/ResDragItem.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="53" Column="54" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="362" Column="30" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="584" Column="47" />
+      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="362" Column="28" />
       <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="484" Column="1" />
       <File FileName="Assets/Scripts/UI/Display/DisplayPartItem.cs" Line="58" Column="22" />
       <File FileName="Assets/Scripts/UI/Display/PartData.cs" Line="19" Column="21" />
       <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="47" Column="42" />
       <File FileName="Assets/Scripts/UI/Join/JoinPlus.cs" Line="23" Column="25" />
+      <File FileName="Assets/Scripts/UI/Piano/PianoKey.cs" Line="18" Column="45" />
+      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="119" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

@@ -107,6 +107,7 @@ public class CalendarDetailView : MonoBehaviour
             GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
+            GameManager.instance.curJoinType = whole.JoinType;
             PersonManager.instance.PersonFileName = fileName;
             //PanelManager.instance.CloseTopPanel();
             //GameManager.instance.SetNextViewPath(PanelName.JoinMainView);

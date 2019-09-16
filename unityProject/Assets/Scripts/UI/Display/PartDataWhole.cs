@@ -1,62 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameMgr;
 
 [Serializable]
 public class PartDataWhole
 {
-    private int modelIndex;
-    private byte[] pixels;
-    private byte[] drawPixels;
-    private byte[] drawTexture;
     public List<PartData> partDataList = new List<PartData>();
 
-    public int ModelIndex
-    {
-        get
-        {
-            return modelIndex;
-        }
-        set
-        {
-            modelIndex = value;
-        }
-    }
+    public JoinType JoinType { get; set; }
 
-    public byte[] Pixels
-    {
-        get
-        {
-            return pixels;
-        }
-        set
-        {
-            pixels = value;
-        }
-    }
+    public int ModelIndex { get; set; }
 
-    public byte[] DrawPixels
-    {
-        get
-        {
-            return drawPixels;
-        }
-        set
-        {
-            drawPixels = value;
-        }
-    }
+    public byte[] Pixels { get; set; }
 
-    public byte[] DrawTexture
-    {
-        get
-        {
-            return drawTexture;
-        }
-        set
-        {
-            drawTexture = value;
-        }
-    }
+    public byte[] DrawPixels { get; set; }
+
+    public byte[] DrawTexture { get; set; }
 
     public List<PartData> PartDataList
     {
@@ -72,12 +31,13 @@ public class PartDataWhole
 
 
 
-    public PartDataWhole(int _index,byte[] _pixels,byte[] _drawPixels,List<PartData> _list,byte[] _drawTexture)
+    public PartDataWhole(JoinType _joinType,int _index,byte[] _pixels,byte[] _drawPixels,List<PartData> _list,byte[] _drawTexture)
     {
-        this.modelIndex = _index;
-        this.pixels = _pixels;
-        this.drawPixels = _drawPixels;
+        this.JoinType = _joinType;
+        this.ModelIndex = _index;
+        this.Pixels = _pixels;
+        this.DrawPixels = _drawPixels;
         this.partDataList = _list;
-        this.drawTexture = _drawTexture;
+        this.DrawTexture = _drawTexture;
     }
 }

@@ -169,7 +169,15 @@ public class JoinMainView : MonoBehaviour
         //打开保存的文件
         if ((GameManager.instance.openType == OpenType.ReEdit ||   GameManager.instance.openType == OpenType.BackEdit) && GameManager.instance.curWhole!=null)
         {
-            joinPlus.LoadFile(GameManager.instance.curWhole);
+            if (GameManager.instance.curJoinType==JoinType.Animal)
+            {
+                joinPlus.LoadFileAnimal(GameManager.instance.curWhole);
+                step = 2;
+            }
+            else
+            {
+                joinPlus.LoadFile(GameManager.instance.curWhole);
+            }
             GameManager.instance.SetJoinShowAll(true);
             for (int i = 0; i < guideResult.Length; i++)
             {
@@ -288,11 +296,11 @@ public class JoinMainView : MonoBehaviour
             //DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(), mobilePaint.GetDrawByte(), mobilePaint.GetDrawingTotal());
             if (GameManager.instance.curJoinType==JoinType.Animal)
             {
-                DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null, null, null);
+                DataManager.instance.TransformToPartsList(GameManager.instance.curJoinType,DrawPanel, GameManager.instance.homeSelectIndex, null, null, null);
             }
             else
             {
-                DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, null, null, mobilePaint.GetDrawingTotal());
+                DataManager.instance.TransformToPartsList(GameManager.instance.curJoinType, DrawPanel, GameManager.instance.homeSelectIndex, null, null, mobilePaint.GetDrawingTotal());
             }
             GameManager.instance.displayType = DisplayType.FirstDisplay;
             GameManager.instance.SetNextSceneName(SceneName.Display);
@@ -573,6 +581,7 @@ public class JoinMainView : MonoBehaviour
             SetCurSelectType(TemplateResType.Eye);
             BtnPre.GetComponent<UIMove>().MoveShow();
             BtnNext.GetComponent<UIMove>().MoveShow();
+            BtnOk.gameObject.SetActive(false);
         }
         else if (step == 3)
         {
@@ -708,12 +717,21 @@ public class JoinMainView : MonoBehaviour
                 HeadCG.transform.GetChild(0).DOLocalMove(targetHeadPos, 0.5f);
                 TrueBodyCG.gameObject.SetActive(true);
                 HandLegCG.gameObject.SetActive(true);
+                HatHeadwearCG.gameObject.SetActive(true);
             }else if (preStep == 3 && _curStep == 2)
             {
                 HeadCG.transform.GetChild(0).DOScale(1, 0.5f);
                 HeadCG.transform.GetChild(0).DOLocalMove(Vector3.zero, 0.5f);
                 TrueBodyCG.gameObject.SetActive(false);
                 HandLegCG.gameObject.SetActive(false);
+                HatHeadwearCG.gameObject.SetActive(false);
+            }else if (_curStep==2)
+            {
+                HeadCG.transform.GetChild(0).localScale = Vector3.one;
+                HeadCG.transform.GetChild(0).localPosition = Vector3.zero;
+                TrueBodyCG.gameObject.SetActive(false);
+                HandLegCG.gameObject.SetActive(false);
+                HatHeadwearCG.gameObject.SetActive(false);
             }
         }
     }
@@ -752,7 +770,6 @@ public class JoinMainView : MonoBehaviour
             return;
         }
         string resPrefabPath = GameData.resPrefabPathList[type];
-        Debug.Log("prefabPath:" + resPrefabPath);
         List<string> resPath;
         if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body &&GameManager.instance.curJoinType!=JoinType.Animal)
         {

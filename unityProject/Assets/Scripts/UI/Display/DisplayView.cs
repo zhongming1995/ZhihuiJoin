@@ -122,7 +122,6 @@ public class DisplayView : MonoBehaviour
 
         BtnBack.onClick.AddListener(delegate
         {
-            Debug.Log("nac");
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             //AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PartDataWhole whole = GameManager.instance.curWhole;
