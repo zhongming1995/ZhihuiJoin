@@ -181,6 +181,8 @@ public class CalendarView : MonoBehaviour
         DetailView.gameObject.SetActive(true);
         OriDetailPosition = item.transform.position;
         DetailItem = Instantiate(item.gameObject,transform,true);
+        Destroy(DetailItem.GetComponent<CalenderItem>());
+        Destroy(DetailItem.transform.Find("btn_detail").GetComponent<ButtonScaleAni>());
         CurSelectItem.GetComponent<CanvasGroup>().alpha = 0;
         BtnDetailBack.GetComponent<UIMove>().MoveShow();
         BtnDetailDownload.GetComponent<UIMove>().MoveShow();
@@ -289,10 +291,6 @@ public class CalendarView : MonoBehaviour
             GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetCurPartDataWhole(whole);
-            if (whole.PartDataList==null)
-            {
-                Debug.Log("1111null111111");
-            }
             GameManager.instance.curJoinType = whole.JoinType;
             PersonManager.instance.PersonFileName = fileName;
             GameManager.instance.SetNextSceneName(SceneName.Join);
@@ -313,7 +311,6 @@ public class CalendarView : MonoBehaviour
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             string path = PersonManager.instance.PersonImgPath + "/" + PersonManager.instance.pathList[CalenderController.instance.SelectItemId] + ".png";
-            Debug.Log("savepath:======" + path);
             UnityToIOS_SavePhotoToAlbum(path);
         });
     }

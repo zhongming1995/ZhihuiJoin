@@ -205,10 +205,19 @@ namespace DataMgr
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 GameObject obj;
+                Debug.Log(partType + "   " + pos);
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower(); 
                 if (partType==PartType.LeftEye||partType==PartType.RightEye||partType==PartType.Mouth)
                 {
-                    obj = UIHelper.instance.LoadPrefab(path, transBody, pos, scale);
+                    if (whole.JoinType==JoinType.Animal)
+                    {
+                        obj = UIHelper.instance.LoadPrefab(path, transBody, pos, scale);
+                    }
+                    else
+                    {
+                        obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
+                        obj.transform.SetParent(transBody);
+                    }
                 }
                 else if (partType==PartType.Head||partType==PartType.TrueBody)
                 {
@@ -246,7 +255,7 @@ namespace DataMgr
                 item.partType = part[i].PType;
                 item.Init();
             }
-            if (parentObj!=null)
+            if (whole.JoinType==JoinType.Animal&&parentObj!=null)
             {
                 parentObj.transform.SetAsLastSibling();
                 parentBody.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
