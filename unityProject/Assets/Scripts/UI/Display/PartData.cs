@@ -30,6 +30,7 @@ public enum PartType
     RightLeg = 10,
     Head = 11,
     TrueBody = 12,
+    AnimalBody = 13,
 }
 
 [Serializable]

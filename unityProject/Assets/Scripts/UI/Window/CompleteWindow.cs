@@ -57,9 +57,9 @@ public class CompleteWindow : WindowParent
         person.transform.localPosition = Vector3.zero;
         windowlstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
         */
-        if (DataManager.instance.partDataList != null)
+        if (GameManager.instance.curWhole != null)
         {
-            GameObject person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
+            GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole);
             person.transform.SetParent(WindowPersonParent);
             person.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
             person.transform.localPosition = Vector3.zero;

@@ -40,10 +40,15 @@ public class CardController : SingletonMono<CardController>
         {
             startIndex = 0;
             endIndex = 25;
-        }else
+        }else if (GameManager.instance.curJoinType == JoinType.Num)
         {
             startIndex = 26;
             endIndex = 36;
+        }
+        else
+        {
+            startIndex = 37;
+            endIndex = 39;
         }
         int cardSingleNum = 0;
         Debug.Log("chapter:" + chapter);

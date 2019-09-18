@@ -152,7 +152,7 @@ public class DisplayView : MonoBehaviour
     {
         if (GameManager.instance.curWhole!=null)
         {
-            GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole.partDataList);
+            GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole);
             person.transform.SetParent(ImgDisplay);
             person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
             person.transform.localPosition = Vector3.zero;

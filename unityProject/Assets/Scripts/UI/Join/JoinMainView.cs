@@ -171,6 +171,10 @@ public class JoinMainView : MonoBehaviour
         {
             if (GameManager.instance.curJoinType==JoinType.Animal)
             {
+                if (GameManager.instance.curWhole==null)
+                {
+                    Debug.Log("null111111");
+                }
                 joinPlus.LoadFileAnimal(GameManager.instance.curWhole);
                 step = 2;
             }

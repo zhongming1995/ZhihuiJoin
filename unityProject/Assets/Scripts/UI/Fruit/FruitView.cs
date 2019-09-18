@@ -163,9 +163,9 @@ public class FruitView :MonoBehaviour
     {
         GameObject person = null;
         float minPosY = 0;
-        if (DataManager.instance.partDataList != null)
+        if (GameManager.instance.curWhole != null)
         {
-            person = DataManager.instance.GetPersonObjWithFlag(DataManager.instance.partDataList,out minPosY);
+            person = DataManager.instance.GetPersonObjWithFlag(GameManager.instance.curWhole,out minPosY);
         }
         person.transform.SetParent(PersonParent);
         person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);

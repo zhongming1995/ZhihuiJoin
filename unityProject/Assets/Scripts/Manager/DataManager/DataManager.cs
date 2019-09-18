@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameMgr;
+using Helper;
 using UnityEngine;
 using UnityEngine.UI;
-using Helper;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using GameMgr;
 
 namespace DataMgr
 {
     public class DataManager : SingletonMono<DataManager>
     {
         string personFilePath = "";
-
-        [HideInInspector]
-        public List<PartData> partDataList = new List<PartData>();
-        //private DisplayPartItem[] lstDisplayItem ;
 
         private GameObject curPerson;
 
@@ -82,7 +75,6 @@ namespace DataMgr
             }
             PartDataWhole partDataWhole = new PartDataWhole(joinType, selctIndex, pixels, drawPixel, parts, drawTexture);
             GameManager.instance.SetCurPartDataWhole(partDataWhole);
-            partDataList = parts;
 
             //序列化
             PersonManager.instance.SerializePerson(partDataWhole);
@@ -187,14 +179,25 @@ namespace DataMgr
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
-        public GameObject GetPersonObj(List<PartData> part)
+        public GameObject GetPersonObj(PartDataWhole whole)
         {
+            List<PartData> part = whole.PartDataList;
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
+            Transform parentBody = null;
+            GameObject parentObj = null;
+            GameObject bodyRectTemp = null;
+            if (whole.JoinType == JoinType.Animal)
+            {
+                string bodypath = "Prefabs/display|display_item_animalbody";
+                parentObj = UIHelper.instance.LoadPrefab(bodypath, person.transform, Vector3.zero, Vector3.one);
+                parentBody = parentObj.transform.Find("img_item").transform;
+                DisplayPartItem item = parentObj.gameObject.AddComponent<DisplayPartItem>();
+                item.partType = PartType.AnimalBody;
+            }
             for (int i = 0; i < part.Count; i++)
             {
                 PartType partType = part[i].PType;
-                Debug.Log(partType.ToString());
                 if (partType == PartType.Pixels || partType == PartType.drawPixels)
                 {
                     continue;
@@ -202,24 +205,30 @@ namespace DataMgr
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 GameObject obj;
-                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();  
-                //obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
-                //obj.transform.SetParent(transBody);
+                string path = "Prefabs/display|display_item_" + partType.ToString().ToLower(); 
                 if (partType==PartType.LeftEye||partType==PartType.RightEye||partType==PartType.Mouth)
                 {
                     obj = UIHelper.instance.LoadPrefab(path, transBody, pos, scale);
+                }
+                else if (partType==PartType.Head||partType==PartType.TrueBody)
+                {
+                    obj = UIHelper.instance.LoadPrefab(path, parentBody, pos, scale);
+                    if (bodyRectTemp==null)
+                    {
+                        bodyRectTemp = obj;
+                    }
                 }
                 else
                 {
                     obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                     obj.transform.SetParent(transBody);
-
                 }
                 //父节点赋值
-                if (partType == PartType.TrueBody || partType == PartType.Head || partType == PartType.Body)
+                if (partType == PartType.Head || partType == PartType.Body)
                 {
                     transBody = obj.transform.Find("img_item").transform;
                 }
+               
                 //使用RawImage
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
@@ -237,6 +246,12 @@ namespace DataMgr
                 item.partType = part[i].PType;
                 item.Init();
             }
+            if (parentObj!=null)
+            {
+                parentObj.transform.SetAsLastSibling();
+                parentBody.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+                parentObj.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+            }
             curPerson = person;
             GetListDiaplayItem(person.transform);
             return person;
@@ -247,38 +262,58 @@ namespace DataMgr
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
-        public GameObject GetPersonObjWithFlag(List<PartData> part,out float minPosY)
+        public GameObject GetPersonObjWithFlag(PartDataWhole _whole,out float minPosY)
         {
+            List<PartData> part = _whole.PartDataList;
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
+            Transform parentBody = null;
+            GameObject parentObj = null;
+            GameObject bodyRectTemp = null;
             float minY = float.MaxValue;
-            float maxY = float.MinValue;
+            if (_whole.JoinType == JoinType.Animal)
+            {
+                string bodypath = "Prefabs/display|display_item_animalbody";
+                parentObj = UIHelper.instance.LoadPrefab(bodypath, person.transform, Vector3.zero, Vector3.one);
+                parentBody = parentObj.transform.Find("img_item").transform;
+                DisplayPartItem item = parentObj.gameObject.AddComponent<DisplayPartItem>();
+                item.partType = PartType.AnimalBody;
+            }
             for (int i = 0; i < part.Count; i++)
             {
+                PartType partType = part[i].PType;
+                if (partType == PartType.Pixels || partType == PartType.drawPixels)
+                {
+                    continue;
+                }
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                PartType partType = part[i].PType;
                 GameObject obj;
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
-                obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
-                //if (partType == PartType.LeftLeg || partType == PartType.RightLeg || partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.Body||partType==PartType.Head||partType==PartType.TrueBody)
-                //{
-                //    if (partType == PartType.Body)
-                //    {
-                //        transBody = obj.transform.Find("img_item").transform;
-                //    }
-                //}
-                //else
-                //{
-                //    obj.transform.SetParent(transBody);
-                //}
-                Debug.Log(obj.name);
-                obj.transform.SetParent(transBody);
-                if (partType == PartType.TrueBody||partType == PartType.Head||partType == PartType.Body)
+                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
+                {
+                    obj = UIHelper.instance.LoadPrefab(path, transBody, pos, scale);
+                }
+                else if (partType == PartType.Head || partType == PartType.TrueBody)
+                {
+                    obj = UIHelper.instance.LoadPrefab(path, parentBody, pos, scale);
+                }
+                else
+                {
+                    obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
+                    obj.transform.SetParent(transBody);
+                }
+                //父节点赋值
+                if (partType == PartType.Head || partType == PartType.Body)
                 {
                     transBody = obj.transform.Find("img_item").transform;
+                    if (bodyRectTemp == null)
+                    {
+                        bodyRectTemp = obj;
+                    }
                 }
-                Debug.Log(transBody.name);
+
+                //使用RawImage
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
                 t.filterMode = FilterMode.Point;
@@ -286,8 +321,6 @@ namespace DataMgr
                 t.Apply(false);
                 img.texture = t;
                 img.SetNativeSize();
-                obj.transform.localScale = scale;
-
                 //调整父节点的大小
                 float w = img.GetComponent<RectTransform>().sizeDelta.x;
                 float h = img.GetComponent<RectTransform>().sizeDelta.y;
@@ -296,9 +329,7 @@ namespace DataMgr
                 DisplayPartItem item = obj.AddComponent<DisplayPartItem>();
                 item.partType = part[i].PType;
                 item.Init();
-                //Debug.Log(obj.transform.name);
-                //Debug.Log("height:"+h);
-                //Debug.Log("y:"+obj.GetComponent<RectTransform>().anchoredPosition.y);
+
                 float bottom = obj.GetComponent<RectTransform>().anchoredPosition.y - h / 2;
 
                 if (partType == PartType.Body)
@@ -311,7 +342,15 @@ namespace DataMgr
                 {
                     minY = bottom;
                 }
-                //Debug.Log("bottom:"+bottom);
+            }
+            if (parentObj != null)
+            {
+                parentObj.transform.SetAsLastSibling();
+                parentBody.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+                parentBody.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0);
+                parentBody.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0);
+                parentBody.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0);
+                parentObj.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
             }
 
             GameObject flagObj = new GameObject("flag_bottom");

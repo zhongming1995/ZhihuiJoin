@@ -47,20 +47,11 @@ public class CardItem : MonoBehaviour
         if (ID==GameManager.instance.homeSelectIndex)
         {
             ImgCard.gameObject.SetActive(false);
-            /*
-            GameObject person = null;
-            if (DataManager.instance.partDataList != null)
+            if (GameManager.instance.curWhole != null)
             {
-                person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
-            }
-            person.transform.SetParent(ImgCardMask.transform);
-            person.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
-            person.transform.localPosition = Vector3.zero;
-            person.transform.localRotation = new Quaternion(0, 0, 0, 0);
-            */
-            if (DataManager.instance.partDataList != null)
-            {
-                GameObject person = DataManager.instance.GetPersonObj(DataManager.instance.partDataList);
+                Debug.Log(GameManager.instance.curWhole.JoinType);
+                Debug.Log(GameManager.instance.curWhole.ModelIndex);
+                GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole);
                 person.transform.SetParent(ImgCardMask.transform);
                 person.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
                 person.transform.localPosition = Vector3.zero;

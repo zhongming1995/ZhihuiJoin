@@ -47,14 +47,7 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: db87126d202d84a8fb0210d38ec2ad2f, type: 2}
-  - {fileID: 7400000, guid: 9937395f566d84bdc86440d6194ea536, type: 2}
-  - {fileID: 7400000, guid: f4d6d2ac15d1d4bfe87dd407ce5116ff, type: 2}
-  - {fileID: 7400000, guid: d69e31f0862da42d58a2059d4ac0ca05, type: 2}
-  - {fileID: 7400000, guid: a9280c6daf4394a24b15bc6ae0c146a0, type: 2}
-  - {fileID: 7400000, guid: e56d92b050d62452b8ee1791a0395dd5, type: 2}
-  - {fileID: 7400000, guid: 2b86f30c15bc44901bfc69ba0de07b0b, type: 2}
+  m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

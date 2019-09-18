@@ -11,12 +11,16 @@ public class CalenderController : SingletonMono<CalenderController>
     public delegate void DeletePageComplete(CalendarPage page);
     public static event DeletePageComplete deletePageComplete;
 
+    public delegate void ChooseOneItem(CalenderItem item);
+    public static event ChooseOneItem chooseOneItem;
+
     [HideInInspector]
     public List<CalendarPage> PageList = new List<CalendarPage>();
     [HideInInspector]
     public List<string> pathList;//保存的人物的路径列表
-    //public List<string> ImgPathList;//保存的人物的图片路径列表
+
     public int PersonNum { get; set; }//人物总数
+    public int SelectItemId { get; set; }//人物总数
 
     private int curPgeIndex;
     public int CurPageIndex {
@@ -81,6 +85,14 @@ public class CalenderController : SingletonMono<CalenderController>
         if (deletePageComplete!=null)
         {
             deletePageComplete(page);
+        }
+    }
+
+    public void ItemChoosed(CalenderItem item)
+    {
+        if (chooseOneItem!=null)
+        {
+            chooseOneItem(item);
         }
     }
 }

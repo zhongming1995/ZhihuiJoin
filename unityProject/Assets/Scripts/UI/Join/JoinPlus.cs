@@ -14,14 +14,14 @@ public class JoinPlus : MonoBehaviour
         joinMainView = GetComponent<JoinMainView>();
     }
 
-    public void LoadFile(PartDataWhole whole)
+    public void LoadFile(PartDataWhole _whole)
     {
         Texture2D drawTexture = null;
-        List<PartData> part = whole.partDataList;
+        List<PartData> part = _whole.PartDataList;
         for (int i = 0; i < part.Count; i++)
         {
             PartType partType = part[i].PType;
-            if (partType != PartType.Body && partType != PartType.Pixels && partType!=PartType.drawPixels)
+            if (partType != PartType.Body && partType != PartType.Pixels && partType != PartType.drawPixels)
             {
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
@@ -54,9 +54,9 @@ public class JoinPlus : MonoBehaviour
                 img.sprite = s;
                 img.SetNativeSize();
                 obj.transform.localScale = scale;
-                
+
                 ResDragItem item = obj.GetComponent<ResDragItem>();
-                if (item==null)
+                if (item == null)
                 {
                     item = obj.AddComponent<ResDragItem>();
                 }
@@ -76,23 +76,33 @@ public class JoinPlus : MonoBehaviour
                 }
             }
         }
-        if (joinMainView.mobilePaint!=null)
+        if (joinMainView.mobilePaint != null)
         {
             //joinMainView.mobilePaint.SetPixels(whole.Pixels);
             //joinMainView.mobilePaint.SetDrawPixels(whole.DrawPixels);
 
             Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
             t.filterMode = FilterMode.Point;
-            t.LoadImage(whole.DrawTexture);
+            t.LoadImage(_whole.DrawTexture);
             t.Apply(false);
-            joinMainView.mobilePaint.SetPixelsTest(t,drawTexture);//zong
+            joinMainView.mobilePaint.SetPixelsTest(t, drawTexture);//zong
             //joinMainView.mobilePaint.SetDrawPixelsTest(drawTexture);//draw
         }
     }
 
-    public void LoadFileAnimal(PartDataWhole whole)
+    public void LoadFileAnimal(PartDataWhole _whole)
     {
-        List<PartData> part = whole.partDataList;
+        Debug.Log("LoadFIleAnimal=--====");
+        if (_whole==null)
+        {
+            Debug.Log("null222222");
+        }
+        List<PartData> part = _whole.PartDataList;
+        if (_whole.PartDataList==null)
+        {
+            Debug.Log("null333333");
+        }
+        Debug.Log("count:" + part.Count);
         for (int i = 0; i < part.Count; i++)
         {
             PartType partType = part[i].PType;
@@ -100,7 +110,7 @@ public class JoinPlus : MonoBehaviour
             {
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                Debug.Log("========="+partType.ToString());
+                Debug.Log("=========" + partType.ToString());
                 Debug.Log(pos);
                 GameObject obj = null;
                 string path = "Prefabs/join|gen_res";
@@ -108,11 +118,11 @@ public class JoinPlus : MonoBehaviour
                 {
                     obj = UIHelper.instance.LoadPrefab(path, joinMainView.HandLegCG.transform, pos, scale);
                 }
-                else if (partType==PartType.TrueBody)
+                else if (partType == PartType.TrueBody)
                 {
                     obj = UIHelper.instance.LoadPrefab(path, joinMainView.TrueBodyCG.transform, pos, scale);
                 }
-                else if (partType==PartType.Head)
+                else if (partType == PartType.Head)
                 {
                     joinMainView.targetHeadPos = pos;
                     obj = UIHelper.instance.LoadPrefab(path, joinMainView.HeadCG.transform, Vector3.zero, Vector3.one, false);

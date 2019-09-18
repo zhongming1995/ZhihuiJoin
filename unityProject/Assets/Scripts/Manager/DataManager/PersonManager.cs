@@ -115,7 +115,6 @@ public class PersonManager : SingletonMono<PersonManager>
     public void SerializePerson(PartDataWhole whole)
     {
         IFormatter formatter = new BinaryFormatter();
-        //string folderPath = Application.persistentDataPath + "/join_person";
         DirectoryInfo info = new DirectoryInfo(PersonDataPath);
         if (!info.Exists)
         {
@@ -134,13 +133,16 @@ public class PersonManager : SingletonMono<PersonManager>
     {
         IFormatter formatter = new BinaryFormatter();
         string path = PersonDataPath + fileName +".bin";
+        Debug.Log("des:"+path);
         if (!File.Exists(path))
         {
             return null;
         }
         Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
         PartDataWhole whole = (PartDataWhole)formatter.Deserialize(stream);
-        //GameManager.instance.homeSelectIndex = whole.ModelIndex;
+        Debug.Log(whole.JoinType);
+        Debug.Log(whole.ModelIndex);
+        Debug.Log(whole.PartDataList);
         stream.Flush();
         stream.Close();
         return whole;
@@ -155,6 +157,4 @@ public class PersonManager : SingletonMono<PersonManager>
         FileHelper.DeleteFileByName(personPath);
         FileHelper.DeleteFileByName(imagePath);      
     }
-
-
 }

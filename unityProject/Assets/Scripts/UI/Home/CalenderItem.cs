@@ -43,10 +43,9 @@ public class CalenderItem : MonoBehaviour
         BtnDetail.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PersonManager.instance.CurPersonIndex = Index;
-            //GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-            GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
-            TransitionView.instance.OpenTransition();
+            CalenderController.instance.ItemChoosed(this);
+            //GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
+            //TransitionView.instance.OpenTransition();
         });
 
         BtnDelete.onClick.AddListener(delegate {
