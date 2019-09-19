@@ -21,8 +21,8 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private Vector2 anchorLeftTop;
     private Vector2 anchorRightBottom;
     private RectTransform rt;
-    private bool isInit = false;//是否获取了需要的控件
-    private bool isSelected = false;//是否被选中高亮
+    private bool isInit;//是否获取了需要的控件
+    private bool isSelected;//是否被选中高亮
     private Vector3 offset;
     private string resPath;
     private bool canDrag;
@@ -76,6 +76,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         Init();
         partType = type;
         image.sprite = s;
+        dragCount = 1;
     }
 
     public void SetScale(Vector3 scale)
@@ -180,6 +181,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         //选中画笔的情况下，素材不可以拖动
+        Debug.Log("type:" + GameManager.instance.curJoinType);
         if (GameManager.instance.curJoinType == JoinType.Animal)
         {
             //动物拼接的第一步,第二步时，头不可以动
@@ -187,6 +189,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             {
                 if (partType == PartType.Head && dragCount != 0)
                 {
+                    Debug.Log("return1");
                     return;
                 }
             }
@@ -210,6 +213,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         transform.position = globalMousePos + offset;
+        Debug.Log("jjjjj");
         if (partType == PartType.Head)
         {
             return;
