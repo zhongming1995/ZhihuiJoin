@@ -258,8 +258,12 @@ namespace DataMgr
             if (whole.JoinType==JoinType.Animal&&parentObj!=null)
             {
                 parentObj.transform.SetAsLastSibling();
-                parentBody.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
-                parentObj.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+                float offsetHeight = bodyRectTemp.transform.localPosition.y;
+                parentBody.GetComponent<RectTransform>().sizeDelta = new Vector2(bodyRectTemp.GetComponent<RectTransform>().sizeDelta.x, bodyRectTemp.GetComponent<RectTransform>().sizeDelta.y - offsetHeight);//bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+                parentObj.GetComponent<RectTransform>().sizeDelta = new Vector2(bodyRectTemp.GetComponent<RectTransform>().sizeDelta.x, bodyRectTemp.GetComponent<RectTransform>().sizeDelta.y - offsetHeight);
+                parentBody.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0);
+                parentBody.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0);
+                parentBody.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0);
             }
             curPerson = person;
             GetListDiaplayItem(person.transform);
@@ -271,16 +275,16 @@ namespace DataMgr
         /// </summary>
         /// <returns>The person object.</returns>
         /// <param name="part">Part.</param>
-        public GameObject GetPersonObjWithFlag(PartDataWhole _whole,out float minPosY)
+        public GameObject GetPersonObjWithFlag(PartDataWhole whole,out float minPosY)
         {
-            List<PartData> part = _whole.PartDataList;
+            float minY = float.MaxValue;
+            List<PartData> part = whole.PartDataList;
             GameObject person = new GameObject("person");
             Transform transBody = person.transform;
             Transform parentBody = null;
             GameObject parentObj = null;
             GameObject bodyRectTemp = null;
-            float minY = float.MaxValue;
-            if (_whole.JoinType == JoinType.Animal)
+            if (whole.JoinType == JoinType.Animal)
             {
                 string bodypath = "Prefabs/display|display_item_animalbody";
                 parentObj = UIHelper.instance.LoadPrefab(bodypath, person.transform, Vector3.zero, Vector3.one);
@@ -298,29 +302,39 @@ namespace DataMgr
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 GameObject obj;
+                Debug.Log(partType + "   " + pos);
                 string path = "Prefabs/display|display_item_" + partType.ToString().ToLower();
                 if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
                 {
-                    obj = UIHelper.instance.LoadPrefab(path, transBody, pos, scale);
+                    if (whole.JoinType == JoinType.Animal)
+                    {
+                        obj = UIHelper.instance.LoadPrefab(path, transBody, pos, scale);
+                    }
+                    else
+                    {
+                        obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
+                        obj.transform.SetParent(transBody);
+                    }
                 }
                 else if (partType == PartType.Head || partType == PartType.TrueBody)
                 {
                     obj = UIHelper.instance.LoadPrefab(path, parentBody, pos, scale);
+                    if (bodyRectTemp == null)
+                    {
+                        bodyRectTemp = obj;
+                    }
                 }
                 else
                 {
                     obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                     obj.transform.SetParent(transBody);
                 }
-                //父节点赋值
+                //给后面的节点指定父节点
                 if (partType == PartType.Head || partType == PartType.Body)
                 {
                     transBody = obj.transform.Find("img_item").transform;
-                    if (bodyRectTemp == null)
-                    {
-                        bodyRectTemp = obj;
-                    }
                 }
+
                 //使用RawImage
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
@@ -338,6 +352,7 @@ namespace DataMgr
                 item.partType = part[i].PType;
                 item.Init();
 
+                //最低点计算
                 float bottom = obj.GetComponent<RectTransform>().anchoredPosition.y - h / 2;
 
                 if (partType == PartType.Body)
@@ -350,16 +365,16 @@ namespace DataMgr
                     minY = bottom;
                 }
             }
-            if (parentObj != null)
+            if (whole.JoinType == JoinType.Animal && parentObj != null)
             {
+                float offsetHeight = bodyRectTemp.transform.localPosition.y;
                 parentObj.transform.SetAsLastSibling();
-                parentBody.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+                parentBody.GetComponent<RectTransform>().sizeDelta = new Vector2(bodyRectTemp.GetComponent<RectTransform>().sizeDelta.x, bodyRectTemp.GetComponent<RectTransform>().sizeDelta.y - offsetHeight);//bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
+                parentObj.GetComponent<RectTransform>().sizeDelta = new Vector2(bodyRectTemp.GetComponent<RectTransform>().sizeDelta.x, bodyRectTemp.GetComponent<RectTransform>().sizeDelta.y - offsetHeight);
                 parentBody.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0);
                 parentBody.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0);
                 parentBody.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0);
-                parentObj.GetComponent<RectTransform>().sizeDelta = bodyRectTemp.GetComponent<RectTransform>().sizeDelta;
             }
-
             GameObject flagObj = new GameObject("flag_bottom");
             flagObj.transform.SetParent(person.transform);
             flagObj.transform.localPosition = new Vector3(0, minY, 0);

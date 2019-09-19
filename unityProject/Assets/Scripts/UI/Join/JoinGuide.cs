@@ -55,7 +55,6 @@ public class JoinGuide : MonoBehaviour
             if (AudioManager.instance.effectAudioSource.isPlaying == false && isOperating == false)
             {
                 operationStartTime += 0.1f;
-                //Debug.Log(operationStartTime);
                 if (operationStartTime > noOperatipnTimeLimit)
                 {
                     reminderCount++;
@@ -108,12 +107,10 @@ public class JoinGuide : MonoBehaviour
                 //是否画过一笔
                 if (joinMainView.hasPainted)
                 {
-                    //Debug.Log("提示语音并提示下一步");
                     DoDrawNextStepReminder();
                 }
                 else
                 {
-                    //Debug.Log("提示动画：画画");
                     OperationStart();
                     DrawReminder.gameObject.SetActive(true);
                 }
