@@ -271,7 +271,6 @@ public class CalendarView : MonoBehaviour
         BtnNext.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.CurPageIndex = Mathf.Min(CalenderController.instance.CurPageIndex + 1,CalenderController.instance.PageNum-1);
-            Debug.Log("计算出来的：" + CalenderController.instance.CurPageIndex);
             PageScrollEndFunc(CalenderController.instance.CurPageIndex);
         });
 
@@ -322,7 +321,6 @@ public class CalendarView : MonoBehaviour
             pageList[i].SetDeleteStatus(show);
         }
     }
-    
    
     public void SwitchDelBtn(bool show)
     {
@@ -376,8 +374,6 @@ public class CalendarView : MonoBehaviour
             Debug.Log(CalenderController.instance.PersonNum);
             if (CalenderController.instance.PersonNum<=0)
             {
-                //GameManager.instance.SetNextViewPath(PanelName.IndexView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 GameManager.instance.SetNextSceneName(SceneName.Index);
                 TransitionView.instance.OpenTransition();
             }

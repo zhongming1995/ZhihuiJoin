@@ -13,22 +13,16 @@ public class CalendarDetailItem : MonoBehaviour
     public RawImage rawImage;
     [HideInInspector]
     public int DetailIndex;
-
     private CanvasGroup CGDetail;
-
     //定义一些变量
     Vector3 SelectScale = Vector3.one;
     Vector3 UnSelectScale = new Vector3(0.55f, 0.55f, 0.55f);
-    //float SelectAlpha = 1;
-    //float UnSelectAlpha = 1f;
 
     public void Init(string fileName,bool isCurIndex,int index)
     {
         DetailIndex = index;
-        //CGDetail = TransDetail.GetComponent<CanvasGroup>();
         if (isCurIndex)
         {
-            //SetSelectAlpha();
             Sequence s = DOTween.Sequence();
             s.Append(transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f));
             s.Append(transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.1f));
@@ -40,12 +34,9 @@ public class CalendarDetailItem : MonoBehaviour
         else
         {
             SetUnSelectScale();
-            //SetUnSelectAlpha();
         }
-        //rawImage.texture = GameManager.instance.personTextureList[DetailIndex];
         string path = PersonManager.instance.PersonImgPath + "/" + fileName + ".png";
         StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName + ".png"));
-        //LoadByIO(path);
     }
 
     void LoadByIO(string path)
@@ -78,36 +69,6 @@ public class CalendarDetailItem : MonoBehaviour
         www.Dispose();
         www = null;
     }
-    /*
-    public void Init(PartDataWhole whole, bool isCurIndex)
-    {
-        CGDetail = TransDetail.GetComponent<CanvasGroup>();
-        if (isCurIndex)
-        {
-            SetSelectAlpha();
-            Sequence s = DOTween.Sequence();
-            s.Append(transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 0.3f));
-            s.Append(transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 0.1f));
-            s.AppendCallback(() => {
-                SetSelectScale();
-            });
-        }
-        else
-        {
-            SetUnSelectScale();
-            SetUnSelectAlpha();
-        }
-        //初始化显示
-        if (PersonParent == null)
-        {
-            PersonParent = transform.Find("detail/mask/parent").transform;
-        }
-        GameObject person = DataManager.instance.GetPersonObj(whole.partDataList);
-        person.transform.SetParent(PersonParent);
-        person.transform.localPosition = Vector3.zero;
-        person.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-    }
-    */
 
     //直接设置缩放
     public void SetSelectScale()
@@ -120,19 +81,6 @@ public class CalendarDetailItem : MonoBehaviour
     {
         TransDetail.localScale = UnSelectScale;
     }
-
-    //直接设置透明度
-    //public void SetSelectAlpha()
-    //{
-    //    CGDetail.alpha = SelectAlpha;
-    //}
-
-    //直接设置透明度
-    //public void SetUnSelectAlpha()
-    //{
-    //    CGDetail.alpha = UnSelectAlpha;
-    //}
-
     //动画方式设置缩放
     public void AniSelectScale()
     {
@@ -144,36 +92,6 @@ public class CalendarDetailItem : MonoBehaviour
     {
         TransDetail.DOScale(UnSelectScale, 0.3f);
     }
-
-    //动画方式设置透明度变化
-    //public void AniAlpha(float endValue)
-    //{
-    //    float number = 0;
-    //    Tween t = DOTween.To(() => number, x => number = x, endValue, 0.3f);
-    //    t.OnUpdate(() => {
-    //        CGDetail.alpha = number;
-    //    });
-    //}
-
-    //动画方式设置透明度变化
-    //public void AniSelectAlpha()
-    //{
-    //    float number = 0;
-    //    Tween t = DOTween.To(() => number, x => number = x, SelectAlpha, 0.3f);
-    //    t.OnUpdate(() => {
-    //        CGDetail.alpha = number;
-    //    });
-    //}
-
-    //动画方式设置透明度变化
-    //public void AniUnSelectAlpha()
-    //{
-    //    float number = 0;
-    //    Tween t = DOTween.To(() => number, x => number = x, UnSelectAlpha, 0.3f);
-    //    t.OnUpdate(() => {
-    //        CGDetail.alpha = number;
-    //    });
-    //}
 
     private void OnDestroy()
     {

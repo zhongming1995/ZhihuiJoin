@@ -583,7 +583,14 @@ public class JoinMainView : MonoBehaviour
         else if (step==2)
         {
             SetCurSelectType(TemplateResType.Eye);
-            BtnPre.GetComponent<UIMove>().MoveShow();
+            if (GameManager.instance.curJoinType == JoinType.Animal)
+            {
+                BtnPre.GetComponent<UIMove>().MoveHide();
+            }
+            else
+            {
+                BtnPre.GetComponent<UIMove>().MoveShow();
+            }
             BtnNext.GetComponent<UIMove>().MoveShow();
             BtnOk.gameObject.SetActive(false);
         }

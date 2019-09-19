@@ -232,7 +232,7 @@ namespace DataMgr
                     obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                     obj.transform.SetParent(transBody);
                 }
-                //父节点赋值
+                //给后面的节点指定父节点
                 if (partType == PartType.Head || partType == PartType.Body)
                 {
                     transBody = obj.transform.Find("img_item").transform;
@@ -321,7 +321,6 @@ namespace DataMgr
                         bodyRectTemp = obj;
                     }
                 }
-
                 //使用RawImage
                 RawImage img = obj.transform.Find("img_item").GetComponent<RawImage>();
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
@@ -344,7 +343,6 @@ namespace DataMgr
                 if (partType == PartType.Body)
                 {
                     float j = Utils.GetPicHeightRate(t);
-                    //Debug.Log("resultj================" + j);
                     bottom = h / 2 - h * (1 - j);
                 }
                 if (minY > bottom)
@@ -381,10 +379,6 @@ namespace DataMgr
         public float PersonGreeting(DisplayPartItem[] itemList)
         {
             float aniTime = 0;
-            if (itemList == null)
-            {
-                Debug.Log("itemList is null-----");
-            }
             for (int i = 0; i < itemList.Length; i++)
             {
                 float tmpAniTime = itemList[i].PlayGreeting();
@@ -400,7 +394,6 @@ namespace DataMgr
         {
             if (itemList == null)
             {
-                Debug.Log("itemList is null-----");
                 return;
             }
             for (int i = 0; i < itemList.Length; i++)
@@ -420,7 +413,6 @@ namespace DataMgr
         {
             if (itemList == null)
             {
-                Debug.Log("itemList is null-----");
                 return;
             }
             for (int i = 0; i < itemList.Length; i++)
@@ -433,7 +425,6 @@ namespace DataMgr
         {
             if (itemList == null)
             {
-                Debug.Log("itemList is null-----");
                 return;
             }
             for (int i = 0; i < itemList.Length; i++)
@@ -446,7 +437,6 @@ namespace DataMgr
         {
             if (itemList == null)
             {
-                Debug.Log("itemList is null-----");
                 return;
             }
             for (int i = 0; i < itemList.Length; i++)
