@@ -62,7 +62,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         string path = string.Empty;
         if (paramPath==null)
         {
-            path = GameData.resPathList[(int)type][index];
+            path = GameData.instance.resPathList[(int)type][index];
         }
         else
         {
@@ -213,7 +213,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         transform.position = globalMousePos + offset;
-        Debug.Log("jjjjj");
         if (partType == PartType.Head)
         {
             return;

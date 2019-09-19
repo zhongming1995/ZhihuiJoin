@@ -117,7 +117,7 @@ public class JoinMainView : MonoBehaviour
             ImgDrawBg.transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
             ImgDrawBg.transform.localPosition = new Vector3(7, -5, 0);
         }
-        AudioManager.instance.PlayAudio(EffectAudioType.Guide, GameData.drawAudioPathList[GameManager.instance.homeSelectIndex]);
+        AudioManager.instance.PlayAudio(EffectAudioType.Guide, GameData.instance.drawAudioPathList[GameManager.instance.homeSelectIndex]);
         //补充脚本
         joinPlus = GetComponent<JoinPlus>();
         mobilePaint.gameObject.SetActive(false);
@@ -130,7 +130,7 @@ public class JoinMainView : MonoBehaviour
         //按钮点击
         AddClickEvent();
         //左下角参考缩略图
-        UIHelper.instance.SetImage(GameData.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
+        UIHelper.instance.SetImage(GameData.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
 
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
@@ -145,7 +145,7 @@ public class JoinMainView : MonoBehaviour
             LayoutRebuilder.ForceRebuildLayoutImmediate(TypeBtnConList[i].GetComponent<RectTransform>());
         }
         //右边素材切换按钮
-        for (int i = 0; i < GameData.resTypeCount; i++)
+        for (int i = 0; i < GameData.instance.resTypeCount; i++)
         {
             int clickType = i;
             typeTransList[i].GetComponent<Button>().onClick.AddListener(delegate
@@ -203,9 +203,9 @@ public class JoinMainView : MonoBehaviour
     void SetDrawMessage()
     {
         //涂色背景（只做淡入展示）
-        UIHelper.instance.SetImage(GameData.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
+        UIHelper.instance.SetImage(GameData.instance.drawBgPathList[GameManager.instance.homeSelectIndex], ImgDrawBg, true);
         //绘画素材
-        Sprite s = UIHelper.instance.LoadSprite(GameData.drawBgPathList[GameManager.instance.homeSelectIndex]);
+        Sprite s = UIHelper.instance.LoadSprite(GameData.instance.drawBgPathList[GameManager.instance.homeSelectIndex]);
         mobilePaint.InitializeEverything(s.texture);
         mobilePaint.SetBrushSize(1);
         PenScaleSlider.value = 0.5f;
@@ -531,7 +531,7 @@ public class JoinMainView : MonoBehaviour
         //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
         Debug.Log("showREsLitByType:"+type);
         SetCurSelectType(type);
-        for (int i = 0; i < GameData.resTypeCount; i++)
+        for (int i = 0; i < GameData.instance.resTypeCount; i++)
         {
             if (i == (int)type)
             {
@@ -780,15 +780,15 @@ public class JoinMainView : MonoBehaviour
             loadResult[type] = true;
             return;
         }
-        string resPrefabPath = GameData.resPrefabPathList[type];
+        string resPrefabPath = GameData.instance.resPrefabPathList[type];
         List<string> resPath;
         if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body &&GameManager.instance.curJoinType!=JoinType.Animal)
         {
-            resPath = GameData.GetPathList(GameManager.instance.homeSelectIndex, (TemplateResType)type);
+            resPath = GameData.instance.GetPathList(GameManager.instance.homeSelectIndex, (TemplateResType)type);
         }
         else
         {
-            resPath = GameData.resPathList[type];
+            resPath = GameData.instance.resPathList[type];
             if (type!=(int)TemplateResType.Body)
             {
                 if (ResContentList[type].childCount != 0)

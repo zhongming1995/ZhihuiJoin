@@ -80,8 +80,8 @@
     <Compile Include="Assets\Scripts\Helper\Utils.cs" />
     <Compile Include="Assets\Scripts\Manager\AudioManager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager\DataManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\DataManager\GameData.cs" />
     <Compile Include="Assets\Scripts\Manager\DataManager\PersonManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\GameData.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PanelManager\PanelManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PanelManager\SceneSwitch.cs" />

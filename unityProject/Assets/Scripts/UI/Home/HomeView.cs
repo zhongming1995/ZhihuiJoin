@@ -53,7 +53,7 @@ public class HomeView : MonoBehaviour
             item.name = i.ToString();
             itemObjList.Add(item);
             RawImage image = item.transform.Find("img_bg/img_item").GetComponent<RawImage>();
-            image.texture = UIHelper.instance.LoadSprite(GameData.homePathList[i]).texture;
+            image.texture = UIHelper.instance.LoadSprite(GameData.instance.homePathList[i]).texture;
             image.SetNativeSize();
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标

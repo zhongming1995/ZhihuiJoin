@@ -41,7 +41,7 @@ public class CardItem : MonoBehaviour
 
         //设置图片
         //string path = GameManager.instance.homePathList[ID];
-        string path = GameData.homePathList[ID];
+        string path = GameData.instance.homePathList[ID];
         UIHelper.instance.SetImage(path, ImgCard, true);
 
         if (ID==GameManager.instance.homeSelectIndex)
@@ -64,7 +64,7 @@ public class CardItem : MonoBehaviour
             BtnBack.interactable = false;
             FlipToForward(CompareCard);
             //AudioManager.instance.PlayOneShotAudio(GameManager.instance.drawAudioPathList[ID]);
-            AudioManager.instance.PlayOneShotAudio(GameData.drawAudioPathList[ID]);
+            AudioManager.instance.PlayOneShotAudio(GameData.instance.drawAudioPathList[ID]);
         });
     }
 

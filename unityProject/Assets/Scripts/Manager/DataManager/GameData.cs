@@ -1,63 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using UnityEngine;
 using Random = System.Random;
 
-public class GameData 
-{
+public class GameData:SingletonPersistent<GameData>
+{ 
     [HideInInspector]
-    public static List<string> homePathList = new List<string>();//选择界面的资源路径
+    public List<string> homePathList = new List<string>();//选择界面的资源路径
     [HideInInspector]
-    public static List<string> drawBgPathList = new List<string>();//画图背景资源路径
+    public List<string> drawBgPathList = new List<string>();//画图背景资源路径
     [HideInInspector]
-    public static List<string> drawAudioPathList = new List<string>();//绘画模板的音频路径
-
-    private static List<string> colorPathList = new List<string>();//颜色资源路径
-
-    private static List<string> letterEyePathList = new List<string>();//字母眼睛资源路径
-    private static List<string> numEyePathList = new List<string>();//数字眼睛资源路径
-    private static List<string> aniEyePathList = new List<string>();//动物眼睛资源路径
-
-    private static List<string> letterMouthPathList = new List<string>();//字母嘴巴资源路径
-    private static List<string> numMouthPathList = new List<string>();//数字嘴巴资源路径
-    private static List<string> aniMouthPathList = new List<string>();//动物嘴巴资源路径
-
-    private static List<string> letterHairPathList = new List<string>();//字母头发资源路径
-
-    private static List<string> letterHatPathList = new List<string>();//字母帽子资源路径
-    private static List<string> numHatPathList = new List<string>();//数字帽子资源路径
-    private static List<string> aniHatPathList = new List<string>();//动物帽子资源路径
-
-    private static List<string> letterHeadWarePathList = new List<string>();//字母饰品资源路径
-    private static List<string> numHeadWarePathList = new List<string>();//数字饰品资源路径
-
-    private static List<string> letterHandPathList = new List<string>();//字母手资源路径
-    private static List<string> numHandPathList = new List<string>();//数字手资源路径
-    private static List<string> AniHandPathList = new List<string>();//数字手资源路径
-
-    private static List<string> letterLegPathList = new List<string>();//数字脚资源路径
-    private static List<string> numLegPathList = new List<string>();//数字脚资源路径
-    private static List<string> aniLegPathList = new List<string>();//数字脚资源路径
-
-    private static List<string> aniHeadPathList = new List<string>();//动物头
-    private static List<string> aniBodyPathList = new List<string>();//动物身体
-
+    public List<string> drawAudioPathList = new List<string>();//绘画模板的音频路径
     [HideInInspector]
-    public static List<List<string>> resPathList = new List<List<string>>();//全部资源路径
+    public List<List<string>> resPathList = new List<List<string>>();//全部资源路径
     [HideInInspector]
-    public static List<string> resPrefabPathList = new List<string>();//素材资源prefab路径
+    public List<string> resPrefabPathList = new List<string>();//素材资源prefab路径
 
     //画笔颜色
     [HideInInspector]
-    public static Color[] ColorList;
+    public Color[] ColorList;
     [HideInInspector]
-    public static Color[] MultiColorList;
+    public Color[] MultiColorList;
 
     [HideInInspector]
-    public static int resTypeCount = 10;//素材资源种类，目前8种
+    public int resTypeCount = 10;//素材资源种类，目前8种
 
     //初始化颜色列表
-    public static void InitColor()
+    public void InitColor()
     {
         ColorList = new Color[16]{
             new Color32(0, 0, 0, 255),
@@ -91,7 +60,7 @@ public class GameData
     }
 
     //初始化item列表,首页选字母的
-    public static void InitItemList()
+    public void InitItemList()
     {
         //26个字母
         string homeLetterPath = "sprite/homeitems|splice_home_{0}_pic";
@@ -103,7 +72,6 @@ public class GameData
         string drawNumAudioPath = "Audio/num_template|template_num_{0}";
         //10个数字
         string homeAnimalPath = "sprite/homeitems|splice_home_animal_{0}_pic";
-        //string drawBgAnimalPath = "sprite/draw|draw_num_{0}_pic";
         string drawAnimalAudioPath = "Audio/num_template|template_animal_{0}";
 
         for (int i = 0; i < 26; i++)
@@ -128,266 +96,174 @@ public class GameData
     }
 
     //初始化素材列表
-    public static void InitResList()
+    public void InitResList()
     {
+        List<string> colorPathList = new List<string>();//颜色资源路径
         //颜色,现在没用到了，但是不能删，因为影响索引
         string colorPath = "sprite/small_fodder/color|color_{0}_icon";
         for (int i = 0; i < 16; i++)
         {
             colorPathList.Add(string.Format(colorPath, i.ToString()));
         }
+        resPathList.Add(colorPathList);
+
+        List<string> eyePathList = new List<string>();
         //眼睛
         string letterEyePath = "sprite/fodder/eye|eye_L_{0}";
         string letterEyePath_R = "sprite/fodder/eye|eye_R_{0}";
         for (int i = 0; i < 25; i++)
         {
-            letterEyePathList.Add(string.Format(letterEyePath, i.ToString()));
-            letterEyePathList.Add(string.Format(letterEyePath_R, i.ToString()));
+            eyePathList.Add(string.Format(letterEyePath, i.ToString()));
+            eyePathList.Add(string.Format(letterEyePath_R, i.ToString()));
         }
-
         string numEyePath = "sprite/fodder/eye|number_eye_L_{0}";
         string numEyePath_R = "sprite/fodder/eye|number_eye_R_{0}";
         for (int i = 0; i < 2; i++)
         {
-            numEyePathList.Add(string.Format(numEyePath, i.ToString()));
-            numEyePathList.Add(string.Format(numEyePath_R, i.ToString()));
+            eyePathList.Add(string.Format(numEyePath, i.ToString()));
+            eyePathList.Add(string.Format(numEyePath_R, i.ToString()));
         }
-
         string aniEyePath = "sprite/fodder/eye|animal_eye_L_{0}";
         string aniEyePath_R = "sprite/fodder/eye|animal_eye_R_{0}";
         for (int i = 0; i < 3; i++)
         {
-            aniEyePathList.Add(string.Format(aniEyePath, i.ToString()));
-            aniEyePathList.Add(string.Format(aniEyePath_R, i.ToString()));
+            eyePathList.Add(string.Format(aniEyePath, i.ToString()));
+            eyePathList.Add(string.Format(aniEyePath_R, i.ToString()));
         }
+        resPathList.Add(eyePathList);
 
         //嘴巴
+        List<string> mouthPathList = new List<string>();
         string letterMouthPath = "sprite/fodder/mouth|mouse_{0}";
         for (int i = 0; i < 23; i++)
         {
-            letterMouthPathList.Add(string.Format(letterMouthPath, i.ToString()));
+            mouthPathList.Add(string.Format(letterMouthPath, i.ToString()));
         }
-
         string numMouthPath = "sprite/fodder/mouth|number_mouse_{0}";
         for (int i = 0; i < 2; i++)
         {
-            numMouthPathList.Add(string.Format(numMouthPath, i.ToString()));
+            mouthPathList.Add(string.Format(numMouthPath, i.ToString()));
         }
-
         string aniMouthPath = "sprite/fodder/mouth|animal_mouse_{0}";
         for (int i = 0; i < 3; i++)
         {
-            aniMouthPathList.Add(string.Format(aniMouthPath, i.ToString()));
+            mouthPathList.Add(string.Format(aniMouthPath, i.ToString()));
         }
+        resPathList.Add(mouthPathList);
 
         //头发
+        List<string> hairPathList = new List<string>();
         string letterHairPath = "sprite/fodder/hair|hair_{0}";
         for (int i = 0; i < 10; i++)
         {
-            letterHairPathList.Add(string.Format(letterHairPath, i.ToString()));
+            hairPathList.Add(string.Format(letterHairPath, i.ToString()));
         }
+        resPathList.Add(hairPathList);
 
         //帽子
+        List<string> hatPathList = new List<string>();
         string letterHatPath = "sprite/fodder/hat|hat_{0}";
         for (int i = 0; i < 14; i++)
         {
-            letterHatPathList.Add(string.Format(letterHatPath, i.ToString()));
+            hatPathList.Add(string.Format(letterHatPath, i.ToString()));
         }
-
         string numHatPath = "sprite/fodder/hat|number_hat_{0}";
         for (int i = 0; i < 1; i++)
         {
-            numHatPathList.Add(string.Format(numHatPath, i.ToString()));
+            hatPathList.Add(string.Format(numHatPath, i.ToString()));
         }
-
         string aniHatPath = "sprite/fodder/hat|animal_hat_{0}";
         for (int i = 0; i < 3; i++)
         {
-            aniHatPathList.Add(string.Format(aniHatPath, i.ToString()));
+            hatPathList.Add(string.Format(aniHatPath, i.ToString()));
         }
+        resPathList.Add(hatPathList);
 
         //饰品
+        List<string> headWearPathList = new List<string>();
         string letterHeadWearPath = "sprite/fodder/headwear|headwear_{0}";
         for (int i = 0; i < 16; i++)
         {
-            letterHeadWarePathList.Add(string.Format(letterHeadWearPath, i.ToString()));
+            headWearPathList.Add(string.Format(letterHeadWearPath, i.ToString()));
         }
 
         string numHeadWearPath = "sprite/fodder/headwear|number_headwear_{0}";
         for (int i = 0; i < 2; i++)
         {
-            numHeadWarePathList.Add(string.Format(numHeadWearPath, i.ToString()));
+            headWearPathList.Add(string.Format(numHeadWearPath, i.ToString()));
         }
+        resPathList.Add(headWearPathList);
 
         //手
+        List<string> handPathList = new List<string>();
         string letterHandPath = "sprite/fodder/hand|hand_L_{0}";
         string letterHandPath_R = "sprite/fodder/hand|hand_R_{0}";
         for (int i = 0; i < 26; i++)
         {
-            letterHandPathList.Add(string.Format(letterHandPath, i.ToString()));
-            letterHandPathList.Add(string.Format(letterHandPath_R, i.ToString()));
-
+            handPathList.Add(string.Format(letterHandPath, i.ToString()));
+            handPathList.Add(string.Format(letterHandPath_R, i.ToString()));
         }
-
         string numHandPath = "sprite/fodder/hand|number_hand_L_{0}";
         string numHandPath_R = "sprite/fodder/hand|number_hand_R_{0}";
         for (int i = 0; i < 5; i++)
         {
-            numHandPathList.Add(string.Format(numHandPath, i.ToString()));
-            numHandPathList.Add(string.Format(numHandPath_R, i.ToString()));
+            handPathList.Add(string.Format(numHandPath, i.ToString()));
+            handPathList.Add(string.Format(numHandPath_R, i.ToString()));
         }
-
         string aniHandPath = "sprite/fodder/hand|animal_hand_L_{0}";
         string aniHandPath_R = "sprite/fodder/hand|animal_hand_R_{0}";
         for (int i = 0; i < 3; i++)
         {
-            AniHandPathList.Add(string.Format(aniHandPath, i.ToString()));
-            AniHandPathList.Add(string.Format(aniHandPath_R, i.ToString()));
+            handPathList.Add(string.Format(aniHandPath, i.ToString()));
+            handPathList.Add(string.Format(aniHandPath_R, i.ToString()));
         }
+        resPathList.Add(handPathList);
 
         //脚
+        List<string> legPathList = new List<string>();
         string letterLegPath = "sprite/fodder/leg|leg_L_{0}";
         string letterLegPath_R = "sprite/fodder/leg|leg_R_{0}";
         for (int i = 0; i < 26; i++)
         {
-            letterLegPathList.Add(string.Format(letterLegPath, i.ToString()));
-            letterLegPathList.Add(string.Format(letterLegPath_R, i.ToString()));
+            legPathList.Add(string.Format(letterLegPath, i.ToString()));
+            legPathList.Add(string.Format(letterLegPath_R, i.ToString()));
         }
-
         string numLegPath = "sprite/fodder/leg|number_leg_L_{0}";
         string numLegPath_R = "sprite/fodder/leg|number_leg_R_{0}";
         for (int i = 0; i < 5; i++)
         {
-            numLegPathList.Add(string.Format(numLegPath, i.ToString()));
-            numLegPathList.Add(string.Format(numLegPath_R, i.ToString()));
+            legPathList.Add(string.Format(numLegPath, i.ToString()));
+            legPathList.Add(string.Format(numLegPath_R, i.ToString()));
         }
-
         string aniLegPath = "sprite/fodder/leg|animal_leg_L_{0}";
         string aniLegPath_R = "sprite/fodder/leg|animal_leg_R_{0}";
         for (int i = 0; i < 3; i++)
         {
-            aniLegPathList.Add(string.Format(aniLegPath, i.ToString()));
-            aniLegPathList.Add(string.Format(aniLegPath_R, i.ToString()));
+            legPathList.Add(string.Format(aniLegPath, i.ToString()));
+            legPathList.Add(string.Format(aniLegPath_R, i.ToString()));
         }
+        resPathList.Add(legPathList);
 
         //头
+        List<string> headPathList = new List<string>();//动物头
         string animalHeadPath = "sprite/fodder/head|animal_head_{0}";
         for (int i = 0; i < 3; i++)
         {
-            aniHeadPathList.Add(string.Format(animalHeadPath, i.ToString()));
+            headPathList.Add(string.Format(animalHeadPath, i.ToString()));
         }
+        resPathList.Add(headPathList);
 
         //身体
+        List<string> bodyPathList = new List<string>();//身体
         string animalBodyPath = "sprite/fodder/body|animal_body_{0}";
         for (int i = 0; i < 3; i++)
         {
-            aniBodyPathList.Add(string.Format(animalBodyPath, i.ToString()));
+            bodyPathList.Add(string.Format(animalBodyPath, i.ToString()));
         }
-
-        //-------------组装-------------
-
-        //颜色
-        resPathList.Add(colorPathList);
-        //眼睛
-        List<string> eyePathList = new List<string>();
-        for (int i = 0; i < letterEyePathList.Count; i++)
-        {
-            eyePathList.Add(letterEyePathList[i]);
-        }
-        for (int i = 0; i < numEyePathList.Count; i++)
-        {
-            eyePathList.Add(numEyePathList[i]);
-        }
-        for (int i = 0; i < aniEyePathList.Count; i++)
-        {
-            eyePathList.Add(aniEyePathList[i]);
-        }
-        resPathList.Add(eyePathList);
-        //嘴巴
-        List<string> mouthPathList = new List<string>();
-        for (int i = 0; i < letterMouthPathList.Count; i++)
-        {
-            mouthPathList.Add(letterMouthPathList[i]);
-        }
-        for (int i = 0; i < numMouthPathList.Count; i++)
-        {
-            mouthPathList.Add(numMouthPathList[i]);
-        }
-        for (int i = 0; i < aniMouthPathList.Count; i++)
-        {
-            mouthPathList.Add(aniMouthPathList[i]);
-        }
-        resPathList.Add(mouthPathList);
-        //头发
-        List<string> hairPathList = new List<string>();
-        for (int i = 0; i < letterHairPathList.Count; i++)
-        {
-            hairPathList.Add(letterHairPathList[i]);
-        }
-        resPathList.Add(hairPathList);
-        //帽子
-        List<string> hatPathList = new List<string>();
-        for (int i = 0; i < letterHatPathList.Count; i++)
-        {
-            hatPathList.Add(letterHatPathList[i]);
-        }
-        for (int i = 0; i < numHatPathList.Count; i++)
-        {
-            hatPathList.Add(numHatPathList[i]);
-        }
-        for (int i = 0; i < aniHatPathList.Count; i++)
-        {
-            hatPathList.Add(aniHatPathList[i]);
-        }
-        resPathList.Add(hatPathList);
-        //饰品
-        List<string> headWearPathList = new List<string>();
-        for (int i = 0; i < letterHeadWarePathList.Count; i++)
-        {
-            headWearPathList.Add(letterHeadWarePathList[i]);
-        }
-        for (int i = 0; i < numHeadWarePathList.Count; i++)
-        {
-            headWearPathList.Add(numHeadWarePathList[i]);
-        }
-        resPathList.Add(headWearPathList);
-        //手
-        List<string> handPathList = new List<string>();
-        for (int i = 0; i < letterHandPathList.Count; i++)
-        {
-            handPathList.Add(letterHandPathList[i]);
-        }
-        for (int i = 0; i < numHandPathList.Count; i++)
-        {
-            handPathList.Add(numHandPathList[i]);
-        }
-        for (int i = 0; i < AniHandPathList.Count; i++)
-        {
-            handPathList.Add(AniHandPathList[i]);
-        }
-        resPathList.Add(handPathList);
-        //脚
-        List<string> legPathList = new List<string>();
-        for (int i = 0; i < letterLegPathList.Count; i++)
-        {
-            legPathList.Add(letterLegPathList[i]);
-        }
-        for (int i = 0; i < numLegPathList.Count; i++)
-        {
-            legPathList.Add(numLegPathList[i]);
-        }
-        for (int i = 0; i < aniLegPathList.Count; i++)
-        {
-            legPathList.Add(aniLegPathList[i]);
-        }
-        resPathList.Add(legPathList);
-        //头
-        resPathList.Add(aniHeadPathList);
-        //身体
-        resPathList.Add(aniBodyPathList);
+        resPathList.Add(bodyPathList);
     }
 
-    public static void InitResPrefabList()
+    public void InitResPrefabList()
     {
         string path = "prefabs/join|res_obj_{0}";
         for (int i = 0; i < resTypeCount; i++)
@@ -396,7 +272,7 @@ public class GameData
         }
     }
 
-    public static List<List<string>> ModulePathList = new List<List<string>>()
+    public List<List<string>> ModulePathList = new List<List<string>>()
     {
         new List<string>(){ "eye_L_0","eye_R_0", "mouse_0", "hand_L_0", "hand_R_0", "leg_L_0", "leg_R_0" ,"", "" },
         new List<string>(){ "eye_L_1","eye_R_1", "", "hand_L_1", "hand_R_1", "leg_L_1", "leg_R_1" , "hat_1", "" },
@@ -437,7 +313,7 @@ public class GameData
     };
 
     //根据字母或数字，返回包含模板在内的5/6个素材
-    public static List<string> GetPathList(int index,TemplateResType type)
+    public List<string> GetPathList(int index,TemplateResType type)
     {
         List<string> pathList = new List<string>();
         string path = string.Empty;
@@ -619,7 +495,7 @@ public class GameData
         else if (type == TemplateResType.Head)
         {
             pathList = resPathList[8];
-        }else if (type==TemplateResType.TrueBody)
+        }else if (type == TemplateResType.TrueBody)
         {
             pathList = resPathList[9];
         }

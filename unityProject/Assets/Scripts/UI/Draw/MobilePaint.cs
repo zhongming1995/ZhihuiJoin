@@ -1039,7 +1039,7 @@ namespace Draw_MobilePaint
                     colorIndex = 0;
                 }
                 //SetPaintColor(GameMgr.GameManager.instance.MultiColorList[colorIndex]);
-                SetPaintColor(GameData.MultiColorList[colorIndex]);
+                SetPaintColor(GameData.instance.MultiColorList[colorIndex]);
                 colorIndex++;
             }
             // get position where we paint

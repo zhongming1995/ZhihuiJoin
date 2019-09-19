@@ -123,10 +123,10 @@ namespace GameMgr
 
         void Start()
         {
-            GameData.InitItemList();
-            GameData.InitResPrefabList();
-            GameData.InitResList();
-            GameData.InitColor();
+            GameData.instance.InitItemList();
+            GameData.instance.InitResPrefabList();
+            GameData.instance.InitResList();
+            GameData.instance.InitColor();
             //InitItemList();//首页选字母，数字
             //InitResPrefabList();//素材中的预制体路径
             //InitResList();//素材资源
