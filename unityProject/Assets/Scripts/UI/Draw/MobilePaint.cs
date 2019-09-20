@@ -461,7 +461,6 @@ namespace Draw_MobilePaint
 
 
             drawPixels = new byte[texWidth * texHeight * 4];
-            Debug.Log("admin:"+drawPixels.Length);
             drawTexture = new Texture2D(texWidth, texHeight, TextureFormat.RGBA32, false);
             drawTexture.filterMode = filterMode;
             drawTexture.wrapMode = TextureWrapMode.Clamp;

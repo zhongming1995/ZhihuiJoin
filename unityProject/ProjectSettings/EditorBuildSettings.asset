@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/calendar.unity
     guid: 43fce40fe873e4b7bb4fa247152ac31f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/calendar_detail.unity
     guid: b026a8844b6934b3085f37e2d3b7c0f8
   m_configObjects: {}

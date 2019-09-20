@@ -51,6 +51,8 @@ public class JoinMainView : MonoBehaviour
 
     [HideInInspector]
     public Vector3 targetHeadPos = new Vector3(0, 300, 0);
+    [HideInInspector]
+    public Vector3 defaultTargetPos = new Vector3(0, 300, 0);
 
     //定义数据变量
     private Transform curSelectResObj;
@@ -329,6 +331,7 @@ public class JoinMainView : MonoBehaviour
             ShowBackBtn(false);
             curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
             curSelectResObj.GetComponent<ResDragItem>().SetScale(curSelectResObj.transform.localScale);
+            curSelectResObj.GetComponent<ResDragItem>().OnEndDrag(null);
         });
 
         PenScaleSlider.onValueChanged.AddListener(delegate
@@ -634,7 +637,18 @@ public class JoinMainView : MonoBehaviour
         if (guideResult[step - 1] == false)
         {
             //播放引导语音
-            string audioPath = "Audio/guide_effect|guide_" + GameManager.instance.curJoinType.ToString().ToLower() + "_" + step.ToString();
+            string audioPath = string.Empty;
+            if (GameManager.instance.curJoinType==JoinType.Animal)
+            {
+                int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+                Debug.Log("offsetIndex:" + offsetIndex);
+                audioPath = "Audio/guide_effect|guide_" + GameManager.instance.curJoinType.ToString().ToLower() +"_" + offsetIndex.ToString() + "_" + step.ToString();
+                Debug.Log("audioPath:" + audioPath);
+            }
+            else
+            {
+                audioPath = "Audio/guide_effect|guide_" + GameManager.instance.curJoinType.ToString().ToLower() + "_" + step.ToString();
+            }
             if (step == 1)
             {
                 StartCoroutine(CorPlayGuideStep1(audioPath, step));

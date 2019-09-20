@@ -32,14 +32,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     {
         joinMainView = GetComponentInParent<JoinMainView>();
         joinGuide = GetComponentInParent<JoinGuide>();
-        if (joinMainView==null)
-        {
-            Debug.Log("null1");
-        }
-        if (joinMainView.PosLeftTop==null)
-        {
-            Debug.Log("null2");
-        }
         leftTop = joinMainView.PosLeftTop.position;
         rightBottom = joinMainView.PosRightBottom.position;
         anchorLeftTop = joinMainView.PosLeftTop.GetComponent<RectTransform>().anchoredPosition;
@@ -53,14 +45,14 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     /// 
     /// </summary>
     /// <param name="index">siblingIndex</param>
-    /// <param name="index">图片路径</param>
+    /// <param name="paramPath">图片路径</param>
     public void InitItem(int index,string paramPath = null)
     {
         Init();
         TemplateResType type = GameManager.instance.curSelectResType;
         partType = GetPartTypeByResType(type, index);
         string path = string.Empty;
-        if (paramPath==null)
+        if (paramPath == null)
         {
             path = GameData.instance.resPathList[(int)type][index];
         }
@@ -149,27 +141,34 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void OnBeginDrag(PointerEventData eventData)
     {
         joinGuide.OperationStart();
-        if (isInit==false)
+        if (isInit == false)
         {
             Init();
         }
         //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curSelectResType==0)
+        if (GameManager.instance.curJoinType == JoinType.Animal)
         {
-            return;
-        }
-        //动物拼接的第一步,第二步时，头不可以动
-        if (joinMainView.step == 1 || joinMainView.step == 2)
-        {
-            if (partType == PartType.Head && dragCount != 0)
+            //动物拼接的第一步,第二步时，头不可以动
+            if (joinMainView.step == 1 || joinMainView.step == 2)
             {
-                return;
+                if (partType == PartType.Head && dragCount != 0)
+                {
+                    return;
+                }
+            }
+
+            //动物拼接的第三步第四步，眼睛鼻子不可以动
+            if (joinMainView.step == 3 || joinMainView.step == 4)
+            {
+                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
+                {
+                    return;
+                }
             }
         }
-        //动物拼接的第三步第四步，眼睛鼻子不可以动
-        if (joinMainView.step == 3 || joinMainView.step == 4)
+        else
         {
-            if (partType==PartType.LeftEye||partType==PartType.RightEye||partType==PartType.Mouth)
+            if (joinMainView.step == 1)
             {
                 return;
             }
@@ -181,7 +180,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         //选中画笔的情况下，素材不可以拖动
-        Debug.Log("type:" + GameManager.instance.curJoinType);
         if (GameManager.instance.curJoinType == JoinType.Animal)
         {
             //动物拼接的第一步,第二步时，头不可以动
@@ -189,7 +187,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             {
                 if (partType == PartType.Head && dragCount != 0)
                 {
-                    Debug.Log("return1");
                     return;
                 }
             }
@@ -213,6 +210,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         Vector3 globalMousePos;
         RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
         transform.position = globalMousePos + offset;
+        //头不进行边界判断，只在拖拽结束的时候判断
         if (partType == PartType.Head)
         {
             return;
@@ -255,6 +253,19 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                     joinMainView.targetHeadPos = transform.localPosition;
                 }
             }
+            //拖头上来的时候，把眼睛嘴巴作为头的子节点
+            if (partType == PartType.Head && dragCount == 0)
+            {
+                joinMainView.EyeMouthHairCG.transform.SetParent(transform);
+                joinMainView.EyeMouthHairCG.transform.localPosition = Vector3.zero;
+                if (transform.parent.childCount > 1)
+                {
+                    for (int i = 0; i < transform.parent.childCount - 1; i++)
+                    {
+                        Destroy(transform.parent.GetChild(i).gameObject);
+                    }
+                }
+            }
         }
         else
         {
@@ -263,18 +274,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 return;
             }
         }
-        if (partType == PartType.Head && dragCount == 0)
-        {
-            joinMainView.EyeMouthHairCG.transform.SetParent(transform);
-            joinMainView.EyeMouthHairCG.transform.localPosition = Vector3.zero;
-            if (transform.parent.childCount>1)
-            {
-                for (int i = 0; i < transform.parent.childCount-1; i++)
-                {
-                    Destroy(transform.parent.GetChild(i).gameObject);
-                }
-            }
-        }
+
         joinMainView.ShowBackBtn(false);
         dragCount++;
         if (GameManager.instance.curJoinType==JoinType.Animal && joinMainView.step == 1)
@@ -312,15 +312,15 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 posy = anchorLeftTop.y - rt.sizeDelta.y * partScale.y / 2;
             }
             rt.DOAnchorPos(new Vector2(posx, posy), 0.5f);
-            return;
         }
         else
         {
-            Debug.Log("delete:"+partType);
             if (partType == PartType.Body || partType == PartType.Head)
             {
-                SetState(true);
-                transform.DOLocalMove(joinMainView.targetHeadPos, 0.5f);
+                joinMainView.SetSelectResObj(null);
+                transform.DOLocalMove(joinMainView.defaultTargetPos, 0.5f);
+                joinMainView.targetHeadPos = joinMainView.defaultTargetPos;
+                joinMainView.HeadCG.transform.GetChild(0).DOScale(joinMainView.targetScale, 0.5f);
                 return;
             }
             joinMainView.SetSelectResObj(null);
@@ -391,7 +391,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             return Utils.IsRectTransformInside(transform.GetComponent<RectTransform>(), transform.parent.parent.GetComponent<RectTransform>());
         }
-       
         if (transform.position.x > leftTop.x
             && transform.position.x < rightBottom.x
             && transform.position.y > rightBottom.y

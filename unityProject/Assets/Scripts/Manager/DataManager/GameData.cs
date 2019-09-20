@@ -72,7 +72,7 @@ public class GameData:SingletonPersistent<GameData>
         string drawNumAudioPath = "Audio/num_template|template_num_{0}";
         //10个数字
         string homeAnimalPath = "sprite/homeitems|splice_home_animal_{0}_pic";
-        string drawAnimalAudioPath = "Audio/num_template|template_animal_{0}";
+        string drawAnimalAudioPath = "Audio/animal_template|template_animal_{0}";
 
         for (int i = 0; i < 26; i++)
         {

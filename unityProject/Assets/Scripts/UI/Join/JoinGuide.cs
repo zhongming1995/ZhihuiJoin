@@ -222,7 +222,7 @@ public class JoinGuide : MonoBehaviour
             {
                 if (rCount % 4 == 1)
                 {
-                    DoHandReminder();
+                    DoTrueBodyReminder();
                 }
                 else if (rCount % 4 == 2)
                 {
@@ -230,7 +230,7 @@ public class JoinGuide : MonoBehaviour
                 }
                 else if (rCount % 4 == 3)
                 {
-                    DoTrueBodyReminder();
+                    DoHandReminder();
                 }
                 else if (rCount % 4 == 0)
                 {
@@ -277,9 +277,15 @@ public class JoinGuide : MonoBehaviour
         {
             path = "Audio/reminder/letter|guide_letter_01";
         }
-        else
+        else if (GameManager.instance.curJoinType == JoinType.Num)
         {
             path = "Audio/reminder/num|guide_num_01";
+        }
+        else
+        {
+            int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+            string formatString = "Audio/reminder/animal|guide_animal_{0}_01";
+            path = string.Format(formatString, offsetIndex);
         }
         DoScaleAni(joinMainView.typeTransList[1].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -292,9 +298,15 @@ public class JoinGuide : MonoBehaviour
         {
             path = "Audio/reminder/letter|guide_letter_02";
         }
-        else
+        else if (GameManager.instance.curJoinType == JoinType.Num)
         {
             path = "Audio/reminder/num|guide_num_02";
+        }
+        else
+        {
+            int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+            string formatString = "Audio/reminder/animal|guide_animal_{0}_02";
+            path = string.Format(formatString, offsetIndex);
         }
         DoScaleAni(joinMainView.typeTransList[2].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -302,17 +314,7 @@ public class JoinGuide : MonoBehaviour
 
     private void DoHairReminder()
     {
-        string path = string.Empty;
-        if (GameManager.instance.curJoinType == JoinType.Letter)
-        {
-            path = "Audio/reminder/letter|guide_letter_03";
-        }
-        else
-        {
-            path = "Audio/reminder/num|guide_num_03";
-        }
-        DoScaleAni(joinMainView.typeTransList[3].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
+        Debug.Log("没头发");
     }
 
     private void DoHatReminder()
@@ -320,11 +322,17 @@ public class JoinGuide : MonoBehaviour
         string path = string.Empty;
         if (GameManager.instance.curJoinType == JoinType.Letter)
         {
-            path = "Audio/reminder/letter|guide_letter_04";
+            path = "Audio/reminder/letter|guide_letter_05";
+        }
+        else if (GameManager.instance.curJoinType == JoinType.Num)
+        {
+            path = "Audio/reminder/num|guide_num_05";
         }
         else
         {
-            path = "Audio/reminder/num|guide_num_04";
+            int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+            string formatString = "Audio/reminder/animal|guide_animal_{0}_05";
+            path = string.Format(formatString, offsetIndex);
         }
         DoScaleAni(joinMainView.typeTransList[4].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -335,11 +343,17 @@ public class JoinGuide : MonoBehaviour
         string path = string.Empty;
         if (GameManager.instance.curJoinType == JoinType.Letter)
         {
-            path = "Audio/reminder/letter|guide_letter_05";
+            path = "Audio/reminder/letter|guide_letter_06";
+        }
+        else if (GameManager.instance.curJoinType == JoinType.Num)
+        {
+            path = "Audio/reminder/num|guide_num_06";
         }
         else
         {
-            path = "Audio/reminder/num|guide_num_05";
+            int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+            string formatString = "Audio/reminder/animal|guide_animal_{0}_06";
+            path = string.Format(formatString, offsetIndex);
         }
         DoScaleAni(joinMainView.typeTransList[5].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -350,11 +364,17 @@ public class JoinGuide : MonoBehaviour
         string path = string.Empty;
         if (GameManager.instance.curJoinType == JoinType.Letter)
         {
-            path = "Audio/reminder/letter|guide_letter_06";
+            path = "Audio/reminder/letter|guide_letter_03";
+        }
+        else if (GameManager.instance.curJoinType == JoinType.Num)
+        {
+            path = "Audio/reminder/num|guide_num_03";
         }
         else
         {
-            path = "Audio/reminder/num|guide_num_06";
+            int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+            string formatString = "Audio/reminder/animal|guide_animal_{0}_03";
+            path = string.Format(formatString, offsetIndex);
         }
         DoScaleAni(joinMainView.typeTransList[6].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -365,11 +385,17 @@ public class JoinGuide : MonoBehaviour
         string path = string.Empty;
         if (GameManager.instance.curJoinType == JoinType.Letter)
         {
-            path = "Audio/reminder/letter|guide_letter_07";
+            path = "Audio/reminder/letter|guide_letter_04";
+        }
+        else if (GameManager.instance.curJoinType == JoinType.Num)
+        {
+            path = "Audio/reminder/num|guide_num_04";
         }
         else
         {
-            path = "Audio/reminder/num|guide_num_07";
+            int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
+            string formatString = "Audio/reminder/animal|guide_animal_{0}_04";
+            path = string.Format(formatString, offsetIndex);
         }
         DoScaleAni(joinMainView.typeTransList[7].transform);
         AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
@@ -378,16 +404,7 @@ public class JoinGuide : MonoBehaviour
     private void DoTrueBodyReminder()
     {
         string path = string.Empty;
-        if (GameManager.instance.curJoinType == JoinType.Letter)
-        {
-            path = "Audio/reminder/letter|guide_letter_09";
-        }
-        else
-        {
-            path = "Audio/reminder/num|guide_num_09";
-        }
         DoScaleAni(joinMainView.typeTransList[9].transform);
-        AudioManager.instance.PlayAudio(EffectAudioType.Reminder, path);
     }
 
     private void DoScaleAni(Transform trans)
