@@ -53,10 +53,12 @@
 extern "C" {
 #endif
     
-    void resumeTime() {
+    void UnityToIOS_ResumeTime() {
+         NSLog(@"开始计时～～～～～～～");
         [[ZPRestTimeManager shareInstance] resume];
     }
-    void pauseTime() {
+    void UnityToIOS_PauseTime() {
+         NSLog(@"暂停计时～～～～～～～");
         [[ZPRestTimeManager shareInstance] pause];
     }
     
