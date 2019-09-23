@@ -22,6 +22,8 @@ public class HomeView : MonoBehaviour
     {
         //初始化位置
         //GameManager.instance.homeContentPosx = 0;
+        //开始计时
+        CallManager.instance.UnityToPlatform_ResumeTime();
         //按钮点击事件
         BtnClickEvent();
        

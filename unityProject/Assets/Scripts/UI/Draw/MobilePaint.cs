@@ -512,7 +512,6 @@ namespace Draw_MobilePaint
         void ReadBgImage()
         {
             Debug.Log("ReadBgImage=============");
-            //read bg image
             maskPixels = new byte[texWidth * texHeight * 4];
             int pixel = 0;
             Color32[] tempPixels = ((Texture2D)myRenderer.material.GetTexture(targetTexture)).GetPixels32();//获取mask纹理

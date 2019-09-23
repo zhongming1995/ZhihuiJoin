@@ -50,6 +50,7 @@ public class CalendarView : MonoBehaviour
         SetPageSwitchBtn();
         SwitchDelBtn(true);
         HideDetail();
+        CallManager.instance.UnityToPlatform_ResumeTime();
     }
 
     private void InitPageContent()

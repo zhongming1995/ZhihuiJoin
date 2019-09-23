@@ -190,7 +190,7 @@ public class DisplayView : MonoBehaviour
         if (GameManager.instance.displayType==DisplayType.FirstDisplay)
         {
             PSDisplay.Play();
-            AudioManager.instance.PlayOneShotAudio("Audio/bgm|show");
+            AudioManager.instance.PlayOneShotAudio("Audio/effect|show");
             Invoke("Greeting", 0f);
             Invoke("Greeting", 1.5f);
         }

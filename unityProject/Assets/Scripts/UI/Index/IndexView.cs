@@ -26,6 +26,7 @@ public class IndexView : MonoBehaviour
     private void OnEnable()
     {
         SetCalendarButton();
+        CallManager.instance.UnityToPlayform_PauseTime();
     }
 
     private void SetCalendarButton()
@@ -47,8 +48,6 @@ public class IndexView : MonoBehaviour
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PersonManager.instance.CurPersonPageIndex = 0;
-            //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Calendar);
             TransitionView.instance.OpenTransition();
         });
@@ -61,8 +60,6 @@ public class IndexView : MonoBehaviour
         BtnLetter.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Letter;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //GameManager.instance.SetNextViewPath(PanelName.HomeView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Home);
             TransitionView.instance.OpenTransition();
         });
@@ -70,8 +67,6 @@ public class IndexView : MonoBehaviour
         BtnNumber.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Num;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //GameManager.instance.SetNextViewPath(PanelName.HomeView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Home);
             TransitionView.instance.OpenTransition();
         });
@@ -79,8 +74,6 @@ public class IndexView : MonoBehaviour
         BtnAnimal.onClick.AddListener(delegate {
             GameManager.instance.curJoinType = JoinType.Animal;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //GameManager.instance.SetNextViewPath(PanelName.HomeView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Home);
             TransitionView.instance.OpenTransition();
         });

@@ -36,8 +36,8 @@ public class CalendarDetailView : MonoBehaviour
     private Texture2D staticTexture;//静态展示图片
     private string savePath = String.Empty;
 
-    [DllImport("__Internal")]
-    private static extern void UnityToIOS_SavePhotoToAlbum(string path);
+    //[DllImport("__Internal")]
+    //private static extern void UnityToIOS_SavePhotoToAlbum(string path);
 
     private void OnEnable()
     {
@@ -65,8 +65,6 @@ public class CalendarDetailView : MonoBehaviour
     {
         BtnBack.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Calendar);
             TransitionView.instance.OpenTransition();
         });
@@ -95,7 +93,7 @@ public class CalendarDetailView : MonoBehaviour
             ShowMask(true);
 #endif
             string path = PersonManager.instance.PersonImgPath + "/" + PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex] + ".png";
-            UnityToIOS_SavePhotoToAlbum(path);
+            CallManager.instance.UnityToPlatform_SavePhotoToAlbum(path);
         });
 
         BtnEdit.onClick.AddListener(delegate {
@@ -141,7 +139,6 @@ public class CalendarDetailView : MonoBehaviour
 
     private void SetBtnActive(int _curIndex,int total)
     {
-        Debug.Log("curindex:------" + _curIndex + "  :"+detailList.Count);
         if (_curIndex == 0)
         {
             BtnPre.gameObject.SetActive(false);
