@@ -182,11 +182,9 @@ public class DisplayView : MonoBehaviour
         yield return new WaitForEndOfFrame();
         //截屏
         staticTexture.ReadPixels(rect, 0, 0, true);
-        Color32 color = new Color32(0,0,0,0);
         staticTexture.Apply();
         yield return staticTexture;
         SavePic();
-
         if (GameManager.instance.displayType==DisplayType.FirstDisplay)
         {
             PSDisplay.Play();
@@ -204,16 +202,7 @@ public class DisplayView : MonoBehaviour
         BtnGame.interactable = true;//保存按钮才可以用
         BtnBack.interactable = true;//保存按钮才可以用
         BtnHome.interactable = true;//保存按钮才可以用
-        //UnityToIOS_SavePhotoToAlbum(savePath);//保存到相册
     }
-
-    //public void EndWrite(IAsyncResult result)
-    //{
-    //    FileStream fileStream = (FileStream)result.AsyncState;
-    //    fileStream.EndWrite(result);
-    //    fileStream.Close();
-    //    Debug.Log("异步保存图片字节完成------------");
-    //}
 
     public void Greeting()
     {

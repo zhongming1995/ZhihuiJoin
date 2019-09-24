@@ -89,13 +89,7 @@ public class JoinMainView : MonoBehaviour
 
     void Update()
     {
-        if (mobilePaint != null)
-        {
-            if (GameManager.instance.curSelectResType == 0)
-            {
-                mobilePaint.MousePaint();
-            }
-        }
+
 
         //示意图缩放
         if (isRefrenceZoomIning)
@@ -103,6 +97,29 @@ public class JoinMainView : MonoBehaviour
             if (Time.realtimeSinceStartup-curTime >= 3)
             {
                 ReferenceZoomOut();
+            }
+        }
+
+        //动物拼接时，如果没有头，不让下一步
+        if (GameManager.instance.curJoinType == JoinType.Animal)
+        {
+            if (step == 1 && HeadCG.transform.childCount == 0)
+            {
+                BtnNext.gameObject.SetActive(false);
+            }
+            else
+            {
+                BtnNext.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            if (mobilePaint != null)
+            {
+                if (GameManager.instance.curSelectResType == 0)
+                {
+                    mobilePaint.MousePaint();
+                }
             }
         }
     }

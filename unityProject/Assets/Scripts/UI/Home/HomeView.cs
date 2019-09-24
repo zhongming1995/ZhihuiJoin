@@ -45,7 +45,7 @@ public class HomeView : MonoBehaviour
         else if (GameManager.instance.curJoinType == JoinType.Animal)
         {
             StartIndex = 36;
-            EndIndex = 38;
+            EndIndex = 41;
         }
 
         for (int i = StartIndex; i <= EndIndex; i++)

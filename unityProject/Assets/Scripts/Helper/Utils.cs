@@ -82,23 +82,21 @@ public class Utils
     {
         Debug.Log(rect1.anchoredPosition);
         Debug.Log(rect2.anchoredPosition);
-        float rect1MinX = rect1.anchoredPosition.x - rect1.rect.width / 2;
-        float rect1MaxX = rect1.anchoredPosition.x + rect1.rect.width / 2;
-        float rect1MinY = rect1.anchoredPosition.y - rect1.rect.height / 2;
-        float rect1MaxY = rect1.anchoredPosition.y + rect1.rect.height / 2;
-        Debug.Log("1:"+rect1MinX + ",  " + rect1MaxX + ",  " + rect1MinY + ",  " + rect1MaxY);
+        float rect1MinX = rect1.anchoredPosition.x - rect1.rect.width / 2;//矩形1的左x
+        float rect1MaxX = rect1.anchoredPosition.x + rect1.rect.width / 2;//矩形1的右x
+        float rect1MinY = rect1.anchoredPosition.y - rect1.rect.height / 2;//矩形1的下y
+        float rect1MaxY = rect1.anchoredPosition.y + rect1.rect.height / 2;//矩形1的上y
 
-        float rect2MinX = rect2.anchoredPosition.x - rect2.rect.width / 2;
-        float rect2MaxX = rect2.anchoredPosition.x + rect2.rect.width / 2;
-        float rect2MinY = rect2.anchoredPosition.y - rect2.rect.height / 2;
-        float rect2MaxY = rect2.anchoredPosition.y + rect2.rect.height / 2;
-        Debug.Log("2:"+rect2MinX + ",  " + rect2MaxX + ",  " + rect2MinY + ",  " + rect2MaxY);
+        float rect2MinX = rect2.anchoredPosition.x - rect2.rect.width / 2;//矩形1的左x
+        float rect2MaxX = rect2.anchoredPosition.x + rect2.rect.width / 2;//矩形1的右x
+        float rect2MinY = rect2.anchoredPosition.y - rect2.rect.height / 2;//矩形1的下y
+        float rect2MaxY = rect2.anchoredPosition.y + rect2.rect.height / 2;//矩形1的上y
 
+        //rect2包含rect1
         bool IsInside1 = rect1MinX >= rect2MinX && rect1MaxX <= rect2MaxX && rect1MinY >= rect2MinY && rect1MaxY <= rect2MaxY;
+        //rect1包含rect2
         bool IsInside2 = rect2MinX >= rect1MinX && rect2MaxX <= rect1MaxX && rect2MinY >= rect1MinY && rect2MaxY <= rect1MaxY;
-        Debug.Log(IsInside1 + "   " + IsInside2);
         bool notOverlap = IsInside1 || IsInside2;
-        Debug.Log("rect1:" + rect1.name + " rect2:" + rect2.name + "  result:" + notOverlap);
         return notOverlap;
     }
 

@@ -13,7 +13,7 @@ namespace Common.PreImprot.Editor
     {
         void OnPreprocessTexture()
         {
-            if (assetPath.Contains("Res/Atlas") || assetPath.Contains("Res/Sprite"))
+            if (assetPath.Contains("Res/Atlas") || assetPath.Contains("Res/Sprite")||assetPath.Contains("Res/Resources/Sprite"))
             {
                 string atlasName = new DirectoryInfo(Path.GetDirectoryName(assetPath)).Name;
                 TextureImporter textureImporter = assetImporter as TextureImporter;
