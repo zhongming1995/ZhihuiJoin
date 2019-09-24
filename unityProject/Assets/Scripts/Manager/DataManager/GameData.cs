@@ -829,7 +829,11 @@ public class GameData:SingletonPersistent<GameData>
         {
             int num = 0;
             string mpath = ModulePathList[index][0];
-            if (mpath.Contains("|"))
+            if (mpath=="")
+            {
+                num = Math.Min(6, resPathList[1].Count);
+            }
+            else
             {
                 string[] leftst = ModulePathList[index][0].Split('|');
                 string[] rightst = ModulePathList[index][1].Split('|');
@@ -838,18 +842,9 @@ public class GameData:SingletonPersistent<GameData>
                     pathList.Add("sprite/fodder/eye|" + leftst[i]);
                     pathList.Add("sprite/fodder/eye|" + rightst[i]);
                 }
-                num = Math.Min(4, resPathList[1].Count);
+                num = Math.Min(6 - leftst.Length, resPathList[1].Count);
             }
-            else if(mpath != "")
-            {
-                pathList.Add("sprite/fodder/eye|" + ModulePathList[index][0]);
-                pathList.Add("sprite/fodder/eye|" + ModulePathList[index][1]);
-                num = Math.Min(5, resPathList[1].Count);
-            }
-            else
-            {
-                num = Math.Min(6, resPathList[1].Count);
-            }
+          
             int sIndex = 0;
             int eIndex = resPathList[1].Count;
             for (int i = 0; i < num; i++)
@@ -870,12 +865,16 @@ public class GameData:SingletonPersistent<GameData>
             int num = 0;
             if (mpath=="")
             {
-                num = Math.Min(6, resPathList[2].Count);
+                num = Math.Min(5, resPathList[2].Count);
             }
             else
             {
-                num = Math.Min(5, resPathList[2].Count);
-                pathList.Add("sprite/fodder/mouth|" + mpath);
+                string[] tempPathLst = mpath.Split('|');
+                for (int i = 0; i < tempPathLst.Length; i++) {
+                    pathList.Add("sprite/fodder/mouth|" + tempPathLst[i]);
+                }
+                num = Math.Min(5-tempPathLst.Length, resPathList[2].Count);
+
             }
             int sIndex = 0;
             int eIndex = resPathList[2].Count;
@@ -900,9 +899,14 @@ public class GameData:SingletonPersistent<GameData>
             }
             else
             {
-                num = Math.Min(5, resPathList[6].Count);
-                pathList.Add("sprite/fodder/hand|" + mpath);
-                pathList.Add("sprite/fodder/hand|" + ModulePathList[index][4]);
+                string[] leftst = ModulePathList[index][3].Split('|');
+                string[] rightst = ModulePathList[index][4].Split('|');
+                for (int i = 0; i < leftst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/hand|" + leftst[i]);
+                    pathList.Add("sprite/fodder/hand|" + rightst[i]);
+                }
+                num = Math.Min(6- leftst.Length, resPathList[6].Count);
             }
             int sIndex = 0;
             int eIndex = resPathList[6].Count;
@@ -928,9 +932,14 @@ public class GameData:SingletonPersistent<GameData>
             }
             else
             {
-                num = Math.Min(4, resPathList[7].Count);
-                pathList.Add("sprite/fodder/leg|" + mpath);
-                pathList.Add("sprite/fodder/leg|" + ModulePathList[index][6]);
+                string[] leftst = ModulePathList[index][5].Split('|');
+                string[] rightst = ModulePathList[index][6].Split('|');
+                for (int i = 0; i < leftst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/leg|" + leftst[i]);
+                    pathList.Add("sprite/fodder/leg|" + rightst[i]);
+                }
+                num = Math.Min(5- leftst.Length, resPathList[7].Count);
             }
             int sIndex = 0;
             int eIndex = resPathList[7].Count;
@@ -956,8 +965,12 @@ public class GameData:SingletonPersistent<GameData>
             }
             else
             {
-                num = Math.Min(4, resPathList[4].Count);
-                pathList.Add("sprite/fodder/hat|" + mpath);
+                string[] tempPathLst = mpath.Split('|');
+                for (int i = 0; i < tempPathLst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/hat|" + tempPathLst[i]);
+                }
+                num = Math.Min(5- tempPathLst.Length, resPathList[4].Count);
             }
             int sIndex = 0;
             int eIndex = resPathList[4].Count;
@@ -965,7 +978,7 @@ public class GameData:SingletonPersistent<GameData>
             {
                 Random rd = new Random();
                 int n = rd.Next(sIndex, eIndex);
-                while (pathList.Contains(resPathList[4][n]) || n % 2 != 0)
+                while (pathList.Contains(resPathList[4][n]))
                 {
                     n = rd.Next(sIndex, eIndex);
                 }
@@ -982,8 +995,12 @@ public class GameData:SingletonPersistent<GameData>
             }
             else
             {
-                num = Math.Min(5, resPathList[5].Count);
-                pathList.Add("sprite/fodder/headwear|" + mpath);
+                string[] tempPathLst = mpath.Split('|');
+                for (int i = 0; i < tempPathLst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/headwear|" + tempPathLst[i]);
+                }
+                num = Math.Min(6-tempPathLst.Length, resPathList[5].Count);
             }
             int sIndex = 0;
             int eIndex = resPathList[5].Count;
@@ -991,7 +1008,7 @@ public class GameData:SingletonPersistent<GameData>
             {
                 Random rd = new Random();
                 int n = rd.Next(sIndex, eIndex);
-                while (pathList.Contains(resPathList[5][n]) || n % 2 != 0)
+                while (pathList.Contains(resPathList[5][n]))
                 {
                     n = rd.Next(sIndex, eIndex);
                 }
@@ -1000,11 +1017,65 @@ public class GameData:SingletonPersistent<GameData>
         }
         else if (type == TemplateResType.Head)
         {
-            pathList = resPathList[8];
-        }else if (type == TemplateResType.TrueBody)
-        {
-            pathList = resPathList[9];
+            string mpath = ModulePathList[index][9];
+            int num = 0;
+            if (mpath == "")
+            {
+                num = Math.Min(3, resPathList[8].Count);
+            }
+            else
+            {
+                string[] tempPathLst = mpath.Split('|');
+                for (int i = 0; i < tempPathLst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/head|" + tempPathLst[i]);
+                }
+                num = Math.Min(3 - tempPathLst.Length, resPathList[8].Count);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[8].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[8][n]))
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[8][n]);
+            }
         }
+        else if (type == TemplateResType.TrueBody)
+        {
+            string mpath = ModulePathList[index][10];
+            int num = 0;
+            if (mpath == "")
+            {
+                num = Math.Min(3, resPathList[9].Count);
+            }
+            else
+            {
+                string[] tempPathLst = mpath.Split('|');
+                for (int i = 0; i < tempPathLst.Length; i++)
+                {
+                    pathList.Add("sprite/fodder/body|" + tempPathLst[i]);
+                }
+                num = Math.Min(3 - tempPathLst.Length, resPathList[9].Count);
+            }
+            int sIndex = 0;
+            int eIndex = resPathList[9].Count;
+            for (int i = 0; i < num; i++)
+            {
+                Random rd = new Random();
+                int n = rd.Next(sIndex, eIndex);
+                while (pathList.Contains(resPathList[9][n]))
+                {
+                    n = rd.Next(sIndex, eIndex);
+                }
+                pathList.Add(resPathList[9][n]);
+            }
+        }
+
         return pathList;
     }
 }

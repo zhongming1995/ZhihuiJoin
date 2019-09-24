@@ -33,7 +33,7 @@ public class AppEntry : SingletonMono<AppEntry>
             GameManager.instance.SetNextSceneName(SceneName.Index);
             StartCoroutine(TransitionView.instance.LoadSceneAsync());
         }
-        
+       
         //异步加载方式
         //ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
     }

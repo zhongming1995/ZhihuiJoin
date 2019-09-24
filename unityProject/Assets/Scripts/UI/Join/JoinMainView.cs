@@ -549,7 +549,6 @@ public class JoinMainView : MonoBehaviour
     private void ShowResListByType(TemplateResType type)
     {
         //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
-        Debug.Log("showREsLitByType:"+type);
         SetCurSelectType(type);
         for (int i = 0; i < GameData.instance.resTypeCount; i++)
         {
@@ -813,7 +812,7 @@ public class JoinMainView : MonoBehaviour
         }
         string resPrefabPath = GameData.instance.resPrefabPathList[type];
         List<string> resPath;
-        if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body &&GameManager.instance.curJoinType!=JoinType.Animal)
+        if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body)
         {
             resPath = GameData.instance.GetPathList(GameManager.instance.homeSelectIndex, (TemplateResType)type);
         }
