@@ -48,7 +48,7 @@ public class CardController : SingletonMono<CardController>
         else
         {
             startIndex = 37;
-            endIndex = 39;
+            endIndex = 42;
         }
         int cardSingleNum = 0;
         Debug.Log("chapter:" + chapter);
@@ -99,13 +99,11 @@ public class CardController : SingletonMono<CardController>
             compareList.Add(card);
             if (compareList[0].ID==card.ID)
             {
-                Debug.Log("===相同，消除===");
                 cardDismiss?.Invoke(compareList[0],compareList[1]);
                 ClearCompareList();
             }
             else
             {
-                Debug.Log("===不同，翻回去===");
                 cardFlipBack?.Invoke(compareList[0],compareList[1]);
                 ClearCompareList();
             }
@@ -135,7 +133,6 @@ public class CardController : SingletonMono<CardController>
 
     public void DeletePair(int id)
     {
-        Debug.Log("before");
         for (int i = 0; i < cardAllList.Count; i++)
         {
             Debug.Log(cardAllList[i].ID);
@@ -152,7 +149,6 @@ public class CardController : SingletonMono<CardController>
             }
         }
 
-        Debug.Log("after");
         for (int i = 0; i < cardAllList.Count; i++)
         {
             Debug.Log(cardAllList[i].ID);

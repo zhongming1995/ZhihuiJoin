@@ -864,31 +864,23 @@ public class JoinMainView : MonoBehaviour
         }
         for (int j = 0; j < resPath.Count; j++)
         {
-            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, new Vector3(scale,scale,scale), false);
-            //GameObject resObj = UIHelper.instance.LoadPrefabNoScale(resPrefabPath, ResContentList[type],Vector3.zero);
+            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, Vector3.one, false);
+            string imgPath = resPath[j];
+            Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
+            UIHelper.instance.SetImage(imgPath, resImg, true);
+            RectTransform imgRect = resImg.GetComponent<RectTransform>();
+            float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
+            imgRect.localScale = new Vector3(scale, scale, scale);
             if (type == 1 || type == 6 || type == 7)
             {
-                string imgPath = resPath[j];
-                if (type != 0)
-                {
-                    //imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                }
-                Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
-                UIHelper.instance.SetImage(imgPath, resImg, true);
-                float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
-                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, y + 40);
-                resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, imgRect.sizeDelta.y * scale);//40
             }
             else
             {
-                //string imgPath = GameManager.instance.FodderToSamllFodderPath(resPath[j]);
-                string imgPath = resPath[j];
-                Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
-                UIHelper.instance.SetImage(imgPath, resImg, true);
-                float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
-                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width+20, y+45);
-                resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 20, imgRect.sizeDelta.y * scale);//45
             }
+            resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
+
         }
         loadResult[type] = true;
     }

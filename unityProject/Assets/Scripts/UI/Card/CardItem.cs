@@ -53,7 +53,7 @@ public class CardItem : MonoBehaviour
                 Debug.Log(GameManager.instance.curWhole.ModelIndex);
                 GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole);
                 person.transform.SetParent(ImgCardMask.transform);
-                person.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                person.transform.localScale = new Vector3(0.22f, 0.22f, 0.22f);
                 person.transform.localPosition = Vector3.zero;
                 person.transform.localRotation = new Quaternion(0, 0, 0, 0);
             }
