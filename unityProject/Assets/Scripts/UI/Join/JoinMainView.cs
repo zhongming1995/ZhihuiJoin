@@ -848,11 +848,11 @@ public class JoinMainView : MonoBehaviour
         }
         else if (type == (int)TemplateResType.Hand)
         {
-            scale = 0.4f;
+            scale = 0.35f;
         }
         else if (type == (int)TemplateResType.Hat || type == (int)TemplateResType.Eye)
         {
-            scale = 0.65f;
+            scale = 0.63f;
         }
         else if (type == (int)TemplateResType.Head)
         {
@@ -860,7 +860,7 @@ public class JoinMainView : MonoBehaviour
         }
         else
         {
-            scale = 0.6f;
+            scale = 0.5f;
         }
         for (int j = 0; j < resPath.Count; j++)
         {

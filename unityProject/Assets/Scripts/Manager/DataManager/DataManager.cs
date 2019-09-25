@@ -17,44 +17,7 @@ namespace DataMgr
         {
             instance = this;
         }
-
-        /// <summary>
-        /// 传入一个Transform,将节点下的东西转成PartData对象并放入数组中，注意现在用的画布要和以后读取的一致
-        /// trans下的节点分为：group_handleg,group_body,group_ryrmouthhair,group_hatheadwear
-        /// </summary>
-        /// <param name="trans">Trans.</param>
-        //public PartDataWhole TransformToPartsList(Transform trans,int selctIndex,byte[] pixels,byte[] drawPixel,byte[] drawTexture)
-        //{
-        //    List<PartData> parts = new List<PartData>();
-        //    for (int i = 0; i < trans.childCount; i++)
-        //    {
-        //        Transform t = trans.GetChild(i);
-        //        for (int j = 0; j < t.childCount; j++)
-        //        {
-        //            Transform img = t.GetChild(j);
-        //            if (img.GetComponent<ResDragItem>()==null || img.GetComponent<Image>().sprite == null)
-        //            {
-        //                continue;
-        //            }
-        //            Debug.Log(img.name);
-        //            PartType type = img.GetComponent<ResDragItem>().partType;
-        //            byte[] b = img.GetComponent<Image>().sprite.texture.EncodeToPNG();
-        //            float[] pos = { img.localPosition.x, img.localPosition.y, img.localPosition.z };
-        //            float[] scale =  { img.localScale.x, img.localScale.y, img.localScale.z };
-        //            PartData p = new PartData(type,b, pos, scale);
-        //            parts.Add(p);
-        //        }
-        //    }
-
-        //    PartDataWhole partDataWhole = new PartDataWhole(selctIndex, pixels, drawPixel, parts,drawTexture);
-        //    GameManager.instance.SetCurPartDataWhole(partDataWhole);
-        //    partDataList = parts;
-
-        //    //序列化
-        //    PersonManager.instance.SerializePerson(partDataWhole);
-        //    return partDataWhole;
-        //}
-
+   
         public PartDataWhole TransformToPartsList(JoinType joinType,Transform trans, int selctIndex, byte[] pixels, byte[] drawPixel, byte[] drawTexture)
         {
             List<PartData> parts = new List<PartData>();
@@ -103,7 +66,7 @@ namespace DataMgr
 
                 if (i == part.Count - 1)
                 {
-                    //最后一个部位加载完,父节点要修改的！！！
+                    //最后一个部位加载完,父节点要修改的！！！异步这块现在还没修改
                     GetOnePartAsync(path, person, pos, scale, part[i], (tmpPerson)=> {
                         Transform partParent = tmpPerson.transform;
                         for (int j = 0; j < tmpPerson.transform.childCount; j++)
