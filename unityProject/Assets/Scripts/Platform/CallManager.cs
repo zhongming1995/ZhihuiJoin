@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using UnityEngine;
+using AudioMgr;
 
 public class CallManager : SingletonMono<CallManager>
 {
@@ -12,7 +13,7 @@ public class CallManager : SingletonMono<CallManager>
         instance = this;
     }
 
-    //平台回调unity 
+    //平台回调unity,保存相册的结果
     public void PlatformToUnity_SavePhotoCallBack(string result)
     {
         Debug.Log("Recv==================:" + result);
@@ -20,6 +21,18 @@ public class CallManager : SingletonMono<CallManager>
         {
             savePhotoCallBack(result);
         }
+    }
+
+    //平台回调unity，休息页面打开回调
+    public void PlatformToUnity_ShowRestView()
+    {
+        AudioManager.instance.EffectEnable = false;
+    }
+
+    //平台回调unity，休息页面关闭回调
+    public void PlatformToUnity_HideRestView()
+    {
+        AudioManager.instance.EffectEnable = true;
     }
 
     //unity调用平台，保存到相册
@@ -42,7 +55,7 @@ public class CallManager : SingletonMono<CallManager>
 #endif
     }
 
-    //unity调用平,暂停计时
+    //unity调用平台,暂停计时
     [DllImport("__Internal")]
     private static extern void UnityToIOS_PauseTime();
     public void UnityToPlayform_PauseTime()

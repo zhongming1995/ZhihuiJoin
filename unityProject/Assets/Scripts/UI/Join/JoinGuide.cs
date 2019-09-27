@@ -134,6 +134,10 @@ public class JoinGuide : MonoBehaviour
 
     private void DoCircleReminder(int rCount)
     {
+        if (GameManager.instance.curSelectResType==TemplateResType.Head)
+        {
+            DoNextStepReminder();
+        }
         if (GameManager.instance.curSelectResType == TemplateResType.Eye)
         {
             if (rCount % 2 == 1)

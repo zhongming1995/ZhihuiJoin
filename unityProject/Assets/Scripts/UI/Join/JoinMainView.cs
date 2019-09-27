@@ -348,7 +348,7 @@ public class JoinMainView : MonoBehaviour
             ShowBackBtn(false);
             curSelectResObj.transform.localScale = new Vector3(0.5f + ImageScaleSlider.value, 0.5f + ImageScaleSlider.value, 0);
             curSelectResObj.GetComponent<ResDragItem>().SetScale(curSelectResObj.transform.localScale);
-            curSelectResObj.GetComponent<ResDragItem>().OnEndDrag(null);
+            curSelectResObj.GetComponent<ResDragItem>().OnPointerUp(null);//为了在范围内的对齐边界
         });
 
         PenScaleSlider.onValueChanged.AddListener(delegate
@@ -362,8 +362,6 @@ public class JoinMainView : MonoBehaviour
     private void HideHighLevelCanvas()
     {
         ImgDrawBg.gameObject.SetActive(false);
-        //ImgDraw.gameObject.SetActive(false);
-        //mobilePaint.gameObject.SetActive(false);
         DrawPanel.gameObject.SetActive(false);
         BtnRefrenceBg.gameObject.SetActive(false);
     }
@@ -490,13 +488,26 @@ public class JoinMainView : MonoBehaviour
             }
         }
         //以下是t不为空,且与old不是同一个物体才会执行的
+        //if (ImageScaleSlider.gameObject.activeSelf == false)
+        //{
+        //    ImageScaleSlider.gameObject.SetActive(true);
+        //}
+        //float scale = t.localScale.x - 0.5f;
+        //Debug.Log(scale);
+        //ImageScaleSlider.value = scale;
+        t.SetAsLastSibling();
+    }
+
+    //选中部位以后，缩放的滑块设置
+    public void SetScaleSlider(Transform t)
+    {
+        //以下是t不为空,且与old不是同一个物体才会执行的
         if (ImageScaleSlider.gameObject.activeSelf == false)
         {
             ImageScaleSlider.gameObject.SetActive(true);
         }
         float scale = t.localScale.x;
-        ImageScaleSlider.value = scale - 0.5f; ;
-        t.SetAsLastSibling();
+        ImageScaleSlider.value = scale - 0.5f;
     }
 
     //右侧类型图标点击事件
@@ -759,14 +770,28 @@ public class JoinMainView : MonoBehaviour
                 TrueBodyCG.gameObject.SetActive(true);
                 HandLegCG.gameObject.SetActive(true);
                 HatHeadwearCG.gameObject.SetActive(true);
-            }else if (preStep == 3 && _curStep == 2)
+                //屏蔽头上的眼睛嘴巴的触摸
+                int count = HeadCG.transform.GetChild(0).GetChild(0).childCount;
+                for (int i = 0; i < count; i++)
+                {
+                    HeadCG.transform.GetChild(0).GetChild(0).GetChild(i).GetComponent<Image>().raycastTarget = false;
+                }
+            }
+            else if (preStep == 3 && _curStep == 2)
             {
                 HeadCG.transform.GetChild(0).DOScale(1, 0.5f);
                 HeadCG.transform.GetChild(0).DOLocalMove(Vector3.zero, 0.5f);
                 TrueBodyCG.gameObject.SetActive(false);
                 HandLegCG.gameObject.SetActive(false);
                 HatHeadwearCG.gameObject.SetActive(false);
-            }else if (_curStep==2)
+                //打开头上的眼睛嘴巴的触摸
+                int count = HeadCG.transform.GetChild(0).GetChild(0).childCount;
+                for (int i = 0; i < count; i++)
+                {
+                    HeadCG.transform.GetChild(0).GetChild(0).GetChild(i).GetComponent<Image>().raycastTarget = true;
+                }
+            }
+            else if (_curStep==2)
             {
                 HeadCG.transform.GetChild(0).localScale = Vector3.one;
                 HeadCG.transform.GetChild(0).localPosition = Vector3.zero;

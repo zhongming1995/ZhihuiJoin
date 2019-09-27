@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using AudioMgr;
 
-public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDragHandler,IPointerDownHandler
+public class ResDragItem : MonoBehaviour,IDragHandler,IPointerDownHandler,IPointerUpHandler
 {
     [HideInInspector]
     public PartType partType;
@@ -27,6 +27,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
     private string resPath;
     private bool canDrag;
     private int dragCount = 0;
+    private bool HasDrag;//本次触摸是否触发了拖拽
 
     void Init()
     {
@@ -138,7 +139,57 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         return PartType.Body;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)
+    {
+        //选中画笔的情况下，素材不可以拖动
+        if (GameManager.instance.curJoinType == JoinType.Animal)
+        {
+            //动物拼接的第一步,第二步时，头不可以动
+            if (joinMainView.step == 1 || joinMainView.step == 2)
+            {
+                if (partType == PartType.Head && dragCount != 0)
+                {
+                    return;
+                }
+            }
+
+            //动物拼接的第三步第四步，眼睛鼻子不可以动
+            if (joinMainView.step == 3 || joinMainView.step == 4)
+            {
+                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
+                {
+                    return;
+                }
+            }
+        }
+        else
+        {
+            if (joinMainView.step == 1)
+            {
+                return;
+            }
+        }
+        HasDrag = true;
+        Vector3 globalMousePos;
+        RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
+        transform.position = globalMousePos + offset;
+        //头不进行边界判断，只在拖拽结束的时候判断
+        if (partType == PartType.Head)
+        {
+            return;
+        }
+        bool r = InCorrectArea();
+        if (r)
+        {
+            SetState(true);
+        }
+        else
+        {
+            SetState(false);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
     {
         joinGuide.OperationStart();
         if (isInit == false)
@@ -174,61 +225,16 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             }
         }
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y,screenPos.z));
+        offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, screenPos.z));
+        AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
+        joinMainView.SetSelectResObj(transform);
+        joinMainView.ShowBackBtn(false);
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curJoinType == JoinType.Animal)
-        {
-            //动物拼接的第一步,第二步时，头不可以动
-            if (joinMainView.step == 1 || joinMainView.step == 2)
-            {
-                if (partType == PartType.Head && dragCount != 0)
-                {
-                    return;
-                }
-            }
-
-            //动物拼接的第三步第四步，眼睛鼻子不可以动
-            if (joinMainView.step == 3 || joinMainView.step == 4)
-            {
-                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
-                {
-                    return;
-                }
-            }
-        }
-        else
-        {
-            if (joinMainView.step == 1)
-            {
-                return;
-            }
-        }
-        Vector3 globalMousePos;
-        RectTransformUtility.ScreenPointToWorldPointInRectangle(rt, eventData.position, eventData.pressEventCamera,out globalMousePos);
-        transform.position = globalMousePos + offset;
-        //头不进行边界判断，只在拖拽结束的时候判断
-        if (partType == PartType.Head)
-        {
-            return;
-        }
-        bool r = InCorrectArea();
-        if (r)
-        {
-            SetState(true);
-        }
-        else
-        {
-            SetState(false);
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData data)
     {
         joinGuide.OperationEnd();
+        joinMainView.hasDraged = true;
         //选中画笔的情况下，素材不可以拖动
         if (GameManager.instance.curJoinType == JoinType.Animal)
         {
@@ -248,7 +254,7 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 {
                     return;
                 }
-                if (partType==PartType.Head)
+                if (partType == PartType.Head)
                 {
                     joinMainView.targetHeadPos = transform.localPosition;
                 }
@@ -274,10 +280,9 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
                 return;
             }
         }
-
         joinMainView.ShowBackBtn(false);
         dragCount++;
-        if (GameManager.instance.curJoinType==JoinType.Animal && joinMainView.step == 1)
+        if (GameManager.instance.curJoinType == JoinType.Animal && joinMainView.step == 1)
         {
             if (partType == PartType.Head)
             {
@@ -290,16 +295,19 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
         if (InCorrectArea())
         {
-            AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
+            if (data!=null)
+            {
+                AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
+            }
             joinMainView.SetSelectResObj(transform);
-            joinMainView.hasDraged = true;
+            joinMainView.SetScaleSlider(transform);
             float posx = rt.anchoredPosition.x;
             float posy = rt.anchoredPosition.y;
-            if (rt.anchoredPosition.x > anchorLeftTop.x && rt.anchoredPosition.x < (anchorLeftTop.x + rt.sizeDelta.x*partScale.x / 2))
+            if (rt.anchoredPosition.x > anchorLeftTop.x && rt.anchoredPosition.x < (anchorLeftTop.x + rt.sizeDelta.x * partScale.x / 2))
             {
                 posx = anchorLeftTop.x + rt.sizeDelta.x * partScale.x / 2;
             }
-            if (rt.anchoredPosition.x < anchorRightBottom.x && rt.anchoredPosition.x > (anchorRightBottom.x - rt.sizeDelta.x* partScale.x / 2))
+            if (rt.anchoredPosition.x < anchorRightBottom.x && rt.anchoredPosition.x > (anchorRightBottom.x - rt.sizeDelta.x * partScale.x / 2))
             {
                 posx = anchorRightBottom.x - rt.sizeDelta.x * partScale.x / 2;
             }
@@ -326,46 +334,6 @@ public class ResDragItem : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
             joinMainView.SetSelectResObj(null);
             Destroy(gameObject);
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (isInit == false)
-        {
-            Init();
-        }
-
-        //选中画笔的情况下，素材不可以拖动
-        if (GameManager.instance.curJoinType==JoinType.Animal)
-        {
-            //动物拼接的第一步,第二步时，头不可以动
-            if (joinMainView.step == 1 || joinMainView.step == 2)
-            {
-                if (partType == PartType.Head && dragCount != 0)
-                {
-                    return;
-                }
-            }
-
-            //动物拼接的第三步第四步，眼睛鼻子不可以动
-            if (joinMainView.step == 3 || joinMainView.step == 4)
-            {
-                if (partType == PartType.LeftEye || partType == PartType.RightEye || partType == PartType.Mouth)
-                {
-                    return;
-                }
-            }
-        }
-        else
-        {
-            if (joinMainView.step == 1)
-            {
-                return;
-            }
-        }
-        AudioManager.instance.PlayOneShotAudio("Audio/option_audio/common_option_audio|dragend");
-        joinMainView.SetSelectResObj(transform);
-        joinMainView.ShowBackBtn(false);
     }
 
     public void SetState(bool enable)

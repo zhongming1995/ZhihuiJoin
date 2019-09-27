@@ -22,7 +22,6 @@ namespace AudioMgr {
     {
         void Awake()
         {
-            Debug.Log("AudioManager Awake" + Time.realtimeSinceStartup);
             instance = this;
         }
 
@@ -86,11 +85,15 @@ namespace AudioMgr {
                 {
                     _effectEnable = value;
                     instance.effectAudioSource.enabled = _effectEnable;
-                    if (_effectEnable)
-                    {
-                        instance.effectAudioSource.Play();
-                    }
-                    else
+                    //if (_effectEnable)
+                    //{
+                    //    instance.effectAudioSource.Play();
+                    //}
+                    //else
+                    //{
+                    //    instance.effectAudioSource.Stop();
+                    //}
+                    if (!_effectEnable)
                     {
                         instance.effectAudioSource.Stop();
                     }
