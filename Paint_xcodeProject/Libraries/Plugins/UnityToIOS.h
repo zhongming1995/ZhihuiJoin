@@ -10,4 +10,15 @@
 
 @interface UnityToIOS : NSObject
 + (instancetype)shareInstance;
+
+
+/**
+ rest action call back
+ */
+-(void)showResetViewCallBack;
+
+/**
+ end rest action call back
+ */
+-(void)hideResetViewCallBack;
 @end

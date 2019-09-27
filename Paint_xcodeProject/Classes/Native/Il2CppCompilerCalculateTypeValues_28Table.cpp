@@ -6562,6 +6562,8 @@ public:
 	bool ___canDrag_19;
 	// System.Int32 ResDragItem::dragCount
 	int32_t ___dragCount_20;
+	// System.Boolean ResDragItem::HasDrag
+	bool ___HasDrag_21;
 
 public:
 	inline static int32_t get_offset_of_partType_4() { return static_cast<int32_t>(offsetof(ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF, ___partType_4)); }
@@ -6704,6 +6706,14 @@ public:
 	inline void set_dragCount_20(int32_t value)
 	{
 		___dragCount_20 = value;
+	}
+
+	inline static int32_t get_offset_of_HasDrag_21() { return static_cast<int32_t>(offsetof(ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF, ___HasDrag_21)); }
+	inline bool get_HasDrag_21() const { return ___HasDrag_21; }
+	inline bool* get_address_of_HasDrag_21() { return &___HasDrag_21; }
+	inline void set_HasDrag_21(bool value)
+	{
+		___HasDrag_21 = value;
 	}
 };
 
@@ -8262,7 +8272,7 @@ public:
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2800 = { sizeof (ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable2800[17] = 
+extern const int32_t g_FieldOffsetTable2800[18] = 
 {
 	ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF::get_offset_of_partType_4(),
 	ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF::get_offset_of_selectMaterial_5(),
@@ -8281,6 +8291,7 @@ extern const int32_t g_FieldOffsetTable2800[17] =
 	ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF::get_offset_of_resPath_18(),
 	ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF::get_offset_of_canDrag_19(),
 	ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF::get_offset_of_dragCount_20(),
+	ResDragItem_t879AE861C2181800343D4DAE2FA735C2EB0562BF::get_offset_of_HasDrag_21(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize2801 = { sizeof (ResTemplate_tF6C25B707E777D523E56542C86210E1B85315ED5), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable2801[6] = 

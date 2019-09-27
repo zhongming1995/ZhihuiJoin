@@ -36,9 +36,9 @@ class ZPRestTimeManager: NSObject {
     
     var restTime: Int {
         let t = UserDefaults.standard.value(forKey: ZPConstantString.userDefaultRestTime) as? Int
-        return t ?? 15*60
+        return t ?? 15//15*60
     }
-    private(set) var countDownTime = 60 * 3 //倒计时
+    private(set) var countDownTime = 15//60 * 3 //倒计时
     private(set) var currentRestTime: Int = 0 //当前使用计时
     private(set) var currentCountdownTime: Int = 0 //当前休息及时
     private(set) var currentStatus: ZPRestStatus = .normal
@@ -128,8 +128,19 @@ class ZPRestTimeManager: NSObject {
         currentRestTime += checkTime
         
     }
+    
+    //打开休息页面的回调
+    func restActionCallBack() {
+        UnityToIOS.shareInstance().showResetViewCallBack()
+    }
+    
+    //关闭休息页面的回调
+    func endRestActionCallBack(){
+        UnityToIOS.shareInstance()?.hideResetViewCallBack()
+    }
     /// 开始休息
     private func restAction() {
+        restActionCallBack()
         currentStatus = .rest
         cleanTime()
         pause() //暂停
@@ -139,6 +150,7 @@ class ZPRestTimeManager: NSObject {
     
     /// 结束休息
     public func endRestAction() {
+        endRestActionCallBack()
         dismisRestVC()
         pauseCountDown()
         currentStatus = .normal

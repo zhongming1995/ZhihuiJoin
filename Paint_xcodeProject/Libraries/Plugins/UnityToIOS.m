@@ -49,6 +49,18 @@
     }
 }
 
+//休息页面打开
+-(void)showResetViewCallBack{
+    NSLog(@"休息页面开启~~~~~~");
+    UnitySendMessage("GameMain", "PlatformToUnity_ShowRestView","NULL");//调用CallManager里的PlatformToUnity_ShowRestView方法
+}
+
+//休息页面关闭
+-(void)hideResetViewCallBack{
+    NSLog(@"休息页面关闭~~~~~~");
+    UnitySendMessage("GameMain", "PlatformToUnity_HideRestView","NULL");
+}
+
 #if defined(__cplusplus)
 extern "C" {
 #endif

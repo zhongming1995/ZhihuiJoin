@@ -23,12 +23,12 @@
 #endif
 
 //关闭输出,如需开启，就将下列代码注释
-#ifdef __OBJC__
-#ifdef DEBUG
-#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
-#else
-#define NSLog(...)
-#endif
-#endif
+//#ifdef __OBJC__
+//#ifdef DEBUG
+//#define NSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+//#else
+//#define NSLog(...)
+//#endif
+//#endif
 
 #define printf_console printf
