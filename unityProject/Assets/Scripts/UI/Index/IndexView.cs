@@ -11,8 +11,6 @@ public class IndexView : MonoBehaviour
     public Button BtnAnimal;
     public Button BtnCalendar;
     public Button BtnPersonCenter;
-    [DllImport("__Internal")]
-    private static extern void UnityToIOS_GoToPersonalCenter();
 
     void Start()
     {
@@ -47,14 +45,14 @@ public class IndexView : MonoBehaviour
         BtnCalendar.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PersonManager.instance.CurPersonPageIndex = 0;
+            PersonManager.instance.CurPersonPageIndex = 0;//从首页进来每次都是第一页
+            GameManager.instance.CalendarDetailShow = false;//从首页进来是不打开某个详情页的
             GameManager.instance.SetNextSceneName(SceneName.Calendar);
             TransitionView.instance.OpenTransition();
         });
 
         BtnPersonCenter.onClick.AddListener(delegate {
-            Debug.Log("个人中心~~~~~~~~~~");
-            UnityToIOS_GoToPersonalCenter();
+            CallManager.instance.UnityToPlatform_GoToPersonalCenter();
         });
 
         BtnLetter.onClick.AddListener(delegate {

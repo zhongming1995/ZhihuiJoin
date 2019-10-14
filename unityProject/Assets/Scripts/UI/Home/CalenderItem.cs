@@ -34,6 +34,7 @@ public class CalenderItem : MonoBehaviour
         Index = _index;
         fileName = _fileName;
         string path = PersonManager.instance.PersonImgPath + "/" + fileName + ".png";
+        transform.name = _fileName;
         //StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName+".png"));
         LoadByIO(path);
         //默认隐藏删除按钮
@@ -42,7 +43,6 @@ public class CalenderItem : MonoBehaviour
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PersonManager.instance.CurPersonIndex = Index;
             CalenderController.instance.ItemChoosed(this);
             //GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
             //TransitionView.instance.OpenTransition();

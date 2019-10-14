@@ -44,7 +44,7 @@ public class CalendarPageScroll : MonoBehaviour,IBeginDragHandler,IDragHandler,I
         //右
         if (transform.localPosition.x-beginPosX < -0.25f*perItemX)
         {
-            CalenderController.instance.CurPageIndex = Mathf.Min( CalenderController.instance.CurPageIndex + 1,CalenderController.instance.PageNum-1);
+            CalenderController.instance.CurPageIndex = Mathf.Min(CalenderController.instance.CurPageIndex + 1,CalenderController.instance.PageNum-1);
         }
         //左
         else if (transform.localPosition.x - beginPosX > 0.25*perItemX)

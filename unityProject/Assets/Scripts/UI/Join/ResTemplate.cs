@@ -25,7 +25,9 @@ public class ResTemplate : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDra
     {
         joinGuide.OperationStart();
         moveSelf = true;
-        if (Mathf.Abs(eventData.delta.x) < Mathf.Abs(eventData.delta.y) )
+        //if (Mathf.Abs(eventData.delta.x) < Mathf.Abs(eventData.delta.y) )
+        Debug.Log(Mathf.Abs(eventData.delta.x) + "   " + Mathf.Abs(eventData.delta.y));
+        if (Mathf.Abs(eventData.delta.x) < 0.5f*Mathf.Abs(eventData.delta.y))
         {
             moveSelf = false;
             scrollRect.OnBeginDrag(eventData);

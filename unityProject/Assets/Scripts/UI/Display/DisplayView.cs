@@ -95,21 +95,18 @@ public class DisplayView : MonoBehaviour
 
     private void AddEvent()
     {
+        //返回按钮
         BtnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             if (GameManager.instance.openType == OpenType.FirstEdit || GameManager.instance.openType == OpenType.BackEdit)
             {
-                //PanelManager.instance.BackToView(PanelName.HomeView);
-                //GameManager.instance.SetNextViewPath(PanelName.HomeView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 GameManager.instance.SetNextSceneName(SceneName.Home);
                 TransitionView.instance.OpenTransition();
             }
             else
             {
-                //GameManager.instance.SetNextViewPath(PanelName.CalendarView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+                PersonManager.instance.CurPersonPageIndex = 0;//画册进入编辑进入保存，返回画册应该是第一页
                 GameManager.instance.SetNextSceneName(SceneName.Calendar);
                 TransitionView.instance.OpenTransition();
                 //刷新修改的人物
@@ -120,15 +117,15 @@ public class DisplayView : MonoBehaviour
             }
         });
 
+        //编辑按钮
         BtnBack.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PartDataWhole whole = GameManager.instance.curWhole;
-            //GameManager.instance.homeSelectIndex = whole.ModelIndex;
-            GameManager.instance.SetOpenType(OpenType.BackEdit);
-            //GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
+            if (GameManager.instance.openType!=OpenType.ReEdit)
+            {
+                GameManager.instance.SetOpenType(OpenType.BackEdit);
+            }
             GameManager.instance.SetNextSceneName(SceneName.Join);
             TransitionView.instance.OpenTransition();
         });

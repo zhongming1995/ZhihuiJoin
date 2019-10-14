@@ -22,9 +22,6 @@ public class CompleteWindow : WindowParent
 
     private void OnEnable()
     {
-        //window.gameObject.SetActive(false);
-        //mask.gameObject.SetActive(false);
-
         window.localScale = Vector3.zero;
         mask.transform.localScale = Vector3.zero;
         Invoke("Show", 1.0f);
@@ -120,16 +117,12 @@ public class CompleteWindow : WindowParent
             */
             if (GameManager.instance.displayType==DisplayType.NoDisplay)
             {
-                //GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-                GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
+                GameManager.instance.SetNextSceneName(SceneName.Calendar);
                 TransitionView.instance.OpenTransition();
             }
             else
             {
                 GameManager.instance.displayType = DisplayType.BackDisplay;
-                //GameManager.instance.SetNextViewPath(PanelName.DisplayView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 GameManager.instance.SetNextSceneName(SceneName.Display);
                 TransitionView.instance.OpenTransition();
             }

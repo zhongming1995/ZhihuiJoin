@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,7 +33,7 @@ public class UIScale : MonoBehaviour
         enableCount += 1;
     }
 
-    public void ScaleShow()
+    public void ScaleShow(Action cb = null)
     {
         if (gameObject.activeSelf==false)
         {
@@ -43,7 +44,10 @@ public class UIScale : MonoBehaviour
         mySequence.AppendInterval(DelayTime);
         mySequence.Append(transform.DOScale(MiddleScale, AniTime1));
         mySequence.Append(transform.DOScale(ToScale, AniTime2));
-
+        if (cb != null)
+        {
+            mySequence.AppendCallback(() => { cb(); });
+        }
     }
     public void ScaleHide()
     {

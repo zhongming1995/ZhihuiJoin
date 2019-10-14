@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,7 +47,7 @@ public class UIMove : MonoBehaviour
         mySequence.Append((transform as RectTransform).DOAnchorPos3D(ToPos, AniTime));
     }
 
-    public void MoveShow()
+    public void MoveShow(Action cb = null)
     {
         if (gameObject.activeSelf==false)
         {
@@ -55,12 +56,20 @@ public class UIMove : MonoBehaviour
         Sequence mySequence = DOTween.Sequence();
         mySequence.AppendInterval(DelayTime);
         mySequence.Append((transform as RectTransform).DOAnchorPos3D(ToPos, AniTime));
+        if (cb != null)
+        {
+            mySequence.AppendCallback(() => { cb(); });
+        }
     }
 
-    public void MoveHide()
+    public void MoveHide(Action cb = null)
     {
         Sequence mySequence = DOTween.Sequence();
         mySequence.AppendInterval(DelayTime);
         mySequence.Append((transform as RectTransform).DOAnchorPos3D(FromPos, AniTime));
+        if (cb!=null)
+        {
+            mySequence.AppendCallback(() => { cb(); });
+        }
     }
 }

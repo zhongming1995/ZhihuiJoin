@@ -107,6 +107,7 @@ public class CalendarDetailView : MonoBehaviour
             GameManager.instance.SetCurPartDataWhole(whole);
             GameManager.instance.curJoinType = whole.JoinType;
             PersonManager.instance.PersonFileName = fileName;
+            Debug.Log("1:" + fileName);
             GameManager.instance.SetNextSceneName(SceneName.Join);
             TransitionView.instance.OpenTransition();
         });
@@ -116,6 +117,9 @@ public class CalendarDetailView : MonoBehaviour
             string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
             PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);
             GameManager.instance.SetCurPartDataWhole(whole);
+            GameManager.instance.curJoinType = whole.JoinType;
+            Debug.Log("curJoinType:" + GameManager.instance.curJoinType);
+            GameManager.instance.homeSelectIndex = whole.ModelIndex;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             UIHelper.instance.LoadPrefab("Prefabs/game/window|window_choosegame", GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         });

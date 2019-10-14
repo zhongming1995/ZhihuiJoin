@@ -25,7 +25,7 @@ public class AppEntry : SingletonMono<AppEntry>
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
 
-        IsDebugging = true;
+        IsDebugging = true;//使用Resource加载
 
         /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())

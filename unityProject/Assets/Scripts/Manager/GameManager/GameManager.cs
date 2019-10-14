@@ -54,6 +54,8 @@ namespace GameMgr
         public DisplayType displayType;//展示页面的打开方式
         [HideInInspector]
         public PartDataWhole curWhole;//当前打开的本地人物数据
+        [HideInInspector]
+        public bool CalendarDetailShow;//进入画册是否显示详情
 
         [HideInInspector]
         public float ScreenWidth;

@@ -61,18 +61,15 @@ public class PauseWindow : WindowParent
         BtnDisplay.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CloseWindow();
+            //NoDisplay表示从画册直接进入游戏，返回时返回画册，其余情况是从展示页进入的游戏，返回展示页
             if (GameManager.instance.displayType == DisplayType.NoDisplay)
             {
-                //GameManager.instance.SetNextViewPath(PanelName.CalendarDetailView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
-                GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
+                GameManager.instance.SetNextSceneName(SceneName.Calendar);
                 TransitionView.instance.OpenTransition();
             }
             else
             {
                 GameManager.instance.displayType = DisplayType.BackDisplay;
-                //GameManager.instance.SetNextViewPath(PanelName.DisplayView);
-                //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
                 GameManager.instance.SetNextSceneName(SceneName.Display);
                 TransitionView.instance.OpenTransition();
             }

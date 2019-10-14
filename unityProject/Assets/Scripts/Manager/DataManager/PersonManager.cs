@@ -89,7 +89,7 @@ public class PersonManager : SingletonMono<PersonManager>
     public int GetPersonsNum()
     {
         personCount = GetPersonsList().Count;
-        Debug.Log("person num" + personCount);
+        Debug.Log("personCount:" + personCount);
         return personCount;
     }
 
@@ -107,7 +107,6 @@ public class PersonManager : SingletonMono<PersonManager>
                 pathList.Add(lst[0]);
             }
         }
-
         return pathList;
     }
 
@@ -140,9 +139,6 @@ public class PersonManager : SingletonMono<PersonManager>
         }
         Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
         PartDataWhole whole = (PartDataWhole)formatter.Deserialize(stream);
-        Debug.Log(whole.JoinType);
-        Debug.Log(whole.ModelIndex);
-        Debug.Log(whole.PartDataList);
         stream.Flush();
         stream.Close();
         return whole;

@@ -9,14 +9,12 @@ public class CallManager : SingletonMono<CallManager>
 
     void Awake()
     {
-        Debug.Log("CallManager Awake" + Time.realtimeSinceStartup);
         instance = this;
     }
 
     //平台回调unity,保存相册的结果
     public void PlatformToUnity_SavePhotoCallBack(string result)
     {
-        Debug.Log("Recv==================:" + result);
         if (savePhotoCallBack != null)
         {
             savePhotoCallBack(result);
@@ -62,6 +60,16 @@ public class CallManager : SingletonMono<CallManager>
     {
 #if UNITY_IOS && !UNITY_EDITOR
         UnityToIOS_PauseTime();
+#endif
+    }
+
+    //unity调用平台，个人中心
+    [DllImport("__Internal")]
+    private static extern void UnityToIOS_GoToPersonalCenter();
+    public void UnityToPlatform_GoToPersonalCenter()
+    {
+#if UNITY_IOS && !UNITY_EDITOR
+        UnityToIOS_GoToPersonalCenter();
 #endif
     }
 }

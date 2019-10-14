@@ -150,7 +150,8 @@ public class JoinMainView : MonoBehaviour
         AddClickEvent();
         //左下角参考缩略图
         UIHelper.instance.SetImage(GameData.instance.homePathList[GameManager.instance.homeSelectIndex], ImgReference, true);
-
+        //参考图默认做一次放大缩小
+        ReferenceClickHandler();
         //未选择素材时，滑块不出现
         if (curSelectResObj==null)
         {
@@ -190,10 +191,6 @@ public class JoinMainView : MonoBehaviour
         {
             if (GameManager.instance.curJoinType==JoinType.Animal)
             {
-                if (GameManager.instance.curWhole==null)
-                {
-                    Debug.Log("null111111");
-                }
                 joinPlus.LoadFileAnimal(GameManager.instance.curWhole);
                 step = 2;
             }
@@ -332,14 +329,7 @@ public class JoinMainView : MonoBehaviour
 
         //缩略图点击事件
         BtnRefrenceBg.onClick.AddListener(delegate {
-            if (isRefrenceZoomIning == false)
-            {
-                RefrenceZoomIn();
-            }
-            else
-            {
-                ReferenceZoomOut();
-            }
+            ReferenceClickHandler();
         });
 
         ImageScaleSlider.onValueChanged.AddListener(delegate
@@ -357,6 +347,18 @@ public class JoinMainView : MonoBehaviour
             ShowBackBtn(false);
             AdjustBurshSize(PenScaleSlider.value);
         });
+    }
+
+    private void ReferenceClickHandler()
+    {
+        if (isRefrenceZoomIning == false)
+        {
+            RefrenceZoomIn();
+        }
+        else
+        {
+            ReferenceZoomOut();
+        }
     }
 
     private void HideHighLevelCanvas()
@@ -542,10 +544,6 @@ public class JoinMainView : MonoBehaviour
                 ImgDrawBg.DOFade(0, 0.5f);
             }
         }
-        else
-        {
-
-        }
 
         Sequence seq = DOTween.Sequence();
         seq.Append(ResListTrans.DOLocalMoveX(oriPos_ResContentList, 0.3f));
@@ -559,7 +557,6 @@ public class JoinMainView : MonoBehaviour
 
     private void ShowResListByType(TemplateResType type)
     {
-        //LayoutRebuilder.ForceRebuildLayoutImmediate(ConResType.GetComponent<RectTransform>());
         SetCurSelectType(type);
         for (int i = 0; i < GameData.instance.resTypeCount; i++)
         {
@@ -589,9 +586,9 @@ public class JoinMainView : MonoBehaviour
     }
 
     //根据步骤决定显示哪个类型的素材
-    private void ShowTypeByStep(int step,bool isDefault = false)
+    private void ShowTypeByStep(int _step,bool isDefault = false)
     {
-        this.step = step;
+        step = _step;
        
         //切换步骤的动画
         SwitchStep(step,preStep);
@@ -621,7 +618,8 @@ public class JoinMainView : MonoBehaviour
             {
                 BtnPre.GetComponent<UIMove>().MoveShow();
             }
-            BtnNext.GetComponent<UIMove>().MoveShow();
+            BtnNext.interactable = false;
+            BtnNext.GetComponent<UIMove>().MoveShow(()=> { BtnNext.interactable = true; });
             BtnOk.gameObject.SetActive(false);
         }
         else if (step == 3)
@@ -634,8 +632,9 @@ public class JoinMainView : MonoBehaviour
             {
                 SetCurSelectType(TemplateResType.Hand);
             }
+            BtnNext.interactable = false;
             BtnPre.GetComponent<UIMove>().MoveShow();
-            BtnNext.GetComponent<UIMove>().MoveShow();
+            BtnNext.GetComponent<UIMove>().MoveShow(() => { BtnNext.interactable = true; });
             if (preStep == 3)
             {
                 BtnOk.GetComponent<UIScale>().ScaleHide();
@@ -650,7 +649,8 @@ public class JoinMainView : MonoBehaviour
             SetCurSelectType(TemplateResType.Hat);
             BtnPre.gameObject.SetActive(true);
             BtnNext.GetComponent<UIMove>().MoveHide();
-            BtnOk.GetComponent<UIScale>().ScaleShow();
+            BtnOk.interactable = false;
+            BtnOk.GetComponent<UIScale>().ScaleShow(()=> { BtnOk.interactable = true; });
         }
         if (isDefault == false)
         {
@@ -821,7 +821,6 @@ public class JoinMainView : MonoBehaviour
 
     void DelaySetOccupy()
     {
-        Debug.Log("透明");
         HatHeadwearCG.alpha = 0.2f;
         EyeMouthHairCG.alpha = 0.2f;
         HandLegCG.alpha = 0.2f;
@@ -892,6 +891,8 @@ public class JoinMainView : MonoBehaviour
             GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, Vector3.one, false);
             string imgPath = resPath[j];
             Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
+            Shadow shadow = resObj.transform.Find("img_res").GetComponent<Shadow>();
+
             UIHelper.instance.SetImage(imgPath, resImg, true);
             RectTransform imgRect = resImg.GetComponent<RectTransform>();
             float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
@@ -899,6 +900,17 @@ public class JoinMainView : MonoBehaviour
             if (type == 1 || type == 6 || type == 7)
             {
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, imgRect.sizeDelta.y * scale);//40
+                if (type!=1)
+                {
+                    if (j % 2 == 0)//右边
+                    {
+                        shadow.effectDistance = new Vector2(5, -5);
+                    }
+                    else
+                    {
+                        shadow.effectDistance = new Vector2(-5, -5);
+                    }
+                }
             }
             else
             {
@@ -931,10 +943,10 @@ public class JoinMainView : MonoBehaviour
         });   
     }
 
-    IEnumerator CorPlayGuideStep1(string path,int step)
+    IEnumerator CorPlayGuideStep1(string path,int _step)
     {
         yield return new WaitForSeconds(1.4f);
-        PlayGuideAudio(path,step);
+        PlayGuideAudio(path,_step);
     }
 
     private void OnDestroy()
@@ -955,7 +967,7 @@ public class JoinMainView : MonoBehaviour
     {
         if (GameManager.instance.openType == OpenType.ReEdit || GameManager.instance.joinShowAll)
         {
-            SetPartOccupy(true);
+            //Invoke("DelaySetOccupy", 0.5f);
         }
     }
 
@@ -972,11 +984,23 @@ public class JoinMainView : MonoBehaviour
         }
         if (step == 1 && percent< 80)
         {
-            BtnNext.GetComponent<UIMove>().MoveHide();
+            BtnNext.interactable = false;
+            Invoke("DelayHideNextBtn", 0.5f);
         }
         else
         {
-            BtnNext.GetComponent<UIMove>().MoveShow();
+            BtnNext.interactable = true;
+            Invoke("DelayShowNextBtn", 0.5f);
         }
+    }
+
+    private void DelayShowNextBtn()
+    {
+        BtnNext.GetComponent<UIMove>().MoveShow(()=> { BtnNext.interactable = true; });
+    }
+
+    private void DelayHideNextBtn()
+    {
+        BtnNext.GetComponent<UIMove>().MoveHide(()=> { BtnNext.interactable = true; });
     }
 }

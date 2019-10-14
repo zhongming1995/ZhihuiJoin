@@ -27,7 +27,6 @@ public class JoinPlus : MonoBehaviour
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
                 GameObject obj = null;
                 string path = "Prefabs/join|gen_res";
-                //obj = UIHelper.instance.LoadPrefab(path, person.transform, pos, scale);
                 if (partType == PartType.LeftHand || partType == PartType.RightHand || partType == PartType.LeftLeg || partType == PartType.RightLeg)//手脚
                 {
                     obj = UIHelper.instance.LoadPrefab(path, joinMainView.HandLegCG.transform, pos, scale);
@@ -42,10 +41,6 @@ public class JoinPlus : MonoBehaviour
                 }
 
                 Image img = obj.transform.GetComponent<Image>();
-                if (img == null)
-                {
-                    Debug.Log("img is null");
-                }
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
                 t.filterMode = FilterMode.Point;
                 t.LoadImage(part[i].ImgBytes);
@@ -78,31 +73,21 @@ public class JoinPlus : MonoBehaviour
         }
         if (joinMainView.mobilePaint != null)
         {
-            //joinMainView.mobilePaint.SetPixels(whole.Pixels);
-            //joinMainView.mobilePaint.SetDrawPixels(whole.DrawPixels);
-
             Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
             t.filterMode = FilterMode.Point;
             t.LoadImage(_whole.DrawTexture);
             t.Apply(false);
-            joinMainView.mobilePaint.SetPixelsTest(t, drawTexture);//zong
-            //joinMainView.mobilePaint.SetDrawPixelsTest(drawTexture);//draw
+            joinMainView.mobilePaint.SetPixelsTest(t, drawTexture);
         }
     }
 
     public void LoadFileAnimal(PartDataWhole _whole)
     {
-        Debug.Log("LoadFIleAnimal=--====");
         if (_whole==null)
         {
-            Debug.Log("null222222");
+            Debug.LogError("file is null:" + _whole.JoinType);
         }
         List<PartData> part = _whole.PartDataList;
-        if (_whole.PartDataList==null)
-        {
-            Debug.Log("null333333");
-        }
-        Debug.Log("count:" + part.Count);
         for (int i = 0; i < part.Count; i++)
         {
             PartType partType = part[i].PType;
@@ -110,7 +95,6 @@ public class JoinPlus : MonoBehaviour
             {
                 Vector3 pos = new Vector3(part[i].Pos[0], part[i].Pos[1], part[i].Pos[2]);
                 Vector3 scale = new Vector3(part[i].Scale[0], part[i].Scale[1], part[i].Scale[2]);
-                Debug.Log("=========" + partType.ToString());
                 Debug.Log(pos);
                 GameObject obj = null;
                 string path = "Prefabs/join|gen_res";
@@ -139,10 +123,6 @@ public class JoinPlus : MonoBehaviour
                     obj = UIHelper.instance.LoadPrefab(path, joinMainView.HatHeadwearCG.transform, pos, scale);
                 }
                 Image img = obj.transform.GetComponent<Image>();
-                if (img == null)
-                {
-                    Debug.Log("img is null");
-                }
                 Texture2D t = new Texture2D(500, 500, TextureFormat.RGBA32, false);
                 t.filterMode = FilterMode.Point;
                 t.LoadImage(part[i].ImgBytes);

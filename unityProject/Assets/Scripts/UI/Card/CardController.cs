@@ -35,6 +35,7 @@ public class CardController : SingletonMono<CardController>
     public List<int> GenCard(int c)
     {
         chapter = c;
+        Debug.Log("joinType:" + GameManager.instance.curJoinType);
         //根据选择的类型确定可选排面的范围
         if (GameManager.instance.curJoinType==JoinType.Letter)
         {
@@ -51,7 +52,6 @@ public class CardController : SingletonMono<CardController>
             endIndex = 42;
         }
         int cardSingleNum = 0;
-        Debug.Log("chapter:" + chapter);
         if (chapter==1)
         {
             cardSingleNum = 2;
@@ -65,7 +65,6 @@ public class CardController : SingletonMono<CardController>
         {
             cardSingleNum = 6;
         }
-        Debug.Log("num" + cardSingleNum);
         List<int> cardIndexList = new List<int>();
         cardIndexList.Add(GameManager.instance.homeSelectIndex);//当前选择拼接的牌一定会出现
         cardIndexList.Add(GameManager.instance.homeSelectIndex);//当前选择拼接的牌一定会出现
@@ -76,7 +75,6 @@ public class CardController : SingletonMono<CardController>
             while (cardIndexList.Contains(n))
             {
                 n = rd.Next(startIndex,endIndex);
-                Debug.Log("n:" + n);
             }
             cardIndexList.Add(n);
             cardIndexList.Add(n);

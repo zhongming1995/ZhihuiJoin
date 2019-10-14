@@ -27,7 +27,6 @@ public class PianoView : MonoBehaviour
     private List<ParticleSystem> particles = new List<ParticleSystem>();
     private List<int> songSpectrums;
     private DisplayPartItem[] lstDisplayItem;
-    //private DisplayPartItem[] windowlstDisplayItem;
     private int lastSymbolNum;
     private int lastDanceNum;
     private int songIndex;
@@ -141,7 +140,7 @@ public class PianoView : MonoBehaviour
             person = DataManager.instance.GetPersonObjWithFlag(GameManager.instance.curWhole, out minPosY);
         }
         person.transform.SetParent(PersonParent);
-        person.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        person.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         person.transform.localPosition = Vector3.zero;
 
         Transform flagbottom = person.transform.Find("flag_bottom").transform;
