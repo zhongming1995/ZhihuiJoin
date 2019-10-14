@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
 
 #include <pthread.h>
 
-extern "C" int pthread_cond_init$UNIX2003(pthread_cond_t *cond, const pthread_condattr_t *attr)
+     "C" int pthread_cond_init$UNIX2003(pthread_cond_t *cond, const pthread_condattr_t *attr)
 { return pthread_cond_init(cond, attr); }
 extern "C" int pthread_cond_destroy$UNIX2003(pthread_cond_t *cond)
 { return pthread_cond_destroy(cond); }

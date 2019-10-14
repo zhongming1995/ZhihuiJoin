@@ -36,9 +36,9 @@ class ZPRestTimeManager: NSObject {
     
     var restTime: Int {
         let t = UserDefaults.standard.value(forKey: ZPConstantString.userDefaultRestTime) as? Int
-        return t ?? 15//15*60
+        return t ?? 15*60//15
     }
-    private(set) var countDownTime = 15//60 * 3 //倒计时
+    private(set) var countDownTime = 60 * 3 //倒计时//15
     private(set) var currentRestTime: Int = 0 //当前使用计时
     private(set) var currentCountdownTime: Int = 0 //当前休息及时
     private(set) var currentStatus: ZPRestStatus = .normal
