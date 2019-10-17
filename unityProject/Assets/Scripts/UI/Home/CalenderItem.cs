@@ -1,6 +1,7 @@
 ﻿using AudioMgr;
 using GameMgr;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -44,8 +45,6 @@ public class CalenderItem : MonoBehaviour
         BtnDetail.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.ItemChoosed(this);
-            //GameManager.instance.SetNextSceneName(SceneName.CalendarDetail);
-            //TransitionView.instance.OpenTransition();
         });
 
         BtnDelete.onClick.AddListener(delegate {
@@ -60,12 +59,12 @@ public class CalenderItem : MonoBehaviour
 
         Texture2D t = new Texture2D(450, 450);
         t.LoadImage(bytes);
+        t.Compress(false);
+        t.Apply();
         bytes = null;
-        //GameManager.instance.SetPersonTexture(Index, t);
         rawImage.texture = t;
         t = null;
     }
-
     /*
     IEnumerator Cor_LoadImage(string path)
     {

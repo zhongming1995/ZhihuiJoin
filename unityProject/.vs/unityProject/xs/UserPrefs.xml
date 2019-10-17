@@ -1,12 +1,19 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/GameManager/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Home/CalenderItem.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Home/CalendarView.cs" Line="333" Column="35" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="110" Column="54" />
+      <File FileName="Assets/Scripts/UI/Home/CalendarView.cs" Line="337" Column="39" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="127" Column="69" />
       <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="56" Column="12" />
-      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="211" Column="23" />
+      <File FileName="Assets/Scripts/UI/Piano/PianoView.cs" Line="211" Column="48" />
       <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="276" Column="122" />
       <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="20" Column="15" />
+      <File FileName="Assets/Scripts/AppEntry.cs" Line="23" Column="45" />
+      <File FileName="Assets/Scripts/Common/Singleton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/Piano/PianoKey.cs" Line="1" Column="1" />
+      <File FileName="Temp/Compiled-ImageEffect-Hujinbo.shader" Line="16" Column="5" />
+      <File FileName="Assets/Res/Shader/ImageOutline.shader" Line="15" Column="32" />
+      <File FileName="Assets/Scripts/UI/Home/CalenderItem.cs" Line="59" Column="39" />
+      <File FileName="Assets/Scripts/Helper/FileHelper.cs" Line="30" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
