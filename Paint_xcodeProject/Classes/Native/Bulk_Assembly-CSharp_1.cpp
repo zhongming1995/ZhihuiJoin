@@ -16652,15 +16652,28 @@ extern "C" IL2CPP_METHOD_ATTR void U3CU3Ec_U3CAddEventU3Eb__33_1_mAB9C32A0D12115
 		PartDataWhole_tD5BB95B0D02E07EAFE966CD6507A4A66BB0889FF * L_2 = L_1->get_curWhole_15();
 		GameManager_t3FDE0C8ED2B92B72375E31805A27942AA0816F7C * L_3 = SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C(/*hidden argument*/SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C_RuntimeMethod_var);
 		NullCheck(L_3);
-		GameManager_SetOpenType_m5B2808ECDBABA0365D72A6A081617E0527CA5B18(L_3, 2, /*hidden argument*/NULL);
-		GameManager_t3FDE0C8ED2B92B72375E31805A27942AA0816F7C * L_4 = SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C(/*hidden argument*/SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C_RuntimeMethod_var);
+		int32_t L_4 = L_3->get_openType_13();
+		if ((((int32_t)L_4) == ((int32_t)1)))
+		{
+			goto IL_0030;
+		}
+	}
+	{
+		GameManager_t3FDE0C8ED2B92B72375E31805A27942AA0816F7C * L_5 = SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C(/*hidden argument*/SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C_RuntimeMethod_var);
+		NullCheck(L_5);
+		GameManager_SetOpenType_m5B2808ECDBABA0365D72A6A081617E0527CA5B18(L_5, 2, /*hidden argument*/NULL);
+	}
+
+IL_0030:
+	{
+		GameManager_t3FDE0C8ED2B92B72375E31805A27942AA0816F7C * L_6 = SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C(/*hidden argument*/SingletonMono_1_get_instance_m882CC6CA6E46246EBBCE0015070D8F3EB3851D7C_RuntimeMethod_var);
 		IL2CPP_RUNTIME_CLASS_INIT(SceneName_tA1639185B1C60DFA242E9A54C11A9FFE8E5C6533_il2cpp_TypeInfo_var);
-		String_t* L_5 = ((SceneName_tA1639185B1C60DFA242E9A54C11A9FFE8E5C6533_StaticFields*)il2cpp_codegen_static_fields_for(SceneName_tA1639185B1C60DFA242E9A54C11A9FFE8E5C6533_il2cpp_TypeInfo_var))->get_Join_2();
-		NullCheck(L_4);
-		GameManager_SetNextSceneName_m53A273750BC479B6CDC654FABB549E3217D21ACA(L_4, L_5, /*hidden argument*/NULL);
-		TransitionView_t56CFEA0253E93A7D2E2815415438E5F433AA8BFA * L_6 = SingletonMono_1_get_instance_m29344C603CD0B96A7F7D69E5A8FF4E31E27C99F6(/*hidden argument*/SingletonMono_1_get_instance_m29344C603CD0B96A7F7D69E5A8FF4E31E27C99F6_RuntimeMethod_var);
+		String_t* L_7 = ((SceneName_tA1639185B1C60DFA242E9A54C11A9FFE8E5C6533_StaticFields*)il2cpp_codegen_static_fields_for(SceneName_tA1639185B1C60DFA242E9A54C11A9FFE8E5C6533_il2cpp_TypeInfo_var))->get_Join_2();
 		NullCheck(L_6);
-		TransitionView_OpenTransition_mFAC173F59F45898DD28AF732636066B0B29FB5EF(L_6, /*hidden argument*/NULL);
+		GameManager_SetNextSceneName_m53A273750BC479B6CDC654FABB549E3217D21ACA(L_6, L_7, /*hidden argument*/NULL);
+		TransitionView_t56CFEA0253E93A7D2E2815415438E5F433AA8BFA * L_8 = SingletonMono_1_get_instance_m29344C603CD0B96A7F7D69E5A8FF4E31E27C99F6(/*hidden argument*/SingletonMono_1_get_instance_m29344C603CD0B96A7F7D69E5A8FF4E31E27C99F6_RuntimeMethod_var);
+		NullCheck(L_8);
+		TransitionView_OpenTransition_mFAC173F59F45898DD28AF732636066B0B29FB5EF(L_8, /*hidden argument*/NULL);
 		return;
 	}
 }

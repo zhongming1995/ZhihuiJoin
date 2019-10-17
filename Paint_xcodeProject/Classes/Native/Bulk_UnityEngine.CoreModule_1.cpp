@@ -19799,6 +19799,15 @@ extern "C" IL2CPP_METHOD_ATTR Texture2D_tBBF96AC337723E2EF156DF17E09D4379FD05DE1
 	Texture2D_tBBF96AC337723E2EF156DF17E09D4379FD05DE1C * retVal = _il2cpp_icall_func();
 	return retVal;
 }
+// System.Void UnityEngine.Texture2D::Compress(System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void Texture2D_Compress_m3D0191F151DF6D66F312D35FF76BDDE92A3ED395 (Texture2D_tBBF96AC337723E2EF156DF17E09D4379FD05DE1C * __this, bool ___highQuality0, const RuntimeMethod* method)
+{
+	typedef void (*Texture2D_Compress_m3D0191F151DF6D66F312D35FF76BDDE92A3ED395_ftn) (Texture2D_tBBF96AC337723E2EF156DF17E09D4379FD05DE1C *, bool);
+	static Texture2D_Compress_m3D0191F151DF6D66F312D35FF76BDDE92A3ED395_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Texture2D_Compress_m3D0191F151DF6D66F312D35FF76BDDE92A3ED395_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Texture2D::Compress(System.Boolean)");
+	_il2cpp_icall_func(__this, ___highQuality0);
+}
 // System.Boolean UnityEngine.Texture2D::Internal_CreateImpl(UnityEngine.Texture2D,System.Int32,System.Int32,UnityEngine.Experimental.Rendering.GraphicsFormat,UnityEngine.Experimental.Rendering.TextureCreationFlags,System.IntPtr)
 extern "C" IL2CPP_METHOD_ATTR bool Texture2D_Internal_CreateImpl_mD3BC6187168CEDAFAC59DFA2EA1DCE102071C548 (Texture2D_tBBF96AC337723E2EF156DF17E09D4379FD05DE1C * ___mono0, int32_t ___w1, int32_t ___h2, int32_t ___format3, int32_t ___flags4, intptr_t ___nativeTex5, const RuntimeMethod* method)
 {

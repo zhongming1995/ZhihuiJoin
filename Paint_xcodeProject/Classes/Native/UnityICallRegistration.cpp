@@ -2438,6 +2438,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_Texture2D_ApplyImpl();
 		Register_UnityEngine_Texture2D_ApplyImpl();
 
+		//System.Void UnityEngine.Texture2D::Compress(System.Boolean)
+		void Register_UnityEngine_Texture2D_Compress();
+		Register_UnityEngine_Texture2D_Compress();
+
 		//System.Void UnityEngine.Texture2D::GetPixelBilinearImpl_Injected(System.Int32,System.Single,System.Single,UnityEngine.Color&)
 		void Register_UnityEngine_Texture2D_GetPixelBilinearImpl_Injected();
 		Register_UnityEngine_Texture2D_GetPixelBilinearImpl_Injected();
