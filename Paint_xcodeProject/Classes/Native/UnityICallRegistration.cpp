@@ -1134,6 +1134,10 @@ void RegisterAllStrippedInternalCalls()
 		void Register_UnityEngine_ImageConversion_LoadImage();
 		Register_UnityEngine_ImageConversion_LoadImage();
 
+		//System.Byte[] UnityEngine.ImageConversion::EncodeToJPG(UnityEngine.Texture2D,System.Int32)
+		void Register_UnityEngine_ImageConversion_EncodeToJPG();
+		Register_UnityEngine_ImageConversion_EncodeToJPG();
+
 		//System.Byte[] UnityEngine.ImageConversion::EncodeToPNG(UnityEngine.Texture2D)
 		void Register_UnityEngine_ImageConversion_EncodeToPNG();
 		Register_UnityEngine_ImageConversion_EncodeToPNG();
