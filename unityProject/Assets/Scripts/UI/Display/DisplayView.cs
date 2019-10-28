@@ -42,6 +42,9 @@ public class DisplayView : MonoBehaviour
 
     void Start()
     {
+        BtnGame.GetComponent<UIMove>().SetFromPosition();
+        BtnBack.GetComponent<UIMove>().SetFromPosition();
+        BtnHome.GetComponent<UIMove>().SetFromPosition();
         rectImgDisplay = ImgDisplay.GetComponent<RectTransform>().sizeDelta;
         joinMainView = transform.GetComponentInParent<Canvas>().gameObject.GetComponentInChildren<JoinMainView>(true);
      
@@ -50,9 +53,9 @@ public class DisplayView : MonoBehaviour
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
         Display();
         //BtnSave.interactable = false;
-        BtnGame.interactable = false;//保存按钮才可以用
-        BtnBack.interactable = false;//保存按钮才可以用
-        BtnHome.interactable = false;//保存按钮才可以用
+        //BtnGame.interactable = false;//保存按钮才可以用
+        //BtnBack.interactable = false;//保存按钮才可以用
+        //BtnHome.interactable = false;//保存按钮才可以用
         ShowMask(false);
     }
 
@@ -120,6 +123,7 @@ public class DisplayView : MonoBehaviour
         //编辑按钮
         BtnBack.onClick.AddListener(delegate
         {
+            PersonManager.instance.CurPersonPageIndex = 0;//画册进入编辑进入保存，返回画册应该是第一页
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             PartDataWhole whole = GameManager.instance.curWhole;
             if (GameManager.instance.openType!=OpenType.ReEdit)
@@ -193,17 +197,26 @@ public class DisplayView : MonoBehaviour
 
     void SavePic()
     {
-        string savePath = PersonManager.instance.SaveImgPath+".png";
-        FileHelper.ByteToFile(staticTexture.EncodeToPNG(), savePath);
+        string savePath = PersonManager.instance.PersonImgPath + PersonManager.instance.PersonFileName +".jpg";
+        //FileHelper.ByteToFile(staticTexture.EncodeToPNG(), savePath);
+        FileHelper.ByteToFile(staticTexture.EncodeToJPG(), savePath);
         Debug.Log("图片保存的沙河地址：------------" + savePath);
-        BtnGame.interactable = true;//保存按钮才可以用
-        BtnBack.interactable = true;//保存按钮才可以用
-        BtnHome.interactable = true;//保存按钮才可以用
+        //BtnGame.interactable = true;//保存按钮才可以用
+        //BtnBack.interactable = true;//保存按钮才可以用
+        //BtnHome.interactable = true;//保存按钮才可以用
     }
 
     public void Greeting()
     {
         DataManager.instance.PersonJumpAndWave(lstDisplayItem);
+        Invoke("ShowButton", 3f);
+    }
+
+    private void ShowButton()
+    {
+        BtnGame.GetComponent<UIMove>().MoveShow();
+        BtnBack.GetComponent<UIMove>().MoveShow();
+        BtnHome.GetComponent<UIMove>().MoveShow();
     }
 
     private void OnDestroy()

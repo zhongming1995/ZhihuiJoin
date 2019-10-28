@@ -53,7 +53,7 @@ public class CalendarDetailView : MonoBehaviour
     {
         GameManager.instance.displayType = DisplayType.NoDisplay;
         calendarListDrag = transform.GetComponentInChildren<CalendarListDrag>();
-        StartCoroutine(LoadPersonList(PersonManager.instance.pathList, PersonManager.instance.CurPersonIndex));
+        StartCoroutine(LoadPersonList(PersonManager.instance.PersonPathList, PersonManager.instance.CurPersonIndex));
         AddEventListener();
         AddBtnEvent();
         ShowMask(false);
@@ -75,7 +75,7 @@ public class CalendarDetailView : MonoBehaviour
             PersonManager.instance.CurPersonIndex = curIndex;
             calendarListDrag.AniResetPosition(curIndex);
             calendarListDrag.AniResetScaleAndAlpha(curIndex);
-            SetBtnActive(curIndex,CalenderController.instance.PersonNum);
+            SetBtnActive(curIndex,PersonManager.instance.PersonCount);
         });
 
         BtnNext.onClick.AddListener(delegate {
@@ -84,7 +84,7 @@ public class CalendarDetailView : MonoBehaviour
             PersonManager.instance.CurPersonIndex = curIndex;
             calendarListDrag.AniResetPosition(curIndex);
             calendarListDrag.AniResetScaleAndAlpha(curIndex);
-            SetBtnActive(curIndex, CalenderController.instance.PersonNum);
+            SetBtnActive(curIndex, PersonManager.instance.PersonCount);
         });
 
         BtnDownload.onClick.AddListener(delegate {
@@ -92,7 +92,7 @@ public class CalendarDetailView : MonoBehaviour
 #if !UNITY_EDITOR
             ShowMask(true);
 #endif
-            string path = PersonManager.instance.PersonImgPath + "/" + PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex] + ".png";
+            string path = PersonManager.instance.PersonImgPath + "/" + PersonManager.instance.PersonPathList[CalendarDetailController.instance.curDetailIndex] + ".png";
             CallManager.instance.UnityToPlatform_SavePhotoToAlbum(path);
         });
 
@@ -100,7 +100,7 @@ public class CalendarDetailView : MonoBehaviour
             GameManager.instance.SetOpenType(OpenType.ReEdit);
             GameManager.instance.SetJoinShowAll(true);
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
+            string fileName = PersonManager.instance.PersonPathList[CalendarDetailController.instance.curDetailIndex];
             PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);
             GameManager.instance.homeSelectIndex = whole.ModelIndex;
             GameManager.instance.SetOpenType(OpenType.ReEdit);
@@ -114,7 +114,7 @@ public class CalendarDetailView : MonoBehaviour
          
         BtnGame.onClick.AddListener(delegate {
             GameManager.instance.openType = OpenType.ReEdit;
-            string fileName = PersonManager.instance.pathList[CalendarDetailController.instance.curDetailIndex];
+            string fileName = PersonManager.instance.PersonPathList[CalendarDetailController.instance.curDetailIndex];
             PartDataWhole whole = PersonManager.instance.DeserializePerson(fileName);
             GameManager.instance.SetCurPartDataWhole(whole);
             GameManager.instance.curJoinType = whole.JoinType;
@@ -138,7 +138,7 @@ public class CalendarDetailView : MonoBehaviour
     private void SwitchIndexFunc(int _curIndex)
     {
         CalendarDetailController.instance.curDetailIndex = _curIndex;
-        SetBtnActive(_curIndex, CalenderController.instance.PersonNum);
+        SetBtnActive(_curIndex, PersonManager.instance.PersonCount);
     }
 
     private void SetBtnActive(int _curIndex,int total)
@@ -170,7 +170,7 @@ public class CalendarDetailView : MonoBehaviour
     IEnumerator LoadPersonList(List<string> pathList,int curIndex)
     {
         int index = 0;
-        SetBtnActive(curIndex, CalenderController.instance.PersonNum);
+        SetBtnActive(curIndex, PersonManager.instance.PersonCount);
         EnableBtn(false);
         Vector2 realScreen = UIHelper.instance.GetRealScreen();
         ListContent.GetComponent<RectTransform>().sizeDelta = new Vector2(650 * pathList.Count, realScreen.y);

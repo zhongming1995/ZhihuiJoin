@@ -63,7 +63,9 @@ public class HomeView : MonoBehaviour
                 GameManager.instance.SetJoinShowAll(false);
                 GameManager.instance.SetOpenType(OpenType.FirstEdit);
                 GameManager.instance.homeSelectIndex = j;
-                PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.GetPersonsNum();
+                //PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.OnlyGetPersonNum();
+                PersonManager.instance.PersonFileName = Utils.GetTimeStamp();
+                Debug.Log("fikeName" + PersonManager.instance.PersonFileName);
                 GameManager.instance.homeContentPosx = ListViewContent.localPosition.x;
                 JumpToJoin();
             });
@@ -72,8 +74,6 @@ public class HomeView : MonoBehaviour
 
     private void JumpToJoin()
     {
-        //GameManager.instance.SetNextViewPath(PanelName.JoinMainView);
-        //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
         GameManager.instance.SetNextSceneName(SceneName.Join);
         TransitionView.instance.OpenTransition();
     }
@@ -83,8 +83,6 @@ public class HomeView : MonoBehaviour
         btnHome.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            //GameManager.instance.SetNextViewPath(PanelName.IndexView);
-            //UIHelper.instance.LoadPrefab(PanelName.TransitionView, GameManager.instance.GetCanvas().transform, Vector3.zero, Vector3.one, true);
             GameManager.instance.SetNextSceneName(SceneName.Index);
             TransitionView.instance.OpenTransition();
         });

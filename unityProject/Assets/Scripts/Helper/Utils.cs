@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 //一个公共的帮助类
 public class Utils 
@@ -118,5 +119,12 @@ public class Utils
 
         bool notOverlap = xNotOverlap || yNotOverlap;
         return !notOverlap;
+    }
+
+    //获取当前时间戳
+    public static string GetTimeStamp()
+    {
+        TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+        return Convert.ToInt64(ts.TotalMilliseconds).ToString();
     }
 }

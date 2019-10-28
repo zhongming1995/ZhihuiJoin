@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using ResMgr;
 using GameMgr;
+using UnityEngine.SceneManagement;
 
 public class AppEntry : SingletonMono<AppEntry>
 {
     public bool IsDebugging;
     private void Awake()
     {
-        Debug.Log("AppEntry Awake" + Time.realtimeSinceStartup);
         instance = this;
     }
 
@@ -20,7 +20,7 @@ public class AppEntry : SingletonMono<AppEntry>
         Application.targetFrameRate = 60;
 
         //打印开关
-        Debug.unityLogger.logEnabled = false;
+        Debug.unityLogger.logEnabled = true;
 
         //不销毁的物体，挂了很多管理脚本
         DontDestroyOnLoad(gameObject);
@@ -30,8 +30,9 @@ public class AppEntry : SingletonMono<AppEntry>
         /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())
         {
-            GameManager.instance.SetNextSceneName(SceneName.Index);
-            StartCoroutine(TransitionView.instance.LoadSceneAsync());
+            //GameManager.instance.SetNextSceneName(SceneName.Index);
+            //StartCoroutine(TransitionView.instance.LoadSceneAsync());
+            SceneManager.LoadScene(SceneName.Index);
         }
        
         //异步加载方式

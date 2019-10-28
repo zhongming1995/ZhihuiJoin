@@ -229,6 +229,18 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1558382745, guid: 706ad04c933de44978c383ba2d701667, type: 3}
+      propertyPath: isEnterPlay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558382747, guid: 706ad04c933de44978c383ba2d701667, type: 3}
+      propertyPath: isEnterPlay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1558382746, guid: 706ad04c933de44978c383ba2d701667, type: 3}
+      propertyPath: isEnterPlay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1085661980, guid: 706ad04c933de44978c383ba2d701667, type: 3}
     - {fileID: 1085661979, guid: 706ad04c933de44978c383ba2d701667, type: 3}

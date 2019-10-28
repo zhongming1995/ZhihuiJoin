@@ -255,6 +255,7 @@ MonoBehaviour:
   nextViewPath: 
   openType: 0
   displayType: 0
+  CalendarDetailShow: 0
   ScreenWidth: 0
   ScreenHeight: 0
   joinShowAll: 0
@@ -542,8 +543,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PersonDataPath: 
   PersonImgPath: 
-  pathList: []
-  imagePathList: []
+  PicPrefix: .jpg
+  PersonPathList: []
 --- !u!114 &992738297
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1030,13 +1030,12 @@ namespace Draw_MobilePaint
                 return;
             }
             //修改彩色笔，这里用到了GameManager
-            if (MultiColor && timeCount%100==0)
+            if (MultiColor && timeCount%50==0)
             {
-                if (colorIndex>6)
+                if (colorIndex> GameData.instance.MultiColorList.Length-1)
                 {
                     colorIndex = 0;
                 }
-                //SetPaintColor(GameMgr.GameManager.instance.MultiColorList[colorIndex]);
                 SetPaintColor(GameData.instance.MultiColorList[colorIndex]);
                 colorIndex++;
             }

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 //用的跳转场景
 public class TransitionView : SingletonMono<TransitionView>
 {
-    private float MinTime = 0.5f;
+    private float MinTime = 0.3f;
     private float time;
     private FadeIn fadeIn;
 
@@ -24,6 +24,7 @@ public class TransitionView : SingletonMono<TransitionView>
         FadeIn.fadeInComplete += FadeInComplete; 
         FadeIn.fadeOutComplete += FadeOutComplete;
         DontDestroyOnLoad(this);
+        gameObject.SetActive(false);
     }
 
     public void OpenTransition()
@@ -33,7 +34,6 @@ public class TransitionView : SingletonMono<TransitionView>
 
     private void FadeInComplete(PanelEnum panelEnum)
     {
-        //Debug.Log("FadeInComplete:"+panelEnum.ToString());
         if (panelEnum == PanelEnum.TransitionView)
         {
             StartCoroutine(LoadSceneAsync());

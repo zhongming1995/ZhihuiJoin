@@ -1,7 +1,5 @@
 ﻿using DG.Tweening;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIMove : MonoBehaviour
@@ -16,25 +14,30 @@ public class UIMove : MonoBehaviour
 
     void OnEnable()
     {
-        if (isEnterPlay == true)
+        //if (isEnterPlay == true)
+        //{
+        //    transform.GetComponent<RectTransform>().anchoredPosition3D = FromPos;
+        //    DoAction();
+        //}
+        //else
+        //{
+        //    transform.GetComponent<RectTransform>().anchoredPosition3D = FromPos;
+        //    if (enableCount == 0)
+        //    {
+        //        DoAction();
+        //    }
+        //}
+        //enableCount += 1;
+        if (isEnterPlay)
         {
             DoAction();
         }
-        else
-        {
-            if (enableCount == 0)
-            {
-                DoAction();
-            }
-        }
-        enableCount += 1;
     }
 
     void OnDisable()
     {
         if (isRecycle == true)
         {
-            //			transform.localPosition = FormPos;
             transform.GetComponent<RectTransform>().anchoredPosition3D = FromPos;
         }
     }
@@ -71,5 +74,10 @@ public class UIMove : MonoBehaviour
         {
             mySequence.AppendCallback(() => { cb(); });
         }
+    }
+
+    public void SetFromPosition()
+    {
+        transform.GetComponent<RectTransform>().anchoredPosition3D = FromPos;
     }
 }

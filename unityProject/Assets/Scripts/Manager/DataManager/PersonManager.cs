@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using GameMgr;
 using System.Collections.Generic;
 using System;
 
@@ -14,26 +12,16 @@ public class PersonManager : SingletonMono<PersonManager>
     public string PersonDataPath;
     [HideInInspector]
     public string PersonImgPath;
-
+    [HideInInspector]
+    public string PicPrefix = ".jpg";
     //人物文件名称
-    private string personFileName;
-    public string PersonFileName
-    {
-        get
-        {
-            return personFileName;
-        }
-        set
-        {
-            personFileName = value;
-        }
-    }
+    public string PersonFileName { get; set; }
 
     public string SavePath
     {
         get
         {
-            return PersonDataPath + personFileName;
+            return PersonDataPath + PersonFileName;
         }
     }
 
@@ -41,25 +29,15 @@ public class PersonManager : SingletonMono<PersonManager>
     {
         get
         {
-            return PersonImgPath + personFileName;
+            return PersonImgPath + PersonFileName;
         }
     }
-
-    private int personCount;
-    public int PersonCount
-    {
-        get
-        {
-            return personCount;
-        }
-    }
-
+    public int PersonCount { get; set; }
     public int CurPersonIndex { get; set; }
-
+    public int PageCount { get; set; }
     public int CurPersonPageIndex { get; set; }
 
-    public List<string> pathList = new List<string>();
-    public List<string> imagePathList = new List<string>();
+    public List<string> PersonPathList = new List<string>();
 
     void Awake()
     {
@@ -86,28 +64,64 @@ public class PersonManager : SingletonMono<PersonManager>
         FileHelper.DeleteAllFiles(oldImageCutPath);
     }
 
-    public int GetPersonsNum()
+    public int OnlyGetPersonNum()
     {
-        personCount = GetPersonsList().Count;
-        Debug.Log("personCount:" + personCount);
-        return personCount;
+        Debug.Log("PersonDataPath:" + PersonDataPath);
+        FileInfo[] infos = FileHelper.GetFileList(PersonDataPath, "*.bin");
+        if (infos==null)
+        {
+            Debug.Log("infos is null===");
+            return 0;
+        }
+        Debug.Log("infos.Length:"+infos.Length);
+        return infos.Length;
+    }
+
+    public int OnlyGetPageNum(int personCount)
+    {
+        int lastNumber = personCount % 6;
+        if (lastNumber == 0)
+        {
+            PageCount = personCount / 6;
+        }
+        else
+        {
+            PageCount = personCount / 6 + 1;
+        }
+        return PageCount;
     }
 
     public List<string> GetPersonsList()
     {
-        pathList.Clear();
+        Debug.Log("PersonManager GetPersonsList");
+        PersonPathList.Clear();
         FileInfo[] infos = FileHelper.GetFileList(PersonDataPath, "*.bin");
+        Debug.Log("infos:" + infos.Length);
         FileCompare fileCompare = new FileCompare();
         if (infos!=null)
         {
             Array.Sort(infos, fileCompare);
             for (int i = 0; i < infos.Length; i++)
             {
+                Debug.Log(infos[i].Name);
                 string[] lst = infos[i].Name.Split('.');
-                pathList.Add(lst[0]);
+                if (lst[0]==string.Empty)
+                {
+                    continue;
+                }
+                PersonPathList.Add(lst[0]);
             }
         }
-        return pathList;
+
+        Debug.Log("personCount:" + PersonPathList.Count);
+        for (int i = 0; i < PersonPathList.Count; i++)
+        {
+            Debug.Log("person:" + PersonPathList[i]);
+        }
+        //给PersonCount和PageCount赋值
+        PersonCount = PersonPathList.Count;
+        PageCount = OnlyGetPageNum(PersonCount);
+        return PersonPathList;
     }
 
     //序列化
@@ -143,13 +157,12 @@ public class PersonManager : SingletonMono<PersonManager>
         stream.Close();
         return whole;
     }
- 
 
     //删除文件
     public void DeletePerson(string fileName)
     {
         string personPath = PersonDataPath + fileName + ".bin";
-        string imagePath = PersonImgPath + fileName + ".png";
+        string imagePath = PersonImgPath + fileName + PicPrefix;//".png";
         FileHelper.DeleteFileByName(personPath);
         FileHelper.DeleteFileByName(imagePath);      
     }

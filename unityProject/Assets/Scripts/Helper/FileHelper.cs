@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -46,6 +47,32 @@ public static class FileHelper
             return null;
         }
     }
+
+    /// <summary>
+    /// 将文件转换成byte[]数组
+    /// </summary>
+    /// <param name="fileUrl">文件路径文件名称</param>
+    /// <returns>byte[]数组</returns>
+    //public async static void AsyncFileToByte(string fileUrl,Action cb = null)
+    //{
+    //    try
+    //    {
+    //        using (FileStream fs = new FileStream(fileUrl, FileMode.Open, FileAccess.Read))
+    //        {
+    //            byte[] byteArray = new byte[fs.Length];
+    //            await fs.ReadAsync(byteArray, 0, byteArray.Length);
+    //            //fs.Read(byteArray, 0, byteArray.Length);
+    //            fs.Flush();
+    //            fs.Close();
+    //            fs.Dispose();
+
+    //        }
+    //    }
+    //    catch
+    //    {
+    //        return null;
+    //    }
+    //}
 
     /// <summary>
     /// 将byte[]数组保存成文件

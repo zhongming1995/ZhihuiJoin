@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
@@ -8,35 +6,43 @@ public class ButtonScaleAni : MonoBehaviour,IPointerDownHandler,IPointerUpHandle
 {
     public float duration = 0.1f;
     public Vector3 originValue = new Vector3(1.0f, 1.0f, 1.0f);
-    public Vector3 endValue = new Vector3(0.95f, 0.95f, 0.95f);
+    public Vector3 endValue = new Vector3(0.98f, 0.98f, 0.98f);
+    public Vector3 middleValue = new Vector3(1.1f, 1.1f, 1.1f);
     public Transform targetTrans;
+
+    public delegate void ButtonClickEvent();
+    public ButtonClickEvent buttonClickEvent;
+
+    void Awake()
+    {
+        if (targetTrans==null)
+        {
+            targetTrans = transform;
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(targetTrans.DOScale(middleValue, 2*duration));
+        sequence.Append(targetTrans.DOScale(endValue, 2*duration));
+        sequence.AppendCallback(() =>
+        {
+            if (buttonClickEvent != null)
+            {
+                buttonClickEvent();
+            }
+        });
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (targetTrans != null)
-        {
-            targetTrans.DOScale(endValue, duration);
-        }
-        else
-        {
-            transform.DOScale(endValue, duration);
-        }
+         targetTrans.DOScale(endValue, duration);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (targetTrans != null)
-        {
-            targetTrans.DOScale(originValue, duration);
-        }
-        else
-        {
-            transform.DOScale(originValue, duration);
-        }
+        targetTrans.DOScale(originValue, duration);
     }
 
 }

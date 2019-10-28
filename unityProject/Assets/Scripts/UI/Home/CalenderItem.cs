@@ -2,6 +2,7 @@
 using GameMgr;
 using System;
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,35 +13,19 @@ public class CalenderItem : MonoBehaviour
     public Button BtnDetail;
     public GameObject MaskDelete;
     public RawImage rawImage;
-
-    private bool IsItem;//真实的item，不是null
     public int Index;
     public int PageIndex;
+    public string FileName;
 
-    public string fileName;
+    private bool IsItem;//真实的item，不是null
+    private Texture2D texture;
 
-    public void Init()
+
+    //初始化
+    public void ItemInit()
     {
         //默认隐藏删除按钮
         MaskDelete.SetActive(false);
-        IsItem = false;
-        rawImage.gameObject.SetActive(false);
-    }
-
-    public void Init(int _pageIndex, int _index, string _fileName)
-    {
-        Debug.Log("Init fileName:" + _fileName);
-        PageIndex = _pageIndex;
-        IsItem = true;
-        Index = _index;
-        fileName = _fileName;
-        string path = PersonManager.instance.PersonImgPath + "/" + fileName + ".png";
-        transform.name = _fileName;
-        //StartCoroutine(Cor_LoadImage("file:///" + PersonManager.instance.PersonImgPath + "/" + fileName+".png"));
-        LoadByIO(path);
-        //默认隐藏删除按钮
-        MaskDelete.SetActive(false);
-
         //按钮点击
         BtnDetail.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -51,21 +36,70 @@ public class CalenderItem : MonoBehaviour
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.DeleteComplete(this);
         });
+
+        if (CalenderController.instance.IsDelete)
+        {
+            ShowDelete(true);
+        }
+    }
+
+    //空物体
+    public void SetEmpty()
+    {
+        FileName = string.Empty;
+        IsItem = false;
+        rawImage.gameObject.SetActive(false);
+        BtnDetail.interactable = false;
+        BtnDelete.interactable = false;
+        ShowDelete(false);
+    }
+    private float time;
+    //设置图片
+    public void SetImage(int _pageIndex,int _index,string _fileName)
+    {
+        float time = Time.realtimeSinceStartup;
+        //Debug.Log(FileName + "  ==  "+_fileName);
+        if (FileName==_fileName)
+        {
+            return;
+        }
+        Debug.Log("pageIndex:" + _pageIndex + " ,_index:" + _index + " _fileName:" + _fileName);
+        IsItem = true;
+        rawImage.gameObject.SetActive(true);
+        PageIndex = _pageIndex;
+        Index = _index;
+        FileName = _fileName;
+        transform.name = FileName;
+        string path = PersonManager.instance.PersonImgPath + "/" + FileName + PersonManager.instance.PicPrefix; //".png";
+        time = Time.realtimeSinceStartup;
+        //LoadByIO(path);
+        //rawImage.texture = Resources.Load<Texture2D>("Sprite/fodder/body/animal_body_0");
+        StartCoroutine(Cor_LoadImage("file:///"+path));
+        BtnDetail.interactable = true;
+        BtnDelete.interactable = true;
+
+        if (CalenderController.instance.IsDelete)
+        {
+            ShowDelete(true);
+        }
+        //Debug.Log("time:" + (Time.realtimeSinceStartup - time));
     }
 
     void LoadByIO(string path)
     {
+        //float time = Time.realtimeSinceStartup;
+        //Resources.UnloadAsset(texture);
         byte[] bytes = FileHelper.FileToByte(path);
-
-        Texture2D t = new Texture2D(450, 450);
-        t.LoadImage(bytes);
-        t.Compress(false);
-        t.Apply();
+        texture = new Texture2D(450, 450);
+        texture.LoadImage(bytes);
+        texture.Compress(false);
+        texture.Apply();
         bytes = null;
-        rawImage.texture = t;
-        t = null;
+        rawImage.texture = texture;
+
+        //Debug.Log("time:" + (Time.realtimeSinceStartup - time));
     }
-    /*
+
     IEnumerator Cor_LoadImage(string path)
     {
         WWW www = new WWW(path);
@@ -74,7 +108,7 @@ public class CalenderItem : MonoBehaviour
             yield return null;
         }
         yield return www;
-        if (www.bytes==null)
+        if (www.bytes == null)
         {
             Debug.Log("读图片失败");
         }
@@ -85,18 +119,22 @@ public class CalenderItem : MonoBehaviour
         www.Dispose();
         www = null;
     }
-    */
-  
-    public void Refresh(int _pageIndex, int _index, string _fileName)
-    {
-        DestroyImmediate(PersonParent.GetChild(0).gameObject);
-        //加载新的人物
-        Init(_pageIndex, _index, _fileName);
-    }
 
     public void ShowDelete(bool show)
     {
-        if (IsItem)
+        //if (IsItem)
+        //{
+        //    MaskDelete.SetActive(show);
+        //}
+        Debug.Log("isItem:" + IsItem);
+        if (show)
+        {
+            if (IsItem)
+            {
+                MaskDelete.SetActive(show);
+            }
+        }
+        else
         {
             MaskDelete.SetActive(show);
         }

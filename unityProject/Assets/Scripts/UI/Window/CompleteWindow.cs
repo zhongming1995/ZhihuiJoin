@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using AudioMgr;
 using DataMgr;
 using GameMgr;
@@ -32,6 +30,7 @@ public class CompleteWindow : WindowParent
         window.localScale = Vector3.zero;
         mask.transform.localScale = Vector3.one;
         InAni(Greeting);
+        AudioManager.instance.PlayOneShotAudio("Audio/effect|show");
     }
 
 
@@ -150,7 +149,7 @@ public class CompleteWindow : WindowParent
 
     private void DoubleGreeting()
     {
-        DataManager.instance.PersonJumpAndWave(windowlstDisplayItem);
+        DataManager.instance.PersonJumpAndWave(windowlstDisplayItem); 
     }
 
     void OnDestroy()
