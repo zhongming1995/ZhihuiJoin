@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Common\Singleton.cs" />
     <Compile Include="Assets\Scripts\Common\SliderExt.cs" />
     <Compile Include="Assets\Scripts\Effect\BreathAni.cs" />
+    <Compile Include="Assets\Scripts\Effect\ButtonCommonAni.cs" />
     <Compile Include="Assets\Scripts\Effect\ButtonScaleAni.cs" />
     <Compile Include="Assets\Scripts\Effect\CarriageAni.cs" />
     <Compile Include="Assets\Scripts\Effect\CloudAni.cs" />

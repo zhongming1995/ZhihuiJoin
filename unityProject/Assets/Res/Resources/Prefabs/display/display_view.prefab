@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 848513883}
   - component: {fileID: 848513882}
   - component: {fileID: 1558382745}
+  - component: {fileID: 1519926937}
   m_Layer: 5
   m_Name: btn_game
   m_TagString: Untagged
@@ -134,8 +135,25 @@ MonoBehaviour:
   ToPos: {x: 256, y: 127, z: 0}
   AniTime: 0.2
   DelayTime: 0.1
-  isEnterPlay: 1
+  isEnterPlay: 0
   isRecycle: 0
+--- !u!114 &1519926937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848513880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &1797758231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,8 +1644,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1915408960492920419}
   - component: {fileID: 1915408960492920416}
-  - component: {fileID: 1085661980}
-  - component: {fileID: 1085661979}
   m_Layer: 5
   m_Name: display_view
   m_TagString: Untagged
@@ -1693,31 +1709,6 @@ MonoBehaviour:
   PosFlag2: {fileID: 8511515437794499850}
   ImgMask: {fileID: 1797758232}
   PSDisplay: {fileID: 3307931662975942539}
---- !u!225 &1085661980
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915408960492920418}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!114 &1085661979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915408960492920418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07223db3db6f0440c88ed027bdea407e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelEnum: 3
 --- !u!1 &1915408960988555165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1816,7 @@ GameObject:
   - component: {fileID: 1915408961160117915}
   - component: {fileID: 1915408961160117914}
   - component: {fileID: 1558382747}
+  - component: {fileID: 1519926939}
   m_Layer: 5
   m_Name: btn_home
   m_TagString: Untagged
@@ -1946,8 +1938,25 @@ MonoBehaviour:
   ToPos: {x: -256, y: 127, z: 0}
   AniTime: 0.2
   DelayTime: 0.1
-  isEnterPlay: 1
+  isEnterPlay: 0
   isRecycle: 0
+--- !u!114 &1519926939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915408961160117916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &1915408961518657784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1970,7 @@ GameObject:
   - component: {fileID: 1915408961518657783}
   - component: {fileID: 1915408961518657782}
   - component: {fileID: 1558382746}
+  - component: {fileID: 1519926938}
   m_Layer: 5
   m_Name: btn_back
   m_TagString: Untagged
@@ -2082,8 +2092,25 @@ MonoBehaviour:
   ToPos: {x: 0, y: 127, z: 0}
   AniTime: 0.2
   DelayTime: 0.1
-  isEnterPlay: 1
+  isEnterPlay: 0
   isRecycle: 0
+--- !u!114 &1519926938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915408961518657784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &1915408961936319716
 GameObject:
   m_ObjectHideFlags: 0

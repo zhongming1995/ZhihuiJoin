@@ -229,6 +229,41 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 869466456748504484, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 857687609522851057, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699327280546117019, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3962100596814171426, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9211078192318916796, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219642479611525401, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108634843596272214, guid: e83e15d20ed68754fb37a6914d06723b,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e83e15d20ed68754fb37a6914d06723b, type: 3}
 --- !u!224 &1383293495 stripped

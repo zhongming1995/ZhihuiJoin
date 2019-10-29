@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5193228174813707831}
   - component: {fileID: 9211078192318916796}
   - component: {fileID: 1780868538189444385}
+  - component: {fileID: 1383293504}
   m_Layer: 5
   m_Name: btn_detail_download
   m_TagString: Untagged
@@ -210,6 +211,23 @@ MonoBehaviour:
   DelayTime: 0.1
   isEnterPlay: 1
   isRecycle: 0
+--- !u!114 &1383293504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310674993155912420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &328929621737044689
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +879,6 @@ MonoBehaviour:
   LeftFlag: {fileID: 3124918974354172578}
   RightFlag: {fileID: 8169953159714208732}
   DetailView: {fileID: 4823637994285921357}
-  MaskPanel: {fileID: 0}
 --- !u!114 &857687609222269752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,6 +894,7 @@ MonoBehaviour:
   IsDelete: 0
   IsScrolling: 0
   HasDelete: 0
+  ContentPosX: 0
 --- !u!1 &1224561046500004527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1475,7 @@ GameObject:
   - component: {fileID: 2962650251634883942}
   - component: {fileID: 6108634843596272214}
   - component: {fileID: 8105484095877660263}
+  - component: {fileID: 1383293502}
   m_Layer: 5
   m_Name: btn_detail_game
   m_TagString: Untagged
@@ -1580,6 +1599,23 @@ MonoBehaviour:
   DelayTime: 0.1
   isEnterPlay: 1
   isRecycle: 0
+--- !u!114 &1383293502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751330564543641270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &1805772231278534815
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,6 +3396,7 @@ GameObject:
   - component: {fileID: 1967778282818978112}
   - component: {fileID: 7555041684603188905}
   - component: {fileID: 3330408178088707408}
+  - component: {fileID: 1383293511}
   m_Layer: 5
   m_Name: btn_pre
   m_TagString: Untagged
@@ -3465,6 +3502,23 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1383293511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382746633117862846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &4408548762507463781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4920,6 +4974,7 @@ GameObject:
   - component: {fileID: 5482006077944422375}
   - component: {fileID: 869466456748504484}
   - component: {fileID: 7966094814948489796}
+  - component: {fileID: 1383293507}
   m_Layer: 5
   m_Name: btn_back
   m_TagString: Untagged
@@ -5043,6 +5098,23 @@ MonoBehaviour:
   DelayTime: 0.1
   isEnterPlay: 1
   isRecycle: 0
+--- !u!114 &1383293507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910981598717684766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &6916953055091037041
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,6 +5559,7 @@ GameObject:
   - component: {fileID: 8451689424495803088}
   - component: {fileID: 5643901736501406046}
   - component: {fileID: 2412305543734684697}
+  - component: {fileID: 1383293510}
   m_Layer: 5
   m_Name: btn_next
   m_TagString: Untagged
@@ -5592,6 +5665,23 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1383293510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333539588900403401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: -1, y: 1, z: 1}
+  endValue: {x: -0.98, y: 0.98, z: 0.98}
+  middleValue: {x: -1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &7371845477720977930
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,6 +6139,7 @@ GameObject:
   - component: {fileID: 5403012739921956837}
   - component: {fileID: 7219642479611525401}
   - component: {fileID: 8274735144156067605}
+  - component: {fileID: 1383293503}
   m_Layer: 5
   m_Name: btn_detail_edit
   m_TagString: Untagged
@@ -6172,6 +6263,23 @@ MonoBehaviour:
   DelayTime: 0.1
   isEnterPlay: 1
   isRecycle: 0
+--- !u!114 &1383293503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7624558160921658923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50846d89baf8c49b4a66e0101bf2b8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTrans: {fileID: 0}
+  originValue: {x: 1, y: 1, z: 1}
+  endValue: {x: 0.98, y: 0.98, z: 0.98}
+  middleValue: {x: 1.1, y: 1.1, z: 1.1}
+  duration: 0.1
 --- !u!1 &7686945885613183610
 GameObject:
   m_ObjectHideFlags: 0

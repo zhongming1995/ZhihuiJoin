@@ -1,17 +1,8 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Effect/BreathAni.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
     <Files>
-      <File FileName="Assets/Scripts/AppEntry.cs" Line="34" Column="56" />
-      <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="27" Column="37" />
-      <File FileName="Assets/Scripts/Manager/DataManager/GameData.cs" Line="84" Column="42" />
-      <File FileName="Assets/Scripts/Effect/ButtonScaleAni.cs" Line="9" Column="61" />
-      <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="113" Column="1" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="61" Column="21" />
-      <File FileName="Assets/Scripts/UI/Join/ColorToggleCtrl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="24" Column="12" />
-      <File FileName="Assets/Scripts/UI/Draw/MobilePaint.cs" Line="1028" Column="31" />
-      <File FileName="Assets/Scripts/UI/Home/CalendarView.cs" Line="74" Column="1" />
-      <File FileName="Assets/Scripts/Effect/BreathAni.cs" Line="7" Column="4" />
+      <File FileName="Assets/Scripts/Effect/ButtonCommonAni.cs" Line="24" Column="6" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
