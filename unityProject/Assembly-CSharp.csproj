@@ -146,6 +146,7 @@
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\Res\Shader\CircleMask.shader" />
+    <None Include="Assets\Res\Shader\ImageInLine.shader" />
     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -869,7 +869,7 @@ public class GameData:SingletonPersistent<GameData>
             else
             {
                 string[] leftst = restrictList[index+1][4].Split('&');
-                string[] rightst = restrictList[index + 1][5].Split('&');
+                string[] rightst = restrictList[index+1][5].Split('&');
                 for (int i = 0; i < leftst.Length; i++)
                 {
                     pathList.Add(leftst[i]);

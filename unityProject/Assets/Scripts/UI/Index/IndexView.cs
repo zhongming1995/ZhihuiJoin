@@ -13,6 +13,7 @@ public class IndexView : MonoBehaviour
     public Button BtnCalendar;
     public Button BtnPersonCenter;
     public Transform TransLand;
+    public Transform TransSky;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class IndexView : MonoBehaviour
         for (int i = 0; i < TransLand.childCount; i++)
         {
             TransLand.GetChild(i).GetComponent<RectTransform>().sizeDelta = new Vector2(realScreen.x, TransLand.GetChild(i).GetComponent<RectTransform>().sizeDelta.y);
+            TransSky.GetChild(i).GetComponent<RectTransform>().sizeDelta = new Vector2(realScreen.x, TransLand.GetChild(i).GetComponent<RectTransform>().sizeDelta.y);
         }
     }
 
@@ -102,10 +104,16 @@ public class IndexView : MonoBehaviour
     private void Update()
     {
         TransLand.transform.Translate(Vector3.right * Time.deltaTime *0.4f);
+        TransSky.transform.Translate(Vector3.right * Time.deltaTime * 0.1f);
         if (TransLand.transform.localPosition.x>0)
         {
             TransLand.GetChild(2).SetAsFirstSibling();
             TransLand.localPosition -= new Vector3(UIHelper.instance.GetRealScreen().x, 0, 0);
+        }
+        if (TransSky.transform.localPosition.x>0)
+        {
+            TransSky.GetChild(2).SetAsFirstSibling();
+            TransSky.localPosition -= new Vector3(UIHelper.instance.GetRealScreen().x, 0, 0);
         }
     }
 
