@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 public class ButtonCommonAni : MonoBehaviour,IPointerUpHandler,IPointerDownHandler
 {
     public Transform targetTrans;
-   
     public Vector3 originValue = new Vector3(1.0f, 1.0f, 1.0f);
     public Vector3 endValue = new Vector3(0.98f, 0.98f, 0.98f);
     public Vector3 middleValue = new Vector3(1.1f, 1.1f, 1.1f);
@@ -13,7 +12,7 @@ public class ButtonCommonAni : MonoBehaviour,IPointerUpHandler,IPointerDownHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (targetTrans==null)
+        if (targetTrans == null)
         {
             targetTrans = transform;
         }

@@ -55,7 +55,8 @@ public class ResDragItem : MonoBehaviour,IDragHandler,IPointerDownHandler,IPoint
         string path = string.Empty;
         if (paramPath == null)
         {
-            path = GameData.instance.resPathList[(int)type][index];
+            //path = GameData.instance.resPathList[(int)type][index];
+            path = GameData.instance.GetPathList(type)[index];
         }
         else
         {

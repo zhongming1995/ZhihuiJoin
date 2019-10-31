@@ -1,8 +1,18 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Display/DisplayView.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Res/Resources/Config/letter_hand.csv">
     <Files>
-      <File FileName="Assets/Scripts/Effect/ButtonCommonAni.cs" Line="24" Column="6" />
-      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Helper/CSVUtil.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/AppEntry.cs" Line="32" Column="10" />
+      <File FileName="Assets/Scripts/Manager/DataManager/GameData.cs" Line="185" Column="71" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="841" Column="41" />
+      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="59" Column="63" />
+      <File FileName="Assets/Scripts/UI/Display/PartData.cs" Line="3" Column="13" />
+      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="59" Column="85" />
+      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="134" Column="86" />
+      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="83" Column="47" />
+      <File FileName="Assets/Res/Resources/Config/restrict.csv" Line="43" Column="13" />
+      <File FileName="Assets/Res/Resources/Config/letter_leg.csv" Line="53" Column="23" />
+      <File FileName="Assets/Res/Resources/Config/letter_hand.csv" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

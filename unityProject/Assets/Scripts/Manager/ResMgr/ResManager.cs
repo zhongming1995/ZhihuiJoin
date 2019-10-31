@@ -481,7 +481,7 @@ namespace ResMgr
                 result = Resources.Load<T>(path);
                 if (result == null)
                 {
-                    Debug.Log("null:"+ path);
+                    Debug.LogError("null:"+ path);
                 }
             }
             else
@@ -576,6 +576,11 @@ namespace ResMgr
         public void LoadObjectAsync(string path,Action<Object> completeCall = null,Action<Object> progressCall = null)
         {
             LoadAssetAsync<Object>(path, completeCall);
+        }
+
+        public TextAsset LoadText(string path)
+        {
+            return Load<TextAsset>(path);
         }
     }
 }

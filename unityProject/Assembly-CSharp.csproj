@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Effect\UIMove.cs" />
     <Compile Include="Assets\Scripts\Effect\UIScale.cs" />
     <Compile Include="Assets\Scripts\Effect\WheelRotate.cs" />
+    <Compile Include="Assets\Scripts\Helper\CSVUtil.cs" />
     <Compile Include="Assets\Scripts\Helper\FileHelper.cs" />
     <Compile Include="Assets\Scripts\Helper\UIDepth.cs" />
     <Compile Include="Assets\Scripts\Helper\UIHelper.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Assets\Scripts\Manager\GameManager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PanelManager\PanelManager.cs" />
     <Compile Include="Assets\Scripts\Manager\PanelManager\SceneSwitch.cs" />
-    <Compile Include="Assets\Scripts\Manager\ResMgr\PreLoadManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResConf.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResManager.cs" />
     <Compile Include="Assets\Scripts\Manager\ResMgr\ResUtil.cs" />

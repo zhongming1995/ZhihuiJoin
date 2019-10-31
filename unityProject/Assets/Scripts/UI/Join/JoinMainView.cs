@@ -564,7 +564,7 @@ public class JoinMainView : MonoBehaviour
             {
                 if (loadResult[(int)type] == false)
                 {
-                    LoadResListByType((int)type);
+                    LoadResListByType(type);
                 }
                 ResContentList[i].parent.parent.gameObject.SetActive(true);
             }
@@ -827,58 +827,59 @@ public class JoinMainView : MonoBehaviour
     }
 
     //加载某种类型的素材 0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚 8头 9身体
-    private void LoadResListByType(int type)
+    private void LoadResListByType(TemplateResType type)
     {
-        if (type==0)
+        if (type == TemplateResType.Body)
         {
-            loadResult[type] = true;
+            loadResult[(int)type] = true;
             return;
         }
-        string resPrefabPath = GameData.instance.resPrefabPathList[type];
+        string resPrefabPath = GameData.instance.resPrefabPathList[(int)type];
         List<string> resPath;
         if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body)
         {
-            resPath = GameData.instance.GetPathList(GameManager.instance.homeSelectIndex, (TemplateResType)type);
+            resPath = GameData.instance.GetPathListWithModule(GameManager.instance.homeSelectIndex, (TemplateResType)type);
         }
         else
         {
-            resPath = GameData.instance.resPathList[type];
+            //resPath = GameData.instance.resPathList[type];
+            resPath = GameData.instance.GetPathList(type);
             if (type!=(int)TemplateResType.Body)
             {
-                if (ResContentList[type].childCount != 0)
+                if (ResContentList[(int)type].childCount != 0)
                 {
-                    for (int i = ResContentList[type].childCount - 1; i >= 0; i--)
+                    for (int i = ResContentList[(int)type].childCount - 1; i >= 0; i--)
                     {
-                        DestroyImmediate(ResContentList[type].GetChild(i).gameObject);
+                        DestroyImmediate(ResContentList[(int)type].GetChild(i).gameObject);
                     }
                 }
             }
            
         }
-        float width = ResContentList[type].GetComponent<RectTransform>().rect.size.x;
+        float width = ResContentList[(int)type].GetComponent<RectTransform>().rect.size.x;
         if (resPath.Count <= 0)
         {
             return;
         }
         //0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
         float scale = 1;
-        if (type == (int)TemplateResType.HeadWear|| type == (int)TemplateResType.TrueBody)
+        if (type == TemplateResType.HeadWear|| type == TemplateResType.TrueBody)
         {
             scale = 0.7f;
         }
-        else if (type == (int)TemplateResType.Mouth)
+        else if (type == TemplateResType.Mouth)
         {
             scale = 0.9f;
         }
-        else if (type == (int)TemplateResType.Hand)
+        else if (type == TemplateResType.Hand)
         {
             scale = 0.35f;
         }
-        else if (type == (int)TemplateResType.Hat || type == (int)TemplateResType.Eye)
+        else if (type == TemplateResType.Hat || type ==TemplateResType.Eye)
         {
             scale = 0.63f;
         }
-        else if (type == (int)TemplateResType.Head)
+        else if (type == TemplateResType.Head)
         {
             scale = 0.3f;
         }
@@ -888,7 +889,7 @@ public class JoinMainView : MonoBehaviour
         }
         for (int j = 0; j < resPath.Count; j++)
         {
-            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[type], Vector3.zero, Vector3.one, false);
+            GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[(int)type], Vector3.zero, Vector3.one, false);
             string imgPath = resPath[j];
             Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
             Shadow shadow = resObj.transform.Find("img_res").GetComponent<Shadow>();
@@ -897,10 +898,10 @@ public class JoinMainView : MonoBehaviour
             RectTransform imgRect = resImg.GetComponent<RectTransform>();
             float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
             imgRect.localScale = new Vector3(scale, scale, scale);
-            if (type == 1 || type == 6 || type == 7)
+            if (type == TemplateResType.Eye || type == TemplateResType.Hand || type == TemplateResType.Leg)
             {
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, imgRect.sizeDelta.y * scale);//40
-                if (type!=1)
+                if (type!=TemplateResType.Eye)
                 {
                     if (j % 2 == 0)//右边
                     {
@@ -919,7 +920,7 @@ public class JoinMainView : MonoBehaviour
             resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
 
         }
-        loadResult[type] = true;
+        loadResult[(int)type] = true;
     }
 
     public Texture2D GetDrawTexture()

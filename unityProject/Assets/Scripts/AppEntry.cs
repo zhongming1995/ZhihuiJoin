@@ -30,11 +30,12 @@ public class AppEntry : SingletonMono<AppEntry>
         /*同步加载方式*/
         if (ResManager.instance.LoadMainAssetBundle())
         {
-            //GameManager.instance.SetNextSceneName(SceneName.Index);
-            //StartCoroutine(TransitionView.instance.LoadSceneAsync());
             SceneManager.LoadScene(SceneName.Index);
+            GameData.instance.InitResList();
+            //test
+            CSVUtil.GetListFromRestrict("Config|restrict");
         }
-       
+
         //异步加载方式
         //ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
     }

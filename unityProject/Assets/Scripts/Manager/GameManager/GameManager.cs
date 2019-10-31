@@ -80,7 +80,7 @@ namespace GameMgr
         {
             GameData.instance.InitItemList();
             GameData.instance.InitResPrefabList();
-            GameData.instance.InitResList();
+            //GameData.instance.InitResList();
             GameData.instance.InitColor();
         }
 
