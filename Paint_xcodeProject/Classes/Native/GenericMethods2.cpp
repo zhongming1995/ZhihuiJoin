@@ -15270,8 +15270,6 @@ inline AppEntry_t73ECD3BE197AE44027605734D304755D5113235A * SingletonMono_1_get_
 extern "C" IL2CPP_METHOD_ATTR String_t* ResUtil_PathToResourcePath_m0285C7B41B16B6117D74108AA73B9CC365472AB1 (String_t* ___path0, const RuntimeMethod* method);
 // System.String System.String::Concat(System.String,System.String)
 extern "C" IL2CPP_METHOD_ATTR String_t* String_Concat_mB78D0094592718DA6D5DB6C712A9C225631666BE (String_t* p0, String_t* p1, const RuntimeMethod* method);
-// System.Void UnityEngine.Debug::Log(System.Object)
-extern "C" IL2CPP_METHOD_ATTR void Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708 (RuntimeObject * p0, const RuntimeMethod* method);
 // System.String System.String::ToLower()
 extern "C" IL2CPP_METHOD_ATTR String_t* String_ToLower_m5287204D93C9DDC4DF84581ADD756D0FDE2BA5A8 (String_t* __this, const RuntimeMethod* method);
 // System.String[] System.String::Split(System.Char[])
@@ -15307,6 +15305,8 @@ inline void Dictionary_2_Add_mDDCB7A3859E33E8A26531AC4E094253993F9115F (Dictiona
 {
 	((  void (*) (Dictionary_2_tE0B786C9547CCFB661DA24FEA591663E353F835C *, String_t*, Object_tAE11E5E46CD5C37C9F3E8950C00CD8B45666A2D0 *, const RuntimeMethod*))Dictionary_2_Add_mC741BBB0A647C814227953DB9B23CB1BDF571C5B_gshared)(__this, p0, p1, method);
 }
+// System.Void UnityEngine.Debug::Log(System.Object)
+extern "C" IL2CPP_METHOD_ATTR void Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708 (RuntimeObject * p0, const RuntimeMethod* method);
 // System.Boolean System.Type::get_HasElementType()
 extern "C" IL2CPP_METHOD_ATTR bool Type_get_HasElementType_m598BEFE66F168CE1D1132C87D394B2EF41F449BF (Type_t * __this, const RuntimeMethod* method);
 // System.String System.Environment::GetResourceString(System.String)
@@ -30285,7 +30285,7 @@ extern "C" IL2CPP_METHOD_ATTR RuntimeObject * ResManager_Load_TisRuntimeObject_m
 		String_t* L_8 = ___path0;
 		String_t* L_9 = String_Concat_mB78D0094592718DA6D5DB6C712A9C225631666BE((String_t*)_stringLiteral4EFB9DA21F4D5B9A1990DD464CFAF52A5B9934E8, (String_t*)L_8, /*hidden argument*/NULL);
 		IL2CPP_RUNTIME_CLASS_INIT(Debug_t7B5FCB117E2FD63B6838BC52821B252E2BFB61C4_il2cpp_TypeInfo_var);
-		Debug_Log_m4B7C70BAFD477C6BDB59C88A0934F0B018D03708((RuntimeObject *)L_9, /*hidden argument*/NULL);
+		Debug_LogError_m3BCF9B78263152261565DCA9DB7D55F0C391ED29((RuntimeObject *)L_9, /*hidden argument*/NULL);
 		goto IL_0127;
 	}
 

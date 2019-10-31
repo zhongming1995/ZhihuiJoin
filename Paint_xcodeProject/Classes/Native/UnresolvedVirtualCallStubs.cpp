@@ -6541,7 +6541,7 @@ static  void UnresolvedVirtualCall_200 (RuntimeObject * __this, float ___Single1
 	il2cpp_codegen_no_return();
 }
 
-static  void UnresolvedVirtualCall_201 (RuntimeObject * __this, int32_t ___Int321, float ___Single2, int8_t ___SByte3, const RuntimeMethod* method)
+static  void UnresolvedVirtualCall_201 (RuntimeObject * __this, int32_t ___Int321, int32_t ___Int322, int8_t ___SByte3, const RuntimeMethod* method)
 {
 	il2cpp_codegen_raise_execution_engine_exception(method);
 	il2cpp_codegen_no_return();

@@ -26855,17 +26855,10 @@ void* RuntimeInvoker_TrueSingle_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_SByte_
 	return Box(il2cpp_codegen_class_from_type (il2cpp_codegen_method_return_type(methodMetadata)), &ret);
 }
 
-void* RuntimeInvoker_TrueVoid_t22962CB4C05B1D89B55A6E1139F0E87A90987017_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Single_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args)
+void* RuntimeInvoker_TrueRuntimeObject_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF_RuntimeObject_RuntimeObject (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args)
 {
-	typedef void (*Func)(void* obj, int32_t p1, float p2, int8_t p3, const RuntimeMethod* method);
-	((Func)methodPointer)(obj, *((int32_t*)args[0]), *((float*)args[1]), *((int8_t*)args[2]), methodMetadata);
-	return NULL;
-}
-
-void* RuntimeInvoker_TrueRuntimeObject_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Single_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF_RuntimeObject_RuntimeObject (Il2CppMethodPointer methodPointer, const RuntimeMethod* methodMetadata, void* obj, void** args)
-{
-	typedef RuntimeObject * (*Func)(void* obj, int32_t p1, float p2, int8_t p3, RuntimeObject * p4, RuntimeObject * p5, const RuntimeMethod* method);
-	RuntimeObject * ret = ((Func)methodPointer)(obj, *((int32_t*)args[0]), *((float*)args[1]), *((int8_t*)args[2]), (RuntimeObject *)args[3], (RuntimeObject *)args[4], methodMetadata);
+	typedef RuntimeObject * (*Func)(void* obj, int32_t p1, int32_t p2, int8_t p3, RuntimeObject * p4, RuntimeObject * p5, const RuntimeMethod* method);
+	RuntimeObject * ret = ((Func)methodPointer)(obj, *((int32_t*)args[0]), *((int32_t*)args[1]), *((int8_t*)args[2]), (RuntimeObject *)args[3], (RuntimeObject *)args[4], methodMetadata);
 	return ret;
 }
 
@@ -30768,7 +30761,7 @@ void* RuntimeInvoker_FalseRuntimeObject_FloatTween_tF6BB24C266F36BD80E20C91AED45
 	return ret;
 }
 
-extern const InvokerMethod g_Il2CppInvokerPointers[2200] = 
+extern const InvokerMethod g_Il2CppInvokerPointers[2199] = 
 {
 	RuntimeInvoker_FalseRuntimeObject_RuntimeObject,
 	RuntimeInvoker_FalseRuntimeObject_RuntimeObject_RuntimeObject,
@@ -32411,8 +32404,7 @@ extern const InvokerMethod g_Il2CppInvokerPointers[2200] =
 	RuntimeInvoker_TrueRuntimeObject_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_RuntimeObject_RuntimeObject,
 	RuntimeInvoker_TrueRuntimeObject_RuntimeObject_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_RuntimeObject_RuntimeObject,
 	RuntimeInvoker_TrueSingle_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF,
-	RuntimeInvoker_TrueVoid_t22962CB4C05B1D89B55A6E1139F0E87A90987017_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Single_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF,
-	RuntimeInvoker_TrueRuntimeObject_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Single_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF_RuntimeObject_RuntimeObject,
+	RuntimeInvoker_TrueRuntimeObject_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_SByte_t9070AEA2966184235653CB9B4D33B149CDA831DF_RuntimeObject_RuntimeObject,
 	RuntimeInvoker_TrueVoid_t22962CB4C05B1D89B55A6E1139F0E87A90987017_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Color32_t23ABC4AE0E0BDFD2E22EE1FA0DA3904FFE5F6E23,
 	RuntimeInvoker_TrueVoid_t22962CB4C05B1D89B55A6E1139F0E87A90987017_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Single_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720,
 	RuntimeInvoker_TrueRuntimeObject_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Int32_t585191389E07734F19F3156FF88FB3EF4800D102_Single_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_Vector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_RuntimeObject_RuntimeObject,

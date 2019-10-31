@@ -2348,6 +2348,14 @@ void RegisterAllStrippedInternalCalls()
 
 	//End Registrations for type : UnityEngine.SystemInfo
 
+	//Start Registrations for type : UnityEngine.TextAsset
+
+		//System.String UnityEngine.TextAsset::get_text()
+		void Register_UnityEngine_TextAsset_get_text();
+		Register_UnityEngine_TextAsset_get_text();
+
+	//End Registrations for type : UnityEngine.TextAsset
+
 	//Start Registrations for type : UnityEngine.TextGenerator
 
 		//System.Boolean UnityEngine.TextGenerator::Populate_Internal_Injected(System.String,UnityEngine.Font,UnityEngine.Color&,System.Int32,System.Single,System.Single,UnityEngine.FontStyle,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,UnityEngine.TextAnchor,System.Single,System.Single,System.Single,System.Single,System.Boolean,System.Boolean,System.UInt32&)
