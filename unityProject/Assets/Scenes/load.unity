@@ -790,6 +790,36 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 29.6
       objectReference: {fileID: 0}
+    - target: {fileID: 7332626351963991886, guid: 12d265bffbc51423385d96418d745bbe,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332626351963991886, guid: 12d265bffbc51423385d96418d745bbe,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 105421609}
+    - target: {fileID: 4627490489134995355, guid: 12d265bffbc51423385d96418d745bbe,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627490489134995355, guid: 12d265bffbc51423385d96418d745bbe,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627490489134995355, guid: 12d265bffbc51423385d96418d745bbe,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4627490489134995355, guid: 12d265bffbc51423385d96418d745bbe,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12d265bffbc51423385d96418d745bbe, type: 3}
 --- !u!1 &8509198821313199235 stripped

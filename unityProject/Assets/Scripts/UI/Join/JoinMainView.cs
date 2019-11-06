@@ -76,6 +76,7 @@ public class JoinMainView : MonoBehaviour
     private JoinPlus joinPlus;
     private float drawPercent = 0;
     private float curTime;//控制示意图缩放的时间
+    private bool isNoHead;
 
     private void OnEnable()
     {
@@ -89,8 +90,6 @@ public class JoinMainView : MonoBehaviour
 
     void Update()
     {
-
-
         //示意图缩放
         if (isRefrenceZoomIning)
         {
@@ -101,7 +100,7 @@ public class JoinMainView : MonoBehaviour
         }
 
         //动物拼接时，如果没有头，不让下一步
-        if (GameManager.instance.curJoinType == JoinType.Animal)
+        if (isNoHead == false && GameManager.instance.curJoinType == JoinType.Animal)
         {
             if (step == 1 && HeadCG.transform.childCount == 0)
             {
@@ -109,7 +108,9 @@ public class JoinMainView : MonoBehaviour
             }
             else
             {
-                BtnNext.gameObject.SetActive(true);
+                isNoHead = true;
+                BtnNext.GetComponent<UIMove>().MoveShow();
+                //BtnNext.gameObject.SetActive(true);
             }
         }
         else
@@ -604,6 +605,8 @@ public class JoinMainView : MonoBehaviour
                 SetCurSelectType(TemplateResType.Body);
             }
             BtnPre.GetComponent<UIMove>().MoveHide();
+            //BtnNext.gameObject.SetActive(false);
+            BtnNext.GetComponent<UIMove>().MoveHide();
             GetDrawArea(drawPercent);//这里是控制BtnNext的
             BtnOk.gameObject.SetActive(false);
         }

@@ -10,8 +10,8 @@ public class IndexView : MonoBehaviour
     public ButtonScaleAni BtnLetter;
     public ButtonScaleAni BtnNumber;
     public ButtonScaleAni BtnAnimal;
-    public Button BtnCalendar;
-    public Button BtnPersonCenter;
+    public ButtonScaleAni BtnCalendar;
+    public ButtonScaleAni BtnPersonCenter;
     public Transform TransLand;
     public Transform TransSky;
 
@@ -52,28 +52,21 @@ public class IndexView : MonoBehaviour
 
     private void AddBtnListener()
     {
-        BtnCalendar.onClick.AddListener(delegate
-        {
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            PersonManager.instance.CurPersonPageIndex = 0;//从首页进来每次都是第一页
-            GameManager.instance.CalendarDetailShow = false;//从首页进来是不打开某个详情页的
-            GameManager.instance.SetNextSceneName(SceneName.Calendar);
-            TransitionView.instance.OpenTransition();
-        });
-
-        BtnPersonCenter.onClick.AddListener(delegate {
-            CallManager.instance.UnityToPlatform_GoToPersonalCenter();
-        });
-
+        BtnPersonCenter.buttonClickEvent += PersonCenterClick;
         BtnLetter.buttonClickEvent += LetterClick;
         BtnNumber.buttonClickEvent += NumberClick;
         BtnAnimal.buttonClickEvent += AnimalClick;
+        BtnCalendar.buttonClickEvent += CalenderClick;
+    }
+
+    private void PersonCenterClick()
+    {
+        CallManager.instance.UnityToPlatform_GoToPersonalCenter();
     }
 
     private void LetterClick()
     {
         GameManager.instance.curJoinType = JoinType.Letter; 
-        AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         GameManager.instance.SetNextSceneName(SceneName.Home);
         TransitionView.instance.OpenTransition();
     }
@@ -81,7 +74,6 @@ public class IndexView : MonoBehaviour
     private void NumberClick()
     {
         GameManager.instance.curJoinType = JoinType.Num;
-        AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         GameManager.instance.SetNextSceneName(SceneName.Home);
         TransitionView.instance.OpenTransition();
     }
@@ -89,8 +81,15 @@ public class IndexView : MonoBehaviour
     private void AnimalClick()
     {
         GameManager.instance.curJoinType = JoinType.Animal;
-        AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
         GameManager.instance.SetNextSceneName(SceneName.Home);
+        TransitionView.instance.OpenTransition();
+    }
+
+    private void CalenderClick()
+    {
+        PersonManager.instance.CurPersonPageIndex = 0;//从首页进来每次都是第一页
+        GameManager.instance.CalendarDetailShow = false;//从首页进来是不打开某个详情页的
+        GameManager.instance.SetNextSceneName(SceneName.Calendar);
         TransitionView.instance.OpenTransition();
     }
 

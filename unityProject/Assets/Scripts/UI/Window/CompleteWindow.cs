@@ -6,6 +6,7 @@ using Helper;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class CompleteWindow : WindowParent
 {
@@ -131,8 +132,10 @@ public class CompleteWindow : WindowParent
 
         BtnReplay.onClick.AddListener(delegate {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            CloseWindow();
-            GameOperDelegate.Replay();
+            window.DOScale(0, 0.5f).OnComplete(() => { 
+                CloseWindow(); 
+                GameOperDelegate.Replay();
+            });
         });
     }
 

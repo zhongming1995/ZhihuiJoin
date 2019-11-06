@@ -27,31 +27,12 @@ namespace Editor.PreImport
                         string assetBundleName = str.Replace(@"Assets/Res/", string.Empty);
                         assetBundleName = assetBundleName.Replace(fileName, string.Empty);
                         assetBundleName = assetBundleName.Replace("Atlas", "atlas");
-                        assetImport.assetBundleName = null; //assetBundleName;
-                        assetImport.assetBundleVariant = null; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
-                        Debug.Log("assetBundleName:" + assetBundleName);
-                        Debug.Log("prefix:" + assetImport.assetBundleVariant);
+                        assetImport.assetBundleName = string.Empty; //assetBundleName;
+                        assetImport.assetBundleVariant = string.Empty; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
+                    //    Debug.Log("assetBundleName:" + assetBundleName);
+                    //    Debug.Log("prefix:" + assetImport.assetBundleVariant);
                     }
                 }
-                if (str.Contains(@"Assets/Res/Texture") && (str.EndsWith(".png") || str.EndsWith(".tga")))
-                {
-                    AssetImporter assetImport = AssetImporter.GetAtPath(str);
-                    if (str.Contains(@"Assets/_Res/Atlas/always")/*|| str.Contains(@"Assets/_Res/Atlas/touch")*/)//always目录下的不打包ab
-                    {
-                        assetImport.assetBundleName = string.Empty;
-                    }
-                    else
-                    {
-                        string fileName = str.Substring(str.LastIndexOf("/"));
-                        string assetBundleName = str.Replace(@"Assets/Res/", string.Empty);
-                        assetBundleName = assetBundleName.Replace(".png", string.Empty);
-                        assetBundleName = assetBundleName.Replace("Texture", "texture");
-                        //Debugger.Log(assetBundleName+"   "+ fileName);
-                        assetImport.assetBundleName = null; //assetBundleName;
-                        assetImport.assetBundleVariant = null; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
-                    }
-                }
-
                 //设置ab tag
                 if (str.Contains(@"Res/Shader") || str.Contains(@"Res/Material") || str.Contains(@"Res/Font") || str.Contains(@"Res/Prefabs")|| str.Contains(@"Res/Audio") || str.Contains(@"Res/Animator"))
                 {
@@ -69,8 +50,8 @@ namespace Editor.PreImport
                         assetBundleName = assetBundleName.Replace(fileName, string.Empty);
                         assetBundleName = assetBundleName.Replace(extension, string.Empty);
                         assetBundleName = assetBundleName.Replace(@"Resources/", string.Empty);
-                        assetImport.assetBundleName = null; //assetBundleName;
-                        assetImport.assetBundleVariant = null; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
+                        assetImport.assetBundleName = string.Empty; //assetBundleName;
+                        assetImport.assetBundleVariant = string.Empty; //ResMgr.ResConf.ASSET_BUNDLE_SUFFIX.Replace(".", string.Empty);
                         Debug.Log("assetBundleName:" + assetBundleName);
                     }
                 }
