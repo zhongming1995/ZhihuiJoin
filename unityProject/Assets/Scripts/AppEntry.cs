@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using ResMgr;
-using GameMgr;
 using UnityEngine.SceneManagement;
 
 public class AppEntry : SingletonMono<AppEntry>
@@ -32,10 +31,7 @@ public class AppEntry : SingletonMono<AppEntry>
         {
             SceneManager.LoadScene(SceneName.Index);
             GameData.instance.InitResList();
-            //test
-            CSVUtil.GetListFromRestrict("Config|restrict");
         }
-
         //异步加载方式
         //ResManager.instance.LoadMainAssetBundleAsync(() => { SceneManager.LoadScene("index"); });
     }

@@ -95,7 +95,7 @@ namespace GameMgr
       
         public string FodderToSamllFodderPath(string path)
         {
-            string tmpPath = path.Replace("fodder", "small_fodder");
+            string tmpPath = path.Replace("fodder", "fodder_icon");
             return tmpPath + "_icon";
         }
 

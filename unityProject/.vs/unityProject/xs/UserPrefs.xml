@@ -1,24 +1,10 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Res/Shader/ImageInLine.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Manager/DataManager/DataManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Helper/CSVUtil.cs" Line="46" Column="1" />
-      <File FileName="Assets/Scripts/AppEntry.cs" Line="32" Column="10" />
-      <File FileName="Assets/Scripts/Manager/DataManager/GameData.cs" Line="1364" Column="41" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="841" Column="41" />
-      <File FileName="Assets/Scripts/UI/Join/ResDragItem.cs" Line="59" Column="63" />
-      <File FileName="Assets/Scripts/UI/Display/PartData.cs" Line="3" Column="13" />
-      <File FileName="Assets/Scripts/UI/Join/ResTemplate.cs" Line="59" Column="85" />
-      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="484" Column="35" />
-      <File FileName="Assets/Scripts/Manager/GameManager/GameManager.cs" Line="83" Column="47" />
-      <File FileName="Assets/Res/Resources/Config/restrict.csv" Line="42" Column="318" />
-      <File FileName="Assets/Res/Resources/Config/letter_leg.csv" Line="53" Column="23" />
-      <File FileName="Assets/Res/Resources/Config/letter_hand.csv" Line="35" Column="29" />
-      <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="111" Column="73" />
-      <File FileName="Assets/Res/Resources/Config/animal_hand.csv" Line="2" Column="35" />
-      <File FileName="Assets/Res/Resources/Config/animal_leg.csv" Line="7" Column="33" />
-      <File FileName="Assets/Scripts/UI/Home/CalenderItem.cs" Line="103" Column="43" />
-      <File FileName="Assets/Res/Shader/ImageInLine.shader" Line="1" Column="20" />
-      <File FileName="Assets/Res/Shader/ImageOutline.shader" Line="1" Column="20" />
+      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="88" Column="47" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="16" Column="22" />
+      <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="24" Column="13" />
+      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="33" Column="80" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

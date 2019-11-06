@@ -838,11 +838,10 @@ public class JoinMainView : MonoBehaviour
         List<string> resPath;
         if (GameManager.instance.joinShowAll == false && type != (int)TemplateResType.Body)
         {
-            resPath = GameData.instance.GetPathListWithModule(GameManager.instance.homeSelectIndex, (TemplateResType)type);
+            resPath = GameData.instance.GetPathListWithModule(GameManager.instance.homeSelectIndex, type);
         }
         else
         {
-            //resPath = GameData.instance.resPathList[type];
             resPath = GameData.instance.GetPathList(type);
             if (type!=(int)TemplateResType.Body)
             {
@@ -862,65 +861,60 @@ public class JoinMainView : MonoBehaviour
             return;
         }
         //0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
-        float scale = 1;
-        if (type == TemplateResType.HeadWear|| type == TemplateResType.TrueBody)
-        {
-            scale = 0.7f;
-        }
-        else if (type == TemplateResType.Mouth)
-        {
-            scale = 0.9f;
-        }
-        else if (type == TemplateResType.Hand)
-        {
-            scale = 0.35f;
-        }
-        else if (type == TemplateResType.Hat || type ==TemplateResType.Eye)
-        {
-            scale = 0.63f;
-        }
-        else if (type == TemplateResType.Head)
-        {
-            scale = 0.3f;
-        }
-        else
-        {
-            scale = 0.5f;
-        }
+        //float scale = 1;
+        //if (type == TemplateResType.HeadWear|| type == TemplateResType.TrueBody)
+        //{
+        //    scale = 0.7f;
+        //}
+        //else if (type == TemplateResType.Mouth)
+        //{
+        //    scale = 0.9f;
+        //}
+        //else if (type == TemplateResType.Hand)
+        //{
+        //    scale = 0.35f;
+        //}
+        //else if (type == TemplateResType.Hat || type ==TemplateResType.Eye)
+        //{
+        //    scale = 0.63f;
+        //}
+        //else if (type == TemplateResType.Head)
+        //{
+        //    scale = 0.3f;
+        //}
+        //else
+        //{
+        //    scale = 0.5f;
+        //}
         for (int j = 0; j < resPath.Count; j++)
         {
             GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[(int)type], Vector3.zero, Vector3.one, false);
             string imgPath = resPath[j];
             Image resImg = resObj.transform.Find("img_res").GetComponent<Image>();
             Shadow shadow = resObj.transform.Find("img_res").GetComponent<Shadow>();
-
+            imgPath = GameManager.instance.FodderToSamllFodderPath(imgPath);
             UIHelper.instance.SetImage(imgPath, resImg, true);
             RectTransform imgRect = resImg.GetComponent<RectTransform>();
             float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
-            imgRect.localScale = new Vector3(scale, scale, scale);
+            //imgRect.localScale = Vector3.one;
             if (type == TemplateResType.Eye || type == TemplateResType.Hand || type == TemplateResType.Leg)
             {
-                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, imgRect.sizeDelta.y * scale);//40
-                if (type!=TemplateResType.Eye)
-                {
-                    if (j % 2 == 0)//右边
-                    {
-                        shadow.effectDistance = new Vector2(5, -5);
-                    }
-                    else
-                    {
-                        shadow.effectDistance = new Vector2(-5, -5);
-                    }
-                }
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, imgRect.sizeDelta.y );//40
             }
             else
             {
-                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 20, imgRect.sizeDelta.y * scale);//45
+                resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 20, imgRect.sizeDelta.y );//45
             }
             resObj.GetComponent<ResTemplate>().SetPath(resPath[j]);
 
         }
         loadResult[(int)type] = true;
+    }
+
+    public string FodderToIcon(string path)
+    {
+
+        return "";
     }
 
     public Texture2D GetDrawTexture()

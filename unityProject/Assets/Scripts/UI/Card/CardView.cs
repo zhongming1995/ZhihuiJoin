@@ -16,9 +16,13 @@ public class CardView : MonoBehaviour
     public Image ImgMask;
     public Image ImgProgress;
     public Transform ChapterObj;
+    public Transform RadyGo;
+    public Image BlackMask;
+    public Image ImgReady;
+    public Image ImgGo;
 
     private float oriProgressPosx;//初始时间进度条的位置
-    private float countMaxTime = 3;
+    private float countMaxTime = 2;
     private float countTime = 0;//用于计时
     private List<CardItem> randomCardList = new List<CardItem>(); 
 
@@ -57,12 +61,37 @@ public class CardView : MonoBehaviour
     void Start()
     {
         oriProgressPosx = ImgProgress.transform.localPosition.x;
-        //ShowMask(true);
         AddClickEvent();
         AddListener();
-        InitGame(1);
+        //ReayGo();
+        ImgReady.transform.localScale = Vector3.zero;
+        ImgGo.transform.localScale = Vector3.zero;
+        BlackMask.DOFade(0, 0.001f);
+        Invoke("ReadyGo", 0.8f);
+        //InitGame(1);
     }
-    
+
+    void ReadyGo()
+    {
+        Sequence s = DOTween.Sequence();
+        //s.Append(BlackMask.DOFade(0.7f, 0.2f));
+        s.Append(ImgReady.transform.DOScale(1.1f, 0.2f));
+        s.Append(ImgReady.transform.DOScale(1, 0.1f));
+        s.AppendInterval(1f);
+        s.Append(ImgReady.transform.DOScale(0, 0.1f));
+        s.Join(ImgReady.DOFade(0, 0.1f));
+        s.Append(ImgGo.transform.DOScale(1.1f, 0.3f));
+        s.Append(ImgGo.transform.DOScale(1, 0.1f));
+        s.AppendInterval(0.5f);
+        s.Append(ImgGo.transform.DOScale(0, 0.1f));
+        s.Append(ImgGo.DOFade(0, 0.1f));
+        //s.Append(BlackMask.DOFade(0, 0.2f));
+        s.AppendCallback(() =>
+        {
+            RadyGo.gameObject.SetActive(false);
+            InitGame(1);
+        });
+    }
 
     void AddClickEvent()
     {
@@ -92,7 +121,6 @@ public class CardView : MonoBehaviour
     void InitGame(int chapter)
     {
         ShowMask(true);
-        //delete old
         for (int i = 0; i < cardContent.transform.childCount; i++)
         {
             Destroy(cardContent.transform.GetChild(i).gameObject);

@@ -332,6 +332,9 @@
     <Reference Include="DOTweenEditor">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Assets/Dlls/System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>/Users/zhongming/Desktop/GitHub/ZhihuiJoin/unityProject/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>

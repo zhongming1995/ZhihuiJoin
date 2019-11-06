@@ -58,7 +58,7 @@ public class CalendarView : MonoBehaviour
         GameOperDelegate.pianoBegin += PlayGame;
         GameOperDelegate.cardBegin += PlayGame;
         CalenderController.deleteItemComplete += DeleteItemComplete;
-        CalendarPageScroll.pageScrollEnd += PageScrollEndFunc;
+        //CalendarPageScroll.pageScrollEnd += PageScrollEndFunc;
         CalenderController.chooseOneItem += ChooseOneItem;
     }
 
@@ -67,7 +67,7 @@ public class CalendarView : MonoBehaviour
         GameOperDelegate.pianoBegin -= PlayGame;
         GameOperDelegate.cardBegin -= PlayGame;
         CalenderController.deleteItemComplete -= DeleteItemComplete;
-        CalendarPageScroll.pageScrollEnd -= PageScrollEndFunc;
+        //CalendarPageScroll.pageScrollEnd -= PageScrollEndFunc;
         CalenderController.chooseOneItem -= ChooseOneItem;
     }
 

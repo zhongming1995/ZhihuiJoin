@@ -151,10 +151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemContent: {fileID: 4001140878425562753}
   calendarItemTemplate: {fileID: 695168632549243330}
-  personList: []
+  PersonItemList: []
   PageIndex: 0
+  HaveLoad: 0
   ShouldRefresh: 0
-  isDeleting: 0
 --- !u!1001 &4921274832177244695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,6 +276,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 733451963640163331, guid: 162ee335fdf17d04e93fd018a0ca120f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 162ee335fdf17d04e93fd018a0ca120f, type: 3}

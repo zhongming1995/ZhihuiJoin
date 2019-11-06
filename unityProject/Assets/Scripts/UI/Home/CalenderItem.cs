@@ -53,11 +53,9 @@ public class CalenderItem : MonoBehaviour
         BtnDelete.interactable = false;
         ShowDelete(false);
     }
-    private float time;
     //设置图片
     public void SetImage(int _pageIndex,int _index,string _fileName)
     {
-        float time = Time.realtimeSinceStartup;
         //Debug.Log(FileName + "  ==  "+_fileName);
         if (FileName==_fileName)
         {
@@ -65,16 +63,15 @@ public class CalenderItem : MonoBehaviour
         }
         Debug.Log("pageIndex:" + _pageIndex + " ,_index:" + _index + " _fileName:" + _fileName);
         IsItem = true;
-        rawImage.gameObject.SetActive(true);
         PageIndex = _pageIndex;
         Index = _index;
         FileName = _fileName;
         transform.name = FileName;
         string path = PersonManager.instance.PersonImgPath + "/" + FileName + PersonManager.instance.PicPrefix; //".png";
-        time = Time.realtimeSinceStartup;
-        //LoadByIO(path);
+        LoadByIO(path);
+        rawImage.gameObject.SetActive(true);
         //rawImage.texture = Resources.Load<Texture2D>("Sprite/fodder/body/animal_body_0");
-        StartCoroutine(Cor_LoadImage("file:///"+path));
+        //StartCoroutine(Cor_LoadImage("file:///"+path));
         BtnDetail.interactable = true;
         BtnDelete.interactable = true;
 
@@ -89,7 +86,8 @@ public class CalenderItem : MonoBehaviour
     {
         //float time = Time.realtimeSinceStartup;
         //Resources.UnloadAsset(texture);
-        byte[] bytes = FileHelper.FileToByte(path);
+        //byte[] bytes = FileHelper.FileToByte(path);
+        byte[] bytes = File.ReadAllBytes(path);
         texture = new Texture2D(450, 450);
         texture.LoadImage(bytes);
         texture.Compress(false);

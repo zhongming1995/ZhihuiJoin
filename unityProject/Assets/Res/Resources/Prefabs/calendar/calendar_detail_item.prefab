@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7413715042560903394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -322,6 +322,7 @@ MonoBehaviour:
   PersonParent: {fileID: 0}
   TransDetail: {fileID: 1071529397823429643}
   rawImage: {fileID: 4508419974523496508}
+  DetailIndex: 0
 --- !u!1 &8423956364900018319
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Runtime.InteropServices;
 using AudioMgr;
 using DataMgr;
 using GameMgr;
@@ -17,9 +16,7 @@ public class DisplayView : MonoBehaviour
     public Transform ImgDisplay;
     public Transform PosFlag1;//左上角截屏定位点
     public Transform PosFlag2;//右下角截屏定位点
-    public Transform ImgMask;//保存图片时的mask
-
-    public ParticleSystem PSDisplay;//展示彩带
+    public ParticleSystem PSDisplay;//彩带粒子
 
     private JoinMainView joinMainView;
     private Transform displayItem;//展示界面的物体
@@ -34,12 +31,6 @@ public class DisplayView : MonoBehaviour
     private Texture2D staticTexture;//静态展示图片
     private DisplayPartItem[] lstDisplayItem;
 
-    public delegate void RefreshCalendar(int index);
-    public static event RefreshCalendar refreshCalendar;
-
-    [DllImport("__Internal")]
-    private static extern void UnityToIOS_SavePhotoToAlbum(string path);
-
     void Start()
     {
         BtnGame.GetComponent<UIMove>().SetFromPosition();
@@ -52,16 +43,6 @@ public class DisplayView : MonoBehaviour
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
         Display();
-        //BtnSave.interactable = false;
-        //BtnGame.interactable = false;//保存按钮才可以用
-        //BtnBack.interactable = false;//保存按钮才可以用
-        //BtnHome.interactable = false;//保存按钮才可以用
-        ShowMask(false);
-    }
-
-    private void ShowMask(bool show)
-    {
-        ImgMask.gameObject.SetActive(show);
     }
 
     private void OnEnable()
@@ -112,11 +93,6 @@ public class DisplayView : MonoBehaviour
                 PersonManager.instance.CurPersonPageIndex = 0;//画册进入编辑进入保存，返回画册应该是第一页
                 GameManager.instance.SetNextSceneName(SceneName.Calendar);
                 TransitionView.instance.OpenTransition();
-                //刷新修改的人物
-                if (refreshCalendar!=null)
-                {
-                    refreshCalendar(CalendarDetailController.instance.curDetailIndex);
-                }
             }
         });
 
@@ -160,12 +136,12 @@ public class DisplayView : MonoBehaviour
 
             //加上按钮
             Button btn = person.gameObject.AddComponent<Button>();
-            btn.onClick.AddListener(Greeting);
+            btn.onClick.AddListener(delegate {
+                Greeting();
+                Invoke("Greeting", 1.5f);
+            });
 
             lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
-
-            //生成静态展示图片
-            //StartCoroutine(CutScreen());
         }
     }
 
@@ -190,20 +166,20 @@ public class DisplayView : MonoBehaviour
         {
             PSDisplay.Play();
             AudioManager.instance.PlayOneShotAudio("Audio/effect|show");
-            Invoke("Greeting", 0f);
+            Greeting();
             Invoke("Greeting", 1.5f);
+        }
+        else
+        {
+            ShowButton();
         }
     }
 
     void SavePic()
     {
         string savePath = PersonManager.instance.PersonImgPath + PersonManager.instance.PersonFileName +".jpg";
-        //FileHelper.ByteToFile(staticTexture.EncodeToPNG(), savePath);
         FileHelper.ByteToFile(staticTexture.EncodeToJPG(), savePath);
         Debug.Log("图片保存的沙河地址：------------" + savePath);
-        //BtnGame.interactable = true;//保存按钮才可以用
-        //BtnBack.interactable = true;//保存按钮才可以用
-        //BtnHome.interactable = true;//保存按钮才可以用
     }
 
     public void Greeting()
