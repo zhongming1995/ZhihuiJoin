@@ -570,6 +570,8 @@ struct DateTimeConstantAttribute_t4E7414CDD051958BEA1F01140F38441AA442D9BE;
 struct DecimalConstantAttribute_t3DFC057911F4AF28AD6A0472300EBE4C038BD9B5;
 // System.Runtime.CompilerServices.DefaultDependencyAttribute
 struct DefaultDependencyAttribute_t5401DA33101638B630ABCB8C22120ABDB29FE191;
+// System.Runtime.CompilerServices.DependencyAttribute
+struct DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57;
 // System.Runtime.CompilerServices.ExtensionAttribute
 struct ExtensionAttribute_t34A17741DB6F2A390F30532BD50B269ECDB8F124;
 // System.Runtime.CompilerServices.FixedBufferAttribute
@@ -606,6 +608,8 @@ struct ReliabilityContractAttribute_t784D3086C6F43192DE3A8676636DE98EE2CBEE45;
 struct ExceptionDispatchInfo_t0C54083F3909DAF986A4DEAA7C047559531E0E2A;
 // System.Runtime.ExceptionServices.HandleProcessCorruptedStateExceptionsAttribute
 struct HandleProcessCorruptedStateExceptionsAttribute_tA72E0974E174E223166E56C7E2B20C319C322260;
+// System.Runtime.InteropServices.BestFitMappingAttribute
+struct BestFitMappingAttribute_tCAE894EC1B7698828E06305D50536EC60F41FC12;
 // System.Runtime.InteropServices.COMException
 struct COMException_t16C4698DE84A5ED9085B5545DEE0EDE38DB455DD;
 // System.Runtime.InteropServices.ClassInterfaceAttribute
@@ -650,6 +654,8 @@ struct SafeBuffer_t9C39972A6152D9B18D97894AF4EB871581B64208;
 struct SafeHandle_t1E326D75E23FD5BB6D40BA322298FDC6526CC383;
 // System.Runtime.InteropServices.TypeLibImportClassAttribute
 struct TypeLibImportClassAttribute_tF096AB90A395D44FFFC7AAEDBFC5D8DD85EA74C1;
+// System.Runtime.InteropServices.TypeLibVersionAttribute
+struct TypeLibVersionAttribute_t087850CBF74291ADF49093B7732E210F803ED578;
 // System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute
 struct UnmanagedFunctionPointerAttribute_tC8718CB0B83BA5FA2F5BD5E9C7F2C67D59ED532F;
 // System.Runtime.Remoting.ActivatedClientTypeEntry
@@ -10620,6 +10626,35 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // HANDLEPROCESSCORRUPTEDSTATEEXCEPTIONSATTRIBUTE_TA72E0974E174E223166E56C7E2B20C319C322260_H
+#ifndef BESTFITMAPPINGATTRIBUTE_TCAE894EC1B7698828E06305D50536EC60F41FC12_H
+#define BESTFITMAPPINGATTRIBUTE_TCAE894EC1B7698828E06305D50536EC60F41FC12_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// System.Runtime.InteropServices.BestFitMappingAttribute
+struct  BestFitMappingAttribute_tCAE894EC1B7698828E06305D50536EC60F41FC12  : public Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74
+{
+public:
+	// System.Boolean System.Runtime.InteropServices.BestFitMappingAttribute::_bestFitMapping
+	bool ____bestFitMapping_0;
+
+public:
+	inline static int32_t get_offset_of__bestFitMapping_0() { return static_cast<int32_t>(offsetof(BestFitMappingAttribute_tCAE894EC1B7698828E06305D50536EC60F41FC12, ____bestFitMapping_0)); }
+	inline bool get__bestFitMapping_0() const { return ____bestFitMapping_0; }
+	inline bool* get_address_of__bestFitMapping_0() { return &____bestFitMapping_0; }
+	inline void set__bestFitMapping_0(bool value)
+	{
+		____bestFitMapping_0 = value;
+	}
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // BESTFITMAPPINGATTRIBUTE_TCAE894EC1B7698828E06305D50536EC60F41FC12_H
 #ifndef COMCOMPATIBLEVERSIONATTRIBUTE_T8D9E26E5596ECAF4286A2E3FBAC2753AFBE825D2_H
 #define COMCOMPATIBLEVERSIONATTRIBUTE_T8D9E26E5596ECAF4286A2E3FBAC2753AFBE825D2_H
 #ifdef __clang__
@@ -10985,6 +11020,45 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // TYPELIBIMPORTCLASSATTRIBUTE_TF096AB90A395D44FFFC7AAEDBFC5D8DD85EA74C1_H
+#ifndef TYPELIBVERSIONATTRIBUTE_T087850CBF74291ADF49093B7732E210F803ED578_H
+#define TYPELIBVERSIONATTRIBUTE_T087850CBF74291ADF49093B7732E210F803ED578_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// System.Runtime.InteropServices.TypeLibVersionAttribute
+struct  TypeLibVersionAttribute_t087850CBF74291ADF49093B7732E210F803ED578  : public Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74
+{
+public:
+	// System.Int32 System.Runtime.InteropServices.TypeLibVersionAttribute::_major
+	int32_t ____major_0;
+	// System.Int32 System.Runtime.InteropServices.TypeLibVersionAttribute::_minor
+	int32_t ____minor_1;
+
+public:
+	inline static int32_t get_offset_of__major_0() { return static_cast<int32_t>(offsetof(TypeLibVersionAttribute_t087850CBF74291ADF49093B7732E210F803ED578, ____major_0)); }
+	inline int32_t get__major_0() const { return ____major_0; }
+	inline int32_t* get_address_of__major_0() { return &____major_0; }
+	inline void set__major_0(int32_t value)
+	{
+		____major_0 = value;
+	}
+
+	inline static int32_t get_offset_of__minor_1() { return static_cast<int32_t>(offsetof(TypeLibVersionAttribute_t087850CBF74291ADF49093B7732E210F803ED578, ____minor_1)); }
+	inline int32_t get__minor_1() const { return ____minor_1; }
+	inline int32_t* get_address_of__minor_1() { return &____minor_1; }
+	inline void set__minor_1(int32_t value)
+	{
+		____minor_1 = value;
+	}
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // TYPELIBVERSIONATTRIBUTE_T087850CBF74291ADF49093B7732E210F803ED578_H
 #ifndef ACTIVATEDCLIENTTYPEENTRY_T6367ED1F07EDEAE5D126B4522150495BF306EEBD_H
 #define ACTIVATEDCLIENTTYPEENTRY_T6367ED1F07EDEAE5D126B4522150495BF306EEBD_H
 #ifdef __clang__
@@ -18618,6 +18692,46 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // DEFAULTDEPENDENCYATTRIBUTE_T5401DA33101638B630ABCB8C22120ABDB29FE191_H
+#ifndef DEPENDENCYATTRIBUTE_TA90C07E3131623E3AEA30E4DDF8F6B188985EA57_H
+#define DEPENDENCYATTRIBUTE_TA90C07E3131623E3AEA30E4DDF8F6B188985EA57_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// System.Runtime.CompilerServices.DependencyAttribute
+struct  DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57  : public Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74
+{
+public:
+	// System.String System.Runtime.CompilerServices.DependencyAttribute::dependentAssembly
+	String_t* ___dependentAssembly_0;
+	// System.Runtime.CompilerServices.LoadHint System.Runtime.CompilerServices.DependencyAttribute::loadHint
+	int32_t ___loadHint_1;
+
+public:
+	inline static int32_t get_offset_of_dependentAssembly_0() { return static_cast<int32_t>(offsetof(DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57, ___dependentAssembly_0)); }
+	inline String_t* get_dependentAssembly_0() const { return ___dependentAssembly_0; }
+	inline String_t** get_address_of_dependentAssembly_0() { return &___dependentAssembly_0; }
+	inline void set_dependentAssembly_0(String_t* value)
+	{
+		___dependentAssembly_0 = value;
+		Il2CppCodeGenWriteBarrier((&___dependentAssembly_0), value);
+	}
+
+	inline static int32_t get_offset_of_loadHint_1() { return static_cast<int32_t>(offsetof(DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57, ___loadHint_1)); }
+	inline int32_t get_loadHint_1() const { return ___loadHint_1; }
+	inline int32_t* get_address_of_loadHint_1() { return &___loadHint_1; }
+	inline void set_loadHint_1(int32_t value)
+	{
+		___loadHint_1 = value;
+	}
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // DEPENDENCYATTRIBUTE_TA90C07E3131623E3AEA30E4DDF8F6B188985EA57_H
 #ifndef RELIABILITYCONTRACTATTRIBUTE_T784D3086C6F43192DE3A8676636DE98EE2CBEE45_H
 #define RELIABILITYCONTRACTATTRIBUTE_T784D3086C6F43192DE3A8676636DE98EE2CBEE45_H
 #ifdef __clang__
@@ -32054,6 +32168,26 @@ extern "C" IL2CPP_METHOD_ATTR void DefaultDependencyAttribute__ctor_mA723A8897D1
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void System.Runtime.CompilerServices.DependencyAttribute::.ctor(System.String,System.Runtime.CompilerServices.LoadHint)
+extern "C" IL2CPP_METHOD_ATTR void DependencyAttribute__ctor_mD4963544B096057908FF65D97718B1BAB12328BA (DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57 * __this, String_t* ___dependentAssemblyArgument0, int32_t ___loadHintArgument1, const RuntimeMethod* method)
+{
+	{
+		Attribute__ctor_m45CAD4B01265CC84CC5A84F62EE2DBE85DE89EC0(__this, /*hidden argument*/NULL);
+		String_t* L_0 = ___dependentAssemblyArgument0;
+		__this->set_dependentAssembly_0(L_0);
+		int32_t L_1 = ___loadHintArgument1;
+		__this->set_loadHint_1(L_1);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 // Conversion methods for marshalling of: System.Runtime.CompilerServices.Ephemeron
 extern "C" void Ephemeron_t6F0B12401657FF132AB44052E5BCD06D358FF1BA_marshal_pinvoke(const Ephemeron_t6F0B12401657FF132AB44052E5BCD06D358FF1BA& unmarshaled, Ephemeron_t6F0B12401657FF132AB44052E5BCD06D358FF1BA_marshaled_pinvoke& marshaled)
 {
@@ -33259,6 +33393,24 @@ extern "C" IL2CPP_METHOD_ATTR void HandleProcessCorruptedStateExceptionsAttribut
 {
 	{
 		Attribute__ctor_m45CAD4B01265CC84CC5A84F62EE2DBE85DE89EC0(__this, /*hidden argument*/NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.Runtime.InteropServices.BestFitMappingAttribute::.ctor(System.Boolean)
+extern "C" IL2CPP_METHOD_ATTR void BestFitMappingAttribute__ctor_mD17C6E93E317804EB7C0A7A74D7BB5C49353E5F5 (BestFitMappingAttribute_tCAE894EC1B7698828E06305D50536EC60F41FC12 * __this, bool ___BestFitMapping0, const RuntimeMethod* method)
+{
+	{
+		Attribute__ctor_m45CAD4B01265CC84CC5A84F62EE2DBE85DE89EC0(__this, /*hidden argument*/NULL);
+		bool L_0 = ___BestFitMapping0;
+		__this->set__bestFitMapping_0(L_0);
 		return;
 	}
 }
@@ -35344,6 +35496,26 @@ extern "C" IL2CPP_METHOD_ATTR void TypeLibImportClassAttribute__ctor_mBC3D60BFB3
 		NullCheck(L_0);
 		String_t* L_1 = VirtFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, L_0);
 		__this->set__importClassName_0(L_1);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.Runtime.InteropServices.TypeLibVersionAttribute::.ctor(System.Int32,System.Int32)
+extern "C" IL2CPP_METHOD_ATTR void TypeLibVersionAttribute__ctor_m7CA6157F0586CBBB42ED56E18BAB32E51A7DD17E (TypeLibVersionAttribute_t087850CBF74291ADF49093B7732E210F803ED578 * __this, int32_t ___major0, int32_t ___minor1, const RuntimeMethod* method)
+{
+	{
+		Attribute__ctor_m45CAD4B01265CC84CC5A84F62EE2DBE85DE89EC0(__this, /*hidden argument*/NULL);
+		int32_t L_0 = ___major0;
+		__this->set__major_0(L_0);
+		int32_t L_1 = ___minor1;
+		__this->set__minor_1(L_1);
 		return;
 	}
 }

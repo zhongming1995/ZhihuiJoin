@@ -31573,7 +31573,7 @@ IL_0022:
 	}
 }
 // System.Boolean System.Collections.Generic.List`1<System.Int32>::Contains(T)
-extern "C" IL2CPP_METHOD_ATTR bool List_1_Contains_m328B57821E3F71FB32B7107B5FC25C0AAA73DC19_gshared (List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 * __this, int32_t ___item0, const RuntimeMethod* method)
+extern "C" IL2CPP_METHOD_ATTR bool List_1_Contains_m275CA0DC5737E7EF9DBEAC629F8DE280CFFA96D6_gshared (List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 * __this, int32_t ___item0, const RuntimeMethod* method)
 {
 	int32_t V_0 = 0;
 	EqualityComparer_1_tB4B7A6BE74484499A34574C8A7FE8E72455B8CF3 * V_1 = NULL;
@@ -32545,7 +32545,7 @@ IL_0089:
 	}
 }
 // System.Void System.Collections.Generic.List`1<System.Int32>::RemoveAt(System.Int32)
-extern "C" IL2CPP_METHOD_ATTR void List_1_RemoveAt_m5B08A4DE42AAE55BA195FDB57D707A8F25498841_gshared (List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 * __this, int32_t ___index0, const RuntimeMethod* method)
+extern "C" IL2CPP_METHOD_ATTR void List_1_RemoveAt_m3956EB9A8D17A205667641C6C6AD67FBE2BD40AC_gshared (List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 * __this, int32_t ___index0, const RuntimeMethod* method)
 {
 	int32_t V_0 = 0;
 	{
@@ -32742,7 +32742,7 @@ IL_002a:
 	}
 }
 // System.Void System.Collections.Generic.List`1<System.Int32>::Sort()
-extern "C" IL2CPP_METHOD_ATTR void List_1_Sort_m723A6BEBAB430277CD79C8BD7D63DEF94E0BBB0A_gshared (List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 * __this, const RuntimeMethod* method)
+extern "C" IL2CPP_METHOD_ATTR void List_1_Sort_m47B47C58C6C4C55B50F532C068EB4A5246C83813_gshared (List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 * __this, const RuntimeMethod* method)
 {
 	{
 		NullCheck((List_1_tE1526161A558A17A39A8B69D8EEF3801393B6226 *)__this);

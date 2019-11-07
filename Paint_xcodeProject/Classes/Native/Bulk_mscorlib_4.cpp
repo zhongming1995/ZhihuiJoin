@@ -1387,11 +1387,9 @@ extern const uint32_t Decimal__ctor_m01C926530B02CEC0643588B70AB93F62EA7A1AE8_Me
 extern const uint32_t Decimal__ctor_mD2BEAABCBAC5D1AF62D0F8E01B2DCD2B725B2C2C_MetadataUsageId;
 extern const uint32_t Decimal__ctor_mDD90B92A99EE8915679A5D3171499236A7D08168_MetadataUsageId;
 extern const uint32_t Decimal_op_Addition_m9DCE5083B3B1FA372C6F72BD91FABC1FA5B76981_MetadataUsageId;
-extern const uint32_t Decimal_op_Division_m5A14CCDBC929DEB14F9AC195C7456DF0AE76F514_MetadataUsageId;
 extern const uint32_t Decimal_op_Equality_mD69422DB0011607747F9D778C5409FBE732E4BDB_MetadataUsageId;
 extern const uint32_t Decimal_op_Explicit_mB7F34E3B2DFB6211CA5ACB5497DA6CDCB09FC6CE_MetadataUsageId;
 extern const uint32_t Decimal_op_Explicit_mC7ED730AE7C6D42F19F06246B242E8B60EDDAC62_MetadataUsageId;
-extern const uint32_t Decimal_op_Explicit_mF1B666F819D7B34E1D3ADF47D0426AC07F74830B_MetadataUsageId;
 extern const uint32_t Decimal_op_Explicit_mF3434A054416EF15D61C4903FD72C9704F5F97B9_MetadataUsageId;
 extern const uint32_t Decimal_op_Inequality_m18DB27574F40577B4D0D3C732BDA45135B41FD3D_MetadataUsageId;
 extern const uint32_t Decimal_op_Multiply_m115B4FBD28412B58E1911D92A895D7E5C39C2F08_MetadataUsageId;
@@ -16955,8 +16953,6 @@ extern "C" IL2CPP_METHOD_ATTR double Decimal_ToDouble_m295040AEA515779CFF906B03F
 extern "C" IL2CPP_METHOD_ATTR void Decimal_FCallAddSub_m43C9BC274869E9F054E0E83FDC03F184ECA4F3BB (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d10, Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d21, uint8_t ___bSign2, const RuntimeMethod* method);
 // System.Void System.Decimal::FCallMultiply(System.Decimal&,System.Decimal&)
 extern "C" IL2CPP_METHOD_ATTR void Decimal_FCallMultiply_mA29A048D19D0893A07EF110176394E462A8DCED7 (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d10, Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d21, const RuntimeMethod* method);
-// System.Void System.Decimal::FCallDivide(System.Decimal&,System.Decimal&)
-extern "C" IL2CPP_METHOD_ATTR void Decimal_FCallDivide_mAA9803C9F5BED459ABCEB2CA1473D7100F95C4C2 (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d10, Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d21, const RuntimeMethod* method);
 // System.TypeCode System.Decimal::GetTypeCode()
 extern "C" IL2CPP_METHOD_ATTR int32_t Decimal_GetTypeCode_mD8A5AA9855B5CC0962E1E1E0DC0CB5B98399C315 (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * __this, const RuntimeMethod* method);
 // System.Boolean System.Convert::ToBoolean(System.Decimal)
@@ -19030,13 +19026,6 @@ extern "C"  int32_t Decimal_CompareTo_mEAA7E4E03BCF1A02CDA8439E8F2F60181D46B30B_
 	Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * _thisAdjusted = reinterpret_cast<Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *>(__this + 1);
 	return Decimal_CompareTo_mEAA7E4E03BCF1A02CDA8439E8F2F60181D46B30B(_thisAdjusted, ___value0, method);
 }
-// System.Void System.Decimal::FCallDivide(System.Decimal&,System.Decimal&)
-extern "C" IL2CPP_METHOD_ATTR void Decimal_FCallDivide_mAA9803C9F5BED459ABCEB2CA1473D7100F95C4C2 (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d10, Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * ___d21, const RuntimeMethod* method)
-{
-	typedef void (*Decimal_FCallDivide_mAA9803C9F5BED459ABCEB2CA1473D7100F95C4C2_ftn) (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *, Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *);
-	using namespace il2cpp::icalls;
-	 ((Decimal_FCallDivide_mAA9803C9F5BED459ABCEB2CA1473D7100F95C4C2_ftn)mscorlib::System::Decimal::FCallDivide) (___d10, ___d21);
-}
 // System.Boolean System.Decimal::Equals(System.Object)
 extern "C" IL2CPP_METHOD_ATTR bool Decimal_Equals_mCEF3806BE2E8CA730568C45CF90E129159DC476A (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 * __this, RuntimeObject * ___value0, const RuntimeMethod* method)
 {
@@ -20067,22 +20056,6 @@ extern "C" IL2CPP_METHOD_ATTR Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 
 		return L_1;
 	}
 }
-// System.Int32 System.Decimal::op_Explicit(System.Decimal)
-extern "C" IL2CPP_METHOD_ATTR int32_t Decimal_op_Explicit_mF1B666F819D7B34E1D3ADF47D0426AC07F74830B (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  ___value0, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Decimal_op_Explicit_mF1B666F819D7B34E1D3ADF47D0426AC07F74830B_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  L_0 = ___value0;
-		IL2CPP_RUNTIME_CLASS_INIT(Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8_il2cpp_TypeInfo_var);
-		int32_t L_1 = Decimal_ToInt32_m2C5AA3F6D2A2679FE6044D8A8D3EFD0F573703AC(L_0, /*hidden argument*/NULL);
-		return L_1;
-	}
-}
 // System.UInt64 System.Decimal::op_Explicit(System.Decimal)
 extern "C" IL2CPP_METHOD_ATTR uint64_t Decimal_op_Explicit_mF3434A054416EF15D61C4903FD72C9704F5F97B9 (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  ___value0, const RuntimeMethod* method)
 {
@@ -20159,22 +20132,6 @@ extern "C" IL2CPP_METHOD_ATTR Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 
 	{
 		IL2CPP_RUNTIME_CLASS_INIT(Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8_il2cpp_TypeInfo_var);
 		Decimal_FCallMultiply_mA29A048D19D0893A07EF110176394E462A8DCED7((Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *)(&___d10), (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *)(&___d21), /*hidden argument*/NULL);
-		Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  L_0 = ___d10;
-		return L_0;
-	}
-}
-// System.Decimal System.Decimal::op_Division(System.Decimal,System.Decimal)
-extern "C" IL2CPP_METHOD_ATTR Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  Decimal_op_Division_m5A14CCDBC929DEB14F9AC195C7456DF0AE76F514 (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  ___d10, Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  ___d21, const RuntimeMethod* method)
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_method (Decimal_op_Division_m5A14CCDBC929DEB14F9AC195C7456DF0AE76F514_MetadataUsageId);
-		s_Il2CppMethodInitialized = true;
-	}
-	{
-		IL2CPP_RUNTIME_CLASS_INIT(Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8_il2cpp_TypeInfo_var);
-		Decimal_FCallDivide_mAA9803C9F5BED459ABCEB2CA1473D7100F95C4C2((Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *)(&___d10), (Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8 *)(&___d21), /*hidden argument*/NULL);
 		Decimal_t44EE9DA309A1BF848308DE4DDFC070CAE6D95EE8  L_0 = ___d10;
 		return L_0;
 	}

@@ -2839,26 +2839,6 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // CUSTOMCONSTANTATTRIBUTE_TBAC64D25BCB4BE5CAC32AC430CA8BEF070923191_H
-#ifndef EXTENSIONATTRIBUTE_T34A17741DB6F2A390F30532BD50B269ECDB8F124_H
-#define EXTENSIONATTRIBUTE_T34A17741DB6F2A390F30532BD50B269ECDB8F124_H
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-
-// System.Runtime.CompilerServices.ExtensionAttribute
-struct  ExtensionAttribute_t34A17741DB6F2A390F30532BD50B269ECDB8F124  : public Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74
-{
-public:
-
-public:
-};
-
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#endif // EXTENSIONATTRIBUTE_T34A17741DB6F2A390F30532BD50B269ECDB8F124_H
 #ifndef RUNTIMECOMPATIBILITYATTRIBUTE_TF386C60D3DD4A0E1759F1D8F76841FC4522A6126_H
 #define RUNTIMECOMPATIBILITYATTRIBUTE_TF386C60D3DD4A0E1759F1D8F76841FC4522A6126_H
 #ifdef __clang__
@@ -4708,6 +4688,46 @@ public:
 #pragma clang diagnostic pop
 #endif
 #endif // DEFAULTDEPENDENCYATTRIBUTE_T5401DA33101638B630ABCB8C22120ABDB29FE191_H
+#ifndef DEPENDENCYATTRIBUTE_TA90C07E3131623E3AEA30E4DDF8F6B188985EA57_H
+#define DEPENDENCYATTRIBUTE_TA90C07E3131623E3AEA30E4DDF8F6B188985EA57_H
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+
+// System.Runtime.CompilerServices.DependencyAttribute
+struct  DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57  : public Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74
+{
+public:
+	// System.String System.Runtime.CompilerServices.DependencyAttribute::dependentAssembly
+	String_t* ___dependentAssembly_0;
+	// System.Runtime.CompilerServices.LoadHint System.Runtime.CompilerServices.DependencyAttribute::loadHint
+	int32_t ___loadHint_1;
+
+public:
+	inline static int32_t get_offset_of_dependentAssembly_0() { return static_cast<int32_t>(offsetof(DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57, ___dependentAssembly_0)); }
+	inline String_t* get_dependentAssembly_0() const { return ___dependentAssembly_0; }
+	inline String_t** get_address_of_dependentAssembly_0() { return &___dependentAssembly_0; }
+	inline void set_dependentAssembly_0(String_t* value)
+	{
+		___dependentAssembly_0 = value;
+		Il2CppCodeGenWriteBarrier((&___dependentAssembly_0), value);
+	}
+
+	inline static int32_t get_offset_of_loadHint_1() { return static_cast<int32_t>(offsetof(DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57, ___loadHint_1)); }
+	inline int32_t get_loadHint_1() const { return ___loadHint_1; }
+	inline int32_t* get_address_of_loadHint_1() { return &___loadHint_1; }
+	inline void set_loadHint_1(int32_t value)
+	{
+		___loadHint_1 = value;
+	}
+};
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#endif // DEPENDENCYATTRIBUTE_TA90C07E3131623E3AEA30E4DDF8F6B188985EA57_H
 #ifndef RELIABILITYCONTRACTATTRIBUTE_T784D3086C6F43192DE3A8676636DE98EE2CBEE45_H
 #define RELIABILITYCONTRACTATTRIBUTE_T784D3086C6F43192DE3A8676636DE98EE2CBEE45_H
 #ifdef __clang__
@@ -5496,30 +5516,35 @@ extern const int32_t g_FieldOffsetTable1192[1] =
 {
 	DefaultDependencyAttribute_t5401DA33101638B630ABCB8C22120ABDB29FE191::get_offset_of_loadHint_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1193 = { sizeof (CompilationRelaxations_tCFC58143CB8E81E1E407EEA8FF9C9DF876F0750B)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1193 = { sizeof (DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57), -1, 0, 0 };
 extern const int32_t g_FieldOffsetTable1193[2] = 
+{
+	DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57::get_offset_of_dependentAssembly_0(),
+	DependencyAttribute_tA90C07E3131623E3AEA30E4DDF8F6B188985EA57::get_offset_of_loadHint_1(),
+};
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1194 = { sizeof (CompilationRelaxations_tCFC58143CB8E81E1E407EEA8FF9C9DF876F0750B)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };
+extern const int32_t g_FieldOffsetTable1194[2] = 
 {
 	CompilationRelaxations_tCFC58143CB8E81E1E407EEA8FF9C9DF876F0750B::get_offset_of_value___2() + static_cast<int32_t>(sizeof(RuntimeObject)),
 	0,
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1194 = { sizeof (CompilationRelaxationsAttribute_t0067C359924196418CFB0DE4C07C5F4C4BCD54FF), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1194[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1195 = { sizeof (CompilationRelaxationsAttribute_t0067C359924196418CFB0DE4C07C5F4C4BCD54FF), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1195[1] = 
 {
 	CompilationRelaxationsAttribute_t0067C359924196418CFB0DE4C07C5F4C4BCD54FF::get_offset_of_m_relaxations_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1195 = { sizeof (CompilerGeneratedAttribute_t29C03D4EB4F2193B5BF85D03923EA47423C946FC), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1196 = { sizeof (CustomConstantAttribute_tBAC64D25BCB4BE5CAC32AC430CA8BEF070923191), -1, 0, 0 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1197 = { sizeof (DateTimeConstantAttribute_t4E7414CDD051958BEA1F01140F38441AA442D9BE), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1197[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1196 = { sizeof (CompilerGeneratedAttribute_t29C03D4EB4F2193B5BF85D03923EA47423C946FC), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1197 = { sizeof (CustomConstantAttribute_tBAC64D25BCB4BE5CAC32AC430CA8BEF070923191), -1, 0, 0 };
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1198 = { sizeof (DateTimeConstantAttribute_t4E7414CDD051958BEA1F01140F38441AA442D9BE), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1198[1] = 
 {
 	DateTimeConstantAttribute_t4E7414CDD051958BEA1F01140F38441AA442D9BE::get_offset_of_date_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1198 = { sizeof (DecimalConstantAttribute_t3DFC057911F4AF28AD6A0472300EBE4C038BD9B5), -1, 0, 0 };
-extern const int32_t g_FieldOffsetTable1198[1] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1199 = { sizeof (DecimalConstantAttribute_t3DFC057911F4AF28AD6A0472300EBE4C038BD9B5), -1, 0, 0 };
+extern const int32_t g_FieldOffsetTable1199[1] = 
 {
 	DecimalConstantAttribute_t3DFC057911F4AF28AD6A0472300EBE4C038BD9B5::get_offset_of_dec_0(),
 };
-extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1199 = { sizeof (ExtensionAttribute_t34A17741DB6F2A390F30532BD50B269ECDB8F124), -1, 0, 0 };
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

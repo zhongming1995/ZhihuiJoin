@@ -28,7 +28,7 @@
 
 extern "C" void TweenExtensions_Pause_TisRuntimeObject_m75250E195615F3871222FCAD1F1A82A5102DB79D_gshared ();
 extern "C" void TweenExtensions_Play_TisRuntimeObject_m5E4739B93AB3BC835E0A3C429B41B55BA2A3F326_gshared ();
-extern "C" void TweenSettingsExtensions_From_TisRuntimeObject_m930CC6DBACDE3B5566E625DCF80984D51084A8B5_gshared ();
+extern "C" void TweenSettingsExtensions_From_TisRuntimeObject_m9465500AA74DEA504E8BA3E47D716473B63FEE2C_gshared ();
 extern "C" void TweenSettingsExtensions_OnComplete_TisRuntimeObject_m0CE22D04F79915347E595C92F91A04B99D68B6BF_gshared ();
 extern "C" void TweenSettingsExtensions_OnKill_TisRuntimeObject_m5704C0A47BC636D470EE20FB6CA58017EAA9E95A_gshared ();
 extern "C" void TweenSettingsExtensions_OnPlay_TisRuntimeObject_m2C85DAA75631A5C8E3757C783B249DEE97B8B5C8_gshared ();
@@ -39,32 +39,32 @@ extern "C" void TweenSettingsExtensions_SetAutoKill_TisRuntimeObject_m0F675B9A95
 extern "C" void TweenSettingsExtensions_SetDelay_TisRuntimeObject_m63E58A7CF90B0A41E452586573F817BAED712A59_gshared ();
 extern "C" void TweenSettingsExtensions_SetEase_TisRuntimeObject_mAA611C0952D00FDF015326BC87C22874872B8CA5_gshared ();
 extern "C" void TweenSettingsExtensions_SetEase_TisRuntimeObject_mD6037CEF255C60983E4B1CE51DA6B772F2F88142_gshared ();
-extern "C" void TweenSettingsExtensions_SetId_TisRuntimeObject_mC2C8E669545FD58467BC6BEFDB50634D678B43C4_gshared ();
+extern "C" void TweenSettingsExtensions_SetId_TisRuntimeObject_m555AAE74DC302878D81E42C716743FA751ADA973_gshared ();
 extern "C" void TweenSettingsExtensions_SetLoops_TisRuntimeObject_mF5A945755EC2BB48E87E9C50B08785E6AC3671A2_gshared ();
-extern "C" void TweenSettingsExtensions_SetLoops_TisRuntimeObject_m17146DBF18DC057770E423FAB037A9ED4809360B_gshared ();
-extern "C" void TweenSettingsExtensions_SetRelative_TisRuntimeObject_m8DAD8377808606C13853EB511CCDE06037071BB0_gshared ();
+extern "C" void TweenSettingsExtensions_SetLoops_TisRuntimeObject_m6EFC354859F84C2C648EB040D8D9F8C8842B8D90_gshared ();
+extern "C" void TweenSettingsExtensions_SetRelative_TisRuntimeObject_m80BEAE5659A13D2AFCBAC9F9EECB1D7AE4A001CB_gshared ();
 extern "C" void TweenSettingsExtensions_SetTarget_TisRuntimeObject_mDB6721FAFCA2D26E6E803B08F2C23A7BC127625B_gshared ();
-extern "C" void TweenSettingsExtensions_SetUpdate_TisRuntimeObject_m8325DA0CA9F3AB779B5EB7F4AACB16D4F77C4050_gshared ();
+extern "C" void TweenSettingsExtensions_SetUpdate_TisRuntimeObject_m3DED36F31CB283E817E0E0EE58E0ED854D07304F_gshared ();
 extern "C" void Enumerable_SingleOrDefault_TisRuntimeObject_m4C9F6C91DBB44BA8D94999E3EC7EF87729B81802_gshared ();
 extern "C" void Marshal_PtrToStructure_TisRuntimeObject_mDB88EE58460703A7A664B670DE68020F9D1CAD72_gshared ();
 extern "C" void TaskToApm_End_TisInt32_t585191389E07734F19F3156FF88FB3EF4800D102_m7A78383A6B69F06EC91BDED0E0F6F3DE02960234_gshared ();
-extern "C" void AssetBundle_LoadAsset_TisRuntimeObject_mDF43689C0477D3EF298987E8C1C8D7B7102F2BA9_gshared ();
+extern "C" void AssetBundle_LoadAsset_TisRuntimeObject_m3209F473EEC424474B1053E66A1F09574719CB0B_gshared ();
 extern "C" void Component_GetComponent_TisRuntimeObject_m3FED1FF44F93EF1C3A07526800331B638EF4105B_gshared ();
 extern "C" void Component_GetComponentInChildren_TisRuntimeObject_m0A52F3C5B5FF663BE30EF619B4D961185A4C97EC_gshared ();
-extern "C" void Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_gshared ();
+extern "C" void Component_GetComponentInChildren_TisRuntimeObject_m99FB85ED87B1E6C81048B22BEBBC8AB94CD028CD_gshared ();
 extern "C" void Component_GetComponentInParent_TisRuntimeObject_m36052D294AB8C1574678FEF9A9749145A073E8E3_gshared ();
 extern "C" void GameObject_AddComponent_TisRuntimeObject_mCB8164FB05F8DCF99E098ADC5E13E96FEF6FC4E9_gshared ();
 extern "C" void GameObject_GetComponent_TisRuntimeObject_m41E09C4CA476451FE275573062956CED105CB79A_gshared ();
-extern "C" void GameObject_GetComponentInChildren_TisRuntimeObject_mE0E4439053E8E8916697BF562D209F4C587FDCBF_gshared ();
+extern "C" void GameObject_GetComponentInChildren_TisRuntimeObject_m30B5559A6518B663E4E13310D38CD94874A04D0B_gshared ();
 extern "C" void GameObject_GetComponentInChildren_TisRuntimeObject_m68D3406339E1B2B961D358E52E3C91503568C27E_gshared ();
 extern "C" void Object_Instantiate_TisRuntimeObject_mEF511C369E0CA9462FD3427DFC2375E81469570F_gshared ();
-extern "C" void Object_Instantiate_TisRuntimeObject_m317D483627D290B7EEB834C4CE816E461A7DA251_gshared ();
+extern "C" void Object_Instantiate_TisRuntimeObject_m133EE84C9D759BD2861D99355649CDF50BB93AC1_gshared ();
 extern "C" void Resources_GetBuiltinResource_TisRuntimeObject_m85F17CF969B8729F73D7FC6E935EF20EF3AAA994_gshared ();
 extern "C" void Component_GetComponents_TisRuntimeObject_mC1990520B7718DB9F2D68839716E6853645566FC_gshared ();
-extern "C" void Component_GetComponentsInChildren_TisRuntimeObject_m9D0AD195AE130230B226737CAC6C6DAEC4B78ED8_gshared ();
-extern "C" void Component_GetComponentsInChildren_TisRuntimeObject_m96A4AA0545C19F58121E6C5142474CB26EAB9717_gshared ();
-extern "C" void GameObject_GetComponents_TisRuntimeObject_mAB5B62A0C9EF4405B4E20D13F3CD7BC06A96FD40_gshared ();
-extern "C" void GameObject_GetComponentsInChildren_TisRuntimeObject_mD84415C6B32CB15A7EFAB8ECFB745D5325990AF4_gshared ();
+extern "C" void Component_GetComponentsInChildren_TisRuntimeObject_m8EDDAD383E0869517344FACCD43A329D35AAA0CE_gshared ();
+extern "C" void Component_GetComponentsInChildren_TisRuntimeObject_m6D4C38C330FCFD3C323B34031A7E877A5E2D453A_gshared ();
+extern "C" void GameObject_GetComponents_TisRuntimeObject_m5EA1B9B8C5B01E9DE33C6FB0D9AD52F85E0D3911_gshared ();
+extern "C" void GameObject_GetComponentsInChildren_TisRuntimeObject_mFF238916BEA468E58A72E7C1EE6F5D9729CA4D43_gshared ();
 extern "C" void Enumerator_get_Current_m4C430D4730AABE78C2EDBC5324F1E82FEC21CDED_AdjustorThunk ();
 extern "C" void KeyValuePair_2_get_Key_mB735BC2D7232A3B45D667D28C17BA51AAAFFB4A1_AdjustorThunk ();
 extern "C" void KeyValuePair_2_get_Key_m89B687D373FBE3D230647CA0C536235E12AD829C_AdjustorThunk ();
@@ -82,7 +82,7 @@ extern "C" void List_1_get_Item_m5BD2DDCF7C37275FB50F862A75EDA22A5B68AC78_gshare
 extern "C" void List_1_get_Item_mEBB57A0D130B365BDAED6DD55068D4F19082600B_gshared ();
 extern "C" void List_1_get_Item_m8BA0B92A220CF9DE7230C71B12A020BD983EF43D_gshared ();
 extern "C" void List_1_get_Item_mA38139AE449E2689258AA4BC05EFD320272C447D_gshared ();
-extern "C" void Queue_1_Dequeue_mF8961596FECF1FC87B36143C92873B613EF8DB5B_gshared ();
+extern "C" void Queue_1_Dequeue_mEE82013B10771F39EF0105B67597EAF8750AB995_gshared ();
 extern "C" void Queue_1_Dequeue_m6CEDA29BC149C289844153D76DC5C3C0C08E60F5_gshared ();
 extern "C" void Stack_1_Pop_m9886C5EBA07CB356DE616B11958360B7FC67F6DC_gshared ();
 extern "C" void Func_1_Invoke_mFA91B93A5C91290D4A3C475C4117CA05B43419E6_gshared ();
@@ -310,8 +310,8 @@ extern "C" void Tweener_Setup_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E67
 extern "C" void Tweener_Setup_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisRuntimeObject_TisVector3ArrayOptions_t3E84666D670017F133C32243F0709A3852F05257_mA1F64EED75B052BAEAC2857253538755B9A61264_gshared ();
 extern "C" void Tweener_Setup_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_m4C0D4B1D472BFAD4CFBD64ABE357040B026BA2C9_gshared ();
 extern "C" void Tweener_Setup_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisSpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_m6B7FA26AE90AA173ACE5C80B7DDC6A36619C0B1F_gshared ();
-extern "C" void U3CCor_LoadAssetU3Ed__15_1_MoveNext_mC87D4A874A1BAEA6365929E477A4C12F7AD00F4B_gshared ();
-extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_MoveNext_mAB30BA0DBF6EEC3FDB0D9CABB58E2D1E1B3A692A_gshared ();
+extern "C" void U3CCor_LoadAssetU3Ed__15_1_MoveNext_m54D5232FF12FEBDBCACA4D492FE272F8237118B6_gshared ();
+extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_MoveNext_m2ABE5F51EB49FA276060EF4B3BF863C9872A41EB_gshared ();
 extern "C" void EmptyInternalEnumerator_1_MoveNext_mE6520CC29FC0B8327E65478E648D41D28E60F498_gshared ();
 extern "C" void EmptyInternalEnumerator_1_MoveNext_m897312AE3CCDDC3226A9BBE9258A4977EBEA5B0D_gshared ();
 extern "C" void EmptyInternalEnumerator_1_MoveNext_m74B68C92611D878CE644F51C85D39C50F2DC77F9_gshared ();
@@ -782,7 +782,7 @@ extern "C" void List_1_System_Collections_ICollection_get_IsSynchronized_m40F45E
 extern "C" void List_1_System_Collections_IList_Contains_m488B56C6E28A92B7676A19A2B10A2CC34ADA65B1_gshared ();
 extern "C" void List_1_System_Collections_IList_get_IsFixedSize_mD1966472ED29F3E787498A6FC89FAE4CC5917875_gshared ();
 extern "C" void List_1_System_Collections_IList_get_IsReadOnly_mC45AF4D49969CC6614C2C971D65F06CB077F0687_gshared ();
-extern "C" void List_1_Contains_m328B57821E3F71FB32B7107B5FC25C0AAA73DC19_gshared ();
+extern "C" void List_1_Contains_m275CA0DC5737E7EF9DBEAC629F8DE280CFFA96D6_gshared ();
 extern "C" void List_1_IsCompatibleObject_m01009CFEC41A8745FB44370B42CF678E08A46BB9_gshared ();
 extern "C" void List_1_Remove_m369DBFFEBB963F77D8DDA5D86E524581A20B0889_gshared ();
 extern "C" void List_1_System_Collections_Generic_ICollectionU3CTU3E_get_IsReadOnly_m14C1A086EA32268205EAF51EAAC83B6D1C1D3AB9_gshared ();
@@ -1450,7 +1450,7 @@ extern "C" void List_1_GetEnumerator_mCC02403B0C0B5787E17CF1FCA1BFBA4D4BBC4439_g
 extern "C" void List_1_GetEnumerator_m9EB939030915C1B203BF35711E7B46C6711B23E4_gshared ();
 extern "C" void List_1_GetEnumerator_mDFDDDC76BDAFD111A9834F81C6646698CEDB7970_gshared ();
 extern "C" void List_1_GetEnumerator_mF94DF3F654E78E8C23327B5F924A7F1B72C7E824_gshared ();
-extern "C" void ObjectPool_1_get_OutPools_mA7C6D707E3FBBA0DA9D1B32AEBE5E63A0E270519_gshared ();
+extern "C" void ObjectPool_1_get_OutPools_m878F042A65330F44F6B4A9C2350F1B295F2ABC06_gshared ();
 extern "C" void ListPool_1_Get_mAFB1F76A280309F30C0897B1FBABCC37A783344C_gshared ();
 extern "C" void ListPool_1_Get_m4C328048C1479EE1450837A0CF1BF5F18FF77C88_gshared ();
 extern "C" void ListPool_1_Get_m1549C4AC8324D6BBB9CAA80B70EE13A6AC0617B7_gshared ();
@@ -1463,8 +1463,8 @@ extern "C" void Dictionary_2_System_Collections_IDictionary_GetEnumerator_m3B657
 extern "C" void Dictionary_2_System_Collections_IDictionary_GetEnumerator_mCECD8AB59CE498EF5651AA60B3B19D6CC941EBEF_gshared ();
 extern "C" void Dictionary_2_System_Collections_IDictionary_GetEnumerator_m5914F56CF12185868454A898E0380BD5319A785C_gshared ();
 extern "C" void Dictionary_2_System_Collections_IDictionary_GetEnumerator_mFF1808E157194836A006AD14F55E1DA2D87E81EC_gshared ();
-extern "C" void ResManager_Cor_LoadAsset_TisRuntimeObject_m1FFCB36F12C69DB4339FF7D07A46685B2CF44066_gshared ();
-extern "C" void ResManager_Cor_ResourceLoadAsync_TisRuntimeObject_m7A022D72C6E850D2BC5C97C4CA20A7D6A5D5BABB_gshared ();
+extern "C" void ResManager_Cor_LoadAsset_TisRuntimeObject_m0CFC3C5C5639FFBCE5299A648C9720534D34DD0A_gshared ();
+extern "C" void ResManager_Cor_ResourceLoadAsync_TisRuntimeObject_mC1E270561E676614E80912DD3C25F2A78252A26D_gshared ();
 extern "C" void ConcurrentDictionary_2_System_Collections_IEnumerable_GetEnumerator_m19F5B4B39B242860788A9B7A0A592DC9B546F9DB_gshared ();
 extern "C" void KeyCollection_System_Collections_IEnumerable_GetEnumerator_m7D39571234414CEFB485383969AB3CC2BED0B328_gshared ();
 extern "C" void KeyCollection_System_Collections_IEnumerable_GetEnumerator_m843DC8D16E939182CAEB95C5C28BCF8761A8FD4A_gshared ();
@@ -2171,7 +2171,7 @@ extern "C" void ObjectEqualityComparer_1_GetHashCode_m47D5538CEC6063AAAB9E688670
 extern "C" void ObjectEqualityComparer_1_GetHashCode_m9CB84590DB2AFEC031C886C5711E4B0761B17574_gshared ();
 extern "C" void ObjectEqualityComparer_1_IndexOf_mC905C29F7E0CD48A2D7E290DC856FE7514B65EEB_gshared ();
 extern "C" void ObjectEqualityComparer_1_LastIndexOf_m32A1B87A5F9F11128B9FB452C6FA43F77E012202_gshared ();
-extern "C" void Queue_1_get_Count_m2A2AEFD528370423675CA1E89D81982C3FE83660_gshared ();
+extern "C" void Queue_1_get_Count_mF27AD0B16AEBD9B030B9B87C6FB1D88BFC180F41_gshared ();
 extern "C" void Queue_1_get_Count_m0CE0B6919A09EFFBB1EBA5B5DFEF50E4F8A89CFA_gshared ();
 extern "C" void Queue_1_get_Count_m3C8C1A0E9F46D5E873D295E87A03A2ED14C4C67F_gshared ();
 extern "C" void Stack_1_get_Count_m8803B4178385D39338A1EDDC39FE6D8152F01A1D_gshared ();
@@ -2332,10 +2332,10 @@ extern "C" void Nullable_1_Unbox_m8F03073B6E86B4B0B711D6D3384B9F4D75FBD0FE_gshar
 extern "C" void Nullable_1_Unbox_m43653E906B96E19EECCB30DFEE23670F090A380B_gshared ();
 extern "C" void Nullable_1_Unbox_mB59B2FBB12B740FB0DA50DDFBE487A5BF054EBC2_gshared ();
 extern "C" void Nullable_1_Unbox_m66A8CA1EDECCB3D4F9C89653F51D5CB8F6AD77FA_gshared ();
-extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF08982EB77910CEBE41445A9E60442B78E756E52_gshared ();
-extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_get_Current_mFA63B1CEED156EE606E05561DAFEE2F97A8E915A_gshared ();
-extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m646483E3B041DD73B1AC1D93EC53F8110BBC0A1A_gshared ();
-extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_get_Current_mC049419F9164A7588FD94015052AEA8BB3B0178F_gshared ();
+extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mD90D94B5FEF485D63FE0931865B1BD014A4B8685_gshared ();
+extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_get_Current_m0E788033565FB365C2958E9DC407E613C5C09533_gshared ();
+extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m6B5C0C3575267BC63D51DC33D853A1717D307B5F_gshared ();
+extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_get_Current_mDC6C3290D14574E13AF50C6929C16286E0CC8F85_gshared ();
 extern "C" void EmptyInternalEnumerator_1_System_Collections_IEnumerator_get_Current_m4BF3CDC5BE5256A7F2EA321A789B2A3FFF4A0F4D_gshared ();
 extern "C" void EmptyInternalEnumerator_1_System_Collections_IEnumerator_get_Current_mF0986CF525A4682BB1723F6EFE6B97264C64B7EC_gshared ();
 extern "C" void EmptyInternalEnumerator_1_System_Collections_IEnumerator_get_Current_m3FC589A0727ED9F77EB60F0DD110207E323783BC_gshared ();
@@ -2743,11 +2743,11 @@ extern "C" void Task_1_StartNew_m9D14EB35945E17466127DAD87C9982D1E960A04F_gshare
 extern "C" void Task_1_StartNew_m46510EA62A4E2F3AA6D8F5118AE02697E0DE59A6_gshared ();
 extern "C" void Task_1_StartNew_m49456826C31982E9488BCC3E6A9E150BF86A4DE0_gshared ();
 extern "C" void Tuple_Create_TisRuntimeObject_TisRuntimeObject_m0E4A5F787779B362E52ED19238D9850158D62836_gshared ();
-extern "C" void ObjectPool_1__ctor_m6F181050DFBB641941E0272F23DD0D59CADC0599_gshared ();
-extern "C" void ObjectPool_1_Dispose_m1070EE66D1AA7C07455C8DB7C09C6B0B37973F1E_gshared ();
-extern "C" void ObjectPool_1_EnterAll_m006CF8DE1A12D930F2352B5C601B6E72AE9BB1BD_gshared ();
-extern "C" void ObjectPool_1_EnterPool_m97D857C934A989009B44B17AC0A7A964083C2D98_gshared ();
-extern "C" void ObjectPool_1_Init_m54F30DD36246A3318737E6469D6A4260B6B56D8B_gshared ();
+extern "C" void ObjectPool_1__ctor_m3A4FE801FA725188915D57056F0561EC55558BD0_gshared ();
+extern "C" void ObjectPool_1_Dispose_m899833FD43CC00D6A0D43BBC7B49860E26802118_gshared ();
+extern "C" void ObjectPool_1_EnterAll_m2C7D58A84EFE13F75741BD75A2E67422DF939BD0_gshared ();
+extern "C" void ObjectPool_1_EnterPool_m3223D204336F55AC843F456911116C52E7C3A216_gshared ();
+extern "C" void ObjectPool_1_Init_mA3AA69A5CC66B9F74EFB2395A2D08D9414F821D7_gshared ();
 extern "C" void DOGetter_1__ctor_mDC2969C3FDE7302EFCAFBD75679563CE3AFEA323_gshared ();
 extern "C" void DOGetter_1__ctor_mBD618786B290D6F02B745D270D356256762B657D_gshared ();
 extern "C" void DOGetter_1__ctor_m92430A001B836DE3310B54B80DDF4039D33B239E_gshared ();
@@ -2874,21 +2874,21 @@ extern "C" void Tweener_DOStartupDurationBased_TisVector3_tDCF05E21F632FE2BA260C
 extern "C" void Tweener_DOStartupDurationBased_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_mEBD7D626397B0A9661DA2FD3148F9D5364AA40DB_gshared ();
 extern "C" void Tweener_DOStartupDurationBased_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisSpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_mDD744C63F5B679DD60D9469D790CF9495FC2E3C1_gshared ();
 extern "C" void Tweener_DOStartupDurationBased_TisVector4_tD148D6428C3F8FF6CD998F82090113C2B490B76E_TisVector4_tD148D6428C3F8FF6CD998F82090113C2B490B76E_TisVectorOptions_t385A0AFDBE150CC9F61EA0DC03FEA860BA5EA322_m9D3133E7EEC3EA28019B44A5C4E2AA329D674679_gshared ();
-extern "C" void U3CU3Ec__DisplayClass12_0_1__ctor_m5A8A9FE600D47556A9183DB6D563AE97F9818442_gshared ();
-extern "C" void U3CU3Ec__DisplayClass12_1_1__ctor_m31BFEEA756ED077AAD60DE39D937865BCFF25340_gshared ();
-extern "C" void U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__0_mE112591A4929F1F473AC5C09682175C2E0EFC877_gshared ();
-extern "C" void U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__1_m5F9D4271193DD63FD187CB68483FFD78227B769C_gshared ();
-extern "C" void U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__2_mD835807EEF89754CCFF42DA5E9F4FCAB6458685F_gshared ();
-extern "C" void U3CCor_LoadAssetU3Ed__15_1__ctor_m8CDCDDD07557C29C468ED46CCA6D89DEF1524041_gshared ();
-extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_Reset_m9B4B7C8AD6A7FAFFF606C5B56EB6D71F55657E46_gshared ();
-extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_IDisposable_Dispose_mA636CC46E2D07A6295F9328B63F408FE4887D64E_gshared ();
-extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1__ctor_m3C5000183B7EA892D3963391836A8DE9ADD69147_gshared ();
-extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_Reset_m7A6F39B7CE2A622F75D92766F461AFF62BBAB246_gshared ();
-extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_IDisposable_Dispose_mFB4899C87C79DFECC2480B2E208AA5D7F8834D27_gshared ();
-extern "C" void ResManager_LoadAssetAsync_TisRuntimeObject_mEA1F1A925B9E51979D9464F0DE85B38684341944_gshared ();
-extern "C" void SingletonMono_1__ctor_m9E19B2414965102609D85FA96C15F29D0F785E80_gshared ();
-extern "C" void SingletonMono_1_set_instance_m03A4B7826A16D069472F2C0BB7B2C15CD79C5779_gshared ();
-extern "C" void SingletonPersistent_1__ctor_mFB03A2459EA19C9538DE9FB5FDDEDFFC2BA56A0A_gshared ();
+extern "C" void U3CU3Ec__DisplayClass12_0_1__ctor_m894E989E904549A2D6732DA051272DA8695AD2C7_gshared ();
+extern "C" void U3CU3Ec__DisplayClass12_1_1__ctor_m8A870C83C04F4C7F08CA1FF89C91E3CB945DEF23_gshared ();
+extern "C" void U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__0_mFDF64778F49D5AAAA6D0FA89ECC2EA567FE10F44_gshared ();
+extern "C" void U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__1_mA136D77A960BB218720AF1150861C660D8DD08BB_gshared ();
+extern "C" void U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__2_mAB4D044F3015881B8823A1184106E1EC4FCFD5A8_gshared ();
+extern "C" void U3CCor_LoadAssetU3Ed__15_1__ctor_m5040E6DB616E51FC55D9E1AE7BF3C95C0584A67C_gshared ();
+extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_Reset_m657805399AC6A1CFCDA2A225C2B24D7DE65E67A0_gshared ();
+extern "C" void U3CCor_LoadAssetU3Ed__15_1_System_IDisposable_Dispose_m87CC5B15E3C1CA3A7DA92539E48618DE1EA6E716_gshared ();
+extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1__ctor_m4206D52C6D7ACDD926290CF56AAA4F9C24948601_gshared ();
+extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_Reset_m2E3B1FB6F110902983613E9036F82A1A660997A8_gshared ();
+extern "C" void U3CCor_ResourceLoadAsyncU3Ed__13_1_System_IDisposable_Dispose_m5E749A21004CAD918DCDA5C30448B8518BCC87B5_gshared ();
+extern "C" void ResManager_LoadAssetAsync_TisRuntimeObject_m97C6F5F2F9A2F1AC3B9877717E264DB325447F4A_gshared ();
+extern "C" void SingletonMono_1__ctor_m785A7A0B354D4C126271E4D575BEB2220558EC92_gshared ();
+extern "C" void SingletonMono_1_set_instance_m4F0C9346EFCA46467C4167FF84F426F2CA8B2686_gshared ();
+extern "C" void SingletonPersistent_1__ctor_mF273DCE34D07DDBA5CC0DA3D9E154ED915FB4F94_gshared ();
 extern "C" void Action_1__ctor_mAC998B8AD6A8D39434263D21FA7397949F39F244_gshared ();
 extern "C" void Action_1_EndInvoke_m015FBFB09F7184CC5F17647CA950DBC77D10A54A_gshared ();
 extern "C" void Action_1_Invoke_m45E8F9900F9DB395C48A868A7C6A83BDD7FC692F_gshared ();
@@ -2897,7 +2897,7 @@ extern "C" void Action_1_EndInvoke_mACF259F14B1B9C8DA5E54D0D3349F682C71952DE_gsh
 extern "C" void Action_1_Invoke_mB86FC1B303E77C41ED0E94FC3592A9CF8DA571D5_gshared ();
 extern "C" void Action_1__ctor_mC691472CF73665CE1DE7A83F766830460F968176_gshared ();
 extern "C" void Action_1_EndInvoke_m424C199EF47703478818C670633F7B3D7BCD3E7B_gshared ();
-extern "C" void Action_1_Invoke_m3099B964730967137959EB1E40A9B670E6430E9F_gshared ();
+extern "C" void Action_1_Invoke_m55B40D28F52C723538E0931710217972D6386F55_gshared ();
 extern "C" void Action_1__ctor_m09B6544493F7B95A7FA3A568D25489C5E3EEAFB6_gshared ();
 extern "C" void Action_1_EndInvoke_mB5DE8FAC1ABE1A25A6D3EBC97D75FDD9D44A78B4_gshared ();
 extern "C" void Action_1_Invoke_m9353AD83FE03CCDD354D18BF22CFB6F19C4CF4D0_gshared ();
@@ -4253,11 +4253,11 @@ extern "C" void List_1_CopyTo_m1BC8927C1656FD62644DF4C369B21A7A9BCD37E5_gshared 
 extern "C" void List_1_EnsureCapacity_mC736BE51C590ACE41285E36E3371C2D7EFCD1E7C_gshared ();
 extern "C" void List_1_Insert_mBCF63DFC1F701DA908D79EAF0A92AF51F51BDD12_gshared ();
 extern "C" void List_1_InsertRange_m93343D24C499ACC090B9B8D01B6487D2A9213CCF_gshared ();
-extern "C" void List_1_RemoveAt_m5B08A4DE42AAE55BA195FDB57D707A8F25498841_gshared ();
+extern "C" void List_1_RemoveAt_m3956EB9A8D17A205667641C6C6AD67FBE2BD40AC_gshared ();
 extern "C" void List_1_RemoveRange_mDA7D497034BD86AB43D9807B11B1C167EA8825EB_gshared ();
 extern "C" void List_1_Reverse_m48BB5B60B2A146707B01DFC2419559AA887A70C9_gshared ();
 extern "C" void List_1_Reverse_m1237F6E1E87E2090809284779CFD89E20A32E3EF_gshared ();
-extern "C" void List_1_Sort_m723A6BEBAB430277CD79C8BD7D63DEF94E0BBB0A_gshared ();
+extern "C" void List_1_Sort_m47B47C58C6C4C55B50F532C068EB4A5246C83813_gshared ();
 extern "C" void List_1_Sort_m8502106523D9DD993E2776BFE4B15A9AF638103F_gshared ();
 extern "C" void List_1_Sort_mEAF4FC6CE9BCB94CD2902E37E98D690C547299AB_gshared ();
 extern "C" void List_1_Sort_m8F848989FA5F84DA8CF3E04F285EFE66228888AE_gshared ();
@@ -4615,9 +4615,9 @@ extern "C" void Enumerator__ctor_m9227E9FD7904A41BFF7C799ED21EB077B018D8E2_Adjus
 extern "C" void Enumerator_Dispose_m71571AA57BC137B7BCD580EC250FDA166BEA2DE1_AdjustorThunk ();
 extern "C" void Enumerator_System_Collections_IEnumerator_Reset_m8C61F1094FEA1009696D9218CCEBA3B4FBF3E12E_AdjustorThunk ();
 extern "C" void Enumerator_ThrowEnumerationNotStartedOrEnded_mB5F18E73F6503BFBD626A8E5AFF784FB615D7CD6_AdjustorThunk ();
-extern "C" void Queue_1__ctor_m9408A7E9D1A029C9F7986D6E80704642DED66865_gshared ();
+extern "C" void Queue_1__ctor_mEE2ECCC999579D03EF5A7660D5DFD94B612BA592_gshared ();
 extern "C" void Queue_1__ctor_mD36ECB7CC29F9005DB598E56365F7546251822FB_gshared ();
-extern "C" void Queue_1_Enqueue_mBC98DE0C09EC64FADEC47B84C888E77A124A5A82_gshared ();
+extern "C" void Queue_1_Enqueue_m73379932D34B8AD8AF366B5C95AA4478AF7ABA48_gshared ();
 extern "C" void Queue_1_MoveNext_m8EFF42B590DA62423113FAE70DC080B445D3FCD7_gshared ();
 extern "C" void Queue_1_SetCapacity_m9351913ED91689C9BD3D462FD2B2F9BF9CF3A7D6_gshared ();
 extern "C" void Queue_1_System_Collections_ICollection_CopyTo_mA19201D4FD61B571FF8C96BAA3D8BEFEADC79504_gshared ();
@@ -5368,9 +5368,9 @@ extern "C" void DOGetter_1_Invoke_m89E65EDD63B686DF6E46663A074386C26CE1BA4A_gsha
 extern "C" void DOGetter_1_EndInvoke_mF0E4B7672774B6B8FAED720F538B225D2AF9E841_gshared ();
 extern "C" void DOGetter_1_Invoke_m4516852C2A01F77C18868F2345EDF2B7FF83E6AE_gshared ();
 extern "C" void Extensions_SetSpecialStartupMode_TisRuntimeObject_m8207F9DEBE83E83F775AF181341FD00F3B25FFF7_gshared ();
-extern "C" void ResManager_Load_TisRuntimeObject_m4DA50FE565EDB3A458231C7483C49A6ECEC394E2_gshared ();
-extern "C" void SingletonMono_1_get_instance_m63D861456033E6BF8F32F1EDC060D2E3898CC1C9_gshared ();
-extern "C" void SingletonPersistent_1_get_instance_mD03497D26C53AE69D9F7E5C3084693896530E14B_gshared ();
+extern "C" void ResManager_Load_TisRuntimeObject_m0B743332AEFD55585391D85FCEFAD79E1985C9CD_gshared ();
+extern "C" void SingletonMono_1_get_instance_mFEDC8E4C6EA58EAC9193E110CC6856023DF98AF3_gshared ();
+extern "C" void SingletonPersistent_1_get_instance_mD1EA5F28A09E46D3223DCFA43021CB83C74442D5_gshared ();
 extern "C" void Activator_CreateInstance_TisRuntimeObject_mDA89B83096094F5172A908AB1A58EF573D6B80F9_gshared ();
 extern "C" void EmptyInternalEnumerator_1_get_Current_m81203DC6748EB01D6987EDC65CADEF41EE6334C2_gshared ();
 extern "C" void EmptyInternalEnumerator_1_get_Current_m293B9C3C02900945171CC48486B75790594968C4_gshared ();
@@ -6620,11 +6620,11 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[5862] =
 	(Il2CppMethodPointer)&Enumerator_System_Collections_IEnumerator_Reset_m1E71DFDD374AFA17E14983F6A44B1AB4BF2E55B8_AdjustorThunk/* 728*/,
 	(Il2CppMethodPointer)&AttributeHelperEngine_GetCustomAttributeOfType_TisRuntimeObject_m7AEF0374A18EED15CB2B6318117FDC6364AC2F3B_gshared/* 729*/,
 	(Il2CppMethodPointer)&Component_GetComponent_TisRuntimeObject_m3FED1FF44F93EF1C3A07526800331B638EF4105B_gshared/* 730*/,
-	(Il2CppMethodPointer)&Component_GetComponentInChildren_TisRuntimeObject_m05C58D1664BE69D81366D8B1244295BA9FBEE491_gshared/* 731*/,
+	(Il2CppMethodPointer)&Component_GetComponentInChildren_TisRuntimeObject_m99FB85ED87B1E6C81048B22BEBBC8AB94CD028CD_gshared/* 731*/,
 	(Il2CppMethodPointer)&Component_GetComponentInChildren_TisRuntimeObject_m0A52F3C5B5FF663BE30EF619B4D961185A4C97EC_gshared/* 732*/,
-	(Il2CppMethodPointer)&Component_GetComponentsInChildren_TisRuntimeObject_m9D0AD195AE130230B226737CAC6C6DAEC4B78ED8_gshared/* 733*/,
+	(Il2CppMethodPointer)&Component_GetComponentsInChildren_TisRuntimeObject_m8EDDAD383E0869517344FACCD43A329D35AAA0CE_gshared/* 733*/,
 	(Il2CppMethodPointer)&Component_GetComponentsInChildren_TisRuntimeObject_m6D7BA91A78AE8F242C83F9FBED039F12939E2F03_gshared/* 734*/,
-	(Il2CppMethodPointer)&Component_GetComponentsInChildren_TisRuntimeObject_m96A4AA0545C19F58121E6C5142474CB26EAB9717_gshared/* 735*/,
+	(Il2CppMethodPointer)&Component_GetComponentsInChildren_TisRuntimeObject_m6D4C38C330FCFD3C323B34031A7E877A5E2D453A_gshared/* 735*/,
 	(Il2CppMethodPointer)&Component_GetComponentsInChildren_TisRuntimeObject_m00E25633EC7132D76C5AE86FC404DB0AF99CC5E6_gshared/* 736*/,
 	(Il2CppMethodPointer)&Component_GetComponentInParent_TisRuntimeObject_m36052D294AB8C1574678FEF9A9749145A073E8E3_gshared/* 737*/,
 	(Il2CppMethodPointer)&Component_GetComponentsInParent_TisRuntimeObject_m0A219FCE20011A8C2ABBFB2D1BBAA1F2986F93B9_gshared/* 738*/,
@@ -6632,10 +6632,10 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[5862] =
 	(Il2CppMethodPointer)&Component_GetComponents_TisRuntimeObject_mC1990520B7718DB9F2D68839716E6853645566FC_gshared/* 740*/,
 	(Il2CppMethodPointer)&GameObject_GetComponent_TisRuntimeObject_m41E09C4CA476451FE275573062956CED105CB79A_gshared/* 741*/,
 	(Il2CppMethodPointer)&GameObject_GetComponentInChildren_TisRuntimeObject_m68D3406339E1B2B961D358E52E3C91503568C27E_gshared/* 742*/,
-	(Il2CppMethodPointer)&GameObject_GetComponentInChildren_TisRuntimeObject_mE0E4439053E8E8916697BF562D209F4C587FDCBF_gshared/* 743*/,
-	(Il2CppMethodPointer)&GameObject_GetComponents_TisRuntimeObject_mAB5B62A0C9EF4405B4E20D13F3CD7BC06A96FD40_gshared/* 744*/,
+	(Il2CppMethodPointer)&GameObject_GetComponentInChildren_TisRuntimeObject_m30B5559A6518B663E4E13310D38CD94874A04D0B_gshared/* 743*/,
+	(Il2CppMethodPointer)&GameObject_GetComponents_TisRuntimeObject_m5EA1B9B8C5B01E9DE33C6FB0D9AD52F85E0D3911_gshared/* 744*/,
 	(Il2CppMethodPointer)&GameObject_GetComponents_TisRuntimeObject_m4A3E17FA4A61588BB6E124718306FFB41EF64809_gshared/* 745*/,
-	(Il2CppMethodPointer)&GameObject_GetComponentsInChildren_TisRuntimeObject_mD84415C6B32CB15A7EFAB8ECFB745D5325990AF4_gshared/* 746*/,
+	(Il2CppMethodPointer)&GameObject_GetComponentsInChildren_TisRuntimeObject_mFF238916BEA468E58A72E7C1EE6F5D9729CA4D43_gshared/* 746*/,
 	(Il2CppMethodPointer)&GameObject_GetComponentsInChildren_TisRuntimeObject_m929835D48D2CB63076BBC59BC54618852FDEFE98_gshared/* 747*/,
 	(Il2CppMethodPointer)&GameObject_GetComponentsInParent_TisRuntimeObject_mB50A9B86343560BA4F3862B99665FD7AA2C2FE22_gshared/* 748*/,
 	(Il2CppMethodPointer)&GameObject_AddComponent_TisRuntimeObject_mCB8164FB05F8DCF99E098ADC5E13E96FEF6FC4E9_gshared/* 749*/,
@@ -6651,7 +6651,7 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[5862] =
 	(Il2CppMethodPointer)&Resources_GetBuiltinResource_TisRuntimeObject_m85F17CF969B8729F73D7FC6E935EF20EF3AAA994_gshared/* 759*/,
 	(Il2CppMethodPointer)&ScriptableObject_CreateInstance_TisRuntimeObject_m7A8F75139352BA04C2EEC1D72D430FAC94C753DE_gshared/* 760*/,
 	(Il2CppMethodPointer)&Object_Instantiate_TisRuntimeObject_mEF511C369E0CA9462FD3427DFC2375E81469570F_gshared/* 761*/,
-	(Il2CppMethodPointer)&Object_Instantiate_TisRuntimeObject_m317D483627D290B7EEB834C4CE816E461A7DA251_gshared/* 762*/,
+	(Il2CppMethodPointer)&Object_Instantiate_TisRuntimeObject_m133EE84C9D759BD2861D99355649CDF50BB93AC1_gshared/* 762*/,
 	(Il2CppMethodPointer)&BaseInvokableCall_ThrowOnInvalidArg_TisRuntimeObject_m6619B9B55C395AA6ED186844492F95CA172E4162_gshared/* 763*/,
 	(Il2CppMethodPointer)&InvokableCall_1__ctor_m670F85A0ED4D975C93265F6969B9C1C06A87E8D2_gshared/* 764*/,
 	(Il2CppMethodPointer)&InvokableCall_1__ctor_m476D3C83264B8980782F15E2A538B679279F61A1_gshared/* 765*/,
@@ -6707,26 +6707,26 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[5862] =
 	(Il2CppMethodPointer)&Assert_AreEqual_TisRuntimeObject_m33522FA0E5D7CB4B4A98149053D5BE6834E82FB7_gshared/* 815*/,
 	(Il2CppMethodPointer)&Assert_AreEqual_TisRuntimeObject_mAFEF69F8F67E3E349DF5EBF83CD9F899308A04CB_gshared/* 816*/,
 	(Il2CppMethodPointer)&PlayableHandle_IsPlayableOfType_TisRuntimeObject_mEA39EA06F910CA16A034CC9A08A0AC3482049628_AdjustorThunk/* 817*/,
-	(Il2CppMethodPointer)&AssetBundle_LoadAsset_TisRuntimeObject_mDF43689C0477D3EF298987E8C1C8D7B7102F2BA9_gshared/* 818*/,
+	(Il2CppMethodPointer)&AssetBundle_LoadAsset_TisRuntimeObject_m3209F473EEC424474B1053E66A1F09574719CB0B_gshared/* 818*/,
 	(Il2CppMethodPointer)&AssetBundle_LoadAssetAsync_TisRuntimeObject_m67E9CBDF25BF430D2AD5FAEB10B249B24F2FD70F_gshared/* 819*/,
 	(Il2CppMethodPointer)&Tween_OnTweenCallback_TisRuntimeObject_m5266B89979F577721239D8BD762C829491E8BBC7_gshared/* 820*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetAutoKill_TisRuntimeObject_m0F675B9A9509A2486ACBED9D09A8D6F2F845A63A_gshared/* 821*/,
-	(Il2CppMethodPointer)&TweenSettingsExtensions_SetId_TisRuntimeObject_mC2C8E669545FD58467BC6BEFDB50634D678B43C4_gshared/* 822*/,
+	(Il2CppMethodPointer)&TweenSettingsExtensions_SetId_TisRuntimeObject_m555AAE74DC302878D81E42C716743FA751ADA973_gshared/* 822*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetTarget_TisRuntimeObject_mDB6721FAFCA2D26E6E803B08F2C23A7BC127625B_gshared/* 823*/,
-	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLoops_TisRuntimeObject_m17146DBF18DC057770E423FAB037A9ED4809360B_gshared/* 824*/,
+	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLoops_TisRuntimeObject_m6EFC354859F84C2C648EB040D8D9F8C8842B8D90_gshared/* 824*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetLoops_TisRuntimeObject_mF5A945755EC2BB48E87E9C50B08785E6AC3671A2_gshared/* 825*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetEase_TisRuntimeObject_mAA611C0952D00FDF015326BC87C22874872B8CA5_gshared/* 826*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetEase_TisRuntimeObject_mD6037CEF255C60983E4B1CE51DA6B772F2F88142_gshared/* 827*/,
-	(Il2CppMethodPointer)&TweenSettingsExtensions_SetUpdate_TisRuntimeObject_m8325DA0CA9F3AB779B5EB7F4AACB16D4F77C4050_gshared/* 828*/,
+	(Il2CppMethodPointer)&TweenSettingsExtensions_SetUpdate_TisRuntimeObject_m3DED36F31CB283E817E0E0EE58E0ED854D07304F_gshared/* 828*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_OnStart_TisRuntimeObject_m6D42D168E3D7FF7295118EE8EF1918E05FB25CBA_gshared/* 829*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_OnPlay_TisRuntimeObject_m2C85DAA75631A5C8E3757C783B249DEE97B8B5C8_gshared/* 830*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_OnUpdate_TisRuntimeObject_mC542C72975908EC8AE195D776CA6FB4A0D2E0ECA_gshared/* 831*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_OnStepComplete_TisRuntimeObject_mD0FAFC80367A8F6DA4C061A66BACCB1E05372BCB_gshared/* 832*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_OnComplete_TisRuntimeObject_m0CE22D04F79915347E595C92F91A04B99D68B6BF_gshared/* 833*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_OnKill_TisRuntimeObject_m5704C0A47BC636D470EE20FB6CA58017EAA9E95A_gshared/* 834*/,
-	(Il2CppMethodPointer)&TweenSettingsExtensions_From_TisRuntimeObject_m930CC6DBACDE3B5566E625DCF80984D51084A8B5_gshared/* 835*/,
+	(Il2CppMethodPointer)&TweenSettingsExtensions_From_TisRuntimeObject_m9465500AA74DEA504E8BA3E47D716473B63FEE2C_gshared/* 835*/,
 	(Il2CppMethodPointer)&TweenSettingsExtensions_SetDelay_TisRuntimeObject_m63E58A7CF90B0A41E452586573F817BAED712A59_gshared/* 836*/,
-	(Il2CppMethodPointer)&TweenSettingsExtensions_SetRelative_TisRuntimeObject_m8DAD8377808606C13853EB511CCDE06037071BB0_gshared/* 837*/,
+	(Il2CppMethodPointer)&TweenSettingsExtensions_SetRelative_TisRuntimeObject_m80BEAE5659A13D2AFCBAC9F9EECB1D7AE4A001CB_gshared/* 837*/,
 	(Il2CppMethodPointer)&TweenExtensions_Pause_TisRuntimeObject_m75250E195615F3871222FCAD1F1A82A5102DB79D_gshared/* 838*/,
 	(Il2CppMethodPointer)&TweenExtensions_Play_TisRuntimeObject_m5E4739B93AB3BC835E0A3C429B41B55BA2A3F326_gshared/* 839*/,
 	(Il2CppMethodPointer)&TweenCallback_1__ctor_mD56ED05C69B613EC057E8B62C356D72DB010EBBC_gshared/* 840*/,
@@ -6785,39 +6785,39 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[5862] =
 	(Il2CppMethodPointer)&ObjectPool_1__ctor_mE14E9596DD21AFBA47727BDC5226C7F24FA234C7_gshared/* 893*/,
 	(Il2CppMethodPointer)&ObjectPool_1_Get_m82BA8AF24CE96731493EC3C52B1218DB2C3C934F_gshared/* 894*/,
 	(Il2CppMethodPointer)&ObjectPool_1_Release_mEF76D0678288FA4D4D8D81C57B3FEBF7AE87BD74_gshared/* 895*/,
-	(Il2CppMethodPointer)&SingletonPersistent_1_get_instance_mD03497D26C53AE69D9F7E5C3084693896530E14B_gshared/* 896*/,
-	(Il2CppMethodPointer)&SingletonPersistent_1__ctor_mFB03A2459EA19C9538DE9FB5FDDEDFFC2BA56A0A_gshared/* 897*/,
-	(Il2CppMethodPointer)&SingletonMono_1_get_instance_m63D861456033E6BF8F32F1EDC060D2E3898CC1C9_gshared/* 898*/,
-	(Il2CppMethodPointer)&SingletonMono_1_set_instance_m03A4B7826A16D069472F2C0BB7B2C15CD79C5779_gshared/* 899*/,
-	(Il2CppMethodPointer)&SingletonMono_1__ctor_m9E19B2414965102609D85FA96C15F29D0F785E80_gshared/* 900*/,
-	(Il2CppMethodPointer)&ResManager_LoadAssetAsync_TisRuntimeObject_mEA1F1A925B9E51979D9464F0DE85B38684341944_gshared/* 901*/,
-	(Il2CppMethodPointer)&ResManager_Cor_ResourceLoadAsync_TisRuntimeObject_m7A022D72C6E850D2BC5C97C4CA20A7D6A5D5BABB_gshared/* 902*/,
-	(Il2CppMethodPointer)&ResManager_Cor_LoadAsset_TisRuntimeObject_m1FFCB36F12C69DB4339FF7D07A46685B2CF44066_gshared/* 903*/,
-	(Il2CppMethodPointer)&ResManager_Load_TisRuntimeObject_m4DA50FE565EDB3A458231C7483C49A6ECEC394E2_gshared/* 904*/,
-	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_0_1__ctor_m5A8A9FE600D47556A9183DB6D563AE97F9818442_gshared/* 905*/,
-	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1__ctor_m31BFEEA756ED077AAD60DE39D937865BCFF25340_gshared/* 906*/,
-	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__0_mE112591A4929F1F473AC5C09682175C2E0EFC877_gshared/* 907*/,
-	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__1_m5F9D4271193DD63FD187CB68483FFD78227B769C_gshared/* 908*/,
-	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__2_mD835807EEF89754CCFF42DA5E9F4FCAB6458685F_gshared/* 909*/,
-	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m646483E3B041DD73B1AC1D93EC53F8110BBC0A1A_gshared/* 910*/,
-	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_get_Current_mC049419F9164A7588FD94015052AEA8BB3B0178F_gshared/* 911*/,
-	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1__ctor_m3C5000183B7EA892D3963391836A8DE9ADD69147_gshared/* 912*/,
-	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_IDisposable_Dispose_mFB4899C87C79DFECC2480B2E208AA5D7F8834D27_gshared/* 913*/,
-	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_MoveNext_mAB30BA0DBF6EEC3FDB0D9CABB58E2D1E1B3A692A_gshared/* 914*/,
-	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_Reset_m7A6F39B7CE2A622F75D92766F461AFF62BBAB246_gshared/* 915*/,
-	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF08982EB77910CEBE41445A9E60442B78E756E52_gshared/* 916*/,
-	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_get_Current_mFA63B1CEED156EE606E05561DAFEE2F97A8E915A_gshared/* 917*/,
-	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1__ctor_m8CDCDDD07557C29C468ED46CCA6D89DEF1524041_gshared/* 918*/,
-	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_IDisposable_Dispose_mA636CC46E2D07A6295F9328B63F408FE4887D64E_gshared/* 919*/,
-	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_MoveNext_mC87D4A874A1BAEA6365929E477A4C12F7AD00F4B_gshared/* 920*/,
-	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_Reset_m9B4B7C8AD6A7FAFFF606C5B56EB6D71F55657E46_gshared/* 921*/,
-	(Il2CppMethodPointer)&ObjectPool_1_get_OutPools_mA7C6D707E3FBBA0DA9D1B32AEBE5E63A0E270519_gshared/* 922*/,
-	(Il2CppMethodPointer)&ObjectPool_1_Init_m54F30DD36246A3318737E6469D6A4260B6B56D8B_gshared/* 923*/,
-	(Il2CppMethodPointer)&ObjectPool_1_Dispose_m1070EE66D1AA7C07455C8DB7C09C6B0B37973F1E_gshared/* 924*/,
+	(Il2CppMethodPointer)&SingletonPersistent_1_get_instance_mD1EA5F28A09E46D3223DCFA43021CB83C74442D5_gshared/* 896*/,
+	(Il2CppMethodPointer)&SingletonPersistent_1__ctor_mF273DCE34D07DDBA5CC0DA3D9E154ED915FB4F94_gshared/* 897*/,
+	(Il2CppMethodPointer)&SingletonMono_1_get_instance_mFEDC8E4C6EA58EAC9193E110CC6856023DF98AF3_gshared/* 898*/,
+	(Il2CppMethodPointer)&SingletonMono_1_set_instance_m4F0C9346EFCA46467C4167FF84F426F2CA8B2686_gshared/* 899*/,
+	(Il2CppMethodPointer)&SingletonMono_1__ctor_m785A7A0B354D4C126271E4D575BEB2220558EC92_gshared/* 900*/,
+	(Il2CppMethodPointer)&ResManager_LoadAssetAsync_TisRuntimeObject_m97C6F5F2F9A2F1AC3B9877717E264DB325447F4A_gshared/* 901*/,
+	(Il2CppMethodPointer)&ResManager_Cor_ResourceLoadAsync_TisRuntimeObject_mC1E270561E676614E80912DD3C25F2A78252A26D_gshared/* 902*/,
+	(Il2CppMethodPointer)&ResManager_Cor_LoadAsset_TisRuntimeObject_m0CFC3C5C5639FFBCE5299A648C9720534D34DD0A_gshared/* 903*/,
+	(Il2CppMethodPointer)&ResManager_Load_TisRuntimeObject_m0B743332AEFD55585391D85FCEFAD79E1985C9CD_gshared/* 904*/,
+	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_0_1__ctor_m894E989E904549A2D6732DA051272DA8695AD2C7_gshared/* 905*/,
+	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1__ctor_m8A870C83C04F4C7F08CA1FF89C91E3CB945DEF23_gshared/* 906*/,
+	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__0_mFDF64778F49D5AAAA6D0FA89ECC2EA567FE10F44_gshared/* 907*/,
+	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__1_mA136D77A960BB218720AF1150861C660D8DD08BB_gshared/* 908*/,
+	(Il2CppMethodPointer)&U3CU3Ec__DisplayClass12_1_1_U3CLoadAssetAsyncU3Eb__2_mAB4D044F3015881B8823A1184106E1EC4FCFD5A8_gshared/* 909*/,
+	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m6B5C0C3575267BC63D51DC33D853A1717D307B5F_gshared/* 910*/,
+	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_get_Current_mDC6C3290D14574E13AF50C6929C16286E0CC8F85_gshared/* 911*/,
+	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1__ctor_m4206D52C6D7ACDD926290CF56AAA4F9C24948601_gshared/* 912*/,
+	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_IDisposable_Dispose_m5E749A21004CAD918DCDA5C30448B8518BCC87B5_gshared/* 913*/,
+	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_MoveNext_m2ABE5F51EB49FA276060EF4B3BF863C9872A41EB_gshared/* 914*/,
+	(Il2CppMethodPointer)&U3CCor_ResourceLoadAsyncU3Ed__13_1_System_Collections_IEnumerator_Reset_m2E3B1FB6F110902983613E9036F82A1A660997A8_gshared/* 915*/,
+	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mD90D94B5FEF485D63FE0931865B1BD014A4B8685_gshared/* 916*/,
+	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_get_Current_m0E788033565FB365C2958E9DC407E613C5C09533_gshared/* 917*/,
+	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1__ctor_m5040E6DB616E51FC55D9E1AE7BF3C95C0584A67C_gshared/* 918*/,
+	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_IDisposable_Dispose_m87CC5B15E3C1CA3A7DA92539E48618DE1EA6E716_gshared/* 919*/,
+	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_MoveNext_m54D5232FF12FEBDBCACA4D492FE272F8237118B6_gshared/* 920*/,
+	(Il2CppMethodPointer)&U3CCor_LoadAssetU3Ed__15_1_System_Collections_IEnumerator_Reset_m657805399AC6A1CFCDA2A225C2B24D7DE65E67A0_gshared/* 921*/,
+	(Il2CppMethodPointer)&ObjectPool_1_get_OutPools_m878F042A65330F44F6B4A9C2350F1B295F2ABC06_gshared/* 922*/,
+	(Il2CppMethodPointer)&ObjectPool_1_Init_mA3AA69A5CC66B9F74EFB2395A2D08D9414F821D7_gshared/* 923*/,
+	(Il2CppMethodPointer)&ObjectPool_1_Dispose_m899833FD43CC00D6A0D43BBC7B49860E26802118_gshared/* 924*/,
 	(Il2CppMethodPointer)&ObjectPool_1_ExitPool_mFD705ED280998F0B0B4F1F2C5A2E6C964257FB23_gshared/* 925*/,
-	(Il2CppMethodPointer)&ObjectPool_1_EnterPool_m97D857C934A989009B44B17AC0A7A964083C2D98_gshared/* 926*/,
-	(Il2CppMethodPointer)&ObjectPool_1_EnterAll_m006CF8DE1A12D930F2352B5C601B6E72AE9BB1BD_gshared/* 927*/,
-	(Il2CppMethodPointer)&ObjectPool_1__ctor_m6F181050DFBB641941E0272F23DD0D59CADC0599_gshared/* 928*/,
+	(Il2CppMethodPointer)&ObjectPool_1_EnterPool_m3223D204336F55AC843F456911116C52E7C3A216_gshared/* 926*/,
+	(Il2CppMethodPointer)&ObjectPool_1_EnterAll_m2C7D58A84EFE13F75741BD75A2E67422DF939BD0_gshared/* 927*/,
+	(Il2CppMethodPointer)&ObjectPool_1__ctor_m3A4FE801FA725188915D57056F0561EC55558BD0_gshared/* 928*/,
 	(Il2CppMethodPointer)&Array_Reverse_TisByte_tF87C579059BD4633E6840EBBBEEF899C6E33EF07_mC6D04DB36698F31262134DEEF6B9C03026200F13_gshared/* 929*/,
 	(Il2CppMethodPointer)&Array_Reverse_TisByte_tF87C579059BD4633E6840EBBBEEF899C6E33EF07_m03D674052100D1E9D6214ADD31FE7E5F7E6788DA_gshared/* 930*/,
 	(Il2CppMethodPointer)&EqualityComparer_1__ctor_m280B2C62F66AC02F84BA740B306DADDA3AF2DD3F_gshared/* 931*/,
@@ -7207,14 +7207,14 @@ extern const Il2CppMethodPointer g_Il2CppGenericMethodPointers[5862] =
 	(Il2CppMethodPointer)&PluginsManager_GetCustomPlugin_TisRuntimeObject_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisSpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_m74789FFD5FC1393962E2E47D9303D8BBE3F2E6CA_gshared/* 1315*/,
 	(Il2CppMethodPointer)&ABSTweenPlugin_3__ctor_m8A7638846CD97F361F61AB795C4EEDC07812BF4B_gshared/* 1316*/,
 	(Il2CppMethodPointer)&DOTween_To_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisVector3_tDCF05E21F632FE2BA260C06E0D10CA81513E6720_TisSpiralOptions_t7CA7DCE335F404FBB0E17BFFDD2E9191C2F417BC_m7F2FC77D4798B65DE5AD60BCB958D0B34183998F_gshared/* 1317*/,
-	(Il2CppMethodPointer)&List_1_Contains_m328B57821E3F71FB32B7107B5FC25C0AAA73DC19_gshared/* 1318*/,
-	(Il2CppMethodPointer)&List_1_RemoveAt_m5B08A4DE42AAE55BA195FDB57D707A8F25498841_gshared/* 1319*/,
-	(Il2CppMethodPointer)&Queue_1__ctor_m9408A7E9D1A029C9F7986D6E80704642DED66865_gshared/* 1320*/,
-	(Il2CppMethodPointer)&Queue_1_Enqueue_mBC98DE0C09EC64FADEC47B84C888E77A124A5A82_gshared/* 1321*/,
-	(Il2CppMethodPointer)&Queue_1_Dequeue_mF8961596FECF1FC87B36143C92873B613EF8DB5B_gshared/* 1322*/,
-	(Il2CppMethodPointer)&Queue_1_get_Count_m2A2AEFD528370423675CA1E89D81982C3FE83660_gshared/* 1323*/,
-	(Il2CppMethodPointer)&List_1_Sort_m723A6BEBAB430277CD79C8BD7D63DEF94E0BBB0A_gshared/* 1324*/,
-	(Il2CppMethodPointer)&Action_1_Invoke_m3099B964730967137959EB1E40A9B670E6430E9F_gshared/* 1325*/,
+	(Il2CppMethodPointer)&List_1_Contains_m275CA0DC5737E7EF9DBEAC629F8DE280CFFA96D6_gshared/* 1318*/,
+	(Il2CppMethodPointer)&List_1_RemoveAt_m3956EB9A8D17A205667641C6C6AD67FBE2BD40AC_gshared/* 1319*/,
+	(Il2CppMethodPointer)&Queue_1__ctor_mEE2ECCC999579D03EF5A7660D5DFD94B612BA592_gshared/* 1320*/,
+	(Il2CppMethodPointer)&Queue_1_Enqueue_m73379932D34B8AD8AF366B5C95AA4478AF7ABA48_gshared/* 1321*/,
+	(Il2CppMethodPointer)&Queue_1_Dequeue_mEE82013B10771F39EF0105B67597EAF8750AB995_gshared/* 1322*/,
+	(Il2CppMethodPointer)&Queue_1_get_Count_mF27AD0B16AEBD9B030B9B87C6FB1D88BFC180F41_gshared/* 1323*/,
+	(Il2CppMethodPointer)&List_1_Sort_m47B47C58C6C4C55B50F532C068EB4A5246C83813_gshared/* 1324*/,
+	(Il2CppMethodPointer)&Action_1_Invoke_m55B40D28F52C723538E0931710217972D6386F55_gshared/* 1325*/,
 	(Il2CppMethodPointer)&TweenManager_GetTweener_TisRuntimeObject_TisRuntimeObject_TisStringOptions_t58D6011099873A39926A99C00EE24D0D80B231FC_m9FF24D934788FAF7F4EBE2DC9AC56415EBE90874_gshared/* 1326*/,
 	(Il2CppMethodPointer)&TweenManager_GetTweener_TisSingle_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_TisSingle_tDDDA9169C4E4E308AC6D7A824F9B28DC82204AE1_TisFloatOptions_t7285C3D13285197B6B003786B85DAAD83E654C1B_mEDFEC022DDC6FB4DC651045E9BF604495863808C_gshared/* 1327*/,
 	(Il2CppMethodPointer)&TweenManager_GetTweener_TisColor_t119BCA590009762C7223FDD3AF9706653AC84ED2_TisColor_t119BCA590009762C7223FDD3AF9706653AC84ED2_TisColorOptions_tD57E512D2F4329BEE7EAEE0D1B2C4A0683D288DA_mCF132532F3E0D60789273497670B4CAA5AE0EEED_gshared/* 1328*/,
