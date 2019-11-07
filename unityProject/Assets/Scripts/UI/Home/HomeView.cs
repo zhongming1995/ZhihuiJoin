@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Helper;
 using GameMgr;
-using UnityEngine.SceneManagement;
 using AudioMgr;
 using System;
 
@@ -20,17 +19,14 @@ public class HomeView : MonoBehaviour
 
     void Start()
     {
-        //初始化位置
-        //GameManager.instance.homeContentPosx = 0;
+        Debug.Log(GameManager.instance.homeContentPosx);
         //开始计时
         CallManager.instance.UnityToPlatform_ResumeTime();
         //按钮点击事件
         BtnClickEvent();
-       
         ListViewContent = transform.Find("list_items/Scroll View/Viewport/Content");
-        //列表定位
-        ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
-
+        //ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
+        ListViewContent.gameObject.SetActive(false);
         //赋值初始位置
         if (GameManager.instance.curJoinType==JoinType.Letter)
         {
@@ -59,17 +55,31 @@ public class HomeView : MonoBehaviour
             image.SetNativeSize();
             item.GetComponent<Button>().onClick.AddListener(delegate {
                 //记录主界面选择的素材下标
-                AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
                 GameManager.instance.SetJoinShowAll(false);
                 GameManager.instance.SetOpenType(OpenType.FirstEdit);
                 GameManager.instance.homeSelectIndex = j;
-                //PersonManager.instance.PersonFileName = j.ToString() + "_" + PersonManager.instance.OnlyGetPersonNum();
                 PersonManager.instance.PersonFileName = Utils.GetTimeStamp();
-                Debug.Log("fikeName" + PersonManager.instance.PersonFileName);
                 GameManager.instance.homeContentPosx = ListViewContent.localPosition.x;
                 JumpToJoin();
             });
         }
+        float offset = Math.Abs(GameManager.instance.homeContentPosx - GameManager.instance.defaultHomeContentPos);
+        if (offset<1)
+        {
+            Invoke("SetContentPos", 0.5f);
+        }
+        else
+        {
+            ListViewContent.gameObject.SetActive(true);
+            ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
+        }
+    }
+
+    private void SetContentPos()
+    {
+        ListViewContent.gameObject.SetActive(true);
+        ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
+        Debug.Log(ListViewContent.localPosition.x);
     }
 
     private void JumpToJoin()

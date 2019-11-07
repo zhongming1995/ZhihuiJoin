@@ -18,7 +18,6 @@ public class ButtonCommonAni : MonoBehaviour,IPointerUpHandler,IPointerDownHandl
             targetTrans = transform;
         }
         targetTrans.DOScale(endValue, duration);
-        AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
     }
      
     public void OnPointerUp(PointerEventData eventData)

@@ -66,6 +66,8 @@ public class IndexView : MonoBehaviour
 
     private void LetterClick()
     {
+        //初始化位置
+        GameManager.instance.homeContentPosx = 250;
         GameManager.instance.curJoinType = JoinType.Letter; 
         GameManager.instance.SetNextSceneName(SceneName.Home);
         TransitionView.instance.OpenTransition();
@@ -73,6 +75,8 @@ public class IndexView : MonoBehaviour
 
     private void NumberClick()
     {
+        //初始化位置
+        GameManager.instance.homeContentPosx = 250;
         GameManager.instance.curJoinType = JoinType.Num;
         GameManager.instance.SetNextSceneName(SceneName.Home);
         TransitionView.instance.OpenTransition();
@@ -80,6 +84,8 @@ public class IndexView : MonoBehaviour
 
     private void AnimalClick()
     {
+        //初始化位置
+        GameManager.instance.homeContentPosx = 250;
         GameManager.instance.curJoinType = JoinType.Animal;
         GameManager.instance.SetNextSceneName(SceneName.Home);
         TransitionView.instance.OpenTransition();

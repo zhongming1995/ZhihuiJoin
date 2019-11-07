@@ -110,7 +110,6 @@ public class JoinMainView : MonoBehaviour
             {
                 isNoHead = true;
                 BtnNext.GetComponent<UIMove>().MoveShow();
-                //BtnNext.gameObject.SetActive(true);
             }
         }
         else
@@ -605,7 +604,6 @@ public class JoinMainView : MonoBehaviour
                 SetCurSelectType(TemplateResType.Body);
             }
             BtnPre.GetComponent<UIMove>().MoveHide();
-            //BtnNext.gameObject.SetActive(false);
             BtnNext.GetComponent<UIMove>().MoveHide();
             GetDrawArea(drawPercent);//这里是控制BtnNext的
             BtnOk.gameObject.SetActive(false);

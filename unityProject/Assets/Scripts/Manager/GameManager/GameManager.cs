@@ -37,6 +37,8 @@ namespace GameMgr
         [HideInInspector]
         public float homeContentPosx = 0;//记录列表页的位置
         [HideInInspector]
+        public float defaultHomeContentPos = 250;//默认的初始列表位置
+        [HideInInspector]
         public int resTypeCount = 10;//素材资源种类，目前8种
         [HideInInspector]
         public TemplateResType curSelectResType = TemplateResType.Body;//当前选择的素材类型 0颜色 1眼睛 2嘴巴 3头发 4帽子 5饰品 6手 7脚

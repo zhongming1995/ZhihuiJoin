@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using AudioMgr;
 
 public class ButtonScaleAni : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,IPointerClickHandler
 {
@@ -37,7 +38,8 @@ public class ButtonScaleAni : MonoBehaviour,IPointerDownHandler,IPointerUpHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-         targetTrans.DOScale(endValue, duration);
+        targetTrans.DOScale(endValue, duration);
+        AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
     }
 
     public void OnPointerUp(PointerEventData eventData)

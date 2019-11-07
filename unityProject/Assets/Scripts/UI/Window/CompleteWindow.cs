@@ -34,7 +34,6 @@ public class CompleteWindow : WindowParent
         AudioManager.instance.PlayOneShotAudio("Audio/effect|show");
     }
 
-
     void Start()
     {
         AddClickEvent();

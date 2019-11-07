@@ -24,7 +24,6 @@ public class DisplayView : MonoBehaviour
     private Vector2 screenPosFlag1;
     private Vector2 screenPosFlag2;
 
-    private int radius = 80;//参考半径 和texWidth有点关系
     private int referenceWidth = 1206;//参考的图片宽
     private int texWidth = 0;
     private int texHeight = 0;
@@ -152,8 +151,6 @@ public class DisplayView : MonoBehaviour
         texWidth = (int)(screenPosFlag2.x - screenPosFlag1.x);
         texHeight = (int)(screenPosFlag1.y - screenPosFlag2.y);
         staticTexture = new Texture2D(texWidth, texHeight,TextureFormat.RGBA32,true);
-        //计算四个角要裁切的圆半径
-        radius = (int)((decimal)radius / referenceWidth * texWidth);
         //左下角是0，0
         Rect rect = new Rect((int)screenPosFlag1.x, Screen.height - (int)(Screen.height - screenPosFlag2.y),texWidth,texHeight);
         yield return new WaitForEndOfFrame();

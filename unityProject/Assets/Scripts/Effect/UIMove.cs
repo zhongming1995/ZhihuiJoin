@@ -52,7 +52,7 @@ public class UIMove : MonoBehaviour
 
     public void MoveShow(Action cb = null)
     {
-        transform.GetComponent<RectTransform>().anchoredPosition = FromPos;
+        //transform.GetComponent<RectTransform>().anchoredPosition = FromPos;
         if (gameObject.activeSelf==false)
         {
             gameObject.SetActive(true);

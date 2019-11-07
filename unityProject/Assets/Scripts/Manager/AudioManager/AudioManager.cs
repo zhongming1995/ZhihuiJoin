@@ -16,7 +16,7 @@ namespace AudioMgr {
 
     /// <summary>
     /// 音频管理类
-    /// 需要添加两个AudioSource到场景中，第一个播bgm，第二个播音效
+    /// 需要添加3个AudioSource到场景中，第一个播bgm，第二个播音效,第三个播通用按钮
     /// </summary>
     public class AudioManager : SingletonMono<AudioManager>
     {
@@ -28,7 +28,9 @@ namespace AudioMgr {
         //索引赋值
         public AudioSource bgmAudioSource;//播BGM的AudioSource
         public AudioSource effectAudioSource;//播音效的AudioSource
+        public AudioSource commonBtnSource;//播放通用按钮音效的AudioSource
 
+        private AudioClip curClip;//当前的音效，除通用按钮以外
         private string defaultBgmPath = "";
         private Coroutine cor_play;
         private EffectAudioType curAudioType;
@@ -36,7 +38,6 @@ namespace AudioMgr {
         private IEnumerator cor_playOptionAfterBtn;
 
         private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();//音频库
-        private AudioSource[] audioSourceArr; //音频源数（一个播bgm,一个播音效)
 
         private bool _bgmEnable = true;        //是否允许播放bgm
         public bool BgmEnable
@@ -62,7 +63,7 @@ namespace AudioMgr {
 
         public void BgmPause()
         {
-            if (bgmAudioSource!=null)
+            if (bgmAudioSource != null)
             {
                 bgmAudioSource.Pause();
             }
@@ -70,7 +71,7 @@ namespace AudioMgr {
 
         public void BgmUnPause()
         {
-            if (bgmAudioSource!=null)
+            if (bgmAudioSource != null)
             {
                 bgmAudioSource.UnPause();
             }
@@ -85,14 +86,6 @@ namespace AudioMgr {
                 {
                     _effectEnable = value;
                     instance.effectAudioSource.enabled = _effectEnable;
-                    //if (_effectEnable)
-                    //{
-                    //    instance.effectAudioSource.Play();
-                    //}
-                    //else
-                    //{
-                    //    instance.effectAudioSource.Stop();
-                    //}
                     if (!_effectEnable)
                     {
                         instance.effectAudioSource.Stop();
@@ -227,7 +220,7 @@ namespace AudioMgr {
             AudioClip clip = SetAudioClip(path);
             if (clip != null)
             {
-                if (effectAudioSource.isPlaying && effectAudioSource.clip == clip)
+                if (effectAudioSource.isPlaying && curClip == clip)
                 {
                     Debug.LogWarning("play effect:same audio clip--------");
                     return;
@@ -235,25 +228,35 @@ namespace AudioMgr {
                 instance.effectAudioSource.volume = effectVolumn;
                 instance.effectAudioSource.playOnAwake = false;
                 instance.effectAudioSource.clip = clip;
+                curClip = clip;
                 instance.effectAudioSource.rolloffMode = AudioRolloffMode.Linear;
                 instance.effectAudioSource.enabled = true;
                 instance.effectAudioSource.spatialBlend = 0f;
                 instance.effectAudioSource.Play();
                 if (cb != null)
                 {
-                    cor_play = StartCoroutine("Cor_PlayEffect",cb);
+                    cor_play = StartCoroutine("Cor_PlayEffect", cb);
                 }
             }
             else
             {
-                Debug.Log("clip is null2-------------");
+                Debug.Log("clip is null2-------------"+path);
             }
         }
 
         public void PlayOneShotAudio(string path)
         {
             AudioClip clip = SetAudioClip(path);
-            if (clip!=null)
+            if (clip != null)
+            {
+                instance.effectAudioSource.PlayOneShot(clip);
+            }
+        }
+
+        public void PlayOneShotAudioCommon()
+        {
+            AudioClip clip = SetAudioClip("Audio/option_audio/common_option_audio|common_button");
+            if (clip != null)
             {
                 instance.effectAudioSource.PlayOneShot(clip);
             }
@@ -263,6 +266,7 @@ namespace AudioMgr {
         {
             yield return new WaitForSeconds(instance.effectAudioSource.clip.length);
             curAudioType = EffectAudioType.None;
+            curClip = null;
             cb?.Invoke();
         }
 
@@ -274,7 +278,7 @@ namespace AudioMgr {
                 effectAudioSource.Stop();
                 effectAudioSource.clip = null;
             }
-            if (cor_play!=null)
+            if (cor_play != null)
             {
                 StopCoroutine("Cor_PlayEffect");
             }
@@ -299,21 +303,18 @@ namespace AudioMgr {
         /// <param name="cb">Cb.</param>
         public void PlayOptionAudio(string path, Action cb = null)
         {
-            //Debug.Log("PlayOptionAudio--------");
+            /*
             if (commonBtnClip == null)
             {
                 commonBtnClip = UIHelper.instance.LoadAudioClip("Audio/option_audio/common_option_audio|common_button");
             }
-            //effectAudioSource.clip = commonBtnClip;
             effectAudioSource.PlayOneShot(commonBtnClip);
             if (path == null)
             {
-                //Debug.Log("return1----------------11");
                 return;
             }
             if (curAudioType == EffectAudioType.Guide&&effectAudioSource.isPlaying)
             {
-                //Debug.Log("Return===============22");
                 return;
             }
             curAudioType = EffectAudioType.Option;
@@ -324,13 +325,23 @@ namespace AudioMgr {
             }
             cor_playOptionAfterBtn = Cor_PlayOptionAfterButtonAudio(path, cb);
             StartCoroutine(cor_playOptionAfterBtn);
-
+            */
+            if (curAudioType == EffectAudioType.Guide && effectAudioSource.isPlaying)
+            {
+                return;
+            }
+            if (cor_playOptionAfterBtn != null)
+            {
+                StopCoroutine(cor_playOptionAfterBtn);
+            }
+            curAudioType = EffectAudioType.Option;
+            PlayEffect(path, cb);
         }
 
-        IEnumerator Cor_PlayOptionAfterButtonAudio(string path,Action cb)
+        IEnumerator Cor_PlayOptionAfterButtonAudio(string path, Action cb)
         {
             yield return new WaitForSeconds(commonBtnClip.length);
-            if (path!=null)
+            if (path != null)
             {
                 PlayEffect(path, cb);
             }
@@ -341,10 +352,10 @@ namespace AudioMgr {
         /// </summary>
         /// <param name="path">Path.</param>
         /// <param name="cb">Cb.</param>
-        public void PlayGuideAudio(string path,Action cb = null)
+        public void PlayGuideAudio(string path, Action cb = null)
         {
             //Debug.Log("PlayGuideAudio------------");
-            if (cor_playOptionAfterBtn!=null)
+            if (cor_playOptionAfterBtn != null)
             {
                 StopCoroutine(cor_playOptionAfterBtn);
             }
@@ -372,14 +383,28 @@ namespace AudioMgr {
         {
             if (type == EffectAudioType.Option)
             {
-                PlayOptionAudio(path, cb);
-            }else if (type == EffectAudioType.Guide)
+                if (path == null)
+                {
+                    PlayCommonBtnAudio();
+                }
+                else
+                {
+                    PlayOptionAudio(path, cb);
+                }
+            }
+            else if (type == EffectAudioType.Guide)
             {
                 PlayGuideAudio(path, cb);
-            }else if (type == EffectAudioType.Reminder)
+            }
+            else if (type == EffectAudioType.Reminder)
             {
                 PlayReminderAudio(path, cb);
             }
+        }
+
+        private void PlayCommonBtnAudio()
+        {
+            commonBtnSource.Play();//在编辑器中赋值过clip，与bgm一样
         }
     }
 }

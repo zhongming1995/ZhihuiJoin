@@ -117,7 +117,7 @@ public class FadeIn : MonoBehaviour
         while (alpha >= 0f)
         {
             canvasGroup.alpha = alpha;
-            alpha -= 0.05f;
+            alpha -= 0.1f;
             yield return delay;//0.2s完成
         }
         if (cb != null)

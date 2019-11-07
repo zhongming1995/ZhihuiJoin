@@ -1,21 +1,8 @@
 ﻿<Properties StartupConfiguration="{699BFBDD-069E-A744-7432-5E3032D3359B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Res/Resources/Config/restrict.csv">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/Join/JoinMainView.cs">
     <Files>
-      <File FileName="Assets/Scripts/UI/Card/CardView.cs" Line="88" Column="47" />
-      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="112" Column="53" />
-      <File FileName="Assets/Scripts/UI/Transition/TransitionView.cs" Line="24" Column="13" />
-      <File FileName="Assets/Scripts/Manager/DataManager/DataManager.cs" Line="334" Column="25" />
-      <File FileName="Assets/Editor/PreImport/PreImporter.cs" Line="29" Column="70" />
-      <File FileName="Assets/Editor/PreImport/PreImportTexture.cs" Line="49" Column="7" />
-      <File FileName="Assets/Scripts/UI/Index/IndexView.cs" Line="14" Column="43" />
-      <File FileName="Assets/Scripts/Effect/ButtonCommonAni.cs" Line="22" Column="6" />
-      <File FileName="Assets/Scripts/Effect/ButtonScaleAni.cs" Line="45" Column="24" />
-      <File FileName="Assets/Scripts/Effect/UIMove.cs" Line="63" Column="24" />
-      <File FileName="Assets/Scripts/UI/Window/CompleteWindow.cs" Line="135" Column="19" />
-      <File FileName="Assets/Res/Resources/Config/letter_leg.csv" Line="62" Column="33" />
-      <File FileName="Assets/Res/Resources/Config/animal_mouth.csv" Line="16" Column="35" />
-      <File FileName="Assets/Scripts/Manager/ResMgr/ResManager.cs" Line="484" Column="1" />
-      <File FileName="Assets/Res/Resources/Config/restrict.csv" Line="43" Column="198" />
+      <File FileName="Assets/Scripts/UI/Display/DisplayView.cs" Line="154" Column="47" />
+      <File FileName="Assets/Scripts/UI/Join/JoinMainView.cs" Line="50" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
