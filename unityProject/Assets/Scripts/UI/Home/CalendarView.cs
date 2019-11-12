@@ -58,7 +58,6 @@ public class CalendarView : MonoBehaviour
         GameOperDelegate.pianoBegin += PlayGame;
         GameOperDelegate.cardBegin += PlayGame;
         CalenderController.deleteItemComplete += DeleteItemComplete;
-        //CalendarPageScroll.pageScrollEnd += PageScrollEndFunc;
         CalenderController.chooseOneItem += ChooseOneItem;
     }
 
@@ -67,7 +66,6 @@ public class CalendarView : MonoBehaviour
         GameOperDelegate.pianoBegin -= PlayGame;
         GameOperDelegate.cardBegin -= PlayGame;
         CalenderController.deleteItemComplete -= DeleteItemComplete;
-        //CalendarPageScroll.pageScrollEnd -= PageScrollEndFunc;
         CalenderController.chooseOneItem -= ChooseOneItem;
     }
 
@@ -132,6 +130,16 @@ public class CalendarView : MonoBehaviour
 
     void ChooseOneItem(CalenderItem item)
     {
+        Debug.Log("choose one item:");
+        if (item==null)
+        {
+            Debug.Log("choose item is null");
+        }
+        else
+        {
+            Debug.Log("choose item is not null");
+        }
+        Debug.Log("index:" + item.Index);
         PersonManager.instance.CurPersonIndex = item.Index;
         CalenderController.instance.SelectItemId = item.Index;
         CurSelectItem = item;
@@ -163,8 +171,17 @@ public class CalendarView : MonoBehaviour
             });
         }
     }
+
     void ShowDetail(CalenderItem item)
     {
+        if (item==null)
+        {
+            Debug.Log("show is item null");
+        }
+        else
+        {
+            Debug.Log("show is item not null");
+        }
         float number = 1;
         Tween t = DOTween.To(() => number, x => number = x, 0, 0.2f);
         t.OnUpdate(() => {
@@ -290,6 +307,7 @@ public class CalendarView : MonoBehaviour
                 {
                     ListContent.GetChild(i).GetComponent<CalendarPage>().RefreshPage(i);
                 }
+                Debug.Log("CurCalendarPage赋值 curIndex==0");
                 CurCalendarPage = ListContent.GetChild(0).GetComponent<CalendarPage>();
             }
             else if (_curIndex == PersonManager.instance.PageCount - 1)
@@ -302,6 +320,7 @@ public class CalendarView : MonoBehaviour
                     ListContent.GetChild(pageI).GetComponent<CalendarPage>().RefreshPage(i);
                     pageI--;
                 }
+                Debug.Log("CurCalendarPage赋值 curIndex2222");
                 CurCalendarPage = ListContent.GetChild(fixedPageCount - 1).GetComponent<CalendarPage>();
             }
             else
@@ -312,7 +331,13 @@ public class CalendarView : MonoBehaviour
                 {
                     ListContent.GetChild(i - startIndex).GetComponent<CalendarPage>().RefreshPage(i);
                 }
+                Debug.Log("CurCalendarPage赋值 curIndex333");
                 CurCalendarPage = ListContent.GetChild(1).GetComponent<CalendarPage>();
+            }
+            Debug.Log("pageindex:" + CurCalendarPage.PageIndex);
+            for (int i = 0; i < CurCalendarPage.PersonItemList.Count; i++)
+            {
+                Debug.Log("index:" + CurCalendarPage.PersonItemList[i].Index);
             }
 
             BtnNext.interactable = true;
@@ -333,8 +358,16 @@ public class CalendarView : MonoBehaviour
 
     private void DelayChooseOneItem()
     {
+        Debug.Log("DelayChooseOneItem:" + PersonManager.instance.CurPersonIndex);
         CalenderItem item = GetCalendarItemByIndex(PersonManager.instance.CurPersonIndex);
-        Debug.Log(item.transform.position);
+        if (item==null)
+        {
+            Debug.Log("item is null");
+        }
+        else
+        {
+            Debug.Log("item is not null");
+        }
         ChooseOneItem(item);
     }
 
@@ -457,8 +490,27 @@ public class CalendarView : MonoBehaviour
 
     public CalenderItem GetCalendarItemByIndex(int itemIndex)
     {
+        Debug.Log("itemindex:" + itemIndex);
         int curPageItemIndex = itemIndex % 6;
-        return CurCalendarPage.PersonItemList[curPageItemIndex];
+        Debug.Log("curPageItemIndex:" + curPageItemIndex);
+        if (CurCalendarPage==null)
+        {
+            Debug.Log("page is null");
+        }
+        Debug.Log("curitempageIndex:" + CurCalendarPage.PageIndex);
+        Debug.Log("count:" + CurCalendarPage.PersonItemList.Count);
+        CalenderItem item = CurCalendarPage.PersonItemList[curPageItemIndex];
+        Debug.Log("item.index:" + item.Index);
+        if (item==null)
+        {
+            Debug.Log("item is null");
+        }
+        else
+        {
+            Debug.Log("item is not null");
+        }
+        return item;
+        //return CurCalendarPage.PersonItemList[curPageItemIndex];
     }
 
     private void PlayGame()

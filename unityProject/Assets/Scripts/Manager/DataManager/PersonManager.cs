@@ -98,7 +98,6 @@ public class PersonManager : SingletonMono<PersonManager>
             Array.Sort(infos, fileCompare);
             for (int i = 0; i < infos.Length; i++)
             {
-                Debug.Log(infos[i].Name);
                 string[] lst = infos[i].Name.Split('.');
                 if (lst[0]==string.Empty)
                 {

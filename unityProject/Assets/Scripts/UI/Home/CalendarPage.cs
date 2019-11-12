@@ -41,22 +41,22 @@ public class CalendarPage:MonoBehaviour
     }
     public void RefreshPage(int _pageIndex,Action cb = null)
     {
-        //PageIndex = _pageIndex;
-        //startItemIndex = 6 * _pageIndex;
-        //endItemIndex = 6 * _pageIndex + 6;
-        //for (int i = startItemIndex; i < endItemIndex; i++)
-        //{
-        //    if (i < PersonManager.instance.PersonCount)
-        //    {
-        //        string path = PersonManager.instance.PersonPathList[i];
-        //        PersonItemList[i-startItemIndex].SetImage(PageIndex, i, path);
-        //    }
-        //    else
-        //    {
-        //        PersonItemList[i - startItemIndex].SetEmpty();
-        //    }
-        //}
-        StartCoroutine(Cor_RefreshPage(_pageIndex, cb));
+        PageIndex = _pageIndex;
+        startItemIndex = 6 * _pageIndex;
+        endItemIndex = 6 * _pageIndex + 6;
+        for (int i = startItemIndex; i < endItemIndex; i++)
+        {
+            if (i < PersonManager.instance.PersonCount)
+            {
+                string path = PersonManager.instance.PersonPathList[i];
+                PersonItemList[i-startItemIndex].SetImage(PageIndex, i, path);
+            }
+            else
+            {
+                PersonItemList[i - startItemIndex].SetEmpty();
+            }
+        }
+        //StartCoroutine(Cor_RefreshPage(_pageIndex, cb));
     }
 
     public IEnumerator Cor_RefreshPage(int _pageIndex,Action cb = null)
