@@ -57,7 +57,7 @@
     //判断是否已存在
     PHFetchResult<PHAssetCollection *> *assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     for (PHAssetCollection * assetCollection in assetCollections) {
-        if ([assetCollection.localizedTitle isEqualToString:@"JoinPhoto"]) {
+        if ([assetCollection.localizedTitle isEqualToString:@"智绘拼接"]) {
             //说明已经有哪对象了
             return assetCollection;
         }
