@@ -172,7 +172,6 @@ public class CalendarView : MonoBehaviour
         });
         DetailView.gameObject.SetActive(true);
         OriDetailPosition = item.transform.position;
-        Debug.Log("oriDEtailPisi"+OriDetailPosition);
         DetailItem = Instantiate(item.gameObject,transform,true);
         Destroy(DetailItem.GetComponent<CalenderItem>());
         Destroy(DetailItem.transform.Find("btn_detail").GetComponent<ButtonScaleAni>());
@@ -191,7 +190,6 @@ public class CalendarView : MonoBehaviour
 
     private void PageScrollEndFunc(int _curIndex,int curX,bool isFirst = false)
     {
-        Debug.Log("pagesctollendfunc......");
         CalenderController.instance.IsScrolling = true;
         int perItemX = (int)CalenderController.instance.PerPageWidth;
 
@@ -254,13 +252,16 @@ public class CalendarView : MonoBehaviour
             else if (_curIndex == PersonManager.instance.PageCount - 1)
             {
                 Debug.Log("最后一页");
-                //if ((int)(ListContent.anchoredPosition.x) != -(int)((fixedPageCount - 1) * CalenderController.instance.PerPageWidth))
                 int positionX = (int)(ListContent.anchoredPosition.x);
-                int flagPositionX = (int)((fixedPageCount - 1) * CalenderController.instance.PerPageWidth);
-                if (positionX > flagPositionX + 100)
-                {
-                    Debug.Log(fixedPageCount);
-                    Debug.Log(PersonManager.instance.PageCount);
+                Debug.Log("fix:" + fixedPageCount);
+                int flagPositionX = -(int)((fixedPageCount - 1) * CalenderController.instance.PerPageWidth);
+                Debug.Log("positionX:" + positionX);
+                Debug.Log("flagPositionX:" + flagPositionX);
+                //if (positionX > flagPositionX + 100)
+                //{
+                    //Debug.Log(">");
+                    //Debug.Log(fixedPageCount);
+                    //Debug.Log(PersonManager.instance.PageCount);
                     if (fixedPageCount > PersonManager.instance.PageCount)
                     {
                         CalendarPage page = ListContent.GetChild(fixedPageCount - 1).GetComponent<CalendarPage>();
@@ -270,10 +271,14 @@ public class CalendarView : MonoBehaviour
                     }
                     else
                     {
-                        Transform t = ListContent.GetChild(fixedPageCount - 1);
-                        t.SetAsFirstSibling();
-                    }
+                        if (positionX > flagPositionX + 100)
+                        {
+                            Transform t = ListContent.GetChild(fixedPageCount - 1);
+                            t.SetAsFirstSibling();
+                        }
+                    ListContent.anchoredPosition = new Vector2(flagPositionX, ListContent.localPosition.y);
                 }
+                //}
             }
 
             //内容
@@ -410,7 +415,14 @@ public class CalendarView : MonoBehaviour
             UnityToIOS_SavePhotoToAlbum(path);
         });
     }
-    
+
+    private void BackFunc()
+    {
+        AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
+        GameManager.instance.SetNextSceneName(SceneName.Index);
+        TransitionView.instance.OpenTransition();
+    }
+
     public void ShowDeleteBtn(bool show)
     {
         for (int i = 0; i < pageList.Count; i++)
@@ -428,11 +440,19 @@ public class CalendarView : MonoBehaviour
     
     private void DeleteItemComplete(CalenderItem deleteItem)
     {
+        Debug.Log("111" + PersonManager.instance.PageCount);
+        Debug.Log("222" + PersonManager.instance.CurPersonPageIndex);
         if (PersonManager.instance.PageCount == PersonManager.instance.CurPersonPageIndex)
         {
             PersonManager.instance.CurPersonPageIndex--;
         }
+        Debug.Log("删除后当前页面:" + PersonManager.instance.CurPersonPageIndex);
         PageScrollEndFunc(PersonManager.instance.CurPersonPageIndex, (int)ListContent.anchoredPosition.x);
+
+        if (PersonManager.instance.PersonCount == 0)
+        {
+            BackFunc();
+        }
     }
 
     public CalenderItem GetCalendarItemByIndex(int itemIndex)

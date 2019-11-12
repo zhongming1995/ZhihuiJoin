@@ -393,7 +393,6 @@ GameObject:
   - component: {fileID: 1853328826831709931}
   - component: {fileID: 531983763096202722}
   - component: {fileID: 2416086283034547000}
-  - component: {fileID: 4981367609160769444}
   m_Layer: 5
   m_Name: btn_detail
   m_TagString: Untagged
@@ -499,22 +498,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4981367609160769444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5407174968554240067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22dc220ac6df3477ea110ac6d54568e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.1
-  originValue: {x: 1, y: 1, z: 1}
-  endValue: {x: 0.95, y: 0.95, z: 0.95}
-  targetTrans: {fileID: 3070961893649171656}
 --- !u!1 &5615528396171367381
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +558,7 @@ MonoBehaviour:
   rawImage: {fileID: 4670548540979817765}
   Index: 0
   PageIndex: 0
-  fileName: 
+  FileName: 
 --- !u!225 &5711842997640181863
 CanvasGroup:
   m_ObjectHideFlags: 0

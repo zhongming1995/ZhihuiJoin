@@ -277,6 +277,22 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 169230430, guid: 162ee335fdf17d04e93fd018a0ca120f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 169230430, guid: 162ee335fdf17d04e93fd018a0ca120f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 169230430, guid: 162ee335fdf17d04e93fd018a0ca120f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 169230430, guid: 162ee335fdf17d04e93fd018a0ca120f, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 733451963640163331, guid: 162ee335fdf17d04e93fd018a0ca120f,
         type: 3}
       propertyPath: m_IsActive

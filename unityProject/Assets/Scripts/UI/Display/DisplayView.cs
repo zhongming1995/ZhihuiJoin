@@ -2,6 +2,7 @@
 using System.Collections;
 using AudioMgr;
 using DataMgr;
+using DG.Tweening;
 using GameMgr;
 using Helper;
 using UnityEngine;
@@ -29,9 +30,13 @@ public class DisplayView : MonoBehaviour
     private int texHeight = 0;
     private Texture2D staticTexture;//静态展示图片
     private DisplayPartItem[] lstDisplayItem;
+    private bool Loaded;
+    private bool Fadeed;
 
     void Start()
     {
+        ImgDisplay.transform.localScale = Vector3.zero;
+
         BtnGame.GetComponent<UIMove>().SetFromPosition();
         BtnBack.GetComponent<UIMove>().SetFromPosition();
         BtnHome.GetComponent<UIMove>().SetFromPosition();
@@ -41,7 +46,8 @@ public class DisplayView : MonoBehaviour
         AddEvent();
         screenPosFlag1 = Camera.main.WorldToScreenPoint(PosFlag1.position);
         screenPosFlag2 = Camera.main.WorldToScreenPoint(PosFlag2.position);
-        Display();
+
+        //Display();
     }
 
     private void OnEnable()
@@ -56,7 +62,8 @@ public class DisplayView : MonoBehaviour
 
     private void TransitionFadeOutComplete(PanelEnum panelEnum)
     {
-        StartCoroutine(CutScreen());
+        //StartCoroutine(CutScreen());
+        Display();
     }
 
     //弃用
@@ -108,15 +115,7 @@ public class DisplayView : MonoBehaviour
             GameManager.instance.SetNextSceneName(SceneName.Join);
             TransitionView.instance.OpenTransition();
         });
-        /*目前没有此按钮
-        BtnSave.onClick.AddListener(delegate {
-#if !UNITY_EDITOR
-            ShowMask(false);
-#endif
-            AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
-            SavePic();
-        });
-        */
+
         BtnGame.onClick.AddListener(delegate
         {
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
@@ -128,6 +127,7 @@ public class DisplayView : MonoBehaviour
     {
         if (GameManager.instance.curWhole!=null)
         {
+            //加载人物
             GameObject person = DataManager.instance.GetPersonObj(GameManager.instance.curWhole);
             person.transform.SetParent(ImgDisplay);
             person.transform.localScale = new Vector3(0.83f, 0.83f, 0.83f);
@@ -141,6 +141,16 @@ public class DisplayView : MonoBehaviour
             });
 
             lstDisplayItem = DataManager.instance.GetListDiaplayItem(person.transform);
+
+            //缩放动画
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.AppendInterval(0.2f);
+            mySequence.Append(ImgDisplay.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.2f));
+            mySequence.Append(ImgDisplay.transform.DOScale(Vector3.one, 0.2f));
+
+            mySequence.AppendCallback(() => {
+                 StartCoroutine(CutScreen());//开始截屏
+            });
         }
     }
 

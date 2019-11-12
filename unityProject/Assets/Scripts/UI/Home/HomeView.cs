@@ -19,7 +19,6 @@ public class HomeView : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(GameManager.instance.homeContentPosx);
         //开始计时
         CallManager.instance.UnityToPlatform_ResumeTime();
         //按钮点击事件
@@ -28,7 +27,7 @@ public class HomeView : MonoBehaviour
         //ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
         ListViewContent.gameObject.SetActive(false);
         //赋值初始位置
-        if (GameManager.instance.curJoinType==JoinType.Letter)
+        if (GameManager.instance.curJoinType == JoinType.Letter)
         {
             StartIndex = 0;
             EndIndex = 25;
@@ -79,7 +78,6 @@ public class HomeView : MonoBehaviour
     {
         ListViewContent.gameObject.SetActive(true);
         ListViewContent.localPosition = new Vector3(GameManager.instance.homeContentPosx, ListViewContent.localPosition.y, ListViewContent.localPosition.z);
-        Debug.Log(ListViewContent.localPosition.x);
     }
 
     private void JumpToJoin()

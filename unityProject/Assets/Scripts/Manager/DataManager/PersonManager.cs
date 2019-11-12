@@ -66,14 +66,11 @@ public class PersonManager : SingletonMono<PersonManager>
 
     public int OnlyGetPersonNum()
     {
-        Debug.Log("PersonDataPath:" + PersonDataPath);
         FileInfo[] infos = FileHelper.GetFileList(PersonDataPath, "*.bin");
         if (infos==null)
         {
-            Debug.Log("infos is null===");
             return 0;
         }
-        Debug.Log("infos.Length:"+infos.Length);
         return infos.Length;
     }
 
@@ -93,10 +90,8 @@ public class PersonManager : SingletonMono<PersonManager>
 
     public List<string> GetPersonsList()
     {
-        Debug.Log("PersonManager GetPersonsList");
         PersonPathList.Clear();
         FileInfo[] infos = FileHelper.GetFileList(PersonDataPath, "*.bin");
-        Debug.Log("infos:" + infos.Length);
         FileCompare fileCompare = new FileCompare();
         if (infos!=null)
         {
@@ -111,12 +106,6 @@ public class PersonManager : SingletonMono<PersonManager>
                 }
                 PersonPathList.Add(lst[0]);
             }
-        }
-
-        Debug.Log("personCount:" + PersonPathList.Count);
-        for (int i = 0; i < PersonPathList.Count; i++)
-        {
-            Debug.Log("person:" + PersonPathList[i]);
         }
         //给PersonCount和PageCount赋值
         PersonCount = PersonPathList.Count;

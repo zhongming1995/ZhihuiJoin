@@ -104,7 +104,7 @@ public class JoinMainView : MonoBehaviour
         {
             if (step == 1 && HeadCG.transform.childCount == 0)
             {
-                BtnNext.gameObject.SetActive(false);
+                BtnNext.GetComponent<UIMove>().MoveHide();
             }
             else
             {
@@ -130,7 +130,6 @@ public class JoinMainView : MonoBehaviour
         //暂时处理适配
         if (Screen.width==2388&&Screen.height==1688)
         {
-            Debug.Log("2388*1688");
             ImgDraw.transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
             ImgDraw.transform.localPosition = new Vector3(8, -6, 0);
             ImgDrawBg.transform.localScale = new Vector3(1.06f, 1.06f, 1.06f);
@@ -187,7 +186,7 @@ public class JoinMainView : MonoBehaviour
         }
 
         //打开保存的文件
-        if ((GameManager.instance.openType == OpenType.ReEdit ||   GameManager.instance.openType == OpenType.BackEdit) && GameManager.instance.curWhole!=null)
+        if ((GameManager.instance.openType == OpenType.ReEdit || GameManager.instance.openType == OpenType.BackEdit) && GameManager.instance.curWhole!=null)
         {
             if (GameManager.instance.curJoinType==JoinType.Animal)
             {
@@ -313,8 +312,7 @@ public class JoinMainView : MonoBehaviour
             AudioManager.instance.StopEffect();
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             joinGuide.DoOperation();
-            //DataManager.instance.TransformToPartsList(DrawPanel, GameManager.instance.homeSelectIndex, mobilePaint.GetAllPixels(), mobilePaint.GetDrawByte(), mobilePaint.GetDrawingTotal());
-            if (GameManager.instance.curJoinType==JoinType.Animal)
+             if (GameManager.instance.curJoinType==JoinType.Animal)
             {
                 DataManager.instance.TransformToPartsList(GameManager.instance.curJoinType,DrawPanel, GameManager.instance.homeSelectIndex, null, null, null);
             }
@@ -414,7 +412,6 @@ public class JoinMainView : MonoBehaviour
             mobilePaint.SetDrawModeBrush();
             mobilePaint.ChangeBrush(penSize);
             mobilePaint.SetBrushSize(1);
-            //mobilePaint.SetPaintColor(color);
             mobilePaint.SetMultiColor(true);
         }
         else if (index == 1)
@@ -489,14 +486,6 @@ public class JoinMainView : MonoBehaviour
                 return;
             }
         }
-        //以下是t不为空,且与old不是同一个物体才会执行的
-        //if (ImageScaleSlider.gameObject.activeSelf == false)
-        //{
-        //    ImageScaleSlider.gameObject.SetActive(true);
-        //}
-        //float scale = t.localScale.x - 0.5f;
-        //Debug.Log(scale);
-        //ImageScaleSlider.value = scale;
         t.SetAsLastSibling();
     }
 
@@ -526,7 +515,6 @@ public class JoinMainView : MonoBehaviour
         {
             if (type == TemplateResType.Body)
             {
-                //SetPartOccupy(true);
                 ImgDrawBg.DOFade(1, 0.5f).OnComplete(() => {
                     ImgDraw.gameObject.SetActive(false);
                     mobilePaint.gameObject.SetActive(true);
@@ -539,7 +527,6 @@ public class JoinMainView : MonoBehaviour
                 Sprite s = Sprite.Create(t, new Rect(0, 0, t.width, t.height), new Vector2(0.5f, 0.5f));
                 ImgDraw.sprite = s;
                 ImgDraw.SetNativeSize();
-                //ImgDraw.transform.localScale = Vector3.one;
                 mobilePaint.gameObject.SetActive(false);
                 ImgDrawBg.DOFade(0, 0.5f);
             }
@@ -598,13 +585,21 @@ public class JoinMainView : MonoBehaviour
             if (GameManager.instance.curJoinType == JoinType.Animal)
             {
                 SetCurSelectType(TemplateResType.Head);
+                if (isNoHead)
+                {
+                    BtnNext.GetComponent<UIMove>().MoveHide();
+                }
             }
             else
             {
                 SetCurSelectType(TemplateResType.Body);
+                //if (GameManager.instance.openType!=OpenType.BackEdit)
+                //{
+                //    BtnNext.GetComponent<UIMove>().MoveShow();
+                //}
             }
             BtnPre.GetComponent<UIMove>().MoveHide();
-            BtnNext.GetComponent<UIMove>().MoveHide();
+            //BtnNext.GetComponent<UIMove>().MoveHide();
             GetDrawArea(drawPercent);//这里是控制BtnNext的
             BtnOk.gameObject.SetActive(false);
         }
@@ -669,9 +664,7 @@ public class JoinMainView : MonoBehaviour
             if (GameManager.instance.curJoinType==JoinType.Animal)
             {
                 int offsetIndex = GameManager.instance.homeSelectIndex - 26 - 10 + 1;
-                Debug.Log("offsetIndex:" + offsetIndex);
                 audioPath = "Audio/guide_effect|guide_" + GameManager.instance.curJoinType.ToString().ToLower() +"_" + offsetIndex.ToString() + "_" + step.ToString();
-                Debug.Log("audioPath:" + audioPath);
             }
             else
             {
@@ -854,39 +847,12 @@ public class JoinMainView : MonoBehaviour
                     }
                 }
             }
-           
         }
         float width = ResContentList[(int)type].GetComponent<RectTransform>().rect.size.x;
         if (resPath.Count <= 0)
         {
             return;
         }
-        //0颜色 1眼睛 2嘴巴 3头发 4帽子 5装饰品6手 7脚
-        //float scale = 1;
-        //if (type == TemplateResType.HeadWear|| type == TemplateResType.TrueBody)
-        //{
-        //    scale = 0.7f;
-        //}
-        //else if (type == TemplateResType.Mouth)
-        //{
-        //    scale = 0.9f;
-        //}
-        //else if (type == TemplateResType.Hand)
-        //{
-        //    scale = 0.35f;
-        //}
-        //else if (type == TemplateResType.Hat || type ==TemplateResType.Eye)
-        //{
-        //    scale = 0.63f;
-        //}
-        //else if (type == TemplateResType.Head)
-        //{
-        //    scale = 0.3f;
-        //}
-        //else
-        //{
-        //    scale = 0.5f;
-        //}
         for (int j = 0; j < resPath.Count; j++)
         {
             GameObject resObj = UIHelper.instance.LoadPrefab(resPrefabPath, ResContentList[(int)type], Vector3.zero, Vector3.one, false);
@@ -897,7 +863,6 @@ public class JoinMainView : MonoBehaviour
             UIHelper.instance.SetImage(imgPath, resImg, true);
             RectTransform imgRect = resImg.GetComponent<RectTransform>();
             float y = resImg.GetComponent<RectTransform>().sizeDelta.y;
-            //imgRect.localScale = Vector3.one;
             if (type == TemplateResType.Eye || type == TemplateResType.Hand || type == TemplateResType.Leg)
             {
                 resObj.GetComponent<RectTransform>().sizeDelta = new Vector2(width + 30, imgRect.sizeDelta.y );//40
@@ -910,12 +875,6 @@ public class JoinMainView : MonoBehaviour
 
         }
         loadResult[(int)type] = true;
-    }
-
-    public string FodderToIcon(string path)
-    {
-
-        return "";
     }
 
     public Texture2D GetDrawTexture()
@@ -959,16 +918,10 @@ public class JoinMainView : MonoBehaviour
         GC.Collect();
     }
 
-    private void ViewFadeComplete()
-    {
-        if (GameManager.instance.openType == OpenType.ReEdit || GameManager.instance.joinShowAll)
-        {
-            //Invoke("DelaySetOccupy", 0.5f);
-        }
-    }
-
+    private int getAreaCount;
     private void GetDrawArea(float percent)
     {
+        getAreaCount++;
         drawPercent = percent;
         if (percent>80)
         {
@@ -978,14 +931,18 @@ public class JoinMainView : MonoBehaviour
         {
             hasPainted = false;
         }
+        if (getAreaCount==1&&GameManager.instance.openType!=OpenType.FirstEdit)
+        {
+            return;
+        }
         if (step == 1 && percent< 80)
         {
-            BtnNext.interactable = false;
+            Debug.Log("percent:" + percent);
             Invoke("DelayHideNextBtn", 0.5f);
         }
         else
         {
-            BtnNext.interactable = true;
+            //BtnNext.GetComponent<UIMove>().MoveShow();
             Invoke("DelayShowNextBtn", 0.5f);
         }
     }

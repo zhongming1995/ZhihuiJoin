@@ -33,6 +33,7 @@ public class CalenderItem : MonoBehaviour
         });
 
         BtnDelete.onClick.AddListener(delegate {
+            BtnDelete.interactable = false;
             AudioManager.instance.PlayAudio(EffectAudioType.Option, null);
             CalenderController.instance.DeleteComplete(this);
         });
@@ -61,7 +62,7 @@ public class CalenderItem : MonoBehaviour
         {
             return;
         }
-        Debug.Log("pageIndex:" + _pageIndex + " ,_index:" + _index + " _fileName:" + _fileName);
+        //Debug.Log("pageIndex:" + _pageIndex + " ,_index:" + _index + " _fileName:" + _fileName);
         IsItem = true;
         PageIndex = _pageIndex;
         Index = _index;
@@ -124,7 +125,6 @@ public class CalenderItem : MonoBehaviour
         //{
         //    MaskDelete.SetActive(show);
         //}
-        Debug.Log("isItem:" + IsItem);
         if (show)
         {
             if (IsItem)

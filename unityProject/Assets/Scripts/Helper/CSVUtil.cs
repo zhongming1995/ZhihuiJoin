@@ -15,12 +15,7 @@ public static class CSVUtil
     public static List<string> GetListFromPath(string csvPath)
     {
         string content = ResManager.instance.LoadText(csvPath).text;
-        Debug.Log("content:" + content);
         string[] lineArray = content.Split(SYMBOL_LINE, System.StringSplitOptions.RemoveEmptyEntries);
-        for (int i = 0; i < lineArray.Length; i++)
-        {
-            //Debug.Log("line:"+lineArray[i]);
-        }
         List<string> arrayToList = new List<string>(lineArray);
         return arrayToList;
     }
@@ -38,13 +33,6 @@ public static class CSVUtil
         for (int i = 0; i < lineArray.Length; i++)
         {
             Array[i] = lineArray[i].Split(',');
-        }
-        for (int i = 0; i < Array.Length; i++)
-        {
-            for (int j = 0; j < Array[i].Length; j++)
-            {
-                Debug.Log(Array[i][j]);
-            }
         }
         return Array;
     }

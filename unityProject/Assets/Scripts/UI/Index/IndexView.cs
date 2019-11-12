@@ -10,8 +10,8 @@ public class IndexView : MonoBehaviour
     public ButtonScaleAni BtnLetter;
     public ButtonScaleAni BtnNumber;
     public ButtonScaleAni BtnAnimal;
-    public ButtonScaleAni BtnCalendar;
-    public ButtonScaleAni BtnPersonCenter;
+    public Button BtnCalendar;
+    public Button BtnPersonCenter;
     public Transform TransLand;
     public Transform TransSky;
 
@@ -52,11 +52,11 @@ public class IndexView : MonoBehaviour
 
     private void AddBtnListener()
     {
-        BtnPersonCenter.buttonClickEvent += PersonCenterClick;
+        BtnPersonCenter.onClick.AddListener(PersonCenterClick);
         BtnLetter.buttonClickEvent += LetterClick;
         BtnNumber.buttonClickEvent += NumberClick;
         BtnAnimal.buttonClickEvent += AnimalClick;
-        BtnCalendar.buttonClickEvent += CalenderClick;
+        BtnCalendar.onClick.AddListener(CalenderClick);
     }
 
     private void PersonCenterClick()

@@ -14,7 +14,6 @@ public class UIScale : MonoBehaviour
     public float AniTime2 = 0.1f;
     private int enableCount = 0;
     public bool isEnterPlay = true;
-    
 
     void OnEnable()
     {

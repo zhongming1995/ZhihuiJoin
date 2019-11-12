@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections;
 using GameMgr;
-using Helper;
-using ResMgr;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 //用的跳转场景
 public class TransitionView : SingletonMono<TransitionView>
 {
-    private float MinTime = 0.3f;
+    private float MinTime = 0.6f;
     private float time;
     private FadeIn fadeIn;
 
@@ -51,7 +49,7 @@ public class TransitionView : SingletonMono<TransitionView>
         bool LoadComplete = false;
         yield return new WaitForEndOfFrame();
         AsyncOperation async = SceneManager.LoadSceneAsync(GameManager.instance.nextSceneName);
-        async.allowSceneActivation = true;
+        //async.allowSceneActivation = true;
         while (!async.isDone)
         {
             if (async.progress < 0.9f)
@@ -61,7 +59,7 @@ public class TransitionView : SingletonMono<TransitionView>
             else
             {
                 async.allowSceneActivation = true;
-                if (LoadComplete==false)
+                if (LoadComplete == false)
                 {
                     LoadComplete = true;
                     float offsetTime = MinTime - (Time.realtimeSinceStartup - time);

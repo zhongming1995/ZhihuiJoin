@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 1406205836}
   - component: {fileID: 1406205839}
   - component: {fileID: 1406205838}
-  - component: {fileID: 594000190523515833}
+  - component: {fileID: 673609927664261602}
   m_Layer: 5
   m_Name: btn_personalcenter
   m_TagString: Untagged
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &594000190523515833
+--- !u!114 &673609927664261602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,14 +232,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 1406205835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22dc220ac6df3477ea110ac6d54568e8, type: 3}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.1
-  originValue: {x: 1, y: 1, z: 1}
-  endValue: {x: 0.98, y: 0.98, z: 0.98}
-  middleValue: {x: 1.1, y: 1.1, z: 1.1}
-  targetTrans: {fileID: 1406205836}
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1406205838}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &339825303120921752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2086,7 @@ GameObject:
   - component: {fileID: 6238024802226839294}
   - component: {fileID: 2531865630479520084}
   - component: {fileID: 4241469797982141060}
-  - component: {fileID: 1391976359705770916}
+  - component: {fileID: 2439356495661704353}
   m_Layer: 5
   m_Name: btn_calendar
   m_TagString: Untagged
@@ -2125,7 +2150,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &1391976359705770916
+--- !u!114 &2439356495661704353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2134,14 +2159,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 5842525404806123785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22dc220ac6df3477ea110ac6d54568e8, type: 3}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.1
-  originValue: {x: 1, y: 1, z: 1}
-  endValue: {x: 0.98, y: 0.98, z: 0.98}
-  middleValue: {x: 1.1, y: 1.1, z: 1.1}
-  targetTrans: {fileID: 6238024802226839294}
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 4241469797982141060}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &5985860477026534167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,8 +2498,8 @@ MonoBehaviour:
   BtnLetter: {fileID: 7529058636400164318}
   BtnNumber: {fileID: 600989583475871475}
   BtnAnimal: {fileID: 1967299446216615424}
-  BtnCalendar: {fileID: 1391976359705770916}
-  BtnPersonCenter: {fileID: 594000190523515833}
+  BtnCalendar: {fileID: 2439356495661704353}
+  BtnPersonCenter: {fileID: 673609927664261602}
   TransLand: {fileID: 1589227866575938293}
   TransSky: {fileID: 6113070976625865017}
 --- !u!114 &1974193678
